@@ -4,7 +4,6 @@ using System.Windows.Automation;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Shapes;
 using System.Windows.Threading;
 using DesktopPet.Core;
 
@@ -20,17 +19,27 @@ public sealed class PetWindow : Window
     private readonly StateStore store;
     private readonly Canvas surface = new();
     private readonly Image sprite = new() { Stretch = Stretch.Uniform, Cursor = Cursors.Hand, Focusable = true };
-    private readonly Canvas effects = new() { IsHitTestVisible = false };
+    private readonly InteractionFeedback effects = new() { Width = 560, Height = 680, IsHitTestVisible = false };
     private readonly Canvas menu = new();
     private readonly TextBlock speech = new() { TextWrapping = TextWrapping.Wrap, FontSize = 13, Foreground = new SolidColorBrush(Color.FromRgb(66, 56, 52)) };
     private readonly Border bubble;
-    private readonly Button restore = new() { Content = "☾", Width = 48, Height = 48, Padding = new Thickness(4), Margin = new Thickness(0), ToolTip = "叫醒宠物" };
-    private readonly Ellipse ball = new() { Width = 30, Height = 30, Fill = new SolidColorBrush(Color.FromRgb(239, 166, 92)), Stroke = Brushes.White, StrokeThickness = 2, Cursor = Cursors.Hand };
+    private readonly ItemVisual ball = new() { Cursor = Cursors.Hand, RenderTransformOrigin = new Point(.5, .5) };
+    private readonly RotateTransform ballSpin = new();
+    private readonly ItemDrawBag toys = new(Collectibles.Sports), finds = new(Collectibles.All), snacks = new(Collectibles.Food);
+    private Collectible activeToy = Collectibles.Get("basketball"), activeFood = Collectibles.Get("bread");
+    private Collectible? activePrize;
+    internal Collectible ActiveToy => activeToy;
+    internal Collectible? LatestFind => activePrize;
+    internal bool IsResting => resting;
+    internal bool IsExploring => exploring;
+    internal RigVisual? ActiveMotion => danceVisual;
+    internal string EffectKey => effects.EffectKey;
+    private double BallSize => activeToy.Diameter;
     private readonly DispatcherTimer timer;
     private readonly Stopwatch clock = Stopwatch.StartNew();
     private readonly ShakeTracker shakes = new();
     private readonly ScaleTransform facing = new(1, 1);
-    private DanceVisual? danceVisual;
+    private RigVisual? danceVisual;
     private EdgeHide? hideJourney;
     private Rect hideArea;
     private double hideStarted;
@@ -38,17 +47,17 @@ public sealed class PetWindow : Window
     private int? danceFeedbackBeat;
     internal HidePhase? HideStage => hideJourney?.At((Now - hideStarted) / 1000).Phase;
     internal bool IsDancing => dance is not null;
-    internal DanceVisual? ActiveDance => danceVisual;
-    internal bool CanDance => DanceRig.Supports(Character.Category, Character.FamilyId);
+    internal RigVisual? ActiveDance => dance is null ? null : danceVisual;
+    internal bool CanDance => PortraitRig.SupportsDance(Character.Category, Character.FamilyId);
     internal string CurrentAction => action;
     private DesktopHost? desktop;
     private SettingsWindow? settings;
     private string action = "idle";
     private double actionStarted, actionUntil, speechUntil, lastTick, lastInteraction, lastDizzy = double.NegativeInfinity;
     private Action? onMotionEnd;
-    private bool dragging, pressed, resting, roaming, closing, holdingBall, flyingBall, ballHit, clickThrough;
+    private bool dragging, pressed, resting, roaming, exploring, closing, holdingBall, flyingBall, ballHit, clickThrough;
     private Point downScreen, downWindow, ballPrevious;
-    private double ballX, ballY, ballVx, ballVy, ballSampleTime, ballAge, roamDeadline, nextPeek;
+    private double ballX, ballY, ballVx, ballVy, ballSampleTime, ballAge, roamDeadline;
     private int direction = -1;
     private string? prop;
     private double propStart;
@@ -67,21 +76,20 @@ public sealed class PetWindow : Window
         Background = Brushes.Transparent; ShowInTaskbar = false; Topmost = State.Topmost;
         Content = surface;
         sprite.RenderTransform = facing;
-        restore.Content = CloudTheme.Icon("moon", 24);
-        surface.Children.Add(effects); surface.Children.Add(sprite); surface.Children.Add(menu);
+        ball.RenderTransform = ballSpin;
+        surface.Children.Add(sprite); surface.Children.Add(effects); surface.Children.Add(menu);
         bubble = new Border { Background = CloudTheme.Brush("#F8FCFF"), BorderBrush = CloudTheme.Line, BorderThickness = new Thickness(1), CornerRadius = new CornerRadius(20), Padding = new Thickness(15, 10, 15, 10), Width = 238, Child = speech, IsHitTestVisible = false, Visibility = Visibility.Collapsed };
-        surface.Children.Add(bubble); surface.Children.Add(restore); surface.Children.Add(ball);
-        restore.Visibility = Visibility.Collapsed; ball.Visibility = Visibility.Collapsed;
+        surface.Children.Add(bubble); surface.Children.Add(ball);
+        ball.Visibility = Visibility.Collapsed;
         AutomationProperties.SetName(sprite, "桌面宠物：点击摸头，拖动抱起，右键互动");
         sprite.MouseLeftButtonDown += PetDown; sprite.MouseMove += PetMove; sprite.MouseLeftButtonUp += PetUp;
         sprite.MouseRightButtonUp += (_, e) => { if (menu.Children.Count > 0) menu.Children.Clear(); else ShowMenu(); e.Handled = true; };
         sprite.LostMouseCapture += (_, _) => { if (pressed) CancelInput(); };
         sprite.KeyDown += (_, e) => { if (e.Key is Key.Enter or Key.Space) { if (dance is not null) TapDance(); else Touch(.3); e.Handled = true; } else if (e.Key == Key.F10 && Keyboard.Modifiers.HasFlag(ModifierKeys.Shift)) { ShowMenu("root", true); e.Handled = true; } };
         KeyDown += (_, e) => { if (e.Key == Key.Escape) { StopInteraction(); e.Handled = true; } };
-        restore.Click += (_, _) => RestorePet();
         ball.MouseLeftButtonDown += (_, e) => { holdingBall = true; flyingBall = false; ballPrevious = e.GetPosition(this); ballSampleTime = Now; ballVx = ballVy = 0; ball.CaptureMouse(); e.Handled = true; };
         ball.MouseMove += BallMove;
-        ball.MouseLeftButtonUp += (_, e) => { if (!holdingBall) return; holdingBall = false; ball.ReleaseMouseCapture(); flyingBall = true; ballAge = 0; ballHit = false; Say("接住！", 1200); e.Handled = true; };
+        ball.MouseLeftButtonUp += (_, e) => { if (!holdingBall) return; holdingBall = false; ball.ReleaseMouseCapture(); flyingBall = true; ballAge = 0; ballHit = false; Play("anticipate", "接住！", 2000); e.Handled = true; };
         ball.LostMouseCapture += (_, _) => { if (holdingBall) CancelInput(); };
         Deactivated += (_, _) => { CancelInput(); menu.Children.Clear(); };
         SourceInitialized += (_, _) => InitializeDesktop();
@@ -122,7 +130,7 @@ public sealed class PetWindow : Window
     {
         var selected = Catalog.FindExact(id);
         if (selected is null) { Say("这个形象暂不可用，请重新选择。", 3000); return; }
-        CancelInput(); ClearTransient(); resting = false; restore.Visibility = Visibility.Collapsed;
+        CancelInput(); ClearTransient(); resting = false;
         sprite.Visibility = Visibility.Visible;
         State.Character = selected.Id; Art.Clear(); ApplySettings();
         Play("chat", $"你好，我是{Character.Name}。", 2600);
@@ -142,7 +150,6 @@ public sealed class PetWindow : Window
         sprite.Width = sprite.Height = State.Size; sprite.Opacity = State.Opacity;
         Canvas.SetLeft(sprite, CenterX - State.Size / 2); Canvas.SetTop(sprite, PetTop);
         Canvas.SetLeft(bubble, CenterX - 119); Canvas.SetTop(bubble, Math.Max(8, PetTop - 78));
-        Canvas.SetLeft(restore, CenterX - 24); Canvas.SetTop(restore, FloorY - 48);
         if (State.ReducedMotion) { roaming = false; flyingBall = false; ball.Visibility = Visibility.Collapsed; }
         if (save) { CancelInput(); ClearTransient(); SetAction("idle"); Save(); }
         Render();
@@ -165,7 +172,7 @@ public sealed class PetWindow : Window
     { action = next; actionStarted = Now; actionUntil = duration > 0 ? Now + duration : 0; onMotionEnd = completed; }
     public void Play(string next, string? message = null, double duration = 2600)
     {
-        if (resting) RestorePet();
+        resting = false; sprite.Visibility = Visibility.Visible;
         CancelChoreography();
         menu.Children.Clear(); roaming = false; lastInteraction = Now;
         SetAction(next, duration);
@@ -175,21 +182,21 @@ public sealed class PetWindow : Window
     public void CheckIn()
     {
         day = DateOnly.FromDateTime(DateTime.Now);
-        int before = State.BondLevel;
-        if (!State.CheckIn(day)) { Say("今天已经吃过早饭啦，明天再一起。", 3200); return; }
-        ClearTransient(); Play("meal", $"早安！已相伴 {State.CheckIns.Count} 天 · 连续 {State.Streak(day)} 天", 3500);
+        int before = State.BondLevel; bool added = State.CheckIn(day);
+        ClearTransient(); activeFood = Collectibles.Get("rice");
+        Play("meal", added ? "开饭啦。" : "再吃一点。", PortraitMotion.Duration("meal"));
         prop = "food"; propStart = Now;
-        if (State.BondLevel > before || new[] { 50, 150, 250, 300, 500, 1000 }.Contains(State.CheckIns.Count))
+        if (added && (State.BondLevel > before || new[] { 50, 150, 250, 300, 500, 1000 }.Contains(State.CheckIns.Count)))
         { prop = "confetti"; Say($"我们成为「{State.BondName}」啦！", 4000); }
         Save(); settings?.RefreshStatus();
     }
-    private void Touch(double fraction)
+    internal void Touch(double fraction)
     {
+        if (resting) { RestorePet(); return; }
         if (!State.CheckedIn(day)) { CheckIn(); return; }
         ClearTransient();
-        if (fraction < .52) Play("headpat", "再摸摸～");
-        else if (fraction < .73) Play("poke", "脸颊软软的，对吧？", 1700);
-        else Play("tickle", "哈哈，好痒呀！", 1600);
+        string motion = PortraitMotion.TouchRegion(Character.Category, fraction);
+        Play(motion, motion switch { "headpat" => "再摸摸～", "poke" => "软软的。", _ => "哈哈，好痒！" }, PortraitMotion.Duration(motion));
     }
     private Point ScreenPoint(MouseEventArgs e)
     {
@@ -199,6 +206,7 @@ public sealed class PetWindow : Window
     private void PetDown(object sender, MouseButtonEventArgs e)
     {
         if (e.ChangedButton != MouseButton.Left) return;
+        if (resting) { RestorePet(); e.Handled = true; return; }
         if (hideJourney is not null) { ClearTransient(); Play("happy", "被你找到啦！", 2000); e.Handled = true; return; }
         if (roaming) { roaming = false; SetAction("idle"); Render(); }
         lastInteraction = Now;
@@ -253,7 +261,7 @@ public sealed class PetWindow : Window
         if (hadDrag) { Constrain(); SetAction("idle"); if (!closing) Save(); }
     }
     private void ClearTransient()
-    { CancelChoreography(); roaming = false; menu.Children.Clear(); effects.Children.Clear(); prop = null; flyingBall = holdingBall = false; ball.Visibility = Visibility.Collapsed; bubble.Visibility = Visibility.Collapsed; onMotionEnd = null; }
+    { CancelChoreography(); resting = roaming = exploring = false; sprite.Visibility = Visibility.Visible; menu.Children.Clear(); effects.Clear(); prop = null; flyingBall = holdingBall = false; ball.Visibility = Visibility.Collapsed; bubble.Visibility = Visibility.Collapsed; onMotionEnd = null; }
 
     private void CancelChoreography()
     {
@@ -318,18 +326,18 @@ public sealed class PetWindow : Window
             case "dance": StartDance(); break;
             case "nudge": NudgeBall(); break;
             case "letter": Celebrate($"相伴 {State.CheckIns.Count} 天"); break;
-            default: Play(key); break;
+            default: Play(key, duration: PortraitMotion.Duration(key)); break;
         }
     }
     public void StopInteraction() { CancelInput(); ClearTransient(); SetAction("idle"); lastInteraction = Now; Render(); }
-    private void Snack() { ClearTransient(); Play("eat", "啊呜，点心真好吃！", 2600); prop = "food"; propStart = Now; }
-    private void BuildBlocks() { ClearTransient(); Play("think", "一块、两块……搭一座小塔！", 3300); prop = "blocks"; propStart = Now; onMotionEnd = () => Play("kick", "嘿！积木滚开啦。", 2300); }
+    private void Snack() { ClearTransient(); activeFood = snacks.Draw(); Play("eat", activeFood.Name + "，啊呜。", PortraitMotion.Duration("eat")); prop = "food"; propStart = Now; }
+    private void BuildBlocks() { ClearTransient(); Play("build", "搭座小塔。", 3300); prop = "blocks"; propStart = Now; onMotionEnd = () => Play("kick", "哗啦～", 2300); }
     private void Celebrate(string label) { ClearTransient(); Play("chat", label + "。这封信送给你 ♡", 5200); prop = "letter"; propStart = Now; }
     private void Peek() => BeginHide();
     private void Peek(int side) => BeginHide(side);
     internal void BeginHide(int? side = null)
     {
-        ClearTransient(); if (resting) RestorePet();
+        ClearTransient();
         if (State.ReducedMotion) { SetAction("idle"); Say("减少动态效果已开启，先在这里陪你。", 2600); return; }
         if (!CanWalk) { SetAction("idle"); Say("这套外观还没有行走动画，暂时不能走到边边躲藏。", 3200); return; }
         hideArea = WorkArea; Top = hideArea.Bottom - FloorY; Constrain();
@@ -342,10 +350,6 @@ public sealed class PetWindow : Window
     {
         ClearTransient(); SetAction("idle");
         if (!CanDance || State.ReducedMotion) { Render(); return; }
-        if (resting) RestorePet();
-        var art = Character.Resolve(State.Outfit, "idle", 0);
-        danceVisual = new DanceVisual(Art.Frame(Character, art.Sprite, art.Frame), Character.FamilyId, State.Outfit);
-        surface.Children.Insert(surface.Children.IndexOf(sprite) + 1, danceVisual);
         dance = new PetDance(); lastInteraction = Now;
         SetAction("dance", PetDance.DurationMs, CancelChoreography);
         if (IsHitTestVisible) Activate(); sprite.Focus(); Render();
@@ -356,13 +360,12 @@ public sealed class PetWindow : Window
     }
     private void Rest()
     {
-        ClearTransient(); Play("farewell", "我去歇一会儿，想我就点月亮。", 3200);
-        onMotionEnd = () => { resting = true; sprite.Visibility = Visibility.Collapsed; restore.Visibility = Visibility.Visible; bubble.Visibility = Visibility.Collapsed; nextPeek = Now + Random.Shared.Next(1, 4) * 60000; SetAction("idle"); };
+        ClearTransient(); Play("curl", duration: 1500); resting = true;
+        onMotionEnd = () => { SetAction("sleep"); bubble.Visibility = Visibility.Collapsed; };
     }
     private void RestorePet()
     {
-        resting = false; restore.Visibility = Visibility.Collapsed; sprite.Visibility = Visibility.Visible;
-        Play("chat", "我回来啦。", 2700);
+        ClearTransient(); Play("farewell", "睡醒啦。", 1800);
     }
     internal bool CanWalk => Character.CanWalk(State.Outfit);
     internal void StartWalk(bool explore, int? initialDirection = null)
@@ -371,24 +374,41 @@ public sealed class PetWindow : Window
         if (!State.CheckedIn(day)) { Say("先点我打卡吃早饭，再一起散步吧。", 3000); return; }
         var clip = Character.Resolve(State.Outfit, "walk", 0).Sprite;
         if (!CanWalk || clip.Columns * clip.Rows < 2) { Say("这套外观目前是静态立绘，逐帧行走动作尚未制作。", 3500); return; }
-        ClearTransient(); if (resting) RestorePet();
+        ClearTransient();
         Top = WorkArea.Bottom - FloorY; Constrain(); roaming = true; direction = initialDirection ?? (Random.Shared.Next(2) == 0 ? -1 : 1);
-        roamDeadline = Now + (explore ? 9000 : 15000); SetAction("walk"); lastInteraction = Now;
-        if (explore) { prop = "explore"; propStart = Now; Say("去桌边找点小惊喜。", 2200); }
+        exploring = explore; roamDeadline = Now + (explore ? 9000 : 15000); SetAction("walk"); lastInteraction = Now;
+        if (explore) Say("去找点小惊喜。", 1800);
         Render();
     }
-    private void TakeBall()
+    private void TakeBall() => PlayWithToy(toys.Draw().Id);
+    internal void PlayWithToy(string id)
     {
-        ClearTransient(); Play("chat", "拖动小球后松开，抛给我吧。", 2000);
-        ballX = CenterX - State.Size * .7; ballY = FloorY - 30; ballVx = ballVy = 0; ball.Visibility = Visibility.Visible; PlaceBall();
+        var selected = Collectibles.All.FirstOrDefault(i => i.Id == id && i.Kind == ItemKind.Sport);
+        if (selected is null) return;
+        ClearTransient(); activeToy = selected; ball.Item = selected; ball.Width = ball.Height = BallSize; ballSpin.Angle = 0;
+        Play("ball-ready", selected.Name + "，接着！", 2200);
+        var area = WorkArea;
+        double minX = Math.Max(0, area.Left - Left), maxX = Math.Min(Width, area.Right - Left);
+        ballX = Math.Clamp(CenterX - State.Size * .45 - BallSize / 2, minX, Math.Max(minX, maxX - BallSize));
+        ballY = FloorY - BallSize; ballVx = ballVy = 0; ball.Visibility = Visibility.Visible; PlaceBall();
     }
-    private void NudgeBall() { TakeBall(); ballVx = -90; ballVy = -60; flyingBall = true; ballHit = true; ballAge = 0; Play("poke", "悄悄推走～", 1800); }
+    private void NudgeBall() { TakeBall(); ballVx = -125; ballVy = -90; flyingBall = true; ballHit = true; ballAge = 0; Play("nudge", duration: 1800); }
+    private void FinishExploration()
+    {
+        exploring = false; var found = finds.Draw(); activePrize = found;
+        State.Treasures.Add(found.Name); Play("happy", "找到" + found.Name + "！", 2700);
+        prop = "treasure"; propStart = Now; Save(); settings?.RefreshLife();
+    }
     private void BallMove(object sender, MouseEventArgs e)
     {
         if (!holdingBall) return;
         var p = e.GetPosition(this); double dt = Math.Max(1, Now - ballSampleTime) / 1000;
         ballVx = Math.Clamp((p.X - ballPrevious.X) / dt, -1800, 1800); ballVy = Math.Clamp((p.Y - ballPrevious.Y) / dt, -1800, 1800);
-        ballX = Math.Clamp(p.X - 15, 0, Width - 30); ballY = Math.Clamp(p.Y - 15, 0, FloorY - 30);
+        var area = WorkArea;
+        double minX = Math.Max(0, area.Left - Left), maxX = Math.Min(Width, area.Right - Left);
+        double minY = Math.Max(0, area.Top - Top);
+        ballX = Math.Clamp(p.X - BallSize / 2, minX, Math.Max(minX, maxX - BallSize));
+        ballY = Math.Clamp(p.Y - BallSize / 2, minY, Math.Max(minY, FloorY - BallSize));
         ballPrevious = p; ballSampleTime = Now; PlaceBall(); e.Handled = true;
     }
     private void PlaceBall() { Canvas.SetLeft(ball, ballX); Canvas.SetTop(ball, ballY); }
@@ -423,12 +443,7 @@ public sealed class PetWindow : Window
             if (now >= roamDeadline)
             {
                 roaming = false;
-                if (prop == "explore")
-                {
-                    string[] treasures = ["一枚贝壳", "一颗小星星", "一片四叶草", "一块圆石头"];
-                    string treasure = treasures[Random.Shared.Next(treasures.Length)]; State.Treasures.Add(treasure);
-                    prop = "treasure"; propStart = Now; Play("headpat", $"捡到{treasure}，送给你！", 3200); Save();
-                }
+                if (exploring) FinishExploration();
                 else SetAction("idle");
                 lastInteraction = now;
             }
@@ -438,25 +453,21 @@ public sealed class PetWindow : Window
             if (!State.CheckedIn(day)) SetAction("sleep");
             else if (State.Wander && CanWalk && !State.ReducedMotion && now - lastInteraction > 45000 && Math.Abs(Top + FloorY - WorkArea.Bottom) < 28) StartWalk(false);
         }
-        if (resting && now >= nextPeek)
-        {
-            nextPeek = now + Random.Shared.Next(1, 4) * 60000;
-            if (!State.ReducedMotion) { sprite.Visibility = Visibility.Visible; SetAction("peek", 2900, () => sprite.Visibility = Visibility.Collapsed); }
-        }
         if (flyingBall)
         {
-            double x0 = ballX + 15, y0 = ballY + 15;
-            ballVy += 850 * dt; ballX += ballVx * dt; ballY += ballVy * dt; ballAge += dt;
-            if (ballY > FloorY - 30) { ballY = FloorY - 30; ballVy = -Math.Abs(ballVy) * .6; ballVx *= .86; }
-            if (ballX < 0 || ballX > Width - 30) { ballX = Math.Clamp(ballX, 0, Width - 30); ballVx *= -.7; }
-            if (!ballHit && BallPhysics.Hit(x0, y0, ballX + 15, ballY + 15, CenterX, PetTop + State.Size * .6, State.Size * .28 + 15))
-            { ballHit = true; Play("ball-hit", "哎呀！接到啦。", 1800); ballVx *= -.65; ballVy = -210; }
+            double x0 = ballX + BallSize / 2, y0 = ballY + BallSize / 2;
+            var area = WorkArea;
+            var step = ToyPhysics.Step(new ToyFlight(ballX, ballY, ballVx, ballVy, ballSpin.Angle), activeToy, dt,
+                Math.Max(0, area.Left - Left), Math.Min(Width, area.Right - Left), FloorY);
+            ballX = step.X; ballY = step.Y; ballVx = step.Vx; ballVy = step.Vy; ballSpin.Angle = step.Angle; ballAge += dt;
+            if (!ballHit && BallPhysics.Hit(x0, y0, ballX + BallSize / 2, ballY + BallSize / 2, CenterX, PetTop + State.Size * .6, State.Size * .28 + BallSize / 2))
+            { ballHit = true; Play("ball-hit", "接到啦。", 1800); ballVx *= -.65; ballVy = -210; }
             if (ballAge > 4) { flyingBall = false; ball.Visibility = Visibility.Collapsed; if (!ballHit) Play("ball-miss", "差一点，下次再来！", 2000); }
             PlaceBall();
         }
-        Render(); DrawEffects(now);
-        bool moving = dragging || holdingBall || flyingBall || roaming || hideJourney is not null || prop is not null || actionUntil > 0;
-        timer.Interval = TimeSpan.FromMilliseconds(moving ? 33 : 200);
+        Render();
+        bool moving = dragging || holdingBall || flyingBall || roaming || hideJourney is not null || prop is not null || actionUntil > 0 || danceVisual is not null;
+        timer.Interval = TimeSpan.FromMilliseconds(action == "sleep" ? 125 : moving ? 33 : 200);
     }
     private void Render()
     {
@@ -482,51 +493,50 @@ public sealed class PetWindow : Window
         facing.ScaleX = action is "walk" or "peek" ? DesktopWalk.ScaleX(direction, art.Sprite.Facing) : 1;
         Canvas.SetLeft(sprite, CenterX - size * (.5 + (action == "walk" ? facing.ScaleX * (Art.HorizontalAnchor(frame) - .5) : 0)));
         sprite.RenderTransform = facing;
-        if (danceVisual is not null)
+        bool animate = !State.ReducedMotion && PortraitRig.Supports(Character.Category, Character.FamilyId)
+            && (dance is not null || PortraitMotion.Supports(action));
+        if (animate)
         {
+            if (danceVisual is null || !ReferenceEquals(danceVisual.Texture, frame))
+            {
+                if (danceVisual is not null) surface.Children.Remove(danceVisual);
+                danceVisual = new RigVisual(frame, Character.FamilyId, State.Outfit, Character.Category);
+                surface.Children.Insert(surface.Children.IndexOf(sprite) + 1, danceVisual);
+            }
             sprite.Opacity = 0;
             danceVisual.Width = danceVisual.Height = size; danceVisual.Opacity = State.Opacity;
             Canvas.SetLeft(danceVisual, CenterX - size / 2); Canvas.SetTop(danceVisual, PetTop);
-            danceVisual.Update(Now - actionStarted);
+            danceVisual.UpdateMotion(action, Now - actionStarted, actionUntil > 0 ? actionUntil - actionStarted : 0);
         }
+        else
+        {
+            if (danceVisual is not null) { surface.Children.Remove(danceVisual); danceVisual = null; }
+            sprite.Opacity = State.Opacity;
+        }
+        DrawEffects(Now);
     }
     private void DrawEffects(double now)
     {
-        effects.Children.Clear();
-        if (dance is not null)
+        if (prop is not null && now - propStart > 6000) prop = null;
+        Point head = new(CenterX, PetTop + State.Size * (Character.Category == "chibi" ? .23 : .05));
+        Point mouth = new(CenterX, PetTop + State.Size * (Character.Category == "chibi" ? .48 : .17));
+        Point hand = new(CenterX - State.Size * .13, PetTop + State.Size * .3);
+        Point body = new(CenterX, PetTop + State.Size * .43);
+        if (danceVisual is { } visual)
         {
-            int beat = PetDance.BeatAt(now - actionStarted);
-            for (int i = 0; i < 4; i++)
-            {
-                var dot = new Ellipse { Width = i == beat % 4 ? 9 : 5, Height = i == beat % 4 ? 9 : 5, Fill = i == beat % 4 ? (danceFeedbackBeat == beat ? CloudTheme.Brush("#34C759") : CloudTheme.Blue) : CloudTheme.Brush("#C3D1E3") };
-                effects.Children.Add(dot); Canvas.SetLeft(dot, CenterX - 30 + i * 18); Canvas.SetTop(dot, PetTop - 10 - (i == beat % 4 ? 2 : 0));
-            }
-
+            Point Map(RigPoint p) => new(CenterX + p.X * State.Size, PetTop + (.5 + p.Y) * State.Size);
+            head = Map(visual.Rig.Anchor(visual.Pose, 1, visual.Rig.Rest[1].B + new RigPoint(0, -.07)));
+            mouth = Map(visual.Rig.Anchor(visual.Pose, 1, visual.Rig.MouthRest));
+            hand = Map(visual.Pose.Bones[3].B + (visual.Pose.Bones[3].B - visual.Pose.Bones[3].A) * .35);
+            body = Map(visual.Pose.Bones[0].A + new RigPoint(0, -.07));
         }
-        if (prop is null) return;
-        double t = (now - propStart) / 1000;
-        if (t > 6) { prop = null; return; }
-        void Label(string text, double x, double y, double size, Brush? color = null)
-        {
-            var item = new TextBlock { Text = text, FontSize = size, Foreground = color ?? Brushes.Peru, FontFamily = new FontFamily("Segoe UI Emoji"), Opacity = Math.Clamp(6 - t, 0, 1) };
-            effects.Children.Add(item); Canvas.SetLeft(item, x); Canvas.SetTop(item, y);
-        }
-        if (prop == "food" && t < 2.5) Label("🥐", CenterX + 30 - Math.Min(t, 1) * 25, PetTop + State.Size * .57, 29);
-        if (prop == "stars") for (int i = 0; i < 3; i++) Label("✦", CenterX - 45 + i * 38, PetTop + 14 + Math.Sin(t * 3 + i) * 8, 23, Brushes.Goldenrod);
-        if (prop == "blocks")
-            for (int i = 0; i < Math.Min(5, (int)(t / .45) + 1); i++)
-            {
-                double kick = Math.Clamp((t - 3.3) * 1.6, 0, 1);
-                var block = new Rectangle { Width = 23, Height = 23, RadiusX = 4, RadiusY = 4, Fill = new SolidColorBrush(new[] { Color.FromRgb(225, 159, 130), Color.FromRgb(139, 171, 154), Color.FromRgb(164, 161, 200) }[i % 3]), Opacity = Math.Clamp(6 - t, 0, 1), RenderTransform = new RotateTransform(kick * (i % 2 == 0 ? 45 : -60)) };
-                effects.Children.Add(block); Canvas.SetLeft(block, CenterX + State.Size * .45 + (i % 2) * 24 + kick * (i - 2) * 18); Canvas.SetTop(block, FloorY - 24 - (1 - kick) * i * 23);
-            }
-        if (prop == "treasure") Label("✧", CenterX + State.Size * .45, FloorY - 44, 38, Brushes.Goldenrod);
-        if (prop == "letter")
-        {
-            var letter = new Border { Width = 200, Background = new SolidColorBrush(Color.FromRgb(255, 248, 230)), BorderBrush = Brushes.Tan, BorderThickness = new Thickness(1), CornerRadius = new CornerRadius(10), Padding = new Thickness(12), Child = new TextBlock { Text = t < 1 ? "✉ 给你的信" : $"♡  谢谢你一直在\n{day:yyyy.MM.dd}\n{State.BondName} · {Character.Name}", TextAlignment = TextAlignment.Center, FontSize = 13, LineHeight = 22 }, Opacity = Math.Clamp(6 - t, 0, 1) };
-            effects.Children.Add(letter); Canvas.SetLeft(letter, CenterX - 100); Canvas.SetTop(letter, PetTop - 100);
-            bubble.Visibility = Visibility.Collapsed;
-        }
-        if (prop == "confetti") for (int i = 0; i < 18; i++) Label(i % 2 == 0 ? "•" : "✦", CenterX - 120 + i * 14, PetTop - 50 + (t * 40 + i * 9) % 150, 15, i % 2 == 0 ? Brushes.Salmon : Brushes.Goldenrod);
+        effects.Opacity = State.Opacity;
+        var area = WorkArea;
+        var bounds = new Rect(new Point(Math.Max(0, area.Left - Left), Math.Max(0, area.Top - Top)),
+            new Point(Math.Min(Width, area.Right - Left), Math.Min(Height, area.Bottom - Top)));
+        effects.Update(new FeedbackFrame(action, now - actionStarted, actionUntil > 0 ? actionUntil - actionStarted : 0, State.Size,
+            head, mouth, hand, body, new Point(CenterX, FloorY), bounds, State.ReducedMotion, prop, now - propStart, activeFood, activePrize,
+            dance is not null ? PetDance.BeatAt(now - actionStarted) : null, danceFeedbackBeat == PetDance.BeatAt(now - actionStarted)));
+        if (prop == "letter") bubble.Visibility = Visibility.Collapsed;
     }
 }

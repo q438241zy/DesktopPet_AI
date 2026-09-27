@@ -4,6 +4,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Automation;
 using System.Windows.Media;
+using System.Windows.Input;
 using System.Windows.Shell;
 using DesktopPet.Core;
 
@@ -26,33 +27,34 @@ public sealed class SettingsWindow : Window
     public SettingsWindow(PetWindow pet)
     {
         this.pet = pet; category = pet.Character.Category;
+        KeyDown += (_, e) => { if (e.Key == Key.Escape) { pet.StopInteraction(); e.Handled = true; } };
         Title = "DesktopPet · 云朵伙伴"; Icon = CloudTheme.AppIcon;
-        Foreground = CloudTheme.Ink; FontFamily = new FontFamily("Microsoft YaHei UI"); FontSize = 13;
+        Foreground = CloudTheme.Ink; FontFamily = new FontFamily("Segoe UI Variable, Microsoft YaHei UI"); FontSize = 13;
         Width = Math.Min(1120, SystemParameters.WorkArea.Width - 40); Height = Math.Min(850, SystemParameters.WorkArea.Height - 40); MinWidth = 920; MinHeight = 650;
-        WindowStartupLocation = WindowStartupLocation.CenterScreen; Background = CloudTheme.Brush("#F5FAFF");
+        WindowStartupLocation = WindowStartupLocation.CenterScreen; Background = CloudTheme.Brush("#FBFBFD");
         WindowStyle = WindowStyle.None;
-        WindowChrome.SetWindowChrome(this, new WindowChrome { CaptionHeight = 42, ResizeBorderThickness = new Thickness(6), GlassFrameThickness = new Thickness(0), CornerRadius = new CornerRadius(22) });
-        var root = new Grid { Background = Background }; root.RowDefinitions.Add(new RowDefinition { Height = new GridLength(42) }); root.RowDefinitions.Add(new RowDefinition()); Content = root;
-        var titlebar = new DockPanel { Margin = new Thickness(18, 4, 6, 0) }; root.Children.Add(titlebar);
-        var close = MakeButton("关闭设置", Close, ""); close.Content = "×"; close.FontSize = 22; close.Width = 42; close.Padding = new Thickness(0); close.Margin = new Thickness(0); close.Background = Brushes.Transparent; close.BorderThickness = new Thickness(0); DockPanel.SetDock(close, Dock.Right); WindowChrome.SetIsHitTestVisibleInChrome(close, true); titlebar.Children.Add(close);
-        var minimize = MakeButton("最小化", () => WindowState = WindowState.Minimized, ""); minimize.Content = "−"; minimize.FontSize = 20; minimize.Width = 42; minimize.Padding = new Thickness(0); minimize.Margin = new Thickness(0); minimize.Background = Brushes.Transparent; minimize.BorderThickness = new Thickness(0); DockPanel.SetDock(minimize, Dock.Right); WindowChrome.SetIsHitTestVisibleInChrome(minimize, true); titlebar.Children.Add(minimize);
-        titlebar.Children.Add(new TextBlock { Text = "DesktopPet  /  云朵伙伴", Foreground = muted, FontSize = 11, VerticalAlignment = VerticalAlignment.Center });
-        var layout = new Grid(); layout.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(204) }); layout.ColumnDefinitions.Add(new ColumnDefinition()); Grid.SetRow(layout, 1); root.Children.Add(layout);
-        var sideSurface = new Border { Background = CloudTheme.Sky("#EDF6FF", "#F7FBFF"), BorderBrush = CloudTheme.Line, BorderThickness = new Thickness(0, 0, 1, 0) }; layout.Children.Add(sideSurface);
-        var sidebar = new DockPanel { Margin = new Thickness(20, 18, 18, 22) }; sideSurface.Child = sidebar;
-        var brand = new StackPanel { Margin = new Thickness(0, 0, 0, 32) };
-        var mark = CloudTheme.Icon("smile", 74); mark.HorizontalAlignment = HorizontalAlignment.Left; brand.Children.Add(mark);
-        brand.Children.Add(new TextBlock { Text = "云朵伙伴", FontSize = 24, FontWeight = FontWeights.SemiBold, Margin = new Thickness(5, 0, 0, 8) });
-        brand.Children.Add(new TextBlock { Text = "CLOUD COMPANION", Foreground = muted, FontSize = 9, Margin = new Thickness(7, 0, 0, 0) });
+        WindowChrome.SetWindowChrome(this, new WindowChrome { CaptionHeight = 48, ResizeBorderThickness = new Thickness(6), GlassFrameThickness = new Thickness(0), CornerRadius = new CornerRadius(16) });
+        var root = new Grid { Background = Background }; root.RowDefinitions.Add(new RowDefinition { Height = new GridLength(48) }); root.RowDefinitions.Add(new RowDefinition()); Content = root;
+        var titlebar = new DockPanel { Margin = new Thickness(22, 8, 12, 8) }; root.Children.Add(titlebar);
+        var close = MakeButton("关闭设置", Close); close.Content = CloudTheme.Icon("close", 16); close.Width = 34; close.Padding = new Thickness(0); close.Margin = new Thickness(4, 0, 0, 0); close.Background = Brushes.Transparent; close.BorderThickness = new Thickness(0); DockPanel.SetDock(close, Dock.Right); WindowChrome.SetIsHitTestVisibleInChrome(close, true); titlebar.Children.Add(close);
+        var minimize = MakeButton("最小化", () => WindowState = WindowState.Minimized); minimize.Content = CloudTheme.Icon("minimize", 16); minimize.Width = 34; minimize.Padding = new Thickness(0); minimize.Margin = new Thickness(0); minimize.Background = Brushes.Transparent; minimize.BorderThickness = new Thickness(0); DockPanel.SetDock(minimize, Dock.Right); WindowChrome.SetIsHitTestVisibleInChrome(minimize, true); titlebar.Children.Add(minimize);
+        titlebar.Children.Add(new TextBlock { Text = "云朵伙伴", Foreground = muted, FontSize = 12, VerticalAlignment = VerticalAlignment.Center });
+        var layout = new Grid(); layout.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(190) }); layout.ColumnDefinitions.Add(new ColumnDefinition()); Grid.SetRow(layout, 1); root.Children.Add(layout);
+        var sideSurface = new Border { Background = CloudTheme.Brush("#F2F3F6"), BorderBrush = CloudTheme.Line, BorderThickness = new Thickness(0, 0, 1, 0) }; layout.Children.Add(sideSurface);
+        var sidebar = new DockPanel { Margin = new Thickness(15, 25, 15, 24) }; sideSurface.Child = sidebar;
+        var brand = new StackPanel { Margin = new Thickness(12, 0, 0, 29) };
+        var mark = CloudTheme.Icon("cloud", 35); mark.Foreground = CloudTheme.Blue; mark.HorizontalAlignment = HorizontalAlignment.Left; brand.Children.Add(mark);
+        brand.Children.Add(new TextBlock { Text = "云朵伙伴", FontSize = 21, FontWeight = FontWeights.SemiBold, Margin = new Thickness(0, 12, 0, 5) });
+        brand.Children.Add(new TextBlock { Text = "你的桌边小小陪伴", Foreground = muted, FontSize = 11 });
         DockPanel.SetDock(brand, Dock.Top); sidebar.Children.Add(brand);
-        var foot = new StackPanel(); foot.Children.Add(CloudTheme.Icon("moon", 49)); foot.Children.Add(new TextBlock { Text = "像一朵云，轻轻陪着你。", FontSize = 10, Foreground = muted, TextAlignment = TextAlignment.Center }); foot.Children.Add(new TextBlock { Text = "DESKTOPPET  ·  云朵预览版", FontSize = 9, Foreground = muted, TextAlignment = TextAlignment.Center, Margin = new Thickness(0, 10, 0, 0) });
+        var foot = new StackPanel { Margin = new Thickness(12, 0, 0, 0) }; foot.Children.Add(new TextBlock { Text = "●  正在桌面陪伴", Foreground = CloudTheme.Brush("#34845A"), FontSize = 11 }); foot.Children.Add(new TextBlock { Text = "DesktopPet  /  1.2 Preview 3", FontSize = 10, Foreground = muted, Margin = new Thickness(0, 8, 0, 0) });
         DockPanel.SetDock(foot, Dock.Bottom); sidebar.Children.Add(foot);
         var nav = new StackPanel(); sidebar.Children.Add(nav);
         foreach (var (id, label, icon) in new[] { ("partners", "我的伙伴", "heart"), ("styles", "风格预览", "cube"), ("life", "陪伴日常", "sun"), ("studio", "角色工坊", "brush"), ("preferences", "桌面偏好", "settings") })
         {
-            var b = MakeButton(label, () => Navigate(id), icon); b.HorizontalContentAlignment = HorizontalAlignment.Left; b.Padding = new Thickness(10, 7, 6, 7); b.Margin = new Thickness(0, 0, 0, 10); navigation[id] = b; nav.Children.Add(b);
+            var b = MakeButton(label, () => Navigate(id), icon); b.HorizontalContentAlignment = HorizontalAlignment.Left; b.Padding = new Thickness(12, 11, 6, 11); b.Margin = new Thickness(0, 0, 0, 5); b.BorderThickness = new Thickness(0); navigation[id] = b; nav.Children.Add(b);
         }
-        var scroll = new ScrollViewer { Content = content, VerticalScrollBarVisibility = ScrollBarVisibility.Auto, HorizontalScrollBarVisibility = ScrollBarVisibility.Disabled, Margin = new Thickness(28, 15, 26, 20) };
+        var scroll = new ScrollViewer { Content = content, VerticalScrollBarVisibility = ScrollBarVisibility.Auto, HorizontalScrollBarVisibility = ScrollBarVisibility.Disabled, Margin = new Thickness(34, 20, 28, 20) };
         Grid.SetColumn(scroll, 1); layout.Children.Add(scroll); Rebuild();
     }
     private static Button MakeButton(string label, Action clicked, string icon = "")
@@ -61,17 +63,17 @@ public sealed class SettingsWindow : Window
         if (icon.Length == 0) button.Content = label;
         else
         {
-            var row = new StackPanel { Orientation = Orientation.Horizontal }; row.Children.Add(CloudTheme.Icon(icon, 32));
-            row.Children.Add(new TextBlock { Text = label, VerticalAlignment = VerticalAlignment.Center, Margin = new Thickness(7, 0, 0, 0) }); button.Content = row;
+            var row = new StackPanel { Orientation = Orientation.Horizontal }; row.Children.Add(CloudTheme.Icon(icon, 19));
+            row.Children.Add(new TextBlock { Text = label, VerticalAlignment = VerticalAlignment.Center, Margin = new Thickness(10, 0, 0, 0) }); button.Content = row;
         }
         AutomationProperties.SetName(button, label); button.Click += (_, _) => clicked(); return button;
     }
     private TextBlock Text(string text, double size = 13, bool quiet = false) => new() { Text = text, FontSize = size, Foreground = quiet ? muted : Foreground, TextWrapping = TextWrapping.Wrap, Margin = new Thickness(0, 0, 0, 10), LineHeight = size * 1.6 };
     private void Heading(string eyebrow, string title, string description)
     {
-        content.Children.Add(Text(eyebrow, 9, true)); content.Children.Add(new TextBlock { Text = title, FontSize = 27, FontWeight = FontWeights.SemiBold, Margin = new Thickness(0, 0, 0, 8) }); content.Children.Add(Text(description, 12, true));
+        content.Children.Add(new TextBlock { Text = title, FontSize = 29, FontWeight = FontWeights.SemiBold, Margin = new Thickness(0, 0, 0, 7) }); content.Children.Add(Text(description, 12, true));
     }
-    private Border Card(UIElement child, Brush? background = null) => new() { Background = background ?? Brushes.White, BorderBrush = CloudTheme.Line, BorderThickness = new Thickness(1), CornerRadius = new CornerRadius(24), Padding = new Thickness(20), Margin = new Thickness(0, 10, 0, 16), Child = child };
+    private Border Card(UIElement child, Brush? background = null) => new() { Background = background ?? Brushes.White, BorderBrush = CloudTheme.Line, BorderThickness = new Thickness(1), CornerRadius = new CornerRadius(16), Padding = new Thickness(22), Margin = new Thickness(0, 12, 0, 20), Child = child };
     private void Navigate(string destination)
     {
         if (destination == "styles" && page != "styles")
@@ -84,7 +86,7 @@ public sealed class SettingsWindow : Window
     private void Rebuild()
     {
         content.Children.Clear();
-        foreach (var (id, b) in navigation) { b.Background = id == page ? Brushes.White : Brushes.Transparent; b.BorderBrush = id == page ? CloudTheme.Line : Brushes.Transparent; b.FontWeight = id == page ? FontWeights.SemiBold : FontWeights.Normal; }
+        foreach (var (id, b) in navigation) { b.Background = id == page ? CloudTheme.Brush("#E2EAF6") : Brushes.Transparent; b.Foreground = id == page ? CloudTheme.Blue : CloudTheme.Ink; b.FontWeight = id == page ? FontWeights.SemiBold : FontWeights.Normal; }
         switch (page) { case "styles": Styles(); break; case "life": Life(); break; case "studio": Studio(); break; case "preferences": Preferences(); break; default: Partners(); break; }
     }
     private Grid Stage(Character character, double height, string outfit = "original")
@@ -95,31 +97,31 @@ public sealed class SettingsWindow : Window
     }
     private void Partners()
     {
-        Heading("A LITTLE CLOUD, A LITTLE COMPANY", "把喜欢的伙伴，放在云朵上。", "挑一个形象，换一身心情。它会在桌边，陪你度过今天。");
+        Heading("", "我的伙伴", "选一个喜欢的伙伴，让今天多一点陪伴。");
         var hero = new Grid(); hero.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(236) }); hero.ColumnDefinitions.Add(new ColumnDefinition());
-        hero.Children.Add(Stage(pet.Character, 204, pet.State.Outfit));
+        hero.Children.Add(Stage(pet.Character, 182, pet.State.Outfit));
         var intro = new StackPanel { VerticalAlignment = VerticalAlignment.Center, Margin = new Thickness(18, 0, 0, 0) }; Grid.SetColumn(intro, 1); hero.Children.Add(intro);
-        var badges = new WrapPanel(); badges.Children.Add(CloudTheme.Badge("正在陪你")); badges.Children.Add(CloudTheme.Badge(CloudTheme.CategoryName(pet.Character.Category))); if (pet.Character.Demo) badges.Children.Add(CloudTheme.Badge(pet.CanWalk ? "行走预览" : "静态立绘")); intro.Children.Add(badges);
+        var badges = new WrapPanel(); badges.Children.Add(CloudTheme.Badge("正在陪伴")); badges.Children.Add(CloudTheme.Badge(CloudTheme.CategoryName(pet.Character.Category))); intro.Children.Add(badges);
         var name = Text(pet.Character.Name, 25); name.FontWeight = FontWeights.SemiBold; name.Margin = new Thickness(0, 10, 0, 4); intro.Children.Add(name);
-        intro.Children.Add(Text(pet.Character.Demo ? pet.Character.Description : $"{pet.State.BondName}  ·  相伴 {pet.State.CheckIns.Count} 天", 12, true));
+        intro.Children.Add(Text($"{pet.State.BondName}  ·  相伴 {pet.State.CheckIns.Count} 天", 12, true));
         if (pet.Character.Outfits.Count > 0)
         {
             var outfits = new WrapPanel();
             foreach (var (id, label) in new[] { ("original", "原装") }.Concat(pet.Character.Outfits.Select(x => (x.Key, x.Value.Name))))
             {
-                var b = MakeButton(label, () => { pet.State.Outfits[pet.State.Character] = id; pet.ApplySettings(); Rebuild(); }, "dress"); b.Padding = new Thickness(9, 3, 11, 3); b.Margin = new Thickness(0, 0, 6, 3); b.Background = id == pet.State.Outfit ? CloudTheme.Pale : Brushes.White;
+                var b = MakeButton(label, () => { pet.State.Outfits[pet.State.Character] = id; pet.ApplySettings(); Rebuild(); }, "dress"); b.Padding = new Thickness(12, 8, 12, 8); b.Margin = new Thickness(0, 4, 6, 3); b.Foreground = id == pet.State.Outfit ? CloudTheme.Blue : CloudTheme.Ink; b.Background = id == pet.State.Outfit ? CloudTheme.Pale : Brushes.White;
                 AutomationProperties.SetName(b, "选择服装 " + label); outfits.Children.Add(b);
             }
             intro.Children.Add(outfits);
         }
-        else intro.Children.Add(Text("先看外观与比例，完整动作等风格确定后再制作。", 11, true));
-        var heroCard = Card(hero, CloudTheme.Sky()); heroCard.Padding = new Thickness(15, 10, 18, 10); content.Children.Add(heroCard);
+        else intro.Children.Add(Text("当前使用你导入的角色。", 11, true));
+        var heroCard = Card(hero, Brushes.White); heroCard.Padding = new Thickness(15, 12, 18, 12); content.Children.Add(heroCard);
         var categoryRow = new DockPanel { Margin = new Thickness(0, 0, 0, 11) };
         var compare = MakeButton("三种风格对照", () => Navigate("styles")); compare.Background = Brushes.Transparent; compare.BorderThickness = new Thickness(0); compare.FontSize = 11; DockPanel.SetDock(compare, Dock.Right); categoryRow.Children.Add(compare);
-        var filters = new StackPanel { Orientation = Orientation.Horizontal }; categoryRow.Children.Add(filters);
+        var filters = new StackPanel { Orientation = Orientation.Horizontal }; categoryRow.Children.Add(new Border { Background = CloudTheme.Brush("#ECEEF2"), Padding = new Thickness(3), CornerRadius = new CornerRadius(11), HorizontalAlignment = HorizontalAlignment.Left, Child = filters });
         foreach (var (id, glyph) in new[] { ("chibi", "heart"), ("3d", "cube"), ("adult", "person") })
         {
-            var b = MakeButton(CloudTheme.CategoryName(id), () => { pet.SelectStyle(id); category = id; Rebuild(); }, glyph); b.Padding = new Thickness(10, 4, 14, 4); b.Margin = new Thickness(0, 0, 8, 0); b.Background = category == id ? CloudTheme.Pale : Brushes.White; b.BorderBrush = category == id ? CloudTheme.Brush("#9DC3E8") : CloudTheme.Line;
+            var b = MakeButton(CloudTheme.CategoryName(id), () => { pet.SelectStyle(id); category = id; Rebuild(); }, glyph); b.Padding = new Thickness(13, 7, 13, 7); b.Margin = new Thickness(1, 0, 1, 0); b.Background = category == id ? Brushes.White : Brushes.Transparent; b.Foreground = category == id ? CloudTheme.Blue : CloudTheme.Muted; b.BorderThickness = new Thickness(0);
             AutomationProperties.SetName(b, "分类 " + CloudTheme.CategoryName(id)); filters.Children.Add(b);
         }
         content.Children.Add(categoryRow);
@@ -132,17 +134,16 @@ public sealed class SettingsWindow : Window
             var label = new StackPanel { Orientation = Orientation.Horizontal, HorizontalAlignment = HorizontalAlignment.Center }; label.Children.Add(new TextBlock { Text = character.Name, FontSize = 12, FontWeight = selected ? FontWeights.SemiBold : FontWeights.Normal });
             if (selected) label.Children.Add(new TextBlock { Text = "  ✓", Foreground = CloudTheme.Blue }); Grid.SetRow(label, 1); tile.Children.Add(label);
             var b = MakeButton("选择角色 " + character.Name, () => { pet.SelectCharacter(character.Id); Rebuild(); }); b.Content = tile; b.Height = 154; b.Padding = new Thickness(6, 5, 6, 12); b.Margin = new Thickness(0, 0, 10, 10); b.HorizontalContentAlignment = HorizontalAlignment.Stretch;
-            if (selected) { b.BorderBrush = CloudTheme.Brush("#86B3E2"); b.Background = CloudTheme.Brush("#EDF6FF"); b.BorderThickness = new Thickness(2); }
+            if (selected) { b.BorderBrush = CloudTheme.Blue; b.Background = CloudTheme.Brush("#F1F6FF"); }
             tiles.Children.Add(b);
         }
         content.Children.Add(tiles);
-        if (category != "chibi") content.Children.Add(Text("八位伙伴的原装、泳装和婚纱均有独立行走动画。其他互动尚无专用画稿时，会保持当前形象与服装。", 11, true));
-        else content.Children.Add(Text("左键摸摸  ·  拖动抱起  ·  右键打开云朵互动菜单", 11, true));
+        content.Children.Add(Text("点击摸摸头  ·  拖动抱起  ·  右键找它玩", 11, true));
     }
 
     private void Styles()
     {
-        Heading("EIGHT FRIENDS / THREE STYLES", "三种风格，一起换装。", "八位伙伴，每种风格都有原装、泳装和婚纱。选好喜欢的组合，再放到桌面。");
+        Heading("", "风格预览", "同一位伙伴，三种模样。选好画风和服装，就能带到桌边。");
         var families = new WrapPanel { Margin = new Thickness(0, 3, 0, 2) };
         foreach (string family in Catalog.BuiltInFamilies)
         {
@@ -175,7 +176,7 @@ public sealed class SettingsWindow : Window
             bool selected = pet.State.Character == id && pet.State.Outfit == compareOutfit;
             var button = MakeButton(selected ? "正在桌面陪你" : "放到桌面陪你", () => { pet.State.Outfits[id] = compareOutfit; pet.SelectCharacter(id); category = character.Category; Rebuild(); }, "heart"); button.Margin = new Thickness(0); button.FontSize = 12;
             AutomationProperties.SetName(button, "试看 " + title); panel.Children.Add(button);
-            var card = Card(panel, CloudTheme.Sky(style == "adult" ? "#EEF1F9" : "#EBF5FF", "#FFFFFF")); card.Margin = new Thickness(0, 6, 12, 16); card.Padding = new Thickness(15); grid.Children.Add(card);
+            var card = Card(panel); card.Margin = new Thickness(0, 6, 12, 16); card.Padding = new Thickness(15); grid.Children.Add(card);
         }
         content.Children.Add(grid);
         content.Children.Add(Text("三种画风、三套服装均有独立行走动画。切换画风会保留同一伙伴和服装；未补齐的互动使用当前服装的姿势图。", 12, true));
@@ -188,7 +189,7 @@ public sealed class SettingsWindow : Window
     private void Life()
     {
         status = new TextBlock();
-        Heading("LITTLE MOMENTS, TOGETHER", "把日常，慢慢过成回忆。", "打卡是一起吃早饭。偶尔忘记也没关系，已经积累的亲密度一直都在。");
+        Heading("", "陪伴日常", "吃顿早饭，跳一支舞。把平凡的小事，变成一起的回忆。");
         string clothes = pet.Character.Outfits.TryGetValue(pet.State.Outfit, out var selectedOutfit) ? selectedOutfit.Name : "原装";
         content.Children.Add(Text($"当前陪伴：{pet.Character.Name} · {CloudTheme.CategoryName(pet.Character.Category)} · {clothes}", 14));
         status.FontSize = 16; status.LineHeight = 28; RefreshStatus();
@@ -197,9 +198,15 @@ public sealed class SettingsWindow : Window
         progress.Children.Add(Text(level == 8 ? "已经是最亲密的伙伴。" : $"再相伴 {PetState.BondDays[level + 1] - pet.State.CheckIns.Count} 天，成为「{PetState.BondNames[level + 1]}」。", 12, true));
         var daily = MakeButton(pet.State.CheckedIn(DateOnly.FromDateTime(DateTime.Now)) ? "今天已打卡" : "打卡 · 一起吃早饭", () => { pet.CheckIn(); Rebuild(); }, "sun"); daily.Background = peach;
         progress.Children.Add(daily); content.Children.Add(Card(progress));
-        content.Children.Add(Text("陪它玩一会儿", 17)); var actions = new WrapPanel();
-        foreach (var (key, label, icon) in new[] { ("headpat", "摸摸头", "heart"), ("poke", "戳戳脸", "smile"), ("tickle", "挠痒痒", "spark"), ("snack", "喂零食", "food"), ("chat", "聊聊天", "chat"), ("ball", "一起玩球", "ball"), ("blocks", "搭积木", "blocks"), ("walk", "散步寻宝", "walk"), ("peek", "躲猫猫", "smile"), ("letter", "纪念卡片", "letter"), ("rest", "歇一会儿", "moon") })
-        { var b = MakeButton(label, () => pet.RunInteraction(key), icon); b.MinWidth = 145; b.Padding = new Thickness(9, 6, 14, 6); actions.Children.Add(b); }
+        var actionHeading = new DockPanel(); var stop = MakeButton("结束互动", pet.StopInteraction, "stop"); stop.FontSize = 11; stop.Padding = new Thickness(9, 5, 9, 5); stop.Background = Brushes.Transparent; stop.BorderThickness = new Thickness(0); DockPanel.SetDock(stop, Dock.Right); actionHeading.Children.Add(stop); actionHeading.Children.Add(Text("一起做点什么", 17)); content.Children.Add(actionHeading);
+        var actions = new System.Windows.Controls.Primitives.UniformGrid { Columns = 4 };
+        foreach (var entry in PetActions.Daily)
+        {
+            var tile = new StackPanel(); var icon = CloudTheme.Icon(entry.Icon, 25); icon.Foreground = CloudTheme.Blue; icon.HorizontalAlignment = HorizontalAlignment.Left; tile.Children.Add(icon);
+            tile.Children.Add(new TextBlock { Text = entry.Title, FontSize = 13, FontWeight = FontWeights.SemiBold, Margin = new Thickness(0, 10, 0, 4) });
+            tile.Children.Add(new TextBlock { Text = entry.Hint, FontSize = 10, Foreground = muted, TextWrapping = TextWrapping.Wrap });
+            var b = MakeButton(entry.Title, () => pet.RunInteraction(entry.Key)); b.Content = tile; b.HorizontalContentAlignment = HorizontalAlignment.Stretch; b.Height = 114; b.Padding = new Thickness(14); actions.Children.Add(b);
+        }
         content.Children.Add(actions);
         var treasures = new StackPanel(); treasures.Children.Add(Text("散步带回的小礼物", 16));
         treasures.Children.Add(Text(pet.State.Treasures.Count == 0 ? "还没有收藏。一起散步，看看它会捡到什么。" : string.Join("    ", pet.State.Treasures.GroupBy(x => x).Select(g => $"{g.Key} × {g.Count()}")), 13, true));
@@ -208,7 +215,7 @@ public sealed class SettingsWindow : Window
     }
     private void Preferences()
     {
-        Heading("MAKE ROOM FOR A FRIEND", "按你的习惯，安静陪伴。", "设置立即生效。关闭这扇窗口后，宠物仍会留在桌面。");
+        Heading("", "桌面偏好", "按你的习惯调整。关闭设置后，伙伴仍会留在桌面。");
         var panel = new StackPanel();
         void Slider(string label, double min, double max, double value, Action<double> change)
         {
@@ -236,7 +243,7 @@ public sealed class SettingsWindow : Window
     }
     private void Studio()
     {
-        Heading("CHARACTER STUDIO", "把喜欢的角色，带到桌边。", "保留原角色生成器的 30 种姿势与 40 种表情。先制作图稿，再导入桌面宠物。");
+        Heading("", "角色工坊", "从一张喜欢的图开始，制作属于你的桌面伙伴。");
         var form = new StackPanel();
         form.Children.Add(Text("01   制作出图提示词", 16));
         var name = new TextBox { Text = pet.Character.Name, Margin = new Thickness(0, 0, 0, 12) }; AutomationProperties.SetName(name, "角色名称"); form.Children.Add(name);

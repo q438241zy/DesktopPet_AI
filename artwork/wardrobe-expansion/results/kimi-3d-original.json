@@ -1,0 +1,10 @@
+{
+  "key": "kimi-3d/original",
+  "target": "src/DesktopPet.App/Assets/Characters/kimi-3d/portrait.png",
+  "source": "exec-ab389c3d-ba06-4fff-91b3-66243ddcdbcc.png",
+  "prompt": "Use case: stylized-concept. Create the adult Kimi desktop companion. Reference image 1 is identity/color/accessory reference ONLY; reinterpret it as an adult, do not reproduce its chibi proportions, pose sheet or grid. Reference image 2 supplies ONLY the approved rendering style and full-length framing; do not copy DeepSeek's face, blue hair, clothes or whale motifs. Character identity: long pearl-white wavy hair with pale icy-blue tips, violet eyes, white frilled headband, a dark navy ribbon adorned with a silver crescent moon and small musical-note charms; serene friendly adult expression, no horns or cat ears. Original outfit: elegant navy and white long-sleeved dress with moon-and-star embroidery, small white apron panel and bow, knee-length layered skirt, navy tights and matching ankle boots. Premium stylized 3D animated-feature character render matching the approved style reference: mature adult proportions about 6.8 heads tall, elegant dimensional sculpted face, expressive but proportionate eyes, groomed flowing hair locks, soft physically based skin and fabric shading. A clearly adult woman aged 28, not chibi or a toy. One single full-body adult woman from head to shoes, 1024x1536 portrait composition. Relaxed standing three-quarter front view with one hand raised in a small friendly wave and the other resting naturally. All hair, accessories and shoes fully inside the canvas with generous transparent margins. Even soft studio illumination. A genuinely transparent alpha background, no environment, background glow, ground shadow, pedestal, text, labels, watermark, frames, UI, extra persons or held sign. Keep a clear silhouette, normal adult anatomy, tasteful non-suggestive presentation.",
+  "refs": [
+    "src/DesktopPet.App/Assets/Characters/kimi/atlas.png",
+    "src/DesktopPet.App/Assets/Characters/deepseek-3d/portrait.png"
+  ]
+}

@@ -28,6 +28,8 @@
 
 云朵图标使用本项目的 WPF 矢量绘制，没有采用外部图标包。DeepSeek 的两张成年风格 Demo 使用内置 image_gen，以既有 DeepSeek 形象为身份参考生成；未使用真人肖像。网络页面仅作为三维材质和塑形方式参考，没有复制其角色图片。详情与提示词见 `artwork/style-demo/prompts.md`。
 
+1.2 衣橱预览版进一步使用内置 image_gen，为八位角色提供 3D 与真人风格的原装、泳装、婚纱：共 48 张透明立绘，其中 46 张为本轮新增，2 张沿用已确认的 DeepSeek 原装。角色身份参考继承本项目现有 Q 版素材；同一角色的换装使用其原装立绘作为参考。全部为虚构成年形象，未使用真实人物肖像。“真人版”描述画面风格。生成提示词、参考文件与结果记录见 `artwork/wardrobe-expansion/`。
+
 ## SkiaSharp
 
 SkiaSharp 3.119.4（Microsoft / Mono contributors），MIT 许可证。用于读取 PNG/WebP 并向 WPF 提供像素；上游：<https://github.com/mono/SkiaSharp>。其原生 Skia 依赖包含 BSD 等许可，随 NuGet 分发的声明仍适用。

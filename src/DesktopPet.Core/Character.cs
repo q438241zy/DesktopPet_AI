@@ -22,6 +22,8 @@ public sealed class Character
     public string Name { get; set; } = "";
     public string Accent { get; set; } = "#EE9177";
     public string Category { get; set; } = "chibi";
+    public string Family { get; set; } = "";
+    [System.Text.Json.Serialization.JsonIgnore] public string FamilyId => string.IsNullOrEmpty(Family) ? Id : Family;
     public string Description { get; set; } = "";
     public bool Demo { get; set; }
     public Sprite Atlas { get; set; } = new("atlas.png");
@@ -44,7 +46,8 @@ public sealed class Character
         if (c.Version != 1 || !Regex.IsMatch(c.Id ?? "", "^[a-z0-9][a-z0-9-]{0,47}$")
             || string.IsNullOrWhiteSpace(c.Name) || c.Name.Length > 60 || c.Atlas is null
             || c.Motions is null || c.Outfits is null || c.Motions.Count > 40 || c.Outfits.Count > 12
-            || c.Category is not ("chibi" or "3d" or "adult"))
+            || c.Category is not ("chibi" or "3d" or "adult")
+            || (!string.IsNullOrEmpty(c.Family) && !Regex.IsMatch(c.Family, "^[a-z0-9][a-z0-9-]{0,47}$")))
             throw new InvalidDataException("角色 ID、名称或版本无效。");
         if (!Regex.IsMatch(c.Accent ?? "", "^#[0-9a-fA-F]{6}$")) c.Accent = "#EE9177";
         if (c.Outfits.Values.Any(o => o is null || o.Motions is null || string.IsNullOrWhiteSpace(o.Name)))
@@ -91,7 +94,8 @@ public sealed class Character
         if (clip is null) Motions.TryGetValue(fallback, out clip);
         if (clip is not null) return (clip, reducedMotion ? 0 : Motion.Frame(clip, elapsed));
         if (action == "dizzy" && Dizzy is not null) return (Dizzy, 0);
-        if (action == "idle" && clothes?.Idle is { } idle) return (idle, 0);
+        // A portrait-only companion keeps its chosen clothes during greetings and touch feedback.
+        if (clothes?.Idle is { } idle && (action == "idle" || (Atlas.Columns * Atlas.Rows == 1 && Motions.Count == 0))) return (idle, 0);
         var pose = action switch { "sleep" => 3, "dizzy" or "faint" => 4, "sad" => 5, "happy" => 1, "headpat" or "poke" => 2, _ => 0 };
         return (Atlas, Math.Min(pose, Atlas.Columns * Atlas.Rows - 1));
     }

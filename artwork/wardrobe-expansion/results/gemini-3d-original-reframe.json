@@ -1,0 +1,9 @@
+{
+  "key": "gemini-3d/original-reframe",
+  "target": "src/DesktopPet.App/Assets/Characters/gemini-3d/portrait.png",
+  "source": "exec-fb1166a5-311a-4b53-85fb-a1259f886ba8.png",
+  "prompt": "Use case: identity-preserve. Correct framing only in this supplied full-body fictional adult character cutout. Preserve the exact same adult woman, face, hair, accessories, clothing, standing pose and rendering style. Scale the full character down to occupy 90% of the canvas height and recenter vertically. Restore the complete topmost hair strand or ear tip if cut off. Leave at least 5% transparent empty space ABOVE the highest hair/ear accessory and BELOW the shoes; all details fully within the canvas. Keep portrait 1024x1536. Truly transparent alpha background, no glow, no floor, no shadow. Do not redesign the character or clothes.",
+  "refs": [
+    "src/DesktopPet.App/Assets/Characters/gemini-3d/portrait.png"
+  ]
+}

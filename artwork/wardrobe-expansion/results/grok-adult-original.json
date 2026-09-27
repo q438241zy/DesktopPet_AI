@@ -1,0 +1,10 @@
+{
+  "key": "grok-adult/original",
+  "target": "src/DesktopPet.App/Assets/Characters/grok-adult/portrait.png",
+  "source": "exec-8248b011-483e-4a25-8fa7-13b380db7449.png",
+  "prompt": "Use case: stylized-concept. Create the adult Grok desktop companion. Reference image 1 is identity/color/accessory reference ONLY; reinterpret it as an adult, do not reproduce its chibi proportions, pose sheet or grid. Reference image 2 supplies ONLY the approved rendering style and full-length framing; do not copy DeepSeek's face, blue hair, clothes or whale motifs. Character identity: golden blonde long low twin ponytails tied with black ribbons edged in gold, bright blue eyes, a small silver orbit-ring hair clip; confident playful adult expression. Original outfit: tailored black collared dress with gold piping, silver orbit-shaped brooch, long sleeves and a knee-length pleated skirt with white underskirt trim, black tights and ankle boots. High-end realistic 3D digital human matching the approved reference: a clearly adult fictional woman aged about 28, approximately 7.3 heads tall, natural adult facial anatomy and realistically sized eyes, subtle skin texture, individual hair strands, plausible fabric stitching and folds. Original fictional face, not a real person's likeness. Natural anatomy and hands, cinematic realism. One single full-body adult woman from head to shoes, 1024x1536 portrait composition. Relaxed standing three-quarter front view with one hand raised in a small friendly wave and the other resting naturally. All hair, accessories and shoes fully inside the canvas with generous transparent margins. Even soft studio illumination. A genuinely transparent alpha background, no environment, background glow, ground shadow, pedestal, text, labels, watermark, frames, UI, extra persons or held sign. Keep a clear silhouette, normal adult anatomy, tasteful non-suggestive presentation.",
+  "refs": [
+    "src/DesktopPet.App/Assets/Characters/grok/atlas.png",
+    "src/DesktopPet.App/Assets/Characters/deepseek-adult/portrait.png"
+  ]
+}

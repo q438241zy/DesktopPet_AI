@@ -44,11 +44,24 @@ internal static class UiVerification
             var timeout = System.Diagnostics.Stopwatch.StartNew();
             while (!condition()) { if (timeout.Elapsed > TimeSpan.FromSeconds(4)) throw new TimeoutException($"WPF movement did not advance: {context}; selected={pet.State.Character}/{pet.State.Outfit}; left={pet.Left}; reduced={pet.State.ReducedMotion}"); await Task.Delay(40); }
         }
-        Require(pet.Catalog.Characters.Count == 10 && pet.Catalog.Characters.Count(c => c.Category == "chibi") == 8, "eight original AI characters plus two style demos");
+        Require(pet.Catalog.Characters.Count == 24 && new[] { "chibi", "3d", "adult" }.All(style => pet.Catalog.Characters.Count(c => c.Category == style) == 8), "eight AI companions in each of three styles");
         Require(!pet.Catalog.Characters.Any(c => c.Id == "umaru") && !Directory.Exists(Path.Combine(AppContext.BaseDirectory, "Assets", "Characters", "umaru")), "Umaru assets and catalog entry removed");
         Require(pet.Catalog.Find("umaru").Id == "whale", "old Umaru selection resolves to DeepSeek");
         foreach (var c in pet.Catalog.Characters.ToArray())
-        { Click("分类 " + CloudTheme.CategoryName(c.Category)); Click("选择角色 " + c.Name); Require(pet.State.Character == c.Id, "select " + c.Id); }
+        {
+            Click("分类 " + CloudTheme.CategoryName(c.Category)); Click("选择角色 " + c.Name); Require(pet.State.Character == c.Id, "select " + c.Id);
+            if (c.Category == "chibi") continue;
+            foreach (var (outfit, label) in new[] { ("original", "原装"), ("swim", "泳装"), ("wedding", "婚纱") })
+            {
+                Click("选择服装 " + label);
+                var expected = pet.Art.Frame(c, outfit == "original" ? c.Atlas : c.Outfits[outfit].Idle!, 0);
+                foreach (string action in new[] { "chat", "headpat" })
+                {
+                    pet.Play(action);
+                    Require(pet.State.Outfit == outfit && ReferenceEquals(Find<Image>(pet).Single().Source, expected), $"{c.Id}/{outfit}: live {action} retains selected clothes");
+                }
+            }
+        }
         Click("分类 Q版");
         Click("选择角色 GPT");
         Click("选择服装 婚纱");
@@ -89,7 +102,7 @@ internal static class UiVerification
         Require(((ScaleTransform)Find<Image>(pet).Single().RenderTransform).ScaleX == -1, "screen edge reverses both travel and facing");
         pet.Play("idle");
         pet.SelectCharacter("deepseek-adult"); double beforeStatic = pet.Left; pet.StartWalk(false, -1); await Task.Delay(250);
-        Require(!pet.CanWalk && pet.Left == beforeStatic, "static style demo never pretends to have a walking animation");
+        Require(!pet.CanWalk && pet.Left == beforeStatic, "static portrait never pretends to have a walking animation");
         string source = Path.Combine(output, "storyboard-fixture"); Directory.CreateDirectory(source);
         var bitmap = pet.Art.Frame(pet.Character, pet.Character.Atlas, 0);
         void Export(string name)
@@ -103,10 +116,39 @@ internal static class UiVerification
         Require(portrait.Atlas.Rows == 1 && portrait.Category == "adult", "single-image import retains its adult category and a single cell");
         pet.Catalog.Characters.Remove(imported); pet.Catalog.Characters.Remove(portrait);
         pet.SelectCharacter("whale"); pet.State.Outfits["whale"] = "original"; pet.ApplySettings(); Click("我的伙伴"); Click("分类 Q版"); await Capture("pet-home");
+        Click("风格预览");
+        foreach (string family in Catalog.BuiltInFamilies)
+        {
+            Click("对照角色 " + pet.Catalog.Find(family).Name);
+            foreach (var (outfit, label) in new[] { ("original", "原装"), ("swim", "泳装"), ("wedding", "婚纱") })
+            {
+                Click("对照服装 " + label);
+                foreach (string style in new[] { "chibi", "3d", "adult" })
+                {
+                    string id = Catalog.VariantId(family, style);
+                    var c = pet.Catalog.Find(id);
+                    var expected = pet.Art.Frame(c, outfit == "original" ? c.Atlas : c.Outfits[outfit].Idle!, 0);
+                    Require(Find<Image>(window).Any(image => ReferenceEquals(image.Source, expected)), $"gallery previews {id}/{outfit}");
+                    Click("试看 " + CloudTheme.CategoryName(style));
+                    Require(pet.State.Character == id && pet.State.Outfit == outfit, $"gallery applies {id}/{outfit}");
+                }
+                await Capture($"styles-{family}-{outfit}");
+            }
+        }
+        pet.SelectCharacter("gpt-3d"); pet.State.Outfits["gpt-3d"] = "wedding"; pet.ApplySettings();
+        pet.SelectCharacter("claude-adult"); pet.State.Outfits["claude-adult"] = "swim"; pet.ApplySettings();
+        pet.SelectCharacter("gpt-3d");
+        Require(pet.State.Outfit == "wedding", "3D outfit is restored after switching to a realistic companion");
+        pet.SelectCharacter("claude-adult");
+        Require(pet.State.Outfit == "swim", "realistic outfit is restored after switching back from 3D");
+        Click("我的伙伴"); Click("分类 3D版"); await Capture("roster-3d");
+        Click("分类 真人版"); await Capture("roster-adult");
+        pet.SelectCharacter("whale"); pet.State.Outfits["whale"] = "original"; pet.ApplySettings();
         Click("风格预览"); await Capture("deepseek-styles");
         Click("陪伴日常"); await Capture("cloud-life"); Click("角色工坊"); await Capture("cloud-studio"); Click("桌面偏好"); await Capture("cloud-settings");
         pet.Save(); var restored = new StateStore(output).Load();
         Require(restored.Character == "whale" && restored.Outfit == "original" && restored.CheckIns.Count == total, "state reload preserves selection and progress");
+        Require(restored.Outfits["gpt-3d"] == "wedding" && restored.Outfits["claude-adult"] == "swim", "state reload preserves both new styles' outfit selections");
         File.WriteAllLines(Path.Combine(output, "ui-check.txt"), checks.Append($"{checks.Count} WPF integration checks passed."));
         window.Close();
     }

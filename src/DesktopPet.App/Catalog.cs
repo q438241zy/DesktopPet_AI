@@ -5,6 +5,8 @@ namespace DesktopPet.App;
 
 public sealed class Catalog
 {
+    public static readonly string[] BuiltInFamilies = ["whale", "gpt", "claude", "gemini", "grok", "qwen", "zhipu", "kimi"];
+    public static string VariantId(string family, string category) => category == "chibi" ? family : $"{(family == "whale" ? "deepseek" : family)}-{category}";
     public List<Character> Characters { get; } = [];
     public List<string> Warnings { get; } = [];
     private readonly string customRoot;
@@ -12,7 +14,7 @@ public sealed class Catalog
     {
         customRoot = Path.Combine(dataRoot, "Characters");
         string builtins = Path.Combine(AppContext.BaseDirectory, "Assets", "Characters");
-        string[] ids = ["whale", "gpt", "claude", "gemini", "grok", "qwen", "zhipu", "kimi", "deepseek-3d", "deepseek-adult"];
+        var ids = new[] { "chibi", "3d", "adult" }.SelectMany(category => BuiltInFamilies.Select(family => VariantId(family, category)));
         foreach (var id in ids) Characters.Add(Character.Load(Path.Combine(builtins, id)));
         if (Directory.Exists(customRoot))
             foreach (string folder in Directory.EnumerateDirectories(customRoot))

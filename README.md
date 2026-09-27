@@ -4,7 +4,7 @@
 
 ![云朵伙伴：角色分类与更衣室](docs/images/pet-home.png)
 
-由 **QQ奶茶大神** 的 UsageDashboard_AI 与 Character_Generator 整合而来，互动和八位 AI 角色的 Q 版画稿来自 DS Go。沿用原生 WPF 透明窗口、托盘与快捷键；取消举看板、余额采集与平台登录。当前分支为 1.1 云朵预览版。
+由 **QQ奶茶大神** 的 UsageDashboard_AI 与 Character_Generator 整合而来，互动和八位 AI 角色的 Q 版画稿来自 DS Go。沿用原生 WPF 透明窗口、托盘与快捷键；取消举看板、余额采集与平台登录。当前分支为 1.2 衣橱预览版。
 
 ## 开始使用
 
@@ -31,11 +31,13 @@
 
 Q版包含 GPT、Claude、Gemini、Grok、DeepSeek 鲸鱼娘、Qwen、GLM、Kimi。小埋已从角色目录、经典服装与运行素材中移除；旧存档曾选择小埋时，自动切换到 DeepSeek，保留打卡进度。
 
-角色分为 Q版、3D版、成人版。DeepSeek 先提供两张成年风格 Demo：3D版为风格化动画角色，成人版为写实数字人。在“风格预览”中可并排比较并放到桌面试看。两张 Demo 是透明静态立绘，不是实时 3D 模型；没有制作行走动画，因此不会用静态图滑行。风格确认后再扩展其他角色与完整动作。
+八位角色均提供 Q版、3D版、真人版，每种风格均有原装、泳装、婚纱，共 24 个角色条目、72 种外观组合。“我的伙伴”按画风选择角色并换装；“风格预览”按角色和服饰并排比较三种画风，再一键放到桌面。每个角色条目独立记住服装选择。
 
-![DeepSeek 三种风格 Demo](docs/images/deepseek-styles.png)
+3D版为成年比例的风格化动画形象，真人版为成年比例的写实数字人。它们使用 48 张透明静态立绘，支持换装、拖动与互动入口，打招呼、摸头和休息时保持所选服饰。当前不是实时 3D 模型，尚未制作逐帧动作，因此不会用静态图滑行。
 
-新图使用内置 image_gen，身份参考来自本项目的 DeepSeek 图集。网络参考、完整生成提示词见 [风格 Demo 记录](artwork/style-demo/prompts.md)。
+![DeepSeek 三种风格换装对照](docs/images/deepseek-wedding.png)
+
+新图使用内置 image_gen，沿用八位 Q 版角色的身份特征和已确认的 DeepSeek 两种画风；换装以各自原装立绘为参考。本轮新增 46 张图，保留两张已确认的 DeepSeek 原装。完整提示词与素材位置见 [全角色衣橱记录](artwork/wardrobe-expansion/prompts.md)；最初网络风格参考见 [DeepSeek Demo 记录](artwork/style-demo/prompts.md)。
 
 八位 Q 版角色有六姿势图集、独立坐姿晕眩图和十七组动作，可选择原装、泳装、婚纱，各自记住服装选择。婚纱有独立走路与摸头动画；缺少服装专用画稿的动作使用原装动画，结束后恢复服装。行走朝向随移动方向翻转，帧底部对齐桌面工作区，走到边缘后转身。移动速度按动作周期计算，不额外叠加上下浮动。正餐、扑抱、戳脸、挠痒和踢积木沿用 DS Go 当前的动作回退规则，不声称已有尚未绘制的新动画。
 
@@ -80,6 +82,7 @@ src/DesktopPet.App/     WPF 桌面窗口、云朵图标与设置、角色工坊
 skills/                原角色生成器 Skill
 artwork/sources/        用户指定目录的 16 张婚纱动作 PNG 原稿
 artwork/style-demo/     DeepSeek 风格参考与生成提示词
+artwork/wardrobe-expansion/  八位角色 3D / 真人版完整换装提示词与来源
 tests/                 独立行为检查
 docs/                  角色包规范、迁移来源、测试记录
 ```

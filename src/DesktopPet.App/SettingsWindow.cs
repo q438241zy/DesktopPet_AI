@@ -17,6 +17,8 @@ public sealed class SettingsWindow : Window
     private TextBlock status = new();
     private string page = "partners";
     private string category;
+    private string compareFamily = "whale";
+    private string compareOutfit = "original";
     private string importCategory = "chibi";
     private readonly Dictionary<string, Button> navigation = [];
     private readonly Brush muted = CloudTheme.Muted;
@@ -48,7 +50,7 @@ public sealed class SettingsWindow : Window
         var nav = new StackPanel(); sidebar.Children.Add(nav);
         foreach (var (id, label, icon) in new[] { ("partners", "我的伙伴", "heart"), ("styles", "风格预览", "cube"), ("life", "陪伴日常", "sun"), ("studio", "角色工坊", "brush"), ("preferences", "桌面偏好", "settings") })
         {
-            var b = MakeButton(label, () => { page = id; Rebuild(); }, icon); b.HorizontalContentAlignment = HorizontalAlignment.Left; b.Padding = new Thickness(10, 7, 6, 7); b.Margin = new Thickness(0, 0, 0, 10); navigation[id] = b; nav.Children.Add(b);
+            var b = MakeButton(label, () => Navigate(id), icon); b.HorizontalContentAlignment = HorizontalAlignment.Left; b.Padding = new Thickness(10, 7, 6, 7); b.Margin = new Thickness(0, 0, 0, 10); navigation[id] = b; nav.Children.Add(b);
         }
         var scroll = new ScrollViewer { Content = content, VerticalScrollBarVisibility = ScrollBarVisibility.Auto, HorizontalScrollBarVisibility = ScrollBarVisibility.Disabled, Margin = new Thickness(28, 15, 26, 20) };
         Grid.SetColumn(scroll, 1); layout.Children.Add(scroll); Rebuild();
@@ -70,6 +72,15 @@ public sealed class SettingsWindow : Window
         content.Children.Add(Text(eyebrow, 9, true)); content.Children.Add(new TextBlock { Text = title, FontSize = 27, FontWeight = FontWeights.SemiBold, Margin = new Thickness(0, 0, 0, 8) }); content.Children.Add(Text(description, 12, true));
     }
     private Border Card(UIElement child, Brush? background = null) => new() { Background = background ?? Brushes.White, BorderBrush = CloudTheme.Line, BorderThickness = new Thickness(1), CornerRadius = new CornerRadius(24), Padding = new Thickness(20), Margin = new Thickness(0, 10, 0, 16), Child = child };
+    private void Navigate(string destination)
+    {
+        if (destination == "styles" && page != "styles")
+        {
+            compareFamily = Catalog.BuiltInFamilies.Contains(pet.Character.FamilyId) ? pet.Character.FamilyId : "whale";
+            compareOutfit = new[] { "original", "swim", "wedding" }.Contains(pet.State.Outfit) ? pet.State.Outfit : "original";
+        }
+        page = destination; Rebuild();
+    }
     private void Rebuild()
     {
         content.Children.Clear();
@@ -88,7 +99,7 @@ public sealed class SettingsWindow : Window
         var hero = new Grid(); hero.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(236) }); hero.ColumnDefinitions.Add(new ColumnDefinition());
         hero.Children.Add(Stage(pet.Character, 204, pet.State.Outfit));
         var intro = new StackPanel { VerticalAlignment = VerticalAlignment.Center, Margin = new Thickness(18, 0, 0, 0) }; Grid.SetColumn(intro, 1); hero.Children.Add(intro);
-        var badges = new WrapPanel(); badges.Children.Add(CloudTheme.Badge("正在陪你")); badges.Children.Add(CloudTheme.Badge(CloudTheme.CategoryName(pet.Character.Category))); if (pet.Character.Demo) badges.Children.Add(CloudTheme.Badge("静态 Demo")); intro.Children.Add(badges);
+        var badges = new WrapPanel(); badges.Children.Add(CloudTheme.Badge("正在陪你")); badges.Children.Add(CloudTheme.Badge(CloudTheme.CategoryName(pet.Character.Category))); if (pet.Character.Demo) badges.Children.Add(CloudTheme.Badge("静态立绘")); intro.Children.Add(badges);
         var name = Text(pet.Character.Name, 25); name.FontWeight = FontWeights.SemiBold; name.Margin = new Thickness(0, 10, 0, 4); intro.Children.Add(name);
         intro.Children.Add(Text(pet.Character.Demo ? pet.Character.Description : $"{pet.State.BondName}  ·  相伴 {pet.State.CheckIns.Count} 天", 12, true));
         if (pet.Character.Outfits.Count > 0)
@@ -104,7 +115,7 @@ public sealed class SettingsWindow : Window
         else intro.Children.Add(Text("先看外观与比例，完整动作等风格确定后再制作。", 11, true));
         var heroCard = Card(hero, CloudTheme.Sky()); heroCard.Padding = new Thickness(15, 10, 18, 10); content.Children.Add(heroCard);
         var categoryRow = new DockPanel { Margin = new Thickness(0, 0, 0, 11) };
-        var compare = MakeButton("三种风格对照", () => { page = "styles"; Rebuild(); }); compare.Background = Brushes.Transparent; compare.BorderThickness = new Thickness(0); compare.FontSize = 11; DockPanel.SetDock(compare, Dock.Right); categoryRow.Children.Add(compare);
+        var compare = MakeButton("三种风格对照", () => Navigate("styles")); compare.Background = Brushes.Transparent; compare.BorderThickness = new Thickness(0); compare.FontSize = 11; DockPanel.SetDock(compare, Dock.Right); categoryRow.Children.Add(compare);
         var filters = new StackPanel { Orientation = Orientation.Horizontal }; categoryRow.Children.Add(filters);
         foreach (var (id, glyph) in new[] { ("chibi", "heart"), ("3d", "cube"), ("adult", "person") })
         {
@@ -117,7 +128,7 @@ public sealed class SettingsWindow : Window
         {
             bool selected = character.Id == pet.State.Character;
             var tile = new Grid(); tile.RowDefinitions.Add(new RowDefinition()); tile.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
-            tile.Children.Add(Stage(character, 112));
+            tile.Children.Add(Stage(character, 112, pet.State.Outfits.GetValueOrDefault(character.Id, "original")));
             var label = new StackPanel { Orientation = Orientation.Horizontal, HorizontalAlignment = HorizontalAlignment.Center }; label.Children.Add(new TextBlock { Text = character.Name, FontSize = 12, FontWeight = selected ? FontWeights.SemiBold : FontWeights.Normal });
             if (selected) label.Children.Add(new TextBlock { Text = "  ✓", Foreground = CloudTheme.Blue }); Grid.SetRow(label, 1); tile.Children.Add(label);
             var b = MakeButton("选择角色 " + character.Name, () => { pet.SelectCharacter(character.Id); Rebuild(); }); b.Content = tile; b.Height = 154; b.Padding = new Thickness(6, 5, 6, 12); b.Margin = new Thickness(0, 0, 10, 10); b.HorizontalContentAlignment = HorizontalAlignment.Stretch;
@@ -125,32 +136,50 @@ public sealed class SettingsWindow : Window
             tiles.Children.Add(b);
         }
         content.Children.Add(tiles);
-        if (category != "chibi") content.Children.Add(Text("DeepSeek 风格 Demo · 当前为静态立绘，可放到桌面试看。", 11, true));
+        if (category != "chibi") content.Children.Add(Text("八位伙伴均有原装、泳装和婚纱。当前为静态立绘，可换装与拖动，逐帧动作尚未制作。", 11, true));
         else content.Children.Add(Text("左键摸摸  ·  拖动抱起  ·  右键打开云朵互动菜单", 11, true));
     }
 
     private void Styles()
     {
-        Heading("DEEPSEEK / STYLE EXPLORATION", "同一个 DeepSeek，三种相遇。", "保留蓝发、鲸鱼元素和蓝白服装，先比较身体比例、面部与材质。");
-        var grid = new System.Windows.Controls.Primitives.UniformGrid { Columns = 3 };
-        foreach (var (id, title, subtitle, detail) in new[] {
-            ("whale", "Q版", "小比例 · 二次元", "现有画稿，保留完整互动动作。"),
-            ("deepseek-3d", "3D版", "成年比例 · 3D 动画", "立体塑形、柔和材质与动画表情。"),
-            ("deepseek-adult", "成人版", "成年比例 · 写实数字人", "自然五官、发丝与真实布料质感。") })
+        Heading("EIGHT FRIENDS / THREE STYLES", "三种风格，一起换装。", "八位伙伴，每种风格都有原装、泳装和婚纱。选好喜欢的组合，再放到桌面。");
+        var families = new WrapPanel { Margin = new Thickness(0, 3, 0, 2) };
+        foreach (string family in Catalog.BuiltInFamilies)
         {
+            var b = MakeButton(pet.Catalog.Find(family).Name, () => { compareFamily = family; Rebuild(); });
+            b.FontSize = 12; b.Padding = new Thickness(12, 6, 12, 6); b.Margin = new Thickness(0, 0, 7, 7);
+            b.Background = compareFamily == family ? CloudTheme.Pale : Brushes.White;
+            b.BorderBrush = compareFamily == family ? CloudTheme.Brush("#8EB9E0") : CloudTheme.Line;
+            AutomationProperties.SetName(b, "对照角色 " + pet.Catalog.Find(family).Name); families.Children.Add(b);
+        }
+        content.Children.Add(families);
+        var wardrobe = new WrapPanel { Margin = new Thickness(0, 2, 0, 4) };
+        foreach (var (id, label) in new[] { ("original", "原装"), ("swim", "泳装"), ("wedding", "婚纱") })
+        {
+            var b = MakeButton(label, () => { compareOutfit = id; Rebuild(); }, "dress");
+            b.Padding = new Thickness(10, 2, 13, 2); b.Margin = new Thickness(0, 0, 8, 2); b.Background = compareOutfit == id ? CloudTheme.Pale : Brushes.White;
+            AutomationProperties.SetName(b, "对照服装 " + label); wardrobe.Children.Add(b);
+        }
+        content.Children.Add(wardrobe);
+        var grid = new System.Windows.Controls.Primitives.UniformGrid { Columns = 3 };
+        foreach (var (style, subtitle, detail) in new[] {
+            ("chibi", "小比例 · 二次元", "现有逐帧动作与服饰。"),
+            ("3d", "成年比例 · 3D 动画风格", "柔和塑形、立体发丝与布料。"),
+            ("adult", "成年比例 · 写实真人风格", "自然五官、发丝与真实材质。") })
+        {
+            string id = Catalog.VariantId(compareFamily, style), title = CloudTheme.CategoryName(style);
             var character = pet.Catalog.Find(id); var panel = new StackPanel();
             var badge = CloudTheme.Badge(title); badge.HorizontalAlignment = HorizontalAlignment.Left; panel.Children.Add(badge);
-            panel.Children.Add(Stage(character, 338));
+            panel.Children.Add(Stage(character, 284, compareOutfit));
             var caption = Text(subtitle, 14); caption.FontWeight = FontWeights.SemiBold; panel.Children.Add(caption); panel.Children.Add(Text(detail, 11, true));
-            var button = MakeButton(pet.State.Character == id ? "正在桌面陪你" : "放到桌面试看", () => { pet.SelectCharacter(id); category = character.Category; Rebuild(); }, "heart"); button.Margin = new Thickness(0); button.FontSize = 12;
+            bool selected = pet.State.Character == id && pet.State.Outfit == compareOutfit;
+            var button = MakeButton(selected ? "正在桌面陪你" : "放到桌面陪你", () => { pet.State.Outfits[id] = compareOutfit; pet.SelectCharacter(id); category = character.Category; Rebuild(); }, "heart"); button.Margin = new Thickness(0); button.FontSize = 12;
             AutomationProperties.SetName(button, "试看 " + title); panel.Children.Add(button);
-            var card = Card(panel, CloudTheme.Sky(id == "deepseek-adult" ? "#EEF1F9" : "#EBF5FF", "#FFFFFF")); card.Margin = new Thickness(0, 6, 12, 16); card.Padding = new Thickness(15); grid.Children.Add(card);
+            var card = Card(panel, CloudTheme.Sky(style == "adult" ? "#EEF1F9" : "#EBF5FF", "#FFFFFF")); card.Margin = new Thickness(0, 6, 12, 16); card.Padding = new Thickness(15); grid.Children.Add(card);
         }
         content.Children.Add(grid);
-        content.Children.Add(Text("两张成年风格图是外观 Demo；当前用透明图片显示，不是实时 3D 模型，也尚未制作行走动画。", 12, true));
-        var refs = new WrapPanel(); refs.Children.Add(MakeButton("参考：写实数字人", () => OpenUrl("https://www.metahuman.com/en-US/create"))); refs.Children.Add(MakeButton("参考：3D 表情与材质", () => OpenUrl("https://www.reallusion.com/character-creator/hd-animation.html"))); content.Children.Add(refs);
+        content.Children.Add(Text("3D版与真人版目前为透明立绘；换装会保持角色身份，互动时也会保持所选服饰。完整逐帧动作尚未制作。", 12, true));
     }
-    private static void OpenUrl(string url) => Process.Start(new ProcessStartInfo(url) { UseShellExecute = true });
     public void RefreshStatus()
     {
         var today = DateOnly.FromDateTime(DateTime.Now);

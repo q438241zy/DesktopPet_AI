@@ -1,0 +1,10 @@
+{
+  "key": "claude-adult/original",
+  "target": "src/DesktopPet.App/Assets/Characters/claude-adult/portrait.png",
+  "source": "exec-43316be4-39dd-4fff-8049-10842ea3c563.png",
+  "prompt": "Use case: stylized-concept. Create the adult Claude desktop companion. Reference image 1 is identity/color/accessory reference ONLY; reinterpret it as an adult, do not reproduce its chibi proportions, pose sheet or grid. Reference image 2 supplies ONLY the approved rendering style and full-length framing; do not copy DeepSeek's face, blue hair, clothes or whale motifs. Character identity: very long warm auburn-orange wavy hair, amber-brown eyes, fine round bronze glasses, an orange daisy ornament with a dark brown ribbon and tiny dangling earring; thoughtful warm expression. Original outfit: ivory long-sleeved blouse with an orange floral bow brooch, elegant warm-brown tailored pinafore dress with pleated knee-length skirt and cream trim, brown tights and brown ankle boots. High-end realistic 3D digital human matching the approved reference: a clearly adult fictional woman aged about 28, approximately 7.3 heads tall, natural adult facial anatomy and realistically sized eyes, subtle skin texture, individual hair strands, plausible fabric stitching and folds. Original fictional face, not a real person's likeness. Natural anatomy and hands, cinematic realism. One single full-body adult woman from head to shoes, 1024x1536 portrait composition. Relaxed standing three-quarter front view with one hand raised in a small friendly wave and the other resting naturally. All hair, accessories and shoes fully inside the canvas with generous transparent margins. Even soft studio illumination. A genuinely transparent alpha background, no environment, background glow, ground shadow, pedestal, text, labels, watermark, frames, UI, extra persons or held sign. Keep a clear silhouette, normal adult anatomy, tasteful non-suggestive presentation.",
+  "refs": [
+    "src/DesktopPet.App/Assets/Characters/claude/atlas.png",
+    "src/DesktopPet.App/Assets/Characters/deepseek-adult/portrait.png"
+  ]
+}

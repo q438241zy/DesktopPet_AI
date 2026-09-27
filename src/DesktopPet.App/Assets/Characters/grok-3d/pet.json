@@ -1,0 +1,36 @@
+{
+  "version": 1,
+  "id": "grok-3d",
+  "name": "Grok · 3D",
+  "category": "3d",
+  "family": "grok",
+  "description": "成年比例 · 3D 动画质感",
+  "demo": true,
+  "accent": "#A0A4B8",
+  "atlas": {
+    "file": "portrait.png",
+    "columns": 1,
+    "rows": 1
+  },
+  "motions": {},
+  "outfits": {
+    "swim": {
+      "name": "泳装",
+      "idle": {
+        "file": "outfits/swim.png",
+        "columns": 1,
+        "rows": 1
+      },
+      "motions": {}
+    },
+    "wedding": {
+      "name": "婚纱",
+      "idle": {
+        "file": "outfits/wedding.png",
+        "columns": 1,
+        "rows": 1
+      },
+      "motions": {}
+    }
+  }
+}

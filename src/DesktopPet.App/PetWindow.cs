@@ -309,7 +309,7 @@ public sealed class PetWindow : Window
         if (State.ReducedMotion) { Say("已开启减少动态效果。", 2500); return; }
         if (!State.CheckedIn(day)) { Say("先点我打卡吃早饭，再一起散步吧。", 3000); return; }
         var clip = Character.Resolve(State.Outfit, "walk", 0).Sprite;
-        if (!CanWalk || clip.Columns * clip.Rows < 2) { Say("这套外观是静态 Demo，行走动作还在等你确认风格。", 3500); return; }
+        if (!CanWalk || clip.Columns * clip.Rows < 2) { Say("这套外观目前是静态立绘，逐帧行走动作尚未制作。", 3500); return; }
         ClearTransient(); if (resting) RestorePet();
         Top = WorkArea.Bottom - FloorY; Constrain(); roaming = true; direction = initialDirection ?? (Random.Shared.Next(2) == 0 ? -1 : 1);
         roamDeadline = Now + (explore ? 9000 : 15000); SetAction("walk"); lastInteraction = Now;

@@ -1,0 +1,10 @@
+{
+  "key": "gemini-3d/original",
+  "target": "src/DesktopPet.App/Assets/Characters/gemini-3d/portrait.png",
+  "source": "exec-487ba2bb-fb32-4b3c-ad91-ac615009e3f2.png",
+  "prompt": "Use case: stylized-concept. Create the adult Gemini desktop companion. Reference image 1 is identity/color/accessory reference ONLY; reinterpret it as an adult, do not reproduce its chibi proportions, pose sheet or grid. Reference image 2 supplies ONLY the approved rendering style and full-length framing; do not copy DeepSeek's face, blue hair, clothes or whale motifs. Character identity: long blue-violet wavy hair fading to pink-purple and cyan at the ends, small twin side buns, violet cat-ear accessories and a soft violet cat tail, one magenta eye and one golden eye, two overlapping gold-edged purple star hair ornaments; lively adult expression. Original outfit: elegant dark-indigo and white long-sleeved dress with gold constellation embroidery and a star brooch, knee-length layered skirt, navy tights and indigo ankle boots. Premium stylized 3D animated-feature character render matching the approved style reference: mature adult proportions about 6.8 heads tall, elegant dimensional sculpted face, expressive but proportionate eyes, groomed flowing hair locks, soft physically based skin and fabric shading. A clearly adult woman aged 28, not chibi or a toy. One single full-body adult woman from head to shoes, 1024x1536 portrait composition. Relaxed standing three-quarter front view with one hand raised in a small friendly wave and the other resting naturally. All hair, accessories and shoes fully inside the canvas with generous transparent margins. Even soft studio illumination. A genuinely transparent alpha background, no environment, background glow, ground shadow, pedestal, text, labels, watermark, frames, UI, extra persons or held sign. Keep a clear silhouette, normal adult anatomy, tasteful non-suggestive presentation.",
+  "refs": [
+    "src/DesktopPet.App/Assets/Characters/gemini/atlas.png",
+    "src/DesktopPet.App/Assets/Characters/deepseek-3d/portrait.png"
+  ]
+}

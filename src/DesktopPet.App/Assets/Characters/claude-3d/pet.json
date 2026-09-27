@@ -1,0 +1,36 @@
+{
+  "version": 1,
+  "id": "claude-3d",
+  "name": "Claude · 3D",
+  "category": "3d",
+  "family": "claude",
+  "description": "成年比例 · 3D 动画质感",
+  "demo": true,
+  "accent": "#D59477",
+  "atlas": {
+    "file": "portrait.png",
+    "columns": 1,
+    "rows": 1
+  },
+  "motions": {},
+  "outfits": {
+    "swim": {
+      "name": "泳装",
+      "idle": {
+        "file": "outfits/swim.png",
+        "columns": 1,
+        "rows": 1
+      },
+      "motions": {}
+    },
+    "wedding": {
+      "name": "婚纱",
+      "idle": {
+        "file": "outfits/wedding.png",
+        "columns": 1,
+        "rows": 1
+      },
+      "motions": {}
+    }
+  }
+}

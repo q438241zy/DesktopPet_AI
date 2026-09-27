@@ -8,4 +8,7 @@ Copy-Item -LiteralPath "$projectRoot/docs" -Destination "$projectRoot/Release/$R
 $styleDocs = Join-Path $projectRoot "Release/$Runtime/artwork/style-demo"
 New-Item -ItemType Directory -Path $styleDocs -Force | Out-Null
 Copy-Item -LiteralPath "$projectRoot/artwork/style-demo/prompts.md" -Destination $styleDocs
+$wardrobeDocs = Join-Path $projectRoot "Release/$Runtime/artwork/wardrobe-expansion"
+New-Item -ItemType Directory -Path $wardrobeDocs -Force | Out-Null
+Copy-Item -LiteralPath "$projectRoot/artwork/wardrobe-expansion/prompts.md" -Destination $wardrobeDocs
 Write-Output "Ready: $projectRoot/Release/$Runtime/DesktopPet.exe"

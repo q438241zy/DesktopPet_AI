@@ -1,0 +1,36 @@
+{
+  "version": 1,
+  "id": "gpt-adult",
+  "name": "GPT · 真人",
+  "category": "adult",
+  "family": "gpt",
+  "description": "成年比例 · 写实真人质感",
+  "demo": true,
+  "accent": "#A895E8",
+  "atlas": {
+    "file": "portrait.png",
+    "columns": 1,
+    "rows": 1
+  },
+  "motions": {},
+  "outfits": {
+    "swim": {
+      "name": "泳装",
+      "idle": {
+        "file": "outfits/swim.png",
+        "columns": 1,
+        "rows": 1
+      },
+      "motions": {}
+    },
+    "wedding": {
+      "name": "婚纱",
+      "idle": {
+        "file": "outfits/wedding.png",
+        "columns": 1,
+        "rows": 1
+      },
+      "motions": {}
+    }
+  }
+}

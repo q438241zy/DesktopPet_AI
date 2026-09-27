@@ -1,12 +1,36 @@
 {
   "version": 1,
   "id": "deepseek-adult",
-  "name": "DeepSeek · 成人",
+  "name": "DeepSeek · 真人",
   "category": "adult",
-  "description": "成年比例 · 写实数字人质感",
+  "family": "whale",
+  "description": "成年比例 · 写实真人质感",
   "demo": true,
-  "accent": "#7C9FB8",
-  "atlas": { "file": "portrait.png", "columns": 1, "rows": 1 },
+  "accent": "#74B3E6",
+  "atlas": {
+    "file": "portrait.png",
+    "columns": 1,
+    "rows": 1
+  },
   "motions": {},
-  "outfits": {}
+  "outfits": {
+    "swim": {
+      "name": "泳装",
+      "idle": {
+        "file": "outfits/swim.png",
+        "columns": 1,
+        "rows": 1
+      },
+      "motions": {}
+    },
+    "wedding": {
+      "name": "婚纱",
+      "idle": {
+        "file": "outfits/wedding.png",
+        "columns": 1,
+        "rows": 1
+      },
+      "motions": {}
+    }
+  }
 }

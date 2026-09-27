@@ -17,7 +17,7 @@ internal static class CloudTheme
     { var brush = new LinearGradientBrush((Color)ColorConverter.ConvertFromString(top), (Color)ColorConverter.ConvertFromString(bottom), 90); brush.Freeze(); return brush; }
     public static DropShadowEffect Shadow(double depth = 6, double opacity = .1) => new() { Color = Color.FromRgb(105, 145, 185), BlurRadius = 24, ShadowDepth = depth, Opacity = opacity };
     public static CloudIcon Icon(string glyph, double size = 32) => new() { Glyph = glyph, Width = size, Height = size };
-    public static string CategoryName(string category) => category switch { "3d" => "3D版", "adult" => "成人版", _ => "Q版" };
+    public static string CategoryName(string category) => category switch { "3d" => "3D版", "adult" => "真人版", _ => "Q版" };
     public static Border Badge(string text, Brush? background = null) => new() { Background = background ?? Pale, CornerRadius = new CornerRadius(11), Padding = new Thickness(10, 4, 10, 4), Margin = new Thickness(0, 0, 7, 0), Child = new TextBlock { Text = text, Foreground = Blue, FontSize = 11 } };
 
     public static ImageSource AppIcon

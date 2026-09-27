@@ -36,6 +36,17 @@ Test("only available outfit motions replace the original animation", () =>
     Equal(3, pet.Resolve("wedding", "sleep", 0).Frame);
     Equal(0, pet.Resolve("wedding", "walk", 700, true).Frame);
 });
+Test("portrait wardrobes stay selected through greetings and touch interactions", () =>
+{
+    var pet = new Character { Id = "claude-3d", Family = "claude", Atlas = new("portrait.png", 1, 1),
+        Outfits = new() { ["swim"] = new() { Idle = new("swim.png", 1, 1) }, ["wedding"] = new() { Idle = new("wedding.png", 1, 1) } } };
+    Equal("claude", pet.FamilyId);
+    foreach (string outfit in new[] { "swim", "wedding" })
+        foreach (string action in new[] { "idle", "chat", "headpat", "sleep", "pickup", "happy", "farewell" })
+            Equal(outfit + ".png", pet.Resolve(outfit, action, 800).Sprite.File);
+    Equal("portrait.png", pet.Resolve("original", "headpat", 800).Sprite.File);
+    Equal("legacy", new Character { Id = "legacy" }.FamilyId);
+});
 Test("six-frame animation wraps at exact clip duration", () =>
 {
     var clip = new Sprite("a.webp", 3, 2, [100, 200, 300, 400, 500, 600]);

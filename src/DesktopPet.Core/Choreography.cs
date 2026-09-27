@@ -38,9 +38,7 @@ public sealed class EdgeHide
     { double eased = progress * progress * (3 - 2 * progress); return from + (to - from) * eased; }
 }
 
-public readonly record struct DancePose(double X, double Y, double Angle, int Beat);
-
-/// <summary>A sixteen-count sway, side step and hop, always using the selected appearance.</summary>
+/// <summary>Timing for the sixteen-count skeletal dance.</summary>
 public sealed class PetDance
 {
     public const double BeatMs = 500;
@@ -48,15 +46,7 @@ public sealed class PetDance
     public const double DurationMs = BeatMs * BeatCount;
     public int Hits { get; private set; }
     private int lastTappedBeat = -1;
-    public static DancePose At(double elapsed, double size, bool reducedMotion = false)
-    {
-        double t = Math.Clamp(elapsed / BeatMs, 0, BeatCount);
-        int beat = Math.Min(BeatCount - 1, (int)t);
-        if (reducedMotion) return new(0, 0, 0, beat);
-        double envelope = Math.Min(1, Math.Min(t, BeatCount - t));
-        double sway = Math.Sin(t * Math.PI / 2), hop = Math.Pow(Math.Sin(t * Math.PI), 2);
-        return new(size * .075 * sway * envelope, -size * .04 * hop * envelope, 7 * sway * envelope, beat);
-    }
+    public static int BeatAt(double elapsed) => Math.Clamp((int)(elapsed / BeatMs), 0, BeatCount - 1);
     public bool Tap(double elapsed)
     {
         int beat = (int)Math.Round(elapsed / BeatMs);

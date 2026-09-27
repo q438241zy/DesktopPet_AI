@@ -117,17 +117,44 @@ Test("hide-and-seek reaches the nearest edge before disappearing and returns inw
     Equal(1, new EdgeHide(100, 0, 1920, 200, 80, 1).Side);
     var atEdge = new EdgeHide(92, 0, 1920, 200, 80, -1); Equal(0d, atEdge.ApproachSeconds); Equal(HidePhase.Hide, atEdge.At(0).Phase);
 });
-Test("dance starts and finishes neutrally, alternates steps and respects reduced motion", () =>
+Test("skeletal dance articulates limbs, preserves bone lengths and returns to rest", () =>
 {
-    Equal(new DancePose(0, 0, 0, 0), PetDance.At(0, 200));
-    Equal(new DancePose(0, 0, 0, 15), PetDance.At(PetDance.DurationMs, 200));
-    Equal(true, PetDance.At(500, 200).X > 0 && PetDance.At(1500, 200).X < 0);
-    Equal(true, PetDance.At(750, 200).Y < 0);
-    for (double t = 0; t <= PetDance.DurationMs; t += 37)
+    foreach (string family in new[] { "whale", "gpt", "claude", "gemini", "grok", "qwen", "zhipu", "kimi" })
     {
-        var pose = PetDance.At(t, 280);
-        Equal(true, Math.Abs(pose.X) <= 21 && pose.Y <= 0 && pose.Y >= -11.2 && Math.Abs(pose.Angle) <= 7);
-        var quiet = PetDance.At(t, 280, true); Equal(0d, quiet.X); Equal(0d, quiet.Y); Equal(0d, quiet.Angle);
+        Equal(true, DanceRig.Supports("adult", family)); Equal(false, DanceRig.Supports("3d", family)); Equal(false, DanceRig.Supports("chibi", family));
+        var rig = new DanceRig(family, "original");
+        foreach (double t in new[] { 0d, PetDance.DurationMs })
+            Equal(true, rig.Skin(rig.Pose(t)).Zip(rig.Vertices).All(p => (p.First - p.Second).Length < .000001));
+        for (double t = 0; t <= PetDance.DurationMs; t += 37)
+        {
+            var pose = rig.Pose(t); var quiet = rig.Pose(t, true);
+            Equal(true, quiet.Bones.SequenceEqual(rig.Rest));
+            var next = rig.Pose(t + 16);
+            Equal(true, pose.Bones.Zip(next.Bones).All(p => (p.First.A - p.Second.A).Length < .025 && (p.First.B - p.Second.B).Length < .025));
+            foreach (int bone in new[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 })
+                Equal(true, Math.Abs((pose.Bones[bone].B - pose.Bones[bone].A).Length - (rig.Rest[bone].B - rig.Rest[bone].A).Length) < .003);
+        }
+        var moving = rig.Pose(750);
+        Equal(true, (moving.Bones[3].B - rig.Rest[3].B).Length > .01);
+        Equal(true, (moving.Bones[5].B - rig.Rest[5].B).Length > .01);
+        Equal(true, (moving.Bones[8].A - rig.Rest[8].A).Length > .001);
+        var dress = new DanceRig(family, "wedding");
+        Equal(true, dress.Skin(dress.Pose(750)).All(v => double.IsFinite(v.X) && double.IsFinite(v.Y)));
+    }
+});
+Test("radial menus fit corners and negative monitors without overlapping buttons", () =>
+{
+    foreach (double origin in new[] { -1920d, 0, 2560 })
+    foreach (double size in new[] { 120d, 200, 280 })
+    foreach (int count in new[] { 6, 7 })
+    foreach (double x in new[] { origin + size * .46, origin + 960, origin + 1920 - size * .46 })
+    foreach (double y in new[] { size / 2 + 16, 500, 1080 - size / 2 })
+    {
+        var menu = RadialMenu.Place(count, new MenuPoint(x, y), size, new MenuBounds(origin, 0, origin + 1920, 1080));
+        Equal(count, menu.Length);
+        foreach (var p in menu) Equal(true, p.X >= origin + 22 && p.X <= origin + 1898 && p.Y >= 22 && p.Y <= 1058);
+        for (int i = 0; i < count; i++) for (int j = i + 1; j < count; j++)
+            Equal(true, Math.Sqrt(Math.Pow(menu[i].X - menu[j].X, 2) + Math.Pow(menu[i].Y - menu[j].Y, 2)) > 48);
     }
 });
 Test("dance taps score once per beat inside the timing window", () =>

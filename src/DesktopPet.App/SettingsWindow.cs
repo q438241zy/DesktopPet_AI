@@ -47,7 +47,7 @@ public sealed class SettingsWindow : Window
         brand.Children.Add(new TextBlock { Text = "云朵伙伴", FontSize = 21, FontWeight = FontWeights.SemiBold, Margin = new Thickness(0, 12, 0, 5) });
         brand.Children.Add(new TextBlock { Text = "你的桌边小小陪伴", Foreground = muted, FontSize = 11 });
         DockPanel.SetDock(brand, Dock.Top); sidebar.Children.Add(brand);
-        var foot = new StackPanel { Margin = new Thickness(12, 0, 0, 0) }; foot.Children.Add(new TextBlock { Text = "●  正在桌面陪伴", Foreground = CloudTheme.Brush("#34845A"), FontSize = 11 }); foot.Children.Add(new TextBlock { Text = "DesktopPet  /  1.2 Preview 3", FontSize = 10, Foreground = muted, Margin = new Thickness(0, 8, 0, 0) });
+        var foot = new StackPanel { Margin = new Thickness(12, 0, 0, 0) }; foot.Children.Add(new TextBlock { Text = "●  正在桌面陪伴", Foreground = CloudTheme.Brush("#34845A"), FontSize = 11 }); foot.Children.Add(new TextBlock { Text = "DesktopPet  /  1.2 Preview 4", FontSize = 10, Foreground = muted, Margin = new Thickness(0, 8, 0, 0) });
         DockPanel.SetDock(foot, Dock.Bottom); sidebar.Children.Add(foot);
         var nav = new StackPanel(); sidebar.Children.Add(nav);
         foreach (var (id, label, icon) in new[] { ("partners", "我的伙伴", "heart"), ("styles", "风格预览", "cube"), ("life", "陪伴日常", "sun"), ("studio", "角色工坊", "brush"), ("preferences", "桌面偏好", "settings") })
@@ -189,7 +189,7 @@ public sealed class SettingsWindow : Window
     private void Life()
     {
         status = new TextBlock();
-        Heading("", "陪伴日常", "吃顿早饭，跳一支舞。把平凡的小事，变成一起的回忆。");
+        Heading("", "陪伴日常", "今天想玩什么？");
         string clothes = pet.Character.Outfits.TryGetValue(pet.State.Outfit, out var selectedOutfit) ? selectedOutfit.Name : "原装";
         content.Children.Add(Text($"当前陪伴：{pet.Character.Name} · {CloudTheme.CategoryName(pet.Character.Category)} · {clothes}", 14));
         status.FontSize = 16; status.LineHeight = 28; RefreshStatus();
@@ -200,12 +200,11 @@ public sealed class SettingsWindow : Window
         progress.Children.Add(daily); content.Children.Add(Card(progress));
         var actionHeading = new DockPanel(); var stop = MakeButton("结束互动", pet.StopInteraction, "stop"); stop.FontSize = 11; stop.Padding = new Thickness(9, 5, 9, 5); stop.Background = Brushes.Transparent; stop.BorderThickness = new Thickness(0); DockPanel.SetDock(stop, Dock.Right); actionHeading.Children.Add(stop); actionHeading.Children.Add(Text("一起做点什么", 17)); content.Children.Add(actionHeading);
         var actions = new System.Windows.Controls.Primitives.UniformGrid { Columns = 4 };
-        foreach (var entry in PetActions.Daily)
+        foreach (var entry in PetActions.Daily.Where(e => e.Key != "dance" || pet.CanDance))
         {
             var tile = new StackPanel(); var icon = CloudTheme.Icon(entry.Icon, 25); icon.Foreground = CloudTheme.Blue; icon.HorizontalAlignment = HorizontalAlignment.Left; tile.Children.Add(icon);
             tile.Children.Add(new TextBlock { Text = entry.Title, FontSize = 13, FontWeight = FontWeights.SemiBold, Margin = new Thickness(0, 10, 0, 4) });
-            tile.Children.Add(new TextBlock { Text = entry.Hint, FontSize = 10, Foreground = muted, TextWrapping = TextWrapping.Wrap });
-            var b = MakeButton(entry.Title, () => pet.RunInteraction(entry.Key)); b.Content = tile; b.HorizontalContentAlignment = HorizontalAlignment.Stretch; b.Height = 114; b.Padding = new Thickness(14); actions.Children.Add(b);
+            var b = MakeButton(entry.Title, () => pet.RunInteraction(entry.Key)); b.Content = tile; b.HorizontalContentAlignment = HorizontalAlignment.Stretch; b.Height = 88; b.Padding = new Thickness(14); actions.Children.Add(b);
         }
         content.Children.Add(actions);
         var treasures = new StackPanel(); treasures.Children.Add(Text("散步带回的小礼物", 16));

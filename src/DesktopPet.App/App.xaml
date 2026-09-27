@@ -20,6 +20,23 @@
         </ControlTemplate.Triggers>
       </ControlTemplate></Setter.Value></Setter>
     </Style>
+    <Style x:Key="RadialAction" TargetType="Button">
+      <Setter Property="Width" Value="44" /><Setter Property="Height" Value="44" /><Setter Property="Margin" Value="0" /><Setter Property="Padding" Value="0" /><Setter Property="Cursor" Value="Hand" />
+      <Setter Property="Template"><Setter.Value><ControlTemplate TargetType="Button">
+        <Grid x:Name="Tile" RenderTransformOrigin="0.5,0.5">
+          <Grid.RenderTransform><ScaleTransform /></Grid.RenderTransform>
+          <Ellipse x:Name="Surface" Fill="#F5FAFAFC" Stroke="#F8FFFFFF" StrokeThickness="1"><Ellipse.Effect><DropShadowEffect Color="#243147" BlurRadius="12" ShadowDepth="2" Opacity="0.17" /></Ellipse.Effect></Ellipse>
+          <Ellipse x:Name="Focus" Stroke="#80007AFF" StrokeThickness="2" Margin="-3" Visibility="Collapsed" />
+          <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+        </Grid>
+        <ControlTemplate.Triggers>
+          <Trigger Property="IsMouseOver" Value="True"><Setter TargetName="Surface" Property="Fill" Value="#EAF2FF" /><Setter Property="Foreground" Value="#007AFF" /><Setter TargetName="Tile" Property="RenderTransform"><Setter.Value><ScaleTransform ScaleX="1.06" ScaleY="1.06" /></Setter.Value></Setter></Trigger>
+          <Trigger Property="IsKeyboardFocused" Value="True"><Setter TargetName="Focus" Property="Visibility" Value="Visible" /></Trigger>
+          <Trigger Property="IsPressed" Value="True"><Setter TargetName="Surface" Property="Fill" Value="#D8E8FF" /><Setter TargetName="Tile" Property="RenderTransform"><Setter.Value><ScaleTransform ScaleX="0.96" ScaleY="0.96" /></Setter.Value></Setter></Trigger>
+        </ControlTemplate.Triggers>
+      </ControlTemplate></Setter.Value></Setter>
+      <Style.Resources><Style TargetType="ToolTip"><Setter Property="Background" Value="#F5FFFFFF" /><Setter Property="Foreground" Value="#1D1D1F" /><Setter Property="FontSize" Value="11" /><Setter Property="Padding" Value="9,5" /><Setter Property="Template"><Setter.Value><ControlTemplate TargetType="ToolTip"><Border Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}" CornerRadius="10" BorderThickness="1" BorderBrush="#E5E5EA"><ContentPresenter /></Border></ControlTemplate></Setter.Value></Setter></Style></Style.Resources>
+    </Style>
     <Style TargetType="TextBox">
       <Setter Property="Padding" Value="11,9" /><Setter Property="BorderBrush" Value="#DEDFE4" /><Setter Property="BorderThickness" Value="1" /><Setter Property="Foreground" Value="{StaticResource Ink}" /><Setter Property="Background" Value="#FAFAFC" />
       <Setter Property="Template"><Setter.Value><ControlTemplate TargetType="TextBox"><Border x:Name="Outline" CornerRadius="8" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}"><ScrollViewer x:Name="PART_ContentHost" Margin="{TemplateBinding Padding}" /></Border><ControlTemplate.Triggers><Trigger Property="IsKeyboardFocusWithin" Value="True"><Setter TargetName="Outline" Property="BorderBrush" Value="#007AFF" /></Trigger></ControlTemplate.Triggers></ControlTemplate></Setter.Value></Setter>

@@ -25,16 +25,41 @@ Test("leap years, reunions and anniversaries use local calendar dates", () =>
     Equal("相伴 4 周年", state.Anniversary(new DateOnly(2028, 2, 29)));
     Equal("相伴第 100 天", state.Anniversary(new DateOnly(2024, 6, 8)));
 });
-Test("only available outfit motions replace the original animation", () =>
+Test("missing outfit animations stay dressed through every interaction", () =>
 {
-    var pet = new Character { Motions = new() { ["walk"] = new("walk.webp"), ["eat"] = new("eat.webp"), ["headpat"] = new("pat.webp") },
+    var pet = new Character { Dizzy = new("dizzy.webp", 1, 1), Motions = new() { ["walk"] = new("walk.webp"), ["eat"] = new("eat.webp"), ["headpat"] = new("pat.webp") },
         Outfits = new() { ["wedding"] = new() { Idle = new("dress.webp", 1, 1), Motions = new() { ["walk"] = new("dress-walk.webp") } } } };
     Equal("dress.webp", pet.Resolve("wedding", "idle", 0).Sprite.File);
     Equal("dress-walk.webp", pet.Resolve("wedding", "walk", 0).Sprite.File);
-    Equal("eat.webp", pet.Resolve("wedding", "meal", 0).Sprite.File);
-    Equal("pat.webp", pet.Resolve("wedding", "poke", 0).Sprite.File);
-    Equal(3, pet.Resolve("wedding", "sleep", 0).Frame);
+    foreach (string action in new[] { "meal", "eat", "chat", "pounce", "headpat", "poke", "tickle", "kick", "jump", "sleep", "dizzy", "faint", "sad", "happy", "pickup", "shaken", "shaken-strong", "farewell", "ball-hit", "ball-miss", "bonk", "peek", "curl", "think" })
+        foreach (bool reduced in new[] { false, true })
+            Equal((new Sprite("dress.webp", 1, 1), 0), pet.Resolve("wedding", action, 700, reduced));
     Equal(0, pet.Resolve("wedding", "walk", 700, true).Frame);
+    Equal("eat.webp", pet.Resolve("original", "meal", 700).Sprite.File);
+    Equal("dizzy.webp", pet.Resolve("original", "dizzy", 700).Sprite.File);
+    Equal("walk.webp", pet.Resolve("removed-outfit", "walk", 700).Sprite.File);
+});
+Test("semantic fallback uses the current outfit before its pose atlas", () =>
+{
+    var pet = new Character { Motions = new() { ["poke"] = new("original-poke.png"), ["meal"] = new("original-meal.png") },
+        Outfits = new() { ["swim"] = new() { Idle = new("swim.png"), Motions = new() { ["headpat"] = new("swim-pat.png"), ["eat"] = new("swim-eat.png"), ["jump"] = new("swim-jump.png"), ["chat"] = new("swim-chat.png") } } } };
+    foreach (var (action, file) in new[] { ("poke", "swim-pat.png"), ("meal", "swim-eat.png"), ("tickle", "swim-jump.png"), ("kick", "swim-jump.png"), ("pounce", "swim-chat.png") })
+        Equal(file, pet.Resolve("swim", action, 0).Sprite.File);
+    foreach (var (action, frame) in new[] { ("idle", 0), ("happy", 1), ("sleep", 3), ("dizzy", 4), ("faint", 4), ("sad", 5) })
+        Equal((new Sprite("swim.png"), frame), pet.Resolve("swim", action, 700));
+    pet.Outfits["swim"].Motions["poke"] = new("swim-poke.png");
+    Equal("swim-poke.png", pet.Resolve("swim", "poke", 0).Sprite.File);
+});
+Test("walking capability never borrows original clothes or mistakes poses for an animation", () =>
+{
+    var pet = new Character { Motions = new() { ["walk"] = new("original-walk.png") }, Outfits = new() {
+        ["swim"] = new() { Idle = new("six-poses.png") },
+        ["wedding"] = new() { Idle = new("dress.png", 1, 1), Motions = new() { ["walk"] = new("dress-walk.png", 1, 1) } } } };
+    Equal(true, pet.CanWalk("original")); Equal(false, pet.CanWalk("swim")); Equal(false, pet.CanWalk("wedding"));
+    pet.Outfits["swim"].Motions["walk"] = new("swim-walk.png"); Equal(true, pet.CanWalk("swim"));
+    pet.Outfits["swim"].Idle = null;
+    Equal("swim-walk.png", pet.Resolve("swim", "idle", 900).Sprite.File);
+    Equal(0, pet.Resolve("swim", "idle", 900).Frame);
 });
 Test("portrait wardrobes stay selected through greetings and touch interactions", () =>
 {
@@ -110,6 +135,7 @@ try
         c.Atlas = new Sprite("atlas.png", 1, 1, Facing: "up"); Write(); Reject(() => Character.Load(root));
         c.Atlas = new Sprite("atlas.png", 1, 1); c.Category = "unknown"; Write(); Reject(() => Character.Load(root));
         c.Category = "adult"; Write(); Equal("adult", Character.Load(root).Category);
+        c.Outfits["empty"] = new Outfit { Name = "empty" }; Write(); Reject(() => Character.Load(root)); c.Outfits.Clear();
         c.Atlas = new Sprite("missing.png"); Write(); Reject(() => Character.Load(root));
     });
     Test("saved invalid values are bounded without accepting invalid dates", () =>

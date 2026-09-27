@@ -44,7 +44,7 @@ public sealed class PetWindow : Window
     private DateOnly day;
     private const double CenterX = 280, FloorY = 468;
     private double groundLine = .875;
-    private double PetTop => FloorY - State.Size * groundLine;
+    private double PetTop => FloorY - (double.IsFinite(sprite.Height) ? sprite.Height : State.Size) * groundLine;
     private double Now => clock.Elapsed.TotalMilliseconds;
 
     public PetWindow(StateStore store, Catalog catalog)
@@ -109,10 +109,21 @@ public sealed class PetWindow : Window
     }
     public void SelectCharacter(string id)
     {
+        var selected = Catalog.FindExact(id);
+        if (selected is null) { Say("这个形象暂不可用，请重新选择。", 3000); return; }
         CancelInput(); ClearTransient(); resting = false; restore.Visibility = Visibility.Collapsed;
         sprite.Visibility = Visibility.Visible;
-        State.Character = Catalog.Find(id).Id; Art.Clear(); ApplySettings();
+        State.Character = selected.Id; Art.Clear(); ApplySettings();
         Play("chat", $"你好，我是{Character.Name}。", 2600);
+    }
+    public void SelectStyle(string category)
+    {
+        if (Character.Category == category) return;
+        var variant = Catalog.Characters.FirstOrDefault(c => c.FamilyId == Character.FamilyId && c.Category == category);
+        if (variant is null) return;
+        string outfit = State.Outfit;
+        State.Outfits[variant.Id] = variant.Outfits.ContainsKey(outfit) ? outfit : "original";
+        SelectCharacter(variant.Id);
     }
     public void ApplySettings(bool save = true)
     {
@@ -209,7 +220,7 @@ public sealed class PetWindow : Window
             }
             else { Play("happy", "在这里陪你。", 1200); if (State.CheckedIn(day) && Math.Abs(Top + FloorY - WorkArea.Bottom) < 35 && !State.ReducedMotion) StartWalk(false); }
         }
-        else Touch(e.GetPosition(sprite).Y / State.Size);
+        else Touch(e.GetPosition(sprite).Y / sprite.Height);
         e.Handled = true;
     }
     internal Rect WorkArea => desktop?.WorkArea(this) ?? SystemParameters.WorkArea;
@@ -295,15 +306,7 @@ public sealed class PetWindow : Window
         resting = false; restore.Visibility = Visibility.Collapsed; sprite.Visibility = Visibility.Visible;
         Play("chat", "我回来啦。", 2700);
     }
-    internal bool CanWalk
-    {
-        get
-        {
-            bool exists = Character.Motions.ContainsKey("walk") || (Character.Outfits.TryGetValue(State.Outfit, out var outfit) && outfit.Motions.ContainsKey("walk"));
-            var clip = Character.Resolve(State.Outfit, "walk", 0).Sprite;
-            return exists && clip.Columns * clip.Rows >= 2;
-        }
-    }
+    internal bool CanWalk => Character.CanWalk(State.Outfit);
     internal void StartWalk(bool explore, int? initialDirection = null)
     {
         if (State.ReducedMotion) { Say("已开启减少动态效果。", 2500); return; }
@@ -392,10 +395,24 @@ public sealed class PetWindow : Window
         var art = Character.Resolve(State.Outfit, action, Now - actionStarted, State.ReducedMotion);
         var frame = Art.Frame(Character, art.Sprite, art.Frame);
         sprite.Source = frame;
+        double size = State.Size;
+        if (action == "walk")
+        {
+            // Match upright portraits to their walk; Q outfits keep the original walk's body scale.
+            var reference = Character.Atlas.Columns * Character.Atlas.Rows == 1
+                ? Character.Resolve(State.Outfit, "idle", 0).Sprite : Character.MotionFor("original", "walk");
+            if (reference is not null)
+            {
+                var calibration = Art.Frame(Character, reference, 0);
+                size *= Math.Clamp(Art.SheetHeight(calibration) / Math.Max(.1, Art.SheetHeight(frame)), .7, 1.5);
+            }
+        }
+        sprite.Width = sprite.Height = size;
         groundLine = action == "walk" || Character.Demo ? Art.GroundLine(frame) : .875;
         Canvas.SetTop(sprite, PetTop); Canvas.SetTop(bubble, Math.Max(8, PetTop - 78));
         sprite.RenderTransformOrigin = new Point(.5, .5);
         facing.ScaleX = action is "walk" or "peek" ? DesktopWalk.ScaleX(direction, art.Sprite.Facing) : 1;
+        Canvas.SetLeft(sprite, CenterX - size * (.5 + (action == "walk" ? facing.ScaleX * (Art.HorizontalAnchor(frame) - .5) : 0)));
     }
     private void DrawEffects(double now)
     {

@@ -6,7 +6,7 @@ namespace DesktopPet.Core;
 /// <summary>A PNG/WebP sheet with uniform cells, in reading order.</summary>
 public sealed record Sprite(string File, int Columns = 3, int Rows = 2, int[]? FrameMs = null, string Facing = "right");
 
-/// <summary>Outfit art overrides only the poses and motions that actually exist.</summary>
+/// <summary>A self-contained appearance. Missing motions never borrow another outfit's art.</summary>
 public sealed class Outfit
 {
     public string Name { get; set; } = "";
@@ -50,7 +50,8 @@ public sealed class Character
             || (!string.IsNullOrEmpty(c.Family) && !Regex.IsMatch(c.Family, "^[a-z0-9][a-z0-9-]{0,47}$")))
             throw new InvalidDataException("角色 ID、名称或版本无效。");
         if (!Regex.IsMatch(c.Accent ?? "", "^#[0-9a-fA-F]{6}$")) c.Accent = "#EE9177";
-        if (c.Outfits.Values.Any(o => o is null || o.Motions is null || string.IsNullOrWhiteSpace(o.Name)))
+        if (c.Outfits.Values.Any(o => o is null || o.Motions is null || string.IsNullOrWhiteSpace(o.Name)
+            || (o.Idle is null && o.Motions.Count == 0)))
             throw new InvalidDataException("服装清单无效。");
         foreach (var s in c.Sprites())
         {
@@ -84,19 +85,28 @@ public sealed class Character
         return full;
     }
 
+    /// <summary>Only an actual motion in the selected appearance grants an animation capability.</summary>
+    public Sprite? MotionFor(string outfit, string action)
+    {
+        var motions = Outfits.TryGetValue(outfit, out var clothes) ? clothes.Motions : Motions;
+        var fallback = action switch { "meal" => "eat", "pounce" => "chat", "poke" => "headpat", "tickle" => "jump", "kick" => "jump", _ => action };
+        return motions.GetValueOrDefault(action) ?? motions.GetValueOrDefault(fallback);
+    }
+
+    public bool CanWalk(string outfit) => MotionFor(outfit, "walk") is { } walk && walk.Columns * walk.Rows >= 2;
+
     public (Sprite Sprite, int Frame) Resolve(string outfit, string action, double elapsed, bool reducedMotion = false)
     {
-        Outfits.TryGetValue(outfit, out var clothes);
-        var fallback = action switch { "meal" => "eat", "pounce" => "chat", "poke" => "headpat", "tickle" => "jump", "kick" => "jump", _ => action };
-        Sprite? clip = null;
-        if (clothes is not null) clothes.Motions.TryGetValue(action, out clip);
-        if (clip is null) Motions.TryGetValue(action, out clip);
-        if (clip is null) Motions.TryGetValue(fallback, out clip);
+        var clip = MotionFor(outfit, action);
         if (clip is not null) return (clip, reducedMotion ? 0 : Motion.Frame(clip, elapsed));
-        if (action == "dizzy" && Dizzy is not null) return (Dizzy, 0);
-        // A portrait-only companion keeps its chosen clothes during greetings and touch feedback.
-        if (clothes?.Idle is { } idle && (action == "idle" || (Atlas.Columns * Atlas.Rows == 1 && Motions.Count == 0))) return (idle, 0);
         var pose = action switch { "sleep" => 3, "dizzy" or "faint" => 4, "sad" => 5, "happy" => 1, "headpat" or "poke" => 2, _ => 0 };
+        if (Outfits.TryGetValue(outfit, out var clothes))
+        {
+            if (clothes.Idle is { } idle) return (idle, Math.Min(pose, idle.Columns * idle.Rows - 1));
+            // Older imported packs may contain only outfit motions. Their first frame is a safe idle.
+            if (clothes.Motions.Values.FirstOrDefault() is { } still) return (still, 0);
+        }
+        if (action == "dizzy" && Dizzy is not null) return (Dizzy, 0);
         return (Atlas, Math.Min(pose, Atlas.Columns * Atlas.Rows - 1));
     }
 }

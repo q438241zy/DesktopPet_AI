@@ -12,7 +12,22 @@
     "columns": 1,
     "rows": 1
   },
-  "motions": {},
+  "motions": {
+    "walk": {
+      "file": "motions/walk.png",
+      "columns": 3,
+      "rows": 2,
+      "frameMs": [
+        160,
+        160,
+        160,
+        160,
+        160,
+        160
+      ],
+      "facing": "right"
+    }
+  },
   "outfits": {
     "swim": {
       "name": "泳装",
@@ -21,7 +36,22 @@
         "columns": 1,
         "rows": 1
       },
-      "motions": {}
+      "motions": {
+        "walk": {
+          "file": "outfits/swim/walk.png",
+          "columns": 3,
+          "rows": 2,
+          "frameMs": [
+            160,
+            160,
+            160,
+            160,
+            160,
+            160
+          ],
+          "facing": "right"
+        }
+      }
     },
     "wedding": {
       "name": "婚纱",
@@ -30,7 +60,22 @@
         "columns": 1,
         "rows": 1
       },
-      "motions": {}
+      "motions": {
+        "walk": {
+          "file": "outfits/wedding/walk.png",
+          "columns": 3,
+          "rows": 2,
+          "frameMs": [
+            160,
+            160,
+            160,
+            160,
+            160,
+            160
+          ],
+          "facing": "right"
+        }
+      }
     }
   }
 }

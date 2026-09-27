@@ -99,7 +99,7 @@ public sealed class SettingsWindow : Window
         var hero = new Grid(); hero.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(236) }); hero.ColumnDefinitions.Add(new ColumnDefinition());
         hero.Children.Add(Stage(pet.Character, 204, pet.State.Outfit));
         var intro = new StackPanel { VerticalAlignment = VerticalAlignment.Center, Margin = new Thickness(18, 0, 0, 0) }; Grid.SetColumn(intro, 1); hero.Children.Add(intro);
-        var badges = new WrapPanel(); badges.Children.Add(CloudTheme.Badge("正在陪你")); badges.Children.Add(CloudTheme.Badge(CloudTheme.CategoryName(pet.Character.Category))); if (pet.Character.Demo) badges.Children.Add(CloudTheme.Badge("静态立绘")); intro.Children.Add(badges);
+        var badges = new WrapPanel(); badges.Children.Add(CloudTheme.Badge("正在陪你")); badges.Children.Add(CloudTheme.Badge(CloudTheme.CategoryName(pet.Character.Category))); if (pet.Character.Demo) badges.Children.Add(CloudTheme.Badge(pet.CanWalk ? "行走预览" : "静态立绘")); intro.Children.Add(badges);
         var name = Text(pet.Character.Name, 25); name.FontWeight = FontWeights.SemiBold; name.Margin = new Thickness(0, 10, 0, 4); intro.Children.Add(name);
         intro.Children.Add(Text(pet.Character.Demo ? pet.Character.Description : $"{pet.State.BondName}  ·  相伴 {pet.State.CheckIns.Count} 天", 12, true));
         if (pet.Character.Outfits.Count > 0)
@@ -119,7 +119,7 @@ public sealed class SettingsWindow : Window
         var filters = new StackPanel { Orientation = Orientation.Horizontal }; categoryRow.Children.Add(filters);
         foreach (var (id, glyph) in new[] { ("chibi", "heart"), ("3d", "cube"), ("adult", "person") })
         {
-            var b = MakeButton(CloudTheme.CategoryName(id), () => { category = id; Rebuild(); }, glyph); b.Padding = new Thickness(10, 4, 14, 4); b.Margin = new Thickness(0, 0, 8, 0); b.Background = category == id ? CloudTheme.Pale : Brushes.White; b.BorderBrush = category == id ? CloudTheme.Brush("#9DC3E8") : CloudTheme.Line;
+            var b = MakeButton(CloudTheme.CategoryName(id), () => { pet.SelectStyle(id); category = id; Rebuild(); }, glyph); b.Padding = new Thickness(10, 4, 14, 4); b.Margin = new Thickness(0, 0, 8, 0); b.Background = category == id ? CloudTheme.Pale : Brushes.White; b.BorderBrush = category == id ? CloudTheme.Brush("#9DC3E8") : CloudTheme.Line;
             AutomationProperties.SetName(b, "分类 " + CloudTheme.CategoryName(id)); filters.Children.Add(b);
         }
         content.Children.Add(categoryRow);
@@ -136,7 +136,7 @@ public sealed class SettingsWindow : Window
             tiles.Children.Add(b);
         }
         content.Children.Add(tiles);
-        if (category != "chibi") content.Children.Add(Text("八位伙伴均有原装、泳装和婚纱。当前为静态立绘，可换装与拖动，逐帧动作尚未制作。", 11, true));
+        if (category != "chibi") content.Children.Add(Text("八位伙伴的原装、泳装和婚纱均有独立行走动画。其他互动尚无专用画稿时，会保持当前形象与服装。", 11, true));
         else content.Children.Add(Text("左键摸摸  ·  拖动抱起  ·  右键打开云朵互动菜单", 11, true));
     }
 
@@ -178,7 +178,7 @@ public sealed class SettingsWindow : Window
             var card = Card(panel, CloudTheme.Sky(style == "adult" ? "#EEF1F9" : "#EBF5FF", "#FFFFFF")); card.Margin = new Thickness(0, 6, 12, 16); card.Padding = new Thickness(15); grid.Children.Add(card);
         }
         content.Children.Add(grid);
-        content.Children.Add(Text("3D版与真人版目前为透明立绘；换装会保持角色身份，互动时也会保持所选服饰。完整逐帧动作尚未制作。", 12, true));
+        content.Children.Add(Text("三种画风、三套服装均有独立行走动画。切换画风会保留同一伙伴和服装；未补齐的互动使用当前服装的姿势图。", 12, true));
     }
     public void RefreshStatus()
     {
@@ -189,6 +189,8 @@ public sealed class SettingsWindow : Window
     {
         status = new TextBlock();
         Heading("LITTLE MOMENTS, TOGETHER", "把日常，慢慢过成回忆。", "打卡是一起吃早饭。偶尔忘记也没关系，已经积累的亲密度一直都在。");
+        string clothes = pet.Character.Outfits.TryGetValue(pet.State.Outfit, out var selectedOutfit) ? selectedOutfit.Name : "原装";
+        content.Children.Add(Text($"当前陪伴：{pet.Character.Name} · {CloudTheme.CategoryName(pet.Character.Category)} · {clothes}", 14));
         status.FontSize = 16; status.LineHeight = 28; RefreshStatus();
         var progress = new StackPanel(); progress.Children.Add(status);
         int level = pet.State.BondLevel;

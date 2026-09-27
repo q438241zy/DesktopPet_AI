@@ -1,0 +1,394 @@
+[
+  {
+    "key": "deepseek-3d-original",
+    "target": "src/DesktopPet.App/Assets/Characters/deepseek-3d/motions/walk.png",
+    "generatedFile": "exec-5d5a1790-8abe-48cb-88ba-111f42a5c2dc.png",
+    "sha256": "bb930b0e84f8898401a53a537eccc678d4a714d58fdf190e2ae65b79bcdfe921",
+    "result": "artwork/motion-continuity/results/deepseek-3d-original-padding.json"
+  },
+  {
+    "key": "deepseek-3d-swim",
+    "target": "src/DesktopPet.App/Assets/Characters/deepseek-3d/outfits/swim/walk.png",
+    "generatedFile": "exec-aeddc90a-aa40-4ea4-af7a-11b09ebb4b76.png",
+    "sha256": "44172a4a3234770b088bff2d989e775b89636a198325e953cfcded062c001cc8",
+    "result": "artwork/motion-continuity/results/deepseek-3d-swim.json"
+  },
+  {
+    "key": "deepseek-3d-wedding",
+    "target": "src/DesktopPet.App/Assets/Characters/deepseek-3d/outfits/wedding/walk.png",
+    "generatedFile": "exec-9fe3a5c5-025d-4ff4-a44f-25c71af95a7a.png",
+    "sha256": "2346a7e5e836f5c9eccc94d4f339f6cdd3fa9c5d6806bfb872a2eb650cc2ca58",
+    "result": "artwork/motion-continuity/results/deepseek-3d-wedding.json"
+  },
+  {
+    "key": "deepseek-adult-original",
+    "target": "src/DesktopPet.App/Assets/Characters/deepseek-adult/motions/walk.png",
+    "generatedFile": "exec-e12be38e-1225-46e9-aa4b-d2ab9da576cc.png",
+    "sha256": "48f6332682d896b1e81935fa89483f1d910dd1de76493c9f04fe2244c435a342",
+    "result": "artwork/motion-continuity/results/deepseek-adult-original.json"
+  },
+  {
+    "key": "deepseek-adult-swim",
+    "target": "src/DesktopPet.App/Assets/Characters/deepseek-adult/outfits/swim/walk.png",
+    "generatedFile": "exec-88330400-7f8c-4944-9304-0394773bbead.png",
+    "sha256": "64cdaf6cc13f0f1cd95b436ae4f0b50520eb0de3abbdc7603ad3955a303f3c88",
+    "result": "artwork/motion-continuity/results/deepseek-adult-swim-padding.json"
+  },
+  {
+    "key": "deepseek-adult-wedding",
+    "target": "src/DesktopPet.App/Assets/Characters/deepseek-adult/outfits/wedding/walk.png",
+    "generatedFile": "exec-e1db3e13-2bc8-47c0-a1e8-e2b128925162.png",
+    "sha256": "951cfd2543388d62e29e077ea37c7e106085a763f7d5c1c41d333f51f62b3d81",
+    "result": "artwork/motion-continuity/results/deepseek-adult-wedding.json"
+  },
+  {
+    "key": "gpt-3d-original",
+    "target": "src/DesktopPet.App/Assets/Characters/gpt-3d/motions/walk.png",
+    "generatedFile": "exec-649f3e6a-1c63-40df-8fa3-1a015d1f86bd.png",
+    "sha256": "10c5be5ecbdd5bf2c615adc8d919cb6dd690b4bae1aea32ef17b981f3d315b1b",
+    "result": "artwork/motion-continuity/results/gpt-3d-original.json"
+  },
+  {
+    "key": "gpt-3d-swim",
+    "target": "src/DesktopPet.App/Assets/Characters/gpt-3d/outfits/swim/walk.png",
+    "generatedFile": "exec-a850f6df-b17d-4a19-82a3-9d45ce5785f4.png",
+    "sha256": "cb387220740a789b26ce6b30b3c1cc169b13711338b6e21c482454acf61a226f",
+    "result": "artwork/motion-continuity/results/gpt-3d-swim.json"
+  },
+  {
+    "key": "gpt-3d-wedding",
+    "target": "src/DesktopPet.App/Assets/Characters/gpt-3d/outfits/wedding/walk.png",
+    "generatedFile": "exec-2cf155fa-d77e-4aee-a14c-f0ca0cae8c3d.png",
+    "sha256": "682fcd961cbee2b7ab5e38304eeb05d5b46239c7b150b3344d28272638f8c458",
+    "result": "artwork/motion-continuity/results/gpt-3d-wedding.json"
+  },
+  {
+    "key": "gpt-adult-original",
+    "target": "src/DesktopPet.App/Assets/Characters/gpt-adult/motions/walk.png",
+    "generatedFile": "exec-52fd096b-1cf1-4ec3-ad6f-647a20170713.png",
+    "sha256": "a6a8275c9ec8eaa7813f25dddbfdefaaa6243c88f4990be9a3db40d6e9acb571",
+    "result": "artwork/motion-continuity/results/gpt-adult-original.json"
+  },
+  {
+    "key": "gpt-adult-swim",
+    "target": "src/DesktopPet.App/Assets/Characters/gpt-adult/outfits/swim/walk.png",
+    "generatedFile": "exec-128cf563-a736-457b-9415-eb556bccdba2.png",
+    "sha256": "a057f29aa53607384a4c535e3b91c48d29edd091646a08281015c668813c8cf4",
+    "result": "artwork/motion-continuity/results/gpt-adult-swim.json"
+  },
+  {
+    "key": "gpt-adult-wedding",
+    "target": "src/DesktopPet.App/Assets/Characters/gpt-adult/outfits/wedding/walk.png",
+    "generatedFile": "exec-37aed8b8-d065-469b-ba03-d6b0384500c3.png",
+    "sha256": "ef13db6465d03d39291c210e63395132dc1ebac82382b51117153889edc04e07",
+    "result": "artwork/motion-continuity/results/gpt-adult-wedding.json"
+  },
+  {
+    "key": "claude-3d-original",
+    "target": "src/DesktopPet.App/Assets/Characters/claude-3d/motions/walk.png",
+    "generatedFile": "exec-c82140ff-158b-4983-8817-a5b322bcda53.png",
+    "sha256": "69b86a57cfd45fc06cec30f0d9a294003df87aa583281916347a42420321e4f6",
+    "result": "artwork/motion-continuity/results/claude-3d-original.json"
+  },
+  {
+    "key": "claude-3d-swim",
+    "target": "src/DesktopPet.App/Assets/Characters/claude-3d/outfits/swim/walk.png",
+    "generatedFile": "exec-10473599-024b-408a-a479-aec26183c99a.png",
+    "sha256": "2d0d79e17c1d6502d10b6a20fc56614733b551b9188c51e438065db55a5abd32",
+    "result": "artwork/motion-continuity/results/claude-3d-swim.json"
+  },
+  {
+    "key": "claude-3d-wedding",
+    "target": "src/DesktopPet.App/Assets/Characters/claude-3d/outfits/wedding/walk.png",
+    "generatedFile": "exec-8c7898d2-686a-45a2-af0f-2f123d55c7a5.png",
+    "sha256": "2c9ee84464f0c997e755871f4e48d67cd24987e1b430bd3fab24b00c65265abf",
+    "result": "artwork/motion-continuity/results/claude-3d-wedding.json"
+  },
+  {
+    "key": "claude-adult-original",
+    "target": "src/DesktopPet.App/Assets/Characters/claude-adult/motions/walk.png",
+    "generatedFile": "exec-93caddf2-134c-46c1-855f-fd5175cd78d6.png",
+    "sha256": "b4eff894b6286a4e0414704cc4e8ba584d5871fb49e038e5e70b4a96fb028648",
+    "result": "artwork/motion-continuity/results/claude-adult-original.json"
+  },
+  {
+    "key": "claude-adult-swim",
+    "target": "src/DesktopPet.App/Assets/Characters/claude-adult/outfits/swim/walk.png",
+    "generatedFile": "exec-e3b091e8-1957-47c0-85fd-dfe7ca7f007d.png",
+    "sha256": "6641c6ba99350fff4e32b8c3a6a300428f9f94909f1d39b36f20916138380615",
+    "result": "artwork/motion-continuity/results/claude-adult-swim.json"
+  },
+  {
+    "key": "claude-adult-wedding",
+    "target": "src/DesktopPet.App/Assets/Characters/claude-adult/outfits/wedding/walk.png",
+    "generatedFile": "exec-592d2b33-0677-41d3-a8d7-649d3c00c596.png",
+    "sha256": "2c8254a46b5f7eff9ce50d07ac8cc85f84c5448de0fb497793312162abb4dfd3",
+    "result": "artwork/motion-continuity/results/claude-adult-wedding.json"
+  },
+  {
+    "key": "gemini-3d-original",
+    "target": "src/DesktopPet.App/Assets/Characters/gemini-3d/motions/walk.png",
+    "generatedFile": "exec-5c409e54-65db-4afc-b373-ac12169131c8.png",
+    "sha256": "656d2da01b119dc87d28d9baa849302e882bb0737dd1967aa9d5aa753d85ba22",
+    "result": "artwork/motion-continuity/results/gemini-3d-original.json"
+  },
+  {
+    "key": "gemini-3d-swim",
+    "target": "src/DesktopPet.App/Assets/Characters/gemini-3d/outfits/swim/walk.png",
+    "generatedFile": "exec-6c84c60f-027d-4589-b25c-b9317784063b.png",
+    "sha256": "6ff459e958e648d61792ed9737234145d5d5fca9bde1c138e5c1f6744bf3cd6f",
+    "result": "artwork/motion-continuity/results/gemini-3d-swim-padding.json"
+  },
+  {
+    "key": "gemini-3d-wedding",
+    "target": "src/DesktopPet.App/Assets/Characters/gemini-3d/outfits/wedding/walk.png",
+    "generatedFile": "exec-ab80e6b2-f81e-44bd-ba51-bba815d73972.png",
+    "sha256": "3688d713ada80ba57d336244777d34b1e89001f8d52ef9c762c9c978cc97b5c9",
+    "result": "artwork/motion-continuity/results/gemini-3d-wedding.json"
+  },
+  {
+    "key": "gemini-adult-original",
+    "target": "src/DesktopPet.App/Assets/Characters/gemini-adult/motions/walk.png",
+    "generatedFile": "exec-4bde368f-7679-4a07-907e-9b6e2ea1be18.png",
+    "sha256": "7a966602ce7b6514aa00c2784245b6097c93dae5af18f3b4cfe2c266fde23da4",
+    "result": "artwork/motion-continuity/results/gemini-adult-original.json"
+  },
+  {
+    "key": "gemini-adult-swim",
+    "target": "src/DesktopPet.App/Assets/Characters/gemini-adult/outfits/swim/walk.png",
+    "generatedFile": "exec-92df4bf0-f05a-442b-884c-3e52531ac57a.png",
+    "sha256": "2ead611c7451307b8ce2378a3351b9c3d04ad37ba142f05c35ec908c7930b0f8",
+    "result": "artwork/motion-continuity/results/gemini-adult-swim.json"
+  },
+  {
+    "key": "gemini-adult-wedding",
+    "target": "src/DesktopPet.App/Assets/Characters/gemini-adult/outfits/wedding/walk.png",
+    "generatedFile": "exec-dadebe48-90a9-44f3-ac5b-ad79ae68d72d.png",
+    "sha256": "9888bc48c0bed4720133f3fbe85316c1381f2208e3c1e500149b36ffb55947a0",
+    "result": "artwork/motion-continuity/results/gemini-adult-wedding.json"
+  },
+  {
+    "key": "grok-3d-original",
+    "target": "src/DesktopPet.App/Assets/Characters/grok-3d/motions/walk.png",
+    "generatedFile": "exec-03913c80-a23f-45be-be77-f2017dc9c281.png",
+    "sha256": "9eed0fa781a887fbfa7e1fe44b799db5344cb58d9af194124dac4206a6894aa3",
+    "result": "artwork/motion-continuity/results/grok-3d-original-padding.json"
+  },
+  {
+    "key": "grok-3d-swim",
+    "target": "src/DesktopPet.App/Assets/Characters/grok-3d/outfits/swim/walk.png",
+    "generatedFile": "exec-409443cc-b1ca-499a-8925-1d3c80bc06b8.png",
+    "sha256": "8e4816d736878db4972449d1c1801e20b81ec3451b825428541e7dea493a39d0",
+    "result": "artwork/motion-continuity/results/grok-3d-swim.json"
+  },
+  {
+    "key": "grok-3d-wedding",
+    "target": "src/DesktopPet.App/Assets/Characters/grok-3d/outfits/wedding/walk.png",
+    "generatedFile": "exec-7e25cb2c-11ca-46fb-aab0-269095a7c2d3.png",
+    "sha256": "5de93f9b583f0d18ecdc756f02adb96d035f6964ed313ea1c336fea00335987d",
+    "result": "artwork/motion-continuity/results/grok-3d-wedding.json"
+  },
+  {
+    "key": "grok-adult-original",
+    "target": "src/DesktopPet.App/Assets/Characters/grok-adult/motions/walk.png",
+    "generatedFile": "exec-7a0e67f4-21c8-4d1e-b91d-c039feb7b334.png",
+    "sha256": "a55ecf44f7e2eb30f1163d31de3fe5396fe3c9d99ea920df6aec89100f2770fa",
+    "result": "artwork/motion-continuity/results/grok-adult-original.json"
+  },
+  {
+    "key": "grok-adult-swim",
+    "target": "src/DesktopPet.App/Assets/Characters/grok-adult/outfits/swim/walk.png",
+    "generatedFile": "exec-dca2bda5-473d-43c6-b7c3-0e5b741b8fcc.png",
+    "sha256": "b8abeaab05cc08b8dfae9d7d560b77c6d5f572f31a0cf4f2828545ae4be7ef2b",
+    "result": "artwork/motion-continuity/results/grok-adult-swim-padding.json"
+  },
+  {
+    "key": "grok-adult-wedding",
+    "target": "src/DesktopPet.App/Assets/Characters/grok-adult/outfits/wedding/walk.png",
+    "generatedFile": "exec-718818c0-4c23-4077-964b-68e0e5071d8d.png",
+    "sha256": "cce54ab1c96bd51368f43d7a760273480ce78620e875ad3b3f495a6c15af7212",
+    "result": "artwork/motion-continuity/results/grok-adult-wedding.json"
+  },
+  {
+    "key": "qwen-3d-original",
+    "target": "src/DesktopPet.App/Assets/Characters/qwen-3d/motions/walk.png",
+    "generatedFile": "exec-e5a612de-8079-4d35-949d-b8b0a4622bb3.png",
+    "sha256": "a7e11e4f0465cc22557b74353b4c41dde47879ff3c35e4f1e0ac77f157ed5e2e",
+    "result": "artwork/motion-continuity/results/qwen-3d-original.json"
+  },
+  {
+    "key": "qwen-3d-swim",
+    "target": "src/DesktopPet.App/Assets/Characters/qwen-3d/outfits/swim/walk.png",
+    "generatedFile": "exec-b275153c-3e30-48ca-9942-61acf4b44e5d.png",
+    "sha256": "181db10b8df1ed2ac675f45d461375a6b11c2015e27b4f11fa47af614c736339",
+    "result": "artwork/motion-continuity/results/qwen-3d-swim.json"
+  },
+  {
+    "key": "qwen-3d-wedding",
+    "target": "src/DesktopPet.App/Assets/Characters/qwen-3d/outfits/wedding/walk.png",
+    "generatedFile": "exec-09a63d28-d1f8-4735-809b-8f2197438b04.png",
+    "sha256": "3889292857733594d50b0f347cafdbe86476def818ad818ffb110cea50414310",
+    "result": "artwork/motion-continuity/results/qwen-3d-wedding.json"
+  },
+  {
+    "key": "qwen-adult-original",
+    "target": "src/DesktopPet.App/Assets/Characters/qwen-adult/motions/walk.png",
+    "generatedFile": "exec-56d60880-b586-4f8b-9bce-90832023214d.png",
+    "sha256": "3a95fb222038c6d785b6aff4da96dd3477b20825738d7ac83fc60513fbc11cb2",
+    "result": "artwork/motion-continuity/results/qwen-adult-original.json"
+  },
+  {
+    "key": "qwen-adult-swim",
+    "target": "src/DesktopPet.App/Assets/Characters/qwen-adult/outfits/swim/walk.png",
+    "generatedFile": "exec-b0a0a241-c2a3-4e41-802d-d5eb35a6b9fd.png",
+    "sha256": "30683eae3a9540f400a6fba91f879b38c2c03c5016a2e34fba95439ab9805848",
+    "result": "artwork/motion-continuity/results/qwen-adult-swim.json"
+  },
+  {
+    "key": "qwen-adult-wedding",
+    "target": "src/DesktopPet.App/Assets/Characters/qwen-adult/outfits/wedding/walk.png",
+    "generatedFile": "exec-104d6ffc-ad53-4f92-a98a-b0da39a5166b.png",
+    "sha256": "8f90a807e8be3d09fa4a8283f626a8a24dc8ae15c533c656ce8492e75afd512a",
+    "result": "artwork/motion-continuity/results/qwen-adult-wedding.json"
+  },
+  {
+    "key": "zhipu-3d-original",
+    "target": "src/DesktopPet.App/Assets/Characters/zhipu-3d/motions/walk.png",
+    "generatedFile": "exec-fe258d14-28ac-4466-af66-d36935d62938.png",
+    "sha256": "5052df75d31308bf308d49c8d59f1d27df06158323b492885c92bfb8990e403a",
+    "result": "artwork/motion-continuity/results/zhipu-3d-original.json"
+  },
+  {
+    "key": "zhipu-3d-swim",
+    "target": "src/DesktopPet.App/Assets/Characters/zhipu-3d/outfits/swim/walk.png",
+    "generatedFile": "exec-7f6feea7-a410-4ac2-bb73-43fbfdb212e0.png",
+    "sha256": "1f41a2ebc5ff379f8abe1e698a166cbddfda668075302eca717e2b82822219c9",
+    "result": "artwork/motion-continuity/results/zhipu-3d-swim.json"
+  },
+  {
+    "key": "zhipu-3d-wedding",
+    "target": "src/DesktopPet.App/Assets/Characters/zhipu-3d/outfits/wedding/walk.png",
+    "generatedFile": "exec-fe2c52d5-039a-4f4a-b648-52183507925a.png",
+    "sha256": "80977199d3f2d3b9257b867e280eaadb20052849fbc5d756adc0810ab8a17753",
+    "result": "artwork/motion-continuity/results/zhipu-3d-wedding.json"
+  },
+  {
+    "key": "zhipu-adult-original",
+    "target": "src/DesktopPet.App/Assets/Characters/zhipu-adult/motions/walk.png",
+    "generatedFile": "exec-d7648859-9f6f-4d2f-b44c-314b31bc68e1.png",
+    "sha256": "61b1556f944517feb80c10cba9623705e591a1e68d262df1b79b02dcd20bb95b",
+    "result": "artwork/motion-continuity/results/zhipu-adult-original-padding.json"
+  },
+  {
+    "key": "zhipu-adult-swim",
+    "target": "src/DesktopPet.App/Assets/Characters/zhipu-adult/outfits/swim/walk.png",
+    "generatedFile": "exec-eb835202-4cf3-46b9-9a1b-6a698df3a1d5.png",
+    "sha256": "c16d1a9cf9507a4e60611d358e0d93b8597802d55130b45535c5a9676862b284",
+    "result": "artwork/motion-continuity/results/zhipu-adult-swim-padding.json"
+  },
+  {
+    "key": "zhipu-adult-wedding",
+    "target": "src/DesktopPet.App/Assets/Characters/zhipu-adult/outfits/wedding/walk.png",
+    "generatedFile": "exec-07c09866-c9be-4eae-850a-9c244ee0517a.png",
+    "sha256": "64c6463382cbad3a983a8a21654b2d65c349a4a7f1c595acd4a7fbc46fa83997",
+    "result": "artwork/motion-continuity/results/zhipu-adult-wedding.json"
+  },
+  {
+    "key": "kimi-3d-original",
+    "target": "src/DesktopPet.App/Assets/Characters/kimi-3d/motions/walk.png",
+    "generatedFile": "exec-93b7f5c4-b51d-43d6-b439-3ceae4dac567.png",
+    "sha256": "d91f0c0df6a34a23e7577f8bdeb26cb3efd7996ffff3b8a0c9d2577ac9e8859d",
+    "result": "artwork/motion-continuity/results/kimi-3d-original.json"
+  },
+  {
+    "key": "kimi-3d-swim",
+    "target": "src/DesktopPet.App/Assets/Characters/kimi-3d/outfits/swim/walk.png",
+    "generatedFile": "exec-d8a9934b-c990-41a5-a345-b3611fee2d84.png",
+    "sha256": "7095eb095ec19f4e64afe3c21b15901ecb8bb2214f11ba7fbb968b71d4637426",
+    "result": "artwork/motion-continuity/results/kimi-3d-swim.json"
+  },
+  {
+    "key": "kimi-3d-wedding",
+    "target": "src/DesktopPet.App/Assets/Characters/kimi-3d/outfits/wedding/walk.png",
+    "generatedFile": "exec-2f050c4a-95b7-4212-957a-b54573ea1c58.png",
+    "sha256": "2a1b63b15f6e22e37c92ead686df6e03da1c8eec32826d900c64517dca87ae2d",
+    "result": "artwork/motion-continuity/results/kimi-3d-wedding.json"
+  },
+  {
+    "key": "kimi-adult-original",
+    "target": "src/DesktopPet.App/Assets/Characters/kimi-adult/motions/walk.png",
+    "generatedFile": "exec-2c6f52bd-3f09-4a18-a065-3e9f4da3dd49.png",
+    "sha256": "8f47f5361c8e98f9a8a22b471593e44d1aeea82813a241292aadf6e5f7efb46f",
+    "result": "artwork/motion-continuity/results/kimi-adult-original.json"
+  },
+  {
+    "key": "kimi-adult-swim",
+    "target": "src/DesktopPet.App/Assets/Characters/kimi-adult/outfits/swim/walk.png",
+    "generatedFile": "exec-d8515744-4a0a-456c-8e3c-14ffee6853f3.png",
+    "sha256": "0f22a4a3ad70749da408f819cf23bd29b1381b960be57e1451ecb0bcf8f75e17",
+    "result": "artwork/motion-continuity/results/kimi-adult-swim.json"
+  },
+  {
+    "key": "kimi-adult-wedding",
+    "target": "src/DesktopPet.App/Assets/Characters/kimi-adult/outfits/wedding/walk.png",
+    "generatedFile": "exec-228f01d5-f4a2-4718-aa78-363318ff4b7a.png",
+    "sha256": "3420f15fe51c1e6700c59d9052ddd8fc09fb89d57bab1ad03f445f9114af74e3",
+    "result": "artwork/motion-continuity/results/kimi-adult-wedding.json"
+  },
+  {
+    "key": "whale-swim",
+    "target": "src/DesktopPet.App/Assets/Characters/whale/outfits/swim/walk.png",
+    "generatedFile": "exec-0c17d19d-ea0b-46d5-bde9-1c9bd0885e53.png",
+    "sha256": "9fb980ce329f5df93857860d3adef7899d726ef2a995c1da4dcb0bdedb7aff21",
+    "result": "artwork/motion-continuity/results/whale-swim.json"
+  },
+  {
+    "key": "gpt-swim",
+    "target": "src/DesktopPet.App/Assets/Characters/gpt/outfits/swim/walk.png",
+    "generatedFile": "exec-344e862c-e1f7-4219-8eb2-32d4a5de4d54.png",
+    "sha256": "779c83602e10eb15431c4f541b9cf539183963469d40e9d0685ead3b048f5a11",
+    "result": "artwork/motion-continuity/results/gpt-swim.json"
+  },
+  {
+    "key": "claude-swim",
+    "target": "src/DesktopPet.App/Assets/Characters/claude/outfits/swim/walk.png",
+    "generatedFile": "exec-7aa57552-3111-4a75-95c5-e53e1c563ac0.png",
+    "sha256": "b273130fb856938357225c44c40ea0d7895299988923801fef5527082432ac0b",
+    "result": "artwork/motion-continuity/results/claude-swim.json"
+  },
+  {
+    "key": "gemini-swim",
+    "target": "src/DesktopPet.App/Assets/Characters/gemini/outfits/swim/walk.png",
+    "generatedFile": "exec-a3050a62-f8e7-4918-b423-5ddda78a273f.png",
+    "sha256": "d8335b5829320bd9cbfa6bc6ee0b301e7ffb9efd3a8a6ae9e98c30c8bce33229",
+    "result": "artwork/motion-continuity/results/gemini-swim.json"
+  },
+  {
+    "key": "grok-swim",
+    "target": "src/DesktopPet.App/Assets/Characters/grok/outfits/swim/walk.png",
+    "generatedFile": "exec-9430f149-851a-48ee-af5f-4b776d1f6022.png",
+    "sha256": "18b01a465beaa069f70a661415763a12958c09199266ced58aa2a56b9bcd46f5",
+    "result": "artwork/motion-continuity/results/grok-swim.json"
+  },
+  {
+    "key": "qwen-swim",
+    "target": "src/DesktopPet.App/Assets/Characters/qwen/outfits/swim/walk.png",
+    "generatedFile": "exec-2afb0b3a-95e8-4f46-9f3d-81a1bf12fb96.png",
+    "sha256": "ed9c43f75804a14d988cff3170f035879dcd63e830b2420a986065f7fa72d97b",
+    "result": "artwork/motion-continuity/results/qwen-swim.json"
+  },
+  {
+    "key": "zhipu-swim",
+    "target": "src/DesktopPet.App/Assets/Characters/zhipu/outfits/swim/walk.png",
+    "generatedFile": "exec-74e68c25-66e5-4e07-be21-9c6d3036ee87.png",
+    "sha256": "73fe07ae9cb5d01575d8740de931d72cb192fd1d7a5ac6247a8dfd332b303c21",
+    "result": "artwork/motion-continuity/results/zhipu-swim.json"
+  },
+  {
+    "key": "kimi-swim",
+    "target": "src/DesktopPet.App/Assets/Characters/kimi/outfits/swim/walk.png",
+    "generatedFile": "exec-688e9535-a4a1-45cd-9630-dda335ed6c84.png",
+    "sha256": "521dac2f41cf8652db1dca78927c193157fc19090e7a823d6afea92a0fd9c684",
+    "result": "artwork/motion-continuity/results/kimi-swim.json"
+  }
+]

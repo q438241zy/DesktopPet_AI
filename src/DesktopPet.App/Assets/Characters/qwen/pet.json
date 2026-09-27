@@ -244,7 +244,22 @@
         "file": "outfits/swim.webp",
         "rows": 1
       },
-      "motions": {}
+      "motions": {
+        "walk": {
+          "file": "outfits/swim/walk.png",
+          "columns": 3,
+          "rows": 2,
+          "frameMs": [
+            160,
+            160,
+            160,
+            160,
+            160,
+            160
+          ],
+          "facing": "right"
+        }
+      }
     },
     "wedding": {
       "name": "婚纱",

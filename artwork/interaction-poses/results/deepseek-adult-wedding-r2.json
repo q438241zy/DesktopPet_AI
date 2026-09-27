@@ -1,0 +1,15 @@
+{
+  "key": "deepseek-adult-wedding",
+  "id": "deepseek-adult",
+  "style": "adult",
+  "outfit": "wedding",
+  "reference": "C:/Users/99000256/Desktop/Character/src/DesktopPet.App/Assets/Characters/deepseek-adult/outfits/wedding.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/deepseek-adult/outfits/wedding/interaction.png",
+    "src/DesktopPet.App/Assets/Characters/deepseek-adult/outfits/wedding.png"
+  ],
+  "dest": "src/DesktopPet.App/Assets/Characters/deepseek-adult/outfits/wedding/interaction.png",
+  "prompt": "Edit reference image 1, the existing transparent 4 by 4 sprite atlas. Keep the exact same adult DeepSeek woman, realistic digital-human face, blue hair, whale accessories, white lace wedding dress with blue sash, white heels, and all sixteen poses in exactly the same reading order. Image 2 is the exact identity and outfit reference. The only correction is generous separation: make every figure smaller inside its own invisible 256 by 384 cell on a 1024 by 1536 canvas. Every silhouette including long veil and skirt must be wholly inside its own cell with at least 24 pixels empty alpha on every side, and never intrude into any neighboring cell's rectangular crop. Especially separate the third and fourth figures of the bottom row so the flinching figure's veil cannot appear beside the shrugging figure. Full heads, hands, toes, shoes and lace trains, no edge cropping. Standing figures no more than 290px tall, seated poses about 170px high, curled about 140px, sleeping about 95px; do not enlarge seated poses. Preserve coherent adult anatomy and exact white wedding outfit in every cell. Sixteen actions: row 1 closed-mouth listening, gentle speaking with open palm, silent upward daydream hands behind back, bent-knee jump preparation. Row 2 airborne both knees folded, bent-knee landing, sitting hugging knees, tightly curled sitting head ON knees. Row 3 side-lying fetal sleep with CLOSED eyes and cheek on hands, seated picking up cube, hand placing blue cube onto red-green tower, hand released beside completed tower. Row 4 heels raised being lifted, suspended with dangling slightly bent legs, harmless bump flinch eyes closed forearms protect chest, downward glance palms out small shrug. Draw cubes only in the three block-building poses. No ball, no text, no floor, no shadows, no background, no scattered detached decorations. Clean true alpha transparency. Produce one complete sixteen-pose sprite sheet.",
+  "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-125f43ea-a3ee-4dd4-b8e0-25942232130a.png",
+  "revision": 2
+}

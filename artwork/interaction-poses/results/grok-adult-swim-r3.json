@@ -1,0 +1,12 @@
+{
+  "key": "grok-adult-swim",
+  "id": "grok-adult",
+  "style": "adult",
+  "outfit": "swim",
+  "reference": "C:/Users/99000256/Desktop/Character/src/DesktopPet.App/Assets/Characters/grok-adult/outfits/swim/interaction.png",
+  "referenceRevision": 2,
+  "dest": "src/DesktopPet.App/Assets/Characters/grok-adult/outfits/swim/interaction.png",
+  "prompt": "Edit this existing transparent sixteen-pose desktop pet sprite atlas. Preserve the same fictional ADULT woman, realistic adult digital-human face, long blonde hair, black ribbons, exact modest black and gold one-piece swim dress and flat black sandals, and all sixteen actions in the same four-column four-row order. Correct spacing only: shrink every standing figure and move the rows apart so there is at least 40 pixels of completely empty alpha between the lowest footwear of row 1 and the highest raised hands of row 2, and at least 24 pixels of empty alpha between every neighboring full-body silhouette in both directions. In the current atlas, the first standing figure's black sandal intrudes above the airborne figure's head when cropped: completely prevent that overlap by moving the top-row feet much farther up, preserving all toes and sandals. Keep generous outer canvas padding; keep the entire side-lying sleeper inside the left edge. Each figure's rectangular crop must contain only that figure, with no part of any neighboring figure. Exact 4 by 4 grid, 16 whole figures. Preserve poses: row 1 closed-mouth listening, one-palm speaking, quiet daydream hands behind back, jump preparation. Row 2 airborne knees folded with raised arms, landing bent knees, floor sitting hugging knees, tight seated curl HEAD RESTING ON KNEES and eyes closed. Row 3 side-lying fetal sleep eyes CLOSED, grasping a cube, placing blue cube on red-green tower, releasing finished cube tower. Row 4 starting lift heels raised, suspended dangling legs, harmless ball bump flinch forearms protect chest eyes closed without a ball, missed-ball shrug without a ball. Seated/curl/sleep poses are physically smaller in height than standing, same head size across cells. No text, numbers, floor, shadows, background, borders, glow or loose decoration. Preserve clean TRUE ALPHA transparency. One complete sprite atlas.",
+  "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-03e7854a-096a-4b16-b3fa-157f5370d1a4.png",
+  "revision": 3
+}

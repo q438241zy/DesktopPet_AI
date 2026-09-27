@@ -38,6 +38,12 @@ public sealed class PetWindow : Window
     internal int DrawnFrame { get; private set; }
     internal Point? HandTarget { get; private set; }
     internal bool HasCaughtBall => caughtBall;
+    internal bool BallWasHit => ballHit;
+    internal bool ToyInFlight => flyingBall;
+    internal double AirborneOffset { get; private set; }
+    internal bool IsDropping => dropping;
+    internal bool LiftedFromTaskbar => liftedFromTaskbar;
+    internal ChatWindow? ActiveChat => chatWindow;
     private bool bakedProps;
     private double handSpan;
     private double BallSize => activeToy.Diameter;
@@ -58,12 +64,15 @@ public sealed class PetWindow : Window
     internal string CurrentAction => action;
     private DesktopHost? desktop;
     private SettingsWindow? settings;
+    private ChatWindow? chatWindow;
+    private bool conversationActive, liftedFromTaskbar, dropping;
+    private double dropSpeed;
     private string action = "idle";
     private double actionStarted, actionUntil, speechUntil, lastTick, lastInteraction, lastDizzy = double.NegativeInfinity;
     private Action? onMotionEnd;
     private bool dragging, pressed, resting, roaming, exploring, closing, holdingBall, flyingBall, ballHit, caughtBall, clickThrough;
     private Point downScreen, downWindow, ballPrevious;
-    private double ballX, ballY, ballVx, ballVy, ballSampleTime, ballAge, roamDeadline;
+    private double ballX, ballY, ballVx, ballVy, ballSampleTime, ballStarted, roamDeadline;
     private int direction = -1;
     private string? prop;
     private double propStart;
@@ -107,7 +116,7 @@ public sealed class PetWindow : Window
         Loaded += (_, _) => Welcome();
         timer = new DispatcherTimer(DispatcherPriority.Background) { Interval = TimeSpan.FromMilliseconds(33) };
         timer.Tick += (_, _) => Tick(); timer.Start();
-        Closed += (_, _) => { closing = true; timer.Stop(); CancelInput(); settings?.Close(); desktop?.Dispose(); Save(); };
+        Closed += (_, _) => { closing = true; timer.Stop(); CancelInput(); CancelChoreography(); chatWindow?.Close(); settings?.Close(); desktop?.Dispose(); Save(); };
         day = DateOnly.FromDateTime(DateTime.Now);
         ApplySettings(false);
     }
@@ -144,6 +153,7 @@ public sealed class PetWindow : Window
         CancelInput(); ClearTransient(); resting = false;
         sprite.Visibility = Visibility.Visible;
         State.Character = selected.Id; Art.Clear(); ApplySettings();
+        chatWindow?.SetCompanion();
         Play("chat", $"你好，我是{Character.Name}。", 2600);
     }
     public void SelectStyle(string category)
@@ -172,6 +182,20 @@ public sealed class PetWindow : Window
         if (settings is not null) { settings.Activate(); return; }
         settings = new SettingsWindow(this); settings.Closed += (_, _) => settings = null; settings.Show();
     }
+    internal void OpenChat()
+    {
+        ClearTransient(); conversationActive = true; SetAction("listen"); Render();
+        if (chatWindow is null) { chatWindow = new ChatWindow(this) { ShowActivated = IsHitTestVisible, IsHitTestVisible = IsHitTestVisible }; chatWindow.Closed += (_, _) => chatWindow = null; chatWindow.Show(); }
+        else { chatWindow.SetCompanion(); chatWindow.Activate(); }
+    }
+    internal void BeginConversation() { ClearTransient(); conversationActive = true; SetAction("listen"); Render(); }
+    internal void ConversationListen() { if (conversationActive) { SetAction("listen"); Render(); } }
+    internal void ConversationReply(string text)
+    {
+        if (!conversationActive) return;
+        SetAction("chat", Math.Clamp(text.Length * 85, 1800, 6500), ConversationListen); Render();
+    }
+    internal void EndConversation() { if (conversationActive) { conversationActive = false; SetAction("idle"); Render(); } }
     public void ToggleVisible()
     {
         CancelInput(); ClearTransient(); SetAction("idle");
@@ -230,7 +254,7 @@ public sealed class PetWindow : Window
         if (!pressed) return;
         var screen = ScreenPoint(e); var delta = screen - downScreen;
         if (!dragging && delta.Length < 8) return;
-        if (!dragging) { dragging = true; ClearTransient(); roaming = false; SetAction("pickup"); }
+        if (!dragging) { dragging = true; BeginLift(); }
         Left = downWindow.X + delta.X; Top = downWindow.Y + delta.Y;
         shakes.Move(screen.X, Now);
         var motion = Now - shakes.LastReversal < 650 ? shakes.Motion : "pickup";
@@ -250,13 +274,25 @@ public sealed class PetWindow : Window
                 Play(faint ? "faint" : "dizzy", faint ? "让我躺一小会儿……" : "转圈圈了……", faint ? 4500 : 3100);
                 prop = "stars"; propStart = Now;
             }
-            else { Play("happy", "在这里陪你。", 1200); if (State.CheckedIn(day) && Math.Abs(Top + FloorY - WorkArea.Bottom) < 35 && !State.ReducedMotion) StartWalk(false); }
+            else ReleaseLift();
         }
         else if (dance is not null) TapDance();
         else Touch(e.GetPosition(sprite).Y / sprite.Height);
         e.Handled = true;
     }
     internal Rect WorkArea => desktop?.WorkArea(this) ?? SystemParameters.WorkArea;
+    internal void BeginLift()
+    {
+        bool fromEdge = Math.Abs(Top + FloorY - WorkArea.Bottom) < 28;
+        ClearTransient(); liftedFromTaskbar = fromEdge; roaming = false; SetAction("pickup"); Render();
+    }
+    internal void ReleaseLift()
+    {
+        Constrain();
+        if (liftedFromTaskbar && !State.ReducedMotion && WorkArea.Bottom - FloorY - Top > 4)
+        { dropping = true; dropSpeed = 30; SetAction("pickup"); Render(); return; }
+        liftedFromTaskbar = false; Play("land", duration: 410); Save();
+    }
     private void Constrain()
     {
         var area = WorkArea;
@@ -269,13 +305,14 @@ public sealed class PetWindow : Window
         pressed = dragging = holdingBall = false;
         if (sprite.IsMouseCaptured) sprite.ReleaseMouseCapture();
         if (ball.IsMouseCaptured) ball.ReleaseMouseCapture();
-        if (hadDrag) { Constrain(); SetAction("idle"); if (!closing) Save(); }
+        if (hadDrag) { if (liftedFromTaskbar) Top = WorkArea.Bottom - FloorY; liftedFromTaskbar = false; Constrain(); SetAction("idle"); if (!closing) Save(); }
     }
     private void ClearTransient()
-    { CancelChoreography(); resting = roaming = exploring = false; sprite.Visibility = Visibility.Visible; menu.Children.Clear(); effects.Clear(); prop = null; flyingBall = holdingBall = caughtBall = false; ball.Visibility = Visibility.Collapsed; bubble.Visibility = Visibility.Collapsed; onMotionEnd = null; }
+    { CancelChoreography(); resting = roaming = exploring = conversationActive = liftedFromTaskbar = false; sprite.Visibility = Visibility.Visible; menu.Children.Clear(); effects.Clear(); prop = null; flyingBall = holdingBall = caughtBall = false; ball.Visibility = Visibility.Collapsed; bubble.Visibility = Visibility.Collapsed; onMotionEnd = null; }
 
     private void CancelChoreography()
     {
+        if (dropping) { dropping = false; Top = WorkArea.Bottom - FloorY; }
         if (hideJourney is not null)
         {
             // Use the departure monitor: the mostly hidden HWND may overlap its neighbour.
@@ -331,18 +368,29 @@ public sealed class PetWindow : Window
             case "blocks": BuildBlocks(); break;
             case "walk": StartWalk(true); break;
             case "rest": Rest(); break;
+            case "jump":
+                if (Character.Category != "chibi" && Character.MotionFor(State.Outfit, "land") is not null)
+                {
+                    Play("jump", duration: 880);
+                    // Landing has its own clock, so a delayed desktop frame cannot
+                    // skip straight from the airborne pose to standing idle.
+                    onMotionEnd = () => Play("land", duration: 410);
+                }
+                else Play("jump", duration: PortraitMotion.Duration("jump"));
+                break;
+            case "chat": OpenChat(); break;
             case "peek": Peek(); break;
             case "peek-left": Peek(-1); break;
             case "peek-right": Peek(1); break;
             case "dance": StartDance(); break;
-            case "nudge": NudgeBall(); break;
+            case "nudge": TakeBall(); break;
             case "letter": Celebrate($"相伴 {State.CheckIns.Count} 天"); break;
             default: Play(key, duration: PortraitMotion.Duration(key)); break;
         }
     }
     public void StopInteraction() { CancelInput(); ClearTransient(); SetAction("idle"); lastInteraction = Now; Render(); }
     private void Snack() { ClearTransient(); activeFood = Character.MotionFor(State.Outfit, "eat")?.BakedProps == true ? Collectibles.Get("bread") : snacks.Draw(); Play("eat", activeFood.Name + "，啊呜。", PortraitMotion.Duration("eat")); prop = "food"; propStart = Now; }
-    private void BuildBlocks() { ClearTransient(); Play("build", "搭座小塔。", 3300); prop = "blocks"; propStart = Now; onMotionEnd = () => Play("kick", "哗啦～", 2300); }
+    private void BuildBlocks() { ClearTransient(); Play("build", duration: PortraitMotion.Duration("build")); prop = "blocks"; propStart = Now; onMotionEnd = () => prop = null; }
     private void Celebrate(string label) { ClearTransient(); Play("chat", label + "。这封信送给你 ♡", 5200); prop = "letter"; propStart = Now; }
     private void Peek() => BeginHide();
     private void Peek(int side) => BeginHide(side);
@@ -398,26 +446,15 @@ public sealed class PetWindow : Window
         if (selected is null) return;
         ClearTransient(); activeToy = selected; ball.Item = selected; ball.Width = ball.Height = BallSize; ballSpin.Angle = 0;
         Play("ball-ready", selected.Name + "，接着！", 2200);
-        if (HandTarget is not null)
-        {
-            caughtBall = true; ball.Visibility = Visibility.Visible; SetAction("ball-hold"); Render(); return;
-        }
         var area = WorkArea;
         double minX = Math.Max(0, area.Left - Left), maxX = Math.Min(Width, area.Right - Left);
         ballX = Math.Clamp(CenterX - State.Size * .45 - BallSize / 2, minX, Math.Max(minX, maxX - BallSize));
         ballY = FloorY - BallSize; ballVx = ballVy = 0; ball.Visibility = Visibility.Visible; PlaceBall();
     }
-    private void NudgeBall()
-    {
-        TakeBall(); caughtBall = false; ball.Width = ball.Height = BallSize;
-        var area = WorkArea; double minX = Math.Max(0, area.Left - Left), maxX = Math.Min(Width, area.Right - Left);
-        ballX = Math.Clamp(CenterX - State.Size * .25, minX, Math.Max(minX, maxX - BallSize)); ballY = FloorY - BallSize;
-        ballVx = -125; ballVy = -90; flyingBall = true; ballHit = true; ballAge = 0; Play("nudge", duration: 1800); PlaceBall();
-    }
     internal void ThrowToy(double x, double y, double vx, double vy)
     {
         caughtBall = false; ball.Width = ball.Height = BallSize; ballX = x; ballY = y; ballVx = vx; ballVy = vy;
-        flyingBall = true; ballAge = 0; ballHit = false; Play("anticipate", "接住！", 4300); PlaceBall();
+        flyingBall = true; ball.Visibility = Visibility.Visible; ballStarted = Now; ballHit = false; Play("anticipate", duration: 4300); PlaceBall();
     }
     private void FinishExploration()
     {
@@ -448,6 +485,12 @@ public sealed class PetWindow : Window
             var completion = onMotionEnd; onMotionEnd = null; actionUntil = 0; SetAction("idle"); completion?.Invoke();
         }
         if (now > speechUntil) bubble.Visibility = Visibility.Collapsed;
+        if (dropping)
+        {
+            dropSpeed += 1050 * dt; Top = Math.Min(WorkArea.Bottom - FloorY, Top + dropSpeed * dt);
+            if (Top + FloorY >= WorkArea.Bottom - .1)
+            { dropping = liftedFromTaskbar = false; Play("land", duration: 410); Save(); }
+        }
         if (dragging && now - shakes.LastReversal >= 650 && action != "pickup") SetAction("pickup");
         if (hideJourney is { } journey)
         {
@@ -485,24 +528,21 @@ public sealed class PetWindow : Window
             var area = WorkArea;
             var step = ToyPhysics.Step(new ToyFlight(ballX, ballY, ballVx, ballVy, ballSpin.Angle), activeToy, dt,
                 Math.Max(0, area.Left - Left), Math.Min(Width, area.Right - Left), FloorY);
-            ballX = step.X; ballY = step.Y; ballVx = step.Vx; ballVy = step.Vy; ballSpin.Angle = step.Angle; ballAge += dt;
-            var target = HandTarget ?? new Point(CenterX, PetTop + State.Size * .6);
-            double radius = (HandTarget is not null ? Math.Max(8, handSpan * .48) : State.Size * .28) + BallSize / 2;
-            if (!ballHit && BallPhysics.Hit(x0, y0, ballX + BallSize / 2, ballY + BallSize / 2, target.X, target.Y, radius))
+            ballX = step.X; ballY = step.Y; ballVx = step.Vx; ballVy = step.Vy; ballSpin.Angle = step.Angle;
+            var hitFrame = (System.Windows.Media.Imaging.BitmapSource)sprite.Source;
+            double bodyHeight = sprite.Height * Art.VisibleHeight(hitFrame);
+            if (!ballHit && PortraitChoreography.HitsBody(x0, y0, ballX + BallSize / 2, ballY + BallSize / 2, CenterX, FloorY - bodyHeight, bodyHeight, BallSize / 2))
             {
                 ballHit = true;
-                if (HandTarget is not null)
-                {
-                    flyingBall = false; caughtBall = true; ballVx = ballVy = 0; ballSpin.Angle = 0;
-                    Play("ball-hit", "接到啦。", 1050); onMotionEnd = () => SetAction("ball-hold");
-                }
-                else { Play("ball-hit", "接到啦。", 1800); ballVx *= -.65; ballVy = -210; }
+                Play("ball-hit", "哎呀，打到啦。", 1300); ballVx *= -.65; ballVy = -160;
             }
-            if (ballAge > 4) { flyingBall = false; ball.Visibility = Visibility.Collapsed; if (!ballHit) Play("ball-miss", "差一点，下次再来！", 2000); }
+            // Lifetime follows real elapsed time even if the UI is busy; the bounded
+            // physics step must not leave the pet waiting after anticipation expires.
+            if (now - ballStarted > 4000) { flyingBall = false; ball.Visibility = Visibility.Collapsed; if (!ballHit) Play("ball-miss", "没碰到我，再试试。", 1600); }
             PlaceBall();
         }
         Render();
-        bool moving = dragging || holdingBall || flyingBall || roaming || hideJourney is not null || prop is not null || actionUntil > 0 || danceVisual is not null;
+        bool moving = dragging || dropping || holdingBall || flyingBall || roaming || hideJourney is not null || prop is not null || actionUntil > 0 || danceVisual is not null;
         timer.Interval = TimeSpan.FromMilliseconds(action == "sleep" ? 125 : moving ? 33 : 200);
     }
     private void Render()
@@ -522,15 +562,19 @@ public sealed class PetWindow : Window
             {
                 var calibration = Art.Frame(Character, reference, 0);
                 size *= Math.Clamp(Art.SheetHeight(calibration) / Math.Max(.1, UsingDrawnAction ? Art.VisibleHeight(frame) : Art.SheetHeight(frame)), UsingDrawnAction ? .6 : .7, UsingDrawnAction ? 2.2 : 1.5);
+                size *= art.Sprite.HeightRatios?[art.Frame] ?? 1;
             }
         }
+        if (UsingDrawnAction && action == "sleep") size *= PortraitChoreography.Breath(Now - actionStarted, State.ReducedMotion);
         sprite.Width = sprite.Height = size;
         groundLine = action == "walk" || Character.Demo || UsingDrawnAction && Character.Category != "chibi" ? Art.GroundLine(frame) : .875;
-        Canvas.SetTop(sprite, PetTop); Canvas.SetTop(bubble, Math.Max(8, PetTop - 78));
+        AirborneOffset = UsingDrawnAction && action == "jump" ? PortraitChoreography.JumpHeight(Now - actionStarted, State.Size, State.ReducedMotion) : 0;
+        Canvas.SetTop(sprite, PetTop - AirborneOffset); Canvas.SetTop(bubble, Math.Max(8, PetTop - AirborneOffset - 78));
         sprite.RenderTransformOrigin = new Point(.5, .5);
         facing.ScaleX = action is "walk" or "peek" ? DesktopWalk.ScaleX(direction, art.Sprite.Facing) : 1;
         Canvas.SetLeft(sprite, CenterX - size * (.5 + (action == "walk" ? facing.ScaleX * (Art.HorizontalAnchor(frame) - .5) : UsingDrawnAction && Character.Category != "chibi" ? Art.HorizontalAnchor(frame) - .5 : 0)));
-        sprite.RenderTransform = facing;
+        sprite.RenderTransform = UsingDrawnAction && action == "pickup" && !State.ReducedMotion
+            ? new TransformGroup { Children = { facing, new RotateTransform(Math.Sin((Now - actionStarted) / 350) * 2.5) } } : facing;
         HandTarget = null;
         if (art.Sprite.Hands?[art.Frame] is { } contact)
         {
@@ -575,6 +619,7 @@ public sealed class PetWindow : Window
         if (UsingDrawnAction && Character.Category != "chibi" && sprite.Source is System.Windows.Media.Imaging.BitmapSource drawn)
         {
             double h = sprite.Height * Art.VisibleHeight(drawn), top = FloorY - h;
+            top -= AirborneOffset;
             head = new(CenterX, top + h * .07); mouth = new(CenterX, top + h * .16); body = new(CenterX, top + h * .43);
         }
         if (danceVisual is { } visual)
@@ -591,7 +636,7 @@ public sealed class PetWindow : Window
             new Point(Math.Min(Width, area.Right - Left), Math.Min(Height, area.Bottom - Top)));
         effects.Update(new FeedbackFrame(action, now - actionStarted, actionUntil > 0 ? actionUntil - actionStarted : 0, State.Size,
             head, mouth, HandTarget ?? hand, body, new Point(CenterX, FloorY), bounds, State.ReducedMotion, prop, now - propStart, activeFood, activePrize, bakedProps,
-            dance is not null ? PetDance.BeatAt(now - actionStarted) : null, danceFeedbackBeat == PetDance.BeatAt(now - actionStarted)));
+            dance is not null ? PetDance.BeatAt(now - actionStarted) : null, danceFeedbackBeat == PetDance.BeatAt(now - actionStarted), AirborneOffset, liftedFromTaskbar, UsingDrawnAction));
         if (prop == "letter") bubble.Visibility = Visibility.Collapsed;
     }
 }

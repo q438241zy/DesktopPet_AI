@@ -7,7 +7,8 @@ namespace DesktopPet.App;
 
 internal sealed record FeedbackFrame(string Action, double Elapsed, double Duration, double Size, Point Head, Point Mouth,
     Point Hand, Point Body, Point Feet, Rect WorkBounds, bool Reduced, string? Prop, double PropElapsed,
-    Collectible Food, Collectible? Prize, bool BakedProps = false, int? DanceBeat = null, bool OnBeat = false);
+    Collectible Food, Collectible? Prize, bool BakedProps = false, int? DanceBeat = null, bool OnBeat = false,
+    double JumpHeight = 0, bool LiftedFromTaskbar = false, bool DrawnPose = false);
 
 /// <summary>Action-specific, code-drawn feedback. Anchors follow the same animated skeleton as the portrait.</summary>
 internal sealed class InteractionFeedback : FrameworkElement
@@ -85,6 +86,7 @@ internal sealed class InteractionFeedback : FrameworkElement
                 if (cycle > .6) for (int i = 0; i < 3; i++) dc.DrawEllipse(ItemArt.Brush("#E4BA83"), null, new Point(f.Mouth.X - 8 + i * 7, f.Mouth.Y + 4 + (cycle - .6) * (16 + i * 6)), 1.5, 1.5);
                 break;
             case "sleep":
+                if (f.DrawnPose) break;
                 dc.DrawEllipse(ItemArt.Brush("#287DA3BB"), null, new Point(f.Feet.X, f.Feet.Y - 1), size * .2, 4);
                 for (int i = 0; i < 3; i++)
                 {
@@ -94,25 +96,25 @@ internal sealed class InteractionFeedback : FrameworkElement
                 }
                 break;
             case "curl":
-                dc.DrawEllipse(ItemArt.Brush("#CBDDED"), Line("#ABC3D8"), new Point(f.Feet.X, f.Feet.Y - 1), size * .23, 5); Heart(f.Body.X + 20, f.Body.Y - 16); break;
-            case "chat": case "farewell":
+                break;
+            case "chat": break;
+            case "farewell":
                 Symbol("M0,3 Q7,7 0,12 M5,0 Q15,7 5,16", new Point(f.Hand.X + 7, f.Hand.Y - 11), .75 + .1 * Math.Sin(t * 6), null, "#97B7D2"); break;
             case "happy": Affection(); break;
             case "think":
-                dc.DrawEllipse(ItemArt.Brush("#F4FBFCFF"), Line("#B2C7DD", 1), new Point(f.Head.X + 30, f.Head.Y - 14), 18, 11);
-                for (int i = 0; i < 3; i++) dc.DrawEllipse(blue, null, new Point(f.Head.X + 21 + i * 9, f.Head.Y - 14 - (i == (int)(t * 3) % 3 ? 2 : 0)), 1.6, 1.6); break;
+                break;
             case "jump": case "pounce":
-                dc.DrawEllipse(ItemArt.Brush("#39789BAA"), null, new Point(f.Feet.X, f.Feet.Y - 1), size * .18, 3);
-                for (int i = 0; i < 3; i++) dc.DrawLine(Line("#B8CEE0"), new Point(f.Feet.X - 25 + i * 25, f.Feet.Y - 10), new Point(f.Feet.X - 25 + i * 25, f.Feet.Y - 25 - i % 2 * 5)); break;
+                double air = Math.Clamp(f.JumpHeight / Math.Max(1, size * .3), 0, 1);
+                dc.PushOpacity(1 - air * .6); dc.DrawEllipse(ItemArt.Brush("#18000000"), null, new Point(f.Feet.X, f.Feet.Y - 1), size * .12 * (1 - air * .25), 2); dc.Pop(); break;
             case "bonk":
                 var hammer = new Point(f.Head.X + 20, f.Head.Y - 20); double swing = -30 + 65 * Math.Pow(Math.Sin(t * 4), 2);
                 dc.PushTransform(new RotateTransform(swing, hammer.X + 7, hammer.Y + 24));
                 Symbol("M7,5 L11,5 L11,25 L7,25 Z", hammer, 1, "#E3CAA4", "#B59C7B"); Symbol("M0,0 L20,0 Q24,5 20,10 L0,10 Q-4,5 0,0 Z", hammer, 1, "#BBD7EF", "#8DAECB"); dc.Pop();
                 if (Math.Pow(Math.Sin(t * 4), 2) > .65) Spark(new Point(f.Head.X + 3, f.Head.Y), 6); break;
             case "ball-ready": case "anticipate":
-                for (int i = 0; i < 2; i++) Spark(new Point(f.Hand.X - 13 + i * 31, f.Hand.Y - 8), 3, "#ABC5DB"); break;
+                break;
             case "ball-hit":
-                for (int i = 0; i < 5; i++) { double a = i * Math.PI * 2 / 5; Spark(new Point(f.Hand.X + Math.Cos(a) * 24, f.Hand.Y + Math.Sin(a) * 20), 3); } break;
+                if (t < .2) Spark(f.Body, 5, "#C4A789"); break;
             case "ball-miss": case "sad":
                 Symbol("M6,0 Q-3,12 6,14 Q15,12 6,0 Z", new Point(f.Head.X + 20, f.Head.Y + 2), .65, "#BAD7EF", "#8CB4D2"); break;
             case "kick": case "nudge":
@@ -122,12 +124,18 @@ internal sealed class InteractionFeedback : FrameworkElement
             case "peek":
                 Text("?", f.Head.X + 18, f.Head.Y - 20, 17); break;
             case "pickup":
-                Heart(f.Head.X + 20, f.Head.Y - 14, .4); break;
+                if (f.LiftedFromTaskbar)
+                {
+                    double separation = Math.Max(0, f.WorkBounds.Bottom - f.Feet.Y);
+                    dc.PushOpacity(Math.Max(0, 1 - separation / 150));
+                    dc.DrawEllipse(ItemArt.Brush("#18000000"), null, new Point(f.Feet.X, f.WorkBounds.Bottom - 1), size * .11, 2); dc.Pop();
+                }
+                break;
         }
         if (f.DanceBeat is { } beat)
             for (int i = 0; i < 4; i++) dc.DrawEllipse(i == beat % 4 ? ItemArt.Brush(f.OnBeat ? "#66B28B" : "#7CADD6") : ItemArt.Brush("#C4D4E3"), null, new Point(f.Head.X - 21 + i * 14, f.Head.Y - 18), i == beat % 4 ? 3.5 : 2, i == beat % 4 ? 3.5 : 2);
         double propTime = f.Reduced ? .75 : f.PropElapsed / 1000;
-        if (f.Prop == "blocks")
+        if (f.Prop == "blocks" && !f.BakedProps)
         {
             double side = f.Feet.X + size * .32 + 75 < f.WorkBounds.Right ? 1 : -1;
             for (int i = 0; i < Math.Min(5, (int)(propTime / .45) + 1); i++)

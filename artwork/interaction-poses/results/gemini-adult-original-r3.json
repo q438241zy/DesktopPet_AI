@@ -1,0 +1,12 @@
+{
+  "key": "gemini-adult-original",
+  "id": "gemini-adult",
+  "style": "adult",
+  "outfit": "original",
+  "reference": "C:/Users/99000256/Desktop/Character/src/DesktopPet.App/Assets/Characters/gemini-adult/portrait.png",
+  "dest": "src/DesktopPet.App/Assets/Characters/gemini-adult/motions/interaction.png",
+  "prompt": "Edit this transparent 16-pose desktop pet atlas. Keep the exact 4x4 layout, every figure, size, costume, face and cropping unchanged. ONLY correct the sleeping figure in ROW THREE COLUMN ONE (the sideways lying figure): BOTH eyes must be fully CLOSED, relaxed peacefully asleep, lips closed. It must not wink, look at the viewer, or smile with an open mouth. Preserve all of the other 15 poses exactly. Preserve clean true alpha transparency, no backdrop.",
+  "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-db754141-721f-49b5-87b2-0f846f1761c1.png",
+  "editReference": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-bdfb39e6-63fc-4f9a-b491-2db1650d5f8a.png",
+  "revision": 3
+}

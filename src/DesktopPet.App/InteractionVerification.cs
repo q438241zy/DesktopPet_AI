@@ -149,7 +149,11 @@ internal static class InteractionVerification
                 pet.SelectCharacter(id); pet.State.Outfits[id] = outfit; pet.ApplySettings();
                 var area = pet.WorkArea;
                 pet.Left = (side < 0 ? area.Left + pet.State.Size * .46 + 8 : area.Right - pet.State.Size * .46 - 8) - 280;
-                pet.BeginHide(side); await Until(() => pet.HideStage == HidePhase.Hidden, "hide never reached edge");
+                pet.BeginHide(side);
+                // The phase clock can cross a boundary between dispatcher ticks. Wait for the
+                // actual HWND position too before judging the rendered hidden state.
+                await Until(() => pet.HideStage == HidePhase.Hidden
+                    && side * (pet.Left + 280 - (side < 0 ? area.Left : area.Right)) > pet.State.Size / 2, "hide never reached edge");
                 Require(side * (pet.Left + 280 - (side < 0 ? area.Left : area.Right)) > pet.State.Size / 2, $"{id}: fully hidden beyond requested edge {side}");
                 Require(((Canvas)pet.Content).Clip is not null, $"{id}: clipping prevents spill into adjacent monitor");
                 pet.Save(); var saved = new StateStore(output).Load(); Require(saved.Left + 280 >= area.Left && saved.Left + 280 <= area.Right, "saving while hidden restores inside desktop");

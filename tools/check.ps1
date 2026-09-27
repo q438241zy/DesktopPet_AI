@@ -10,10 +10,12 @@ $process = Start-Process -FilePath $exe -ArgumentList @('--verify-assets','--dat
 Get-Content -LiteralPath "$verifyRoot/asset-check.txt"
 if ($process.ExitCode -ne 0) { throw 'Asset validation failed' }
 $uiRoot = Join-Path $projectRoot ('artifacts/ui-smoke-' + [Guid]::NewGuid().ToString('N'))
+$uiRoot | Set-Content -LiteralPath (Join-Path $projectRoot 'artifacts/current-ui-check.txt')
 $process = Start-Process -FilePath $exe -ArgumentList @('--verify-ui','--data-dir',('"' + $uiRoot + '"')) -PassThru -Wait -WindowStyle Hidden
-Get-Content -LiteralPath "$uiRoot/ui-check.txt"
-if ($process.ExitCode -ne 0) { throw 'WPF integration checks failed' }
+if ($process.ExitCode -ne 0) { Get-Content -LiteralPath "$uiRoot/ui-check.txt"; throw 'WPF integration checks failed' }
+Get-Content -LiteralPath "$uiRoot/ui-check.txt" -Tail 1
 Get-Content -LiteralPath "$uiRoot/interaction-check.txt" -Tail 1
 Get-Content -LiteralPath "$uiRoot/detail-check.txt" -Tail 1
 Get-Content -LiteralPath "$uiRoot/contact-check.txt" -Tail 1
+Get-Content -LiteralPath "$uiRoot/choreography-check.txt" -Tail 1
 Write-Output "UI verification artifacts: $uiRoot"

@@ -13,7 +13,7 @@ public partial class App : Application
         if (iconIndex >= 0 && iconIndex + 1 < e.Args.Length) { CloudTheme.WriteIcon(Path.GetFullPath(e.Args[iconIndex + 1])); Shutdown(0); return; }
         int dataIndex = Array.IndexOf(e.Args, "--data-dir");
         if (dataIndex >= 0 && dataIndex + 1 < e.Args.Length) DataRoot = Path.GetFullPath(e.Args[dataIndex + 1]);
-        if ((e.Args.Contains("--verify-ui") || e.Args.Contains("--verify-interactions") || e.Args.Contains("--verify-details") || e.Args.Contains("--verify-contacts")) && (dataIndex < 0 || dataIndex + 1 >= e.Args.Length))
+        if ((e.Args.Contains("--verify-ui") || e.Args.Contains("--verify-interactions") || e.Args.Contains("--verify-details") || e.Args.Contains("--verify-contacts") || e.Args.Contains("--verify-poses")) && (dataIndex < 0 || dataIndex + 1 >= e.Args.Length))
         { MessageBox.Show("--verify-ui 必须指定独立的 --data-dir。"); Shutdown(1); return; }
         if (e.Args.Contains("--verify-assets"))
         {
@@ -45,14 +45,18 @@ public partial class App : Application
         MainWindow = pet;
         pet.Show();
         if (e.Args.Contains("--settings")) pet.OpenSettings();
-        if (e.Args.Contains("--verify-ui") || e.Args.Contains("--verify-interactions") || e.Args.Contains("--verify-details") || e.Args.Contains("--verify-contacts"))
+        if (e.Args.Contains("--verify-ui") || e.Args.Contains("--verify-interactions") || e.Args.Contains("--verify-details") || e.Args.Contains("--verify-contacts") || e.Args.Contains("--verify-poses"))
         {
             try
             {
+                int appearanceIndex = Array.IndexOf(e.Args, "--appearance");
+                string? appearance = appearanceIndex < 0 ? null : appearanceIndex + 1 < e.Args.Length
+                    ? e.Args[appearanceIndex + 1] : throw new ArgumentException("--appearance 需要指定角色与服装。");
                 if (e.Args.Contains("--verify-ui")) await UiVerification.Run(pet, DataRoot);
-                if (!e.Args.Contains("--verify-details") && !e.Args.Contains("--verify-contacts")) await InteractionVerification.Run(pet, DataRoot);
+                if (e.Args.Contains("--verify-ui") || e.Args.Contains("--verify-interactions")) await InteractionVerification.Run(pet, DataRoot);
                 if (e.Args.Contains("--verify-ui") || e.Args.Contains("--verify-details")) await DetailVerification.Run(pet, DataRoot);
-                if (e.Args.Contains("--verify-ui") || e.Args.Contains("--verify-contacts")) await ContactVerification.Run(pet, DataRoot, e.Args.Contains("--contact-pilot"), e.Args.Contains("--contact-available"));
+                if (e.Args.Contains("--verify-ui") || e.Args.Contains("--verify-contacts")) await ContactVerification.Run(pet, DataRoot, e.Args.Contains("--contact-pilot"), e.Args.Contains("--contact-available"), appearance);
+                if (e.Args.Contains("--verify-ui") || e.Args.Contains("--verify-poses")) await ChoreographyVerification.Run(pet, DataRoot, e.Args.Contains("--pose-pilot"), e.Args.Contains("--pose-available"), appearance);
                 Shutdown(0);
             }
             catch (Exception ex) { File.WriteAllText(Path.Combine(DataRoot, "ui-check.txt"), ex.ToString()); Shutdown(1); }

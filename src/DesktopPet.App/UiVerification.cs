@@ -54,9 +54,10 @@ internal static class UiVerification
             foreach (var (outfit, label) in new[] { ("original", "原装"), ("swim", "泳装"), ("wedding", "婚纱") })
             {
                 Click("选择服装 " + label);
-                var expected = pet.Art.Frame(c, outfit == "original" ? c.Atlas : c.Outfits[outfit].Idle!, 0);
                 foreach (string action in new[] { "chat", "headpat" })
                 {
+                    var resolved = c.Resolve(outfit, action, 0);
+                    var expected = pet.Art.Frame(c, resolved.Sprite, resolved.Frame);
                     pet.Play(action);
                     Require(pet.State.Outfit == outfit && ReferenceEquals(Find<Image>(pet).Single().Source, expected), $"{c.Id}/{outfit}: live {action} retains selected clothes");
                 }
@@ -71,12 +72,13 @@ internal static class UiVerification
         Click("陪伴日常"); pet.CheckIn(); int total = pet.State.CheckIns.Count; pet.CheckIn(); Require(pet.State.CheckIns.Count == total, "UI check-in is idempotent");
         foreach (var action in new[] { "headpat", "poke", "tickle", "snack", "chat", "ball", "blocks", "walk", "peek", "letter" })
         { pet.RunInteraction(action); pet.UpdateLayout(); await Task.Delay(100); }
+        pet.ActiveChat?.Close();
         pet.RunInteraction("rest"); await Task.Delay(80); pet.SelectCharacter("whale"); await Task.Delay(3500);
         Require(Find<Image>(pet).First().Visibility == Visibility.Visible, "character change cancels pending farewell");
         pet.RunInteraction("rest"); await Task.Delay(3500); pet.SelectCharacter("whale");
         Require(Find<Image>(pet).First().Visibility == Visibility.Visible, "switching a fully resting character restores its image");
 
-        string[] interactions = ["idle", "chat", "meal", "eat", "headpat", "poke", "tickle", "pickup", "shaken", "shaken-strong", "dizzy", "faint", "happy", "sad", "sleep", "pounce", "jump", "kick", "think", "ball-hit", "ball-miss", "bonk", "peek", "curl", "farewell"];
+        string[] interactions = ["idle", "listen", "chat", "meal", "eat", "headpat", "poke", "tickle", "pickup", "shaken", "shaken-strong", "dizzy", "faint", "happy", "sad", "sleep", "pounce", "jump", "land", "kick", "think", "ball-ready", "anticipate", "ball-hit", "ball-miss", "build", "bonk", "peek", "curl", "farewell"];
         foreach (var c in pet.Catalog.Characters)
             foreach (string outfit in new[] { "original", "swim", "wedding" })
             {

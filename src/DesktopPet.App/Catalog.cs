@@ -12,7 +12,7 @@ public sealed class Catalog
     {
         customRoot = Path.Combine(dataRoot, "Characters");
         string builtins = Path.Combine(AppContext.BaseDirectory, "Assets", "Characters");
-        string[] ids = ["umaru", "gpt", "claude", "gemini", "grok", "whale", "qwen", "zhipu", "kimi"];
+        string[] ids = ["whale", "gpt", "claude", "gemini", "grok", "qwen", "zhipu", "kimi", "deepseek-3d", "deepseek-adult"];
         foreach (var id in ids) Characters.Add(Character.Load(Path.Combine(builtins, id)));
         if (Directory.Exists(customRoot))
             foreach (string folder in Directory.EnumerateDirectories(customRoot))
@@ -48,7 +48,7 @@ public sealed class Catalog
         catch { if (Directory.Exists(staging)) Directory.Delete(staging, true); throw; }
         c.Root = destination; Characters.Add(c); return c;
     }
-    public Character ImportPortrait(string image, string name)
+    public Character ImportPortrait(string image, string name, string category = "chibi")
     {
         string temporary = Path.Combine(Path.GetTempPath(), "DesktopPet-" + Guid.NewGuid().ToString("N"));
         Directory.CreateDirectory(temporary);
@@ -56,7 +56,7 @@ public sealed class Catalog
         {
             string filename = "portrait" + Path.GetExtension(image).ToLowerInvariant();
             File.Copy(image, Path.Combine(temporary, filename));
-            var c = new Character { Id = "custom-" + Guid.NewGuid().ToString("N")[..10], Name = name, Atlas = new Sprite(filename, 1, 1) };
+            var c = new Character { Id = "custom-" + Guid.NewGuid().ToString("N")[..10], Name = name, Category = category, Atlas = new Sprite(filename, 1, 1) };
             File.WriteAllText(Path.Combine(temporary, "pet.json"), JsonSerializer.Serialize(c, Json.Options));
             return Import(temporary);
         }

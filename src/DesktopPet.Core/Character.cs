@@ -4,7 +4,7 @@ using System.Text.RegularExpressions;
 namespace DesktopPet.Core;
 
 /// <summary>A PNG/WebP sheet with uniform cells, in reading order.</summary>
-public sealed record Sprite(string File, int Columns = 3, int Rows = 2, int[]? FrameMs = null);
+public sealed record Sprite(string File, int Columns = 3, int Rows = 2, int[]? FrameMs = null, string Facing = "right");
 
 /// <summary>Outfit art overrides only the poses and motions that actually exist.</summary>
 public sealed class Outfit
@@ -21,6 +21,9 @@ public sealed class Character
     public string Id { get; set; } = "";
     public string Name { get; set; } = "";
     public string Accent { get; set; } = "#EE9177";
+    public string Category { get; set; } = "chibi";
+    public string Description { get; set; } = "";
+    public bool Demo { get; set; }
     public Sprite Atlas { get; set; } = new("atlas.png");
     public Sprite? Dizzy { get; set; }
     public Dictionary<string, Sprite> Motions { get; set; } = [];
@@ -40,7 +43,8 @@ public sealed class Character
         c.Root = Path.GetFullPath(folder);
         if (c.Version != 1 || !Regex.IsMatch(c.Id ?? "", "^[a-z0-9][a-z0-9-]{0,47}$")
             || string.IsNullOrWhiteSpace(c.Name) || c.Name.Length > 60 || c.Atlas is null
-            || c.Motions is null || c.Outfits is null || c.Motions.Count > 40 || c.Outfits.Count > 12)
+            || c.Motions is null || c.Outfits is null || c.Motions.Count > 40 || c.Outfits.Count > 12
+            || c.Category is not ("chibi" or "3d" or "adult"))
             throw new InvalidDataException("角色 ID、名称或版本无效。");
         if (!Regex.IsMatch(c.Accent ?? "", "^#[0-9a-fA-F]{6}$")) c.Accent = "#EE9177";
         if (c.Outfits.Values.Any(o => o is null || o.Motions is null || string.IsNullOrWhiteSpace(o.Name)))
@@ -48,7 +52,7 @@ public sealed class Character
         foreach (var s in c.Sprites())
         {
             if (s is null || string.IsNullOrWhiteSpace(s.File) || s.Columns < 1 || s.Rows < 1
-                || s.Columns > 6 || s.Rows > 6 || s.Columns * s.Rows > 24
+                || s.Columns > 6 || s.Rows > 6 || s.Columns * s.Rows > 24 || s.Facing is not ("left" or "right")
                 || (s.FrameMs is { } ms && (ms.Length != s.Columns * s.Rows || ms.Any(t => t < 40 || t > 5000))))
                 throw new InvalidDataException("图集尺寸或帧时长无效。");
             string file = SafeFile(c.Root, s.File);

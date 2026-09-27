@@ -9,6 +9,8 @@ public partial class App : Application
     public static string DataRoot { get; private set; } = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "DesktopPetAI");
     private async void OnStartup(object sender, StartupEventArgs e)
     {
+        int iconIndex = Array.IndexOf(e.Args, "--export-icon");
+        if (iconIndex >= 0 && iconIndex + 1 < e.Args.Length) { CloudTheme.WriteIcon(Path.GetFullPath(e.Args[iconIndex + 1])); Shutdown(0); return; }
         int dataIndex = Array.IndexOf(e.Args, "--data-dir");
         if (dataIndex >= 0 && dataIndex + 1 < e.Args.Length) DataRoot = Path.GetFullPath(e.Args[dataIndex + 1]);
         if (e.Args.Contains("--verify-ui") && (dataIndex < 0 || dataIndex + 1 >= e.Args.Length))

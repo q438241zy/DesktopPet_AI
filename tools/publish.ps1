@@ -5,4 +5,7 @@ dotnet publish "$projectRoot/src/DesktopPet.App/DesktopPet.App.csproj" -c Releas
 if ($LASTEXITCODE -ne 0) { throw 'Publish failed' }
 Copy-Item -LiteralPath "$projectRoot/LICENSE","$projectRoot/README.md","$projectRoot/THIRD_PARTY_NOTICES.md" -Destination "$projectRoot/Release/$Runtime"
 Copy-Item -LiteralPath "$projectRoot/docs" -Destination "$projectRoot/Release/$Runtime" -Recurse -Force
+$styleDocs = Join-Path $projectRoot "Release/$Runtime/artwork/style-demo"
+New-Item -ItemType Directory -Path $styleDocs -Force | Out-Null
+Copy-Item -LiteralPath "$projectRoot/artwork/style-demo/prompts.md" -Destination $styleDocs
 Write-Output "Ready: $projectRoot/Release/$Runtime/DesktopPet.exe"

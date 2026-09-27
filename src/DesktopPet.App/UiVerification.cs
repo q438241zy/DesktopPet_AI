@@ -23,26 +23,73 @@ internal static class UiVerification
                 foreach (var descendant in Find<T>(child)) yield return descendant;
             }
         }
-        var window = new SettingsWindow(pet); window.Show(); window.UpdateLayout();
+        // Exercise the live dispatcher without stray desktop input changing test selections.
+        pet.IsHitTestVisible = false;
+        var window = new SettingsWindow(pet) { IsHitTestVisible = false, ShowActivated = false }; window.Show(); window.UpdateLayout();
         void Click(string label)
         {
             window.UpdateLayout();
             var b = Find<Button>(window).First(x => AutomationProperties.GetName(x) == label || x.Content as string == label);
             b.RaiseEvent(new RoutedEventArgs(Button.ClickEvent)); window.UpdateLayout();
         }
-        Require(pet.Catalog.Characters.Count == 9, "exactly nine bundled characters");
-        foreach (var c in pet.Catalog.Characters.ToArray()) { Click("选择角色 " + c.Name); Require(pet.State.Character == c.Id, "select " + c.Id); }
+        async Task Capture(string name)
+        {
+            await Task.Delay(300); window.UpdateLayout();
+            var visual = (FrameworkElement)window.Content;
+            var preview = new RenderTargetBitmap((int)visual.ActualWidth, (int)visual.ActualHeight, 96, 96, PixelFormats.Pbgra32); preview.Render(visual);
+            var encoder = new PngBitmapEncoder(); encoder.Frames.Add(BitmapFrame.Create(preview)); using var stream = File.Create(Path.Combine(output, name + ".png")); encoder.Save(stream);
+        }
+        async Task Until(Func<bool> condition, string context)
+        {
+            var timeout = System.Diagnostics.Stopwatch.StartNew();
+            while (!condition()) { if (timeout.Elapsed > TimeSpan.FromSeconds(4)) throw new TimeoutException($"WPF movement did not advance: {context}; selected={pet.State.Character}/{pet.State.Outfit}; left={pet.Left}; reduced={pet.State.ReducedMotion}"); await Task.Delay(40); }
+        }
+        Require(pet.Catalog.Characters.Count == 10 && pet.Catalog.Characters.Count(c => c.Category == "chibi") == 8, "eight original AI characters plus two style demos");
+        Require(!pet.Catalog.Characters.Any(c => c.Id == "umaru") && !Directory.Exists(Path.Combine(AppContext.BaseDirectory, "Assets", "Characters", "umaru")), "Umaru assets and catalog entry removed");
+        Require(pet.Catalog.Find("umaru").Id == "whale", "old Umaru selection resolves to DeepSeek");
+        foreach (var c in pet.Catalog.Characters.ToArray())
+        { Click("分类 " + CloudTheme.CategoryName(c.Category)); Click("选择角色 " + c.Name); Require(pet.State.Character == c.Id, "select " + c.Id); }
+        Click("分类 Q版");
         Click("选择角色 GPT");
-        var combo = Find<ComboBox>(window).Single();
-        combo.SelectedItem = combo.Items.Cast<ComboBoxItem>().Single(x => x.Tag as string == "wedding"); window.UpdateLayout();
+        Click("选择服装 婚纱");
         Click("选择角色 Claude"); Click("选择角色 GPT"); Require(pet.State.Outfit == "wedding", "outfit selection survives switching characters");
-        for (int i = 0; i < 3; i++) { Click("☀   陪伴日常"); Click("✎   角色工坊"); Click("⚙   桌面偏好"); Click("♡   我的伙伴"); }
+        for (int i = 0; i < 3; i++) { Click("陪伴日常"); Click("角色工坊"); Click("桌面偏好"); Click("风格预览"); Click("我的伙伴"); }
         Require(true, "repeated navigation reuses no parented controls");
-        Click("☀   陪伴日常"); pet.CheckIn(); int total = pet.State.CheckIns.Count; pet.CheckIn(); Require(pet.State.CheckIns.Count == total, "UI check-in is idempotent");
+        Click("陪伴日常"); pet.CheckIn(); int total = pet.State.CheckIns.Count; pet.CheckIn(); Require(pet.State.CheckIns.Count == total, "UI check-in is idempotent");
         foreach (var action in new[] { "headpat", "poke", "tickle", "snack", "chat", "ball", "blocks", "walk", "peek", "letter" })
         { pet.RunInteraction(action); pet.UpdateLayout(); await Task.Delay(100); }
-        pet.RunInteraction("rest"); await Task.Delay(80); pet.SelectCharacter("umaru"); await Task.Delay(3500);
+        pet.RunInteraction("rest"); await Task.Delay(80); pet.SelectCharacter("whale"); await Task.Delay(3500);
         Require(Find<Image>(pet).First().Visibility == Visibility.Visible, "character change cancels pending farewell");
+        pet.RunInteraction("rest"); await Task.Delay(3500); pet.SelectCharacter("whale");
+        Require(Find<Image>(pet).First().Visibility == Visibility.Visible, "switching a fully resting character restores its image");
+        foreach (var c in pet.Catalog.Characters.Where(c => c.Category == "chibi"))
+            foreach (string outfit in new[] { "original", "wedding" })
+                foreach (int direction in new[] { -1, 1 })
+                {
+                    pet.SelectCharacter(c.Id); pet.State.Outfits[c.Id] = outfit; pet.ApplySettings();
+                    pet.Left = pet.WorkArea.Left + pet.WorkArea.Width / 2 - 280; double start = pet.Left;
+                    pet.StartWalk(false, direction); await Until(() => (pet.Left - start) * direction > .5, $"{c.Id}/{outfit}, direction={direction}, start={start}");
+                    var sprite = Find<Image>(pet).Single();
+                    double scale = ((ScaleTransform)sprite.RenderTransform).ScaleX;
+                    Require(scale == direction, $"{c.Id}/{outfit}: travel and facing agree ({direction})");
+                    double foot = pet.Top + Canvas.GetTop(sprite) + pet.State.Size * pet.Art.GroundLine((BitmapSource)sprite.Source);
+                    Require(Math.Abs(foot - pet.WorkArea.Bottom) < .1, $"{c.Id}/{outfit}: visible feet stay on desktop floor ({direction})");
+                    if (c.Id == "whale")
+                    {
+                        pet.UpdateLayout();
+                        var proof = new RenderTargetBitmap(560, 500, 96, 96, PixelFormats.Pbgra32); proof.Render((Visual)pet.Content);
+                        var png = new PngBitmapEncoder(); png.Frames.Add(BitmapFrame.Create(proof));
+                        using var stream = File.Create(Path.Combine(output, $"walk-{outfit}-{(direction < 0 ? "left" : "right")}.png")); png.Save(stream);
+                    }
+                    pet.Play("idle");
+                }
+        pet.SelectCharacter("whale"); pet.State.Outfits["whale"] = "original"; pet.ApplySettings();
+        pet.Left = pet.WorkArea.Right - pet.State.Size * .46 - 280; double edge = pet.Left;
+        pet.StartWalk(false, 1); await Until(() => pet.Left < edge - .5, "screen edge reversal");
+        Require(((ScaleTransform)Find<Image>(pet).Single().RenderTransform).ScaleX == -1, "screen edge reverses both travel and facing");
+        pet.Play("idle");
+        pet.SelectCharacter("deepseek-adult"); double beforeStatic = pet.Left; pet.StartWalk(false, -1); await Task.Delay(250);
+        Require(!pet.CanWalk && pet.Left == beforeStatic, "static style demo never pretends to have a walking animation");
         string source = Path.Combine(output, "storyboard-fixture"); Directory.CreateDirectory(source);
         var bitmap = pet.Art.Frame(pet.Character, pet.Character.Atlas, 0);
         void Export(string name)
@@ -52,17 +99,14 @@ internal static class UiVerification
         var imported = Storyboard.Import(pet.Catalog, source);
         Require(imported.Atlas.Columns == 1 && imported.Motions["walk"].Columns == 1, "generator outputs import as static poses");
         Require(File.Exists(Path.Combine(imported.Root, "pet.json")), "import persists a portable manifest");
-        var portrait = pet.Catalog.ImportPortrait(Directory.GetFiles(source)[0], "测试立绘");
-        Require(portrait.Atlas.Rows == 1, "single-image import uses a single cell");
+        var portrait = pet.Catalog.ImportPortrait(Directory.GetFiles(source)[0], "测试立绘", "adult");
+        Require(portrait.Atlas.Rows == 1 && portrait.Category == "adult", "single-image import retains its adult category and a single cell");
         pet.Catalog.Characters.Remove(imported); pet.Catalog.Characters.Remove(portrait);
-        pet.SelectCharacter("gpt"); Click("♡   我的伙伴"); window.UpdateLayout();
-        await Task.Delay(300);
-        window.UpdateLayout();
-        var visual = (FrameworkElement)window.Content;
-        var preview = new RenderTargetBitmap((int)visual.ActualWidth, (int)visual.ActualHeight, 96, 96, PixelFormats.Pbgra32); preview.Render(visual);
-        var encoder = new PngBitmapEncoder(); encoder.Frames.Add(BitmapFrame.Create(preview)); using (var stream = File.Create(Path.Combine(output, "pet-home.png"))) encoder.Save(stream);
+        pet.SelectCharacter("whale"); pet.State.Outfits["whale"] = "original"; pet.ApplySettings(); Click("我的伙伴"); Click("分类 Q版"); await Capture("pet-home");
+        Click("风格预览"); await Capture("deepseek-styles");
+        Click("陪伴日常"); await Capture("cloud-life"); Click("角色工坊"); await Capture("cloud-studio"); Click("桌面偏好"); await Capture("cloud-settings");
         pet.Save(); var restored = new StateStore(output).Load();
-        Require(restored.Character == "gpt" && restored.Outfit == "wedding" && restored.CheckIns.Count == total, "state reload preserves selection and progress");
+        Require(restored.Character == "whale" && restored.Outfit == "original" && restored.CheckIns.Count == total, "state reload preserves selection and progress");
         File.WriteAllLines(Path.Combine(output, "ui-check.txt"), checks.Append($"{checks.Count} WPF integration checks passed."));
         window.Close();
     }

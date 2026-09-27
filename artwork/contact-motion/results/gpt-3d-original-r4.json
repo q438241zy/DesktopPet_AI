@@ -1,0 +1,12 @@
+{
+  "key": "gpt-3d-original",
+  "id": "gpt-3d",
+  "style": "3d",
+  "outfit": "original",
+  "reference": "C:/Users/99000256/Desktop/Character/src/DesktopPet.App/Assets/Characters/gpt-3d/portrait.png",
+  "dest": "src/DesktopPet.App/Assets/Characters/gpt-3d/motions/contact.png",
+  "prompt": "Use case: background-extraction and precise-object-edit. Clean this sprite sheet for shipping in a desktop application. Keep all NINE characters, every hand gesture, bread, spoons, bowls, all outfits and faces EXACTLY unchanged. Remove every scattered white/blue/pink speck, loose background patch and colored glow from the empty space around and between the nine figures. These stains are NOT part of the character. Produce a pristine true transparent alpha cutout around each silhouette. Keep white fabric and the veil; remove ONLY empty-space debris, blue halo and ragged excess outside the outline. Keep all nine whole figures and their feet. Slightly reduce all nine figures together if necessary to leave a clear transparent border of at least 20px around each. No added background, no redraw of identity, no text, no extra objects.",
+  "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-82f41891-3057-4002-a903-9213b7e4a573.png",
+  "revision": 4,
+  "cleanupReference": "C:/Users/99000256/.codex/generated_images/01a0e159-1c2b-7643-8517-9ec7beebfed3/exec-21fccc22-72e9-473f-bae5-e4f869aea7e5.png"
+}

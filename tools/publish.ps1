@@ -15,4 +15,8 @@ Copy-Item -LiteralPath "$projectRoot/artwork/wardrobe-expansion/prompts.md" -Des
 $motionDocs = Join-Path $releaseRoot 'artwork/motion-continuity'
 New-Item -ItemType Directory -Path $motionDocs -Force | Out-Null
 Copy-Item -LiteralPath "$projectRoot/artwork/motion-continuity/prompts.md" -Destination $motionDocs
+$contactDocs = Join-Path $releaseRoot 'artwork/contact-motion'
+New-Item -ItemType Directory -Path $contactDocs -Force | Out-Null
+Copy-Item -LiteralPath "$projectRoot/artwork/contact-motion/prompts.md","$projectRoot/artwork/contact-motion/manifest.json","$projectRoot/artwork/contact-motion/calibration.json" -Destination $contactDocs
+Copy-Item -LiteralPath "$projectRoot/artwork/contact-motion/results" -Destination $contactDocs -Recurse -Force
 Write-Output "Ready: $releaseRoot/DesktopPet.exe"

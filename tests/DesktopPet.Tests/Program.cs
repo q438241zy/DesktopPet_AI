@@ -60,6 +60,9 @@ Test("walking capability never borrows original clothes or mistakes poses for an
     pet.Outfits["swim"].Idle = null;
     Equal("swim-walk.png", pet.Resolve("swim", "idle", 900).Sprite.File);
     Equal(0, pet.Resolve("swim", "idle", 900).Frame);
+    pet.Outfits["swim"].Motions["walk"] = new("shared-sheet.png", 3, 3, Frames: [6, 6]);
+    Equal(false, pet.CanWalk("swim"));
+    Equal(6, pet.Resolve("swim", "idle", 900).Frame);
 });
 Test("portrait wardrobes stay selected through greetings and touch interactions", () =>
 {
@@ -77,6 +80,16 @@ Test("six-frame animation wraps at exact clip duration", () =>
     var clip = new Sprite("a.webp", 3, 2, [100, 200, 300, 400, 500, 600]);
     Equal(0, Motion.Frame(clip, 0)); Equal(1, Motion.Frame(clip, 100)); Equal(5, Motion.Frame(clip, 2099)); Equal(0, Motion.Frame(clip, 2100));
     Equal(0, Motion.Frame(new Sprite("single.png", 1, 1), 555));
+});
+Test("drawn contact clips select only their ordered cells and hold their final pose", () =>
+{
+    var meal = new Sprite("contact.png", 3, 3, [100, 200, 300, 100], Frames: [3, 4, 5, 3], Loop: false, BakedProps: true);
+    Equal(3, Motion.Frame(meal, 0)); Equal(4, Motion.Frame(meal, 100)); Equal(5, Motion.Frame(meal, 300));
+    Equal(3, Motion.Frame(meal, 600)); Equal(3, Motion.Frame(meal, 9999));
+    var catchBall = meal with { Frames = [6, 7, 8], FrameMs = [100, 180, 600], BakedProps = false };
+    Equal(6, Motion.Frame(catchBall, 0)); Equal(7, Motion.Frame(catchBall, 100)); Equal(8, Motion.Frame(catchBall, 280)); Equal(8, Motion.Frame(catchBall, 5000));
+    var character = new Character { Motions = new() { ["meal"] = meal } };
+    Equal(3, character.Resolve("original", "meal", 800, true).Frame);
 });
 Test("walking reverses inward at either edge without overshooting", () =>
 {

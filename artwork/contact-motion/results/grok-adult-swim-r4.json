@@ -1,0 +1,12 @@
+{
+  "key": "grok-adult-swim",
+  "id": "grok-adult",
+  "style": "adult",
+  "outfit": "swim",
+  "reference": "C:/Users/99000256/Desktop/Character/src/DesktopPet.App/Assets/Characters/grok-adult/outfits/swim.png",
+  "dest": "src/DesktopPet.App/Assets/Characters/grok-adult/outfits/swim/contact.png",
+  "prompt": "Remove the entire brown studio background and ALL lighting glows behind the nine figures. Return the nine identical full-body figures on a truly transparent RGBA canvas. Preserve every pose, hand, bread, spoon, bowl, face, outfit, proportion and shoe exactly. Do not add a checkerboard, black background or white background. All empty space between figures must be alpha=0. Retain the existing 3 by 3 arrangement with all bodies complete.",
+  "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-3bfb771a-361f-4020-965f-336ee04eb770.png",
+  "revision": 4,
+  "cleanupReference": "C:/Users/99000256/.codex/generated_images/01a0e159-1c2b-7643-8517-9ec7beebfed3/exec-c3d83706-62ee-409e-8d65-dac9846fafdf.png"
+}

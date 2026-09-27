@@ -1,0 +1,7058 @@
+[
+  {
+    "key": "claude-3d-original",
+    "revision": 6,
+    "file": "src/DesktopPet.App/Assets/Characters/claude-3d/motions/contact.png",
+    "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-674e0727-c9e1-4ede-ae38-50db9bad591f.png",
+    "dimensions": [
+      1024,
+      1536
+    ],
+    "bounds": [
+      [
+        3,
+        3,
+        224,
+        498
+      ],
+      [
+        3,
+        3,
+        222,
+        498
+      ],
+      [
+        3,
+        3,
+        223,
+        499
+      ],
+      [
+        3,
+        3,
+        225,
+        501
+      ],
+      [
+        3,
+        3,
+        226,
+        501
+      ],
+      [
+        3,
+        3,
+        225,
+        501
+      ],
+      [
+        3,
+        3,
+        227,
+        499
+      ],
+      [
+        3,
+        3,
+        227,
+        502
+      ],
+      [
+        3,
+        3,
+        223,
+        500
+      ]
+    ],
+    "cells": [
+      {
+        "x": 79,
+        "y": 10,
+        "width": 227,
+        "height": 501
+      },
+      {
+        "x": 397,
+        "y": 10,
+        "width": 225,
+        "height": 501
+      },
+      {
+        "x": 721,
+        "y": 9,
+        "width": 226,
+        "height": 502
+      },
+      {
+        "x": 80,
+        "y": 515,
+        "width": 228,
+        "height": 504
+      },
+      {
+        "x": 398,
+        "y": 515,
+        "width": 229,
+        "height": 504
+      },
+      {
+        "x": 719,
+        "y": 515,
+        "width": 228,
+        "height": 504
+      },
+      {
+        "x": 78,
+        "y": 1023,
+        "width": 230,
+        "height": 502
+      },
+      {
+        "x": 399,
+        "y": 1020,
+        "width": 230,
+        "height": 505
+      },
+      {
+        "x": 724,
+        "y": 1022,
+        "width": 226,
+        "height": 503
+      }
+    ],
+    "hands": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      {
+        "height": 0.26,
+        "span": 0.11,
+        "offset": 0
+      },
+      {
+        "height": 0.25,
+        "span": 0.11,
+        "offset": 0
+      },
+      {
+        "height": 0.27,
+        "span": 0.11,
+        "offset": 0
+      }
+    ],
+    "sha256": "877c9f7604e22651d4e6a11dbd149d1f43fe8a2655e3835453cad73a162581d8",
+    "transparentFraction": 0.6241
+  },
+  {
+    "key": "claude-3d-swim",
+    "revision": 6,
+    "file": "src/DesktopPet.App/Assets/Characters/claude-3d/outfits/swim/contact.png",
+    "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-1b6c6bb5-d2f6-4a4e-8a89-4d47eb959aa5.png",
+    "dimensions": [
+      1024,
+      1536
+    ],
+    "bounds": [
+      [
+        3,
+        3,
+        213,
+        494
+      ],
+      [
+        3,
+        3,
+        214,
+        493
+      ],
+      [
+        3,
+        3,
+        221,
+        494
+      ],
+      [
+        3,
+        3,
+        228,
+        495
+      ],
+      [
+        3,
+        3,
+        224,
+        495
+      ],
+      [
+        3,
+        3,
+        224,
+        494
+      ],
+      [
+        3,
+        3,
+        226,
+        493
+      ],
+      [
+        3,
+        3,
+        222,
+        490
+      ],
+      [
+        3,
+        3,
+        225,
+        494
+      ]
+    ],
+    "cells": [
+      {
+        "x": 106,
+        "y": 11,
+        "width": 216,
+        "height": 497
+      },
+      {
+        "x": 407,
+        "y": 12,
+        "width": 217,
+        "height": 496
+      },
+      {
+        "x": 736,
+        "y": 11,
+        "width": 224,
+        "height": 497
+      },
+      {
+        "x": 95,
+        "y": 516,
+        "width": 231,
+        "height": 498
+      },
+      {
+        "x": 403,
+        "y": 516,
+        "width": 227,
+        "height": 498
+      },
+      {
+        "x": 731,
+        "y": 517,
+        "width": 227,
+        "height": 497
+      },
+      {
+        "x": 96,
+        "y": 1023,
+        "width": 229,
+        "height": 496
+      },
+      {
+        "x": 406,
+        "y": 1026,
+        "width": 225,
+        "height": 493
+      },
+      {
+        "x": 729,
+        "y": 1022,
+        "width": 228,
+        "height": 497
+      }
+    ],
+    "hands": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      {
+        "height": 0.26,
+        "span": 0.11,
+        "offset": 0
+      },
+      {
+        "height": 0.25,
+        "span": 0.11,
+        "offset": 0
+      },
+      {
+        "height": 0.27,
+        "span": 0.11,
+        "offset": 0
+      }
+    ],
+    "sha256": "b9b9988632ca559bd6c898f23ced03f8397c8136e1f166cb6a1858415ee951b9",
+    "transparentFraction": 0.6365
+  },
+  {
+    "key": "claude-3d-wedding",
+    "revision": 6,
+    "file": "src/DesktopPet.App/Assets/Characters/claude-3d/outfits/wedding/contact.png",
+    "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-5b2a968c-9051-4687-a92e-93c73ca8c919.png",
+    "dimensions": [
+      1024,
+      1536
+    ],
+    "bounds": [
+      [
+        3,
+        3,
+        298,
+        501
+      ],
+      [
+        3,
+        3,
+        296,
+        501
+      ],
+      [
+        3,
+        3,
+        296,
+        502
+      ],
+      [
+        3,
+        3,
+        299,
+        503
+      ],
+      [
+        3,
+        3,
+        297,
+        503
+      ],
+      [
+        3,
+        3,
+        297,
+        503
+      ],
+      [
+        3,
+        3,
+        299,
+        503
+      ],
+      [
+        3,
+        3,
+        297,
+        502
+      ],
+      [
+        3,
+        3,
+        296,
+        503
+      ]
+    ],
+    "cells": [
+      {
+        "x": 36,
+        "y": 7,
+        "width": 301,
+        "height": 504
+      },
+      {
+        "x": 363,
+        "y": 7,
+        "width": 299,
+        "height": 504
+      },
+      {
+        "x": 695,
+        "y": 7,
+        "width": 299,
+        "height": 505
+      },
+      {
+        "x": 37,
+        "y": 515,
+        "width": 302,
+        "height": 506
+      },
+      {
+        "x": 363,
+        "y": 515,
+        "width": 300,
+        "height": 506
+      },
+      {
+        "x": 694,
+        "y": 515,
+        "width": 300,
+        "height": 506
+      },
+      {
+        "x": 37,
+        "y": 1023,
+        "width": 302,
+        "height": 506
+      },
+      {
+        "x": 364,
+        "y": 1024,
+        "width": 300,
+        "height": 505
+      },
+      {
+        "x": 696,
+        "y": 1023,
+        "width": 299,
+        "height": 506
+      }
+    ],
+    "hands": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      {
+        "height": 0.26,
+        "span": 0.11,
+        "offset": 0
+      },
+      {
+        "height": 0.25,
+        "span": 0.11,
+        "offset": 0
+      },
+      {
+        "height": 0.27,
+        "span": 0.11,
+        "offset": 0
+      }
+    ],
+    "sha256": "4aa0e9cb39b83fea786154adaa2bfc905d6fe5f04474588e3b96fef02a7c9dbc",
+    "transparentFraction": 0.3904
+  },
+  {
+    "key": "claude-adult-original",
+    "revision": 6,
+    "file": "src/DesktopPet.App/Assets/Characters/claude-adult/motions/contact.png",
+    "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-5c012f45-71f0-4a0c-8c32-6e632c3b9f6b.png",
+    "dimensions": [
+      1024,
+      1536
+    ],
+    "bounds": [
+      [
+        3,
+        3,
+        259,
+        504
+      ],
+      [
+        3,
+        3,
+        257,
+        504
+      ],
+      [
+        3,
+        3,
+        257,
+        504
+      ],
+      [
+        3,
+        3,
+        260,
+        508
+      ],
+      [
+        3,
+        3,
+        262,
+        508
+      ],
+      [
+        3,
+        3,
+        261,
+        507
+      ],
+      [
+        3,
+        3,
+        262,
+        507
+      ],
+      [
+        3,
+        3,
+        260,
+        506
+      ],
+      [
+        3,
+        3,
+        262,
+        506
+      ]
+    ],
+    "cells": [
+      {
+        "x": 62,
+        "y": 6,
+        "width": 262,
+        "height": 507
+      },
+      {
+        "x": 384,
+        "y": 6,
+        "width": 260,
+        "height": 507
+      },
+      {
+        "x": 704,
+        "y": 6,
+        "width": 260,
+        "height": 507
+      },
+      {
+        "x": 62,
+        "y": 514,
+        "width": 263,
+        "height": 511
+      },
+      {
+        "x": 379,
+        "y": 514,
+        "width": 265,
+        "height": 511
+      },
+      {
+        "x": 702,
+        "y": 515,
+        "width": 264,
+        "height": 510
+      },
+      {
+        "x": 61,
+        "y": 1026,
+        "width": 265,
+        "height": 510
+      },
+      {
+        "x": 381,
+        "y": 1027,
+        "width": 263,
+        "height": 509
+      },
+      {
+        "x": 701,
+        "y": 1027,
+        "width": 265,
+        "height": 509
+      }
+    ],
+    "hands": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      {
+        "height": 0.26,
+        "span": 0.11,
+        "offset": 0
+      },
+      {
+        "height": 0.25,
+        "span": 0.11,
+        "offset": 0
+      },
+      {
+        "height": 0.27,
+        "span": 0.11,
+        "offset": 0
+      }
+    ],
+    "sha256": "34fcf3d4a253ebe2304b4d98d9ce2bdd807f7135c4f1977a9003dae090863652",
+    "transparentFraction": 0.5907
+  },
+  {
+    "key": "claude-adult-swim",
+    "revision": 6,
+    "file": "src/DesktopPet.App/Assets/Characters/claude-adult/outfits/swim/contact.png",
+    "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-218c0a42-54bc-4a10-a1fc-870a66ea0b68.png",
+    "dimensions": [
+      1024,
+      1536
+    ],
+    "bounds": [
+      [
+        3,
+        3,
+        233,
+        505
+      ],
+      [
+        3,
+        3,
+        229,
+        506
+      ],
+      [
+        3,
+        3,
+        229,
+        507
+      ],
+      [
+        3,
+        3,
+        241,
+        505
+      ],
+      [
+        3,
+        3,
+        236,
+        506
+      ],
+      [
+        3,
+        3,
+        237,
+        506
+      ],
+      [
+        3,
+        3,
+        236,
+        502
+      ],
+      [
+        3,
+        3,
+        234,
+        504
+      ],
+      [
+        3,
+        3,
+        236,
+        504
+      ]
+    ],
+    "cells": [
+      {
+        "x": 114,
+        "y": 6,
+        "width": 236,
+        "height": 508
+      },
+      {
+        "x": 401,
+        "y": 6,
+        "width": 232,
+        "height": 509
+      },
+      {
+        "x": 686,
+        "y": 5,
+        "width": 232,
+        "height": 510
+      },
+      {
+        "x": 109,
+        "y": 516,
+        "width": 244,
+        "height": 508
+      },
+      {
+        "x": 400,
+        "y": 516,
+        "width": 239,
+        "height": 509
+      },
+      {
+        "x": 686,
+        "y": 517,
+        "width": 240,
+        "height": 509
+      },
+      {
+        "x": 111,
+        "y": 1026,
+        "width": 239,
+        "height": 505
+      },
+      {
+        "x": 401,
+        "y": 1026,
+        "width": 237,
+        "height": 507
+      },
+      {
+        "x": 686,
+        "y": 1026,
+        "width": 239,
+        "height": 507
+      }
+    ],
+    "hands": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      {
+        "height": 0.26,
+        "span": 0.11,
+        "offset": 0
+      },
+      {
+        "height": 0.25,
+        "span": 0.11,
+        "offset": 0
+      },
+      {
+        "height": 0.27,
+        "span": 0.11,
+        "offset": 0
+      }
+    ],
+    "sha256": "a0461bae95ef99330ae4bf4e69d76c1657ea82f8e5a6b2de99dd1f89e68a79c7",
+    "transparentFraction": 0.6117
+  },
+  {
+    "key": "claude-adult-wedding",
+    "revision": 6,
+    "file": "src/DesktopPet.App/Assets/Characters/claude-adult/outfits/wedding/contact.png",
+    "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-bb1448c9-fea8-4308-b8ff-881b45a9eb5e.png",
+    "dimensions": [
+      1024,
+      1536
+    ],
+    "bounds": [
+      [
+        3,
+        3,
+        320,
+        498
+      ],
+      [
+        3,
+        3,
+        320,
+        498
+      ],
+      [
+        3,
+        3,
+        319,
+        498
+      ],
+      [
+        3,
+        3,
+        320,
+        502
+      ],
+      [
+        3,
+        3,
+        320,
+        503
+      ],
+      [
+        3,
+        3,
+        320,
+        501
+      ],
+      [
+        3,
+        3,
+        320,
+        501
+      ],
+      [
+        3,
+        3,
+        320,
+        501
+      ],
+      [
+        3,
+        3,
+        320,
+        500
+      ]
+    ],
+    "cells": [
+      {
+        "x": 31,
+        "y": 8,
+        "width": 323,
+        "height": 501
+      },
+      {
+        "x": 351,
+        "y": 8,
+        "width": 323,
+        "height": 501
+      },
+      {
+        "x": 672,
+        "y": 8,
+        "width": 322,
+        "height": 501
+      },
+      {
+        "x": 31,
+        "y": 514,
+        "width": 323,
+        "height": 505
+      },
+      {
+        "x": 351,
+        "y": 514,
+        "width": 323,
+        "height": 506
+      },
+      {
+        "x": 671,
+        "y": 515,
+        "width": 323,
+        "height": 504
+      },
+      {
+        "x": 31,
+        "y": 1023,
+        "width": 323,
+        "height": 504
+      },
+      {
+        "x": 351,
+        "y": 1023,
+        "width": 323,
+        "height": 504
+      },
+      {
+        "x": 671,
+        "y": 1024,
+        "width": 323,
+        "height": 503
+      }
+    ],
+    "hands": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      {
+        "height": 0.26,
+        "span": 0.11,
+        "offset": 0
+      },
+      {
+        "height": 0.25,
+        "span": 0.11,
+        "offset": 0
+      },
+      {
+        "height": 0.27,
+        "span": 0.11,
+        "offset": 0
+      }
+    ],
+    "sha256": "1b92f686276f863dceac4a0a60fd4a7cff2ee7d219a61d01c8d978784f2751e5",
+    "transparentFraction": 0.3851
+  },
+  {
+    "key": "deepseek-3d-original",
+    "revision": 6,
+    "file": "src/DesktopPet.App/Assets/Characters/deepseek-3d/motions/contact.png",
+    "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-43827afd-e009-4a5e-82a9-31c4ed70fcfb.png",
+    "dimensions": [
+      1024,
+      1536
+    ],
+    "bounds": [
+      [
+        3,
+        3,
+        256,
+        513
+      ],
+      [
+        3,
+        3,
+        251,
+        513
+      ],
+      [
+        3,
+        3,
+        257,
+        513
+      ],
+      [
+        3,
+        3,
+        260,
+        512
+      ],
+      [
+        3,
+        3,
+        260,
+        513
+      ],
+      [
+        3,
+        3,
+        256,
+        512
+      ],
+      [
+        3,
+        3,
+        254,
+        492
+      ],
+      [
+        3,
+        3,
+        255,
+        491
+      ],
+      [
+        3,
+        3,
+        250,
+        491
+      ]
+    ],
+    "cells": [
+      {
+        "x": 78,
+        "y": 6,
+        "width": 259,
+        "height": 516
+      },
+      {
+        "x": 399,
+        "y": 6,
+        "width": 254,
+        "height": 516
+      },
+      {
+        "x": 713,
+        "y": 6,
+        "width": 260,
+        "height": 516
+      },
+      {
+        "x": 75,
+        "y": 520,
+        "width": 263,
+        "height": 515
+      },
+      {
+        "x": 394,
+        "y": 520,
+        "width": 263,
+        "height": 516
+      },
+      {
+        "x": 720,
+        "y": 520,
+        "width": 259,
+        "height": 515
+      },
+      {
+        "x": 77,
+        "y": 1033,
+        "width": 257,
+        "height": 495
+      },
+      {
+        "x": 399,
+        "y": 1034,
+        "width": 258,
+        "height": 494
+      },
+      {
+        "x": 723,
+        "y": 1034,
+        "width": 253,
+        "height": 494
+      }
+    ],
+    "hands": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      {
+        "height": 0.285,
+        "span": 0.11,
+        "offset": 0
+      },
+      {
+        "height": 0.27,
+        "span": 0.11,
+        "offset": 0
+      },
+      {
+        "height": 0.3,
+        "span": 0.11,
+        "offset": 0
+      }
+    ],
+    "sha256": "91c3ed87fc201455992655956b299ef2caf94c75194ddaf47c90b490714ad5aa",
+    "transparentFraction": 0.5991
+  },
+  {
+    "key": "deepseek-3d-swim",
+    "revision": 6,
+    "file": "src/DesktopPet.App/Assets/Characters/deepseek-3d/outfits/swim/contact.png",
+    "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-bcd14f55-8ce0-43b4-976c-da18776f9615.png",
+    "dimensions": [
+      1024,
+      1536
+    ],
+    "bounds": [
+      [
+        3,
+        3,
+        250,
+        513
+      ],
+      [
+        3,
+        3,
+        258,
+        513
+      ],
+      [
+        3,
+        3,
+        256,
+        513
+      ],
+      [
+        3,
+        3,
+        255,
+        506
+      ],
+      [
+        3,
+        3,
+        263,
+        506
+      ],
+      [
+        3,
+        3,
+        260,
+        506
+      ],
+      [
+        3,
+        3,
+        262,
+        492
+      ],
+      [
+        3,
+        3,
+        260,
+        492
+      ],
+      [
+        3,
+        3,
+        259,
+        492
+      ]
+    ],
+    "cells": [
+      {
+        "x": 95,
+        "y": 6,
+        "width": 253,
+        "height": 516
+      },
+      {
+        "x": 403,
+        "y": 6,
+        "width": 261,
+        "height": 516
+      },
+      {
+        "x": 724,
+        "y": 6,
+        "width": 259,
+        "height": 516
+      },
+      {
+        "x": 91,
+        "y": 523,
+        "width": 258,
+        "height": 509
+      },
+      {
+        "x": 398,
+        "y": 523,
+        "width": 266,
+        "height": 509
+      },
+      {
+        "x": 719,
+        "y": 523,
+        "width": 263,
+        "height": 509
+      },
+      {
+        "x": 88,
+        "y": 1030,
+        "width": 265,
+        "height": 495
+      },
+      {
+        "x": 402,
+        "y": 1030,
+        "width": 263,
+        "height": 495
+      },
+      {
+        "x": 719,
+        "y": 1030,
+        "width": 262,
+        "height": 495
+      }
+    ],
+    "hands": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      {
+        "height": 0.3,
+        "span": 0.11,
+        "offset": 0
+      },
+      {
+        "height": 0.28,
+        "span": 0.11,
+        "offset": 0
+      },
+      {
+        "height": 0.32,
+        "span": 0.11,
+        "offset": 0
+      }
+    ],
+    "sha256": "82b1b7314c84a07170c99b2c628e48a4db941ef6dd84ad2d3433e239b84cecac",
+    "transparentFraction": 0.6061
+  },
+  {
+    "key": "deepseek-3d-wedding",
+    "revision": 6,
+    "file": "src/DesktopPet.App/Assets/Characters/deepseek-3d/outfits/wedding/contact.png",
+    "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-3ae21513-0982-4a13-b9f9-047753c5e086.png",
+    "dimensions": [
+      1024,
+      1536
+    ],
+    "bounds": [
+      [
+        3,
+        3,
+        300,
+        493
+      ],
+      [
+        3,
+        3,
+        300,
+        493
+      ],
+      [
+        3,
+        3,
+        300,
+        493
+      ],
+      [
+        3,
+        3,
+        301,
+        498
+      ],
+      [
+        3,
+        3,
+        300,
+        497
+      ],
+      [
+        3,
+        3,
+        300,
+        497
+      ],
+      [
+        3,
+        3,
+        300,
+        500
+      ],
+      [
+        3,
+        3,
+        300,
+        499
+      ],
+      [
+        3,
+        3,
+        300,
+        499
+      ]
+    ],
+    "cells": [
+      {
+        "x": 38,
+        "y": 10,
+        "width": 303,
+        "height": 496
+      },
+      {
+        "x": 357,
+        "y": 10,
+        "width": 303,
+        "height": 496
+      },
+      {
+        "x": 678,
+        "y": 10,
+        "width": 303,
+        "height": 496
+      },
+      {
+        "x": 37,
+        "y": 514,
+        "width": 304,
+        "height": 501
+      },
+      {
+        "x": 357,
+        "y": 515,
+        "width": 303,
+        "height": 500
+      },
+      {
+        "x": 677,
+        "y": 514,
+        "width": 303,
+        "height": 500
+      },
+      {
+        "x": 37,
+        "y": 1018,
+        "width": 303,
+        "height": 503
+      },
+      {
+        "x": 357,
+        "y": 1018,
+        "width": 303,
+        "height": 502
+      },
+      {
+        "x": 678,
+        "y": 1018,
+        "width": 303,
+        "height": 502
+      }
+    ],
+    "hands": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      {
+        "height": 0.25,
+        "span": 0.11,
+        "offset": 0
+      },
+      {
+        "height": 0.235,
+        "span": 0.11,
+        "offset": 0
+      },
+      {
+        "height": 0.25,
+        "span": 0.11,
+        "offset": 0
+      }
+    ],
+    "sha256": "cf46105637cb3b2fb641403b2e2749c25d722b5b3ecfe9d12f4789314f958bbc",
+    "transparentFraction": 0.443
+  },
+  {
+    "key": "deepseek-adult-original",
+    "revision": 6,
+    "file": "src/DesktopPet.App/Assets/Characters/deepseek-adult/motions/contact.png",
+    "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-4c361007-48f1-4bae-bdd2-29b47456b42b.png",
+    "dimensions": [
+      1024,
+      1536
+    ],
+    "bounds": [
+      [
+        3,
+        3,
+        226,
+        533
+      ],
+      [
+        3,
+        3,
+        226,
+        528
+      ],
+      [
+        3,
+        3,
+        226,
+        533
+      ],
+      [
+        3,
+        0,
+        233,
+        520
+      ],
+      [
+        3,
+        3,
+        234,
+        519
+      ],
+      [
+        3,
+        0,
+        233,
+        519
+      ],
+      [
+        3,
+        0,
+        216,
+        481
+      ],
+      [
+        3,
+        1,
+        218,
+        481
+      ],
+      [
+        3,
+        1,
+        221,
+        481
+      ]
+    ],
+    "cells": [
+      {
+        "x": 67,
+        "y": 0,
+        "width": 229,
+        "height": 533
+      },
+      {
+        "x": 388,
+        "y": 1,
+        "width": 229,
+        "height": 531
+      },
+      {
+        "x": 723,
+        "y": 0,
+        "width": 229,
+        "height": 533
+      },
+      {
+        "x": 65,
+        "y": 529,
+        "width": 236,
+        "height": 520
+      },
+      {
+        "x": 388,
+        "y": 529,
+        "width": 237,
+        "height": 520
+      },
+      {
+        "x": 721,
+        "y": 529,
+        "width": 236,
+        "height": 520
+      },
+      {
+        "x": 76,
+        "y": 1050,
+        "width": 219,
+        "height": 484
+      },
+      {
+        "x": 399,
+        "y": 1050,
+        "width": 221,
+        "height": 484
+      },
+      {
+        "x": 728,
+        "y": 1050,
+        "width": 224,
+        "height": 484
+      }
+    ],
+    "hands": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      {
+        "height": 0.26,
+        "span": 0.11,
+        "offset": 0
+      },
+      {
+        "height": 0.29,
+        "span": 0.11,
+        "offset": 0
+      },
+      {
+        "height": 0.3,
+        "span": 0.11,
+        "offset": 0
+      }
+    ],
+    "sha256": "903b993a43ab6db86303dae36394e64b1551ef65ab2d343cbd23743af51df4d7",
+    "transparentFraction": 0.6066
+  },
+  {
+    "key": "deepseek-adult-swim",
+    "revision": 6,
+    "file": "src/DesktopPet.App/Assets/Characters/deepseek-adult/outfits/swim/contact.png",
+    "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-4f3eb16d-865d-4e5c-885f-210c82f6860b.png",
+    "dimensions": [
+      1024,
+      1536
+    ],
+    "bounds": [
+      [
+        3,
+        3,
+        186,
+        523
+      ],
+      [
+        3,
+        3,
+        185,
+        524
+      ],
+      [
+        3,
+        3,
+        187,
+        524
+      ],
+      [
+        3,
+        3,
+        187,
+        518
+      ],
+      [
+        3,
+        3,
+        187,
+        518
+      ],
+      [
+        3,
+        3,
+        187,
+        518
+      ],
+      [
+        3,
+        0,
+        182,
+        481
+      ],
+      [
+        3,
+        0,
+        181,
+        480
+      ],
+      [
+        3,
+        0,
+        181,
+        480
+      ]
+    ],
+    "cells": [
+      {
+        "x": 135,
+        "y": 6,
+        "width": 189,
+        "height": 526
+      },
+      {
+        "x": 421,
+        "y": 5,
+        "width": 188,
+        "height": 527
+      },
+      {
+        "x": 708,
+        "y": 5,
+        "width": 190,
+        "height": 527
+      },
+      {
+        "x": 133,
+        "y": 531,
+        "width": 190,
+        "height": 518
+      },
+      {
+        "x": 421,
+        "y": 531,
+        "width": 190,
+        "height": 518
+      },
+      {
+        "x": 709,
+        "y": 531,
+        "width": 190,
+        "height": 518
+      },
+      {
+        "x": 137,
+        "y": 1044,
+        "width": 185,
+        "height": 484
+      },
+      {
+        "x": 425,
+        "y": 1045,
+        "width": 184,
+        "height": 483
+      },
+      {
+        "x": 713,
+        "y": 1045,
+        "width": 184,
+        "height": 483
+      }
+    ],
+    "hands": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      {
+        "height": 0.28,
+        "span": 0.11,
+        "offset": 0
+      },
+      {
+        "height": 0.25,
+        "span": 0.11,
+        "offset": 0
+      },
+      {
+        "height": 0.29,
+        "span": 0.11,
+        "offset": 0
+      }
+    ],
+    "sha256": "b710dd4828c6a62c71f23e0fa58eac2afc45c682d5b6ea0ae88e04f24b5c5bd4",
+    "transparentFraction": 0.6836
+  },
+  {
+    "key": "deepseek-adult-wedding",
+    "revision": 6,
+    "file": "src/DesktopPet.App/Assets/Characters/deepseek-adult/outfits/wedding/contact.png",
+    "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-97272aeb-1002-4081-9d36-e20cddcba917.png",
+    "dimensions": [
+      1024,
+      1536
+    ],
+    "bounds": [
+      [
+        3,
+        3,
+        289,
+        501
+      ],
+      [
+        3,
+        3,
+        287,
+        501
+      ],
+      [
+        3,
+        3,
+        288,
+        501
+      ],
+      [
+        3,
+        3,
+        289,
+        503
+      ],
+      [
+        3,
+        3,
+        286,
+        502
+      ],
+      [
+        3,
+        3,
+        289,
+        502
+      ],
+      [
+        3,
+        3,
+        289,
+        506
+      ],
+      [
+        3,
+        3,
+        287,
+        505
+      ],
+      [
+        3,
+        3,
+        288,
+        505
+      ]
+    ],
+    "cells": [
+      {
+        "x": 50,
+        "y": 7,
+        "width": 292,
+        "height": 504
+      },
+      {
+        "x": 367,
+        "y": 7,
+        "width": 290,
+        "height": 504
+      },
+      {
+        "x": 685,
+        "y": 7,
+        "width": 291,
+        "height": 504
+      },
+      {
+        "x": 50,
+        "y": 511,
+        "width": 292,
+        "height": 506
+      },
+      {
+        "x": 368,
+        "y": 512,
+        "width": 289,
+        "height": 505
+      },
+      {
+        "x": 685,
+        "y": 512,
+        "width": 292,
+        "height": 505
+      },
+      {
+        "x": 50,
+        "y": 1016,
+        "width": 292,
+        "height": 509
+      },
+      {
+        "x": 367,
+        "y": 1017,
+        "width": 290,
+        "height": 508
+      },
+      {
+        "x": 685,
+        "y": 1017,
+        "width": 291,
+        "height": 508
+      }
+    ],
+    "hands": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      {
+        "height": 0.27,
+        "span": 0.11,
+        "offset": 0
+      },
+      {
+        "height": 0.255,
+        "span": 0.11,
+        "offset": 0
+      },
+      {
+        "height": 0.285,
+        "span": 0.11,
+        "offset": 0
+      }
+    ],
+    "sha256": "1e95b5943323a873f52175639b4b3e35a39c569fde33ce938b54d64180a70183",
+    "transparentFraction": 0.4275
+  },
+  {
+    "key": "gemini-3d-original",
+    "revision": 6,
+    "file": "src/DesktopPet.App/Assets/Characters/gemini-3d/motions/contact.png",
+    "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-9e0ffd65-b44e-4c2f-910f-8fd0ad4c474d.png",
+    "dimensions": [
+      1024,
+      1536
+    ],
+    "bounds": [
+      [
+        3,
+        3,
+        261,
+        503
+      ],
+      [
+        3,
+        3,
+        258,
+        501
+      ],
+      [
+        3,
+        3,
+        258,
+        503
+      ],
+      [
+        3,
+        3,
+        264,
+        505
+      ],
+      [
+        3,
+        3,
+        267,
+        507
+      ],
+      [
+        3,
+        3,
+        262,
+        507
+      ],
+      [
+        3,
+        3,
+        264,
+        507
+      ],
+      [
+        3,
+        3,
+        255,
+        507
+      ],
+      [
+        3,
+        3,
+        254,
+        505
+      ]
+    ],
+    "cells": [
+      {
+        "x": 68,
+        "y": 4,
+        "width": 264,
+        "height": 506
+      },
+      {
+        "x": 388,
+        "y": 6,
+        "width": 261,
+        "height": 504
+      },
+      {
+        "x": 710,
+        "y": 4,
+        "width": 261,
+        "height": 506
+      },
+      {
+        "x": 70,
+        "y": 513,
+        "width": 267,
+        "height": 508
+      },
+      {
+        "x": 388,
+        "y": 511,
+        "width": 270,
+        "height": 510
+      },
+      {
+        "x": 711,
+        "y": 511,
+        "width": 265,
+        "height": 510
+      },
+      {
+        "x": 69,
+        "y": 1020,
+        "width": 267,
+        "height": 510
+      },
+      {
+        "x": 387,
+        "y": 1020,
+        "width": 258,
+        "height": 510
+      },
+      {
+        "x": 709,
+        "y": 1021,
+        "width": 257,
+        "height": 508
+      }
+    ],
+    "hands": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      {
+        "height": 0.26,
+        "span": 0.11,
+        "offset": 0
+      },
+      {
+        "height": 0.25,
+        "span": 0.11,
+        "offset": 0
+      },
+      {
+        "height": 0.27,
+        "span": 0.11,
+        "offset": 0
+      }
+    ],
+    "sha256": "685666bfcaeaadf22da22289fd1927d020ab3423f4061267b87df7a44fd6072d",
+    "transparentFraction": 0.5627
+  },
+  {
+    "key": "gemini-3d-swim",
+    "revision": 8,
+    "file": "src/DesktopPet.App/Assets/Characters/gemini-3d/outfits/swim/contact.png",
+    "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-73a2282d-c0ca-4d1a-a292-d9912b3d073a.png",
+    "dimensions": [
+      1024,
+      1536
+    ],
+    "bounds": [
+      [
+        3,
+        3,
+        243,
+        456
+      ],
+      [
+        3,
+        3,
+        243,
+        456
+      ],
+      [
+        3,
+        3,
+        242,
+        455
+      ],
+      [
+        3,
+        3,
+        244,
+        461
+      ],
+      [
+        3,
+        3,
+        242,
+        460
+      ],
+      [
+        3,
+        3,
+        243,
+        460
+      ],
+      [
+        3,
+        3,
+        245,
+        466
+      ],
+      [
+        3,
+        3,
+        244,
+        463
+      ],
+      [
+        3,
+        3,
+        243,
+        463
+      ]
+    ],
+    "cells": [
+      {
+        "x": 80,
+        "y": 32,
+        "width": 246,
+        "height": 459
+      },
+      {
+        "x": 401,
+        "y": 32,
+        "width": 246,
+        "height": 459
+      },
+      {
+        "x": 722,
+        "y": 33,
+        "width": 245,
+        "height": 458
+      },
+      {
+        "x": 80,
+        "y": 517,
+        "width": 247,
+        "height": 464
+      },
+      {
+        "x": 402,
+        "y": 517,
+        "width": 245,
+        "height": 463
+      },
+      {
+        "x": 722,
+        "y": 517,
+        "width": 246,
+        "height": 463
+      },
+      {
+        "x": 80,
+        "y": 997,
+        "width": 248,
+        "height": 469
+      },
+      {
+        "x": 402,
+        "y": 998,
+        "width": 247,
+        "height": 466
+      },
+      {
+        "x": 722,
+        "y": 998,
+        "width": 246,
+        "height": 466
+      }
+    ],
+    "hands": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      {
+        "height": 0.26,
+        "span": 0.11,
+        "offset": 0
+      },
+      {
+        "height": 0.25,
+        "span": 0.11,
+        "offset": 0
+      },
+      {
+        "height": 0.27,
+        "span": 0.11,
+        "offset": 0
+      }
+    ],
+    "sha256": "93852613f35d83fd994238403ee6d149b34823de8dbd60919cda3f24dc341bba",
+    "transparentFraction": 0.6635
+  },
+  {
+    "key": "gemini-3d-wedding",
+    "revision": 6,
+    "file": "src/DesktopPet.App/Assets/Characters/gemini-3d/outfits/wedding/contact.png",
+    "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-39b55a9c-bf3f-4c0a-bc92-b9f15d8541fd.png",
+    "dimensions": [
+      1024,
+      1536
+    ],
+    "bounds": [
+      [
+        3,
+        3,
+        309,
+        502
+      ],
+      [
+        3,
+        3,
+        307,
+        501
+      ],
+      [
+        3,
+        3,
+        309,
+        502
+      ],
+      [
+        3,
+        3,
+        310,
+        501
+      ],
+      [
+        3,
+        3,
+        310,
+        501
+      ],
+      [
+        3,
+        3,
+        309,
+        501
+      ],
+      [
+        3,
+        3,
+        310,
+        507
+      ],
+      [
+        3,
+        3,
+        309,
+        506
+      ],
+      [
+        3,
+        3,
+        309,
+        506
+      ]
+    ],
+    "cells": [
+      {
+        "x": 37,
+        "y": 9,
+        "width": 312,
+        "height": 505
+      },
+      {
+        "x": 358,
+        "y": 10,
+        "width": 310,
+        "height": 504
+      },
+      {
+        "x": 679,
+        "y": 9,
+        "width": 312,
+        "height": 505
+      },
+      {
+        "x": 36,
+        "y": 517,
+        "width": 313,
+        "height": 504
+      },
+      {
+        "x": 357,
+        "y": 517,
+        "width": 313,
+        "height": 504
+      },
+      {
+        "x": 679,
+        "y": 517,
+        "width": 312,
+        "height": 504
+      },
+      {
+        "x": 37,
+        "y": 1022,
+        "width": 313,
+        "height": 510
+      },
+      {
+        "x": 358,
+        "y": 1023,
+        "width": 312,
+        "height": 509
+      },
+      {
+        "x": 679,
+        "y": 1023,
+        "width": 312,
+        "height": 509
+      }
+    ],
+    "hands": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      {
+        "height": 0.26,
+        "span": 0.11,
+        "offset": 0
+      },
+      {
+        "height": 0.25,
+        "span": 0.11,
+        "offset": 0
+      },
+      {
+        "height": 0.27,
+        "span": 0.11,
+        "offset": 0
+      }
+    ],
+    "sha256": "173ac66d256f5dc7d0de461ac687110fa8b3bb305e3ae032547c011bf513993f",
+    "transparentFraction": 0.3911
+  },
+  {
+    "key": "gemini-adult-original",
+    "revision": 6,
+    "file": "src/DesktopPet.App/Assets/Characters/gemini-adult/motions/contact.png",
+    "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-a29e5f72-c114-45ba-a06f-d0f89c1f1c73.png",
+    "dimensions": [
+      1024,
+      1536
+    ],
+    "bounds": [
+      [
+        3,
+        3,
+        239,
+        504
+      ],
+      [
+        3,
+        3,
+        238,
+        504
+      ],
+      [
+        3,
+        3,
+        242,
+        504
+      ],
+      [
+        3,
+        3,
+        245,
+        505
+      ],
+      [
+        3,
+        3,
+        245,
+        505
+      ],
+      [
+        3,
+        3,
+        242,
+        505
+      ],
+      [
+        3,
+        3,
+        241,
+        501
+      ],
+      [
+        3,
+        3,
+        240,
+        501
+      ],
+      [
+        3,
+        3,
+        242,
+        502
+      ]
+    ],
+    "cells": [
+      {
+        "x": 89,
+        "y": 6,
+        "width": 242,
+        "height": 507
+      },
+      {
+        "x": 380,
+        "y": 6,
+        "width": 241,
+        "height": 507
+      },
+      {
+        "x": 696,
+        "y": 6,
+        "width": 245,
+        "height": 507
+      },
+      {
+        "x": 88,
+        "y": 513,
+        "width": 248,
+        "height": 508
+      },
+      {
+        "x": 378,
+        "y": 513,
+        "width": 248,
+        "height": 508
+      },
+      {
+        "x": 696,
+        "y": 513,
+        "width": 245,
+        "height": 508
+      },
+      {
+        "x": 88,
+        "y": 1021,
+        "width": 244,
+        "height": 504
+      },
+      {
+        "x": 380,
+        "y": 1021,
+        "width": 243,
+        "height": 504
+      },
+      {
+        "x": 695,
+        "y": 1021,
+        "width": 245,
+        "height": 505
+      }
+    ],
+    "hands": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      {
+        "height": 0.26,
+        "span": 0.11,
+        "offset": 0
+      },
+      {
+        "height": 0.25,
+        "span": 0.11,
+        "offset": 0
+      },
+      {
+        "height": 0.27,
+        "span": 0.11,
+        "offset": 0
+      }
+    ],
+    "sha256": "34e47a191da56a342ea6cab4b86f996b2cdaac38c5450021a3b30b7746da59bd",
+    "transparentFraction": 0.5623
+  },
+  {
+    "key": "gemini-adult-swim",
+    "revision": 6,
+    "file": "src/DesktopPet.App/Assets/Characters/gemini-adult/outfits/swim/contact.png",
+    "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-9ee2766b-6d80-44f9-a886-017de5451980.png",
+    "dimensions": [
+      1024,
+      1536
+    ],
+    "bounds": [
+      [
+        3,
+        3,
+        245,
+        539
+      ],
+      [
+        3,
+        3,
+        245,
+        538
+      ],
+      [
+        3,
+        3,
+        245,
+        538
+      ],
+      [
+        3,
+        0,
+        246,
+        525
+      ],
+      [
+        3,
+        0,
+        246,
+        525
+      ],
+      [
+        3,
+        0,
+        245,
+        525
+      ],
+      [
+        3,
+        0,
+        246,
+        468
+      ],
+      [
+        3,
+        0,
+        241,
+        468
+      ],
+      [
+        3,
+        0,
+        245,
+        468
+      ]
+    ],
+    "cells": [
+      {
+        "x": 85,
+        "y": 3,
+        "width": 248,
+        "height": 539
+      },
+      {
+        "x": 391,
+        "y": 4,
+        "width": 248,
+        "height": 538
+      },
+      {
+        "x": 696,
+        "y": 3,
+        "width": 248,
+        "height": 538
+      },
+      {
+        "x": 85,
+        "y": 537,
+        "width": 249,
+        "height": 525
+      },
+      {
+        "x": 391,
+        "y": 537,
+        "width": 249,
+        "height": 525
+      },
+      {
+        "x": 696,
+        "y": 537,
+        "width": 248,
+        "height": 525
+      },
+      {
+        "x": 79,
+        "y": 1057,
+        "width": 249,
+        "height": 471
+      },
+      {
+        "x": 392,
+        "y": 1057,
+        "width": 244,
+        "height": 471
+      },
+      {
+        "x": 697,
+        "y": 1057,
+        "width": 248,
+        "height": 471
+      }
+    ],
+    "hands": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      {
+        "height": 0.26,
+        "span": 0.11,
+        "offset": 0
+      },
+      {
+        "height": 0.25,
+        "span": 0.11,
+        "offset": 0
+      },
+      {
+        "height": 0.27,
+        "span": 0.11,
+        "offset": 0
+      }
+    ],
+    "sha256": "842662e7aa3bce728d59ebe92aa843352f73259a3114825c1448e3ffa3a6e03e",
+    "transparentFraction": 0.586
+  },
+  {
+    "key": "gemini-adult-wedding",
+    "revision": 6,
+    "file": "src/DesktopPet.App/Assets/Characters/gemini-adult/outfits/wedding/contact.png",
+    "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-152f0426-bc3a-4c84-882c-af846f206215.png",
+    "dimensions": [
+      1024,
+      1536
+    ],
+    "bounds": [
+      [
+        3,
+        3,
+        312,
+        504
+      ],
+      [
+        3,
+        3,
+        311,
+        505
+      ],
+      [
+        3,
+        3,
+        312,
+        505
+      ],
+      [
+        3,
+        3,
+        312,
+        504
+      ],
+      [
+        3,
+        3,
+        311,
+        504
+      ],
+      [
+        3,
+        3,
+        312,
+        504
+      ],
+      [
+        3,
+        3,
+        312,
+        504
+      ],
+      [
+        3,
+        3,
+        312,
+        504
+      ],
+      [
+        3,
+        3,
+        312,
+        504
+      ]
+    ],
+    "cells": [
+      {
+        "x": 22,
+        "y": 3,
+        "width": 315,
+        "height": 507
+      },
+      {
+        "x": 343,
+        "y": 2,
+        "width": 314,
+        "height": 508
+      },
+      {
+        "x": 662,
+        "y": 2,
+        "width": 315,
+        "height": 508
+      },
+      {
+        "x": 22,
+        "y": 515,
+        "width": 315,
+        "height": 507
+      },
+      {
+        "x": 343,
+        "y": 515,
+        "width": 314,
+        "height": 507
+      },
+      {
+        "x": 662,
+        "y": 515,
+        "width": 315,
+        "height": 507
+      },
+      {
+        "x": 23,
+        "y": 1024,
+        "width": 315,
+        "height": 507
+      },
+      {
+        "x": 342,
+        "y": 1024,
+        "width": 315,
+        "height": 507
+      },
+      {
+        "x": 662,
+        "y": 1024,
+        "width": 315,
+        "height": 507
+      }
+    ],
+    "hands": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      {
+        "height": 0.26,
+        "span": 0.11,
+        "offset": 0
+      },
+      {
+        "height": 0.25,
+        "span": 0.11,
+        "offset": 0
+      },
+      {
+        "height": 0.27,
+        "span": 0.11,
+        "offset": 0
+      }
+    ],
+    "sha256": "f34c23baa64219cc98357aa521729fb1710405073920a2380fb8dd307c76fdc0",
+    "transparentFraction": 0.4036
+  },
+  {
+    "key": "gpt-3d-original",
+    "revision": 6,
+    "file": "src/DesktopPet.App/Assets/Characters/gpt-3d/motions/contact.png",
+    "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-71751540-155e-427c-a377-bb41a830aba1.png",
+    "dimensions": [
+      1024,
+      1536
+    ],
+    "bounds": [
+      [
+        3,
+        3,
+        259,
+        529
+      ],
+      [
+        3,
+        3,
+        254,
+        530
+      ],
+      [
+        3,
+        3,
+        252,
+        529
+      ],
+      [
+        3,
+        0,
+        264,
+        514
+      ],
+      [
+        3,
+        0,
+        253,
+        515
+      ],
+      [
+        3,
+        0,
+        255,
+        514
+      ],
+      [
+        3,
+        0,
+        253,
+        491
+      ],
+      [
+        3,
+        0,
+        252,
+        491
+      ],
+      [
+        3,
+        0,
+        251,
+        491
+      ]
+    ],
+    "cells": [
+      {
+        "x": 82,
+        "y": 5,
+        "width": 262,
+        "height": 529
+      },
+      {
+        "x": 388,
+        "y": 4,
+        "width": 257,
+        "height": 530
+      },
+      {
+        "x": 697,
+        "y": 5,
+        "width": 255,
+        "height": 529
+      },
+      {
+        "x": 78,
+        "y": 528,
+        "width": 267,
+        "height": 514
+      },
+      {
+        "x": 387,
+        "y": 528,
+        "width": 256,
+        "height": 515
+      },
+      {
+        "x": 694,
+        "y": 529,
+        "width": 258,
+        "height": 514
+      },
+      {
+        "x": 84,
+        "y": 1037,
+        "width": 256,
+        "height": 494
+      },
+      {
+        "x": 391,
+        "y": 1038,
+        "width": 255,
+        "height": 494
+      },
+      {
+        "x": 700,
+        "y": 1038,
+        "width": 254,
+        "height": 494
+      }
+    ],
+    "hands": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      {
+        "height": 0.26,
+        "span": 0.11,
+        "offset": 0
+      },
+      {
+        "height": 0.25,
+        "span": 0.11,
+        "offset": 0
+      },
+      {
+        "height": 0.27,
+        "span": 0.11,
+        "offset": 0
+      }
+    ],
+    "sha256": "ad8a6eaf1a406d3873887cb12ee517381276867e7535aaf04fac706fb8d79e96",
+    "transparentFraction": 0.474
+  },
+  {
+    "key": "gpt-3d-swim",
+    "revision": 6,
+    "file": "src/DesktopPet.App/Assets/Characters/gpt-3d/outfits/swim/contact.png",
+    "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-90b318fb-b4d2-407d-8701-c4202972cb29.png",
+    "dimensions": [
+      1024,
+      1536
+    ],
+    "bounds": [
+      [
+        3,
+        3,
+        242,
+        497
+      ],
+      [
+        3,
+        3,
+        242,
+        498
+      ],
+      [
+        3,
+        3,
+        243,
+        496
+      ],
+      [
+        3,
+        3,
+        240,
+        498
+      ],
+      [
+        3,
+        3,
+        240,
+        497
+      ],
+      [
+        3,
+        3,
+        240,
+        497
+      ],
+      [
+        3,
+        3,
+        242,
+        501
+      ],
+      [
+        3,
+        3,
+        243,
+        500
+      ],
+      [
+        3,
+        3,
+        245,
+        500
+      ]
+    ],
+    "cells": [
+      {
+        "x": 80,
+        "y": 7,
+        "width": 245,
+        "height": 500
+      },
+      {
+        "x": 400,
+        "y": 6,
+        "width": 245,
+        "height": 501
+      },
+      {
+        "x": 720,
+        "y": 7,
+        "width": 246,
+        "height": 499
+      },
+      {
+        "x": 81,
+        "y": 516,
+        "width": 243,
+        "height": 501
+      },
+      {
+        "x": 401,
+        "y": 517,
+        "width": 243,
+        "height": 500
+      },
+      {
+        "x": 721,
+        "y": 517,
+        "width": 243,
+        "height": 500
+      },
+      {
+        "x": 79,
+        "y": 1024,
+        "width": 245,
+        "height": 504
+      },
+      {
+        "x": 398,
+        "y": 1025,
+        "width": 246,
+        "height": 503
+      },
+      {
+        "x": 717,
+        "y": 1025,
+        "width": 248,
+        "height": 503
+      }
+    ],
+    "hands": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      {
+        "height": 0.26,
+        "span": 0.11,
+        "offset": 0
+      },
+      {
+        "height": 0.25,
+        "span": 0.11,
+        "offset": 0
+      },
+      {
+        "height": 0.27,
+        "span": 0.11,
+        "offset": 0
+      }
+    ],
+    "sha256": "e18196c2132c135ba5c8b6a54c25867632c9e3cb64529b74fd7d39ef7c1878d7",
+    "transparentFraction": 0.5795
+  },
+  {
+    "key": "gpt-3d-wedding",
+    "revision": 6,
+    "file": "src/DesktopPet.App/Assets/Characters/gpt-3d/outfits/wedding/contact.png",
+    "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-ff939364-d7d7-4db6-a94b-980e215cb9f8.png",
+    "dimensions": [
+      1024,
+      1536
+    ],
+    "bounds": [
+      [
+        3,
+        3,
+        322,
+        506
+      ],
+      [
+        0,
+        3,
+        320,
+        505
+      ],
+      [
+        0,
+        3,
+        319,
+        505
+      ],
+      [
+        3,
+        3,
+        322,
+        507
+      ],
+      [
+        0,
+        3,
+        320,
+        507
+      ],
+      [
+        0,
+        3,
+        318,
+        507
+      ],
+      [
+        3,
+        3,
+        321,
+        501
+      ],
+      [
+        1,
+        3,
+        319,
+        501
+      ],
+      [
+        0,
+        3,
+        319,
+        501
+      ]
+    ],
+    "cells": [
+      {
+        "x": 29,
+        "y": 6,
+        "width": 322,
+        "height": 509
+      },
+      {
+        "x": 352,
+        "y": 7,
+        "width": 320,
+        "height": 508
+      },
+      {
+        "x": 673,
+        "y": 7,
+        "width": 322,
+        "height": 508
+      },
+      {
+        "x": 29,
+        "y": 516,
+        "width": 322,
+        "height": 510
+      },
+      {
+        "x": 352,
+        "y": 516,
+        "width": 320,
+        "height": 510
+      },
+      {
+        "x": 673,
+        "y": 516,
+        "width": 321,
+        "height": 510
+      },
+      {
+        "x": 30,
+        "y": 1027,
+        "width": 321,
+        "height": 504
+      },
+      {
+        "x": 352,
+        "y": 1027,
+        "width": 320,
+        "height": 504
+      },
+      {
+        "x": 673,
+        "y": 1027,
+        "width": 322,
+        "height": 504
+      }
+    ],
+    "hands": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      {
+        "height": 0.26,
+        "span": 0.11,
+        "offset": 0
+      },
+      {
+        "height": 0.25,
+        "span": 0.11,
+        "offset": 0
+      },
+      {
+        "height": 0.27,
+        "span": 0.11,
+        "offset": 0
+      }
+    ],
+    "sha256": "bbf8ce8e2b82fb3092749d1e04fbbecf06111035ad1ef6c30f91d8648d8800e8",
+    "transparentFraction": 0.3405
+  },
+  {
+    "key": "gpt-adult-original",
+    "revision": 5,
+    "file": "src/DesktopPet.App/Assets/Characters/gpt-adult/motions/contact.png",
+    "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-8b0e7939-6310-4f7e-8b36-d014e60675d9.png",
+    "dimensions": [
+      1024,
+      1536
+    ],
+    "bounds": [
+      [
+        3,
+        3,
+        265,
+        504
+      ],
+      [
+        3,
+        3,
+        268,
+        504
+      ],
+      [
+        3,
+        3,
+        266,
+        504
+      ],
+      [
+        3,
+        3,
+        266,
+        495
+      ],
+      [
+        3,
+        3,
+        266,
+        497
+      ],
+      [
+        3,
+        3,
+        265,
+        498
+      ],
+      [
+        3,
+        3,
+        265,
+        478
+      ],
+      [
+        3,
+        3,
+        263,
+        477
+      ],
+      [
+        3,
+        3,
+        265,
+        481
+      ]
+    ],
+    "cells": [
+      {
+        "x": 66,
+        "y": 18,
+        "width": 268,
+        "height": 507
+      },
+      {
+        "x": 376,
+        "y": 18,
+        "width": 271,
+        "height": 507
+      },
+      {
+        "x": 687,
+        "y": 18,
+        "width": 269,
+        "height": 507
+      },
+      {
+        "x": 69,
+        "y": 534,
+        "width": 269,
+        "height": 498
+      },
+      {
+        "x": 378,
+        "y": 534,
+        "width": 269,
+        "height": 500
+      },
+      {
+        "x": 687,
+        "y": 532,
+        "width": 268,
+        "height": 501
+      },
+      {
+        "x": 69,
+        "y": 1039,
+        "width": 268,
+        "height": 481
+      },
+      {
+        "x": 380,
+        "y": 1040,
+        "width": 266,
+        "height": 480
+      },
+      {
+        "x": 687,
+        "y": 1036,
+        "width": 268,
+        "height": 484
+      }
+    ],
+    "hands": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      {
+        "height": 0.26,
+        "span": 0.11,
+        "offset": 0
+      },
+      {
+        "height": 0.25,
+        "span": 0.11,
+        "offset": 0
+      },
+      {
+        "height": 0.27,
+        "span": 0.11,
+        "offset": 0
+      }
+    ],
+    "sha256": "dd72c479c0f9feab973d635121ee40286322f5570a115c171f7613d2d0f8cfb4",
+    "transparentFraction": 0.4455
+  },
+  {
+    "key": "gpt-adult-swim",
+    "revision": 6,
+    "file": "src/DesktopPet.App/Assets/Characters/gpt-adult/outfits/swim/contact.png",
+    "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-fe03da01-3e24-4be0-b6f2-550af34611ab.png",
+    "dimensions": [
+      1024,
+      1536
+    ],
+    "bounds": [
+      [
+        3,
+        3,
+        282,
+        510
+      ],
+      [
+        3,
+        3,
+        279,
+        510
+      ],
+      [
+        3,
+        3,
+        278,
+        511
+      ],
+      [
+        3,
+        3,
+        282,
+        509
+      ],
+      [
+        3,
+        3,
+        282,
+        508
+      ],
+      [
+        3,
+        3,
+        280,
+        509
+      ],
+      [
+        3,
+        3,
+        282,
+        501
+      ],
+      [
+        3,
+        3,
+        281,
+        501
+      ],
+      [
+        3,
+        3,
+        279,
+        501
+      ]
+    ],
+    "cells": [
+      {
+        "x": 53,
+        "y": 4,
+        "width": 285,
+        "height": 513
+      },
+      {
+        "x": 372,
+        "y": 4,
+        "width": 282,
+        "height": 513
+      },
+      {
+        "x": 693,
+        "y": 3,
+        "width": 281,
+        "height": 514
+      },
+      {
+        "x": 52,
+        "y": 517,
+        "width": 285,
+        "height": 512
+      },
+      {
+        "x": 371,
+        "y": 518,
+        "width": 285,
+        "height": 511
+      },
+      {
+        "x": 691,
+        "y": 517,
+        "width": 283,
+        "height": 512
+      },
+      {
+        "x": 52,
+        "y": 1029,
+        "width": 285,
+        "height": 504
+      },
+      {
+        "x": 372,
+        "y": 1029,
+        "width": 284,
+        "height": 504
+      },
+      {
+        "x": 692,
+        "y": 1029,
+        "width": 282,
+        "height": 504
+      }
+    ],
+    "hands": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      {
+        "height": 0.26,
+        "span": 0.11,
+        "offset": 0
+      },
+      {
+        "height": 0.25,
+        "span": 0.11,
+        "offset": 0
+      },
+      {
+        "height": 0.27,
+        "span": 0.11,
+        "offset": 0
+      }
+    ],
+    "sha256": "85bd5989a20706f023551b1aec8910a6561e3c2144d812c83be0cfee2874faae",
+    "transparentFraction": 0.5425
+  },
+  {
+    "key": "gpt-adult-wedding",
+    "revision": 6,
+    "file": "src/DesktopPet.App/Assets/Characters/gpt-adult/outfits/wedding/contact.png",
+    "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-52cce232-06bc-4071-8e47-cbe1ec174d07.png",
+    "dimensions": [
+      1024,
+      1536
+    ],
+    "bounds": [
+      [
+        3,
+        3,
+        308,
+        500
+      ],
+      [
+        3,
+        3,
+        303,
+        500
+      ],
+      [
+        3,
+        3,
+        302,
+        500
+      ],
+      [
+        3,
+        3,
+        306,
+        501
+      ],
+      [
+        3,
+        3,
+        304,
+        500
+      ],
+      [
+        3,
+        3,
+        304,
+        500
+      ],
+      [
+        3,
+        3,
+        311,
+        503
+      ],
+      [
+        3,
+        3,
+        308,
+        503
+      ],
+      [
+        3,
+        3,
+        306,
+        503
+      ]
+    ],
+    "cells": [
+      {
+        "x": 38,
+        "y": 7,
+        "width": 311,
+        "height": 503
+      },
+      {
+        "x": 362,
+        "y": 7,
+        "width": 306,
+        "height": 503
+      },
+      {
+        "x": 682,
+        "y": 7,
+        "width": 305,
+        "height": 503
+      },
+      {
+        "x": 41,
+        "y": 515,
+        "width": 309,
+        "height": 504
+      },
+      {
+        "x": 362,
+        "y": 516,
+        "width": 307,
+        "height": 503
+      },
+      {
+        "x": 682,
+        "y": 516,
+        "width": 307,
+        "height": 503
+      },
+      {
+        "x": 36,
+        "y": 1023,
+        "width": 314,
+        "height": 506
+      },
+      {
+        "x": 359,
+        "y": 1023,
+        "width": 311,
+        "height": 506
+      },
+      {
+        "x": 679,
+        "y": 1023,
+        "width": 309,
+        "height": 506
+      }
+    ],
+    "hands": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      {
+        "height": 0.26,
+        "span": 0.11,
+        "offset": 0
+      },
+      {
+        "height": 0.25,
+        "span": 0.11,
+        "offset": 0
+      },
+      {
+        "height": 0.27,
+        "span": 0.11,
+        "offset": 0
+      }
+    ],
+    "sha256": "511b3138ac208dc112536b3558569518c5d19e64e4cb0c70f262f800ed308b1f",
+    "transparentFraction": 0.3675
+  },
+  {
+    "key": "grok-3d-original",
+    "revision": 6,
+    "file": "src/DesktopPet.App/Assets/Characters/grok-3d/motions/contact.png",
+    "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-97a3f43e-1d44-40a1-80c4-f1def9e1111d.png",
+    "dimensions": [
+      1024,
+      1536
+    ],
+    "bounds": [
+      [
+        3,
+        3,
+        227,
+        501
+      ],
+      [
+        3,
+        3,
+        228,
+        505
+      ],
+      [
+        3,
+        3,
+        227,
+        501
+      ],
+      [
+        3,
+        3,
+        226,
+        501
+      ],
+      [
+        3,
+        3,
+        225,
+        502
+      ],
+      [
+        3,
+        3,
+        224,
+        502
+      ],
+      [
+        3,
+        3,
+        227,
+        506
+      ],
+      [
+        3,
+        3,
+        224,
+        501
+      ],
+      [
+        3,
+        3,
+        224,
+        501
+      ]
+    ],
+    "cells": [
+      {
+        "x": 77,
+        "y": 6,
+        "width": 230,
+        "height": 504
+      },
+      {
+        "x": 396,
+        "y": 2,
+        "width": 231,
+        "height": 508
+      },
+      {
+        "x": 718,
+        "y": 6,
+        "width": 230,
+        "height": 504
+      },
+      {
+        "x": 77,
+        "y": 518,
+        "width": 229,
+        "height": 504
+      },
+      {
+        "x": 397,
+        "y": 517,
+        "width": 228,
+        "height": 505
+      },
+      {
+        "x": 718,
+        "y": 517,
+        "width": 227,
+        "height": 505
+      },
+      {
+        "x": 77,
+        "y": 1025,
+        "width": 230,
+        "height": 509
+      },
+      {
+        "x": 397,
+        "y": 1030,
+        "width": 227,
+        "height": 504
+      },
+      {
+        "x": 718,
+        "y": 1030,
+        "width": 227,
+        "height": 504
+      }
+    ],
+    "hands": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      {
+        "height": 0.26,
+        "span": 0.11,
+        "offset": 0
+      },
+      {
+        "height": 0.25,
+        "span": 0.11,
+        "offset": 0
+      },
+      {
+        "height": 0.27,
+        "span": 0.11,
+        "offset": 0
+      }
+    ],
+    "sha256": "7a058c89c137870c6abd78501245dadbe485ecc65138d953cc3ed9923788d917",
+    "transparentFraction": 0.6128
+  },
+  {
+    "key": "grok-3d-swim",
+    "revision": 6,
+    "file": "src/DesktopPet.App/Assets/Characters/grok-3d/outfits/swim/contact.png",
+    "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-dd844878-d886-4c9b-bb5e-a95542b5a053.png",
+    "dimensions": [
+      1024,
+      1536
+    ],
+    "bounds": [
+      [
+        3,
+        3,
+        252,
+        514
+      ],
+      [
+        3,
+        3,
+        246,
+        514
+      ],
+      [
+        3,
+        3,
+        239,
+        514
+      ],
+      [
+        3,
+        0,
+        257,
+        508
+      ],
+      [
+        3,
+        0,
+        255,
+        508
+      ],
+      [
+        3,
+        0,
+        254,
+        508
+      ],
+      [
+        3,
+        3,
+        256,
+        501
+      ],
+      [
+        3,
+        3,
+        255,
+        501
+      ],
+      [
+        3,
+        3,
+        258,
+        501
+      ]
+    ],
+    "cells": [
+      {
+        "x": 96,
+        "y": 4,
+        "width": 255,
+        "height": 514
+      },
+      {
+        "x": 397,
+        "y": 4,
+        "width": 249,
+        "height": 514
+      },
+      {
+        "x": 700,
+        "y": 4,
+        "width": 242,
+        "height": 514
+      },
+      {
+        "x": 95,
+        "y": 514,
+        "width": 260,
+        "height": 511
+      },
+      {
+        "x": 395,
+        "y": 514,
+        "width": 258,
+        "height": 511
+      },
+      {
+        "x": 696,
+        "y": 514,
+        "width": 257,
+        "height": 511
+      },
+      {
+        "x": 95,
+        "y": 1022,
+        "width": 259,
+        "height": 504
+      },
+      {
+        "x": 395,
+        "y": 1022,
+        "width": 258,
+        "height": 504
+      },
+      {
+        "x": 696,
+        "y": 1022,
+        "width": 261,
+        "height": 504
+      }
+    ],
+    "hands": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      {
+        "height": 0.26,
+        "span": 0.11,
+        "offset": 0
+      },
+      {
+        "height": 0.25,
+        "span": 0.11,
+        "offset": 0
+      },
+      {
+        "height": 0.27,
+        "span": 0.11,
+        "offset": 0
+      }
+    ],
+    "sha256": "717d72b4d28a4143a39acd173e372cd5aa1ddbf8d964ccd147a21c4a45cc4481",
+    "transparentFraction": 0.5665
+  },
+  {
+    "key": "grok-3d-wedding",
+    "revision": 6,
+    "file": "src/DesktopPet.App/Assets/Characters/grok-3d/outfits/wedding/contact.png",
+    "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-4b8268ca-5a0d-4d82-b465-8e381b42adf8.png",
+    "dimensions": [
+      1024,
+      1536
+    ],
+    "bounds": [
+      [
+        3,
+        3,
+        283,
+        497
+      ],
+      [
+        3,
+        3,
+        285,
+        497
+      ],
+      [
+        3,
+        3,
+        285,
+        497
+      ],
+      [
+        3,
+        3,
+        287,
+        499
+      ],
+      [
+        3,
+        3,
+        287,
+        499
+      ],
+      [
+        3,
+        3,
+        286,
+        499
+      ],
+      [
+        3,
+        3,
+        287,
+        503
+      ],
+      [
+        3,
+        3,
+        288,
+        502
+      ],
+      [
+        3,
+        3,
+        287,
+        503
+      ]
+    ],
+    "cells": [
+      {
+        "x": 78,
+        "y": 6,
+        "width": 286,
+        "height": 500
+      },
+      {
+        "x": 365,
+        "y": 6,
+        "width": 288,
+        "height": 500
+      },
+      {
+        "x": 654,
+        "y": 6,
+        "width": 288,
+        "height": 500
+      },
+      {
+        "x": 77,
+        "y": 511,
+        "width": 290,
+        "height": 502
+      },
+      {
+        "x": 365,
+        "y": 511,
+        "width": 290,
+        "height": 502
+      },
+      {
+        "x": 653,
+        "y": 511,
+        "width": 289,
+        "height": 502
+      },
+      {
+        "x": 78,
+        "y": 1017,
+        "width": 290,
+        "height": 506
+      },
+      {
+        "x": 366,
+        "y": 1018,
+        "width": 291,
+        "height": 505
+      },
+      {
+        "x": 656,
+        "y": 1017,
+        "width": 290,
+        "height": 506
+      }
+    ],
+    "hands": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      {
+        "height": 0.26,
+        "span": 0.11,
+        "offset": 0
+      },
+      {
+        "height": 0.25,
+        "span": 0.11,
+        "offset": 0
+      },
+      {
+        "height": 0.27,
+        "span": 0.11,
+        "offset": 0
+      }
+    ],
+    "sha256": "ab01c280d02b513139ce4101aa82f9b2efae632537fc4cda191fd8fab5b083f7",
+    "transparentFraction": 0.4201
+  },
+  {
+    "key": "grok-adult-original",
+    "revision": 6,
+    "file": "src/DesktopPet.App/Assets/Characters/grok-adult/motions/contact.png",
+    "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-de3029ce-39ca-4df0-861b-b3bd3d6a0bde.png",
+    "dimensions": [
+      1024,
+      1536
+    ],
+    "bounds": [
+      [
+        3,
+        3,
+        216,
+        506
+      ],
+      [
+        3,
+        3,
+        217,
+        506
+      ],
+      [
+        3,
+        3,
+        217,
+        506
+      ],
+      [
+        3,
+        3,
+        219,
+        511
+      ],
+      [
+        3,
+        3,
+        218,
+        507
+      ],
+      [
+        3,
+        3,
+        219,
+        511
+      ],
+      [
+        3,
+        0,
+        218,
+        505
+      ],
+      [
+        3,
+        3,
+        217,
+        504
+      ],
+      [
+        3,
+        0,
+        220,
+        505
+      ]
+    ],
+    "cells": [
+      {
+        "x": 114,
+        "y": 7,
+        "width": 219,
+        "height": 509
+      },
+      {
+        "x": 402,
+        "y": 7,
+        "width": 220,
+        "height": 509
+      },
+      {
+        "x": 688,
+        "y": 7,
+        "width": 220,
+        "height": 509
+      },
+      {
+        "x": 112,
+        "y": 513,
+        "width": 222,
+        "height": 511
+      },
+      {
+        "x": 401,
+        "y": 513,
+        "width": 221,
+        "height": 510
+      },
+      {
+        "x": 689,
+        "y": 513,
+        "width": 222,
+        "height": 511
+      },
+      {
+        "x": 112,
+        "y": 1020,
+        "width": 221,
+        "height": 508
+      },
+      {
+        "x": 404,
+        "y": 1021,
+        "width": 220,
+        "height": 507
+      },
+      {
+        "x": 687,
+        "y": 1020,
+        "width": 223,
+        "height": 508
+      }
+    ],
+    "hands": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      {
+        "height": 0.26,
+        "span": 0.11,
+        "offset": 0
+      },
+      {
+        "height": 0.25,
+        "span": 0.11,
+        "offset": 0
+      },
+      {
+        "height": 0.27,
+        "span": 0.11,
+        "offset": 0
+      }
+    ],
+    "sha256": "7bd7b427ef40f3125fe28f7805c93005395338f08ee3739af5410860e01ceb76",
+    "transparentFraction": 0.6373
+  },
+  {
+    "key": "grok-adult-swim",
+    "revision": 4,
+    "file": "src/DesktopPet.App/Assets/Characters/grok-adult/outfits/swim/contact.png",
+    "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-3bfb771a-361f-4020-965f-336ee04eb770.png",
+    "dimensions": [
+      1024,
+      1536
+    ],
+    "bounds": [
+      [
+        3,
+        3,
+        218,
+        514
+      ],
+      [
+        3,
+        3,
+        217,
+        518
+      ],
+      [
+        3,
+        3,
+        216,
+        516
+      ],
+      [
+        3,
+        3,
+        225,
+        514
+      ],
+      [
+        3,
+        0,
+        224,
+        515
+      ],
+      [
+        3,
+        3,
+        225,
+        514
+      ],
+      [
+        3,
+        0,
+        221,
+        489
+      ],
+      [
+        3,
+        0,
+        226,
+        490
+      ],
+      [
+        3,
+        0,
+        230,
+        489
+      ]
+    ],
+    "cells": [
+      {
+        "x": 89,
+        "y": 8,
+        "width": 221,
+        "height": 517
+      },
+      {
+        "x": 405,
+        "y": 7,
+        "width": 220,
+        "height": 518
+      },
+      {
+        "x": 726,
+        "y": 6,
+        "width": 219,
+        "height": 519
+      },
+      {
+        "x": 89,
+        "y": 522,
+        "width": 228,
+        "height": 514
+      },
+      {
+        "x": 404,
+        "y": 521,
+        "width": 227,
+        "height": 515
+      },
+      {
+        "x": 726,
+        "y": 522,
+        "width": 228,
+        "height": 514
+      },
+      {
+        "x": 87,
+        "y": 1031,
+        "width": 224,
+        "height": 492
+      },
+      {
+        "x": 406,
+        "y": 1030,
+        "width": 229,
+        "height": 493
+      },
+      {
+        "x": 725,
+        "y": 1031,
+        "width": 233,
+        "height": 492
+      }
+    ],
+    "hands": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      {
+        "height": 0.245,
+        "span": 0.11,
+        "offset": 0
+      },
+      {
+        "height": 0.22,
+        "span": 0.11,
+        "offset": 0
+      },
+      {
+        "height": 0.27,
+        "span": 0.11,
+        "offset": 0
+      }
+    ],
+    "sha256": "229e5e112c246df97c5856e998e2e6f317da06623d140576eb8932881d2df8dd",
+    "transparentFraction": 0.5852
+  },
+  {
+    "key": "grok-adult-wedding",
+    "revision": 6,
+    "file": "src/DesktopPet.App/Assets/Characters/grok-adult/outfits/wedding/contact.png",
+    "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-410eb2e1-4d93-4aa2-aaa0-ef146792181a.png",
+    "dimensions": [
+      1024,
+      1536
+    ],
+    "bounds": [
+      [
+        3,
+        3,
+        303,
+        496
+      ],
+      [
+        3,
+        3,
+        303,
+        497
+      ],
+      [
+        3,
+        3,
+        303,
+        496
+      ],
+      [
+        3,
+        3,
+        303,
+        498
+      ],
+      [
+        3,
+        3,
+        303,
+        498
+      ],
+      [
+        3,
+        3,
+        303,
+        498
+      ],
+      [
+        3,
+        3,
+        303,
+        500
+      ],
+      [
+        3,
+        3,
+        303,
+        500
+      ],
+      [
+        3,
+        3,
+        303,
+        500
+      ]
+    ],
+    "cells": [
+      {
+        "x": 37,
+        "y": 7,
+        "width": 306,
+        "height": 499
+      },
+      {
+        "x": 357,
+        "y": 6,
+        "width": 306,
+        "height": 500
+      },
+      {
+        "x": 677,
+        "y": 7,
+        "width": 306,
+        "height": 499
+      },
+      {
+        "x": 37,
+        "y": 516,
+        "width": 306,
+        "height": 501
+      },
+      {
+        "x": 357,
+        "y": 516,
+        "width": 306,
+        "height": 501
+      },
+      {
+        "x": 677,
+        "y": 516,
+        "width": 306,
+        "height": 501
+      },
+      {
+        "x": 37,
+        "y": 1022,
+        "width": 306,
+        "height": 503
+      },
+      {
+        "x": 357,
+        "y": 1022,
+        "width": 306,
+        "height": 503
+      },
+      {
+        "x": 677,
+        "y": 1022,
+        "width": 306,
+        "height": 503
+      }
+    ],
+    "hands": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      {
+        "height": 0.26,
+        "span": 0.11,
+        "offset": 0
+      },
+      {
+        "height": 0.25,
+        "span": 0.11,
+        "offset": 0
+      },
+      {
+        "height": 0.27,
+        "span": 0.11,
+        "offset": 0
+      }
+    ],
+    "sha256": "dcb14ff453b92319ba3da7acd616169f30fd237371867c41cba020ad79ce9f5c",
+    "transparentFraction": 0.3934
+  },
+  {
+    "key": "kimi-3d-original",
+    "revision": 3,
+    "file": "src/DesktopPet.App/Assets/Characters/kimi-3d/motions/contact.png",
+    "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-c8a540f1-110f-46e4-b40e-b7a10e286c30.png",
+    "dimensions": [
+      1024,
+      1536
+    ],
+    "bounds": [
+      [
+        3,
+        3,
+        245,
+        502
+      ],
+      [
+        3,
+        3,
+        244,
+        500
+      ],
+      [
+        3,
+        3,
+        243,
+        500
+      ],
+      [
+        3,
+        3,
+        247,
+        502
+      ],
+      [
+        3,
+        3,
+        244,
+        503
+      ],
+      [
+        3,
+        3,
+        246,
+        503
+      ],
+      [
+        3,
+        3,
+        240,
+        493
+      ],
+      [
+        3,
+        3,
+        236,
+        493
+      ],
+      [
+        3,
+        3,
+        234,
+        493
+      ]
+    ],
+    "cells": [
+      {
+        "x": 89,
+        "y": 8,
+        "width": 248,
+        "height": 505
+      },
+      {
+        "x": 389,
+        "y": 10,
+        "width": 247,
+        "height": 503
+      },
+      {
+        "x": 692,
+        "y": 10,
+        "width": 246,
+        "height": 503
+      },
+      {
+        "x": 85,
+        "y": 519,
+        "width": 250,
+        "height": 505
+      },
+      {
+        "x": 389,
+        "y": 518,
+        "width": 247,
+        "height": 506
+      },
+      {
+        "x": 695,
+        "y": 518,
+        "width": 249,
+        "height": 506
+      },
+      {
+        "x": 91,
+        "y": 1029,
+        "width": 243,
+        "height": 496
+      },
+      {
+        "x": 396,
+        "y": 1029,
+        "width": 239,
+        "height": 496
+      },
+      {
+        "x": 700,
+        "y": 1029,
+        "width": 237,
+        "height": 496
+      }
+    ],
+    "hands": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      {
+        "height": 0.235,
+        "span": 0.11,
+        "offset": 0
+      },
+      {
+        "height": 0.25,
+        "span": 0.11,
+        "offset": 0
+      },
+      {
+        "height": 0.265,
+        "span": 0.11,
+        "offset": 0
+      }
+    ],
+    "sha256": "5ec4285c14016352c30c3a5b73955550c95217d2090deee6b35cf9db8fe998bf",
+    "transparentFraction": 0.5847
+  },
+  {
+    "key": "kimi-3d-swim",
+    "revision": 3,
+    "file": "src/DesktopPet.App/Assets/Characters/kimi-3d/outfits/swim/contact.png",
+    "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-e0c8dcc6-d9e2-4cf6-9c19-de6076aa15b7.png",
+    "dimensions": [
+      1024,
+      1536
+    ],
+    "bounds": [
+      [
+        3,
+        3,
+        213,
+        494
+      ],
+      [
+        3,
+        3,
+        210,
+        494
+      ],
+      [
+        3,
+        3,
+        218,
+        493
+      ],
+      [
+        3,
+        3,
+        210,
+        493
+      ],
+      [
+        3,
+        3,
+        213,
+        493
+      ],
+      [
+        3,
+        3,
+        208,
+        493
+      ],
+      [
+        3,
+        3,
+        205,
+        493
+      ],
+      [
+        3,
+        3,
+        209,
+        492
+      ],
+      [
+        3,
+        3,
+        209,
+        492
+      ]
+    ],
+    "cells": [
+      {
+        "x": 116,
+        "y": 12,
+        "width": 216,
+        "height": 497
+      },
+      {
+        "x": 406,
+        "y": 12,
+        "width": 213,
+        "height": 497
+      },
+      {
+        "x": 716,
+        "y": 13,
+        "width": 221,
+        "height": 496
+      },
+      {
+        "x": 114,
+        "y": 524,
+        "width": 213,
+        "height": 496
+      },
+      {
+        "x": 407,
+        "y": 524,
+        "width": 216,
+        "height": 496
+      },
+      {
+        "x": 714,
+        "y": 524,
+        "width": 211,
+        "height": 496
+      },
+      {
+        "x": 115,
+        "y": 1032,
+        "width": 208,
+        "height": 496
+      },
+      {
+        "x": 406,
+        "y": 1033,
+        "width": 212,
+        "height": 495
+      },
+      {
+        "x": 715,
+        "y": 1033,
+        "width": 212,
+        "height": 495
+      }
+    ],
+    "hands": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      {
+        "height": 0.26,
+        "span": 0.11,
+        "offset": 0
+      },
+      {
+        "height": 0.25,
+        "span": 0.11,
+        "offset": 0
+      },
+      {
+        "height": 0.27,
+        "span": 0.11,
+        "offset": 0
+      }
+    ],
+    "sha256": "e5f36d84633bf5234ae5ae89de25ac228020955d37b734de112515061aa9c198",
+    "transparentFraction": 0.6885
+  },
+  {
+    "key": "kimi-3d-wedding",
+    "revision": 3,
+    "file": "src/DesktopPet.App/Assets/Characters/kimi-3d/outfits/wedding/contact.png",
+    "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-b2ec125c-4c3c-43a5-a14e-c09a9883264c.png",
+    "dimensions": [
+      1024,
+      1536
+    ],
+    "bounds": [
+      [
+        3,
+        3,
+        305,
+        478
+      ],
+      [
+        3,
+        3,
+        305,
+        478
+      ],
+      [
+        3,
+        3,
+        305,
+        478
+      ],
+      [
+        3,
+        3,
+        311,
+        485
+      ],
+      [
+        3,
+        3,
+        313,
+        485
+      ],
+      [
+        3,
+        3,
+        310,
+        485
+      ],
+      [
+        3,
+        3,
+        317,
+        487
+      ],
+      [
+        3,
+        3,
+        313,
+        485
+      ],
+      [
+        3,
+        3,
+        313,
+        487
+      ]
+    ],
+    "cells": [
+      {
+        "x": 29,
+        "y": 11,
+        "width": 308,
+        "height": 481
+      },
+      {
+        "x": 361,
+        "y": 11,
+        "width": 308,
+        "height": 481
+      },
+      {
+        "x": 698,
+        "y": 11,
+        "width": 308,
+        "height": 481
+      },
+      {
+        "x": 26,
+        "y": 512,
+        "width": 314,
+        "height": 488
+      },
+      {
+        "x": 358,
+        "y": 512,
+        "width": 316,
+        "height": 488
+      },
+      {
+        "x": 696,
+        "y": 512,
+        "width": 313,
+        "height": 488
+      },
+      {
+        "x": 24,
+        "y": 1021,
+        "width": 320,
+        "height": 490
+      },
+      {
+        "x": 359,
+        "y": 1022,
+        "width": 316,
+        "height": 488
+      },
+      {
+        "x": 696,
+        "y": 1021,
+        "width": 316,
+        "height": 490
+      }
+    ],
+    "hands": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      {
+        "height": 0.26,
+        "span": 0.11,
+        "offset": 0
+      },
+      {
+        "height": 0.25,
+        "span": 0.11,
+        "offset": 0
+      },
+      {
+        "height": 0.27,
+        "span": 0.11,
+        "offset": 0
+      }
+    ],
+    "sha256": "05bfa70992704044a787785375d0f5da6b48053a9f8f0e054b2dadeeea582413",
+    "transparentFraction": 0.4087
+  },
+  {
+    "key": "kimi-adult-original",
+    "revision": 3,
+    "file": "src/DesktopPet.App/Assets/Characters/kimi-adult/motions/contact.png",
+    "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-5cd1f741-f508-4ec9-823f-1e7c376340b9.png",
+    "dimensions": [
+      1024,
+      1536
+    ],
+    "bounds": [
+      [
+        3,
+        3,
+        230,
+        507
+      ],
+      [
+        3,
+        3,
+        226,
+        507
+      ],
+      [
+        3,
+        3,
+        225,
+        507
+      ],
+      [
+        3,
+        3,
+        232,
+        505
+      ],
+      [
+        3,
+        3,
+        227,
+        506
+      ],
+      [
+        3,
+        3,
+        228,
+        504
+      ],
+      [
+        3,
+        3,
+        231,
+        494
+      ],
+      [
+        3,
+        3,
+        226,
+        494
+      ],
+      [
+        3,
+        3,
+        230,
+        494
+      ]
+    ],
+    "cells": [
+      {
+        "x": 93,
+        "y": 9,
+        "width": 233,
+        "height": 510
+      },
+      {
+        "x": 397,
+        "y": 9,
+        "width": 229,
+        "height": 510
+      },
+      {
+        "x": 699,
+        "y": 8,
+        "width": 228,
+        "height": 510
+      },
+      {
+        "x": 92,
+        "y": 517,
+        "width": 235,
+        "height": 508
+      },
+      {
+        "x": 397,
+        "y": 518,
+        "width": 230,
+        "height": 509
+      },
+      {
+        "x": 702,
+        "y": 520,
+        "width": 231,
+        "height": 507
+      },
+      {
+        "x": 92,
+        "y": 1029,
+        "width": 234,
+        "height": 497
+      },
+      {
+        "x": 398,
+        "y": 1028,
+        "width": 229,
+        "height": 497
+      },
+      {
+        "x": 699,
+        "y": 1028,
+        "width": 233,
+        "height": 497
+      }
+    ],
+    "hands": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      {
+        "height": 0.26,
+        "span": 0.11,
+        "offset": 0
+      },
+      {
+        "height": 0.25,
+        "span": 0.11,
+        "offset": 0
+      },
+      {
+        "height": 0.27,
+        "span": 0.11,
+        "offset": 0
+      }
+    ],
+    "sha256": "1fd6816fb25a7df24742a62a4028a46595c544f1436e3f6c79de966d1bb3e347",
+    "transparentFraction": 0.5831
+  },
+  {
+    "key": "kimi-adult-swim",
+    "revision": 3,
+    "file": "src/DesktopPet.App/Assets/Characters/kimi-adult/outfits/swim/contact.png",
+    "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-1e256e92-6632-4898-ad7c-7e2dbf21ccdb.png",
+    "dimensions": [
+      1024,
+      1536
+    ],
+    "bounds": [
+      [
+        3,
+        3,
+        224,
+        506
+      ],
+      [
+        3,
+        3,
+        220,
+        506
+      ],
+      [
+        3,
+        3,
+        222,
+        507
+      ],
+      [
+        3,
+        3,
+        225,
+        501
+      ],
+      [
+        3,
+        3,
+        226,
+        504
+      ],
+      [
+        3,
+        3,
+        222,
+        502
+      ],
+      [
+        3,
+        3,
+        217,
+        464
+      ],
+      [
+        3,
+        3,
+        216,
+        465
+      ],
+      [
+        3,
+        3,
+        214,
+        464
+      ]
+    ],
+    "cells": [
+      {
+        "x": 91,
+        "y": 14,
+        "width": 227,
+        "height": 509
+      },
+      {
+        "x": 399,
+        "y": 14,
+        "width": 223,
+        "height": 509
+      },
+      {
+        "x": 705,
+        "y": 13,
+        "width": 225,
+        "height": 510
+      },
+      {
+        "x": 96,
+        "y": 539,
+        "width": 228,
+        "height": 504
+      },
+      {
+        "x": 396,
+        "y": 536,
+        "width": 229,
+        "height": 507
+      },
+      {
+        "x": 704,
+        "y": 537,
+        "width": 225,
+        "height": 505
+      },
+      {
+        "x": 95,
+        "y": 1048,
+        "width": 220,
+        "height": 467
+      },
+      {
+        "x": 403,
+        "y": 1048,
+        "width": 219,
+        "height": 468
+      },
+      {
+        "x": 711,
+        "y": 1048,
+        "width": 217,
+        "height": 467
+      }
+    ],
+    "hands": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      {
+        "height": 0.26,
+        "span": 0.11,
+        "offset": 0
+      },
+      {
+        "height": 0.25,
+        "span": 0.11,
+        "offset": 0
+      },
+      {
+        "height": 0.27,
+        "span": 0.11,
+        "offset": 0
+      }
+    ],
+    "sha256": "160945dadc338534dfd46b9e3418d70d6625d16e6ef046bf151a19f733e24c78",
+    "transparentFraction": 0.6342
+  },
+  {
+    "key": "kimi-adult-wedding",
+    "revision": 3,
+    "file": "src/DesktopPet.App/Assets/Characters/kimi-adult/outfits/wedding/contact.png",
+    "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-a5718424-96b1-4cdd-8369-90f45f15676d.png",
+    "dimensions": [
+      1024,
+      1536
+    ],
+    "bounds": [
+      [
+        3,
+        3,
+        276,
+        500
+      ],
+      [
+        3,
+        3,
+        272,
+        500
+      ],
+      [
+        3,
+        3,
+        276,
+        500
+      ],
+      [
+        3,
+        3,
+        277,
+        502
+      ],
+      [
+        3,
+        3,
+        272,
+        502
+      ],
+      [
+        3,
+        3,
+        276,
+        501
+      ],
+      [
+        3,
+        3,
+        281,
+        495
+      ],
+      [
+        3,
+        3,
+        276,
+        495
+      ],
+      [
+        3,
+        3,
+        276,
+        494
+      ]
+    ],
+    "cells": [
+      {
+        "x": 67,
+        "y": 14,
+        "width": 279,
+        "height": 503
+      },
+      {
+        "x": 381,
+        "y": 14,
+        "width": 275,
+        "height": 503
+      },
+      {
+        "x": 689,
+        "y": 14,
+        "width": 279,
+        "height": 503
+      },
+      {
+        "x": 68,
+        "y": 522,
+        "width": 280,
+        "height": 505
+      },
+      {
+        "x": 380,
+        "y": 522,
+        "width": 275,
+        "height": 505
+      },
+      {
+        "x": 694,
+        "y": 523,
+        "width": 279,
+        "height": 504
+      },
+      {
+        "x": 66,
+        "y": 1029,
+        "width": 284,
+        "height": 498
+      },
+      {
+        "x": 381,
+        "y": 1029,
+        "width": 279,
+        "height": 498
+      },
+      {
+        "x": 697,
+        "y": 1030,
+        "width": 279,
+        "height": 497
+      }
+    ],
+    "hands": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      {
+        "height": 0.26,
+        "span": 0.11,
+        "offset": 0
+      },
+      {
+        "height": 0.25,
+        "span": 0.11,
+        "offset": 0
+      },
+      {
+        "height": 0.27,
+        "span": 0.11,
+        "offset": 0
+      }
+    ],
+    "sha256": "b28c69a042fd2114732f665d0541708756afa8b4e71286ef4469b074d39ec85c",
+    "transparentFraction": 0.4111
+  },
+  {
+    "key": "qwen-3d-original",
+    "revision": 6,
+    "file": "src/DesktopPet.App/Assets/Characters/qwen-3d/motions/contact.png",
+    "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-c6357b17-f515-43de-97c4-e42fb6117230.png",
+    "dimensions": [
+      1024,
+      1536
+    ],
+    "bounds": [
+      [
+        3,
+        3,
+        228,
+        515
+      ],
+      [
+        3,
+        3,
+        230,
+        515
+      ],
+      [
+        3,
+        3,
+        234,
+        516
+      ],
+      [
+        3,
+        3,
+        239,
+        498
+      ],
+      [
+        3,
+        3,
+        240,
+        498
+      ],
+      [
+        3,
+        3,
+        242,
+        498
+      ],
+      [
+        3,
+        3,
+        235,
+        501
+      ],
+      [
+        3,
+        3,
+        228,
+        501
+      ],
+      [
+        3,
+        3,
+        230,
+        501
+      ]
+    ],
+    "cells": [
+      {
+        "x": 109,
+        "y": 6,
+        "width": 231,
+        "height": 518
+      },
+      {
+        "x": 402,
+        "y": 6,
+        "width": 233,
+        "height": 518
+      },
+      {
+        "x": 696,
+        "y": 6,
+        "width": 237,
+        "height": 519
+      },
+      {
+        "x": 103,
+        "y": 525,
+        "width": 242,
+        "height": 501
+      },
+      {
+        "x": 392,
+        "y": 525,
+        "width": 243,
+        "height": 501
+      },
+      {
+        "x": 692,
+        "y": 525,
+        "width": 245,
+        "height": 501
+      },
+      {
+        "x": 105,
+        "y": 1026,
+        "width": 238,
+        "height": 504
+      },
+      {
+        "x": 403,
+        "y": 1026,
+        "width": 231,
+        "height": 504
+      },
+      {
+        "x": 701,
+        "y": 1026,
+        "width": 233,
+        "height": 504
+      }
+    ],
+    "hands": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      {
+        "height": 0.24,
+        "span": 0.11,
+        "offset": 0
+      },
+      {
+        "height": 0.24,
+        "span": 0.11,
+        "offset": 0
+      },
+      {
+        "height": 0.27,
+        "span": 0.11,
+        "offset": 0
+      }
+    ],
+    "sha256": "51545a607e23c60c2703405c79d85f31f232f99dbaf9e0c126f3a7b783c48965",
+    "transparentFraction": 0.5798
+  },
+  {
+    "key": "qwen-3d-swim",
+    "revision": 6,
+    "file": "src/DesktopPet.App/Assets/Characters/qwen-3d/outfits/swim/contact.png",
+    "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-1cf5fd84-03a6-48e2-91cc-5db288a01d04.png",
+    "dimensions": [
+      1024,
+      1536
+    ],
+    "bounds": [
+      [
+        3,
+        3,
+        245,
+        506
+      ],
+      [
+        3,
+        3,
+        245,
+        506
+      ],
+      [
+        3,
+        3,
+        245,
+        506
+      ],
+      [
+        3,
+        3,
+        246,
+        506
+      ],
+      [
+        3,
+        3,
+        248,
+        506
+      ],
+      [
+        3,
+        3,
+        246,
+        505
+      ],
+      [
+        3,
+        3,
+        257,
+        508
+      ],
+      [
+        3,
+        3,
+        248,
+        506
+      ],
+      [
+        3,
+        3,
+        248,
+        507
+      ]
+    ],
+    "cells": [
+      {
+        "x": 99,
+        "y": 4,
+        "width": 248,
+        "height": 509
+      },
+      {
+        "x": 388,
+        "y": 4,
+        "width": 248,
+        "height": 509
+      },
+      {
+        "x": 675,
+        "y": 4,
+        "width": 248,
+        "height": 509
+      },
+      {
+        "x": 98,
+        "y": 514,
+        "width": 249,
+        "height": 509
+      },
+      {
+        "x": 387,
+        "y": 514,
+        "width": 251,
+        "height": 509
+      },
+      {
+        "x": 677,
+        "y": 515,
+        "width": 249,
+        "height": 508
+      },
+      {
+        "x": 93,
+        "y": 1024,
+        "width": 260,
+        "height": 511
+      },
+      {
+        "x": 387,
+        "y": 1026,
+        "width": 251,
+        "height": 509
+      },
+      {
+        "x": 675,
+        "y": 1025,
+        "width": 251,
+        "height": 510
+      }
+    ],
+    "hands": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      {
+        "height": 0.26,
+        "span": 0.11,
+        "offset": 0
+      },
+      {
+        "height": 0.25,
+        "span": 0.11,
+        "offset": 0
+      },
+      {
+        "height": 0.27,
+        "span": 0.11,
+        "offset": 0
+      }
+    ],
+    "sha256": "425b6fcd92114f1876bef7682c073fe7491bee2cbe8d0c062a3ce84985bacb98",
+    "transparentFraction": 0.6339
+  },
+  {
+    "key": "qwen-3d-wedding",
+    "revision": 6,
+    "file": "src/DesktopPet.App/Assets/Characters/qwen-3d/outfits/wedding/contact.png",
+    "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-c1ed34cf-44c3-42dc-8d99-42b7b9dcf7a2.png",
+    "dimensions": [
+      1024,
+      1536
+    ],
+    "bounds": [
+      [
+        3,
+        3,
+        297,
+        505
+      ],
+      [
+        3,
+        3,
+        297,
+        506
+      ],
+      [
+        3,
+        3,
+        298,
+        505
+      ],
+      [
+        3,
+        3,
+        298,
+        508
+      ],
+      [
+        3,
+        3,
+        299,
+        507
+      ],
+      [
+        3,
+        3,
+        297,
+        507
+      ],
+      [
+        3,
+        3,
+        299,
+        506
+      ],
+      [
+        3,
+        3,
+        298,
+        506
+      ],
+      [
+        3,
+        3,
+        297,
+        507
+      ]
+    ],
+    "cells": [
+      {
+        "x": 40,
+        "y": 5,
+        "width": 300,
+        "height": 508
+      },
+      {
+        "x": 361,
+        "y": 5,
+        "width": 300,
+        "height": 509
+      },
+      {
+        "x": 683,
+        "y": 5,
+        "width": 301,
+        "height": 508
+      },
+      {
+        "x": 40,
+        "y": 513,
+        "width": 301,
+        "height": 511
+      },
+      {
+        "x": 361,
+        "y": 513,
+        "width": 302,
+        "height": 510
+      },
+      {
+        "x": 684,
+        "y": 513,
+        "width": 300,
+        "height": 510
+      },
+      {
+        "x": 39,
+        "y": 1023,
+        "width": 302,
+        "height": 509
+      },
+      {
+        "x": 361,
+        "y": 1023,
+        "width": 301,
+        "height": 509
+      },
+      {
+        "x": 685,
+        "y": 1022,
+        "width": 300,
+        "height": 510
+      }
+    ],
+    "hands": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      {
+        "height": 0.255,
+        "span": 0.11,
+        "offset": 0
+      },
+      {
+        "height": 0.235,
+        "span": 0.11,
+        "offset": 0
+      },
+      {
+        "height": 0.27,
+        "span": 0.11,
+        "offset": 0
+      }
+    ],
+    "sha256": "1fe7e8dea644780636afb796b4b52983e46186fe46bdb6a567079db04fa4e87c",
+    "transparentFraction": 0.4071
+  },
+  {
+    "key": "qwen-adult-original",
+    "revision": 6,
+    "file": "src/DesktopPet.App/Assets/Characters/qwen-adult/motions/contact.png",
+    "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-00a4a9eb-5453-4627-8b7c-36ab2f8d3f0a.png",
+    "dimensions": [
+      1024,
+      1536
+    ],
+    "bounds": [
+      [
+        3,
+        3,
+        215,
+        522
+      ],
+      [
+        3,
+        3,
+        220,
+        522
+      ],
+      [
+        3,
+        3,
+        222,
+        522
+      ],
+      [
+        3,
+        3,
+        223,
+        512
+      ],
+      [
+        3,
+        3,
+        226,
+        512
+      ],
+      [
+        3,
+        3,
+        218,
+        512
+      ],
+      [
+        3,
+        3,
+        210,
+        475
+      ],
+      [
+        3,
+        3,
+        219,
+        474
+      ],
+      [
+        3,
+        3,
+        218,
+        475
+      ]
+    ],
+    "cells": [
+      {
+        "x": 109,
+        "y": 5,
+        "width": 218,
+        "height": 525
+      },
+      {
+        "x": 401,
+        "y": 5,
+        "width": 223,
+        "height": 525
+      },
+      {
+        "x": 695,
+        "y": 5,
+        "width": 225,
+        "height": 525
+      },
+      {
+        "x": 106,
+        "y": 531,
+        "width": 226,
+        "height": 515
+      },
+      {
+        "x": 399,
+        "y": 531,
+        "width": 229,
+        "height": 515
+      },
+      {
+        "x": 700,
+        "y": 531,
+        "width": 221,
+        "height": 515
+      },
+      {
+        "x": 111,
+        "y": 1047,
+        "width": 213,
+        "height": 478
+      },
+      {
+        "x": 399,
+        "y": 1048,
+        "width": 222,
+        "height": 477
+      },
+      {
+        "x": 702,
+        "y": 1047,
+        "width": 221,
+        "height": 478
+      }
+    ],
+    "hands": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      {
+        "height": 0.26,
+        "span": 0.11,
+        "offset": 0
+      },
+      {
+        "height": 0.245,
+        "span": 0.11,
+        "offset": 0
+      },
+      {
+        "height": 0.265,
+        "span": 0.11,
+        "offset": 0
+      }
+    ],
+    "sha256": "3fa568e8198b74a346b265b1d747a7051288ad77e8bf0790c7efc3cd8fe5f24f",
+    "transparentFraction": 0.6026
+  },
+  {
+    "key": "qwen-adult-swim",
+    "revision": 6,
+    "file": "src/DesktopPet.App/Assets/Characters/qwen-adult/outfits/swim/contact.png",
+    "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-b24375b4-6695-4c07-944a-a1b6c2d6634a.png",
+    "dimensions": [
+      1024,
+      1536
+    ],
+    "bounds": [
+      [
+        3,
+        3,
+        201,
+        507
+      ],
+      [
+        3,
+        3,
+        204,
+        507
+      ],
+      [
+        3,
+        3,
+        205,
+        506
+      ],
+      [
+        3,
+        3,
+        204,
+        505
+      ],
+      [
+        3,
+        3,
+        211,
+        506
+      ],
+      [
+        3,
+        3,
+        210,
+        505
+      ],
+      [
+        3,
+        3,
+        213,
+        495
+      ],
+      [
+        3,
+        3,
+        210,
+        495
+      ],
+      [
+        3,
+        3,
+        213,
+        495
+      ]
+    ],
+    "cells": [
+      {
+        "x": 155,
+        "y": 5,
+        "width": 204,
+        "height": 510
+      },
+      {
+        "x": 414,
+        "y": 5,
+        "width": 207,
+        "height": 510
+      },
+      {
+        "x": 691,
+        "y": 6,
+        "width": 208,
+        "height": 509
+      },
+      {
+        "x": 149,
+        "y": 518,
+        "width": 207,
+        "height": 508
+      },
+      {
+        "x": 409,
+        "y": 518,
+        "width": 214,
+        "height": 509
+      },
+      {
+        "x": 688,
+        "y": 518,
+        "width": 213,
+        "height": 508
+      },
+      {
+        "x": 144,
+        "y": 1030,
+        "width": 216,
+        "height": 498
+      },
+      {
+        "x": 413,
+        "y": 1030,
+        "width": 213,
+        "height": 498
+      },
+      {
+        "x": 682,
+        "y": 1030,
+        "width": 216,
+        "height": 498
+      }
+    ],
+    "hands": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      {
+        "height": 0.235,
+        "span": 0.11,
+        "offset": 0
+      },
+      {
+        "height": 0.225,
+        "span": 0.11,
+        "offset": 0
+      },
+      {
+        "height": 0.28,
+        "span": 0.11,
+        "offset": 0
+      }
+    ],
+    "sha256": "a61e7bf6d0f32a6c7e417b40e7a0a857a2133e10bdcd3e61093075a6f98ee86d",
+    "transparentFraction": 0.6562
+  },
+  {
+    "key": "qwen-adult-wedding",
+    "revision": 6,
+    "file": "src/DesktopPet.App/Assets/Characters/qwen-adult/outfits/wedding/contact.png",
+    "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-f2470321-b711-49eb-98de-960fd2a4cb82.png",
+    "dimensions": [
+      1024,
+      1536
+    ],
+    "bounds": [
+      [
+        3,
+        3,
+        278,
+        504
+      ],
+      [
+        3,
+        3,
+        278,
+        504
+      ],
+      [
+        3,
+        3,
+        278,
+        504
+      ],
+      [
+        3,
+        3,
+        277,
+        507
+      ],
+      [
+        3,
+        3,
+        278,
+        507
+      ],
+      [
+        3,
+        3,
+        278,
+        507
+      ],
+      [
+        3,
+        3,
+        278,
+        504
+      ],
+      [
+        3,
+        3,
+        277,
+        504
+      ],
+      [
+        3,
+        3,
+        279,
+        504
+      ]
+    ],
+    "cells": [
+      {
+        "x": 51,
+        "y": 4,
+        "width": 281,
+        "height": 507
+      },
+      {
+        "x": 371,
+        "y": 4,
+        "width": 281,
+        "height": 507
+      },
+      {
+        "x": 691,
+        "y": 4,
+        "width": 281,
+        "height": 507
+      },
+      {
+        "x": 52,
+        "y": 513,
+        "width": 280,
+        "height": 510
+      },
+      {
+        "x": 371,
+        "y": 513,
+        "width": 281,
+        "height": 510
+      },
+      {
+        "x": 691,
+        "y": 513,
+        "width": 281,
+        "height": 510
+      },
+      {
+        "x": 51,
+        "y": 1027,
+        "width": 281,
+        "height": 507
+      },
+      {
+        "x": 372,
+        "y": 1027,
+        "width": 280,
+        "height": 507
+      },
+      {
+        "x": 691,
+        "y": 1027,
+        "width": 282,
+        "height": 507
+      }
+    ],
+    "hands": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      {
+        "height": 0.27,
+        "span": 0.11,
+        "offset": 0
+      },
+      {
+        "height": 0.25,
+        "span": 0.11,
+        "offset": 0
+      },
+      {
+        "height": 0.25,
+        "span": 0.11,
+        "offset": 0
+      }
+    ],
+    "sha256": "7dabadbeb4a1e9830b43dba29d98c80337d1908b731d8ebe288386a318379a2f",
+    "transparentFraction": 0.434
+  },
+  {
+    "key": "zhipu-3d-original",
+    "revision": 5,
+    "file": "src/DesktopPet.App/Assets/Characters/zhipu-3d/motions/contact.png",
+    "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-7fc16aa0-36b1-4272-95e9-c1133ff294b7.png",
+    "dimensions": [
+      1024,
+      1536
+    ],
+    "bounds": [
+      [
+        3,
+        3,
+        256,
+        498
+      ],
+      [
+        3,
+        3,
+        253,
+        497
+      ],
+      [
+        3,
+        3,
+        252,
+        497
+      ],
+      [
+        3,
+        3,
+        257,
+        498
+      ],
+      [
+        3,
+        3,
+        255,
+        498
+      ],
+      [
+        3,
+        3,
+        255,
+        498
+      ],
+      [
+        3,
+        3,
+        257,
+        499
+      ],
+      [
+        3,
+        3,
+        259,
+        499
+      ],
+      [
+        3,
+        3,
+        258,
+        499
+      ]
+    ],
+    "cells": [
+      {
+        "x": 98,
+        "y": 0,
+        "width": 259,
+        "height": 501
+      },
+      {
+        "x": 390,
+        "y": 0,
+        "width": 256,
+        "height": 500
+      },
+      {
+        "x": 682,
+        "y": 0,
+        "width": 255,
+        "height": 500
+      },
+      {
+        "x": 99,
+        "y": 511,
+        "width": 260,
+        "height": 501
+      },
+      {
+        "x": 390,
+        "y": 511,
+        "width": 258,
+        "height": 501
+      },
+      {
+        "x": 681,
+        "y": 511,
+        "width": 258,
+        "height": 501
+      },
+      {
+        "x": 97,
+        "y": 1023,
+        "width": 260,
+        "height": 502
+      },
+      {
+        "x": 390,
+        "y": 1023,
+        "width": 262,
+        "height": 502
+      },
+      {
+        "x": 682,
+        "y": 1023,
+        "width": 261,
+        "height": 502
+      }
+    ],
+    "hands": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      {
+        "height": 0.26,
+        "span": 0.11,
+        "offset": 0
+      },
+      {
+        "height": 0.25,
+        "span": 0.11,
+        "offset": 0
+      },
+      {
+        "height": 0.27,
+        "span": 0.11,
+        "offset": 0
+      }
+    ],
+    "sha256": "29789ed01118b85e1ac609fbafb45cf71fd14816b64c28070fee6f6856bc1654",
+    "transparentFraction": 0.6113
+  },
+  {
+    "key": "zhipu-3d-swim",
+    "revision": 6,
+    "file": "src/DesktopPet.App/Assets/Characters/zhipu-3d/outfits/swim/contact.png",
+    "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-e9c934b4-069d-448b-ad0f-ea2639d151e1.png",
+    "dimensions": [
+      1024,
+      1536
+    ],
+    "bounds": [
+      [
+        3,
+        3,
+        243,
+        525
+      ],
+      [
+        3,
+        3,
+        245,
+        526
+      ],
+      [
+        3,
+        3,
+        241,
+        526
+      ],
+      [
+        3,
+        0,
+        249,
+        511
+      ],
+      [
+        3,
+        0,
+        243,
+        511
+      ],
+      [
+        3,
+        0,
+        249,
+        511
+      ],
+      [
+        3,
+        0,
+        249,
+        486
+      ],
+      [
+        3,
+        0,
+        244,
+        486
+      ],
+      [
+        3,
+        0,
+        240,
+        486
+      ]
+    ],
+    "cells": [
+      {
+        "x": 105,
+        "y": 1,
+        "width": 246,
+        "height": 525
+      },
+      {
+        "x": 395,
+        "y": 0,
+        "width": 248,
+        "height": 526
+      },
+      {
+        "x": 701,
+        "y": 0,
+        "width": 244,
+        "height": 526
+      },
+      {
+        "x": 101,
+        "y": 527,
+        "width": 252,
+        "height": 511
+      },
+      {
+        "x": 397,
+        "y": 527,
+        "width": 246,
+        "height": 511
+      },
+      {
+        "x": 695,
+        "y": 527,
+        "width": 252,
+        "height": 511
+      },
+      {
+        "x": 100,
+        "y": 1039,
+        "width": 252,
+        "height": 489
+      },
+      {
+        "x": 400,
+        "y": 1039,
+        "width": 247,
+        "height": 489
+      },
+      {
+        "x": 703,
+        "y": 1039,
+        "width": 243,
+        "height": 489
+      }
+    ],
+    "hands": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      {
+        "height": 0.24,
+        "span": 0.11,
+        "offset": 0
+      },
+      {
+        "height": 0.25,
+        "span": 0.11,
+        "offset": 0
+      },
+      {
+        "height": 0.33,
+        "span": 0.11,
+        "offset": 0
+      }
+    ],
+    "sha256": "836b829e02ea31045421edea35edb66774a5f78c5cb8f767e73f3b67359443f7",
+    "transparentFraction": 0.6187
+  },
+  {
+    "key": "zhipu-3d-wedding",
+    "revision": 6,
+    "file": "src/DesktopPet.App/Assets/Characters/zhipu-3d/outfits/wedding/contact.png",
+    "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-3e06a5e1-cc8a-4206-8060-6c1416cd572e.png",
+    "dimensions": [
+      1024,
+      1536
+    ],
+    "bounds": [
+      [
+        3,
+        3,
+        300,
+        503
+      ],
+      [
+        3,
+        3,
+        298,
+        502
+      ],
+      [
+        3,
+        3,
+        300,
+        503
+      ],
+      [
+        3,
+        3,
+        299,
+        503
+      ],
+      [
+        3,
+        3,
+        298,
+        500
+      ],
+      [
+        3,
+        3,
+        299,
+        500
+      ],
+      [
+        3,
+        3,
+        301,
+        507
+      ],
+      [
+        3,
+        3,
+        301,
+        504
+      ],
+      [
+        3,
+        3,
+        307,
+        506
+      ]
+    ],
+    "cells": [
+      {
+        "x": 35,
+        "y": 5,
+        "width": 303,
+        "height": 506
+      },
+      {
+        "x": 356,
+        "y": 6,
+        "width": 301,
+        "height": 505
+      },
+      {
+        "x": 692,
+        "y": 5,
+        "width": 303,
+        "height": 506
+      },
+      {
+        "x": 35,
+        "y": 515,
+        "width": 302,
+        "height": 506
+      },
+      {
+        "x": 356,
+        "y": 518,
+        "width": 301,
+        "height": 503
+      },
+      {
+        "x": 693,
+        "y": 518,
+        "width": 302,
+        "height": 503
+      },
+      {
+        "x": 34,
+        "y": 1024,
+        "width": 304,
+        "height": 510
+      },
+      {
+        "x": 356,
+        "y": 1026,
+        "width": 304,
+        "height": 507
+      },
+      {
+        "x": 693,
+        "y": 1025,
+        "width": 310,
+        "height": 509
+      }
+    ],
+    "hands": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      {
+        "height": 0.26,
+        "span": 0.11,
+        "offset": 0
+      },
+      {
+        "height": 0.25,
+        "span": 0.11,
+        "offset": 0
+      },
+      {
+        "height": 0.27,
+        "span": 0.11,
+        "offset": 0
+      }
+    ],
+    "sha256": "df217a0b8b54103b90fea98f10a4b61f1469f45ca758f47fcd1fc54e2a92d854",
+    "transparentFraction": 0.4123
+  },
+  {
+    "key": "zhipu-adult-original",
+    "revision": 6,
+    "file": "src/DesktopPet.App/Assets/Characters/zhipu-adult/motions/contact.png",
+    "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-8cf11d2f-0ffd-42de-bc4c-7d589d078c86.png",
+    "dimensions": [
+      1024,
+      1536
+    ],
+    "bounds": [
+      [
+        3,
+        3,
+        223,
+        506
+      ],
+      [
+        3,
+        3,
+        224,
+        510
+      ],
+      [
+        3,
+        3,
+        224,
+        503
+      ],
+      [
+        3,
+        3,
+        232,
+        511
+      ],
+      [
+        3,
+        3,
+        236,
+        511
+      ],
+      [
+        3,
+        3,
+        234,
+        510
+      ],
+      [
+        3,
+        0,
+        233,
+        491
+      ],
+      [
+        3,
+        0,
+        228,
+        489
+      ],
+      [
+        3,
+        0,
+        226,
+        490
+      ]
+    ],
+    "cells": [
+      {
+        "x": 106,
+        "y": 9,
+        "width": 226,
+        "height": 509
+      },
+      {
+        "x": 395,
+        "y": 5,
+        "width": 227,
+        "height": 513
+      },
+      {
+        "x": 699,
+        "y": 12,
+        "width": 227,
+        "height": 506
+      },
+      {
+        "x": 106,
+        "y": 516,
+        "width": 235,
+        "height": 511
+      },
+      {
+        "x": 394,
+        "y": 516,
+        "width": 239,
+        "height": 511
+      },
+      {
+        "x": 694,
+        "y": 517,
+        "width": 237,
+        "height": 510
+      },
+      {
+        "x": 106,
+        "y": 1020,
+        "width": 236,
+        "height": 494
+      },
+      {
+        "x": 399,
+        "y": 1022,
+        "width": 231,
+        "height": 492
+      },
+      {
+        "x": 702,
+        "y": 1022,
+        "width": 229,
+        "height": 493
+      }
+    ],
+    "hands": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      {
+        "height": 0.26,
+        "span": 0.11,
+        "offset": 0
+      },
+      {
+        "height": 0.25,
+        "span": 0.11,
+        "offset": 0
+      },
+      {
+        "height": 0.27,
+        "span": 0.11,
+        "offset": 0
+      }
+    ],
+    "sha256": "c4ee2aee2d1d516771fb9a3b815e4c1e12204103f4d34d08e668075c82bbf4c2",
+    "transparentFraction": 0.6035
+  },
+  {
+    "key": "zhipu-adult-swim",
+    "revision": 6,
+    "file": "src/DesktopPet.App/Assets/Characters/zhipu-adult/outfits/swim/contact.png",
+    "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-cf43f4c6-fdb7-4533-ad50-454abfedd732.png",
+    "dimensions": [
+      1024,
+      1536
+    ],
+    "bounds": [
+      [
+        3,
+        3,
+        216,
+        521
+      ],
+      [
+        3,
+        3,
+        216,
+        520
+      ],
+      [
+        3,
+        3,
+        220,
+        518
+      ],
+      [
+        3,
+        0,
+        217,
+        512
+      ],
+      [
+        3,
+        0,
+        214,
+        511
+      ],
+      [
+        3,
+        3,
+        212,
+        510
+      ],
+      [
+        3,
+        0,
+        208,
+        497
+      ],
+      [
+        3,
+        0,
+        201,
+        497
+      ],
+      [
+        3,
+        0,
+        203,
+        496
+      ]
+    ],
+    "cells": [
+      {
+        "x": 94,
+        "y": 6,
+        "width": 219,
+        "height": 521
+      },
+      {
+        "x": 395,
+        "y": 7,
+        "width": 219,
+        "height": 520
+      },
+      {
+        "x": 706,
+        "y": 6,
+        "width": 223,
+        "height": 521
+      },
+      {
+        "x": 94,
+        "y": 523,
+        "width": 220,
+        "height": 512
+      },
+      {
+        "x": 400,
+        "y": 523,
+        "width": 217,
+        "height": 511
+      },
+      {
+        "x": 714,
+        "y": 525,
+        "width": 215,
+        "height": 510
+      },
+      {
+        "x": 103,
+        "y": 1030,
+        "width": 211,
+        "height": 500
+      },
+      {
+        "x": 415,
+        "y": 1030,
+        "width": 204,
+        "height": 500
+      },
+      {
+        "x": 721,
+        "y": 1031,
+        "width": 206,
+        "height": 499
+      }
+    ],
+    "hands": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      {
+        "height": 0.26,
+        "span": 0.11,
+        "offset": 0
+      },
+      {
+        "height": 0.25,
+        "span": 0.11,
+        "offset": 0
+      },
+      {
+        "height": 0.27,
+        "span": 0.11,
+        "offset": 0
+      }
+    ],
+    "sha256": "b305235ab8ba489682ab8557c93afbae69248307fd88db8adebdd61d165c45f4",
+    "transparentFraction": 0.661
+  },
+  {
+    "key": "zhipu-adult-wedding",
+    "revision": 6,
+    "file": "src/DesktopPet.App/Assets/Characters/zhipu-adult/outfits/wedding/contact.png",
+    "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-d5d81bd7-3440-40aa-991f-a953fa32580c.png",
+    "dimensions": [
+      1024,
+      1536
+    ],
+    "bounds": [
+      [
+        3,
+        3,
+        273,
+        494
+      ],
+      [
+        3,
+        3,
+        271,
+        494
+      ],
+      [
+        3,
+        3,
+        271,
+        494
+      ],
+      [
+        3,
+        3,
+        273,
+        496
+      ],
+      [
+        3,
+        3,
+        272,
+        496
+      ],
+      [
+        3,
+        3,
+        273,
+        496
+      ],
+      [
+        3,
+        3,
+        274,
+        496
+      ],
+      [
+        3,
+        3,
+        273,
+        496
+      ],
+      [
+        3,
+        3,
+        273,
+        496
+      ]
+    ],
+    "cells": [
+      {
+        "x": 58,
+        "y": 9,
+        "width": 276,
+        "height": 497
+      },
+      {
+        "x": 378,
+        "y": 9,
+        "width": 274,
+        "height": 497
+      },
+      {
+        "x": 700,
+        "y": 9,
+        "width": 274,
+        "height": 497
+      },
+      {
+        "x": 58,
+        "y": 518,
+        "width": 276,
+        "height": 499
+      },
+      {
+        "x": 377,
+        "y": 518,
+        "width": 275,
+        "height": 499
+      },
+      {
+        "x": 698,
+        "y": 518,
+        "width": 276,
+        "height": 499
+      },
+      {
+        "x": 58,
+        "y": 1029,
+        "width": 277,
+        "height": 499
+      },
+      {
+        "x": 377,
+        "y": 1029,
+        "width": 276,
+        "height": 499
+      },
+      {
+        "x": 698,
+        "y": 1029,
+        "width": 276,
+        "height": 499
+      }
+    ],
+    "hands": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      {
+        "height": 0.26,
+        "span": 0.11,
+        "offset": 0
+      },
+      {
+        "height": 0.25,
+        "span": 0.11,
+        "offset": 0
+      },
+      {
+        "height": 0.27,
+        "span": 0.11,
+        "offset": 0
+      }
+    ],
+    "sha256": "b0919d6bf9c2cecbffe33a611ccc7aeab14e04f1b6e3dfe86684ec751bff48bd",
+    "transparentFraction": 0.4616
+  }
+]

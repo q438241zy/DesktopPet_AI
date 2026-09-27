@@ -1,0 +1,12 @@
+{
+  "key": "gemini-3d-swim",
+  "id": "gemini-3d",
+  "style": "3d",
+  "outfit": "swim",
+  "reference": "C:/Users/99000256/Desktop/Character/src/DesktopPet.App/Assets/Characters/gemini-3d/outfits/swim.png",
+  "dest": "src/DesktopPet.App/Assets/Characters/gemini-3d/outfits/swim/contact.png",
+  "prompt": "Use case: precise-object-edit. The input is a finished 9-pose atlas of a clearly adult woman in a modest opaque sports swim dress. Change ONLY the framing: reduce all nine existing full-body figures uniformly by 8 percent within their respective positions, leaving at least 30px fully transparent margin above and below all nine heads and feet. The bottom-row shoes currently touch the edge: fit every complete shoe inside the canvas. Preserve adult body proportions, identity, exact clothing, facial expressions and ALL hand, bread, spoon and bowl gestures. Keep 3 columns by 3 rows. Preserve real alpha transparency. Do not add a backdrop. No other change.",
+  "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-73a2282d-c0ca-4d1a-a292-d9912b3d073a.png",
+  "revision": 8,
+  "layoutReference": "C:/Users/99000256/.codex/generated_images/01a0e159-1c2b-7643-8517-9ec7beebfed3/exec-f891ae9d-2f63-453f-8bf3-0adb1ac7fc74.png"
+}

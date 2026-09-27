@@ -3,8 +3,12 @@ using System.Text.RegularExpressions;
 
 namespace DesktopPet.Core;
 
-/// <summary>A PNG/WebP sheet with uniform cells, in reading order.</summary>
-public sealed record Sprite(string File, int Columns = 3, int Rows = 2, int[]? FrameMs = null, string Facing = "right");
+/// <summary>Palm center relative to the visible silhouette; span controls the held toy size.</summary>
+public sealed record HandContact(double Height, double Offset = 0, double Span = .11);
+public sealed record SpriteCell(int X, int Y, int Width, int Height);
+/// <summary>A sheet with optional authored crop regions, frame order and contact points.</summary>
+public sealed record Sprite(string File, int Columns = 3, int Rows = 2, int[]? FrameMs = null, string Facing = "right",
+    int[]? Frames = null, bool Loop = true, bool BakedProps = false, HandContact?[]? Hands = null, SpriteCell[]? Cells = null);
 
 /// <summary>A self-contained appearance. Missing motions never borrow another outfit's art.</summary>
 public sealed class Outfit
@@ -57,7 +61,13 @@ public sealed class Character
         {
             if (s is null || string.IsNullOrWhiteSpace(s.File) || s.Columns < 1 || s.Rows < 1
                 || s.Columns > 6 || s.Rows > 6 || s.Columns * s.Rows > 24 || s.Facing is not ("left" or "right")
-                || (s.FrameMs is { } ms && (ms.Length != s.Columns * s.Rows || ms.Any(t => t < 40 || t > 5000))))
+                || (s.Frames is { } order && (order.Length is < 1 or > 48 || order.Any(i => i < 0 || i >= s.Columns * s.Rows)))
+                || (s.Cells is { } cells && (cells.Length != s.Columns * s.Rows || cells.Any(c => c is null || c.X < 0 || c.Y < 0
+                    || c.Width < 1 || c.Height < 1 || (long)c.X + c.Width > 6144 || (long)c.Y + c.Height > 6144)))
+                || (s.FrameMs is { } ms && (ms.Length != (s.Frames?.Length ?? s.Columns * s.Rows) || ms.Any(t => t < 40 || t > 5000)))
+                || (s.Hands is { } hands && (hands.Length != s.Columns * s.Rows || hands.Any(h => h is not null
+                    && (!double.IsFinite(h.Height) || !double.IsFinite(h.Offset) || !double.IsFinite(h.Span)
+                        || h.Height is < 0 or > 1 || h.Offset is < -.5 or > .5 || h.Span is < .02 or > .4)))))
                 throw new InvalidDataException("图集尺寸或帧时长无效。");
             string file = SafeFile(c.Root, s.File);
             if (!File.Exists(file) || new FileInfo(file).Length > 24 * 1024 * 1024)
@@ -93,18 +103,19 @@ public sealed class Character
         return motions.GetValueOrDefault(action) ?? motions.GetValueOrDefault(fallback);
     }
 
-    public bool CanWalk(string outfit) => MotionFor(outfit, "walk") is { } walk && walk.Columns * walk.Rows >= 2;
+    public bool CanWalk(string outfit) => MotionFor(outfit, "walk") is { } walk
+        && (walk.Frames?.Distinct().Count() ?? walk.Columns * walk.Rows) >= 2;
 
     public (Sprite Sprite, int Frame) Resolve(string outfit, string action, double elapsed, bool reducedMotion = false)
     {
         var clip = MotionFor(outfit, action);
-        if (clip is not null) return (clip, reducedMotion ? 0 : Motion.Frame(clip, elapsed));
+        if (clip is not null) return (clip, Motion.Frame(clip, reducedMotion ? 0 : elapsed));
         var pose = action switch { "sleep" => 3, "dizzy" or "faint" => 4, "sad" => 5, "happy" => 1, "headpat" or "poke" => 2, _ => 0 };
         if (Outfits.TryGetValue(outfit, out var clothes))
         {
             if (clothes.Idle is { } idle) return (idle, Math.Min(pose, idle.Columns * idle.Rows - 1));
             // Older imported packs may contain only outfit motions. Their first frame is a safe idle.
-            if (clothes.Motions.Values.FirstOrDefault() is { } still) return (still, 0);
+            if (clothes.Motions.Values.FirstOrDefault() is { } still) return (still, Motion.Frame(still, 0));
         }
         if (action == "dizzy" && Dizzy is not null) return (Dizzy, 0);
         return (Atlas, Math.Min(pose, Atlas.Columns * Atlas.Rows - 1));
@@ -120,10 +131,13 @@ public static class Motion
 {
     public static int Frame(Sprite sprite, double elapsed)
     {
-        int count = sprite.Columns * sprite.Rows;
+        int count = sprite.Frames?.Length ?? sprite.Columns * sprite.Rows;
         var times = sprite.FrameMs ?? Enumerable.Repeat(240, count).ToArray();
-        double t = Math.Max(0, elapsed) % times.Sum();
-        for (int i = 0; i < times.Length; i++) { if (t < times[i]) return i; t -= times[i]; }
-        return count - 1;
+        double t = Math.Max(0, elapsed), total = times.Sum();
+        int Cell(int i) => sprite.Frames?[i] ?? i;
+        if (!sprite.Loop && t >= total) return Cell(count - 1);
+        t %= total;
+        for (int i = 0; i < times.Length; i++) { if (t < times[i]) return Cell(i); t -= times[i]; }
+        return Cell(count - 1);
     }
 }

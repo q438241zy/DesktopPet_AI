@@ -1,0 +1,11 @@
+{
+  "key": "qwen-adult-swim",
+  "id": "qwen-adult",
+  "style": "adult",
+  "outfit": "swim",
+  "reference": "C:/Users/99000256/Desktop/Character/src/DesktopPet.App/Assets/Characters/qwen-adult/outfits/swim.png",
+  "dest": "src/DesktopPet.App/Assets/Characters/qwen-adult/outfits/swim/contact.png",
+  "prompt": "Create a new 3 x 3 contact-motion sprite sheet. Input image 1 provides the exact Qwen realistic adult character and swim dress identity. Input image 2 is ONLY the nine-pose layout and gesture reference. Replace all nine figures in image 2 with the ADULT REALISTIC woman and exact outfit from image 1. Preserve image 2's nine full-body gesture sequence: row 1 bread held by fingers, taking bite, chewing; row 2 left hand holds blue rice bowl, right hand spoons rice into mouth, lowers spoon; row 3 palms apart reaching to catch, slightly recoiled, cupping empty space for a ball. No ball drawn. Every frame's feet and hat MUST be fully visible. Make each figure 20% smaller than the figures in image 2, centered in its own third-width/third-height cell; each figure is only 68% of its cell height. The entire canvas must show all NINE whole people with generous transparent space all around and between rows. Square image, 3 columns, 3 rows. Realistic digital human face and skin from image 1, no anime/chibi stylization. Clean transparent RGBA, no halo, no background, no white debris, no shadows, no labels. Hands grasp the actual food, fingers hold spoon, elbows below hands, catching palms always separated, no prayer gesture.",
+  "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-064f130b-91f6-4cab-ae92-300c385f6451.png",
+  "revision": 2
+}

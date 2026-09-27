@@ -1,14 +1,18 @@
-param([string]$Runtime = 'win-x64')
+param([string]$Runtime = 'win-x64', [string]$OutputDirectory = '')
 $ErrorActionPreference = 'Stop'
 $projectRoot = Split-Path -Parent $PSScriptRoot
-dotnet publish "$projectRoot/src/DesktopPet.App/DesktopPet.App.csproj" -c Release -r $Runtime --self-contained true -o "$projectRoot/Release/$Runtime" -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true
+$releaseRoot = if ($OutputDirectory) { [IO.Path]::GetFullPath($OutputDirectory) } else { Join-Path $projectRoot "Release/$Runtime" }
+dotnet publish "$projectRoot/src/DesktopPet.App/DesktopPet.App.csproj" -c Release -r $Runtime --self-contained true -o $releaseRoot -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true
 if ($LASTEXITCODE -ne 0) { throw 'Publish failed' }
-Copy-Item -LiteralPath "$projectRoot/LICENSE","$projectRoot/README.md","$projectRoot/THIRD_PARTY_NOTICES.md" -Destination "$projectRoot/Release/$Runtime"
-Copy-Item -LiteralPath "$projectRoot/docs" -Destination "$projectRoot/Release/$Runtime" -Recurse -Force
-$styleDocs = Join-Path $projectRoot "Release/$Runtime/artwork/style-demo"
+Copy-Item -LiteralPath "$projectRoot/LICENSE","$projectRoot/README.md","$projectRoot/THIRD_PARTY_NOTICES.md" -Destination $releaseRoot
+Copy-Item -LiteralPath "$projectRoot/docs" -Destination $releaseRoot -Recurse -Force
+$styleDocs = Join-Path $releaseRoot 'artwork/style-demo'
 New-Item -ItemType Directory -Path $styleDocs -Force | Out-Null
 Copy-Item -LiteralPath "$projectRoot/artwork/style-demo/prompts.md" -Destination $styleDocs
-$wardrobeDocs = Join-Path $projectRoot "Release/$Runtime/artwork/wardrobe-expansion"
+$wardrobeDocs = Join-Path $releaseRoot 'artwork/wardrobe-expansion'
 New-Item -ItemType Directory -Path $wardrobeDocs -Force | Out-Null
 Copy-Item -LiteralPath "$projectRoot/artwork/wardrobe-expansion/prompts.md" -Destination $wardrobeDocs
-Write-Output "Ready: $projectRoot/Release/$Runtime/DesktopPet.exe"
+$motionDocs = Join-Path $releaseRoot 'artwork/motion-continuity'
+New-Item -ItemType Directory -Path $motionDocs -Force | Out-Null
+Copy-Item -LiteralPath "$projectRoot/artwork/motion-continuity/prompts.md" -Destination $motionDocs
+Write-Output "Ready: $releaseRoot/DesktopPet.exe"

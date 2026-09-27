@@ -75,8 +75,29 @@ internal static class UiVerification
         Require(Find<Image>(pet).First().Visibility == Visibility.Visible, "character change cancels pending farewell");
         pet.RunInteraction("rest"); await Task.Delay(3500); pet.SelectCharacter("whale");
         Require(Find<Image>(pet).First().Visibility == Visibility.Visible, "switching a fully resting character restores its image");
-        foreach (var c in pet.Catalog.Characters.Where(c => c.Category == "chibi"))
-            foreach (string outfit in new[] { "original", "wedding" })
+
+        string[] interactions = ["idle", "chat", "meal", "eat", "headpat", "poke", "tickle", "pickup", "shaken", "shaken-strong", "dizzy", "faint", "happy", "sad", "sleep", "pounce", "jump", "kick", "think", "ball-hit", "ball-miss", "bonk", "peek", "curl", "farewell"];
+        foreach (var c in pet.Catalog.Characters)
+            foreach (string outfit in new[] { "original", "swim", "wedding" })
+            {
+                pet.SelectCharacter(c.Id); pet.State.Outfits[c.Id] = outfit; pet.ApplySettings();
+                var ownSprites = outfit == "original"
+                    ? new[] { c.Atlas }.Concat(c.Dizzy is null ? [] : new[] { c.Dizzy }).Concat(c.Motions.Values).ToArray()
+                    : new[] { c.Outfits[outfit].Idle! }.Concat(c.Outfits[outfit].Motions.Values).ToArray();
+                foreach (string interaction in interactions)
+                {
+                    foreach (double time in new[] { 0d, 160, 720, 1800 })
+                        Require(ownSprites.Contains(c.Resolve(outfit, interaction, time).Sprite), $"{c.Id}/{outfit}: {interaction} at {time}ms stays in selected appearance");
+                    pet.Play(interaction, duration: 60);
+                    var resolved = c.Resolve(outfit, interaction, 0);
+                    Require(ReferenceEquals(Find<Image>(pet).Single().Source, pet.Art.Frame(c, resolved.Sprite, resolved.Frame)), $"{c.Id}/{outfit}: live {interaction} shows selected art");
+                }
+                await Until(() => ReferenceEquals(Find<Image>(pet).Single().Source, pet.Art.Frame(c, outfit == "original" ? c.Atlas : c.Outfits[outfit].Idle!, 0)), $"{c.Id}/{outfit}: return to idle");
+                Require(pet.State.Character == c.Id && pet.State.Outfit == outfit, $"{c.Id}/{outfit}: completion retains style and clothes");
+            }
+
+        foreach (var c in pet.Catalog.Characters)
+            foreach (string outfit in new[] { "original", "swim", "wedding" })
                 foreach (int direction in new[] { -1, 1 })
                 {
                     pet.SelectCharacter(c.Id); pet.State.Outfits[c.Id] = outfit; pet.ApplySettings();
@@ -85,14 +106,30 @@ internal static class UiVerification
                     var sprite = Find<Image>(pet).Single();
                     double scale = ((ScaleTransform)sprite.RenderTransform).ScaleX;
                     Require(scale == direction, $"{c.Id}/{outfit}: travel and facing agree ({direction})");
-                    double foot = pet.Top + Canvas.GetTop(sprite) + pet.State.Size * pet.Art.GroundLine((BitmapSource)sprite.Source);
+                    var walk = outfit == "original" ? c.Motions["walk"] : c.Outfits[outfit].Motions["walk"];
+                    var expectedWalk = Enumerable.Range(0, walk.Columns * walk.Rows).Select(i => pet.Art.Frame(c, walk, i)).ToArray();
+                    Require(expectedWalk.Contains(sprite.Source), $"{c.Id}/{outfit}: walk uses this exact style and clothing");
+                    if (c.Category != "chibi")
+                    {
+                        var idle = pet.Art.Frame(c, c.Resolve(outfit, "idle", 0).Sprite, 0);
+                        double standingHeight = pet.State.Size * pet.Art.VisibleHeight(idle);
+                        double walkingHeight = sprite.Height * pet.Art.VisibleHeight((BitmapSource)sprite.Source);
+                        Require(Math.Abs(walkingHeight / standingHeight - 1) < .08, $"{c.Id}/{outfit}: walking preserves standing body scale");
+                    }
+                    if (direction == 1)
+                    {
+                        var first = sprite.Source;
+                        await Until(() => !ReferenceEquals(sprite.Source, first), $"{c.Id}/{outfit}: animation advances");
+                        Require(expectedWalk.Contains(sprite.Source), $"{c.Id}/{outfit}: next walking frame keeps the same appearance");
+                    }
+                    double foot = pet.Top + Canvas.GetTop(sprite) + sprite.Height * pet.Art.GroundLine((BitmapSource)sprite.Source);
                     Require(Math.Abs(foot - pet.WorkArea.Bottom) < .1, $"{c.Id}/{outfit}: visible feet stay on desktop floor ({direction})");
-                    if (c.Id == "whale")
+                    if (c.FamilyId == "whale")
                     {
                         pet.UpdateLayout();
                         var proof = new RenderTargetBitmap(560, 500, 96, 96, PixelFormats.Pbgra32); proof.Render((Visual)pet.Content);
                         var png = new PngBitmapEncoder(); png.Frames.Add(BitmapFrame.Create(proof));
-                        using var stream = File.Create(Path.Combine(output, $"walk-{outfit}-{(direction < 0 ? "left" : "right")}.png")); png.Save(stream);
+                        using var stream = File.Create(Path.Combine(output, $"walk-{c.Category}-{outfit}-{(direction < 0 ? "left" : "right")}.png")); png.Save(stream);
                     }
                     pet.Play("idle");
                 }
@@ -101,8 +138,7 @@ internal static class UiVerification
         pet.StartWalk(false, 1); await Until(() => pet.Left < edge - .5, "screen edge reversal");
         Require(((ScaleTransform)Find<Image>(pet).Single().RenderTransform).ScaleX == -1, "screen edge reverses both travel and facing");
         pet.Play("idle");
-        pet.SelectCharacter("deepseek-adult"); double beforeStatic = pet.Left; pet.StartWalk(false, -1); await Task.Delay(250);
-        Require(!pet.CanWalk && pet.Left == beforeStatic, "static portrait never pretends to have a walking animation");
+        pet.SelectCharacter("deepseek-adult");
         string source = Path.Combine(output, "storyboard-fixture"); Directory.CreateDirectory(source);
         var bitmap = pet.Art.Frame(pet.Character, pet.Character.Atlas, 0);
         void Export(string name)
@@ -114,8 +150,36 @@ internal static class UiVerification
         Require(File.Exists(Path.Combine(imported.Root, "pet.json")), "import persists a portable manifest");
         var portrait = pet.Catalog.ImportPortrait(Directory.GetFiles(source)[0], "测试立绘", "adult");
         Require(portrait.Atlas.Rows == 1 && portrait.Category == "adult", "single-image import retains its adult category and a single cell");
+        foreach (var still in new[] { imported, portrait })
+        {
+            pet.SelectCharacter(still.Id); double beforeStatic = pet.Left; pet.StartWalk(false, -1); await Task.Delay(250);
+            Require(!pet.CanWalk && pet.Left == beforeStatic, "static import never pretends to walk: " + still.Id);
+        }
         pet.Catalog.Characters.Remove(imported); pet.Catalog.Characters.Remove(portrait);
         pet.SelectCharacter("whale"); pet.State.Outfits["whale"] = "original"; pet.ApplySettings(); Click("我的伙伴"); Click("分类 Q版"); await Capture("pet-home");
+        foreach (string family in Catalog.BuiltInFamilies)
+            foreach (string outfit in new[] { "original", "swim", "wedding" })
+            {
+                pet.SelectCharacter(family); pet.State.Outfits[family] = outfit; pet.ApplySettings();
+                foreach (string style in new[] { "3d", "adult", "chibi" })
+                {
+                    Click("分类 " + CloudTheme.CategoryName(style));
+                    Require(pet.Character.FamilyId == family && pet.Character.Category == style && pet.State.Outfit == outfit, $"category selection applies {family}/{style}/{outfit} to live pet");
+                }
+            }
+        pet.SelectCharacter("deepseek-adult"); pet.State.Outfits[pet.State.Character] = "swim"; pet.ApplySettings();
+        pet.StartWalk(false, 1); pet.State.Outfits[pet.State.Character] = "wedding"; pet.ApplySettings();
+        var bridal = pet.Art.Frame(pet.Character, pet.Character.Outfits["wedding"].Idle!, 0);
+        await Task.Delay(220);
+        Require(pet.State.Character == "deepseek-adult" && pet.State.Outfit == "wedding" && ReferenceEquals(Find<Image>(pet).Single().Source, bridal), "changing clothes mid-walk cancels old frames and keeps realistic style");
+        pet.SelectCharacter("missing-realistic-variant");
+        Require(pet.State.Character == "deepseek-adult", "a missing explicit selection never silently changes to chibi");
+        foreach (string style in new[] { "3d", "adult" })
+        {
+            pet.StartWalk(false, 1); pet.SelectStyle(style); await Task.Delay(220);
+            var selected = pet.Art.Frame(pet.Character, pet.Character.Resolve("wedding", "chat", 0).Sprite, 0);
+            Require(pet.Character.Category == style && pet.State.Outfit == "wedding" && ReferenceEquals(Find<Image>(pet).Single().Source, selected), "style change mid-walk cancels old frames and preserves wedding: " + style);
+        }
         Click("风格预览");
         foreach (string family in Catalog.BuiltInFamilies)
         {

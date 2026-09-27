@@ -23,7 +23,8 @@ public sealed class Catalog
                 catch (Exception ex) when (ex is IOException or JsonException or UnauthorizedAccessException) { Warnings.Add(Path.GetFileName(folder) + ": " + ex.Message); }
             }
     }
-    public Character Find(string id) => Characters.FirstOrDefault(c => c.Id == id) ?? Characters[0];
+    public Character? FindExact(string id) => Characters.FirstOrDefault(c => c.Id == id);
+    public Character Find(string id) => FindExact(id) ?? Characters[0];
     public Character Import(string source)
     {
         var c = Character.Load(source);

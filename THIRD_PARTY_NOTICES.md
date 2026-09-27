@@ -30,6 +30,8 @@
 
 1.2 衣橱预览版进一步使用内置 image_gen，为八位角色提供 3D 与真人风格的原装、泳装、婚纱：共 48 张透明立绘，其中 46 张为本轮新增，2 张沿用已确认的 DeepSeek 原装。角色身份参考继承本项目现有 Q 版素材；同一角色的换装使用其原装立绘作为参考。全部为虚构成年形象，未使用真实人物肖像。“真人版”描述画面风格。生成提示词、参考文件与结果记录见 `artwork/wardrobe-expansion/`。
 
+1.2.0-preview.2 使用内置 image_gen，以已有角色及同套服饰为参考，生成 56 张六帧行走图集：8 张 Q 版泳装、24 张 3D版、24 张真人版。保留旧 Q 版原装及婚纱动作，不修改 DS Go 原稿。参考、提示词与生成结果记录位于 `artwork/motion-continuity/`。
+
 ## SkiaSharp
 
 SkiaSharp 3.119.4（Microsoft / Mono contributors），MIT 许可证。用于读取 PNG/WebP 并向 WPF 提供像素；上游：<https://github.com/mono/SkiaSharp>。其原生 Skia 依赖包含 BSD 等许可，随 NuGet 分发的声明仍适用。

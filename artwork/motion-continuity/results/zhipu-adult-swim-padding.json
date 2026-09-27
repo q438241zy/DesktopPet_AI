@@ -1,0 +1,7 @@
+{
+  "key": "zhipu-adult-swim",
+  "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-eb835202-4cf3-46b9-9a1b-6a698df3a1d5.png",
+  "dest": "src/DesktopPet.App/Assets/Characters/zhipu-adult/outfits/swim/walk.png",
+  "prompt": "Uniform cell padding edit: shrink existing figures to 75%, 64px transparent border; same identity, opaque skirted swimsuit and neutral poses.",
+  "replaces": "exec-5e906a5f-513b-43c9-9c2f-85dc625a04a1.png"
+}

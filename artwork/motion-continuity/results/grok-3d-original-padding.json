@@ -1,0 +1,7 @@
+{
+  "key": "grok-3d-original",
+  "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-03913c80-a23f-45be-be77-f2017dc9c281.png",
+  "dest": "src/DesktopPet.App/Assets/Characters/grok-3d/motions/walk.png",
+  "prompt": "Use case: precise-object-edit. Fix ONLY sprite-sheet padding and uniform scale in this exact existing six-frame walking animation. Keep canvas exactly 1536x1024 with exactly 3 columns x2 rows of 512x512 cells. Shrink each figure to 75% of its current size inside its OWN cell. Entire head-to-foot silhouette must occupy only the central 384px of the 512px cell height, with 64px empty transparent space above the hair AND below the soles. Recenter the body horizontally at local x=256. All six figures same scale, no clipping, no touch or overlap across cell boundaries. Preserve precisely this character, face, adult body proportions, style, outfit, colors, accessories, and the distinct six walking poses. Do NOT redraw as chibi or change clothes. True transparent alpha background; remove glow/shadow pixels outside silhouette, no grid no labels. The purpose is usable motion-frame padding, so keep the six figures noticeably smaller with very generous blank transparent margins. Each figure must fit wholly inside its individual equal square, feet around local y448, hair around y64.",
+  "replaces": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-2ebd907d-0e70-47d2-8760-243168e94d00.png"
+}

@@ -1,7 +1,7 @@
-param([string]$Runtime = 'win-x64', [string]$Version = '1.2.0-preview.1')
+param([string]$Runtime = 'win-x64', [string]$Version = '1.2.0-preview.2', [string]$SourceDirectory = '')
 $ErrorActionPreference = 'Stop'
 $projectRoot = Split-Path -Parent $PSScriptRoot
-$releaseRoot = (Resolve-Path -LiteralPath "$projectRoot/Release/$Runtime").Path
+$releaseRoot = (Resolve-Path -LiteralPath $(if ($SourceDirectory) { $SourceDirectory } else { "$projectRoot/Release/$Runtime" })).Path
 $archivePath = Join-Path $projectRoot "Release/DesktopPet-v$Version-$Runtime.zip"
 $stream = [IO.File]::Open($archivePath, [IO.FileMode]::Create)
 $archive = [IO.Compression.ZipArchive]::new($stream, [IO.Compression.ZipArchiveMode]::Create)

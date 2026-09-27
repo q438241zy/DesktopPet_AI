@@ -9,14 +9,14 @@ namespace DesktopPet.App;
 /// <summary>Vector clouds and a shared sky palette keep small desktop controls legible at any DPI.</summary>
 internal static class CloudTheme
 {
-    public static readonly Brush Ink = Brush("#294969"), Muted = Brush("#6D849D"), Blue = Brush("#538BCB"), Line = Brush("#DBEAF5"), Pale = Brush("#EAF4FF");
+    public static readonly Brush Ink = Brush("#1D1D1F"), Muted = Brush("#7B7D85"), Blue = Brush("#007AFF"), Line = Brush("#E5E5EA"), Pale = Brush("#EAF2FF");
     public static readonly Geometry Cloud = Geometry.Parse("M 14,47 C 6,47 3,42 3,36 C 3,28 9,23 17,24 C 18,13 27,8 36,12 C 42,14 46,19 46,26 C 54,24 61,30 61,37 C 61,43 57,47 50,47 Z");
     public static SolidColorBrush Brush(string color)
     { var brush = new SolidColorBrush((Color)ColorConverter.ConvertFromString(color)); brush.Freeze(); return brush; }
-    public static LinearGradientBrush Sky(string top = "#E9F4FF", string bottom = "#F9FCFF")
+    public static LinearGradientBrush Sky(string top = "#F6F8FC", string bottom = "#FFFFFF")
     { var brush = new LinearGradientBrush((Color)ColorConverter.ConvertFromString(top), (Color)ColorConverter.ConvertFromString(bottom), 90); brush.Freeze(); return brush; }
-    public static DropShadowEffect Shadow(double depth = 6, double opacity = .1) => new() { Color = Color.FromRgb(105, 145, 185), BlurRadius = 24, ShadowDepth = depth, Opacity = opacity };
-    public static CloudIcon Icon(string glyph, double size = 32) => new() { Glyph = glyph, Width = size, Height = size };
+    public static DropShadowEffect Shadow(double depth = 6, double opacity = .1) => new() { Color = Color.FromRgb(35, 42, 60), BlurRadius = 28, ShadowDepth = depth, Opacity = opacity };
+    public static LineIcon Icon(string glyph, double size = 22) => new() { Glyph = glyph, Width = size, Height = size, IsHitTestVisible = false, Focusable = false };
     public static string CategoryName(string category) => category switch { "3d" => "3D版", "adult" => "真人版", _ => "Q版" };
     public static Border Badge(string text, Brush? background = null) => new() { Background = background ?? Pale, CornerRadius = new CornerRadius(11), Padding = new Thickness(10, 4, 10, 4), Margin = new Thickness(0, 0, 7, 0), Child = new TextBlock { Text = text, Foreground = Blue, FontSize = 11 } };
 
@@ -95,12 +95,7 @@ internal sealed class CloudScenery : FrameworkElement
     public CloudScenery() { IsHitTestVisible = false; }
     protected override void OnRender(DrawingContext dc)
     {
-        void Cloud(double x, double y, double scale, double opacity)
-        { dc.PushOpacity(opacity); dc.PushTransform(new TranslateTransform(x, y)); dc.PushTransform(new ScaleTransform(scale, scale)); dc.DrawGeometry(Brushes.White, null, CloudTheme.Cloud); dc.Pop(); dc.Pop(); dc.Pop(); }
-        Cloud(ActualWidth * .57, -19, 2.1, .72); Cloud(-35, ActualHeight - 95, 3.1, .74);
-        Cloud(ActualWidth - 135, ActualHeight - 80, 2.8, .6);
-        var pen = new Pen(CloudTheme.Brush("#B5D6EF"), 1.5);
-        foreach (var (x, y) in new[] { (.13, .17), (.78, .27), (.91, .69) })
-        { double xx = ActualWidth * x, yy = ActualHeight * y; dc.DrawLine(pen, new Point(xx - 3, yy), new Point(xx + 3, yy)); dc.DrawLine(pen, new Point(xx, yy - 3), new Point(xx, yy + 3)); }
+        var glow = new RadialGradientBrush(Color.FromArgb(80, 220, 231, 247), Colors.Transparent);
+        dc.DrawEllipse(glow, null, new Point(ActualWidth / 2, ActualHeight * .54), ActualWidth * .48, ActualHeight * .48);
     }
 }

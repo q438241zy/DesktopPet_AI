@@ -31,7 +31,7 @@ Test("missing outfit animations stay dressed through every interaction", () =>
         Outfits = new() { ["wedding"] = new() { Idle = new("dress.webp", 1, 1), Motions = new() { ["walk"] = new("dress-walk.webp") } } } };
     Equal("dress.webp", pet.Resolve("wedding", "idle", 0).Sprite.File);
     Equal("dress-walk.webp", pet.Resolve("wedding", "walk", 0).Sprite.File);
-    foreach (string action in new[] { "meal", "eat", "chat", "pounce", "headpat", "poke", "tickle", "kick", "jump", "sleep", "dizzy", "faint", "sad", "happy", "pickup", "shaken", "shaken-strong", "farewell", "ball-hit", "ball-miss", "bonk", "peek", "curl", "think" })
+    foreach (string action in new[] { "meal", "eat", "chat", "pounce", "headpat", "poke", "tickle", "kick", "jump", "sleep", "dizzy", "faint", "sad", "happy", "pickup", "shaken", "shaken-strong", "farewell", "ball-hit", "ball-miss", "bonk", "peek", "curl", "think", "dance" })
         foreach (bool reduced in new[] { false, true })
             Equal((new Sprite("dress.webp", 1, 1), 0), pet.Resolve("wedding", action, 700, reduced));
     Equal(0, pet.Resolve("wedding", "walk", 700, true).Frame);
@@ -91,6 +91,50 @@ Test("the displayed facing follows travel and each source clip orientation", () 
     Equal(-1d, DesktopWalk.ScaleX(-1, "right")); Equal(1d, DesktopWalk.ScaleX(1, "right"));
     Equal(1d, DesktopWalk.ScaleX(-1, "left")); Equal(-1d, DesktopWalk.ScaleX(1, "left"));
     Equal(44d, DesktopWalk.Speed(200, new Sprite("walk.png", 2, 1, [500, 500])));
+});
+Test("hide-and-seek reaches the nearest edge before disappearing and returns inward", () =>
+{
+    foreach (double origin in new[] { -1920d, 0, 2560 })
+        foreach (int side in new[] { -1, 1 })
+            foreach (double size in new[] { 120d, 200, 280 })
+            {
+                double center = origin + (side < 0 ? 400 : 1500);
+                var journey = new EdgeHide(center, origin, origin + 1920, size, 80);
+                Equal(side, journey.Side);
+                var halfway = journey.At(journey.ApproachSeconds / 2);
+                Equal(HidePhase.Approach, halfway.Phase); Equal(true, halfway.Walking); Equal(side, halfway.Direction);
+                Equal(HidePhase.Hide, journey.At(journey.ApproachSeconds).Phase);
+                var hidden = journey.At(journey.ApproachSeconds + 1);
+                Equal(HidePhase.Hidden, hidden.Phase); Equal(true, (hidden.Center - journey.Edge) * side > size / 2);
+                var peek = journey.At(journey.ApproachSeconds + 2.2);
+                Equal(HidePhase.Peek, peek.Phase); Equal(-side, peek.Direction); Equal(true, Math.Abs(peek.Center - journey.Edge) < size / 2);
+                var end = journey.At(journey.Duration + 1);
+                Equal(HidePhase.Complete, end.Phase); Equal(journey.RestingCenter, end.Center); Equal(-side, end.Direction);
+                Equal(true, end.Center >= origin && end.Center <= origin + 1920);
+                for (double time = 0; time < journey.Duration; time += .025)
+                    Equal(true, Math.Abs(journey.At(time + .025).Center - journey.At(time).Center) < size * .06);
+            }
+    Equal(1, new EdgeHide(100, 0, 1920, 200, 80, 1).Side);
+    var atEdge = new EdgeHide(92, 0, 1920, 200, 80, -1); Equal(0d, atEdge.ApproachSeconds); Equal(HidePhase.Hide, atEdge.At(0).Phase);
+});
+Test("dance starts and finishes neutrally, alternates steps and respects reduced motion", () =>
+{
+    Equal(new DancePose(0, 0, 0, 0), PetDance.At(0, 200));
+    Equal(new DancePose(0, 0, 0, 15), PetDance.At(PetDance.DurationMs, 200));
+    Equal(true, PetDance.At(500, 200).X > 0 && PetDance.At(1500, 200).X < 0);
+    Equal(true, PetDance.At(750, 200).Y < 0);
+    for (double t = 0; t <= PetDance.DurationMs; t += 37)
+    {
+        var pose = PetDance.At(t, 280);
+        Equal(true, Math.Abs(pose.X) <= 21 && pose.Y <= 0 && pose.Y >= -11.2 && Math.Abs(pose.Angle) <= 7);
+        var quiet = PetDance.At(t, 280, true); Equal(0d, quiet.X); Equal(0d, quiet.Y); Equal(0d, quiet.Angle);
+    }
+});
+Test("dance taps score once per beat inside the timing window", () =>
+{
+    var dance = new PetDance(); Equal(true, dance.Tap(20)); Equal(false, dance.Tap(90));
+    Equal(false, dance.Tap(250)); Equal(true, dance.Tap(410)); Equal(false, dance.Tap(515));
+    Equal(true, dance.Tap(1000)); Equal(false, dance.Tap(-1)); Equal(false, dance.Tap(8000)); Equal(3, dance.Hits);
 });
 Test("fast throws use swept contact and misses remain misses", () =>
 {

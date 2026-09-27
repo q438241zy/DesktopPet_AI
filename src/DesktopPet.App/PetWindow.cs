@@ -30,6 +30,15 @@ public sealed class PetWindow : Window
     private readonly Stopwatch clock = Stopwatch.StartNew();
     private readonly ShakeTracker shakes = new();
     private readonly ScaleTransform facing = new(1, 1);
+    private readonly RotateTransform danceTilt = new();
+    private EdgeHide? hideJourney;
+    private Rect hideArea;
+    private double hideStarted;
+    private PetDance? dance;
+    private int? danceFeedbackBeat;
+    internal HidePhase? HideStage => hideJourney?.At((Now - hideStarted) / 1000).Phase;
+    internal bool IsDancing => dance is not null;
+    internal string CurrentAction => action;
     private DesktopHost? desktop;
     private SettingsWindow? settings;
     private string action = "idle";
@@ -56,7 +65,7 @@ public sealed class PetWindow : Window
         Background = Brushes.Transparent; ShowInTaskbar = false; Topmost = State.Topmost;
         Content = surface;
         sprite.RenderTransform = facing;
-        restore.Content = CloudTheme.Icon("moon", 42);
+        restore.Content = CloudTheme.Icon("moon", 24);
         surface.Children.Add(effects); surface.Children.Add(sprite); surface.Children.Add(menu);
         bubble = new Border { Background = CloudTheme.Brush("#F8FCFF"), BorderBrush = CloudTheme.Line, BorderThickness = new Thickness(1), CornerRadius = new CornerRadius(20), Padding = new Thickness(15, 10, 15, 10), Width = 238, Child = speech, IsHitTestVisible = false, Visibility = Visibility.Collapsed };
         surface.Children.Add(bubble); surface.Children.Add(restore); surface.Children.Add(ball);
@@ -65,8 +74,8 @@ public sealed class PetWindow : Window
         sprite.MouseLeftButtonDown += PetDown; sprite.MouseMove += PetMove; sprite.MouseLeftButtonUp += PetUp;
         sprite.MouseRightButtonUp += (_, e) => { ShowMenu("root"); e.Handled = true; };
         sprite.LostMouseCapture += (_, _) => { if (pressed) CancelInput(); };
-        sprite.KeyDown += (_, e) => { if (e.Key is Key.Enter or Key.Space) { Touch(.3); e.Handled = true; } else if (e.Key == Key.F10 && Keyboard.Modifiers.HasFlag(ModifierKeys.Shift)) { ShowMenu("root"); e.Handled = true; } };
-        KeyDown += (_, e) => { if (e.Key == Key.Escape) { CancelInput(); ClearTransient(); SetAction("idle"); e.Handled = true; } };
+        sprite.KeyDown += (_, e) => { if (e.Key is Key.Enter or Key.Space) { if (dance is not null) TapDance(); else Touch(.3); e.Handled = true; } else if (e.Key == Key.F10 && Keyboard.Modifiers.HasFlag(ModifierKeys.Shift)) { ShowMenu("root"); e.Handled = true; } };
+        KeyDown += (_, e) => { if (e.Key == Key.Escape) { StopInteraction(); e.Handled = true; } };
         restore.Click += (_, _) => RestorePet();
         ball.MouseLeftButtonDown += (_, e) => { holdingBall = true; flyingBall = false; ballPrevious = e.GetPosition(this); ballSampleTime = Now; ballVx = ballVy = 0; ball.CaptureMouse(); e.Handled = true; };
         ball.MouseMove += BallMove;
@@ -103,7 +112,7 @@ public sealed class PetWindow : Window
     }
     public void Save()
     {
-        State.Left = Left; State.Top = Top;
+        State.Left = hideJourney is { } journey ? journey.RestingCenter - CenterX : Left; State.Top = Top;
         try { store.Save(State); }
         catch (Exception ex) when (ex is IOException or UnauthorizedAccessException) { Say("存档未能保存：" + ex.Message, 6500); }
     }
@@ -145,7 +154,7 @@ public sealed class PetWindow : Window
     }
     public void ToggleVisible()
     {
-        CancelInput(); ClearTransient();
+        CancelInput(); ClearTransient(); SetAction("idle");
         if (IsVisible) { Hide(); timer.Stop(); } else { Show(); lastTick = Now; timer.Start(); Render(); }
     }
     private void Say(string message, double duration = 2800)
@@ -155,6 +164,7 @@ public sealed class PetWindow : Window
     public void Play(string next, string? message = null, double duration = 2600)
     {
         if (resting) RestorePet();
+        CancelChoreography();
         menu.Children.Clear(); roaming = false; lastInteraction = Now;
         SetAction(next, duration);
         if (message is not null) Say(message, duration + 400);
@@ -187,6 +197,7 @@ public sealed class PetWindow : Window
     private void PetDown(object sender, MouseButtonEventArgs e)
     {
         if (e.ChangedButton != MouseButton.Left) return;
+        if (hideJourney is not null) { ClearTransient(); Play("happy", "被你找到啦！", 2000); e.Handled = true; return; }
         if (roaming) { roaming = false; SetAction("idle"); Render(); }
         lastInteraction = Now;
         menu.Children.Clear(); sprite.Focus(); pressed = true; dragging = false;
@@ -220,6 +231,7 @@ public sealed class PetWindow : Window
             }
             else { Play("happy", "在这里陪你。", 1200); if (State.CheckedIn(day) && Math.Abs(Top + FloorY - WorkArea.Bottom) < 35 && !State.ReducedMotion) StartWalk(false); }
         }
+        else if (dance is not null) TapDance();
         else Touch(e.GetPosition(sprite).Y / sprite.Height);
         e.Handled = true;
     }
@@ -239,41 +251,60 @@ public sealed class PetWindow : Window
         if (hadDrag) { Constrain(); SetAction("idle"); if (!closing) Save(); }
     }
     private void ClearTransient()
-    { roaming = false; menu.Children.Clear(); effects.Children.Clear(); prop = null; flyingBall = holdingBall = false; ball.Visibility = Visibility.Collapsed; bubble.Visibility = Visibility.Collapsed; onMotionEnd = null; }
+    { CancelChoreography(); roaming = false; menu.Children.Clear(); effects.Children.Clear(); prop = null; flyingBall = holdingBall = false; ball.Visibility = Visibility.Collapsed; bubble.Visibility = Visibility.Collapsed; onMotionEnd = null; }
 
-    private void ShowMenu(string group)
+    private void CancelChoreography()
+    {
+        if (hideJourney is not null)
+        {
+            // Use the departure monitor: the mostly hidden HWND may overlap its neighbour.
+            Left = Math.Clamp(Left, hideArea.Left - CenterX + State.Size * .46, hideArea.Right - CenterX - State.Size * .46);
+            Top = hideArea.Bottom - FloorY;
+            hideJourney = null; surface.Clip = null;
+        }
+        dance = null; danceTilt.Angle = 0; danceFeedbackBeat = null;
+        sprite.RenderTransform = facing;
+    }
+
+    internal void ShowMenu(string group = "root")
     {
         ClearTransient(); roaming = false; lastInteraction = Now; SetAction("idle");
-        (string Icon, string Label, Action Invoke)[] entries = group switch
+        Render();
+        var area = WorkArea;
+        double minX = Math.Max(12, area.Left - Left + 12), maxX = Math.Min(Width - 12, area.Right - Left - 12);
+        var panel = new StackPanel();
+        var header = new DockPanel { Margin = new Thickness(4, 0, 0, 10) };
+        var close = new Button { Content = CloudTheme.Icon("close", 15), Width = 26, Height = 26, Padding = new Thickness(0), Margin = new Thickness(0), Background = Brushes.Transparent, BorderThickness = new Thickness(0) };
+        AutomationProperties.SetName(close, "关闭互动菜单"); close.Click += (_, _) => { menu.Children.Clear(); sprite.Focus(); }; DockPanel.SetDock(close, Dock.Right); header.Children.Add(close);
+        header.Children.Add(new TextBlock { Text = "和 " + Character.Name + " 玩一会儿", FontSize = 13, FontWeight = FontWeights.SemiBold, VerticalAlignment = VerticalAlignment.Center }); panel.Children.Add(header);
+        var tabs = new System.Windows.Controls.Primitives.UniformGrid { Columns = 4 };
+        Button? selectedTab = null;
+        foreach (var (id, label) in new[] { ("root", "常用"), ("care", "照顾"), ("play", "玩耍"), ("motions", "动作") })
         {
-            "care" => [("☀", "打卡 · 吃早饭", CheckIn), ("♡", "摸摸头", () => Play("headpat", "最喜欢被摸头啦。")), ("◌", "戳脸", () => Play("poke", "唔，你戳到我啦。", 1700)), ("✧", "挠痒", () => Play("tickle", "哈哈哈哈！", 1700)), ("♨", "喂零食", Snack), ("☏", "聊聊天", () => Play("chat", $"{Character.Name}在这里陪你。慢慢来就好。"))],
-            "play" => [("●", "一起玩球", TakeBall), ("▦", "搭积木", BuildBlocks), ("⌁", "散步探索", () => StartWalk(true)), ("⌂", "躲猫猫", Peek), ("↗", "轻推小球", NudgeBall), ("♧", "软锤轻敲", () => Play("bonk", "哎呀，轻一点～"))],
-            "motions" => [("…", "思考", () => Play("think", "让我想一想……")), ("↑", "跳一下", () => Play("jump", "嘿咻！")), ("◐", "左边偷看", () => Peek(-1)), ("◑", "右边偷看", () => Peek(1)), ("☾", "蜷起来", () => Play("curl", "抱成一小团。")), ("✉", "纪念卡片", () => Celebrate($"相伴 {State.CheckIns.Count} 天"))],
-            _ => [("♡", "照顾", () => ShowMenu("care")), ("●", "玩耍", () => ShowMenu("play")), ("✧", "动作", () => ShowMenu("motions")), ("☾", "休息", Rest), ("⚙", "云朵伙伴", OpenSettings)]
-        };
-        for (int i = 0; i < entries.Length; i++)
-        {
-            var entry = entries[i];
-            double angle = Math.PI + .12 + i * (Math.PI - .24) / Math.Max(1, entries.Length - 1);
-            double radius = State.Size * .54 + 33;
-            string glyph = entry.Icon switch { "♡" => "heart", "☀" => "sun", "♨" => "food", "☏" => "chat", "●" => "ball", "▦" => "blocks", "⌁" => "walk", "☾" => "moon", "✉" => "letter", "⚙" => "settings", _ => "spark" };
-            var button = new Button { Content = CloudTheme.Icon(glyph, 42), ToolTip = entry.Label, Width = 48, Height = 48, Padding = new Thickness(0), Margin = new Thickness(0), Background = Brushes.Transparent, BorderThickness = new Thickness(0) };
-            AutomationProperties.SetName(button, entry.Label);
-            button.Click += (_, _) => { menu.Children.Clear(); entry.Invoke(); };
-            menu.Children.Add(button);
-            double x = CenterX + Math.Cos(angle) * radius - 22;
-            double y = PetTop + State.Size * .47 + Math.Sin(angle) * radius - 22;
-            var area = WorkArea;
-            Canvas.SetLeft(button, Math.Clamp(x, Math.Max(4, area.Left - Left + 4), Math.Min(Width - 48, area.Right - Left - 48)));
-            Canvas.SetTop(button, Math.Max(8, y));
+            var tab = new Button { Content = label, FontSize = 12, Padding = new Thickness(0, 5, 0, 5), Margin = new Thickness(1), Background = group == id ? Brushes.White : Brushes.Transparent, BorderThickness = new Thickness(0) };
+            AutomationProperties.SetName(tab, "互动分类 " + label); tab.Click += (_, _) => ShowMenu(id); tabs.Children.Add(tab); if (group == id) selectedTab = tab;
         }
-        if (group != "root")
+        panel.Children.Add(new Border { Background = CloudTheme.Brush("#ECEEF2"), CornerRadius = new CornerRadius(9), Padding = new Thickness(2), Child = tabs });
+        var grid = new System.Windows.Controls.Primitives.UniformGrid { Columns = 3, Margin = new Thickness(0, 9, 0, 7) };
+        foreach (var entry in group switch { "care" => PetActions.Care, "play" => PetActions.Play, "motions" => PetActions.Motions, _ => PetActions.Favorites })
         {
-            var back = new Button { Content = CloudTheme.Icon("back", 36), ToolTip = "返回", Width = 38, Height = 38, Padding = new Thickness(0), Background = Brushes.Transparent, BorderThickness = new Thickness(0) };
-            AutomationProperties.SetName(back, "返回"); back.Click += (_, _) => ShowMenu("root");
-            menu.Children.Add(back); Canvas.SetLeft(back, CenterX - 17); Canvas.SetTop(back, Math.Max(8, PetTop - 89));
+            var tile = new StackPanel { HorizontalAlignment = HorizontalAlignment.Center }; tile.Children.Add(CloudTheme.Icon(entry.Icon, 24));
+            tile.Children.Add(new TextBlock { Text = entry.Title, FontSize = 11, Margin = new Thickness(0, 7, 0, 0), TextAlignment = TextAlignment.Center });
+            var button = new Button { Content = tile, ToolTip = entry.Hint, Height = 67, Margin = new Thickness(2), Padding = new Thickness(4), Background = Brushes.Transparent, BorderThickness = new Thickness(0) };
+            AutomationProperties.SetName(button, entry.Title); button.Click += (_, _) => RunInteraction(entry.Key); grid.Children.Add(button);
         }
-        if (menu.Children.Count > 0) ((Button)menu.Children[0]).Focus();
+        panel.Children.Add(grid);
+        var footer = new DockPanel();
+        var preferences = new Button { Content = CloudTheme.Icon("settings", 18), ToolTip = "打开云朵伙伴", Width = 28, Height = 26, Padding = new Thickness(0), Margin = new Thickness(0), BorderThickness = new Thickness(0), Background = Brushes.Transparent };
+        AutomationProperties.SetName(preferences, "打开云朵伙伴"); preferences.Click += (_, _) => { menu.Children.Clear(); OpenSettings(); }; DockPanel.SetDock(preferences, Dock.Right); footer.Children.Add(preferences);
+        footer.Children.Add(new TextBlock { Text = "Esc 收起  ·  拖动抱起", FontSize = 10, Foreground = CloudTheme.Muted, VerticalAlignment = VerticalAlignment.Center, Margin = new Thickness(4, 0, 0, 0) }); panel.Children.Add(footer);
+        var shell = new Border { Width = Math.Min(352, maxX - minX), Padding = new Thickness(13), Background = CloudTheme.Brush("#F9FAFC"), BorderBrush = Brushes.White, BorderThickness = new Thickness(1), CornerRadius = new CornerRadius(18), Effect = CloudTheme.Shadow(5, .17), Child = panel };
+        shell.Measure(new Size(shell.Width, double.PositiveInfinity));
+        menu.Children.Add(shell);
+        Canvas.SetLeft(shell, Math.Clamp(CenterX - shell.Width / 2, minX, maxX - shell.Width));
+        double minY = Math.Max(8, area.Top - Top + 8), maxY = Math.Max(minY, Math.Min(Height - 10, area.Bottom - Top - 10) - shell.DesiredSize.Height);
+        Canvas.SetTop(shell, Math.Clamp(PetTop - shell.DesiredSize.Height - 10, minY, maxY));
+        selectedTab?.Focus();
     }
     public void RunInteraction(string key)
     {
@@ -287,15 +318,46 @@ public sealed class PetWindow : Window
             case "walk": StartWalk(true); break;
             case "rest": Rest(); break;
             case "peek": Peek(); break;
+            case "peek-left": Peek(-1); break;
+            case "peek-right": Peek(1); break;
+            case "dance": StartDance(); break;
+            case "nudge": NudgeBall(); break;
             case "letter": Celebrate($"相伴 {State.CheckIns.Count} 天"); break;
             default: Play(key); break;
         }
     }
+    public void StopInteraction() { CancelInput(); ClearTransient(); SetAction("idle"); lastInteraction = Now; Render(); }
     private void Snack() { ClearTransient(); Play("eat", "啊呜，点心真好吃！", 2600); prop = "food"; propStart = Now; }
     private void BuildBlocks() { ClearTransient(); Play("think", "一块、两块……搭一座小塔！", 3300); prop = "blocks"; propStart = Now; onMotionEnd = () => Play("kick", "嘿！积木滚开啦。", 2300); }
     private void Celebrate(string label) { ClearTransient(); Play("chat", label + "。这封信送给你 ♡", 5200); prop = "letter"; propStart = Now; }
-    private void Peek() => Peek(Random.Shared.Next(2) == 0 ? -1 : 1);
-    private void Peek(int side) { direction = side; Play("peek", "我在这里，发现我了吗？", 2850); }
+    private void Peek() => BeginHide();
+    private void Peek(int side) => BeginHide(side);
+    internal void BeginHide(int? side = null)
+    {
+        ClearTransient(); if (resting) RestorePet();
+        if (State.ReducedMotion) { SetAction("idle"); Say("减少动态效果已开启，先在这里陪你。", 2600); return; }
+        if (!CanWalk) { SetAction("idle"); Say("这套外观还没有行走动画，暂时不能走到边边躲藏。", 3200); return; }
+        hideArea = WorkArea; Top = hideArea.Bottom - FloorY; Constrain();
+        var clip = Character.Resolve(State.Outfit, "walk", 0).Sprite;
+        hideJourney = new EdgeHide(Left + CenterX, hideArea.Left, hideArea.Right, State.Size, DesktopWalk.Speed(State.Size, clip) * 1.7, side);
+        hideStarted = Now; direction = hideJourney.Side; SetAction("walk"); lastInteraction = Now;
+        Say("我要去边边藏好，等你来找。", 2200); Render();
+    }
+    private void StartDance()
+    {
+        ClearTransient(); if (resting) RestorePet();
+        if (State.ReducedMotion) { SetAction("idle"); Say("减少动态效果已开启，跳舞先休息一下。", 2600); return; }
+        dance = new PetDance(); lastInteraction = Now;
+        SetAction("dance", PetDance.DurationMs, () => { int hits = dance?.Hits ?? 0; dance = null; danceTilt.Angle = 0; Say(hits > 0 ? $"合拍 {hits} 次！下次还和你一起跳。" : "一支小舞送给你。下次点我一起跟拍！", 2800); });
+        Say("跟我一起跳！点我或按空格跟拍。", 2200); if (IsHitTestVisible) Activate(); sprite.Focus(); Render();
+    }
+    internal void TapDance()
+    {
+        if (dance is null) return;
+        bool hit = dance.Tap(Now - actionStarted);
+        danceFeedbackBeat = PetDance.At(Now - actionStarted, State.Size).Beat;
+        Say(hit ? $"合拍！ × {dance.Hits}" : "跟着亮点，试试下一拍。", 650);
+    }
     private void Rest()
     {
         ClearTransient(); Play("farewell", "我去歇一会儿，想我就点月亮。", 3200);
@@ -345,6 +407,16 @@ public sealed class PetWindow : Window
         }
         if (now > speechUntil) bubble.Visibility = Visibility.Collapsed;
         if (dragging && now - shakes.LastReversal >= 650 && action != "pickup") SetAction("pickup");
+        if (hideJourney is { } journey)
+        {
+            var pose = journey.At((now - hideStarted) / 1000);
+            Left = pose.Center - CenterX; Top = hideArea.Bottom - FloorY; direction = pose.Direction;
+            string motion = pose.Walking ? "walk" : "idle";
+            if (action != motion) SetAction(motion);
+            surface.Clip = new RectangleGeometry(new Rect(hideArea.Left - Left, hideArea.Top - Top, hideArea.Width, hideArea.Height));
+            if (pose.Phase != HidePhase.Approach) bubble.Visibility = Visibility.Collapsed;
+            if (pose.Phase == HidePhase.Complete) { hideJourney = null; surface.Clip = null; SetAction("idle"); Say("我回来啦，有没有找到我？", 2200); lastInteraction = now; Save(); }
+        }
         if (roaming && menu.Children.Count == 0)
         {
             var area = WorkArea;
@@ -365,7 +437,7 @@ public sealed class PetWindow : Window
                 lastInteraction = now;
             }
         }
-        if (action == "idle" && !pressed && !resting && menu.Children.Count == 0)
+        if (action == "idle" && hideJourney is null && !pressed && !resting && menu.Children.Count == 0)
         {
             if (!State.CheckedIn(day)) SetAction("sleep");
             else if (State.Wander && CanWalk && !State.ReducedMotion && now - lastInteraction > 45000 && Math.Abs(Top + FloorY - WorkArea.Bottom) < 28) StartWalk(false);
@@ -387,12 +459,12 @@ public sealed class PetWindow : Window
             PlaceBall();
         }
         Render(); DrawEffects(now);
-        bool moving = dragging || holdingBall || flyingBall || roaming || prop is not null || actionUntil > 0;
+        bool moving = dragging || holdingBall || flyingBall || roaming || hideJourney is not null || prop is not null || actionUntil > 0;
         timer.Interval = TimeSpan.FromMilliseconds(moving ? 33 : 200);
     }
     private void Render()
     {
-        var art = Character.Resolve(State.Outfit, action, Now - actionStarted, State.ReducedMotion);
+        var art = Character.Resolve(State.Outfit, action, (Now - actionStarted) * (hideJourney is not null && action == "walk" ? 1.7 : 1), State.ReducedMotion);
         var frame = Art.Frame(Character, art.Sprite, art.Frame);
         sprite.Source = frame;
         double size = State.Size;
@@ -413,10 +485,30 @@ public sealed class PetWindow : Window
         sprite.RenderTransformOrigin = new Point(.5, .5);
         facing.ScaleX = action is "walk" or "peek" ? DesktopWalk.ScaleX(direction, art.Sprite.Facing) : 1;
         Canvas.SetLeft(sprite, CenterX - size * (.5 + (action == "walk" ? facing.ScaleX * (Art.HorizontalAnchor(frame) - .5) : 0)));
+        sprite.RenderTransform = facing;
+        if (dance is not null)
+        {
+            var pose = PetDance.At(Now - actionStarted, State.Size, State.ReducedMotion);
+            sprite.RenderTransformOrigin = new Point(.5, groundLine); danceTilt.Angle = pose.Angle; sprite.RenderTransform = danceTilt;
+            Canvas.SetLeft(sprite, CenterX - size / 2 + pose.X); Canvas.SetTop(sprite, PetTop + pose.Y);
+        }
     }
     private void DrawEffects(double now)
     {
         effects.Children.Clear();
+        if (dance is not null)
+        {
+            int beat = PetDance.At(now - actionStarted, State.Size).Beat;
+            for (int i = 0; i < 4; i++)
+            {
+                var dot = new Ellipse { Width = i == beat % 4 ? 9 : 5, Height = i == beat % 4 ? 9 : 5, Fill = i == beat % 4 ? CloudTheme.Blue : CloudTheme.Brush("#C3D1E3") };
+                effects.Children.Add(dot); Canvas.SetLeft(dot, CenterX - 30 + i * 18); Canvas.SetTop(dot, FloorY + 8 - (i == beat % 4 ? 2 : 0));
+            }
+            var note = CloudTheme.Icon("dance", 25); note.Foreground = CloudTheme.Blue; note.Opacity = .75;
+            effects.Children.Add(note); Canvas.SetLeft(note, CenterX + State.Size * .4); Canvas.SetTop(note, PetTop + 35 + Math.Sin(now / 250) * 8);
+            var count = new TextBlock { Text = $"{beat + 1:00} / 16" + (danceFeedbackBeat == beat ? "  ·  跟拍" : ""), FontSize = 10, Foreground = CloudTheme.Muted };
+            effects.Children.Add(count); Canvas.SetLeft(count, CenterX - 25); Canvas.SetTop(count, PetTop - 24);
+        }
         if (prop is null) return;
         double t = (now - propStart) / 1000;
         if (t > 6) { prop = null; return; }

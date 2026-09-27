@@ -1,0 +1,4 @@
+interface:
+  display_name: "角色分镜生成器 V1.0"
+  short_description: "将动画图或真人照片转为可归档的角色动作和表情分镜资源"
+  default_prompt: "Use $character-storyboard-generator to turn my character image or portrait into a consistently named pose-by-expression storyboard set."

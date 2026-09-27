@@ -1,0 +1,12 @@
+{
+  "spec_version": "v1.0",
+  "character_id": "replace-me",
+  "character_name": "Replace Me",
+  "input_type": "auto",
+  "adult_status": "unknown",
+  "source_images": ["source/input.png"],
+  "identity_reference": "identity/approved-reference.png",
+  "canvas": {"mode": "adaptive", "width": 1024, "height": 1024, "transparent": true},
+  "variant_count": 1,
+  "selection": {"pose_ids": "all", "expression_ids": "all"}
+}

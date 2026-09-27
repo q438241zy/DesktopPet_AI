@@ -14,7 +14,7 @@ public static class PortraitMotion
     public static string TouchRegion(string category, double y) => category == "chibi"
         ? y < .52 ? "headpat" : y < .73 ? "poke" : "tickle"
         : y < (category == "3d" ? .135 : .11) ? "headpat" : y < (category == "3d" ? .255 : .22) ? "poke" : "tickle";
-    public static double Duration(string action) => action switch { "meal" => 4200, "eat" => 3000, "jump" => 1600, "bonk" => 1900, "tickle" => 2200, "build" => 3300, "curl" => 2100, _ => 2600 };
+    public static double Duration(string action) => action switch { "meal" => 4200, "eat" => 3000, "jump" => 1320, "bonk" => 1900, "tickle" => 2200, "build" => 4400, "curl" => 5500, "think" => 6500, _ => 2600 };
     public static RigGesture At(string action, double milliseconds, double duration, bool reducedMotion = false)
     {
         if (reducedMotion) return new();
@@ -35,7 +35,7 @@ public static class PortraitMotion
             "chat" or "farewell" => new(Head: E(.035 * wave), LeftArm: E(.06), LeftElbow: E(.23 * wave), Shoulders: E(.002 * wave)),
             "happy" => new(Head: E(.055 * wave), Lift: E(-.014 * Math.Pow(wave, 2)), LeftElbow: E(.16 * wave), RightArm: E(-.1)),
             "sad" or "ball-miss" => new(Head: E(.18), Turn: E(.025), Shoulders: E(-.012), LeftElbow: E(-.09)),
-            "think" => new(Head: E(-.16), Turn: E(.04), LeftElbow: E(.12), Mouth: E(.015 * wave)),
+            "think" => new(Head: E(-.06), Turn: E(.015)),
             "jump" or "pounce" => new(Lift: E(-.105 * Math.Pow(Math.Max(0, Math.Sin(Math.PI * Math.Clamp((t - .2) / .95, 0, 1))), 2)), Squat: E(.018 * Math.Exp(-Math.Pow((t - .18) * 9, 2))), LeftArm: E(.14), RightArm: E(-.19), Head: E(-.055)),
             "build" => new(Turn: E(-.035 * wave), Head: E(.1), Squat: E(.016 * bite), RightArm: E(-.2 * bite), RightElbow: E(-.14 * bite)),
             "kick" => new(Turn: E(.075 * bite), Head: E(.05), RightStep: E(.06 * bite), RightLift: E(-.045 * bite), LeftElbow: E(.1)),

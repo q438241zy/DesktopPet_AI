@@ -19,4 +19,8 @@ $contactDocs = Join-Path $releaseRoot 'artwork/contact-motion'
 New-Item -ItemType Directory -Path $contactDocs -Force | Out-Null
 Copy-Item -LiteralPath "$projectRoot/artwork/contact-motion/prompts.md","$projectRoot/artwork/contact-motion/manifest.json","$projectRoot/artwork/contact-motion/calibration.json" -Destination $contactDocs
 Copy-Item -LiteralPath "$projectRoot/artwork/contact-motion/results" -Destination $contactDocs -Recurse -Force
+$interactionDocs = Join-Path $releaseRoot 'artwork/interaction-poses'
+New-Item -ItemType Directory -Path $interactionDocs -Force | Out-Null
+Copy-Item -LiteralPath "$projectRoot/artwork/interaction-poses/prompts.md","$projectRoot/artwork/interaction-poses/manifest.json" -Destination $interactionDocs
+Copy-Item -LiteralPath "$projectRoot/artwork/interaction-poses/results" -Destination $interactionDocs -Recurse -Force
 Write-Output "Ready: $releaseRoot/DesktopPet.exe"

@@ -8,10 +8,19 @@ namespace DesktopPet.App;
 
 internal static class ContactVerification
 {
-    public static async Task Run(PetWindow pet, string output, bool pilot, bool availableOnly = false)
+    public static async Task Run(PetWindow pet, string output, bool pilot, bool availableOnly = false, string? appearance = null)
     {
         var checks = new List<string>();
         void Require(bool ok, string message) { if (!ok) throw new InvalidOperationException(message); checks.Add("PASS " + message); }
+        async Task Until(Func<bool> predicate, string message, int timeout = 3000)
+        {
+            var elapsed = System.Diagnostics.Stopwatch.StartNew();
+            while (!predicate())
+            {
+                if (elapsed.ElapsedMilliseconds > timeout) throw new InvalidOperationException(message + ": " + pet.CurrentAction + "/" + pet.DrawnFrame);
+                await Task.Delay(20);
+            }
+        }
         var canvas = (Canvas)pet.Content;
         var sprite = canvas.Children.OfType<Image>().Single();
         var ball = canvas.Children.OfType<ItemVisual>().Single();
@@ -29,9 +38,10 @@ internal static class ContactVerification
         var appearances = (from c in pet.Catalog.Characters where c.Category != "chibi"
                            from outfit in new[] { "original", "swim", "wedding" }
                            where !pilot || c.Id == "qwen-3d" && outfit == "swim"
+                           where appearance is null || c.Id + "-" + outfit == appearance
                            where !availableOnly || c.MotionFor(outfit, "meal")?.BakedProps == true
                            select (c, outfit)).ToArray();
-        Require(availableOnly ? appearances.Length > 0 : appearances.Length == (pilot ? 1 : 48), availableOnly ? "covers installed action sheets for visual review" : "covers every requested portrait appearance");
+        Require(availableOnly ? appearances.Length > 0 : appearances.Length == (pilot || appearance is not null ? 1 : 48), availableOnly ? "covers installed action sheets for visual review" : "covers every requested portrait appearance");
         foreach (var (character, outfit) in appearances)
         {
             pet.SelectCharacter(character.Id); pet.State.Outfits[character.Id] = outfit; pet.ApplySettings();
@@ -42,33 +52,44 @@ internal static class ContactVerification
             {
                 var clip = character.MotionFor(outfit, action);
                 Require(clip is { BakedProps: true, Frames.Length: >= 3, Cells.Length: 9 }, character.Id + "/" + outfit + ": drawn " + action + " contains its own food");
-                pet.RunInteraction(input); await Task.Delay(100);
+                pet.RunInteraction(input);
                 Require(pet.UsingDrawnAction && pet.ActiveMotion is null, "drawn hands are never deformed by the waving-portrait rig");
                 Require(ReferenceEquals(sprite.Source, pet.Art.Frame(character, clip!, clip!.Frames![0])), "first pose comes from this exact outfit's action sheet");
                 Capture($"contact-{character.Id}-{outfit}-{action}-0");
-                await Task.Delay(450);
+                await Until(() => pet.DrawnFrame == clip.Frames[1], character.Id + "/" + outfit + ": next feeding pose");
                 Require(pet.DrawnFrame == clip.Frames[1], "the next drawn hand pose actually advances");
                 Require(Math.Abs(sprite.Height * pet.Art.VisibleHeight((BitmapSource)sprite.Source) - expectedHeight) < .5, "drawn pose preserves visible character height");
                 Capture($"contact-{character.Id}-{outfit}-{action}-1");
-                await Task.Delay(500); Capture($"contact-{character.Id}-{outfit}-{action}-2");
+                await Until(() => pet.DrawnFrame == clip.Frames[2], character.Id + "/" + outfit + ": third feeding pose");
+                Capture($"contact-{character.Id}-{outfit}-{action}-2");
             }
             pet.PlayWithToy("basketball"); await Task.Delay(70);
-            Require(pet.HasCaughtBall && pet.HandTarget is not null && pet.CurrentAction == "ball-hold", "taking a toy visibly holds it in both drawn hands");
-            Capture($"contact-{character.Id}-{outfit}-holding");
-            var hands = pet.HandTarget!.Value;
-            pet.ThrowToy(hands.X - 17, hands.Y + 65, 0, 0); await Task.Delay(140);
-            Require(!pet.HasCaughtBall, "a torso/elbow-height hit is not a successful hand catch");
-            hands = pet.HandTarget!.Value;
-            pet.ThrowToy(hands.X - 90, hands.Y - 17, 600, -35); await Task.Delay(190);
-            Require(pet.HasCaughtBall && pet.CurrentAction == "ball-hit", "a throw into the palms is caught");
-            Capture($"contact-{character.Id}-{outfit}-catching");
-            var settling = System.Diagnostics.Stopwatch.StartNew();
-            while (pet.CurrentAction == "ball-hit" && settling.ElapsedMilliseconds < 2200) await Task.Delay(40);
-            Require(pet.CurrentAction == "ball-hold" && pet.HasCaughtBall, character.Id + "/" + outfit + ": catch settles into the cradling pose without bouncing through the body (" + pet.CurrentAction + ")");
-            var center = new Point(Canvas.GetLeft(ball) + ball.Width / 2, Canvas.GetTop(ball) + ball.Height / 2);
-            Require((center - pet.HandTarget!.Value).Length < .1, "held toy follows the current frame's palm anchor");
-            Require(pet.State.Character == character.Id && pet.State.Outfit == outfit, "feeding and catching never change style or clothes");
+            Require(!pet.HasCaughtBall && pet.CurrentAction == "ball-ready" && ball.Visibility == Visibility.Visible
+                && Math.Abs(Canvas.GetTop(ball) + ball.Height - 468) < .1, "selected toy waits on the floor for a throw");
+            Capture($"contact-{character.Id}-{outfit}-ready");
+            double height = sprite.Height * pet.Art.VisibleHeight((BitmapSource)sprite.Source);
+            pet.ThrowToy(80, 468 - height * .55 - ball.Height / 2, 1000, -80);
+            var flight = System.Diagnostics.Stopwatch.StartNew();
+            while (!pet.BallWasHit && flight.ElapsedMilliseconds < 900) await Task.Delay(20);
+            Require(pet.BallWasHit && !pet.HasCaughtBall && pet.ToyInFlight && pet.CurrentAction == "ball-hit"
+                && pet.DrawnFrame == 14, character.Id + "/" + outfit + ": body impact flinches without attaching the ball to an elbow");
+            double impactX = Canvas.GetLeft(ball); await Task.Delay(100);
+            Require(Canvas.GetLeft(ball) < impactX, "impact reverses the ball away from the character");
+            Capture($"contact-{character.Id}-{outfit}-hit");
+            pet.ThrowToy(35, 70, 0, 0);
+            flight.Restart();
+            while (pet.ToyInFlight && flight.ElapsedMilliseconds < 6000) await Task.Delay(35);
+            Require(!pet.BallWasHit && !pet.HasCaughtBall && pet.CurrentAction == "ball-miss"
+                && pet.DrawnFrame == 15, character.Id + "/" + outfit + ": a distant throw produces the separate miss reaction (" + pet.CurrentAction + "/" + pet.DrawnFrame + ", flight=" + pet.ToyInFlight + ", hit=" + pet.BallWasHit + ")");
+            Capture($"contact-{character.Id}-{outfit}-miss");
+            Require(pet.State.Character == character.Id && pet.State.Outfit == outfit, "feeding and ball reactions never change style or clothes");
         }
+        pet.ThrowToy(35, 70, 0, 0);
+        // Simulate a busy dispatcher: physics deliberately limits long time steps,
+        // but an expired throw must still finish on the next rendered update.
+        Thread.Sleep(4200);
+        await System.Windows.Threading.Dispatcher.Yield(System.Windows.Threading.DispatcherPriority.ApplicationIdle);
+        Require(!pet.ToyInFlight && pet.CurrentAction == "ball-miss", "a delayed UI frame cannot prolong a missed throw beyond its real-time deadline");
         pet.StopInteraction();
         File.WriteAllLines(Path.Combine(output, "contact-check.txt"), checks.Append($"{checks.Count} drawn contact checks passed."));
     }

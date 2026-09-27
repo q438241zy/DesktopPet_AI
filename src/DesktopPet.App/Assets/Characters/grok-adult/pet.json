@@ -180,11 +180,11 @@
       "bakedProps": true
     },
     "ball-ready": {
-      "file": "motions/contact.png",
-      "columns": 3,
-      "rows": 3,
+      "file": "motions/interaction.png",
+      "columns": 4,
+      "rows": 4,
       "frames": [
-        6
+        0
       ],
       "frameMs": [
         5000
@@ -192,90 +192,127 @@
       "loop": false,
       "cells": [
         {
-          "x": 114,
-          "y": 7,
-          "width": 219,
-          "height": 509
+          "x": 46,
+          "y": 5,
+          "width": 187,
+          "height": 440
         },
         {
-          "x": 402,
-          "y": 7,
-          "width": 220,
-          "height": 509
+          "x": 286,
+          "y": 11,
+          "width": 209,
+          "height": 432
         },
         {
-          "x": 688,
-          "y": 7,
-          "width": 220,
-          "height": 509
+          "x": 537,
+          "y": 8,
+          "width": 196,
+          "height": 433
         },
         {
-          "x": 112,
-          "y": 513,
+          "x": 801,
+          "y": 87,
+          "width": 217,
+          "height": 337
+        },
+        {
+          "x": 21,
+          "y": 429,
+          "width": 230,
+          "height": 326
+        },
+        {
+          "x": 267,
+          "y": 464,
+          "width": 249,
+          "height": 328
+        },
+        {
+          "x": 528,
+          "y": 511,
+          "width": 233,
+          "height": 283
+        },
+        {
+          "x": 788,
+          "y": 571,
           "width": 222,
-          "height": 511
+          "height": 225
         },
         {
-          "x": 401,
-          "y": 513,
-          "width": 221,
-          "height": 510
+          "x": 7,
+          "y": 913,
+          "width": 290,
+          "height": 161
         },
         {
-          "x": 689,
-          "y": 513,
-          "width": 222,
-          "height": 511
+          "x": 306,
+          "y": 808,
+          "width": 206,
+          "height": 269
         },
         {
-          "x": 112,
-          "y": 1020,
-          "width": 221,
-          "height": 508
+          "x": 545,
+          "y": 808,
+          "width": 218,
+          "height": 267
         },
         {
-          "x": 404,
-          "y": 1021,
+          "x": 806,
+          "y": 803,
+          "width": 212,
+          "height": 271
+        },
+        {
+          "x": 29,
+          "y": 1079,
+          "width": 203,
+          "height": 424
+        },
+        {
+          "x": 266,
+          "y": 1090,
+          "width": 252,
+          "height": 321
+        },
+        {
+          "x": 540,
+          "y": 1094,
           "width": 220,
-          "height": 507
+          "height": 413
         },
         {
-          "x": 687,
-          "y": 1020,
-          "width": 223,
-          "height": 508
+          "x": 788,
+          "y": 1095,
+          "width": 227,
+          "height": 411
         }
       ],
-      "hands": [
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        {
-          "height": 0.26,
-          "span": 0.11,
-          "offset": 0
-        },
-        {
-          "height": 0.25,
-          "span": 0.11,
-          "offset": 0
-        },
-        {
-          "height": 0.27,
-          "span": 0.11,
-          "offset": 0
-        }
+      "heightRatios": [
+        1,
+        1,
+        1,
+        0.76,
+        0.82,
+        0.78,
+        0.6,
+        0.49,
+        0.34,
+        0.62,
+        0.62,
+        0.62,
+        1,
+        0.94,
+        0.94,
+        1
       ]
     },
     "anticipate": {
-      "file": "motions/contact.png",
-      "columns": 3,
-      "rows": 3,
+      "file": "motions/interaction.png",
+      "columns": 4,
+      "rows": 4,
       "frames": [
-        6
+        0
       ],
       "frameMs": [
         5000
@@ -283,177 +320,249 @@
       "loop": false,
       "cells": [
         {
-          "x": 114,
-          "y": 7,
-          "width": 219,
-          "height": 509
+          "x": 46,
+          "y": 5,
+          "width": 187,
+          "height": 440
         },
         {
-          "x": 402,
-          "y": 7,
-          "width": 220,
-          "height": 509
+          "x": 286,
+          "y": 11,
+          "width": 209,
+          "height": 432
         },
         {
-          "x": 688,
-          "y": 7,
-          "width": 220,
-          "height": 509
+          "x": 537,
+          "y": 8,
+          "width": 196,
+          "height": 433
         },
         {
-          "x": 112,
-          "y": 513,
+          "x": 801,
+          "y": 87,
+          "width": 217,
+          "height": 337
+        },
+        {
+          "x": 21,
+          "y": 429,
+          "width": 230,
+          "height": 326
+        },
+        {
+          "x": 267,
+          "y": 464,
+          "width": 249,
+          "height": 328
+        },
+        {
+          "x": 528,
+          "y": 511,
+          "width": 233,
+          "height": 283
+        },
+        {
+          "x": 788,
+          "y": 571,
           "width": 222,
-          "height": 511
+          "height": 225
         },
         {
-          "x": 401,
-          "y": 513,
-          "width": 221,
-          "height": 510
+          "x": 7,
+          "y": 913,
+          "width": 290,
+          "height": 161
         },
         {
-          "x": 689,
-          "y": 513,
-          "width": 222,
-          "height": 511
+          "x": 306,
+          "y": 808,
+          "width": 206,
+          "height": 269
         },
         {
-          "x": 112,
-          "y": 1020,
-          "width": 221,
-          "height": 508
+          "x": 545,
+          "y": 808,
+          "width": 218,
+          "height": 267
         },
         {
-          "x": 404,
-          "y": 1021,
+          "x": 806,
+          "y": 803,
+          "width": 212,
+          "height": 271
+        },
+        {
+          "x": 29,
+          "y": 1079,
+          "width": 203,
+          "height": 424
+        },
+        {
+          "x": 266,
+          "y": 1090,
+          "width": 252,
+          "height": 321
+        },
+        {
+          "x": 540,
+          "y": 1094,
           "width": 220,
-          "height": 507
+          "height": 413
         },
         {
-          "x": 687,
-          "y": 1020,
-          "width": 223,
-          "height": 508
+          "x": 788,
+          "y": 1095,
+          "width": 227,
+          "height": 411
         }
       ],
-      "hands": [
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        {
-          "height": 0.26,
-          "span": 0.11,
-          "offset": 0
-        },
-        {
-          "height": 0.25,
-          "span": 0.11,
-          "offset": 0
-        },
-        {
-          "height": 0.27,
-          "span": 0.11,
-          "offset": 0
-        }
+      "heightRatios": [
+        1,
+        1,
+        1,
+        0.76,
+        0.82,
+        0.78,
+        0.6,
+        0.49,
+        0.34,
+        0.62,
+        0.62,
+        0.62,
+        1,
+        0.94,
+        0.94,
+        1
       ]
     },
     "ball-hit": {
-      "file": "motions/contact.png",
-      "columns": 3,
-      "rows": 3,
+      "file": "motions/interaction.png",
+      "columns": 4,
+      "rows": 4,
       "frames": [
-        6,
-        7,
-        8
+        14,
+        0
       ],
       "frameMs": [
-        100,
-        180,
-        600
+        650,
+        300
       ],
       "loop": false,
       "cells": [
         {
-          "x": 114,
-          "y": 7,
-          "width": 219,
-          "height": 509
+          "x": 46,
+          "y": 5,
+          "width": 187,
+          "height": 440
         },
         {
-          "x": 402,
-          "y": 7,
-          "width": 220,
-          "height": 509
+          "x": 286,
+          "y": 11,
+          "width": 209,
+          "height": 432
         },
         {
-          "x": 688,
-          "y": 7,
-          "width": 220,
-          "height": 509
+          "x": 537,
+          "y": 8,
+          "width": 196,
+          "height": 433
         },
         {
-          "x": 112,
-          "y": 513,
+          "x": 801,
+          "y": 87,
+          "width": 217,
+          "height": 337
+        },
+        {
+          "x": 21,
+          "y": 429,
+          "width": 230,
+          "height": 326
+        },
+        {
+          "x": 267,
+          "y": 464,
+          "width": 249,
+          "height": 328
+        },
+        {
+          "x": 528,
+          "y": 511,
+          "width": 233,
+          "height": 283
+        },
+        {
+          "x": 788,
+          "y": 571,
           "width": 222,
-          "height": 511
+          "height": 225
         },
         {
-          "x": 401,
-          "y": 513,
-          "width": 221,
-          "height": 510
+          "x": 7,
+          "y": 913,
+          "width": 290,
+          "height": 161
         },
         {
-          "x": 689,
-          "y": 513,
-          "width": 222,
-          "height": 511
+          "x": 306,
+          "y": 808,
+          "width": 206,
+          "height": 269
         },
         {
-          "x": 112,
-          "y": 1020,
-          "width": 221,
-          "height": 508
+          "x": 545,
+          "y": 808,
+          "width": 218,
+          "height": 267
         },
         {
-          "x": 404,
-          "y": 1021,
+          "x": 806,
+          "y": 803,
+          "width": 212,
+          "height": 271
+        },
+        {
+          "x": 29,
+          "y": 1079,
+          "width": 203,
+          "height": 424
+        },
+        {
+          "x": 266,
+          "y": 1090,
+          "width": 252,
+          "height": 321
+        },
+        {
+          "x": 540,
+          "y": 1094,
           "width": 220,
-          "height": 507
+          "height": 413
         },
         {
-          "x": 687,
-          "y": 1020,
-          "width": 223,
-          "height": 508
+          "x": 788,
+          "y": 1095,
+          "width": 227,
+          "height": 411
         }
       ],
-      "hands": [
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        {
-          "height": 0.26,
-          "span": 0.11,
-          "offset": 0
-        },
-        {
-          "height": 0.25,
-          "span": 0.11,
-          "offset": 0
-        },
-        {
-          "height": 0.27,
-          "span": 0.11,
-          "offset": 0
-        }
+      "heightRatios": [
+        1,
+        1,
+        1,
+        0.76,
+        0.82,
+        0.78,
+        0.6,
+        0.49,
+        0.34,
+        0.62,
+        0.62,
+        0.62,
+        1,
+        0.94,
+        0.94,
+        1
       ]
     },
     "ball-hold": {
@@ -545,6 +654,1311 @@
           "span": 0.11,
           "offset": 0
         }
+      ]
+    },
+    "listen": {
+      "file": "motions/interaction.png",
+      "columns": 4,
+      "rows": 4,
+      "frames": [
+        0
+      ],
+      "frameMs": [
+        5000
+      ],
+      "loop": false,
+      "cells": [
+        {
+          "x": 46,
+          "y": 5,
+          "width": 187,
+          "height": 440
+        },
+        {
+          "x": 286,
+          "y": 11,
+          "width": 209,
+          "height": 432
+        },
+        {
+          "x": 537,
+          "y": 8,
+          "width": 196,
+          "height": 433
+        },
+        {
+          "x": 801,
+          "y": 87,
+          "width": 217,
+          "height": 337
+        },
+        {
+          "x": 21,
+          "y": 429,
+          "width": 230,
+          "height": 326
+        },
+        {
+          "x": 267,
+          "y": 464,
+          "width": 249,
+          "height": 328
+        },
+        {
+          "x": 528,
+          "y": 511,
+          "width": 233,
+          "height": 283
+        },
+        {
+          "x": 788,
+          "y": 571,
+          "width": 222,
+          "height": 225
+        },
+        {
+          "x": 7,
+          "y": 913,
+          "width": 290,
+          "height": 161
+        },
+        {
+          "x": 306,
+          "y": 808,
+          "width": 206,
+          "height": 269
+        },
+        {
+          "x": 545,
+          "y": 808,
+          "width": 218,
+          "height": 267
+        },
+        {
+          "x": 806,
+          "y": 803,
+          "width": 212,
+          "height": 271
+        },
+        {
+          "x": 29,
+          "y": 1079,
+          "width": 203,
+          "height": 424
+        },
+        {
+          "x": 266,
+          "y": 1090,
+          "width": 252,
+          "height": 321
+        },
+        {
+          "x": 540,
+          "y": 1094,
+          "width": 220,
+          "height": 413
+        },
+        {
+          "x": 788,
+          "y": 1095,
+          "width": 227,
+          "height": 411
+        }
+      ],
+      "heightRatios": [
+        1,
+        1,
+        1,
+        0.76,
+        0.82,
+        0.78,
+        0.6,
+        0.49,
+        0.34,
+        0.62,
+        0.62,
+        0.62,
+        1,
+        0.94,
+        0.94,
+        1
+      ]
+    },
+    "chat": {
+      "file": "motions/interaction.png",
+      "columns": 4,
+      "rows": 4,
+      "frames": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "frameMs": [
+        250,
+        340,
+        220,
+        310
+      ],
+      "loop": true,
+      "cells": [
+        {
+          "x": 46,
+          "y": 5,
+          "width": 187,
+          "height": 440
+        },
+        {
+          "x": 286,
+          "y": 11,
+          "width": 209,
+          "height": 432
+        },
+        {
+          "x": 537,
+          "y": 8,
+          "width": 196,
+          "height": 433
+        },
+        {
+          "x": 801,
+          "y": 87,
+          "width": 217,
+          "height": 337
+        },
+        {
+          "x": 21,
+          "y": 429,
+          "width": 230,
+          "height": 326
+        },
+        {
+          "x": 267,
+          "y": 464,
+          "width": 249,
+          "height": 328
+        },
+        {
+          "x": 528,
+          "y": 511,
+          "width": 233,
+          "height": 283
+        },
+        {
+          "x": 788,
+          "y": 571,
+          "width": 222,
+          "height": 225
+        },
+        {
+          "x": 7,
+          "y": 913,
+          "width": 290,
+          "height": 161
+        },
+        {
+          "x": 306,
+          "y": 808,
+          "width": 206,
+          "height": 269
+        },
+        {
+          "x": 545,
+          "y": 808,
+          "width": 218,
+          "height": 267
+        },
+        {
+          "x": 806,
+          "y": 803,
+          "width": 212,
+          "height": 271
+        },
+        {
+          "x": 29,
+          "y": 1079,
+          "width": 203,
+          "height": 424
+        },
+        {
+          "x": 266,
+          "y": 1090,
+          "width": 252,
+          "height": 321
+        },
+        {
+          "x": 540,
+          "y": 1094,
+          "width": 220,
+          "height": 413
+        },
+        {
+          "x": 788,
+          "y": 1095,
+          "width": 227,
+          "height": 411
+        }
+      ],
+      "heightRatios": [
+        1,
+        1,
+        1,
+        0.76,
+        0.82,
+        0.78,
+        0.6,
+        0.49,
+        0.34,
+        0.62,
+        0.62,
+        0.62,
+        1,
+        0.94,
+        0.94,
+        1
+      ]
+    },
+    "think": {
+      "file": "motions/interaction.png",
+      "columns": 4,
+      "rows": 4,
+      "frames": [
+        2
+      ],
+      "frameMs": [
+        5000
+      ],
+      "loop": false,
+      "cells": [
+        {
+          "x": 46,
+          "y": 5,
+          "width": 187,
+          "height": 440
+        },
+        {
+          "x": 286,
+          "y": 11,
+          "width": 209,
+          "height": 432
+        },
+        {
+          "x": 537,
+          "y": 8,
+          "width": 196,
+          "height": 433
+        },
+        {
+          "x": 801,
+          "y": 87,
+          "width": 217,
+          "height": 337
+        },
+        {
+          "x": 21,
+          "y": 429,
+          "width": 230,
+          "height": 326
+        },
+        {
+          "x": 267,
+          "y": 464,
+          "width": 249,
+          "height": 328
+        },
+        {
+          "x": 528,
+          "y": 511,
+          "width": 233,
+          "height": 283
+        },
+        {
+          "x": 788,
+          "y": 571,
+          "width": 222,
+          "height": 225
+        },
+        {
+          "x": 7,
+          "y": 913,
+          "width": 290,
+          "height": 161
+        },
+        {
+          "x": 306,
+          "y": 808,
+          "width": 206,
+          "height": 269
+        },
+        {
+          "x": 545,
+          "y": 808,
+          "width": 218,
+          "height": 267
+        },
+        {
+          "x": 806,
+          "y": 803,
+          "width": 212,
+          "height": 271
+        },
+        {
+          "x": 29,
+          "y": 1079,
+          "width": 203,
+          "height": 424
+        },
+        {
+          "x": 266,
+          "y": 1090,
+          "width": 252,
+          "height": 321
+        },
+        {
+          "x": 540,
+          "y": 1094,
+          "width": 220,
+          "height": 413
+        },
+        {
+          "x": 788,
+          "y": 1095,
+          "width": 227,
+          "height": 411
+        }
+      ],
+      "heightRatios": [
+        1,
+        1,
+        1,
+        0.76,
+        0.82,
+        0.78,
+        0.6,
+        0.49,
+        0.34,
+        0.62,
+        0.62,
+        0.62,
+        1,
+        0.94,
+        0.94,
+        1
+      ]
+    },
+    "jump": {
+      "file": "motions/interaction.png",
+      "columns": 4,
+      "rows": 4,
+      "frames": [
+        3,
+        4,
+        5,
+        0
+      ],
+      "frameMs": [
+        240,
+        640,
+        240,
+        200
+      ],
+      "loop": false,
+      "cells": [
+        {
+          "x": 46,
+          "y": 5,
+          "width": 187,
+          "height": 440
+        },
+        {
+          "x": 286,
+          "y": 11,
+          "width": 209,
+          "height": 432
+        },
+        {
+          "x": 537,
+          "y": 8,
+          "width": 196,
+          "height": 433
+        },
+        {
+          "x": 801,
+          "y": 87,
+          "width": 217,
+          "height": 337
+        },
+        {
+          "x": 21,
+          "y": 429,
+          "width": 230,
+          "height": 326
+        },
+        {
+          "x": 267,
+          "y": 464,
+          "width": 249,
+          "height": 328
+        },
+        {
+          "x": 528,
+          "y": 511,
+          "width": 233,
+          "height": 283
+        },
+        {
+          "x": 788,
+          "y": 571,
+          "width": 222,
+          "height": 225
+        },
+        {
+          "x": 7,
+          "y": 913,
+          "width": 290,
+          "height": 161
+        },
+        {
+          "x": 306,
+          "y": 808,
+          "width": 206,
+          "height": 269
+        },
+        {
+          "x": 545,
+          "y": 808,
+          "width": 218,
+          "height": 267
+        },
+        {
+          "x": 806,
+          "y": 803,
+          "width": 212,
+          "height": 271
+        },
+        {
+          "x": 29,
+          "y": 1079,
+          "width": 203,
+          "height": 424
+        },
+        {
+          "x": 266,
+          "y": 1090,
+          "width": 252,
+          "height": 321
+        },
+        {
+          "x": 540,
+          "y": 1094,
+          "width": 220,
+          "height": 413
+        },
+        {
+          "x": 788,
+          "y": 1095,
+          "width": 227,
+          "height": 411
+        }
+      ],
+      "heightRatios": [
+        1,
+        1,
+        1,
+        0.76,
+        0.82,
+        0.78,
+        0.6,
+        0.49,
+        0.34,
+        0.62,
+        0.62,
+        0.62,
+        1,
+        0.94,
+        0.94,
+        1
+      ]
+    },
+    "land": {
+      "file": "motions/interaction.png",
+      "columns": 4,
+      "rows": 4,
+      "frames": [
+        5,
+        0
+      ],
+      "frameMs": [
+        250,
+        160
+      ],
+      "loop": false,
+      "cells": [
+        {
+          "x": 46,
+          "y": 5,
+          "width": 187,
+          "height": 440
+        },
+        {
+          "x": 286,
+          "y": 11,
+          "width": 209,
+          "height": 432
+        },
+        {
+          "x": 537,
+          "y": 8,
+          "width": 196,
+          "height": 433
+        },
+        {
+          "x": 801,
+          "y": 87,
+          "width": 217,
+          "height": 337
+        },
+        {
+          "x": 21,
+          "y": 429,
+          "width": 230,
+          "height": 326
+        },
+        {
+          "x": 267,
+          "y": 464,
+          "width": 249,
+          "height": 328
+        },
+        {
+          "x": 528,
+          "y": 511,
+          "width": 233,
+          "height": 283
+        },
+        {
+          "x": 788,
+          "y": 571,
+          "width": 222,
+          "height": 225
+        },
+        {
+          "x": 7,
+          "y": 913,
+          "width": 290,
+          "height": 161
+        },
+        {
+          "x": 306,
+          "y": 808,
+          "width": 206,
+          "height": 269
+        },
+        {
+          "x": 545,
+          "y": 808,
+          "width": 218,
+          "height": 267
+        },
+        {
+          "x": 806,
+          "y": 803,
+          "width": 212,
+          "height": 271
+        },
+        {
+          "x": 29,
+          "y": 1079,
+          "width": 203,
+          "height": 424
+        },
+        {
+          "x": 266,
+          "y": 1090,
+          "width": 252,
+          "height": 321
+        },
+        {
+          "x": 540,
+          "y": 1094,
+          "width": 220,
+          "height": 413
+        },
+        {
+          "x": 788,
+          "y": 1095,
+          "width": 227,
+          "height": 411
+        }
+      ],
+      "heightRatios": [
+        1,
+        1,
+        1,
+        0.76,
+        0.82,
+        0.78,
+        0.6,
+        0.49,
+        0.34,
+        0.62,
+        0.62,
+        0.62,
+        1,
+        0.94,
+        0.94,
+        1
+      ]
+    },
+    "curl": {
+      "file": "motions/interaction.png",
+      "columns": 4,
+      "rows": 4,
+      "frames": [
+        6,
+        7
+      ],
+      "frameMs": [
+        600,
+        2400
+      ],
+      "loop": false,
+      "cells": [
+        {
+          "x": 46,
+          "y": 5,
+          "width": 187,
+          "height": 440
+        },
+        {
+          "x": 286,
+          "y": 11,
+          "width": 209,
+          "height": 432
+        },
+        {
+          "x": 537,
+          "y": 8,
+          "width": 196,
+          "height": 433
+        },
+        {
+          "x": 801,
+          "y": 87,
+          "width": 217,
+          "height": 337
+        },
+        {
+          "x": 21,
+          "y": 429,
+          "width": 230,
+          "height": 326
+        },
+        {
+          "x": 267,
+          "y": 464,
+          "width": 249,
+          "height": 328
+        },
+        {
+          "x": 528,
+          "y": 511,
+          "width": 233,
+          "height": 283
+        },
+        {
+          "x": 788,
+          "y": 571,
+          "width": 222,
+          "height": 225
+        },
+        {
+          "x": 7,
+          "y": 913,
+          "width": 290,
+          "height": 161
+        },
+        {
+          "x": 306,
+          "y": 808,
+          "width": 206,
+          "height": 269
+        },
+        {
+          "x": 545,
+          "y": 808,
+          "width": 218,
+          "height": 267
+        },
+        {
+          "x": 806,
+          "y": 803,
+          "width": 212,
+          "height": 271
+        },
+        {
+          "x": 29,
+          "y": 1079,
+          "width": 203,
+          "height": 424
+        },
+        {
+          "x": 266,
+          "y": 1090,
+          "width": 252,
+          "height": 321
+        },
+        {
+          "x": 540,
+          "y": 1094,
+          "width": 220,
+          "height": 413
+        },
+        {
+          "x": 788,
+          "y": 1095,
+          "width": 227,
+          "height": 411
+        }
+      ],
+      "heightRatios": [
+        1,
+        1,
+        1,
+        0.76,
+        0.82,
+        0.78,
+        0.6,
+        0.49,
+        0.34,
+        0.62,
+        0.62,
+        0.62,
+        1,
+        0.94,
+        0.94,
+        1
+      ]
+    },
+    "sleep": {
+      "file": "motions/interaction.png",
+      "columns": 4,
+      "rows": 4,
+      "frames": [
+        8
+      ],
+      "frameMs": [
+        5000
+      ],
+      "loop": false,
+      "cells": [
+        {
+          "x": 46,
+          "y": 5,
+          "width": 187,
+          "height": 440
+        },
+        {
+          "x": 286,
+          "y": 11,
+          "width": 209,
+          "height": 432
+        },
+        {
+          "x": 537,
+          "y": 8,
+          "width": 196,
+          "height": 433
+        },
+        {
+          "x": 801,
+          "y": 87,
+          "width": 217,
+          "height": 337
+        },
+        {
+          "x": 21,
+          "y": 429,
+          "width": 230,
+          "height": 326
+        },
+        {
+          "x": 267,
+          "y": 464,
+          "width": 249,
+          "height": 328
+        },
+        {
+          "x": 528,
+          "y": 511,
+          "width": 233,
+          "height": 283
+        },
+        {
+          "x": 788,
+          "y": 571,
+          "width": 222,
+          "height": 225
+        },
+        {
+          "x": 7,
+          "y": 913,
+          "width": 290,
+          "height": 161
+        },
+        {
+          "x": 306,
+          "y": 808,
+          "width": 206,
+          "height": 269
+        },
+        {
+          "x": 545,
+          "y": 808,
+          "width": 218,
+          "height": 267
+        },
+        {
+          "x": 806,
+          "y": 803,
+          "width": 212,
+          "height": 271
+        },
+        {
+          "x": 29,
+          "y": 1079,
+          "width": 203,
+          "height": 424
+        },
+        {
+          "x": 266,
+          "y": 1090,
+          "width": 252,
+          "height": 321
+        },
+        {
+          "x": 540,
+          "y": 1094,
+          "width": 220,
+          "height": 413
+        },
+        {
+          "x": 788,
+          "y": 1095,
+          "width": 227,
+          "height": 411
+        }
+      ],
+      "heightRatios": [
+        1,
+        1,
+        1,
+        0.76,
+        0.82,
+        0.78,
+        0.6,
+        0.49,
+        0.34,
+        0.62,
+        0.62,
+        0.62,
+        1,
+        0.94,
+        0.94,
+        1
+      ]
+    },
+    "build": {
+      "file": "motions/interaction.png",
+      "columns": 4,
+      "rows": 4,
+      "frames": [
+        9,
+        10,
+        11
+      ],
+      "frameMs": [
+        850,
+        1000,
+        1550
+      ],
+      "loop": false,
+      "cells": [
+        {
+          "x": 46,
+          "y": 5,
+          "width": 187,
+          "height": 440
+        },
+        {
+          "x": 286,
+          "y": 11,
+          "width": 209,
+          "height": 432
+        },
+        {
+          "x": 537,
+          "y": 8,
+          "width": 196,
+          "height": 433
+        },
+        {
+          "x": 801,
+          "y": 87,
+          "width": 217,
+          "height": 337
+        },
+        {
+          "x": 21,
+          "y": 429,
+          "width": 230,
+          "height": 326
+        },
+        {
+          "x": 267,
+          "y": 464,
+          "width": 249,
+          "height": 328
+        },
+        {
+          "x": 528,
+          "y": 511,
+          "width": 233,
+          "height": 283
+        },
+        {
+          "x": 788,
+          "y": 571,
+          "width": 222,
+          "height": 225
+        },
+        {
+          "x": 7,
+          "y": 913,
+          "width": 290,
+          "height": 161
+        },
+        {
+          "x": 306,
+          "y": 808,
+          "width": 206,
+          "height": 269
+        },
+        {
+          "x": 545,
+          "y": 808,
+          "width": 218,
+          "height": 267
+        },
+        {
+          "x": 806,
+          "y": 803,
+          "width": 212,
+          "height": 271
+        },
+        {
+          "x": 29,
+          "y": 1079,
+          "width": 203,
+          "height": 424
+        },
+        {
+          "x": 266,
+          "y": 1090,
+          "width": 252,
+          "height": 321
+        },
+        {
+          "x": 540,
+          "y": 1094,
+          "width": 220,
+          "height": 413
+        },
+        {
+          "x": 788,
+          "y": 1095,
+          "width": 227,
+          "height": 411
+        }
+      ],
+      "heightRatios": [
+        1,
+        1,
+        1,
+        0.76,
+        0.82,
+        0.78,
+        0.6,
+        0.49,
+        0.34,
+        0.62,
+        0.62,
+        0.62,
+        1,
+        0.94,
+        0.94,
+        1
+      ],
+      "bakedProps": true
+    },
+    "pickup": {
+      "file": "motions/interaction.png",
+      "columns": 4,
+      "rows": 4,
+      "frames": [
+        12,
+        13
+      ],
+      "frameMs": [
+        220,
+        5000
+      ],
+      "loop": false,
+      "cells": [
+        {
+          "x": 46,
+          "y": 5,
+          "width": 187,
+          "height": 440
+        },
+        {
+          "x": 286,
+          "y": 11,
+          "width": 209,
+          "height": 432
+        },
+        {
+          "x": 537,
+          "y": 8,
+          "width": 196,
+          "height": 433
+        },
+        {
+          "x": 801,
+          "y": 87,
+          "width": 217,
+          "height": 337
+        },
+        {
+          "x": 21,
+          "y": 429,
+          "width": 230,
+          "height": 326
+        },
+        {
+          "x": 267,
+          "y": 464,
+          "width": 249,
+          "height": 328
+        },
+        {
+          "x": 528,
+          "y": 511,
+          "width": 233,
+          "height": 283
+        },
+        {
+          "x": 788,
+          "y": 571,
+          "width": 222,
+          "height": 225
+        },
+        {
+          "x": 7,
+          "y": 913,
+          "width": 290,
+          "height": 161
+        },
+        {
+          "x": 306,
+          "y": 808,
+          "width": 206,
+          "height": 269
+        },
+        {
+          "x": 545,
+          "y": 808,
+          "width": 218,
+          "height": 267
+        },
+        {
+          "x": 806,
+          "y": 803,
+          "width": 212,
+          "height": 271
+        },
+        {
+          "x": 29,
+          "y": 1079,
+          "width": 203,
+          "height": 424
+        },
+        {
+          "x": 266,
+          "y": 1090,
+          "width": 252,
+          "height": 321
+        },
+        {
+          "x": 540,
+          "y": 1094,
+          "width": 220,
+          "height": 413
+        },
+        {
+          "x": 788,
+          "y": 1095,
+          "width": 227,
+          "height": 411
+        }
+      ],
+      "heightRatios": [
+        1,
+        1,
+        1,
+        0.76,
+        0.82,
+        0.78,
+        0.6,
+        0.49,
+        0.34,
+        0.62,
+        0.62,
+        0.62,
+        1,
+        0.94,
+        0.94,
+        1
+      ]
+    },
+    "ball-miss": {
+      "file": "motions/interaction.png",
+      "columns": 4,
+      "rows": 4,
+      "frames": [
+        15,
+        0
+      ],
+      "frameMs": [
+        1000,
+        300
+      ],
+      "loop": false,
+      "cells": [
+        {
+          "x": 46,
+          "y": 5,
+          "width": 187,
+          "height": 440
+        },
+        {
+          "x": 286,
+          "y": 11,
+          "width": 209,
+          "height": 432
+        },
+        {
+          "x": 537,
+          "y": 8,
+          "width": 196,
+          "height": 433
+        },
+        {
+          "x": 801,
+          "y": 87,
+          "width": 217,
+          "height": 337
+        },
+        {
+          "x": 21,
+          "y": 429,
+          "width": 230,
+          "height": 326
+        },
+        {
+          "x": 267,
+          "y": 464,
+          "width": 249,
+          "height": 328
+        },
+        {
+          "x": 528,
+          "y": 511,
+          "width": 233,
+          "height": 283
+        },
+        {
+          "x": 788,
+          "y": 571,
+          "width": 222,
+          "height": 225
+        },
+        {
+          "x": 7,
+          "y": 913,
+          "width": 290,
+          "height": 161
+        },
+        {
+          "x": 306,
+          "y": 808,
+          "width": 206,
+          "height": 269
+        },
+        {
+          "x": 545,
+          "y": 808,
+          "width": 218,
+          "height": 267
+        },
+        {
+          "x": 806,
+          "y": 803,
+          "width": 212,
+          "height": 271
+        },
+        {
+          "x": 29,
+          "y": 1079,
+          "width": 203,
+          "height": 424
+        },
+        {
+          "x": 266,
+          "y": 1090,
+          "width": 252,
+          "height": 321
+        },
+        {
+          "x": 540,
+          "y": 1094,
+          "width": 220,
+          "height": 413
+        },
+        {
+          "x": 788,
+          "y": 1095,
+          "width": 227,
+          "height": 411
+        }
+      ],
+      "heightRatios": [
+        1,
+        1,
+        1,
+        0.76,
+        0.82,
+        0.78,
+        0.6,
+        0.49,
+        0.34,
+        0.62,
+        0.62,
+        0.62,
+        1,
+        0.94,
+        0.94,
+        1
       ]
     }
   },
@@ -724,11 +2138,11 @@
           "bakedProps": true
         },
         "ball-ready": {
-          "file": "outfits/swim/contact.png",
-          "columns": 3,
-          "rows": 3,
+          "file": "outfits/swim/interaction.png",
+          "columns": 4,
+          "rows": 4,
           "frames": [
-            6
+            0
           ],
           "frameMs": [
             5000
@@ -736,90 +2150,127 @@
           "loop": false,
           "cells": [
             {
-              "x": 89,
-              "y": 8,
-              "width": 221,
-              "height": 517
+              "x": 80,
+              "y": 29,
+              "width": 161,
+              "height": 371
             },
             {
-              "x": 405,
-              "y": 7,
-              "width": 220,
-              "height": 518
+              "x": 315,
+              "y": 30,
+              "width": 183,
+              "height": 369
             },
             {
-              "x": 726,
-              "y": 6,
+              "x": 579,
+              "y": 31,
+              "width": 149,
+              "height": 369
+            },
+            {
+              "x": 808,
+              "y": 121,
+              "width": 184,
+              "height": 289
+            },
+            {
+              "x": 51,
+              "y": 452,
               "width": 219,
-              "height": 519
+              "height": 306
             },
             {
-              "x": 89,
-              "y": 522,
-              "width": 228,
-              "height": 514
+              "x": 296,
+              "y": 497,
+              "width": 234,
+              "height": 290
             },
             {
-              "x": 404,
-              "y": 521,
-              "width": 227,
-              "height": 515
+              "x": 555,
+              "y": 535,
+              "width": 203,
+              "height": 254
             },
             {
-              "x": 726,
-              "y": 522,
-              "width": 228,
-              "height": 514
+              "x": 807,
+              "y": 577,
+              "width": 195,
+              "height": 212
             },
             {
-              "x": 87,
-              "y": 1031,
-              "width": 224,
-              "height": 492
+              "x": 22,
+              "y": 927,
+              "width": 280,
+              "height": 136
             },
             {
-              "x": 406,
-              "y": 1030,
-              "width": 229,
-              "height": 493
+              "x": 324,
+              "y": 822,
+              "width": 186,
+              "height": 242
             },
             {
-              "x": 725,
-              "y": 1031,
-              "width": 233,
-              "height": 492
+              "x": 562,
+              "y": 823,
+              "width": 193,
+              "height": 234
+            },
+            {
+              "x": 821,
+              "y": 819,
+              "width": 178,
+              "height": 241
+            },
+            {
+              "x": 51,
+              "y": 1094,
+              "width": 174,
+              "height": 379
+            },
+            {
+              "x": 279,
+              "y": 1100,
+              "width": 266,
+              "height": 289
+            },
+            {
+              "x": 577,
+              "y": 1103,
+              "width": 176,
+              "height": 373
+            },
+            {
+              "x": 804,
+              "y": 1103,
+              "width": 198,
+              "height": 372
             }
           ],
-          "hands": [
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            {
-              "height": 0.245,
-              "span": 0.11,
-              "offset": 0
-            },
-            {
-              "height": 0.22,
-              "span": 0.11,
-              "offset": 0
-            },
-            {
-              "height": 0.27,
-              "span": 0.11,
-              "offset": 0
-            }
+          "heightRatios": [
+            1,
+            1,
+            1,
+            0.76,
+            0.82,
+            0.78,
+            0.6,
+            0.49,
+            0.34,
+            0.62,
+            0.62,
+            0.62,
+            1,
+            0.94,
+            0.94,
+            1
           ]
         },
         "anticipate": {
-          "file": "outfits/swim/contact.png",
-          "columns": 3,
-          "rows": 3,
+          "file": "outfits/swim/interaction.png",
+          "columns": 4,
+          "rows": 4,
           "frames": [
-            6
+            0
           ],
           "frameMs": [
             5000
@@ -827,177 +2278,249 @@
           "loop": false,
           "cells": [
             {
-              "x": 89,
-              "y": 8,
-              "width": 221,
-              "height": 517
+              "x": 80,
+              "y": 29,
+              "width": 161,
+              "height": 371
             },
             {
-              "x": 405,
-              "y": 7,
-              "width": 220,
-              "height": 518
+              "x": 315,
+              "y": 30,
+              "width": 183,
+              "height": 369
             },
             {
-              "x": 726,
-              "y": 6,
+              "x": 579,
+              "y": 31,
+              "width": 149,
+              "height": 369
+            },
+            {
+              "x": 808,
+              "y": 121,
+              "width": 184,
+              "height": 289
+            },
+            {
+              "x": 51,
+              "y": 452,
               "width": 219,
-              "height": 519
+              "height": 306
             },
             {
-              "x": 89,
-              "y": 522,
-              "width": 228,
-              "height": 514
+              "x": 296,
+              "y": 497,
+              "width": 234,
+              "height": 290
             },
             {
-              "x": 404,
-              "y": 521,
-              "width": 227,
-              "height": 515
+              "x": 555,
+              "y": 535,
+              "width": 203,
+              "height": 254
             },
             {
-              "x": 726,
-              "y": 522,
-              "width": 228,
-              "height": 514
+              "x": 807,
+              "y": 577,
+              "width": 195,
+              "height": 212
             },
             {
-              "x": 87,
-              "y": 1031,
-              "width": 224,
-              "height": 492
+              "x": 22,
+              "y": 927,
+              "width": 280,
+              "height": 136
             },
             {
-              "x": 406,
-              "y": 1030,
-              "width": 229,
-              "height": 493
+              "x": 324,
+              "y": 822,
+              "width": 186,
+              "height": 242
             },
             {
-              "x": 725,
-              "y": 1031,
-              "width": 233,
-              "height": 492
+              "x": 562,
+              "y": 823,
+              "width": 193,
+              "height": 234
+            },
+            {
+              "x": 821,
+              "y": 819,
+              "width": 178,
+              "height": 241
+            },
+            {
+              "x": 51,
+              "y": 1094,
+              "width": 174,
+              "height": 379
+            },
+            {
+              "x": 279,
+              "y": 1100,
+              "width": 266,
+              "height": 289
+            },
+            {
+              "x": 577,
+              "y": 1103,
+              "width": 176,
+              "height": 373
+            },
+            {
+              "x": 804,
+              "y": 1103,
+              "width": 198,
+              "height": 372
             }
           ],
-          "hands": [
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            {
-              "height": 0.245,
-              "span": 0.11,
-              "offset": 0
-            },
-            {
-              "height": 0.22,
-              "span": 0.11,
-              "offset": 0
-            },
-            {
-              "height": 0.27,
-              "span": 0.11,
-              "offset": 0
-            }
+          "heightRatios": [
+            1,
+            1,
+            1,
+            0.76,
+            0.82,
+            0.78,
+            0.6,
+            0.49,
+            0.34,
+            0.62,
+            0.62,
+            0.62,
+            1,
+            0.94,
+            0.94,
+            1
           ]
         },
         "ball-hit": {
-          "file": "outfits/swim/contact.png",
-          "columns": 3,
-          "rows": 3,
+          "file": "outfits/swim/interaction.png",
+          "columns": 4,
+          "rows": 4,
           "frames": [
-            6,
-            7,
-            8
+            14,
+            0
           ],
           "frameMs": [
-            100,
-            180,
-            600
+            650,
+            300
           ],
           "loop": false,
           "cells": [
             {
-              "x": 89,
-              "y": 8,
-              "width": 221,
-              "height": 517
+              "x": 80,
+              "y": 29,
+              "width": 161,
+              "height": 371
             },
             {
-              "x": 405,
-              "y": 7,
-              "width": 220,
-              "height": 518
+              "x": 315,
+              "y": 30,
+              "width": 183,
+              "height": 369
             },
             {
-              "x": 726,
-              "y": 6,
+              "x": 579,
+              "y": 31,
+              "width": 149,
+              "height": 369
+            },
+            {
+              "x": 808,
+              "y": 121,
+              "width": 184,
+              "height": 289
+            },
+            {
+              "x": 51,
+              "y": 452,
               "width": 219,
-              "height": 519
+              "height": 306
             },
             {
-              "x": 89,
-              "y": 522,
-              "width": 228,
-              "height": 514
+              "x": 296,
+              "y": 497,
+              "width": 234,
+              "height": 290
             },
             {
-              "x": 404,
-              "y": 521,
-              "width": 227,
-              "height": 515
+              "x": 555,
+              "y": 535,
+              "width": 203,
+              "height": 254
             },
             {
-              "x": 726,
-              "y": 522,
-              "width": 228,
-              "height": 514
+              "x": 807,
+              "y": 577,
+              "width": 195,
+              "height": 212
             },
             {
-              "x": 87,
-              "y": 1031,
-              "width": 224,
-              "height": 492
+              "x": 22,
+              "y": 927,
+              "width": 280,
+              "height": 136
             },
             {
-              "x": 406,
-              "y": 1030,
-              "width": 229,
-              "height": 493
+              "x": 324,
+              "y": 822,
+              "width": 186,
+              "height": 242
             },
             {
-              "x": 725,
-              "y": 1031,
-              "width": 233,
-              "height": 492
+              "x": 562,
+              "y": 823,
+              "width": 193,
+              "height": 234
+            },
+            {
+              "x": 821,
+              "y": 819,
+              "width": 178,
+              "height": 241
+            },
+            {
+              "x": 51,
+              "y": 1094,
+              "width": 174,
+              "height": 379
+            },
+            {
+              "x": 279,
+              "y": 1100,
+              "width": 266,
+              "height": 289
+            },
+            {
+              "x": 577,
+              "y": 1103,
+              "width": 176,
+              "height": 373
+            },
+            {
+              "x": 804,
+              "y": 1103,
+              "width": 198,
+              "height": 372
             }
           ],
-          "hands": [
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            {
-              "height": 0.245,
-              "span": 0.11,
-              "offset": 0
-            },
-            {
-              "height": 0.22,
-              "span": 0.11,
-              "offset": 0
-            },
-            {
-              "height": 0.27,
-              "span": 0.11,
-              "offset": 0
-            }
+          "heightRatios": [
+            1,
+            1,
+            1,
+            0.76,
+            0.82,
+            0.78,
+            0.6,
+            0.49,
+            0.34,
+            0.62,
+            0.62,
+            0.62,
+            1,
+            0.94,
+            0.94,
+            1
           ]
         },
         "ball-hold": {
@@ -1089,6 +2612,1311 @@
               "span": 0.11,
               "offset": 0
             }
+          ]
+        },
+        "listen": {
+          "file": "outfits/swim/interaction.png",
+          "columns": 4,
+          "rows": 4,
+          "frames": [
+            0
+          ],
+          "frameMs": [
+            5000
+          ],
+          "loop": false,
+          "cells": [
+            {
+              "x": 80,
+              "y": 29,
+              "width": 161,
+              "height": 371
+            },
+            {
+              "x": 315,
+              "y": 30,
+              "width": 183,
+              "height": 369
+            },
+            {
+              "x": 579,
+              "y": 31,
+              "width": 149,
+              "height": 369
+            },
+            {
+              "x": 808,
+              "y": 121,
+              "width": 184,
+              "height": 289
+            },
+            {
+              "x": 51,
+              "y": 452,
+              "width": 219,
+              "height": 306
+            },
+            {
+              "x": 296,
+              "y": 497,
+              "width": 234,
+              "height": 290
+            },
+            {
+              "x": 555,
+              "y": 535,
+              "width": 203,
+              "height": 254
+            },
+            {
+              "x": 807,
+              "y": 577,
+              "width": 195,
+              "height": 212
+            },
+            {
+              "x": 22,
+              "y": 927,
+              "width": 280,
+              "height": 136
+            },
+            {
+              "x": 324,
+              "y": 822,
+              "width": 186,
+              "height": 242
+            },
+            {
+              "x": 562,
+              "y": 823,
+              "width": 193,
+              "height": 234
+            },
+            {
+              "x": 821,
+              "y": 819,
+              "width": 178,
+              "height": 241
+            },
+            {
+              "x": 51,
+              "y": 1094,
+              "width": 174,
+              "height": 379
+            },
+            {
+              "x": 279,
+              "y": 1100,
+              "width": 266,
+              "height": 289
+            },
+            {
+              "x": 577,
+              "y": 1103,
+              "width": 176,
+              "height": 373
+            },
+            {
+              "x": 804,
+              "y": 1103,
+              "width": 198,
+              "height": 372
+            }
+          ],
+          "heightRatios": [
+            1,
+            1,
+            1,
+            0.76,
+            0.82,
+            0.78,
+            0.6,
+            0.49,
+            0.34,
+            0.62,
+            0.62,
+            0.62,
+            1,
+            0.94,
+            0.94,
+            1
+          ]
+        },
+        "chat": {
+          "file": "outfits/swim/interaction.png",
+          "columns": 4,
+          "rows": 4,
+          "frames": [
+            0,
+            1,
+            0,
+            1
+          ],
+          "frameMs": [
+            250,
+            340,
+            220,
+            310
+          ],
+          "loop": true,
+          "cells": [
+            {
+              "x": 80,
+              "y": 29,
+              "width": 161,
+              "height": 371
+            },
+            {
+              "x": 315,
+              "y": 30,
+              "width": 183,
+              "height": 369
+            },
+            {
+              "x": 579,
+              "y": 31,
+              "width": 149,
+              "height": 369
+            },
+            {
+              "x": 808,
+              "y": 121,
+              "width": 184,
+              "height": 289
+            },
+            {
+              "x": 51,
+              "y": 452,
+              "width": 219,
+              "height": 306
+            },
+            {
+              "x": 296,
+              "y": 497,
+              "width": 234,
+              "height": 290
+            },
+            {
+              "x": 555,
+              "y": 535,
+              "width": 203,
+              "height": 254
+            },
+            {
+              "x": 807,
+              "y": 577,
+              "width": 195,
+              "height": 212
+            },
+            {
+              "x": 22,
+              "y": 927,
+              "width": 280,
+              "height": 136
+            },
+            {
+              "x": 324,
+              "y": 822,
+              "width": 186,
+              "height": 242
+            },
+            {
+              "x": 562,
+              "y": 823,
+              "width": 193,
+              "height": 234
+            },
+            {
+              "x": 821,
+              "y": 819,
+              "width": 178,
+              "height": 241
+            },
+            {
+              "x": 51,
+              "y": 1094,
+              "width": 174,
+              "height": 379
+            },
+            {
+              "x": 279,
+              "y": 1100,
+              "width": 266,
+              "height": 289
+            },
+            {
+              "x": 577,
+              "y": 1103,
+              "width": 176,
+              "height": 373
+            },
+            {
+              "x": 804,
+              "y": 1103,
+              "width": 198,
+              "height": 372
+            }
+          ],
+          "heightRatios": [
+            1,
+            1,
+            1,
+            0.76,
+            0.82,
+            0.78,
+            0.6,
+            0.49,
+            0.34,
+            0.62,
+            0.62,
+            0.62,
+            1,
+            0.94,
+            0.94,
+            1
+          ]
+        },
+        "think": {
+          "file": "outfits/swim/interaction.png",
+          "columns": 4,
+          "rows": 4,
+          "frames": [
+            2
+          ],
+          "frameMs": [
+            5000
+          ],
+          "loop": false,
+          "cells": [
+            {
+              "x": 80,
+              "y": 29,
+              "width": 161,
+              "height": 371
+            },
+            {
+              "x": 315,
+              "y": 30,
+              "width": 183,
+              "height": 369
+            },
+            {
+              "x": 579,
+              "y": 31,
+              "width": 149,
+              "height": 369
+            },
+            {
+              "x": 808,
+              "y": 121,
+              "width": 184,
+              "height": 289
+            },
+            {
+              "x": 51,
+              "y": 452,
+              "width": 219,
+              "height": 306
+            },
+            {
+              "x": 296,
+              "y": 497,
+              "width": 234,
+              "height": 290
+            },
+            {
+              "x": 555,
+              "y": 535,
+              "width": 203,
+              "height": 254
+            },
+            {
+              "x": 807,
+              "y": 577,
+              "width": 195,
+              "height": 212
+            },
+            {
+              "x": 22,
+              "y": 927,
+              "width": 280,
+              "height": 136
+            },
+            {
+              "x": 324,
+              "y": 822,
+              "width": 186,
+              "height": 242
+            },
+            {
+              "x": 562,
+              "y": 823,
+              "width": 193,
+              "height": 234
+            },
+            {
+              "x": 821,
+              "y": 819,
+              "width": 178,
+              "height": 241
+            },
+            {
+              "x": 51,
+              "y": 1094,
+              "width": 174,
+              "height": 379
+            },
+            {
+              "x": 279,
+              "y": 1100,
+              "width": 266,
+              "height": 289
+            },
+            {
+              "x": 577,
+              "y": 1103,
+              "width": 176,
+              "height": 373
+            },
+            {
+              "x": 804,
+              "y": 1103,
+              "width": 198,
+              "height": 372
+            }
+          ],
+          "heightRatios": [
+            1,
+            1,
+            1,
+            0.76,
+            0.82,
+            0.78,
+            0.6,
+            0.49,
+            0.34,
+            0.62,
+            0.62,
+            0.62,
+            1,
+            0.94,
+            0.94,
+            1
+          ]
+        },
+        "jump": {
+          "file": "outfits/swim/interaction.png",
+          "columns": 4,
+          "rows": 4,
+          "frames": [
+            3,
+            4,
+            5,
+            0
+          ],
+          "frameMs": [
+            240,
+            640,
+            240,
+            200
+          ],
+          "loop": false,
+          "cells": [
+            {
+              "x": 80,
+              "y": 29,
+              "width": 161,
+              "height": 371
+            },
+            {
+              "x": 315,
+              "y": 30,
+              "width": 183,
+              "height": 369
+            },
+            {
+              "x": 579,
+              "y": 31,
+              "width": 149,
+              "height": 369
+            },
+            {
+              "x": 808,
+              "y": 121,
+              "width": 184,
+              "height": 289
+            },
+            {
+              "x": 51,
+              "y": 452,
+              "width": 219,
+              "height": 306
+            },
+            {
+              "x": 296,
+              "y": 497,
+              "width": 234,
+              "height": 290
+            },
+            {
+              "x": 555,
+              "y": 535,
+              "width": 203,
+              "height": 254
+            },
+            {
+              "x": 807,
+              "y": 577,
+              "width": 195,
+              "height": 212
+            },
+            {
+              "x": 22,
+              "y": 927,
+              "width": 280,
+              "height": 136
+            },
+            {
+              "x": 324,
+              "y": 822,
+              "width": 186,
+              "height": 242
+            },
+            {
+              "x": 562,
+              "y": 823,
+              "width": 193,
+              "height": 234
+            },
+            {
+              "x": 821,
+              "y": 819,
+              "width": 178,
+              "height": 241
+            },
+            {
+              "x": 51,
+              "y": 1094,
+              "width": 174,
+              "height": 379
+            },
+            {
+              "x": 279,
+              "y": 1100,
+              "width": 266,
+              "height": 289
+            },
+            {
+              "x": 577,
+              "y": 1103,
+              "width": 176,
+              "height": 373
+            },
+            {
+              "x": 804,
+              "y": 1103,
+              "width": 198,
+              "height": 372
+            }
+          ],
+          "heightRatios": [
+            1,
+            1,
+            1,
+            0.76,
+            0.82,
+            0.78,
+            0.6,
+            0.49,
+            0.34,
+            0.62,
+            0.62,
+            0.62,
+            1,
+            0.94,
+            0.94,
+            1
+          ]
+        },
+        "land": {
+          "file": "outfits/swim/interaction.png",
+          "columns": 4,
+          "rows": 4,
+          "frames": [
+            5,
+            0
+          ],
+          "frameMs": [
+            250,
+            160
+          ],
+          "loop": false,
+          "cells": [
+            {
+              "x": 80,
+              "y": 29,
+              "width": 161,
+              "height": 371
+            },
+            {
+              "x": 315,
+              "y": 30,
+              "width": 183,
+              "height": 369
+            },
+            {
+              "x": 579,
+              "y": 31,
+              "width": 149,
+              "height": 369
+            },
+            {
+              "x": 808,
+              "y": 121,
+              "width": 184,
+              "height": 289
+            },
+            {
+              "x": 51,
+              "y": 452,
+              "width": 219,
+              "height": 306
+            },
+            {
+              "x": 296,
+              "y": 497,
+              "width": 234,
+              "height": 290
+            },
+            {
+              "x": 555,
+              "y": 535,
+              "width": 203,
+              "height": 254
+            },
+            {
+              "x": 807,
+              "y": 577,
+              "width": 195,
+              "height": 212
+            },
+            {
+              "x": 22,
+              "y": 927,
+              "width": 280,
+              "height": 136
+            },
+            {
+              "x": 324,
+              "y": 822,
+              "width": 186,
+              "height": 242
+            },
+            {
+              "x": 562,
+              "y": 823,
+              "width": 193,
+              "height": 234
+            },
+            {
+              "x": 821,
+              "y": 819,
+              "width": 178,
+              "height": 241
+            },
+            {
+              "x": 51,
+              "y": 1094,
+              "width": 174,
+              "height": 379
+            },
+            {
+              "x": 279,
+              "y": 1100,
+              "width": 266,
+              "height": 289
+            },
+            {
+              "x": 577,
+              "y": 1103,
+              "width": 176,
+              "height": 373
+            },
+            {
+              "x": 804,
+              "y": 1103,
+              "width": 198,
+              "height": 372
+            }
+          ],
+          "heightRatios": [
+            1,
+            1,
+            1,
+            0.76,
+            0.82,
+            0.78,
+            0.6,
+            0.49,
+            0.34,
+            0.62,
+            0.62,
+            0.62,
+            1,
+            0.94,
+            0.94,
+            1
+          ]
+        },
+        "curl": {
+          "file": "outfits/swim/interaction.png",
+          "columns": 4,
+          "rows": 4,
+          "frames": [
+            6,
+            7
+          ],
+          "frameMs": [
+            600,
+            2400
+          ],
+          "loop": false,
+          "cells": [
+            {
+              "x": 80,
+              "y": 29,
+              "width": 161,
+              "height": 371
+            },
+            {
+              "x": 315,
+              "y": 30,
+              "width": 183,
+              "height": 369
+            },
+            {
+              "x": 579,
+              "y": 31,
+              "width": 149,
+              "height": 369
+            },
+            {
+              "x": 808,
+              "y": 121,
+              "width": 184,
+              "height": 289
+            },
+            {
+              "x": 51,
+              "y": 452,
+              "width": 219,
+              "height": 306
+            },
+            {
+              "x": 296,
+              "y": 497,
+              "width": 234,
+              "height": 290
+            },
+            {
+              "x": 555,
+              "y": 535,
+              "width": 203,
+              "height": 254
+            },
+            {
+              "x": 807,
+              "y": 577,
+              "width": 195,
+              "height": 212
+            },
+            {
+              "x": 22,
+              "y": 927,
+              "width": 280,
+              "height": 136
+            },
+            {
+              "x": 324,
+              "y": 822,
+              "width": 186,
+              "height": 242
+            },
+            {
+              "x": 562,
+              "y": 823,
+              "width": 193,
+              "height": 234
+            },
+            {
+              "x": 821,
+              "y": 819,
+              "width": 178,
+              "height": 241
+            },
+            {
+              "x": 51,
+              "y": 1094,
+              "width": 174,
+              "height": 379
+            },
+            {
+              "x": 279,
+              "y": 1100,
+              "width": 266,
+              "height": 289
+            },
+            {
+              "x": 577,
+              "y": 1103,
+              "width": 176,
+              "height": 373
+            },
+            {
+              "x": 804,
+              "y": 1103,
+              "width": 198,
+              "height": 372
+            }
+          ],
+          "heightRatios": [
+            1,
+            1,
+            1,
+            0.76,
+            0.82,
+            0.78,
+            0.6,
+            0.49,
+            0.34,
+            0.62,
+            0.62,
+            0.62,
+            1,
+            0.94,
+            0.94,
+            1
+          ]
+        },
+        "sleep": {
+          "file": "outfits/swim/interaction.png",
+          "columns": 4,
+          "rows": 4,
+          "frames": [
+            8
+          ],
+          "frameMs": [
+            5000
+          ],
+          "loop": false,
+          "cells": [
+            {
+              "x": 80,
+              "y": 29,
+              "width": 161,
+              "height": 371
+            },
+            {
+              "x": 315,
+              "y": 30,
+              "width": 183,
+              "height": 369
+            },
+            {
+              "x": 579,
+              "y": 31,
+              "width": 149,
+              "height": 369
+            },
+            {
+              "x": 808,
+              "y": 121,
+              "width": 184,
+              "height": 289
+            },
+            {
+              "x": 51,
+              "y": 452,
+              "width": 219,
+              "height": 306
+            },
+            {
+              "x": 296,
+              "y": 497,
+              "width": 234,
+              "height": 290
+            },
+            {
+              "x": 555,
+              "y": 535,
+              "width": 203,
+              "height": 254
+            },
+            {
+              "x": 807,
+              "y": 577,
+              "width": 195,
+              "height": 212
+            },
+            {
+              "x": 22,
+              "y": 927,
+              "width": 280,
+              "height": 136
+            },
+            {
+              "x": 324,
+              "y": 822,
+              "width": 186,
+              "height": 242
+            },
+            {
+              "x": 562,
+              "y": 823,
+              "width": 193,
+              "height": 234
+            },
+            {
+              "x": 821,
+              "y": 819,
+              "width": 178,
+              "height": 241
+            },
+            {
+              "x": 51,
+              "y": 1094,
+              "width": 174,
+              "height": 379
+            },
+            {
+              "x": 279,
+              "y": 1100,
+              "width": 266,
+              "height": 289
+            },
+            {
+              "x": 577,
+              "y": 1103,
+              "width": 176,
+              "height": 373
+            },
+            {
+              "x": 804,
+              "y": 1103,
+              "width": 198,
+              "height": 372
+            }
+          ],
+          "heightRatios": [
+            1,
+            1,
+            1,
+            0.76,
+            0.82,
+            0.78,
+            0.6,
+            0.49,
+            0.34,
+            0.62,
+            0.62,
+            0.62,
+            1,
+            0.94,
+            0.94,
+            1
+          ]
+        },
+        "build": {
+          "file": "outfits/swim/interaction.png",
+          "columns": 4,
+          "rows": 4,
+          "frames": [
+            9,
+            10,
+            11
+          ],
+          "frameMs": [
+            850,
+            1000,
+            1550
+          ],
+          "loop": false,
+          "cells": [
+            {
+              "x": 80,
+              "y": 29,
+              "width": 161,
+              "height": 371
+            },
+            {
+              "x": 315,
+              "y": 30,
+              "width": 183,
+              "height": 369
+            },
+            {
+              "x": 579,
+              "y": 31,
+              "width": 149,
+              "height": 369
+            },
+            {
+              "x": 808,
+              "y": 121,
+              "width": 184,
+              "height": 289
+            },
+            {
+              "x": 51,
+              "y": 452,
+              "width": 219,
+              "height": 306
+            },
+            {
+              "x": 296,
+              "y": 497,
+              "width": 234,
+              "height": 290
+            },
+            {
+              "x": 555,
+              "y": 535,
+              "width": 203,
+              "height": 254
+            },
+            {
+              "x": 807,
+              "y": 577,
+              "width": 195,
+              "height": 212
+            },
+            {
+              "x": 22,
+              "y": 927,
+              "width": 280,
+              "height": 136
+            },
+            {
+              "x": 324,
+              "y": 822,
+              "width": 186,
+              "height": 242
+            },
+            {
+              "x": 562,
+              "y": 823,
+              "width": 193,
+              "height": 234
+            },
+            {
+              "x": 821,
+              "y": 819,
+              "width": 178,
+              "height": 241
+            },
+            {
+              "x": 51,
+              "y": 1094,
+              "width": 174,
+              "height": 379
+            },
+            {
+              "x": 279,
+              "y": 1100,
+              "width": 266,
+              "height": 289
+            },
+            {
+              "x": 577,
+              "y": 1103,
+              "width": 176,
+              "height": 373
+            },
+            {
+              "x": 804,
+              "y": 1103,
+              "width": 198,
+              "height": 372
+            }
+          ],
+          "heightRatios": [
+            1,
+            1,
+            1,
+            0.76,
+            0.82,
+            0.78,
+            0.6,
+            0.49,
+            0.34,
+            0.62,
+            0.62,
+            0.62,
+            1,
+            0.94,
+            0.94,
+            1
+          ],
+          "bakedProps": true
+        },
+        "pickup": {
+          "file": "outfits/swim/interaction.png",
+          "columns": 4,
+          "rows": 4,
+          "frames": [
+            12,
+            13
+          ],
+          "frameMs": [
+            220,
+            5000
+          ],
+          "loop": false,
+          "cells": [
+            {
+              "x": 80,
+              "y": 29,
+              "width": 161,
+              "height": 371
+            },
+            {
+              "x": 315,
+              "y": 30,
+              "width": 183,
+              "height": 369
+            },
+            {
+              "x": 579,
+              "y": 31,
+              "width": 149,
+              "height": 369
+            },
+            {
+              "x": 808,
+              "y": 121,
+              "width": 184,
+              "height": 289
+            },
+            {
+              "x": 51,
+              "y": 452,
+              "width": 219,
+              "height": 306
+            },
+            {
+              "x": 296,
+              "y": 497,
+              "width": 234,
+              "height": 290
+            },
+            {
+              "x": 555,
+              "y": 535,
+              "width": 203,
+              "height": 254
+            },
+            {
+              "x": 807,
+              "y": 577,
+              "width": 195,
+              "height": 212
+            },
+            {
+              "x": 22,
+              "y": 927,
+              "width": 280,
+              "height": 136
+            },
+            {
+              "x": 324,
+              "y": 822,
+              "width": 186,
+              "height": 242
+            },
+            {
+              "x": 562,
+              "y": 823,
+              "width": 193,
+              "height": 234
+            },
+            {
+              "x": 821,
+              "y": 819,
+              "width": 178,
+              "height": 241
+            },
+            {
+              "x": 51,
+              "y": 1094,
+              "width": 174,
+              "height": 379
+            },
+            {
+              "x": 279,
+              "y": 1100,
+              "width": 266,
+              "height": 289
+            },
+            {
+              "x": 577,
+              "y": 1103,
+              "width": 176,
+              "height": 373
+            },
+            {
+              "x": 804,
+              "y": 1103,
+              "width": 198,
+              "height": 372
+            }
+          ],
+          "heightRatios": [
+            1,
+            1,
+            1,
+            0.76,
+            0.82,
+            0.78,
+            0.6,
+            0.49,
+            0.34,
+            0.62,
+            0.62,
+            0.62,
+            1,
+            0.94,
+            0.94,
+            1
+          ]
+        },
+        "ball-miss": {
+          "file": "outfits/swim/interaction.png",
+          "columns": 4,
+          "rows": 4,
+          "frames": [
+            15,
+            0
+          ],
+          "frameMs": [
+            1000,
+            300
+          ],
+          "loop": false,
+          "cells": [
+            {
+              "x": 80,
+              "y": 29,
+              "width": 161,
+              "height": 371
+            },
+            {
+              "x": 315,
+              "y": 30,
+              "width": 183,
+              "height": 369
+            },
+            {
+              "x": 579,
+              "y": 31,
+              "width": 149,
+              "height": 369
+            },
+            {
+              "x": 808,
+              "y": 121,
+              "width": 184,
+              "height": 289
+            },
+            {
+              "x": 51,
+              "y": 452,
+              "width": 219,
+              "height": 306
+            },
+            {
+              "x": 296,
+              "y": 497,
+              "width": 234,
+              "height": 290
+            },
+            {
+              "x": 555,
+              "y": 535,
+              "width": 203,
+              "height": 254
+            },
+            {
+              "x": 807,
+              "y": 577,
+              "width": 195,
+              "height": 212
+            },
+            {
+              "x": 22,
+              "y": 927,
+              "width": 280,
+              "height": 136
+            },
+            {
+              "x": 324,
+              "y": 822,
+              "width": 186,
+              "height": 242
+            },
+            {
+              "x": 562,
+              "y": 823,
+              "width": 193,
+              "height": 234
+            },
+            {
+              "x": 821,
+              "y": 819,
+              "width": 178,
+              "height": 241
+            },
+            {
+              "x": 51,
+              "y": 1094,
+              "width": 174,
+              "height": 379
+            },
+            {
+              "x": 279,
+              "y": 1100,
+              "width": 266,
+              "height": 289
+            },
+            {
+              "x": 577,
+              "y": 1103,
+              "width": 176,
+              "height": 373
+            },
+            {
+              "x": 804,
+              "y": 1103,
+              "width": 198,
+              "height": 372
+            }
+          ],
+          "heightRatios": [
+            1,
+            1,
+            1,
+            0.76,
+            0.82,
+            0.78,
+            0.6,
+            0.49,
+            0.34,
+            0.62,
+            0.62,
+            0.62,
+            1,
+            0.94,
+            0.94,
+            1
           ]
         }
       }
@@ -1268,11 +4096,11 @@
           "bakedProps": true
         },
         "ball-ready": {
-          "file": "outfits/wedding/contact.png",
-          "columns": 3,
-          "rows": 3,
+          "file": "outfits/wedding/interaction.png",
+          "columns": 4,
+          "rows": 4,
           "frames": [
-            6
+            0
           ],
           "frameMs": [
             5000
@@ -1280,90 +4108,127 @@
           "loop": false,
           "cells": [
             {
-              "x": 37,
-              "y": 7,
-              "width": 306,
-              "height": 499
-            },
-            {
-              "x": 357,
+              "x": 8,
               "y": 6,
-              "width": 306,
-              "height": 500
+              "width": 263,
+              "height": 388
             },
             {
-              "x": 677,
+              "x": 284,
               "y": 7,
-              "width": 306,
-              "height": 499
+              "width": 234,
+              "height": 398
             },
             {
-              "x": 37,
-              "y": 516,
-              "width": 306,
-              "height": 501
+              "x": 528,
+              "y": 9,
+              "width": 235,
+              "height": 395
             },
             {
-              "x": 357,
-              "y": 516,
-              "width": 306,
-              "height": 501
+              "x": 810,
+              "y": 68,
+              "width": 205,
+              "height": 327
             },
             {
-              "x": 677,
-              "y": 516,
-              "width": 306,
-              "height": 501
+              "x": 20,
+              "y": 395,
+              "width": 235,
+              "height": 355
             },
             {
-              "x": 37,
-              "y": 1022,
-              "width": 306,
-              "height": 503
+              "x": 279,
+              "y": 445,
+              "width": 237,
+              "height": 334
             },
             {
-              "x": 357,
-              "y": 1022,
-              "width": 306,
-              "height": 503
+              "x": 519,
+              "y": 511,
+              "width": 261,
+              "height": 273
             },
             {
-              "x": 677,
-              "y": 1022,
-              "width": 306,
-              "height": 503
+              "x": 782,
+              "y": 561,
+              "width": 230,
+              "height": 219
+            },
+            {
+              "x": 2,
+              "y": 895,
+              "width": 302,
+              "height": 149
+            },
+            {
+              "x": 310,
+              "y": 797,
+              "width": 213,
+              "height": 254
+            },
+            {
+              "x": 547,
+              "y": 801,
+              "width": 232,
+              "height": 249
+            },
+            {
+              "x": 804,
+              "y": 797,
+              "width": 219,
+              "height": 252
+            },
+            {
+              "x": 20,
+              "y": 1054,
+              "width": 249,
+              "height": 440
+            },
+            {
+              "x": 275,
+              "y": 1075,
+              "width": 265,
+              "height": 300
+            },
+            {
+              "x": 551,
+              "y": 1070,
+              "width": 212,
+              "height": 430
+            },
+            {
+              "x": 786,
+              "y": 1079,
+              "width": 230,
+              "height": 421
             }
           ],
-          "hands": [
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            {
-              "height": 0.26,
-              "span": 0.11,
-              "offset": 0
-            },
-            {
-              "height": 0.25,
-              "span": 0.11,
-              "offset": 0
-            },
-            {
-              "height": 0.27,
-              "span": 0.11,
-              "offset": 0
-            }
+          "heightRatios": [
+            1,
+            1,
+            1,
+            0.76,
+            0.82,
+            0.78,
+            0.6,
+            0.49,
+            0.34,
+            0.62,
+            0.62,
+            0.62,
+            1,
+            0.94,
+            0.94,
+            1
           ]
         },
         "anticipate": {
-          "file": "outfits/wedding/contact.png",
-          "columns": 3,
-          "rows": 3,
+          "file": "outfits/wedding/interaction.png",
+          "columns": 4,
+          "rows": 4,
           "frames": [
-            6
+            0
           ],
           "frameMs": [
             5000
@@ -1371,177 +4236,249 @@
           "loop": false,
           "cells": [
             {
-              "x": 37,
-              "y": 7,
-              "width": 306,
-              "height": 499
-            },
-            {
-              "x": 357,
+              "x": 8,
               "y": 6,
-              "width": 306,
-              "height": 500
+              "width": 263,
+              "height": 388
             },
             {
-              "x": 677,
+              "x": 284,
               "y": 7,
-              "width": 306,
-              "height": 499
+              "width": 234,
+              "height": 398
             },
             {
-              "x": 37,
-              "y": 516,
-              "width": 306,
-              "height": 501
+              "x": 528,
+              "y": 9,
+              "width": 235,
+              "height": 395
             },
             {
-              "x": 357,
-              "y": 516,
-              "width": 306,
-              "height": 501
+              "x": 810,
+              "y": 68,
+              "width": 205,
+              "height": 327
             },
             {
-              "x": 677,
-              "y": 516,
-              "width": 306,
-              "height": 501
+              "x": 20,
+              "y": 395,
+              "width": 235,
+              "height": 355
             },
             {
-              "x": 37,
-              "y": 1022,
-              "width": 306,
-              "height": 503
+              "x": 279,
+              "y": 445,
+              "width": 237,
+              "height": 334
             },
             {
-              "x": 357,
-              "y": 1022,
-              "width": 306,
-              "height": 503
+              "x": 519,
+              "y": 511,
+              "width": 261,
+              "height": 273
             },
             {
-              "x": 677,
-              "y": 1022,
-              "width": 306,
-              "height": 503
+              "x": 782,
+              "y": 561,
+              "width": 230,
+              "height": 219
+            },
+            {
+              "x": 2,
+              "y": 895,
+              "width": 302,
+              "height": 149
+            },
+            {
+              "x": 310,
+              "y": 797,
+              "width": 213,
+              "height": 254
+            },
+            {
+              "x": 547,
+              "y": 801,
+              "width": 232,
+              "height": 249
+            },
+            {
+              "x": 804,
+              "y": 797,
+              "width": 219,
+              "height": 252
+            },
+            {
+              "x": 20,
+              "y": 1054,
+              "width": 249,
+              "height": 440
+            },
+            {
+              "x": 275,
+              "y": 1075,
+              "width": 265,
+              "height": 300
+            },
+            {
+              "x": 551,
+              "y": 1070,
+              "width": 212,
+              "height": 430
+            },
+            {
+              "x": 786,
+              "y": 1079,
+              "width": 230,
+              "height": 421
             }
           ],
-          "hands": [
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            {
-              "height": 0.26,
-              "span": 0.11,
-              "offset": 0
-            },
-            {
-              "height": 0.25,
-              "span": 0.11,
-              "offset": 0
-            },
-            {
-              "height": 0.27,
-              "span": 0.11,
-              "offset": 0
-            }
+          "heightRatios": [
+            1,
+            1,
+            1,
+            0.76,
+            0.82,
+            0.78,
+            0.6,
+            0.49,
+            0.34,
+            0.62,
+            0.62,
+            0.62,
+            1,
+            0.94,
+            0.94,
+            1
           ]
         },
         "ball-hit": {
-          "file": "outfits/wedding/contact.png",
-          "columns": 3,
-          "rows": 3,
+          "file": "outfits/wedding/interaction.png",
+          "columns": 4,
+          "rows": 4,
           "frames": [
-            6,
-            7,
-            8
+            14,
+            0
           ],
           "frameMs": [
-            100,
-            180,
-            600
+            650,
+            300
           ],
           "loop": false,
           "cells": [
             {
-              "x": 37,
-              "y": 7,
-              "width": 306,
-              "height": 499
-            },
-            {
-              "x": 357,
+              "x": 8,
               "y": 6,
-              "width": 306,
-              "height": 500
+              "width": 263,
+              "height": 388
             },
             {
-              "x": 677,
+              "x": 284,
               "y": 7,
-              "width": 306,
-              "height": 499
+              "width": 234,
+              "height": 398
             },
             {
-              "x": 37,
-              "y": 516,
-              "width": 306,
-              "height": 501
+              "x": 528,
+              "y": 9,
+              "width": 235,
+              "height": 395
             },
             {
-              "x": 357,
-              "y": 516,
-              "width": 306,
-              "height": 501
+              "x": 810,
+              "y": 68,
+              "width": 205,
+              "height": 327
             },
             {
-              "x": 677,
-              "y": 516,
-              "width": 306,
-              "height": 501
+              "x": 20,
+              "y": 395,
+              "width": 235,
+              "height": 355
             },
             {
-              "x": 37,
-              "y": 1022,
-              "width": 306,
-              "height": 503
+              "x": 279,
+              "y": 445,
+              "width": 237,
+              "height": 334
             },
             {
-              "x": 357,
-              "y": 1022,
-              "width": 306,
-              "height": 503
+              "x": 519,
+              "y": 511,
+              "width": 261,
+              "height": 273
             },
             {
-              "x": 677,
-              "y": 1022,
-              "width": 306,
-              "height": 503
+              "x": 782,
+              "y": 561,
+              "width": 230,
+              "height": 219
+            },
+            {
+              "x": 2,
+              "y": 895,
+              "width": 302,
+              "height": 149
+            },
+            {
+              "x": 310,
+              "y": 797,
+              "width": 213,
+              "height": 254
+            },
+            {
+              "x": 547,
+              "y": 801,
+              "width": 232,
+              "height": 249
+            },
+            {
+              "x": 804,
+              "y": 797,
+              "width": 219,
+              "height": 252
+            },
+            {
+              "x": 20,
+              "y": 1054,
+              "width": 249,
+              "height": 440
+            },
+            {
+              "x": 275,
+              "y": 1075,
+              "width": 265,
+              "height": 300
+            },
+            {
+              "x": 551,
+              "y": 1070,
+              "width": 212,
+              "height": 430
+            },
+            {
+              "x": 786,
+              "y": 1079,
+              "width": 230,
+              "height": 421
             }
           ],
-          "hands": [
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            {
-              "height": 0.26,
-              "span": 0.11,
-              "offset": 0
-            },
-            {
-              "height": 0.25,
-              "span": 0.11,
-              "offset": 0
-            },
-            {
-              "height": 0.27,
-              "span": 0.11,
-              "offset": 0
-            }
+          "heightRatios": [
+            1,
+            1,
+            1,
+            0.76,
+            0.82,
+            0.78,
+            0.6,
+            0.49,
+            0.34,
+            0.62,
+            0.62,
+            0.62,
+            1,
+            0.94,
+            0.94,
+            1
           ]
         },
         "ball-hold": {
@@ -1633,6 +4570,1311 @@
               "span": 0.11,
               "offset": 0
             }
+          ]
+        },
+        "listen": {
+          "file": "outfits/wedding/interaction.png",
+          "columns": 4,
+          "rows": 4,
+          "frames": [
+            0
+          ],
+          "frameMs": [
+            5000
+          ],
+          "loop": false,
+          "cells": [
+            {
+              "x": 8,
+              "y": 6,
+              "width": 263,
+              "height": 388
+            },
+            {
+              "x": 284,
+              "y": 7,
+              "width": 234,
+              "height": 398
+            },
+            {
+              "x": 528,
+              "y": 9,
+              "width": 235,
+              "height": 395
+            },
+            {
+              "x": 810,
+              "y": 68,
+              "width": 205,
+              "height": 327
+            },
+            {
+              "x": 20,
+              "y": 395,
+              "width": 235,
+              "height": 355
+            },
+            {
+              "x": 279,
+              "y": 445,
+              "width": 237,
+              "height": 334
+            },
+            {
+              "x": 519,
+              "y": 511,
+              "width": 261,
+              "height": 273
+            },
+            {
+              "x": 782,
+              "y": 561,
+              "width": 230,
+              "height": 219
+            },
+            {
+              "x": 2,
+              "y": 895,
+              "width": 302,
+              "height": 149
+            },
+            {
+              "x": 310,
+              "y": 797,
+              "width": 213,
+              "height": 254
+            },
+            {
+              "x": 547,
+              "y": 801,
+              "width": 232,
+              "height": 249
+            },
+            {
+              "x": 804,
+              "y": 797,
+              "width": 219,
+              "height": 252
+            },
+            {
+              "x": 20,
+              "y": 1054,
+              "width": 249,
+              "height": 440
+            },
+            {
+              "x": 275,
+              "y": 1075,
+              "width": 265,
+              "height": 300
+            },
+            {
+              "x": 551,
+              "y": 1070,
+              "width": 212,
+              "height": 430
+            },
+            {
+              "x": 786,
+              "y": 1079,
+              "width": 230,
+              "height": 421
+            }
+          ],
+          "heightRatios": [
+            1,
+            1,
+            1,
+            0.76,
+            0.82,
+            0.78,
+            0.6,
+            0.49,
+            0.34,
+            0.62,
+            0.62,
+            0.62,
+            1,
+            0.94,
+            0.94,
+            1
+          ]
+        },
+        "chat": {
+          "file": "outfits/wedding/interaction.png",
+          "columns": 4,
+          "rows": 4,
+          "frames": [
+            0,
+            1,
+            0,
+            1
+          ],
+          "frameMs": [
+            250,
+            340,
+            220,
+            310
+          ],
+          "loop": true,
+          "cells": [
+            {
+              "x": 8,
+              "y": 6,
+              "width": 263,
+              "height": 388
+            },
+            {
+              "x": 284,
+              "y": 7,
+              "width": 234,
+              "height": 398
+            },
+            {
+              "x": 528,
+              "y": 9,
+              "width": 235,
+              "height": 395
+            },
+            {
+              "x": 810,
+              "y": 68,
+              "width": 205,
+              "height": 327
+            },
+            {
+              "x": 20,
+              "y": 395,
+              "width": 235,
+              "height": 355
+            },
+            {
+              "x": 279,
+              "y": 445,
+              "width": 237,
+              "height": 334
+            },
+            {
+              "x": 519,
+              "y": 511,
+              "width": 261,
+              "height": 273
+            },
+            {
+              "x": 782,
+              "y": 561,
+              "width": 230,
+              "height": 219
+            },
+            {
+              "x": 2,
+              "y": 895,
+              "width": 302,
+              "height": 149
+            },
+            {
+              "x": 310,
+              "y": 797,
+              "width": 213,
+              "height": 254
+            },
+            {
+              "x": 547,
+              "y": 801,
+              "width": 232,
+              "height": 249
+            },
+            {
+              "x": 804,
+              "y": 797,
+              "width": 219,
+              "height": 252
+            },
+            {
+              "x": 20,
+              "y": 1054,
+              "width": 249,
+              "height": 440
+            },
+            {
+              "x": 275,
+              "y": 1075,
+              "width": 265,
+              "height": 300
+            },
+            {
+              "x": 551,
+              "y": 1070,
+              "width": 212,
+              "height": 430
+            },
+            {
+              "x": 786,
+              "y": 1079,
+              "width": 230,
+              "height": 421
+            }
+          ],
+          "heightRatios": [
+            1,
+            1,
+            1,
+            0.76,
+            0.82,
+            0.78,
+            0.6,
+            0.49,
+            0.34,
+            0.62,
+            0.62,
+            0.62,
+            1,
+            0.94,
+            0.94,
+            1
+          ]
+        },
+        "think": {
+          "file": "outfits/wedding/interaction.png",
+          "columns": 4,
+          "rows": 4,
+          "frames": [
+            2
+          ],
+          "frameMs": [
+            5000
+          ],
+          "loop": false,
+          "cells": [
+            {
+              "x": 8,
+              "y": 6,
+              "width": 263,
+              "height": 388
+            },
+            {
+              "x": 284,
+              "y": 7,
+              "width": 234,
+              "height": 398
+            },
+            {
+              "x": 528,
+              "y": 9,
+              "width": 235,
+              "height": 395
+            },
+            {
+              "x": 810,
+              "y": 68,
+              "width": 205,
+              "height": 327
+            },
+            {
+              "x": 20,
+              "y": 395,
+              "width": 235,
+              "height": 355
+            },
+            {
+              "x": 279,
+              "y": 445,
+              "width": 237,
+              "height": 334
+            },
+            {
+              "x": 519,
+              "y": 511,
+              "width": 261,
+              "height": 273
+            },
+            {
+              "x": 782,
+              "y": 561,
+              "width": 230,
+              "height": 219
+            },
+            {
+              "x": 2,
+              "y": 895,
+              "width": 302,
+              "height": 149
+            },
+            {
+              "x": 310,
+              "y": 797,
+              "width": 213,
+              "height": 254
+            },
+            {
+              "x": 547,
+              "y": 801,
+              "width": 232,
+              "height": 249
+            },
+            {
+              "x": 804,
+              "y": 797,
+              "width": 219,
+              "height": 252
+            },
+            {
+              "x": 20,
+              "y": 1054,
+              "width": 249,
+              "height": 440
+            },
+            {
+              "x": 275,
+              "y": 1075,
+              "width": 265,
+              "height": 300
+            },
+            {
+              "x": 551,
+              "y": 1070,
+              "width": 212,
+              "height": 430
+            },
+            {
+              "x": 786,
+              "y": 1079,
+              "width": 230,
+              "height": 421
+            }
+          ],
+          "heightRatios": [
+            1,
+            1,
+            1,
+            0.76,
+            0.82,
+            0.78,
+            0.6,
+            0.49,
+            0.34,
+            0.62,
+            0.62,
+            0.62,
+            1,
+            0.94,
+            0.94,
+            1
+          ]
+        },
+        "jump": {
+          "file": "outfits/wedding/interaction.png",
+          "columns": 4,
+          "rows": 4,
+          "frames": [
+            3,
+            4,
+            5,
+            0
+          ],
+          "frameMs": [
+            240,
+            640,
+            240,
+            200
+          ],
+          "loop": false,
+          "cells": [
+            {
+              "x": 8,
+              "y": 6,
+              "width": 263,
+              "height": 388
+            },
+            {
+              "x": 284,
+              "y": 7,
+              "width": 234,
+              "height": 398
+            },
+            {
+              "x": 528,
+              "y": 9,
+              "width": 235,
+              "height": 395
+            },
+            {
+              "x": 810,
+              "y": 68,
+              "width": 205,
+              "height": 327
+            },
+            {
+              "x": 20,
+              "y": 395,
+              "width": 235,
+              "height": 355
+            },
+            {
+              "x": 279,
+              "y": 445,
+              "width": 237,
+              "height": 334
+            },
+            {
+              "x": 519,
+              "y": 511,
+              "width": 261,
+              "height": 273
+            },
+            {
+              "x": 782,
+              "y": 561,
+              "width": 230,
+              "height": 219
+            },
+            {
+              "x": 2,
+              "y": 895,
+              "width": 302,
+              "height": 149
+            },
+            {
+              "x": 310,
+              "y": 797,
+              "width": 213,
+              "height": 254
+            },
+            {
+              "x": 547,
+              "y": 801,
+              "width": 232,
+              "height": 249
+            },
+            {
+              "x": 804,
+              "y": 797,
+              "width": 219,
+              "height": 252
+            },
+            {
+              "x": 20,
+              "y": 1054,
+              "width": 249,
+              "height": 440
+            },
+            {
+              "x": 275,
+              "y": 1075,
+              "width": 265,
+              "height": 300
+            },
+            {
+              "x": 551,
+              "y": 1070,
+              "width": 212,
+              "height": 430
+            },
+            {
+              "x": 786,
+              "y": 1079,
+              "width": 230,
+              "height": 421
+            }
+          ],
+          "heightRatios": [
+            1,
+            1,
+            1,
+            0.76,
+            0.82,
+            0.78,
+            0.6,
+            0.49,
+            0.34,
+            0.62,
+            0.62,
+            0.62,
+            1,
+            0.94,
+            0.94,
+            1
+          ]
+        },
+        "land": {
+          "file": "outfits/wedding/interaction.png",
+          "columns": 4,
+          "rows": 4,
+          "frames": [
+            5,
+            0
+          ],
+          "frameMs": [
+            250,
+            160
+          ],
+          "loop": false,
+          "cells": [
+            {
+              "x": 8,
+              "y": 6,
+              "width": 263,
+              "height": 388
+            },
+            {
+              "x": 284,
+              "y": 7,
+              "width": 234,
+              "height": 398
+            },
+            {
+              "x": 528,
+              "y": 9,
+              "width": 235,
+              "height": 395
+            },
+            {
+              "x": 810,
+              "y": 68,
+              "width": 205,
+              "height": 327
+            },
+            {
+              "x": 20,
+              "y": 395,
+              "width": 235,
+              "height": 355
+            },
+            {
+              "x": 279,
+              "y": 445,
+              "width": 237,
+              "height": 334
+            },
+            {
+              "x": 519,
+              "y": 511,
+              "width": 261,
+              "height": 273
+            },
+            {
+              "x": 782,
+              "y": 561,
+              "width": 230,
+              "height": 219
+            },
+            {
+              "x": 2,
+              "y": 895,
+              "width": 302,
+              "height": 149
+            },
+            {
+              "x": 310,
+              "y": 797,
+              "width": 213,
+              "height": 254
+            },
+            {
+              "x": 547,
+              "y": 801,
+              "width": 232,
+              "height": 249
+            },
+            {
+              "x": 804,
+              "y": 797,
+              "width": 219,
+              "height": 252
+            },
+            {
+              "x": 20,
+              "y": 1054,
+              "width": 249,
+              "height": 440
+            },
+            {
+              "x": 275,
+              "y": 1075,
+              "width": 265,
+              "height": 300
+            },
+            {
+              "x": 551,
+              "y": 1070,
+              "width": 212,
+              "height": 430
+            },
+            {
+              "x": 786,
+              "y": 1079,
+              "width": 230,
+              "height": 421
+            }
+          ],
+          "heightRatios": [
+            1,
+            1,
+            1,
+            0.76,
+            0.82,
+            0.78,
+            0.6,
+            0.49,
+            0.34,
+            0.62,
+            0.62,
+            0.62,
+            1,
+            0.94,
+            0.94,
+            1
+          ]
+        },
+        "curl": {
+          "file": "outfits/wedding/interaction.png",
+          "columns": 4,
+          "rows": 4,
+          "frames": [
+            6,
+            7
+          ],
+          "frameMs": [
+            600,
+            2400
+          ],
+          "loop": false,
+          "cells": [
+            {
+              "x": 8,
+              "y": 6,
+              "width": 263,
+              "height": 388
+            },
+            {
+              "x": 284,
+              "y": 7,
+              "width": 234,
+              "height": 398
+            },
+            {
+              "x": 528,
+              "y": 9,
+              "width": 235,
+              "height": 395
+            },
+            {
+              "x": 810,
+              "y": 68,
+              "width": 205,
+              "height": 327
+            },
+            {
+              "x": 20,
+              "y": 395,
+              "width": 235,
+              "height": 355
+            },
+            {
+              "x": 279,
+              "y": 445,
+              "width": 237,
+              "height": 334
+            },
+            {
+              "x": 519,
+              "y": 511,
+              "width": 261,
+              "height": 273
+            },
+            {
+              "x": 782,
+              "y": 561,
+              "width": 230,
+              "height": 219
+            },
+            {
+              "x": 2,
+              "y": 895,
+              "width": 302,
+              "height": 149
+            },
+            {
+              "x": 310,
+              "y": 797,
+              "width": 213,
+              "height": 254
+            },
+            {
+              "x": 547,
+              "y": 801,
+              "width": 232,
+              "height": 249
+            },
+            {
+              "x": 804,
+              "y": 797,
+              "width": 219,
+              "height": 252
+            },
+            {
+              "x": 20,
+              "y": 1054,
+              "width": 249,
+              "height": 440
+            },
+            {
+              "x": 275,
+              "y": 1075,
+              "width": 265,
+              "height": 300
+            },
+            {
+              "x": 551,
+              "y": 1070,
+              "width": 212,
+              "height": 430
+            },
+            {
+              "x": 786,
+              "y": 1079,
+              "width": 230,
+              "height": 421
+            }
+          ],
+          "heightRatios": [
+            1,
+            1,
+            1,
+            0.76,
+            0.82,
+            0.78,
+            0.6,
+            0.49,
+            0.34,
+            0.62,
+            0.62,
+            0.62,
+            1,
+            0.94,
+            0.94,
+            1
+          ]
+        },
+        "sleep": {
+          "file": "outfits/wedding/interaction.png",
+          "columns": 4,
+          "rows": 4,
+          "frames": [
+            8
+          ],
+          "frameMs": [
+            5000
+          ],
+          "loop": false,
+          "cells": [
+            {
+              "x": 8,
+              "y": 6,
+              "width": 263,
+              "height": 388
+            },
+            {
+              "x": 284,
+              "y": 7,
+              "width": 234,
+              "height": 398
+            },
+            {
+              "x": 528,
+              "y": 9,
+              "width": 235,
+              "height": 395
+            },
+            {
+              "x": 810,
+              "y": 68,
+              "width": 205,
+              "height": 327
+            },
+            {
+              "x": 20,
+              "y": 395,
+              "width": 235,
+              "height": 355
+            },
+            {
+              "x": 279,
+              "y": 445,
+              "width": 237,
+              "height": 334
+            },
+            {
+              "x": 519,
+              "y": 511,
+              "width": 261,
+              "height": 273
+            },
+            {
+              "x": 782,
+              "y": 561,
+              "width": 230,
+              "height": 219
+            },
+            {
+              "x": 2,
+              "y": 895,
+              "width": 302,
+              "height": 149
+            },
+            {
+              "x": 310,
+              "y": 797,
+              "width": 213,
+              "height": 254
+            },
+            {
+              "x": 547,
+              "y": 801,
+              "width": 232,
+              "height": 249
+            },
+            {
+              "x": 804,
+              "y": 797,
+              "width": 219,
+              "height": 252
+            },
+            {
+              "x": 20,
+              "y": 1054,
+              "width": 249,
+              "height": 440
+            },
+            {
+              "x": 275,
+              "y": 1075,
+              "width": 265,
+              "height": 300
+            },
+            {
+              "x": 551,
+              "y": 1070,
+              "width": 212,
+              "height": 430
+            },
+            {
+              "x": 786,
+              "y": 1079,
+              "width": 230,
+              "height": 421
+            }
+          ],
+          "heightRatios": [
+            1,
+            1,
+            1,
+            0.76,
+            0.82,
+            0.78,
+            0.6,
+            0.49,
+            0.34,
+            0.62,
+            0.62,
+            0.62,
+            1,
+            0.94,
+            0.94,
+            1
+          ]
+        },
+        "build": {
+          "file": "outfits/wedding/interaction.png",
+          "columns": 4,
+          "rows": 4,
+          "frames": [
+            9,
+            10,
+            11
+          ],
+          "frameMs": [
+            850,
+            1000,
+            1550
+          ],
+          "loop": false,
+          "cells": [
+            {
+              "x": 8,
+              "y": 6,
+              "width": 263,
+              "height": 388
+            },
+            {
+              "x": 284,
+              "y": 7,
+              "width": 234,
+              "height": 398
+            },
+            {
+              "x": 528,
+              "y": 9,
+              "width": 235,
+              "height": 395
+            },
+            {
+              "x": 810,
+              "y": 68,
+              "width": 205,
+              "height": 327
+            },
+            {
+              "x": 20,
+              "y": 395,
+              "width": 235,
+              "height": 355
+            },
+            {
+              "x": 279,
+              "y": 445,
+              "width": 237,
+              "height": 334
+            },
+            {
+              "x": 519,
+              "y": 511,
+              "width": 261,
+              "height": 273
+            },
+            {
+              "x": 782,
+              "y": 561,
+              "width": 230,
+              "height": 219
+            },
+            {
+              "x": 2,
+              "y": 895,
+              "width": 302,
+              "height": 149
+            },
+            {
+              "x": 310,
+              "y": 797,
+              "width": 213,
+              "height": 254
+            },
+            {
+              "x": 547,
+              "y": 801,
+              "width": 232,
+              "height": 249
+            },
+            {
+              "x": 804,
+              "y": 797,
+              "width": 219,
+              "height": 252
+            },
+            {
+              "x": 20,
+              "y": 1054,
+              "width": 249,
+              "height": 440
+            },
+            {
+              "x": 275,
+              "y": 1075,
+              "width": 265,
+              "height": 300
+            },
+            {
+              "x": 551,
+              "y": 1070,
+              "width": 212,
+              "height": 430
+            },
+            {
+              "x": 786,
+              "y": 1079,
+              "width": 230,
+              "height": 421
+            }
+          ],
+          "heightRatios": [
+            1,
+            1,
+            1,
+            0.76,
+            0.82,
+            0.78,
+            0.6,
+            0.49,
+            0.34,
+            0.62,
+            0.62,
+            0.62,
+            1,
+            0.94,
+            0.94,
+            1
+          ],
+          "bakedProps": true
+        },
+        "pickup": {
+          "file": "outfits/wedding/interaction.png",
+          "columns": 4,
+          "rows": 4,
+          "frames": [
+            12,
+            13
+          ],
+          "frameMs": [
+            220,
+            5000
+          ],
+          "loop": false,
+          "cells": [
+            {
+              "x": 8,
+              "y": 6,
+              "width": 263,
+              "height": 388
+            },
+            {
+              "x": 284,
+              "y": 7,
+              "width": 234,
+              "height": 398
+            },
+            {
+              "x": 528,
+              "y": 9,
+              "width": 235,
+              "height": 395
+            },
+            {
+              "x": 810,
+              "y": 68,
+              "width": 205,
+              "height": 327
+            },
+            {
+              "x": 20,
+              "y": 395,
+              "width": 235,
+              "height": 355
+            },
+            {
+              "x": 279,
+              "y": 445,
+              "width": 237,
+              "height": 334
+            },
+            {
+              "x": 519,
+              "y": 511,
+              "width": 261,
+              "height": 273
+            },
+            {
+              "x": 782,
+              "y": 561,
+              "width": 230,
+              "height": 219
+            },
+            {
+              "x": 2,
+              "y": 895,
+              "width": 302,
+              "height": 149
+            },
+            {
+              "x": 310,
+              "y": 797,
+              "width": 213,
+              "height": 254
+            },
+            {
+              "x": 547,
+              "y": 801,
+              "width": 232,
+              "height": 249
+            },
+            {
+              "x": 804,
+              "y": 797,
+              "width": 219,
+              "height": 252
+            },
+            {
+              "x": 20,
+              "y": 1054,
+              "width": 249,
+              "height": 440
+            },
+            {
+              "x": 275,
+              "y": 1075,
+              "width": 265,
+              "height": 300
+            },
+            {
+              "x": 551,
+              "y": 1070,
+              "width": 212,
+              "height": 430
+            },
+            {
+              "x": 786,
+              "y": 1079,
+              "width": 230,
+              "height": 421
+            }
+          ],
+          "heightRatios": [
+            1,
+            1,
+            1,
+            0.76,
+            0.82,
+            0.78,
+            0.6,
+            0.49,
+            0.34,
+            0.62,
+            0.62,
+            0.62,
+            1,
+            0.94,
+            0.94,
+            1
+          ]
+        },
+        "ball-miss": {
+          "file": "outfits/wedding/interaction.png",
+          "columns": 4,
+          "rows": 4,
+          "frames": [
+            15,
+            0
+          ],
+          "frameMs": [
+            1000,
+            300
+          ],
+          "loop": false,
+          "cells": [
+            {
+              "x": 8,
+              "y": 6,
+              "width": 263,
+              "height": 388
+            },
+            {
+              "x": 284,
+              "y": 7,
+              "width": 234,
+              "height": 398
+            },
+            {
+              "x": 528,
+              "y": 9,
+              "width": 235,
+              "height": 395
+            },
+            {
+              "x": 810,
+              "y": 68,
+              "width": 205,
+              "height": 327
+            },
+            {
+              "x": 20,
+              "y": 395,
+              "width": 235,
+              "height": 355
+            },
+            {
+              "x": 279,
+              "y": 445,
+              "width": 237,
+              "height": 334
+            },
+            {
+              "x": 519,
+              "y": 511,
+              "width": 261,
+              "height": 273
+            },
+            {
+              "x": 782,
+              "y": 561,
+              "width": 230,
+              "height": 219
+            },
+            {
+              "x": 2,
+              "y": 895,
+              "width": 302,
+              "height": 149
+            },
+            {
+              "x": 310,
+              "y": 797,
+              "width": 213,
+              "height": 254
+            },
+            {
+              "x": 547,
+              "y": 801,
+              "width": 232,
+              "height": 249
+            },
+            {
+              "x": 804,
+              "y": 797,
+              "width": 219,
+              "height": 252
+            },
+            {
+              "x": 20,
+              "y": 1054,
+              "width": 249,
+              "height": 440
+            },
+            {
+              "x": 275,
+              "y": 1075,
+              "width": 265,
+              "height": 300
+            },
+            {
+              "x": 551,
+              "y": 1070,
+              "width": 212,
+              "height": 430
+            },
+            {
+              "x": 786,
+              "y": 1079,
+              "width": 230,
+              "height": 421
+            }
+          ],
+          "heightRatios": [
+            1,
+            1,
+            1,
+            0.76,
+            0.82,
+            0.78,
+            0.6,
+            0.49,
+            0.34,
+            0.62,
+            0.62,
+            0.62,
+            1,
+            0.94,
+            0.94,
+            1
           ]
         }
       }

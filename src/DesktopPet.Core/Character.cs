@@ -8,7 +8,8 @@ public sealed record HandContact(double Height, double Offset = 0, double Span =
 public sealed record SpriteCell(int X, int Y, int Width, int Height);
 /// <summary>A sheet with optional authored crop regions, frame order and contact points.</summary>
 public sealed record Sprite(string File, int Columns = 3, int Rows = 2, int[]? FrameMs = null, string Facing = "right",
-    int[]? Frames = null, bool Loop = true, bool BakedProps = false, HandContact?[]? Hands = null, SpriteCell[]? Cells = null);
+    int[]? Frames = null, bool Loop = true, bool BakedProps = false, HandContact?[]? Hands = null, SpriteCell[]? Cells = null,
+    double[]? HeightRatios = null);
 
 /// <summary>A self-contained appearance. Missing motions never borrow another outfit's art.</summary>
 public sealed class Outfit
@@ -65,6 +66,7 @@ public sealed class Character
                 || (s.Cells is { } cells && (cells.Length != s.Columns * s.Rows || cells.Any(c => c is null || c.X < 0 || c.Y < 0
                     || c.Width < 1 || c.Height < 1 || (long)c.X + c.Width > 6144 || (long)c.Y + c.Height > 6144)))
                 || (s.FrameMs is { } ms && (ms.Length != (s.Frames?.Length ?? s.Columns * s.Rows) || ms.Any(t => t < 40 || t > 5000)))
+                || (s.HeightRatios is { } ratios && (ratios.Length != s.Columns * s.Rows || ratios.Any(r => !double.IsFinite(r) || r is < .15 or > 1.5)))
                 || (s.Hands is { } hands && (hands.Length != s.Columns * s.Rows || hands.Any(h => h is not null
                     && (!double.IsFinite(h.Height) || !double.IsFinite(h.Offset) || !double.IsFinite(h.Span)
                         || h.Height is < 0 or > 1 || h.Offset is < -.5 or > .5 || h.Span is < .02 or > .4)))))
@@ -99,8 +101,12 @@ public sealed class Character
     public Sprite? MotionFor(string outfit, string action)
     {
         var motions = Outfits.TryGetValue(outfit, out var clothes) ? clothes.Motions : Motions;
+        if (motions.TryGetValue(action, out var exact)) return exact;
+        // Portraits have their own procedural gestures. A newly authored jump or
+        // talking pose must not replace tickling, kicking or a pounce.
+        if (Category != "chibi" && action is "tickle" or "kick" or "pounce") return null;
         var fallback = action switch { "meal" => "eat", "pounce" => "chat", "poke" => "headpat", "tickle" => "jump", "kick" => "jump", _ => action };
-        return motions.GetValueOrDefault(action) ?? motions.GetValueOrDefault(fallback);
+        return motions.GetValueOrDefault(fallback);
     }
 
     public bool CanWalk(string outfit) => MotionFor(outfit, "walk") is { } walk

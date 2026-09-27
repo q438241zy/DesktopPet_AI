@@ -50,6 +50,23 @@ Test("semantic fallback uses the current outfit before its pose atlas", () =>
     pet.Outfits["swim"].Motions["poke"] = new("swim-poke.png");
     Equal("swim-poke.png", pet.Resolve("swim", "poke", 0).Sprite.File);
 });
+Test("portrait gesture fallback never substitutes jumping or talking for an unrelated action", () =>
+{
+    foreach (string category in new[] { "3d", "adult" })
+    {
+        var pet = new Character { Category = category, Atlas = new("portrait.png", 1, 1),
+            Motions = new() { ["jump"] = new("jump.png"), ["chat"] = new("chat.png") },
+            Outfits = new() { ["swim"] = new() { Idle = new("swim.png", 1, 1), Motions = new() { ["jump"] = new("swim-jump.png"), ["chat"] = new("swim-chat.png") } } } };
+        foreach (string outfit in new[] { "original", "swim" })
+            foreach (string action in new[] { "tickle", "kick", "pounce" })
+            {
+                Equal<Sprite?>(null, pet.MotionFor(outfit, action));
+                Equal(outfit == "original" ? "portrait.png" : "swim.png", pet.Resolve(outfit, action, 600).Sprite.File);
+            }
+        pet.Outfits["swim"].Motions["tickle"] = new("drawn-tickle.png");
+        Equal("drawn-tickle.png", pet.Resolve("swim", "tickle", 600).Sprite.File);
+    }
+});
 Test("walking capability never borrows original clothes or mistakes poses for an animation", () =>
 {
     var pet = new Character { Motions = new() { ["walk"] = new("original-walk.png") }, Outfits = new() {
@@ -247,6 +264,26 @@ Test("shake needs four recent reversals, then expires", () =>
     Equal(true, shake.IsDizzy(500)); Equal(false, shake.IsDizzy(2100));
     shake.Start(0, 0); shake.Move(60, 200); shake.Move(0, 400); Equal("shaken", shake.Motion);
 });
+ChatVerification.Run(Test);
+Test("jump has grounded preparation and landing with one continuous airborne arc", () =>
+{
+    foreach (double size in new[] { 120d, 200, 280 })
+    {
+        foreach (double time in new[] { 0d, 120, 240, 880, 1000, 1320 }) Equal(0d, PortraitChoreography.JumpHeight(time, size));
+        Equal(true, Math.Abs(PortraitChoreography.JumpHeight(560, size) - size * .3) < .01);
+        for (int t = 0; t <= 1320; t += 16)
+        {
+            Equal(0d, PortraitChoreography.JumpHeight(t, size, true));
+            Equal(true, Math.Abs(PortraitChoreography.JumpHeight(t + 16, size) - PortraitChoreography.JumpHeight(t, size)) < 7);
+        }
+    }
+});
+Test("body impact sweeps fast throws while distant and overhead balls miss", () =>
+{
+    Equal(true, PortraitChoreography.HitsBody(0, 320, 560, 320, 280, 200, 268, 17));
+    Equal(false, PortraitChoreography.HitsBody(0, 100, 560, 100, 280, 200, 268, 17));
+    Equal(false, PortraitChoreography.HitsBody(35, 100, 35, 468, 280, 200, 268, 17));
+});
 string root = Path.Combine(Path.GetTempPath(), "DesktopPet-tests-" + Guid.NewGuid().ToString("N"));
 Directory.CreateDirectory(root);
 try
@@ -274,6 +311,9 @@ try
         c.Atlas = new Sprite("atlas.png", 3, 2, [0, 0]); Write(); Reject(() => Character.Load(root));
         c.Atlas = new Sprite("atlas.png", 0, 0); Write(); Reject(() => Character.Load(root));
         c.Atlas = new Sprite("atlas.png", 1, 1, Facing: "up"); Write(); Reject(() => Character.Load(root));
+        c.Atlas = new Sprite("atlas.png", 1, 1, HeightRatios: [.49]); Write(); Equal(.49, Character.Load(root).Atlas.HeightRatios![0]);
+        c.Atlas = new Sprite("atlas.png", 1, 1, HeightRatios: []); Write(); Reject(() => Character.Load(root));
+        c.Atlas = new Sprite("atlas.png", 1, 1, HeightRatios: [0]); Write(); Reject(() => Character.Load(root));
         c.Atlas = new Sprite("atlas.png", 1, 1); c.Category = "unknown"; Write(); Reject(() => Character.Load(root));
         c.Category = "adult"; Write(); Equal("adult", Character.Load(root).Category);
         c.Outfits["empty"] = new Outfit { Name = "empty" }; Write(); Reject(() => Character.Load(root)); c.Outfits.Clear();

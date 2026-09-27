@@ -55,6 +55,8 @@ internal static class DetailVerification
             pet.RunInteraction("headpat"); await Task.Delay(90);
             Require(pet.ActiveMotion is { ActionName: "headpat" } rig && ReferenceEquals(rig.Texture, texture), $"{character.Id}/{outfit}: head pat uses selected portrait mesh");
             Require(pet.ActiveMotion!.Pose.Bones.Zip(pet.ActiveMotion.Rig.Rest).Any(p => (p.First.B - p.Second.B).Length > .000001), $"{character.Id}/{outfit}: head pat articulates joints");
+            pet.RunInteraction("tickle"); await Task.Delay(90);
+            Require(!pet.UsingDrawnAction && pet.ActiveMotion is { ActionName: "tickle" } tickle && ReferenceEquals(tickle.Texture, texture), $"{character.Id}/{outfit}: tickling keeps its own gesture instead of borrowing jump poses");
             pet.RunInteraction("snack"); await Task.Delay(80);
             var food = character.MotionFor(outfit, "eat");
             Require(pet.CurrentAction == "eat" && pet.EffectKey == "eat" && pet.UsingDrawnAction && pet.ActiveMotion is null
@@ -65,10 +67,11 @@ internal static class DetailVerification
         {
             pet.SelectCharacter(id); pet.State.Outfits[id] = outfit; pet.ApplySettings();
             pet.Left = pet.WorkArea.Left + pet.WorkArea.Width / 2 - 280; pet.Top = pet.WorkArea.Bottom - 468;
-            foreach (var (input, expected) in new[] { ("headpat", "headpat"), ("poke", "poke"), ("tickle", "tickle"), ("snack", "eat"), ("checkin", "meal"), ("think", "think"), ("jump", "jump"), ("curl", "curl"), ("bonk", "bonk"), ("ball", "ball-hold"), ("blocks", "build"), ("nudge", "nudge") })
+            foreach (var (input, expected) in new[] { ("headpat", "headpat"), ("poke", "poke"), ("tickle", "tickle"), ("snack", "eat"), ("checkin", "meal"), ("think", "think"), ("jump", "jump"), ("curl", "curl"), ("bonk", "bonk"), ("ball", "ball-ready"), ("blocks", "build") })
             {
                 int checkins = pet.State.CheckIns.Count; pet.RunInteraction(input); await Task.Delay(620);
-                Require(pet.CurrentAction == expected && (pet.UsingDrawnAction || pet.ActiveMotion?.ActionName == expected) && pet.EffectKey == expected, $"{id}/{outfit}/{input}: menu invokes its own motion and feedback");
+                string phase = expected == "jump" && pet.CurrentAction == "land" ? "land" : expected;
+                Require(pet.CurrentAction == phase && (pet.UsingDrawnAction || pet.ActiveMotion?.ActionName == phase) && pet.EffectKey == phase, $"{id}/{outfit}/{input}: menu invokes its own motion and feedback");
                 Require(pet.State.CheckIns.Count == checkins, "replaying breakfast does not add another check-in");
                 Capture((FrameworkElement)pet.Content, $"response-{id}-{outfit}-{input}");
                 var bitmap = Render((FrameworkElement)pet.Content); byte[] bytes = new byte[560 * 680 * 4]; bitmap.CopyPixels(bytes, 560 * 4, 0);
@@ -78,9 +81,11 @@ internal static class DetailVerification
         foreach (string id in new[] { "deepseek-3d", "deepseek-adult" })
         {
             pet.SelectCharacter(id); pet.RunInteraction("rest"); await Task.Delay(1700);
-            Require(pet.IsResting && pet.CurrentAction == "sleep" && pet.ActiveMotion?.ActionName == "sleep" && Find<Image>(pet).Single().Visibility == Visibility.Visible, id + ": rest keeps a visibly dozing companion");
-            var before = pet.ActiveMotion!.Pose.Bones[0].A; await Task.Delay(450);
-            Require((pet.ActiveMotion.Pose.Bones[0].A - before).Length > .00001, id + ": sleep keeps a gentle breathing cycle");
+            var sleepingSprite = Find<Image>(pet).Single();
+            Require(pet.IsResting && pet.CurrentAction == "sleep" && pet.UsingDrawnAction && pet.ActiveMotion is null
+                && pet.DrawnFrame == 8 && sleepingSprite.Visibility == Visibility.Visible, id + ": rest uses the side-lying sleeping pose");
+            double before = sleepingSprite.Height; await Task.Delay(450);
+            Require(Math.Abs(sleepingSprite.Height - before) > .01, id + ": sleeping body keeps a subtle breathing cycle");
             Capture((FrameworkElement)pet.Content, "sleep-" + id);
             pet.Touch(.16); Require(!pet.IsResting && pet.CurrentAction == "farewell", id + ": touching the resting pet wakes it");
         }
@@ -93,12 +98,13 @@ internal static class DetailVerification
         foreach (var toy in Collectibles.Sports)
         {
             pet.PlayWithToy(toy.Id); pet.UpdateLayout();
-            Require(pet.ActiveToy == toy && Find<ItemVisual>(pet).Single().Item == toy && Find<ItemVisual>(pet).Single().ActualWidth > 0 && pet.HasCaughtBall, "play holds the selected toy: " + toy.Id);
+            Require(pet.ActiveToy == toy && Find<ItemVisual>(pet).Single().Item == toy
+                && Find<ItemVisual>(pet).Single().ActualWidth == toy.Diameter && !pet.HasCaughtBall, "play offers the selected throwable toy: " + toy.Id);
         }
         var randomToys = new HashSet<string>(); for (int i = 0; i < 20; i++) { pet.RunInteraction("ball"); randomToys.Add(pet.ActiveToy.Id); }
         Require(randomToys.Count == 10, "random play reaches all ten toys within two bag rounds");
-        pet.RunInteraction("nudge"); double start = Canvas.GetLeft(Find<ItemVisual>(pet).Single()); await Task.Delay(270);
-        Require(Canvas.GetLeft(Find<ItemVisual>(pet).Single()) < start, "nudging actually rolls the selected toy");
+        pet.RunInteraction("nudge");
+        Require(pet.CurrentAction == "ball-ready" && !PetActions.Menu("play", true).Any(entry => entry.Key == "nudge"), "legacy nudge shares ball play without a duplicate menu entry");
         int treasures = pet.State.Treasures.Count;
         pet.RunInteraction("walk"); await Task.Delay(6600);
         Require(pet.IsExploring, "exploration survives the former six-second visual-effect timeout");

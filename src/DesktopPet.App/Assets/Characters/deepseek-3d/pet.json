@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "id": "deepseek-3d",
+  "name": "DeepSeek · 3D",
+  "category": "3d",
+  "description": "成年比例 · 3D 动画质感",
+  "demo": true,
+  "accent": "#699EDC",
+  "atlas": { "file": "portrait.png", "columns": 1, "rows": 1 },
+  "motions": {},
+  "outfits": {}
+}

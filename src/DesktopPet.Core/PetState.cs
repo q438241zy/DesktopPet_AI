@@ -6,7 +6,7 @@ namespace DesktopPet.Core;
 public sealed class PetState
 {
     public int Version { get; set; } = 1;
-    public string Character { get; set; } = "umaru";
+    public string Character { get; set; } = "whale";
     public Dictionary<string, string> Outfits { get; set; } = [];
     public double Size { get; set; } = 200;
     public double Opacity { get; set; } = 1;

@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "id": "deepseek-adult",
+  "name": "DeepSeek · 成人",
+  "category": "adult",
+  "description": "成年比例 · 写实数字人质感",
+  "demo": true,
+  "accent": "#7C9FB8",
+  "atlas": { "file": "portrait.png", "columns": 1, "rows": 1 },
+  "motions": {},
+  "outfits": {}
+}

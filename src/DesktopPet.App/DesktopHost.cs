@@ -11,6 +11,7 @@ public sealed class DesktopHost : IDisposable
     private readonly HwndSource source;
     private readonly List<int> registered = [];
     private readonly System.Windows.Forms.NotifyIcon tray;
+    private readonly System.Drawing.Icon icon;
     public event Action<int>? Pressed;
     public List<string> Warnings { get; } = [];
     public DesktopHost(Window window, Action settings, Action toggle, Action quit)
@@ -25,12 +26,13 @@ public sealed class DesktopHost : IDisposable
             else Warnings.Add($"{key.Name} 被其他程序占用；可使用托盘菜单。");
         }
         var menu = new System.Windows.Forms.ContextMenuStrip();
-        menu.Items.Add("打开宠物之家", null, (_, _) => window.Dispatcher.Invoke(settings));
+        menu.Items.Add("打开云朵伙伴", null, (_, _) => window.Dispatcher.Invoke(settings));
         menu.Items.Add("显示 / 隐藏宠物", null, (_, _) => window.Dispatcher.Invoke(toggle));
         menu.Items.Add("解除鼠标穿透", null, (_, _) => window.Dispatcher.Invoke(() => Pressed?.Invoke(2)));
         menu.Items.Add(new System.Windows.Forms.ToolStripSeparator());
         menu.Items.Add("退出桌面宠物", null, (_, _) => window.Dispatcher.Invoke(quit));
-        tray = new System.Windows.Forms.NotifyIcon { Text = "DesktopPet · 桌边伙伴", Icon = System.Drawing.SystemIcons.Application, Visible = true, ContextMenuStrip = menu };
+        icon = new System.Drawing.Icon(Path.Combine(AppContext.BaseDirectory, "Assets", "cloud.ico"));
+        tray = new System.Windows.Forms.NotifyIcon { Text = "DesktopPet · 云朵伙伴", Icon = icon, Visible = true, ContextMenuStrip = menu };
         tray.DoubleClick += (_, _) => window.Dispatcher.Invoke(settings);
     }
     public void ClickThrough(bool enabled)
@@ -52,7 +54,7 @@ public sealed class DesktopHost : IDisposable
     {
         foreach (int id in registered) UnregisterHotKey(handle, id);
         source.RemoveHook(Hook);
-        tray.Visible = false; tray.ContextMenuStrip?.Dispose(); tray.Dispose();
+        tray.Visible = false; tray.ContextMenuStrip?.Dispose(); tray.Dispose(); icon.Dispose();
     }
     [DllImport("user32.dll", SetLastError = true)] private static extern bool RegisterHotKey(nint hWnd, int id, uint modifiers, uint key);
     [DllImport("user32.dll")] private static extern bool UnregisterHotKey(nint hWnd, int id);

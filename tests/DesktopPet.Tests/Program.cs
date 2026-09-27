@@ -42,6 +42,20 @@ Test("six-frame animation wraps at exact clip duration", () =>
     Equal(0, Motion.Frame(clip, 0)); Equal(1, Motion.Frame(clip, 100)); Equal(5, Motion.Frame(clip, 2099)); Equal(0, Motion.Frame(clip, 2100));
     Equal(0, Motion.Frame(new Sprite("single.png", 1, 1), 555));
 });
+Test("walking reverses inward at either edge without overshooting", () =>
+{
+    Equal((90d, -1), DesktopWalk.Step(50, 1, 40, 10, 90));
+    Equal((10d, 1), DesktopWalk.Step(11, -1, 200, 10, 90));
+    Equal((12d, 1), DesktopWalk.Step(10, 1, 2, 10, 90));
+    Equal((30d, -1), DesktopWalk.Step(40, -1, 10, 10, 90));
+    Equal((50d, 1), DesktopWalk.Step(50, 1, 10, 50, 50));
+});
+Test("the displayed facing follows travel and each source clip orientation", () =>
+{
+    Equal(-1d, DesktopWalk.ScaleX(-1, "right")); Equal(1d, DesktopWalk.ScaleX(1, "right"));
+    Equal(1d, DesktopWalk.ScaleX(-1, "left")); Equal(-1d, DesktopWalk.ScaleX(1, "left"));
+    Equal(44d, DesktopWalk.Speed(200, new Sprite("walk.png", 2, 1, [500, 500])));
+});
 Test("fast throws use swept contact and misses remain misses", () =>
 {
     Equal(true, BallPhysics.Hit(0, 100, 900, 100, 450, 100, 30));
@@ -70,7 +84,7 @@ try
     Test("corrupt saves are retained instead of silently discarded", () =>
     {
         File.WriteAllText(Path.Combine(root, "state.json"), "{broken"); var store = new StateStore(root); var state = store.Load();
-        Equal("umaru", state.Character); Equal(true, store.Warning is not null);
+        Equal("whale", state.Character); Equal(true, store.Warning is not null);
         Equal("{broken", File.ReadAllText(Directory.GetFiles(root, "state-unreadable-*.json").Single()));
     });
     Test("import rejects path traversal, executable assets and invalid timing", () =>
@@ -82,6 +96,9 @@ try
         Write(); Equal("test", Character.Load(root).Id);
         c.Atlas = new Sprite("atlas.png", 3, 2, [0, 0]); Write(); Reject(() => Character.Load(root));
         c.Atlas = new Sprite("atlas.png", 0, 0); Write(); Reject(() => Character.Load(root));
+        c.Atlas = new Sprite("atlas.png", 1, 1, Facing: "up"); Write(); Reject(() => Character.Load(root));
+        c.Atlas = new Sprite("atlas.png", 1, 1); c.Category = "unknown"; Write(); Reject(() => Character.Load(root));
+        c.Category = "adult"; Write(); Equal("adult", Character.Load(root).Category);
         c.Atlas = new Sprite("missing.png"); Write(); Reject(() => Character.Load(root));
     });
     Test("saved invalid values are bounded without accepting invalid dates", () =>

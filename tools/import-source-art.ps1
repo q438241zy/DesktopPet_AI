@@ -1,13 +1,12 @@
 param(
-    [Parameter(Mandatory=$true)][string]$DsGoRoot,
-    [Parameter(Mandatory=$true)][string]$DashboardRoot
+    [Parameter(Mandatory=$true)][string]$DsGoRoot
 )
 $ErrorActionPreference = 'Stop'
 $projectRoot = Split-Path -Parent $PSScriptRoot
 $artRoot = Join-Path $DsGoRoot 'packages/client/pet/src/assets'
 $sourceRoot = Join-Path $projectRoot 'src/DesktopPet.App/Assets/Characters'
 $characters = @(
-    @('umaru','小埋','#ED9A50'), @('gpt','GPT','#A895E8'), @('claude','Claude','#D59477'),
+    @('gpt','GPT','#A895E8'), @('claude','Claude','#D59477'),
     @('gemini','Gemini','#799CD9'), @('grok','Grok','#A0A4B8'), @('whale','DeepSeek','#74B3E6'),
     @('qwen','Qwen','#A58BE4'), @('zhipu','GLM','#78BEA7'), @('kimi','Kimi','#D198BA')
 )
@@ -31,11 +30,7 @@ foreach ($entry in $characters) {
         $motions[$motion] = @{ file="motions/$motion.webp"; columns=3; rows=2; frameMs=$timings[$motion] }
     }
     $outfits = [ordered]@{}
-    if ($id -eq 'umaru') {
-        Copy-Item -LiteralPath "$DashboardRoot/Source/Assets/Umaru" -Destination "$dest/classic" -Recurse -Force
-        $outfits['classic'] = @{name='经典小埋'; idle=@{file='classic/sit/default.png';columns=1;rows=1}; motions=@{}}
-    } else {
-        foreach ($outfit in @('swim','wedding')) {
+    foreach ($outfit in @('swim','wedding')) {
             Copy-Item -LiteralPath "$artRoot/outfits/$id-$outfit.webp" -Destination "$dest/outfits/$outfit.webp"
             $outfitMotions = [ordered]@{}
             if ($outfit -eq 'wedding') {
@@ -46,9 +41,8 @@ foreach ($entry in $characters) {
                 }
             }
             $outfits[$outfit] = @{ name=$(if($outfit -eq 'swim'){'泳装'}else{'婚纱'}); idle=@{file="outfits/$outfit.webp";columns=$(if($id -eq 'whale' -and $outfit -eq 'swim'){3}else{1});rows=$(if($id -eq 'whale' -and $outfit -eq 'swim'){2}else{1})}; motions=$outfitMotions }
-        }
     }
-    $manifest = [ordered]@{version=1;id=$id;name=$entry[1];accent=$entry[2];atlas=@{file='atlas.png';columns=3;rows=2};dizzy=@{file='dizzy.png';columns=1;rows=1};motions=$motions;outfits=$outfits}
+    $manifest = [ordered]@{version=1;id=$id;name=$entry[1];accent=$entry[2];category='chibi';atlas=@{file='atlas.png';columns=3;rows=2};dizzy=@{file='dizzy.png';columns=1;rows=1};motions=$motions;outfits=$outfits}
     [IO.File]::WriteAllText("$dest/pet.json", ($manifest | ConvertTo-Json -Depth 12) + "`n", [Text.UTF8Encoding]::new($false))
 }
 Write-Output "Imported $($characters.Count) characters. No other dashboard characters were copied."

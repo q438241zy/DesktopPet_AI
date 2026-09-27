@@ -19,7 +19,7 @@ public sealed class PetWindow : Window
     public Character Character => Catalog.Find(State.Character);
     private readonly StateStore store;
     private readonly Canvas surface = new();
-    private readonly Image sprite = new() { Stretch = Stretch.Fill, Cursor = Cursors.Hand, Focusable = true };
+    private readonly Image sprite = new() { Stretch = Stretch.Uniform, Cursor = Cursors.Hand, Focusable = true };
     private readonly Canvas effects = new() { IsHitTestVisible = false };
     private readonly Canvas menu = new();
     private readonly TextBlock speech = new() { TextWrapping = TextWrapping.Wrap, FontSize = 13, Foreground = new SolidColorBrush(Color.FromRgb(66, 56, 52)) };
@@ -29,7 +29,7 @@ public sealed class PetWindow : Window
     private readonly DispatcherTimer timer;
     private readonly Stopwatch clock = Stopwatch.StartNew();
     private readonly ShakeTracker shakes = new();
-    private readonly TranslateTransform translation = new();
+    private readonly ScaleTransform facing = new(1, 1);
     private DesktopHost? desktop;
     private SettingsWindow? settings;
     private string action = "idle";
@@ -43,20 +43,22 @@ public sealed class PetWindow : Window
     private double propStart;
     private DateOnly day;
     private const double CenterX = 280, FloorY = 468;
-    private double PetTop => FloorY - State.Size * .875;
+    private double groundLine = .875;
+    private double PetTop => FloorY - State.Size * groundLine;
     private double Now => clock.Elapsed.TotalMilliseconds;
 
     public PetWindow(StateStore store, Catalog catalog)
     {
         this.store = store; Catalog = catalog; State = store.Load();
         State.Character = catalog.Find(State.Character).Id;
-        Title = "DesktopPet · 桌边伙伴"; Width = 560; Height = 500;
+        Title = "DesktopPet · 桌边伙伴"; Icon = CloudTheme.AppIcon; Width = 560; Height = 500;
         WindowStyle = WindowStyle.None; ResizeMode = ResizeMode.NoResize; AllowsTransparency = true;
         Background = Brushes.Transparent; ShowInTaskbar = false; Topmost = State.Topmost;
         Content = surface;
-        sprite.RenderTransform = translation;
+        sprite.RenderTransform = facing;
+        restore.Content = CloudTheme.Icon("moon", 42);
         surface.Children.Add(effects); surface.Children.Add(sprite); surface.Children.Add(menu);
-        bubble = new Border { Background = new SolidColorBrush(Color.FromArgb(248, 255, 253, 247)), BorderBrush = new SolidColorBrush(Color.FromRgb(232, 220, 208)), BorderThickness = new Thickness(1), CornerRadius = new CornerRadius(14), Padding = new Thickness(15, 10, 15, 10), Width = 238, Child = speech, IsHitTestVisible = false, Visibility = Visibility.Collapsed };
+        bubble = new Border { Background = CloudTheme.Brush("#F8FCFF"), BorderBrush = CloudTheme.Line, BorderThickness = new Thickness(1), CornerRadius = new CornerRadius(20), Padding = new Thickness(15, 10, 15, 10), Width = 238, Child = speech, IsHitTestVisible = false, Visibility = Visibility.Collapsed };
         surface.Children.Add(bubble); surface.Children.Add(restore); surface.Children.Add(ball);
         restore.Visibility = Visibility.Collapsed; ball.Visibility = Visibility.Collapsed;
         AutomationProperties.SetName(sprite, "桌面宠物：点击摸头，拖动抱起，右键互动");
@@ -108,6 +110,7 @@ public sealed class PetWindow : Window
     public void SelectCharacter(string id)
     {
         CancelInput(); ClearTransient(); resting = false; restore.Visibility = Visibility.Collapsed;
+        sprite.Visibility = Visibility.Visible;
         State.Character = Catalog.Find(id).Id; Art.Clear(); ApplySettings();
         Play("chat", $"你好，我是{Character.Name}。", 2600);
     }
@@ -173,6 +176,8 @@ public sealed class PetWindow : Window
     private void PetDown(object sender, MouseButtonEventArgs e)
     {
         if (e.ChangedButton != MouseButton.Left) return;
+        if (roaming) { roaming = false; SetAction("idle"); Render(); }
+        lastInteraction = Now;
         menu.Children.Clear(); sprite.Focus(); pressed = true; dragging = false;
         downScreen = ScreenPoint(e); downWindow = new Point(Left, Top); shakes.Start(downScreen.X, Now);
         sprite.CaptureMouse(); e.Handled = true;
@@ -207,11 +212,11 @@ public sealed class PetWindow : Window
         else Touch(e.GetPosition(sprite).Y / State.Size);
         e.Handled = true;
     }
-    private Rect WorkArea => desktop?.WorkArea(this) ?? SystemParameters.WorkArea;
+    internal Rect WorkArea => desktop?.WorkArea(this) ?? SystemParameters.WorkArea;
     private void Constrain()
     {
         var area = WorkArea;
-        Left = Math.Clamp(Left, area.Left - CenterX + State.Size * .55, area.Right - CenterX - State.Size * .55);
+        Left = Math.Clamp(Left, area.Left - CenterX + State.Size * .46, area.Right - CenterX - State.Size * .46);
         Top = Math.Clamp(Top, area.Top - PetTop + 90, area.Bottom - FloorY);
     }
     private void CancelInput()
@@ -223,7 +228,7 @@ public sealed class PetWindow : Window
         if (hadDrag) { Constrain(); SetAction("idle"); if (!closing) Save(); }
     }
     private void ClearTransient()
-    { menu.Children.Clear(); effects.Children.Clear(); prop = null; flyingBall = holdingBall = false; ball.Visibility = Visibility.Collapsed; bubble.Visibility = Visibility.Collapsed; onMotionEnd = null; }
+    { roaming = false; menu.Children.Clear(); effects.Children.Clear(); prop = null; flyingBall = holdingBall = false; ball.Visibility = Visibility.Collapsed; bubble.Visibility = Visibility.Collapsed; onMotionEnd = null; }
 
     private void ShowMenu(string group)
     {
@@ -233,14 +238,15 @@ public sealed class PetWindow : Window
             "care" => [("☀", "打卡 · 吃早饭", CheckIn), ("♡", "摸摸头", () => Play("headpat", "最喜欢被摸头啦。")), ("◌", "戳脸", () => Play("poke", "唔，你戳到我啦。", 1700)), ("✧", "挠痒", () => Play("tickle", "哈哈哈哈！", 1700)), ("♨", "喂零食", Snack), ("☏", "聊聊天", () => Play("chat", $"{Character.Name}在这里陪你。慢慢来就好。"))],
             "play" => [("●", "一起玩球", TakeBall), ("▦", "搭积木", BuildBlocks), ("⌁", "散步探索", () => StartWalk(true)), ("⌂", "躲猫猫", Peek), ("↗", "轻推小球", NudgeBall), ("♧", "软锤轻敲", () => Play("bonk", "哎呀，轻一点～"))],
             "motions" => [("…", "思考", () => Play("think", "让我想一想……")), ("↑", "跳一下", () => Play("jump", "嘿咻！")), ("◐", "左边偷看", () => Peek(-1)), ("◑", "右边偷看", () => Peek(1)), ("☾", "蜷起来", () => Play("curl", "抱成一小团。")), ("✉", "纪念卡片", () => Celebrate($"相伴 {State.CheckIns.Count} 天"))],
-            _ => [("♡", "照顾", () => ShowMenu("care")), ("●", "玩耍", () => ShowMenu("play")), ("✧", "动作", () => ShowMenu("motions")), ("☾", "休息", Rest), ("⚙", "宠物之家", OpenSettings)]
+            _ => [("♡", "照顾", () => ShowMenu("care")), ("●", "玩耍", () => ShowMenu("play")), ("✧", "动作", () => ShowMenu("motions")), ("☾", "休息", Rest), ("⚙", "云朵伙伴", OpenSettings)]
         };
         for (int i = 0; i < entries.Length; i++)
         {
             var entry = entries[i];
             double angle = Math.PI + .12 + i * (Math.PI - .24) / Math.Max(1, entries.Length - 1);
             double radius = State.Size * .54 + 33;
-            var button = new Button { Content = entry.Icon, ToolTip = entry.Label, Width = 44, Height = 44, FontSize = 20, Padding = new Thickness(0), Margin = new Thickness(0) };
+            string glyph = entry.Icon switch { "♡" => "heart", "☀" => "sun", "♨" => "food", "☏" => "chat", "●" => "ball", "▦" => "blocks", "⌁" => "walk", "☾" => "moon", "✉" => "letter", "⚙" => "settings", _ => "spark" };
+            var button = new Button { Content = CloudTheme.Icon(glyph, 42), ToolTip = entry.Label, Width = 48, Height = 48, Padding = new Thickness(0), Margin = new Thickness(0), Background = Brushes.Transparent, BorderThickness = new Thickness(0) };
             AutomationProperties.SetName(button, entry.Label);
             button.Click += (_, _) => { menu.Children.Clear(); entry.Invoke(); };
             menu.Children.Add(button);
@@ -252,7 +258,7 @@ public sealed class PetWindow : Window
         }
         if (group != "root")
         {
-            var back = new Button { Content = "‹", ToolTip = "返回", Width = 34, Height = 34, Padding = new Thickness(0), FontSize = 22 };
+            var back = new Button { Content = CloudTheme.Icon("back", 36), ToolTip = "返回", Width = 38, Height = 38, Padding = new Thickness(0), Background = Brushes.Transparent, BorderThickness = new Thickness(0) };
             AutomationProperties.SetName(back, "返回"); back.Click += (_, _) => ShowMenu("root");
             menu.Children.Add(back); Canvas.SetLeft(back, CenterX - 17); Canvas.SetTop(back, Math.Max(8, PetTop - 89));
         }
@@ -289,14 +295,26 @@ public sealed class PetWindow : Window
         resting = false; restore.Visibility = Visibility.Collapsed; sprite.Visibility = Visibility.Visible;
         Play("chat", "我回来啦。", 2700);
     }
-    private void StartWalk(bool explore)
+    internal bool CanWalk
+    {
+        get
+        {
+            bool exists = Character.Motions.ContainsKey("walk") || (Character.Outfits.TryGetValue(State.Outfit, out var outfit) && outfit.Motions.ContainsKey("walk"));
+            var clip = Character.Resolve(State.Outfit, "walk", 0).Sprite;
+            return exists && clip.Columns * clip.Rows >= 2;
+        }
+    }
+    internal void StartWalk(bool explore, int? initialDirection = null)
     {
         if (State.ReducedMotion) { Say("已开启减少动态效果。", 2500); return; }
         if (!State.CheckedIn(day)) { Say("先点我打卡吃早饭，再一起散步吧。", 3000); return; }
+        var clip = Character.Resolve(State.Outfit, "walk", 0).Sprite;
+        if (!CanWalk || clip.Columns * clip.Rows < 2) { Say("这套外观是静态 Demo，行走动作还在等你确认风格。", 3500); return; }
         ClearTransient(); if (resting) RestorePet();
-        Top = WorkArea.Bottom - FloorY; Constrain(); roaming = true; direction = Random.Shared.Next(2) == 0 ? -1 : 1;
+        Top = WorkArea.Bottom - FloorY; Constrain(); roaming = true; direction = initialDirection ?? (Random.Shared.Next(2) == 0 ? -1 : 1);
         roamDeadline = Now + (explore ? 9000 : 15000); SetAction("walk"); lastInteraction = Now;
         if (explore) { prop = "explore"; propStart = Now; Say("去桌边找点小惊喜。", 2200); }
+        Render();
     }
     private void TakeBall()
     {
@@ -326,9 +344,11 @@ public sealed class PetWindow : Window
         if (dragging && now - shakes.LastReversal >= 650 && action != "pickup") SetAction("pickup");
         if (roaming && menu.Children.Count == 0)
         {
-            Left += direction * 30 * dt;
             var area = WorkArea;
-            if (Left + CenterX - State.Size * .42 < area.Left || Left + CenterX + State.Size * .42 > area.Right) { direction *= -1; Constrain(); }
+            var clip = Character.Resolve(State.Outfit, "walk", now - actionStarted).Sprite;
+            var step = DesktopWalk.Step(Left + CenterX, direction, DesktopWalk.Speed(State.Size, clip) * dt, area.Left + State.Size * .46, area.Right - State.Size * .46);
+            Left = step.Center - CenterX; direction = step.Direction;
+            Top = area.Bottom - FloorY;
             if (now >= roamDeadline)
             {
                 roaming = false;
@@ -345,7 +365,7 @@ public sealed class PetWindow : Window
         if (action == "idle" && !pressed && !resting && menu.Children.Count == 0)
         {
             if (!State.CheckedIn(day)) SetAction("sleep");
-            else if (State.Wander && !State.ReducedMotion && now - lastInteraction > 45000) StartWalk(false);
+            else if (State.Wander && CanWalk && !State.ReducedMotion && now - lastInteraction > 45000 && Math.Abs(Top + FloorY - WorkArea.Bottom) < 28) StartWalk(false);
         }
         if (resting && now >= nextPeek)
         {
@@ -370,9 +390,12 @@ public sealed class PetWindow : Window
     private void Render()
     {
         var art = Character.Resolve(State.Outfit, action, Now - actionStarted, State.ReducedMotion);
-        sprite.Source = Art.Frame(Character, art.Sprite, art.Frame);
-        sprite.RenderTransformOrigin = new Point(.5, .8);
-        translation.Y = !State.ReducedMotion && roaming ? Math.Sin(Now / 100) * 2 : 0;
+        var frame = Art.Frame(Character, art.Sprite, art.Frame);
+        sprite.Source = frame;
+        groundLine = action == "walk" || Character.Demo ? Art.GroundLine(frame) : .875;
+        Canvas.SetTop(sprite, PetTop); Canvas.SetTop(bubble, Math.Max(8, PetTop - 78));
+        sprite.RenderTransformOrigin = new Point(.5, .5);
+        facing.ScaleX = action is "walk" or "peek" ? DesktopWalk.ScaleX(direction, art.Sprite.Facing) : 1;
     }
     private void DrawEffects(double now)
     {

@@ -8,10 +8,13 @@
   "id": "my-pet",
   "name": "我的伙伴",
   "accent": "#D59477",
+  "category": "chibi",
+  "description": "角色介绍",
+  "demo": false,
   "atlas": { "file": "atlas.png", "columns": 3, "rows": 2 },
   "dizzy": { "file": "dizzy.png", "columns": 1, "rows": 1 },
   "motions": {
-    "walk": { "file": "walk.webp", "columns": 3, "rows": 2, "frameMs": [160,160,160,160,160,160] }
+    "walk": { "file": "walk.webp", "columns": 3, "rows": 2, "facing": "right", "frameMs": [160,160,160,160,160,160] }
   },
   "outfits": {
     "wedding": {
@@ -24,6 +27,10 @@
 ```
 
 六姿势图集按行排列：悠闲、开心、摸摸、睡眠、晕倒、难过。标准为 1536×1024，每格 512×512，身体中心 x=256、落地脚底 y=448。各动作必须共用比例和基线。单张图应明确写 `columns: 1, rows: 1`。
+
+`category` 为 `chibi`（Q版）、`3d`（3D版）、`adult`（成人版），省略时兼容旧包，归入 Q版。这是画风分类，不改变渲染方式；当前均使用二维透明图。`demo: true` 会标注为静态风格 Demo。
+
+每个图集可指定原始朝向 `facing: "right"` 或 `"left"`，默认朝右。行走时按移动方向与原画朝向一起计算水平翻转；不要把左右朝向混在同一组帧内。程序按每帧可见像素的底边对齐桌面地面，避免额外浮动。行走必须提供至少两帧的 walk 动作；单张静态姿势不能触发桌面散步。
 
 `motions`、`outfits` 和 `dizzy` 可省略。不要在清单引用尚未画好的图片。`frameMs` 若提供，长度必须等于格数，每项 40–5000 毫秒；省略时每格 240 毫秒。动画名称包括 eat、feed、chat、bonk、farewell、walk、angry、headpat、curl、ball-hit、ball-miss、pickup、think、jump、peek、shaken、shaken-strong，以及可逐步补齐的 meal、pounce、poke、tickle、kick。
 

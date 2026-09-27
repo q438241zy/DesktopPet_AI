@@ -10,6 +10,7 @@ namespace DesktopPet.App;
 public sealed class ArtCache
 {
     private readonly Dictionary<string, BitmapSource[]> cache = [];
+    private readonly Dictionary<BitmapSource, double> ground = [];
     private readonly Queue<string> order = new();
     public BitmapSource Frame(Character character, Sprite sprite, int index)
     {
@@ -28,13 +29,21 @@ public sealed class ArtCache
             frames = Enumerable.Range(0, sprite.Columns * sprite.Rows).Select(i =>
             {
                 var frame = new CroppedBitmap(source, new Int32Rect(i % sprite.Columns * w, i / sprite.Columns * h, w, h));
-                frame.Freeze(); return (BitmapSource)frame;
+                frame.Freeze();
+                byte[] pixels = new byte[w * h * 4]; frame.CopyPixels(pixels, w * 4, 0);
+                int bottom = h;
+                for (int y = h - 1; y >= 0; y--)
+                    if (Enumerable.Range(0, w).Any(x => pixels[(y * w + x) * 4 + 3] >= 48)) { bottom = y + 1; break; }
+                ground[frame] = .5 + (bottom - h / 2d) / Math.Max(w, h);
+                return (BitmapSource)frame;
             }).ToArray();
-            while (order.Count >= 16) cache.Remove(order.Dequeue());
+            while (order.Count >= 16)
+                if (cache.Remove(order.Dequeue(), out var expired)) foreach (var old in expired) ground.Remove(old);
             order.Enqueue(key); cache[key] = frames;
         }
         return frames[Math.Clamp(index, 0, frames.Length - 1)];
     }
+    public double GroundLine(BitmapSource frame) => ground[frame];
     private static SKBitmap Decode(string path)
     {
         using var stream = File.OpenRead(path);
@@ -50,5 +59,5 @@ public sealed class ArtCache
         if (bitmap.Width % sprite.Columns != 0 || bitmap.Height % sprite.Rows != 0)
             throw new InvalidDataException($"图集不能均分：{sprite.File}");
     }
-    public void Clear() { cache.Clear(); order.Clear(); }
+    public void Clear() { cache.Clear(); ground.Clear(); order.Clear(); }
 }

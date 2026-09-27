@@ -5,7 +5,7 @@
 - 作者：QQ奶茶大神。
 - 原仓库：`https://github.com/q438241zy/UsageDashboard_AI`。
 - 导入版本：`a09cc84d5f9cd14232d65178a2c245e3529b53b6`。
-- 使用范围：WPF 透明桌面应用组织方式、原生快捷键与托盘能力的重写，以及小埋原始六姿势素材。
+- 使用范围：WPF 透明桌面应用组织方式、原生快捷键与托盘能力的重写。1.1 预览版已移除小埋的全部运行素材。
 - 许可：保留根目录 `LICENSE` 的个人非商业许可。余额采集、账号登录、其他旧角色与 Avalonia 工程未导入。
 
 ## Character_Generator
@@ -18,11 +18,15 @@
 
 ## DS Go / DeepSeek Harness
 
-九位角色的姿势、动作、换衣画稿与玩法定义来自用户提供的本地 DS Go 工程。动画时长、九级亲密度门槛、摇晃阈值与部分回退语义移植到 C#。原始代码许可为 MIT，见 `docs/DeepSeek-LICENSE.txt`。
+八位 AI 角色的 Q 版姿势、动作、换衣画稿与玩法定义来自用户提供的本地 DS Go 工程。动画时长、九级亲密度门槛、摇晃阈值与部分回退语义移植到 C#。原始代码许可为 MIT，见 `docs/DeepSeek-LICENSE.txt`。
 
 `artwork/sources/wedding` 为用户指定 `.artifacts/pet-wardrobe-motion-pack/sources/wedding` 的原稿副本，没有覆盖原稿。运行文件来自同一 DS Go 工程已经对齐的 `packages/client/pet/src/assets`。
 
-相关 AI 同人形象参考信息记载于 DS Go 的 `ai-companion-prompts.json`：Claude、GPT、Gemini、Qwen、GLM 与 Kimi 参考 MiRuru 作品中的角色特征；Grok 是补充的原创形象。小埋和各品牌、角色、商标的权利属于其原权利方。代码许可不授予第三方角色或图像的商业使用权。
+相关 AI 同人形象参考信息记载于 DS Go 的 `ai-companion-prompts.json`：Claude、GPT、Gemini、Qwen、GLM 与 Kimi 参考 MiRuru 作品中的角色特征；Grok 是补充的原创形象。各品牌、角色、商标的权利属于其原权利方。代码许可不授予第三方角色或图像的商业使用权。
+
+## 云朵预览版新增素材
+
+云朵图标使用本项目的 WPF 矢量绘制，没有采用外部图标包。DeepSeek 的两张成年风格 Demo 使用内置 image_gen，以既有 DeepSeek 形象为身份参考生成；未使用真人肖像。网络页面仅作为三维材质和塑形方式参考，没有复制其角色图片。详情与提示词见 `artwork/style-demo/prompts.md`。
 
 ## SkiaSharp
 

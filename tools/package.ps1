@@ -1,4 +1,4 @@
-param([string]$Runtime = 'win-x64', [string]$Version = '1.0.0')
+param([string]$Runtime = 'win-x64', [string]$Version = '1.1.0-preview.1')
 $ErrorActionPreference = 'Stop'
 $projectRoot = Split-Path -Parent $PSScriptRoot
 $releaseRoot = (Resolve-Path -LiteralPath "$projectRoot/Release/$Runtime").Path

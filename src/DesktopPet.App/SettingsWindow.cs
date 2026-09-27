@@ -47,7 +47,7 @@ public sealed class SettingsWindow : Window
         brand.Children.Add(new TextBlock { Text = "云朵伙伴", FontSize = 21, FontWeight = FontWeights.SemiBold, Margin = new Thickness(0, 12, 0, 5) });
         brand.Children.Add(new TextBlock { Text = "你的桌边小小陪伴", Foreground = muted, FontSize = 11 });
         DockPanel.SetDock(brand, Dock.Top); sidebar.Children.Add(brand);
-        var foot = new StackPanel { Margin = new Thickness(12, 0, 0, 0) }; foot.Children.Add(new TextBlock { Text = "●  正在桌面陪伴", Foreground = CloudTheme.Brush("#34845A"), FontSize = 11 }); foot.Children.Add(new TextBlock { Text = "DesktopPet  /  1.2 Preview 4", FontSize = 10, Foreground = muted, Margin = new Thickness(0, 8, 0, 0) });
+        var foot = new StackPanel { Margin = new Thickness(12, 0, 0, 0) }; foot.Children.Add(new TextBlock { Text = "●  正在桌面陪伴", Foreground = CloudTheme.Brush("#34845A"), FontSize = 11 }); foot.Children.Add(new TextBlock { Text = "DesktopPet  /  1.2 Preview 5", FontSize = 10, Foreground = muted, Margin = new Thickness(0, 8, 0, 0) });
         DockPanel.SetDock(foot, Dock.Bottom); sidebar.Children.Add(foot);
         var nav = new StackPanel(); sidebar.Children.Add(nav);
         foreach (var (id, label, icon) in new[] { ("partners", "我的伙伴", "heart"), ("styles", "风格预览", "cube"), ("life", "陪伴日常", "sun"), ("studio", "角色工坊", "brush"), ("preferences", "桌面偏好", "settings") })
@@ -186,12 +186,13 @@ public sealed class SettingsWindow : Window
         var today = DateOnly.FromDateTime(DateTime.Now);
         status.Text = $"{pet.State.BondName}  ·  Lv.{pet.State.BondLevel + 1}\n累计 {pet.State.CheckIns.Count} 天    连续 {pet.State.Streak(today)} 天\n初次相遇：{pet.State.AdoptedAt}";
     }
+    public void RefreshLife() { if (page == "life") Rebuild(); else RefreshStatus(); }
     private void Life()
     {
         status = new TextBlock();
         Heading("", "陪伴日常", "今天想玩什么？");
         string clothes = pet.Character.Outfits.TryGetValue(pet.State.Outfit, out var selectedOutfit) ? selectedOutfit.Name : "原装";
-        content.Children.Add(Text($"当前陪伴：{pet.Character.Name} · {CloudTheme.CategoryName(pet.Character.Category)} · {clothes}", 14));
+        content.Children.Add(Text($"{pet.Character.Name} · {clothes}", 14));
         status.FontSize = 16; status.LineHeight = 28; RefreshStatus();
         var progress = new StackPanel(); progress.Children.Add(status);
         int level = pet.State.BondLevel;
@@ -207,10 +208,26 @@ public sealed class SettingsWindow : Window
             var b = MakeButton(entry.Title, () => pet.RunInteraction(entry.Key)); b.Content = tile; b.HorizontalContentAlignment = HorizontalAlignment.Stretch; b.Height = 88; b.Padding = new Thickness(14); actions.Children.Add(b);
         }
         content.Children.Add(actions);
-        var treasures = new StackPanel(); treasures.Children.Add(Text("散步带回的小礼物", 16));
-        treasures.Children.Add(Text(pet.State.Treasures.Count == 0 ? "还没有收藏。一起散步，看看它会捡到什么。" : string.Join("    ", pet.State.Treasures.GroupBy(x => x).Select(g => $"{g.Key} × {g.Count()}")), 13, true));
+        var owned = pet.State.Treasures.Select(Collectibles.FromSavedName).Where(x => x is not null).GroupBy(x => x!.Id).ToDictionary(g => g.Key, g => g.Count());
+        var treasures = new StackPanel(); treasures.Children.Add(Text($"散步收藏 · {owned.Count}/20", 16));
+        var shelf = new System.Windows.Controls.Primitives.UniformGrid { Columns = 5 };
+        foreach (var item in Collectibles.All)
+        {
+            int count = owned.GetValueOrDefault(item.Id);
+            var tile = new StackPanel { Opacity = count > 0 ? 1 : .46 };
+            tile.Children.Add(new ItemVisual { Item = item, Width = 30, Height = 30, HorizontalAlignment = HorizontalAlignment.Center });
+            tile.Children.Add(new TextBlock { Text = item.Name + (count > 0 ? $" ×{count}" : ""), FontSize = 11, TextAlignment = TextAlignment.Center, Margin = new Thickness(0, 7, 0, 0) });
+            if (count > 0 && item.Kind == ItemKind.Sport)
+            {
+                var toy = MakeButton("玩收藏 " + item.Name, () => pet.PlayWithToy(item.Id)); toy.Content = tile; toy.ToolTip = "玩" + item.Name; toy.Margin = new Thickness(0, 0, 6, 6); toy.Padding = new Thickness(6); shelf.Children.Add(toy);
+            }
+            else shelf.Children.Add(new Border { Child = tile, Padding = new Thickness(6), Margin = new Thickness(0, 0, 6, 6), Background = CloudTheme.Brush("#FAFBFD"), CornerRadius = new CornerRadius(9) });
+        }
+        treasures.Children.Add(shelf);
+        var legacy = pet.State.Treasures.Where(x => Collectibles.FromSavedName(x) is null).GroupBy(x => x).Select(g => $"{g.Key} × {g.Count()}");
+        if (legacy.Any()) treasures.Children.Add(Text(string.Join("    ", legacy), 12, true));
         content.Children.Add(Card(treasures));
-        content.Children.Add(Text("摸头、戳脸、挠痒也可以直接点击角色相应位置。摇晃后会头晕，连续摇晃会躺下缓一会儿。", 12, true));
+        content.Children.Add(Text("摸头、揉脸、挠痒也可以直接点击角色相应位置。摇晃后会头晕，连续摇晃会躺下缓一会儿。", 12, true));
     }
     private void Preferences()
     {

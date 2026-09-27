@@ -14,4 +14,5 @@ $process = Start-Process -FilePath $exe -ArgumentList @('--verify-ui','--data-di
 Get-Content -LiteralPath "$uiRoot/ui-check.txt"
 if ($process.ExitCode -ne 0) { throw 'WPF integration checks failed' }
 Get-Content -LiteralPath "$uiRoot/interaction-check.txt" -Tail 1
+Get-Content -LiteralPath "$uiRoot/detail-check.txt" -Tail 1
 Write-Output "UI verification artifacts: $uiRoot"

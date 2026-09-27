@@ -121,8 +121,8 @@ Test("skeletal dance articulates limbs, preserves bone lengths and returns to re
 {
     foreach (string family in new[] { "whale", "gpt", "claude", "gemini", "grok", "qwen", "zhipu", "kimi" })
     {
-        Equal(true, DanceRig.Supports("adult", family)); Equal(false, DanceRig.Supports("3d", family)); Equal(false, DanceRig.Supports("chibi", family));
-        var rig = new DanceRig(family, "original");
+        Equal(true, PortraitRig.SupportsDance("adult", family)); Equal(false, PortraitRig.SupportsDance("3d", family)); Equal(false, PortraitRig.SupportsDance("chibi", family));
+        var rig = new PortraitRig(family, "original");
         foreach (double t in new[] { 0d, PetDance.DurationMs })
             Equal(true, rig.Skin(rig.Pose(t)).Zip(rig.Vertices).All(p => (p.First - p.Second).Length < .000001));
         for (double t = 0; t <= PetDance.DurationMs; t += 37)
@@ -138,7 +138,7 @@ Test("skeletal dance articulates limbs, preserves bone lengths and returns to re
         Equal(true, (moving.Bones[3].B - rig.Rest[3].B).Length > .01);
         Equal(true, (moving.Bones[5].B - rig.Rest[5].B).Length > .01);
         Equal(true, (moving.Bones[8].A - rig.Rest[8].A).Length > .001);
-        var dress = new DanceRig(family, "wedding");
+        var dress = new PortraitRig(family, "wedding");
         Equal(true, dress.Skin(dress.Pose(750)).All(v => double.IsFinite(v.X) && double.IsFinite(v.Y)));
     }
 });
@@ -162,6 +162,63 @@ Test("dance taps score once per beat inside the timing window", () =>
     var dance = new PetDance(); Equal(true, dance.Tap(20)); Equal(false, dance.Tap(90));
     Equal(false, dance.Tap(250)); Equal(true, dance.Tap(410)); Equal(false, dance.Tap(515));
     Equal(true, dance.Tap(1000)); Equal(false, dance.Tap(-1)); Equal(false, dance.Tap(8000)); Equal(3, dance.Hits);
+});
+Test("all portrait gestures move independently, remain finite and ease back in both styles", () =>
+{
+    foreach (string category in new[] { "3d", "adult" })
+    foreach (string family in new[] { "whale", "gpt", "claude", "gemini", "grok", "qwen", "zhipu", "kimi" })
+    {
+        Equal(true, PortraitRig.Supports(category, family));
+        var rig = new PortraitRig(family, "wedding", category: category);
+        foreach (string action in PortraitMotion.Actions)
+        {
+            double duration = PortraitMotion.Duration(action);
+            var start = rig.MotionPose(action, 0, duration); Equal(true, start.Bones.SequenceEqual(rig.Rest));
+            var end = rig.MotionPose(action, duration, duration, true); Equal(true, end.Bones.SequenceEqual(rig.Rest));
+            if (action != "sleep") Equal(true, rig.MotionPose(action, duration, duration).Bones.SequenceEqual(rig.Rest));
+            var active = rig.MotionPose(action, 900, duration);
+            Equal(true, active.Bones.Zip(rig.Rest).Any(p => (p.First.A - p.Second.A).Length + (p.First.B - p.Second.B).Length > .0001));
+            Equal(true, rig.Skin(active).All(p => double.IsFinite(p.X) && double.IsFinite(p.Y)));
+            for (double t = 0; t < duration; t += 29)
+            {
+                var a = rig.MotionPose(action, t, duration); var b = rig.MotionPose(action, t + 16, duration);
+                if (!a.Bones.Zip(b.Bones).All(p => (p.First.B - p.Second.B).Length < .04)) throw new Exception($"Joint discontinuity: {category}/{family}/{action}/{t}");
+            }
+        }
+    }
+    Equal("poke", PortraitMotion.TouchRegion("adult", .16)); Equal("poke", PortraitMotion.TouchRegion("3d", .19));
+    Equal("headpat", PortraitMotion.TouchRegion("adult", .07)); Equal("tickle", PortraitMotion.TouchRegion("3d", .43));
+    Equal("headpat", PortraitMotion.TouchRegion("chibi", .4));
+});
+Test("mixed collectibles draw ten sports and ten everyday items without repeats per round", () =>
+{
+    Equal(20, Collectibles.All.Count); Equal(20, Collectibles.All.Select(x => x.Id).Distinct().Count()); Equal(10, Collectibles.Sports.Count);
+    var draws = new ItemDrawBag(Collectibles.All, new Random(12)); string last = "";
+    for (int round = 0; round < 20; round++)
+    {
+        var prizes = Enumerable.Range(0, 20).Select(_ => draws.Draw()).ToArray();
+        Equal(20, prizes.Select(x => x.Id).Distinct().Count()); Equal(10, prizes.Count(x => x.Kind == ItemKind.Sport));
+        Equal(false, last == prizes[0].Id); last = prizes[^1].Id;
+    }
+    Equal("shell", Collectibles.FromSavedName("一枚贝壳")!.Id); Equal(true, Collectibles.Food.All(x => x.Edible));
+    Equal(true, Collectibles.All.Any(x => x.Name == "米饭")); Equal(true, Collectibles.All.Any(x => x.Name == "面包"));
+});
+Test("all ten toys bounce inside the play area with distinct gravity and rebound", () =>
+{
+    foreach (var toy in Collectibles.Sports)
+    {
+        var flight = new ToyFlight(100, 100, -800, 400, 0);
+        for (int tick = 0; tick < 300; tick++)
+        {
+            flight = ToyPhysics.Step(flight, toy, .033, 25, 520, 468);
+            Equal(true, flight.X >= 25 && flight.X <= 520 - toy.Diameter && flight.Y <= 468 - toy.Diameter);
+            Equal(true, double.IsFinite(flight.Vy) && double.IsFinite(flight.Angle));
+        }
+    }
+    var floor = new ToyFlight(50, 467, 0, 300, 0);
+    var basketball = ToyPhysics.Step(floor, Collectibles.Get("basketball"), .016, 0, 560, 468);
+    var bowling = ToyPhysics.Step(floor, Collectibles.Get("bowling"), .016, 0, 560, 468);
+    Equal(true, Math.Abs(basketball.Vy) > Math.Abs(bowling.Vy));
 });
 Test("fast throws use swept contact and misses remain misses", () =>
 {

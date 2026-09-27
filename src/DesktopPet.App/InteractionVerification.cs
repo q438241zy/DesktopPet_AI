@@ -36,13 +36,13 @@ internal static class InteractionVerification
         }
         var proof = new Canvas { Width = 1600, Height = 660, Background = CloudTheme.Brush("#F5F5F7") };
         int proofColumn = 0;
-        foreach (var adult in pet.Catalog.Characters.Where(c => c.Category == "adult" && DanceRig.Supports(c.Category, c.FamilyId)))
+        foreach (var adult in pet.Catalog.Characters.Where(c => c.Category == "adult" && PortraitRig.SupportsDance(c.Category, c.FamilyId)))
         {
             int proofRow = 0;
             foreach (string outfit in new[] { "original", "swim", "wedding" })
             {
                 var art = adult.Resolve(outfit, "idle", 0);
-                var view = new DanceVisual(pet.Art.Frame(adult, art.Sprite, art.Frame), adult.FamilyId, outfit) { Width = 200, Height = 200 };
+                var view = new RigVisual(pet.Art.Frame(adult, art.Sprite, art.Frame), adult.FamilyId, outfit) { Width = 200, Height = 200 };
                 view.Update(750); proof.Children.Add(view); Canvas.SetLeft(view, proofColumn * 200); Canvas.SetTop(view, proofRow * 220);
                 var label = new TextBlock { Text = adult.FamilyId + " / " + outfit, FontSize = 11, Foreground = CloudTheme.Muted, Width = 200, TextAlignment = TextAlignment.Center };
                 proof.Children.Add(label); Canvas.SetLeft(label, proofColumn * 200); Canvas.SetTop(label, proofRow * 220 + 202); proofRow++;

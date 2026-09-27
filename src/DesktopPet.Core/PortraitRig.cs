@@ -9,10 +9,10 @@ public readonly record struct RigPoint(double X, double Y)
     public RigPoint Rotate(double radians) => new(X * Math.Cos(radians) - Y * Math.Sin(radians), X * Math.Sin(radians) + Y * Math.Cos(radians));
 }
 public readonly record struct RigBone(RigPoint A, RigPoint B);
-public sealed record RigPose(RigBone[] Bones, double ClothSway);
+public sealed record RigPose(RigBone[] Bones, double ClothSway, double Cheeks = 0, double Mouth = 0);
 
-/// <summary>2D skeletal dance for the built-in adult portraits. Coordinates use image height as the unit.</summary>
-public sealed class DanceRig
+/// <summary>Shared 2D skeleton for the built-in 3D-style and adult portraits, measured in image-height units.</summary>
+public sealed class PortraitRig
 {
     public const int Columns = 48, Rows = 72;
     public double Aspect { get; }
@@ -21,15 +21,17 @@ public sealed class DanceRig
     private readonly double[][] weights;
     private readonly bool longDress;
     private readonly RigPoint hips, neck, head, ls, le, lw, rs, re, rw, lh, lk, la, rh, rk, ra;
-    public static bool Supports(string category, string family) => category == "adult" && family is "whale" or "gpt" or "claude" or "gemini" or "grok" or "qwen" or "zhipu" or "kimi";
+    public static bool Supports(string category, string family) => category is "adult" or "3d" && family is "whale" or "gpt" or "claude" or "gemini" or "grok" or "qwen" or "zhipu" or "kimi";
+    public static bool SupportsDance(string category, string family) => category == "adult" && Supports(category, family);
+    public RigPoint MouthRest => head + new RigPoint(.005, .047);
 
-    public DanceRig(string family, string outfit, double aspect = 2d / 3)
+    public PortraitRig(string family, string outfit, double aspect = 2d / 3, string category = "adult")
     {
         Aspect = aspect; longDress = outfit == "wedding";
         // Per-family landmarks follow the standing portrait; each outfit retains that character's pose.
         double dx = family switch { "gemini" => .04, "zhipu" => .02, "qwen" => .01, _ => 0 };
         double dy = family switch { "grok" or "qwen" => -.015, "zhipu" => .017, _ => 0 };
-        RigPoint P(double x, double y) => new((x + dx - .5) * aspect, y + dy - .5);
+        RigPoint P(double x, double y) => new((x + dx - .5) * aspect, y + dy - .5 + (category == "3d" ? .022 * Math.Clamp((.9 - y) / .55, 0, 1) : 0));
         hips = P(.52, .465); neck = P(.515, .185); head = P(.50, .105);
         ls = P(.408, .21); le = P(.368, .322); lw = P(.337, .224);
         rs = P(.623, .22); re = P(.682, .359); rw = P(.749, .471);
@@ -76,6 +78,47 @@ public sealed class DanceRig
         return new(bones, .012 * Math.Sin(beat * Math.PI / 2 - .4) * envelope);
     }
 
+    public RigPose MotionPose(string action, double elapsed, double duration, bool reducedMotion = false)
+    {
+        if (action == "dance") return Pose(elapsed, reducedMotion);
+        var g = PortraitMotion.At(action, elapsed, duration, reducedMotion);
+        if (g == new RigGesture()) return new(Rest.ToArray(), 0);
+        var root = hips + new RigPoint(g.Sway, g.Squat + g.Lift);
+        RigPoint Body(RigPoint point) => root + (point - hips).Rotate(g.Turn);
+        var n = Body(neck);
+        var bones = new RigBone[12]; bones[0] = new(root, n); bones[1] = new(n, n + (head - neck).Rotate(g.Head));
+        void Arm(int index, RigPoint shoulder, RigPoint elbow, RigPoint wrist, double upper, double lower)
+        {
+            var s = Body(shoulder) + new RigPoint(0, -g.Shoulders);
+            var e = s + (elbow - shoulder).Rotate(g.Turn + upper);
+            var w = e + (wrist - elbow).Rotate(g.Turn + upper + lower);
+            if (index == 2 && g.Feed > 0)
+            {
+                var mouth = n + (MouthRest - neck).Rotate(g.Head);
+                w = w * (1 - g.Feed) + (mouth + new RigPoint(-.008, .085)) * g.Feed;
+                e = SolveKnee(s, w, (elbow - shoulder).Length, (wrist - elbow).Length, -1);
+            }
+            bones[index] = new(s, e); bones[index + 1] = new(e, w);
+        }
+        Arm(2, ls, le, lw, g.LeftArm, g.LeftElbow); Arm(4, rs, re, rw, g.RightArm, g.RightElbow);
+        void Leg(int index, RigPoint hip, RigPoint knee, RigPoint ankle, double x, double lift)
+        {
+            var h = Body(hip); var a = ankle + new RigPoint(x, g.Lift + lift);
+            var d = ankle - hip; var thigh = knee - hip;
+            var k = SolveKnee(h, a, thigh.Length, (ankle - knee).Length, Math.Sign(d.X * thigh.Y - d.Y * thigh.X));
+            bones[index] = new(h, k); bones[index + 1] = new(k, a); bones[index + 2] = new(a, a + Rest[index + 2].B - ankle);
+        }
+        Leg(6, lh, lk, la, g.LeftStep, g.LeftLift); Leg(9, rh, rk, ra, g.RightStep, g.RightLift);
+        return new(bones, g.Cloth + g.Turn * .13, g.Cheeks, g.Mouth);
+    }
+
+    public RigPoint Anchor(RigPose pose, int bone, RigPoint point)
+    {
+        double rotation = Math.Atan2((pose.Bones[bone].B - pose.Bones[bone].A).Y, (pose.Bones[bone].B - pose.Bones[bone].A).X)
+            - Math.Atan2((Rest[bone].B - Rest[bone].A).Y, (Rest[bone].B - Rest[bone].A).X);
+        return pose.Bones[bone].A + (point - Rest[bone].A).Rotate(rotation);
+    }
+
     public RigPoint[] Skin(RigPose pose)
     {
         var angles = pose.Bones.Select((b, i) => Math.Atan2((b.B - b.A).Y, (b.B - b.A).X)
@@ -83,11 +126,14 @@ public sealed class DanceRig
         var cosines = angles.Select(Math.Cos).ToArray(); var sines = angles.Select(Math.Sin).ToArray();
         return Vertices.Select((v, i) =>
         {
+            var faceOffset = v - (MouthRest + new RigPoint(0, -.012));
+            double influence = Math.Exp(-2 * (Math.Pow(faceOffset.X / .038, 2) + Math.Pow(faceOffset.Y / .031, 2)));
+            var local = v + new RigPoint(-faceOffset.X * pose.Cheeks, .014 * pose.Mouth) * influence;
             var result = new RigPoint();
             for (int b = 0; b < Rest.Length; b++)
                 if (weights[i][b] > 0)
                 {
-                    var d = v - Rest[b].A;
+                    var d = local - Rest[b].A;
                     result += (pose.Bones[b].A + new RigPoint(d.X * cosines[b] - d.Y * sines[b], d.X * sines[b] + d.Y * cosines[b])) * weights[i][b];
                 }
             if (longDress && v.Y > hips.Y)

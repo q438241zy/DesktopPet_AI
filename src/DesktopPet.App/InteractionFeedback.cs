@@ -7,7 +7,7 @@ namespace DesktopPet.App;
 
 internal sealed record FeedbackFrame(string Action, double Elapsed, double Duration, double Size, Point Head, Point Mouth,
     Point Hand, Point Body, Point Feet, Rect WorkBounds, bool Reduced, string? Prop, double PropElapsed,
-    Collectible Food, Collectible? Prize, int? DanceBeat = null, bool OnBeat = false);
+    Collectible Food, Collectible? Prize, bool BakedProps = false, int? DanceBeat = null, bool OnBeat = false);
 
 /// <summary>Action-specific, code-drawn feedback. Anchors follow the same animated skeleton as the portrait.</summary>
 internal sealed class InteractionFeedback : FrameworkElement
@@ -72,6 +72,7 @@ internal sealed class InteractionFeedback : FrameworkElement
                 Affection(); break;
             case "meal":
             case "eat":
+                if (f.BakedProps) break;
                 double cycle = (t % 1.2) / 1.2;
                 var plate = new Point(f.Body.X - size * .18, f.Body.Y + 18);
                 if (f.Action == "meal") ItemArt.Draw(dc, Collectibles.Get("rice"), new Rect(plate.X - 16, plate.Y - 16, 32, 32));
@@ -111,7 +112,7 @@ internal sealed class InteractionFeedback : FrameworkElement
             case "ball-ready": case "anticipate":
                 for (int i = 0; i < 2; i++) Spark(new Point(f.Hand.X - 13 + i * 31, f.Hand.Y - 8), 3, "#ABC5DB"); break;
             case "ball-hit":
-                for (int i = 0; i < 5; i++) { double a = i * Math.PI * 2 / 5; Spark(new Point(f.Body.X + Math.Cos(a) * 24, f.Body.Y + Math.Sin(a) * 20), 3); } break;
+                for (int i = 0; i < 5; i++) { double a = i * Math.PI * 2 / 5; Spark(new Point(f.Hand.X + Math.Cos(a) * 24, f.Hand.Y + Math.Sin(a) * 20), 3); } break;
             case "ball-miss": case "sad":
                 Symbol("M6,0 Q-3,12 6,14 Q15,12 6,0 Z", new Point(f.Head.X + 20, f.Head.Y + 2), .65, "#BAD7EF", "#8CB4D2"); break;
             case "kick": case "nudge":

@@ -4,7 +4,7 @@
 
 ![云朵伙伴：角色分类与更衣室](docs/images/pet-home.png)
 
-由 **QQ奶茶大神** 的 UsageDashboard_AI 与 Character_Generator 整合而来，互动和八位 AI 角色的 Q 版画稿来自 DS Go。沿用原生 WPF 透明窗口、托盘与快捷键；取消举看板、余额采集与平台登录。当前分支为 1.2.0-preview.5。
+由 **QQ奶茶大神** 的 UsageDashboard_AI 与 Character_Generator 整合而来，互动和八位 AI 角色的 Q 版画稿来自 DS Go。沿用原生 WPF 透明窗口、托盘与快捷键；取消举看板、余额采集与平台登录。当前分支为 1.2.0-preview.6。
 
 ## 开始使用
 
@@ -37,11 +37,15 @@ Q版包含 GPT、Claude、Gemini、Grok、DeepSeek 鲸鱼娘、Qwen、GLM、Kimi
 
 八位角色均提供 Q版、3D版、真人版，每种风格均有原装、泳装、婚纱，共 24 个角色条目、72 种外观组合。“我的伙伴”按画风选择角色并换装；“风格预览”按角色和服饰并排比较三种画风，再一键放到桌面。每个角色条目独立记住服装选择。
 
-3D版为成年比例的风格化动画形象，真人版为成年比例的写实数字人。它们使用 48 张透明立绘，每套服饰另有独立六帧行走动画。1.2.0-preview.5 为两类全部衣橱增加程序骨骼动作：摸头、揉脸、挠痒、进食、呼吸小憩、思考、跳跃、积木、接球等，手势与特效跟随头部、嘴巴和手臂。互动始终使用当前服饰。当前仍为二维素材与网格动画，不是实时 3D 模型。分类按钮会同步切换当前伙伴的画风，并保留服装。
+3D版为成年比例的风格化动画形象，真人版为成年比例的写实数字人。它们使用 48 张透明立绘，每套服饰另有独立六帧行走动画。1.2.0-preview.6 为全部 48 套衣橱新增九姿势进食／接球图集，共 432 个关键姿势：面包拿起、入口、咀嚼；端碗、汤匙入口、回碗；张手、屈肘接住、双手抱球。食物直接画在手里，球按各帧手掌位置接住并停留，碰到躯干或手肘不算成功接球。摸头、揉脸、挠痒、小憩、思考、跳跃、积木等沿用程序骨骼。互动始终使用当前服饰。当前仍为二维素材与网格动画，不是实时 3D 模型。分类按钮会同步切换当前伙伴的画风，并保留服装。
+
+新增图集和原始提示词见 [进食与接球动作记录](artwork/contact-motion/prompts.md)。
+
+实际窗口画面：[端碗进食](docs/images/contact-meal.png)、[手掌抱球](docs/images/contact-catch.png)、[零食入口](docs/images/contact-snack.png)。
 
 ![DeepSeek 三种风格换装对照](docs/images/deepseek-wedding.png)
 
-新图使用内置 image_gen，沿用八位 Q 版角色的身份特征和已确认的 DeepSeek 两种画风；换装以各自原装立绘为参考。本轮新增 46 张图，保留两张已确认的 DeepSeek 原装。完整提示词与素材位置见 [全角色衣橱记录](artwork/wardrobe-expansion/prompts.md)；最初网络风格参考见 [DeepSeek Demo 记录](artwork/style-demo/prompts.md)。
+新图使用内置 image_gen，沿用八位 Q 版角色的身份特征和已确认的 DeepSeek 两种画风；换装以各自原装立绘为参考。衣橱扩展阶段新增 46 张立绘，保留两张已确认的 DeepSeek 原装。完整提示词与素材位置见 [全角色衣橱记录](artwork/wardrobe-expansion/prompts.md)；最初网络风格参考见 [DeepSeek Demo 记录](artwork/style-demo/prompts.md)。
 
 八位 Q 版角色有六姿势图集、独立坐姿晕眩图和十七组原装动作，可选择原装、泳装、婚纱，各自记住服装选择。三套服饰均有独立行走动画，婚纱另有摸头动画。动作只在当前服装内选择；缺少专用画稿时显示同套服装的姿势图，不借用原装或其他画风。正餐、扑抱、戳脸、挠痒和踢积木可复用同套服装的相近动作。
 
@@ -96,6 +100,7 @@ artwork/sources/        用户指定目录的 16 张婚纱动作 PNG 原稿
 artwork/style-demo/     DeepSeek 风格参考与生成提示词
 artwork/wardrobe-expansion/  八位角色 3D / 真人版完整换装提示词与来源
 artwork/motion-continuity/   三种画风的服装行走图集、提示词与来源记录
+artwork/contact-motion/     48 套进食／接球图集的提示词、裁帧与手掌校准记录
 tests/                 独立行为检查
 docs/                  角色包规范、迁移来源、测试记录
 ```

@@ -1,0 +1,17 @@
+{
+  "qwen-3d-original": { "handHeights": [0.24, 0.24, 0.27] },
+  "qwen-3d-wedding": { "handHeights": [0.255, 0.235, 0.27] },
+  "qwen-adult-original": { "handHeights": [0.26, 0.245, 0.265] },
+  "qwen-adult-swim": { "handHeights": [0.235, 0.225, 0.28] },
+  "qwen-adult-wedding": { "handHeights": [0.27, 0.25, 0.25] },
+  "deepseek-3d-original": { "handHeights": [0.285, 0.27, 0.30] },
+  "deepseek-3d-swim": { "handHeights": [0.30, 0.28, 0.32] },
+  "deepseek-3d-wedding": { "handHeights": [0.25, 0.235, 0.25] },
+  "deepseek-adult-original": { "separators": [1049], "handHeights": [0.26, 0.29, 0.30] },
+  "deepseek-adult-swim": { "handHeights": [0.28, 0.25, 0.29] },
+  "deepseek-adult-wedding": { "handHeights": [0.27, 0.255, 0.285] },
+  "kimi-3d-original": { "handHeights": [0.235, 0.25, 0.265] },
+  "grok-adult-swim": { "handHeights": [0.245, 0.22, 0.27] },
+  "gpt-3d-wedding": { "columnSeparators": [351, 672] },
+  "zhipu-3d-swim": { "separators": [526, 1038], "handHeights": [0.24, 0.25, 0.33] }
+}

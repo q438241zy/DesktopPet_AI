@@ -12,9 +12,15 @@ vm.createContext(context);vm.runInContext(body,context);
 let now=0;function step(dt=40){now+=dt;context.tick(now);}
 for(let i=0;i<100;i++)step();const after4s=source;step();assert.notEqual(source,after4s,'walking must continue animating after the 3 second demo clip');
 assert.ok(Math.abs(state.x-(300+44*4.04))<1e-8,'distance must match the gait speed');
-state.x=934;state.dir=1;step();assert.equal(state.x,935);assert.equal(state.dir,1);assert.equal(state.walkTime,0);
-for(let i=0;i<3;i++)step();assert.equal(state.x,935);assert.equal(state.dir,1);
-step();assert.equal(state.dir,-1);assert.equal(state.image.style.transform,'scaleX(-1)');step();assert.ok(state.x<935);assert.equal(state.walkTime,40);
+const approaching=state.walkTime;
+state.x=934;state.dir=1;step();assert.equal(state.x,935);assert.equal(state.dir,1);
+assert.ok(Math.abs(state.walkTime-approaching-1000/44)<1e-8,'the arrival pose follows the last travelled distance');
+const arrived=state.walkTime;
+for(let i=0;i<3;i++)step();assert.equal(state.x,935);assert.equal(state.dir,1);assert.equal(state.walkTime,arrived,'the turn holds the arrival pose');
+step();assert.equal(state.dir,-1);assert.equal(state.image.style.transform,'scaleX(-1)');assert.ok(state.x<935,'remaining frame time advances after the hold');
+const beforeDelay=state.x,phaseBeforeDelay=state.walkTime;step(120);
+assert.ok(Math.abs(state.x-beforeDelay+44*.12)<1e-8,'a delayed rendering frame must not drop walking time');
+assert.ok(Math.abs(state.walkTime-phaseBeforeDelay-120)<1e-8);
 context.paused=true;const frozen=state.x,frozenFrame=source;step();assert.equal(state.x,frozen);assert.equal(source,frozenFrame);
 context.paused=false;state.loading=true;step();assert.equal(state.x,frozen,'gait must wait for image decoding');assert.equal(source,frozenFrame);
 state.loading=false;step();assert.ok(state.x<frozen,'gait resumes when decoding completes');
@@ -33,6 +39,10 @@ if(match && !match[1].includes('__DEMO_DATA__')){
  console.log('PASS: native dimensions, nine appearances, twelve poses per gait, portable relative paths and all lossless WebP files');
 }
 console.log('PASS: syntax, continuous gait beyond clip duration, travelled distance, planted turn and pause');
+function travel(dt,count,start=500){Object.assign(state,{x:start,dir:1,turnRemaining:0,walkTime:0});for(let i=0;i<count;i++)step(dt);return {x:state.x,phase:state.walkTime,dir:state.dir};}
+for(const hz of [30,60,75,120,144]){const result=travel(1000/hz,hz*3);assert.ok(Math.abs(result.x-632)<1e-7);assert.ok(Math.abs(result.phase-3000)<1e-7);}
+const fastTurn=travel(10,400,930),slowTurn=travel(200,20,930);assert.ok(Math.abs(fastTurn.x-slowTurn.x)<1e-7);assert.ok(Math.abs(fastTurn.phase-slowTurn.phase)<1e-7);assert.equal(fastTurn.dir,slowTurn.dir);
+console.log('PASS: 30/60/75/120/144 Hz distance, delayed frames and refresh-independent boundary turns');
 const shakeContext={setAction:(s,key)=>{s.action=key;}};vm.createContext(shakeContext);
 vm.runInContext(script.slice(script.indexOf('function newShake'),script.indexOf('function run(key)')),shakeContext);
 const shake=()=>shakeContext.newShake(0,0,0),move=(s,x,y,t)=>shakeContext.trackShake(s,x,y,t);

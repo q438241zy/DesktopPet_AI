@@ -4,7 +4,7 @@
 
 ![云朵伙伴：角色分类与更衣室](docs/images/pet-home.png)
 
-由 **QQ奶茶大神** 的 UsageDashboard_AI 与 Character_Generator 整合而来，互动和八位 AI 角色的 Q 版画稿来自 DS Go。沿用原生 WPF 透明窗口、托盘与快捷键；取消举看板、余额采集与平台登录。当前分支为 1.2.0-preview.11。
+由 **QQ奶茶大神** 的 UsageDashboard_AI 与 Character_Generator 整合而来，互动和八位 AI 角色的 Q 版画稿来自 DS Go。沿用原生 WPF 透明窗口、托盘与快捷键；取消举看板、余额采集与平台登录。当前分支为 1.2.0-preview.12。
 
 ## 开始使用
 
@@ -37,6 +37,8 @@
 `tools/demo.ps1` 从当前桌面渲染器重新导出三种风格 × 三套服装的 DeepSeek 离线 HTML，并生成全部八位角色、72 套外观的动作清单。打开程序目录中的 `Demo/DeepSeek-demo.html`，保留同目录的 `frames` 文件夹；高清图片按当前动作载入。本机项目和素材保存在 `D:\VibeCoding\Character`，桌面保留 `DeepSeek-動作Demo.lnk` 指向 D 槽的常用运行版本。更新后可执行 `tools/desktop-demo.ps1` 维护此入口，不把工程或素材复制到桌面。
 
 可以并排播放、暂停逐帧比较、换装、拖动放置、摇晃触发头晕、演示自然落下与头顶本机聊天。网页交互是独立展示逻辑，不能代替 Windows 鼠标或真实 API 验收。图像来自桌面渲染器，清单区分专用逐帧、专用姿势、程序动作、近似动作和缺少动作。
+
+Preview 12 修复散步走走停停：移动改由 WPF 画面刷新驱动，逻辑位置保留小数，原生窗口的整像素位置用画面内偏移补偿；脚步跟随实际位移，边缘转身保持到达时的姿势，较慢的一帧不会丢弃行走时间。应用于全部 72 套外观及边缘躲藏，Demo 同步转身与时间推进逻辑。实测对照及检查见 [散步流畅度](docs/verification-walking.md)。
 
 Preview 11 接回连续摇晃的头晕反馈：72 套外观均有头顶星星，提起保持稳定，放下原地恢复；Demo 新增摇晃与头晕对照，并支持拖住人物来回摇晃。检查结果和 GPT 实测图见 [本轮验证](docs/verification-preview11.md)。
 

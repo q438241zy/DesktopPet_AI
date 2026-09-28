@@ -41,6 +41,7 @@ internal static class ActionCoverage
             if (action.Key == "thinking") detail += "，配合思考提示；至少 1 秒后才回答";
             if (action.Key == "drop") detail += "；自然落下和手动放置分开处理";
             if (action.Key == "shake") detail += "；连续摇晃触发头顶星星，身体仍保持提起";
+            if (action.Key is "walk" or "peek") detail += "；按画面刷新连续移动，保留小数位置，脚步跟随实际位移";
         }
         else if (PortraitRig.Supports(c.Category,c.FamilyId) && PortraitMotion.Supports(action.Motion))
         { status = "程序动作"; detail = "当前服装的骨骼动作与反馈特效"; }

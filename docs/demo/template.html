@@ -72,13 +72,17 @@ $('reset').onclick=()=>{for(const s of states){s.x=s.arena.clientWidth/2;s.y=flo
 $('pause').onclick=()=>{paused=!paused;$('pause').textContent=paused?'播放':'暫停';};
 $('timeline').oninput=e=>{paused=true;$('pause').textContent='播放';for(const s of states){const c=clip(s);if(c){s.elapsed=Number(e.target.value)/100*c.duration;s.image.src=D.frames[c.frames[Math.min(c.frames.length-1,Math.floor(s.elapsed/D.sampleMs))]];}}};
 $('csv').onclick=()=>{const rows=[['角色','風格','服裝','動作','狀態','說明'],...D.coverage.map(r=>[r.character,r.category,r.outfit,r.title,labels[r.status],r.detail])];const content='\ufeff'+rows.map(row=>row.map(v=>'"'+String(v).replaceAll('"','""')+'"').join(',')).join('\r\n');const url=URL.createObjectURL(new Blob([content],{type:'text/csv;charset=utf-8'}));const a=document.createElement('a');a.href=url;a.download='全角色動作清單.csv';a.click();setTimeout(()=>URL.revokeObjectURL(url),2000);};
-let last=performance.now();function tick(now){const dt=Math.min(50,now-last);last=now;
- for(const s of states){if(paused||s.loading)continue;updateShakeFeedback(s,now);s.elapsed+=dt;const c=clip(s);
+let last=performance.now();function tick(now){const walkDt=Math.max(0,Math.min(250,now-last)),dt=Math.min(50,walkDt);last=now;
+ for(const s of states){if(paused||s.loading)continue;updateShakeFeedback(s,now);s.elapsed+=['walk','peek'].includes(s.action)?walkDt:dt;const c=clip(s);
   if(s.drop){s.v+=650*dt/1000;s.y=Math.min(floor(s),s.y+s.v*dt/1000);if(s.y>=floor(s)){s.drop=false;const next=s.next;s.next=null;setAction(s,next||'place');}}
   else if(s.action==='walk'){
-   if(s.turnRemaining>0){s.turnRemaining=Math.max(0,s.turnRemaining-dt);if(!s.turnRemaining)s.dir*=-1;}
-   else{const speed=c?.walkSpeed||44;s.x+=s.dir*speed*dt/1000;s.walkTime+=dt;
-    if(s.x>=s.arena.clientWidth-65||s.x<=65){s.x=Math.max(65,Math.min(s.arena.clientWidth-65,s.x));s.walkTime=0;s.turnRemaining=160;}}
+   let remaining=walkDt;const speed=c?.walkSpeed||44,left=65,right=Math.max(left+1,s.arena.clientWidth-65);
+   while(remaining>0){
+    if(s.turnRemaining>0){const hold=Math.min(remaining,s.turnRemaining);s.turnRemaining-=hold;remaining-=hold;if(!s.turnRemaining)s.dir*=-1;if(!remaining)break;}
+    const distance=Math.max(0,s.dir>0?right-s.x:s.x-left),moving=Math.min(remaining,distance/speed*1000);
+    s.x+=s.dir*speed*moving/1000;s.walkTime+=moving;remaining-=moving;
+    if(distance<=speed*moving/1000+1e-9){s.x=s.dir>0?right:left;s.turnRemaining=160;}else break;
+   }
    s.image.style.transform=`scaleX(${s.dir})`;
   }else if(s.action==='peek'){
    const speed=(c?.walkSpeed||44)*1.7,travel=(s.arena.clientWidth/2+75)/speed*1000,period=travel*2+1500,t=s.elapsed%period;

@@ -1,0 +1,74 @@
+[
+  {
+    "phase": "before",
+    "character": "whale",
+    "dpi": 1.25,
+    "presentations": 109,
+    "stationaryPresentations": 44,
+    "backwardSteps": 0,
+    "distance": 122.00943124999992,
+    "expectedDistance": 109.67134750000001,
+    "movementGapMedianMs": 31.381399999999985,
+    "movementGapP95Ms": 77.19659999999976
+  },
+  {
+    "phase": "before",
+    "character": "deepseek-3d",
+    "dpi": 1.25,
+    "presentations": 112,
+    "stationaryPresentations": 43,
+    "backwardSteps": 0,
+    "distance": 116.9011266666667,
+    "expectedDistance": 108.44620875000003,
+    "movementGapMedianMs": 30.417900000000145,
+    "movementGapP95Ms": 64.48939999999993
+  },
+  {
+    "phase": "before",
+    "character": "deepseek-adult",
+    "dpi": 1.25,
+    "presentations": 116,
+    "stationaryPresentations": 49,
+    "backwardSteps": 0,
+    "distance": 118.39999999999998,
+    "expectedDistance": 109.44642041666665,
+    "movementGapMedianMs": 33.25170000000003,
+    "movementGapP95Ms": 63.84559999999999
+  },
+  {
+    "phase": "after",
+    "character": "whale",
+    "dpi": 1.25,
+    "presentations": 145,
+    "stationaryPresentations": 0,
+    "backwardSteps": 0,
+    "distance": 109.80315041666631,
+    "expectedDistance": 109.88326250000001,
+    "movementGapMedianMs": 16.68139999999994,
+    "movementGapP95Ms": 30.665400000000005
+  },
+  {
+    "phase": "after",
+    "character": "deepseek-3d",
+    "dpi": 1.25,
+    "presentations": 144,
+    "stationaryPresentations": 0,
+    "backwardSteps": 0,
+    "distance": 109.23327250000011,
+    "expectedDistance": 109.25648250000002,
+    "movementGapMedianMs": 16.63980000000015,
+    "movementGapP95Ms": 18.752300000000105
+  },
+  {
+    "phase": "after",
+    "character": "deepseek-adult",
+    "dpi": 1.25,
+    "presentations": 145,
+    "stationaryPresentations": 0,
+    "backwardSteps": 0,
+    "distance": 109.93177708333371,
+    "expectedDistance": 110.04983458333335,
+    "movementGapMedianMs": 16.718700000000013,
+    "movementGapP95Ms": 19.594499999999925
+  }
+]

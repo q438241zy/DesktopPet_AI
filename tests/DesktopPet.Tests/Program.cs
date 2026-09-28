@@ -10,6 +10,25 @@ void Test(string name, Action run)
 void Equal<T>(T expected, T actual) { if (!EqualityComparer<T>.Default.Equals(expected, actual)) throw new Exception($"Expected {expected}; got {actual}"); }
 void Reject(Action run) { try { run(); } catch (InvalidDataException) { return; } throw new Exception("Invalid input was accepted"); }
 
+Test("walk gait follows actual travel and stands still through a boundary turn", () =>
+{
+    var clip = new Sprite("walk.png", 3, 4, Enumerable.Repeat(80,12).ToArray());
+    var gait = new WalkPlayback();
+    var first = gait.Advance(100, 1, .1, 240, clip, 20, 200);
+    Equal(true, first.Center > 100); Equal(1, first.Direction);
+    Equal(true, Math.Abs(gait.Milliseconds - 100) < .001);
+    var edge = gait.Advance(199, 1, .1, 240, clip, 20, 200);
+    Equal(200d, edge.Center); Equal(1, edge.Direction); Equal(0d, gait.Milliseconds);
+    var hold = gait.Advance(edge.Center, edge.Direction, .08, 240, clip, 20, 200);
+    Equal(200d, hold.Center); Equal(1, hold.Direction); Equal(0d, gait.Milliseconds);
+    var turn = gait.Advance(hold.Center, hold.Direction, .08, 240, clip, 20, 200);
+    Equal(200d, turn.Center); Equal(-1, turn.Direction);
+    var back = gait.Advance(turn.Center, turn.Direction, .04, 240, clip, 20, 200);
+    Equal(true, back.Center < 200); Equal(-1d, DesktopWalk.ScaleX(back.Direction,"right"));
+    Equal(true, Math.Abs(gait.Milliseconds - 40) < .001);
+    gait.Reset(); Equal(0d,gait.Milliseconds); Equal(0d,gait.TurnRemaining);
+});
+
 Test("daily check-in is idempotent and a missed day preserves affection", () =>
 {
     var state = new PetState(); var day = new DateOnly(2026, 9, 27);
@@ -206,7 +225,8 @@ Test("all portrait gestures move independently, remain finite and ease back in b
             var start = rig.MotionPose(action, 0, duration); Equal(true, start.Bones.SequenceEqual(rig.Rest));
             var end = rig.MotionPose(action, duration, duration, true); Equal(true, end.Bones.SequenceEqual(rig.Rest));
             if (action != "sleep") Equal(true, rig.MotionPose(action, duration, duration).Bones.SequenceEqual(rig.Rest));
-            var active = rig.MotionPose(action, 900, duration);
+            // Bonk has one brief impact, synchronized with the illustrated hammer.
+            var active = rig.MotionPose(action, action == "bonk" ? 490 : 900, duration);
             Equal(true, active.Bones.Zip(rig.Rest).Any(p => (p.First.A - p.Second.A).Length + (p.First.B - p.Second.B).Length > .0001));
             Equal(true, rig.Skin(active).All(p => double.IsFinite(p.X) && double.IsFinite(p.Y)));
             for (double t = 0; t < duration; t += 29)

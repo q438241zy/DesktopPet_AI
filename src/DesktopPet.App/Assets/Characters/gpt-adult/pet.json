@@ -14,17 +14,113 @@
   },
   "motions": {
     "walk": {
-      "file": "motions/walk.png",
+      "file": "motions/walk-smooth.png",
       "columns": 3,
-      "rows": 2,
-      "frameMs": [
-        160,
-        160,
-        160,
-        160,
-        160,
-        160
+      "rows": 4,
+      "cells": [
+        {
+          "x": 28,
+          "y": 6,
+          "width": 270,
+          "height": 377
+        },
+        {
+          "x": 376,
+          "y": 6,
+          "width": 243,
+          "height": 377
+        },
+        {
+          "x": 717,
+          "y": 6,
+          "width": 212,
+          "height": 377
+        },
+        {
+          "x": 35,
+          "y": 390,
+          "width": 280,
+          "height": 376
+        },
+        {
+          "x": 376,
+          "y": 390,
+          "width": 255,
+          "height": 376
+        },
+        {
+          "x": 707,
+          "y": 390,
+          "width": 270,
+          "height": 377
+        },
+        {
+          "x": 40,
+          "y": 774,
+          "width": 247,
+          "height": 377
+        },
+        {
+          "x": 385,
+          "y": 774,
+          "width": 209,
+          "height": 377
+        },
+        {
+          "x": 706,
+          "y": 773,
+          "width": 289,
+          "height": 378
+        },
+        {
+          "x": 35,
+          "y": 1157,
+          "width": 243,
+          "height": 376
+        },
+        {
+          "x": 367,
+          "y": 1157,
+          "width": 283,
+          "height": 376
+        },
+        {
+          "x": 705,
+          "y": 1157,
+          "width": 279,
+          "height": 376
+        }
       ],
+      "frames": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "frameMs": [
+        80,
+        80,
+        80,
+        80,
+        80,
+        80,
+        80,
+        80,
+        80,
+        80,
+        80,
+        80
+      ],
+      "loop": true,
+      "isolateCells": true,
       "facing": "right"
     },
     "eat": {
@@ -1972,17 +2068,113 @@
       },
       "motions": {
         "walk": {
-          "file": "outfits/swim/walk.png",
-          "columns": 3,
-          "rows": 2,
-          "frameMs": [
-            160,
-            160,
-            160,
-            160,
-            160,
-            160
+          "file": "outfits/swim/walk-smooth.png",
+          "columns": 4,
+          "rows": 3,
+          "cells": [
+            {
+              "x": 14,
+              "y": 19,
+              "width": 253,
+              "height": 450
+            },
+            {
+              "x": 271,
+              "y": 19,
+              "width": 224,
+              "height": 450
+            },
+            {
+              "x": 514,
+              "y": 18,
+              "width": 200,
+              "height": 451
+            },
+            {
+              "x": 784,
+              "y": 18,
+              "width": 221,
+              "height": 449
+            },
+            {
+              "x": 12,
+              "y": 531,
+              "width": 263,
+              "height": 449
+            },
+            {
+              "x": 269,
+              "y": 529,
+              "width": 248,
+              "height": 450
+            },
+            {
+              "x": 523,
+              "y": 529,
+              "width": 228,
+              "height": 452
+            },
+            {
+              "x": 781,
+              "y": 530,
+              "width": 231,
+              "height": 451
+            },
+            {
+              "x": 14,
+              "y": 1045,
+              "width": 235,
+              "height": 447
+            },
+            {
+              "x": 269,
+              "y": 1045,
+              "width": 258,
+              "height": 446
+            },
+            {
+              "x": 523,
+              "y": 1045,
+              "width": 234,
+              "height": 446
+            },
+            {
+              "x": 780,
+              "y": 1045,
+              "width": 244,
+              "height": 446
+            }
           ],
+          "frames": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "frameMs": [
+            80,
+            80,
+            80,
+            80,
+            80,
+            80,
+            80,
+            80,
+            80,
+            80,
+            80,
+            80
+          ],
+          "loop": true,
+          "isolateCells": true,
           "facing": "right"
         },
         "eat": {
@@ -3930,17 +4122,113 @@
       },
       "motions": {
         "walk": {
-          "file": "outfits/wedding/walk.png",
+          "file": "outfits/wedding/walk-smooth.png",
           "columns": 3,
-          "rows": 2,
-          "frameMs": [
-            160,
-            160,
-            160,
-            160,
-            160,
-            160
+          "rows": 4,
+          "cells": [
+            {
+              "x": 11,
+              "y": 13,
+              "width": 315,
+              "height": 362
+            },
+            {
+              "x": 351,
+              "y": 13,
+              "width": 289,
+              "height": 364
+            },
+            {
+              "x": 697,
+              "y": 12,
+              "width": 282,
+              "height": 364
+            },
+            {
+              "x": 11,
+              "y": 394,
+              "width": 316,
+              "height": 359
+            },
+            {
+              "x": 353,
+              "y": 393,
+              "width": 298,
+              "height": 362
+            },
+            {
+              "x": 695,
+              "y": 395,
+              "width": 299,
+              "height": 359
+            },
+            {
+              "x": 10,
+              "y": 777,
+              "width": 302,
+              "height": 361
+            },
+            {
+              "x": 353,
+              "y": 777,
+              "width": 281,
+              "height": 362
+            },
+            {
+              "x": 694,
+              "y": 778,
+              "width": 302,
+              "height": 362
+            },
+            {
+              "x": 12,
+              "y": 1161,
+              "width": 308,
+              "height": 357
+            },
+            {
+              "x": 353,
+              "y": 1160,
+              "width": 316,
+              "height": 359
+            },
+            {
+              "x": 696,
+              "y": 1159,
+              "width": 307,
+              "height": 359
+            }
           ],
+          "frames": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "frameMs": [
+            80,
+            80,
+            80,
+            80,
+            80,
+            80,
+            80,
+            80,
+            80,
+            80,
+            80,
+            80
+          ],
+          "loop": true,
+          "isolateCells": true,
           "facing": "right"
         },
         "eat": {

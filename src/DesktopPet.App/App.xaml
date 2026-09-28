@@ -1,21 +1,22 @@
 <Application x:Class="DesktopPet.App.App" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Startup="OnStartup" ShutdownMode="OnExplicitShutdown">
   <Application.Resources>
-    <SolidColorBrush x:Key="Ink" Color="#1D1D1F" />
+    <Style TargetType="Image"><Setter Property="RenderOptions.BitmapScalingMode" Value="HighQuality" /></Style>
+    <SolidColorBrush x:Key="Ink" Color="#57434C" />
     <Style TargetType="Window">
       <Setter Property="FontFamily" Value="Segoe UI Variable, Microsoft YaHei UI" /><Setter Property="FontSize" Value="13" /><Setter Property="Foreground" Value="{StaticResource Ink}" />
       <Setter Property="UseLayoutRounding" Value="True" /><Setter Property="TextOptions.TextFormattingMode" Value="Display" />
     </Style>
     <Style TargetType="Button">
-      <Setter Property="Background" Value="White" /><Setter Property="Foreground" Value="{StaticResource Ink}" /><Setter Property="Padding" Value="15,9" /><Setter Property="Margin" Value="0,0,8,8" /><Setter Property="Cursor" Value="Hand" /><Setter Property="BorderBrush" Value="#E5E5EA" /><Setter Property="BorderThickness" Value="1" />
+      <Setter Property="Background" Value="White" /><Setter Property="Foreground" Value="{StaticResource Ink}" /><Setter Property="Padding" Value="15,9" /><Setter Property="Margin" Value="0,0,8,8" /><Setter Property="Cursor" Value="Hand" /><Setter Property="BorderBrush" Value="#EEDDE3" /><Setter Property="BorderThickness" Value="1" />
       <Setter Property="Template"><Setter.Value><ControlTemplate TargetType="Button">
         <Grid>
-          <Border x:Name="Surface" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="9" Padding="{TemplateBinding Padding}"><ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="Center" /></Border>
-          <Border x:Name="FocusRing" CornerRadius="11" BorderThickness="2" BorderBrush="#60007AFF" Margin="-2" Visibility="Collapsed" IsHitTestVisible="False" />
+          <Border x:Name="Surface" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="14" Padding="{TemplateBinding Padding}"><ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="Center" /></Border>
+          <Border x:Name="FocusRing" CornerRadius="11" BorderThickness="2" BorderBrush="#60AD526F" Margin="-2" Visibility="Collapsed" IsHitTestVisible="False" />
         </Grid>
         <ControlTemplate.Triggers>
-          <Trigger Property="IsMouseOver" Value="True"><Setter TargetName="Surface" Property="Background" Value="#EAF2FF" /></Trigger>
+          <Trigger Property="IsMouseOver" Value="True"><Setter TargetName="Surface" Property="Background" Value="#FCEBF0" /></Trigger>
           <Trigger Property="IsKeyboardFocused" Value="True"><Setter TargetName="FocusRing" Property="Visibility" Value="Visible" /></Trigger>
-          <Trigger Property="IsPressed" Value="True"><Setter TargetName="Surface" Property="Background" Value="#DCEAFE" /></Trigger>
+          <Trigger Property="IsPressed" Value="True"><Setter TargetName="Surface" Property="Background" Value="#F7D8E4" /></Trigger>
           <Trigger Property="IsEnabled" Value="False"><Setter TargetName="Surface" Property="Opacity" Value="0.42" /></Trigger>
         </ControlTemplate.Triggers>
       </ControlTemplate></Setter.Value></Setter>
@@ -25,34 +26,34 @@
       <Setter Property="Template"><Setter.Value><ControlTemplate TargetType="Button">
         <Grid x:Name="Tile" RenderTransformOrigin="0.5,0.5">
           <Grid.RenderTransform><ScaleTransform /></Grid.RenderTransform>
-          <Ellipse x:Name="Surface" Fill="#F5FAFAFC" Stroke="#F8FFFFFF" StrokeThickness="1"><Ellipse.Effect><DropShadowEffect Color="#243147" BlurRadius="12" ShadowDepth="2" Opacity="0.17" /></Ellipse.Effect></Ellipse>
-          <Ellipse x:Name="Focus" Stroke="#80007AFF" StrokeThickness="2" Margin="-3" Visibility="Collapsed" />
+          <Path x:Name="Surface" Data="M16,49 C8,49 3,44 3,37 C3,30 8,25 15,25 C14,18 20,12 27,13 C31,5 45,9 46,20 C53,18 58,23 58,29 C66,36 61,49 51,49 Z" Stretch="Fill" Margin="0,3,0,3" Fill="#FFFFF7F3" Stroke="#EDD0DC" StrokeThickness="1"><Path.Effect><DropShadowEffect Color="#926578" BlurRadius="10" ShadowDepth="2" Opacity="0.13" /></Path.Effect></Path>
+          <Ellipse x:Name="Focus" Stroke="#80AD526F" StrokeThickness="2" Margin="-3" Visibility="Collapsed" />
           <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
         </Grid>
         <ControlTemplate.Triggers>
-          <Trigger Property="IsMouseOver" Value="True"><Setter TargetName="Surface" Property="Fill" Value="#EAF2FF" /><Setter Property="Foreground" Value="#007AFF" /><Setter TargetName="Tile" Property="RenderTransform"><Setter.Value><ScaleTransform ScaleX="1.06" ScaleY="1.06" /></Setter.Value></Setter></Trigger>
+          <Trigger Property="IsMouseOver" Value="True"><Setter TargetName="Surface" Property="Fill" Value="#FCEBF0" /><Setter Property="Foreground" Value="#AD526F" /><Setter TargetName="Tile" Property="RenderTransform"><Setter.Value><ScaleTransform ScaleX="1.06" ScaleY="1.06" /></Setter.Value></Setter></Trigger>
           <Trigger Property="IsKeyboardFocused" Value="True"><Setter TargetName="Focus" Property="Visibility" Value="Visible" /></Trigger>
-          <Trigger Property="IsPressed" Value="True"><Setter TargetName="Surface" Property="Fill" Value="#D8E8FF" /><Setter TargetName="Tile" Property="RenderTransform"><Setter.Value><ScaleTransform ScaleX="0.96" ScaleY="0.96" /></Setter.Value></Setter></Trigger>
+          <Trigger Property="IsPressed" Value="True"><Setter TargetName="Surface" Property="Fill" Value="#F7D8E4" /><Setter TargetName="Tile" Property="RenderTransform"><Setter.Value><ScaleTransform ScaleX="0.96" ScaleY="0.96" /></Setter.Value></Setter></Trigger>
         </ControlTemplate.Triggers>
       </ControlTemplate></Setter.Value></Setter>
-      <Style.Resources><Style TargetType="ToolTip"><Setter Property="Background" Value="#F5FFFFFF" /><Setter Property="Foreground" Value="#1D1D1F" /><Setter Property="FontSize" Value="11" /><Setter Property="Padding" Value="9,5" /><Setter Property="Template"><Setter.Value><ControlTemplate TargetType="ToolTip"><Border Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}" CornerRadius="10" BorderThickness="1" BorderBrush="#E5E5EA"><ContentPresenter /></Border></ControlTemplate></Setter.Value></Setter></Style></Style.Resources>
+      <Style.Resources><Style TargetType="ToolTip"><Setter Property="Background" Value="#F5FFFFFF" /><Setter Property="Foreground" Value="#57434C" /><Setter Property="FontSize" Value="11" /><Setter Property="Padding" Value="9,5" /><Setter Property="Template"><Setter.Value><ControlTemplate TargetType="ToolTip"><Border Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}" CornerRadius="10" BorderThickness="1" BorderBrush="#EEDDE3"><ContentPresenter /></Border></ControlTemplate></Setter.Value></Setter></Style></Style.Resources>
     </Style>
     <Style TargetType="TextBox">
-      <Setter Property="Padding" Value="11,9" /><Setter Property="BorderBrush" Value="#DEDFE4" /><Setter Property="BorderThickness" Value="1" /><Setter Property="Foreground" Value="{StaticResource Ink}" /><Setter Property="Background" Value="#FAFAFC" />
-      <Setter Property="Template"><Setter.Value><ControlTemplate TargetType="TextBox"><Border x:Name="Outline" CornerRadius="8" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}"><ScrollViewer x:Name="PART_ContentHost" Margin="{TemplateBinding Padding}" /></Border><ControlTemplate.Triggers><Trigger Property="IsKeyboardFocusWithin" Value="True"><Setter TargetName="Outline" Property="BorderBrush" Value="#007AFF" /></Trigger></ControlTemplate.Triggers></ControlTemplate></Setter.Value></Setter>
+      <Setter Property="Padding" Value="11,9" /><Setter Property="BorderBrush" Value="#E7D7DF" /><Setter Property="BorderThickness" Value="1" /><Setter Property="Foreground" Value="{StaticResource Ink}" /><Setter Property="Background" Value="#FFF9F8" />
+      <Setter Property="Template"><Setter.Value><ControlTemplate TargetType="TextBox"><Border x:Name="Outline" CornerRadius="12" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}"><ScrollViewer x:Name="PART_ContentHost" Margin="{TemplateBinding Padding}" /></Border><ControlTemplate.Triggers><Trigger Property="IsKeyboardFocusWithin" Value="True"><Setter TargetName="Outline" Property="BorderBrush" Value="#AD526F" /></Trigger></ControlTemplate.Triggers></ControlTemplate></Setter.Value></Setter>
     </Style>
     <Style TargetType="CheckBox">
       <Setter Property="Cursor" Value="Hand" /><Setter Property="Foreground" Value="{StaticResource Ink}" /><Setter Property="VerticalContentAlignment" Value="Center" />
       <Setter Property="Template"><Setter.Value><ControlTemplate TargetType="CheckBox">
         <Grid Background="Transparent"><Grid.ColumnDefinitions><ColumnDefinition /><ColumnDefinition Width="Auto" /></Grid.ColumnDefinitions>
           <ContentPresenter VerticalAlignment="Center" Margin="0,0,20,0" />
-          <Border x:Name="Track" Grid.Column="1" Width="42" Height="25" Background="#D6D7DC" BorderBrush="Transparent" BorderThickness="1" CornerRadius="13">
+          <Border x:Name="Track" Grid.Column="1" Width="42" Height="25" Background="#E4D6DB" BorderBrush="Transparent" BorderThickness="1" CornerRadius="13">
             <Ellipse x:Name="Thumb" Width="21" Height="21" Fill="White" HorizontalAlignment="Left" Margin="1,0"><Ellipse.Effect><DropShadowEffect BlurRadius="3" ShadowDepth="1" Opacity="0.13" /></Ellipse.Effect></Ellipse>
           </Border>
         </Grid>
         <ControlTemplate.Triggers>
-          <Trigger Property="IsChecked" Value="True"><Setter TargetName="Thumb" Property="HorizontalAlignment" Value="Right" /><Setter TargetName="Track" Property="Background" Value="#34C759" /></Trigger>
-          <Trigger Property="IsKeyboardFocused" Value="True"><Setter TargetName="Track" Property="BorderBrush" Value="#007AFF" /></Trigger>
+          <Trigger Property="IsChecked" Value="True"><Setter TargetName="Thumb" Property="HorizontalAlignment" Value="Right" /><Setter TargetName="Track" Property="Background" Value="#BD6E89" /></Trigger>
+          <Trigger Property="IsKeyboardFocused" Value="True"><Setter TargetName="Track" Property="BorderBrush" Value="#AD526F" /></Trigger>
           <Trigger Property="IsEnabled" Value="False"><Setter Property="Opacity" Value="0.45" /></Trigger>
         </ControlTemplate.Triggers>
       </ControlTemplate></Setter.Value></Setter>
@@ -63,43 +64,43 @@
       <Setter Property="Template"><Setter.Value><ControlTemplate TargetType="Slider">
         <Grid Height="30" Background="Transparent">
           <Track x:Name="PART_Track" Minimum="{TemplateBinding Minimum}" Maximum="{TemplateBinding Maximum}" Value="{Binding Value, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}">
-            <Track.DecreaseRepeatButton><RepeatButton Command="Slider.DecreaseLarge" Style="{StaticResource SliderRail}" Background="#007AFF" /></Track.DecreaseRepeatButton>
-            <Track.Thumb><Thumb Cursor="Hand"><Thumb.Template><ControlTemplate TargetType="Thumb"><Ellipse Width="21" Height="21" Fill="White" Stroke="#E1E1E6" StrokeThickness="0.7"><Ellipse.Effect><DropShadowEffect BlurRadius="5" ShadowDepth="1" Opacity="0.15" /></Ellipse.Effect></Ellipse></ControlTemplate></Thumb.Template></Thumb></Track.Thumb>
-            <Track.IncreaseRepeatButton><RepeatButton Command="Slider.IncreaseLarge" Style="{StaticResource SliderRail}" Background="#E5E5EA" /></Track.IncreaseRepeatButton>
+            <Track.DecreaseRepeatButton><RepeatButton Command="Slider.DecreaseLarge" Style="{StaticResource SliderRail}" Background="#AD526F" /></Track.DecreaseRepeatButton>
+            <Track.Thumb><Thumb Cursor="Hand"><Thumb.Template><ControlTemplate TargetType="Thumb"><Ellipse Width="21" Height="21" Fill="White" Stroke="#E9D9E0" StrokeThickness="0.7"><Ellipse.Effect><DropShadowEffect BlurRadius="5" ShadowDepth="1" Opacity="0.15" /></Ellipse.Effect></Ellipse></ControlTemplate></Thumb.Template></Thumb></Track.Thumb>
+            <Track.IncreaseRepeatButton><RepeatButton Command="Slider.IncreaseLarge" Style="{StaticResource SliderRail}" Background="#EEDDE3" /></Track.IncreaseRepeatButton>
           </Track>
         </Grid>
       </ControlTemplate></Setter.Value></Setter>
     </Style>
     <Style TargetType="ComboBoxItem">
       <Setter Property="Padding" Value="10,8" /><Setter Property="Margin" Value="4,1" /><Setter Property="HorizontalContentAlignment" Value="Stretch" />
-      <Setter Property="Template"><Setter.Value><ControlTemplate TargetType="ComboBoxItem"><Border x:Name="ItemSurface" Background="Transparent" CornerRadius="6" Padding="{TemplateBinding Padding}"><ContentPresenter /></Border><ControlTemplate.Triggers><Trigger Property="IsHighlighted" Value="True"><Setter TargetName="ItemSurface" Property="Background" Value="#EAF2FF" /></Trigger><Trigger Property="IsSelected" Value="True"><Setter TargetName="ItemSurface" Property="Background" Value="#EAF2FF" /><Setter Property="Foreground" Value="#007AFF" /></Trigger></ControlTemplate.Triggers></ControlTemplate></Setter.Value></Setter>
+      <Setter Property="Template"><Setter.Value><ControlTemplate TargetType="ComboBoxItem"><Border x:Name="ItemSurface" Background="Transparent" CornerRadius="6" Padding="{TemplateBinding Padding}"><ContentPresenter /></Border><ControlTemplate.Triggers><Trigger Property="IsHighlighted" Value="True"><Setter TargetName="ItemSurface" Property="Background" Value="#FCEBF0" /></Trigger><Trigger Property="IsSelected" Value="True"><Setter TargetName="ItemSurface" Property="Background" Value="#FCEBF0" /><Setter Property="Foreground" Value="#AD526F" /></Trigger></ControlTemplate.Triggers></ControlTemplate></Setter.Value></Setter>
     </Style>
     <Style TargetType="ComboBox">
-      <Setter Property="Padding" Value="11,8" /><Setter Property="MinHeight" Value="38" /><Setter Property="Margin" Value="0,0,0,10" /><Setter Property="Background" Value="#FAFAFC" /><Setter Property="BorderBrush" Value="#DEDFE4" /><Setter Property="BorderThickness" Value="1" /><Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled" />
+      <Setter Property="Padding" Value="11,8" /><Setter Property="MinHeight" Value="38" /><Setter Property="Margin" Value="0,0,0,10" /><Setter Property="Background" Value="#FFF9F8" /><Setter Property="BorderBrush" Value="#E7D7DF" /><Setter Property="BorderThickness" Value="1" /><Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled" />
       <Setter Property="Template"><Setter.Value><ControlTemplate TargetType="ComboBox">
         <Grid>
-          <Border x:Name="ComboSurface" CornerRadius="8" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" />
+          <Border x:Name="ComboSurface" CornerRadius="12" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" />
           <ToggleButton Focusable="False" ClickMode="Press" IsChecked="{Binding IsDropDownOpen, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}" Cursor="Hand"><ToggleButton.Template><ControlTemplate TargetType="ToggleButton"><Border Background="Transparent" /></ControlTemplate></ToggleButton.Template></ToggleButton>
           <Grid IsHitTestVisible="False" Margin="{TemplateBinding Padding}"><Grid.ColumnDefinitions><ColumnDefinition /><ColumnDefinition Width="22" /></Grid.ColumnDefinitions>
             <ContentPresenter VerticalAlignment="Center" Content="{TemplateBinding SelectionBoxItem}" ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}" ContentTemplateSelector="{TemplateBinding ItemTemplateSelector}" />
-            <Path Grid.Column="1" Data="M1,2 L5,6 L9,2" Stroke="#7B7D85" StrokeThickness="1.5" StrokeStartLineCap="Round" StrokeEndLineCap="Round" Width="10" Height="8" HorizontalAlignment="Right" VerticalAlignment="Center" />
+            <Path Grid.Column="1" Data="M1,2 L5,6 L9,2" Stroke="#937A86" StrokeThickness="1.5" StrokeStartLineCap="Round" StrokeEndLineCap="Round" Width="10" Height="8" HorizontalAlignment="Right" VerticalAlignment="Center" />
           </Grid>
           <Popup x:Name="PART_Popup" Placement="Bottom" VerticalOffset="4" AllowsTransparency="True" IsOpen="{TemplateBinding IsDropDownOpen}" PopupAnimation="Fade">
-            <Border MinWidth="{Binding ActualWidth, RelativeSource={RelativeSource TemplatedParent}}" MaxHeight="300" Padding="0,5" Background="White" BorderBrush="#E5E5EA" BorderThickness="1" CornerRadius="10">
+            <Border MinWidth="{Binding ActualWidth, RelativeSource={RelativeSource TemplatedParent}}" MaxHeight="300" Padding="0,5" Background="White" BorderBrush="#EEDDE3" BorderThickness="1" CornerRadius="10">
               <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" CanContentScroll="True"><ItemsPresenter KeyboardNavigation.DirectionalNavigation="Contained" /></ScrollViewer>
             </Border>
           </Popup>
         </Grid>
         <ControlTemplate.Triggers>
-          <Trigger Property="IsMouseOver" Value="True"><Setter TargetName="ComboSurface" Property="BorderBrush" Value="#A8C6EF" /></Trigger>
-          <Trigger Property="IsKeyboardFocusWithin" Value="True"><Setter TargetName="ComboSurface" Property="BorderBrush" Value="#007AFF" /></Trigger>
+          <Trigger Property="IsMouseOver" Value="True"><Setter TargetName="ComboSurface" Property="BorderBrush" Value="#D9A3B7" /></Trigger>
+          <Trigger Property="IsKeyboardFocusWithin" Value="True"><Setter TargetName="ComboSurface" Property="BorderBrush" Value="#AD526F" /></Trigger>
           <Trigger Property="IsEnabled" Value="False"><Setter Property="Opacity" Value="0.45" /></Trigger>
         </ControlTemplate.Triggers>
       </ControlTemplate></Setter.Value></Setter>
     </Style>
     <Style TargetType="ScrollBar">
       <Setter Property="Width" Value="7" /><Setter Property="MinWidth" Value="7" /><Setter Property="Background" Value="Transparent" />
-      <Setter Property="Template"><Setter.Value><ControlTemplate TargetType="ScrollBar"><Track x:Name="PART_Track" IsDirectionReversed="True" Orientation="{TemplateBinding Orientation}"><Track.Thumb><Thumb><Thumb.Template><ControlTemplate TargetType="Thumb"><Border CornerRadius="3" Background="#BFC1C8" Margin="1,0" /></ControlTemplate></Thumb.Template></Thumb></Track.Thumb></Track></ControlTemplate></Setter.Value></Setter>
+      <Setter Property="Template"><Setter.Value><ControlTemplate TargetType="ScrollBar"><Track x:Name="PART_Track" IsDirectionReversed="True" Orientation="{TemplateBinding Orientation}"><Track.Thumb><Thumb><Thumb.Template><ControlTemplate TargetType="Thumb"><Border CornerRadius="3" Background="#CDB6C0" Margin="1,0" /></ControlTemplate></Thumb.Template></Thumb></Track.Thumb></Track></ControlTemplate></Setter.Value></Setter>
     </Style>
   </Application.Resources>
 </Application>

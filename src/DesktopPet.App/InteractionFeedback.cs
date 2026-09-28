@@ -1,6 +1,7 @@
 using System.Globalization;
 using System.Windows;
 using System.Windows.Media;
+using System.Windows.Media.Imaging;
 using DesktopPet.Core;
 
 namespace DesktopPet.App;
@@ -14,6 +15,9 @@ internal sealed record FeedbackFrame(string Action, double Elapsed, double Durat
 internal sealed class InteractionFeedback : FrameworkElement
 {
     private FeedbackFrame? frame;
+    public BitmapSource? Hammer { get; set; }
+    internal bool DrawsFood => frame is { Action: "eat" or "meal", BakedProps: false };
+    internal bool DrawsHammer => frame is { Action: "bonk", BakedProps: false } && Hammer is not null;
     public string EffectKey => frame is null ? "" : frame.Action;
     public void Update(FeedbackFrame next) { frame = next; InvalidateVisual(); }
     public void Clear() { frame = null; InvalidateVisual(); }
@@ -114,10 +118,17 @@ internal sealed class InteractionFeedback : FrameworkElement
                 double air = Math.Clamp(f.JumpHeight / Math.Max(1, size * .3), 0, 1);
                 dc.PushOpacity(1 - air * .6); dc.DrawEllipse(ItemArt.Brush("#18000000"), null, new Point(f.Feet.X, f.Feet.Y - 1), size * .12 * (1 - air * .25), 2); dc.Pop(); break;
             case "bonk":
-                var hammer = new Point(f.Head.X + 20, f.Head.Y - 20); double swing = -30 + 65 * Math.Pow(Math.Sin(t * 4), 2);
-                dc.PushTransform(new RotateTransform(swing, hammer.X + 7, hammer.Y + 24));
-                Symbol("M7,5 L11,5 L11,25 L7,25 Z", hammer, 1, "#E3CAA4", "#B59C7B"); Symbol("M0,0 L20,0 Q24,5 20,10 L0,10 Q-4,5 0,0 Z", hammer, 1, "#BBD7EF", "#8DAECB"); dc.Pop();
-                if (Math.Pow(Math.Sin(t * 4), 2) > .65) Spark(new Point(f.Head.X + 3, f.Head.Y), 6); break;
+                // The Q illustration already includes its hammer. Other appearances
+                // reuse that same illustrated toy, rather than a second vector hammer.
+                if (f.BakedProps || Hammer is null || t > 1.15) break;
+                double approach = Math.Clamp(t / .45, 0, 1); approach = approach * approach * (3 - 2 * approach);
+                double recoil = Math.Clamp((t - .48) / .45, 0, 1);
+                double hammerSize = 39 * unit;
+                var hammer = new Rect(f.Head.X - hammerSize * .7, f.Head.Y - hammerSize - 13 * (1 - approach) - recoil * 22, hammerSize, hammerSize);
+                dc.PushOpacity(1 - recoil);
+                dc.PushTransform(new RotateTransform(-35 * (1 - approach) + recoil * 20, hammer.Right, hammer.Bottom));
+                dc.DrawImage(Hammer, hammer); dc.Pop(); dc.Pop();
+                if (t is >= .43 and <= .62) Spark(new Point(f.Head.X, f.Head.Y + 1), 4); break;
             case "ball-ready": case "anticipate":
                 break;
             case "ball-hit":

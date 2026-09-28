@@ -23,6 +23,10 @@ $interactionDocs = Join-Path $releaseRoot 'artwork/interaction-poses'
 New-Item -ItemType Directory -Path $interactionDocs -Force | Out-Null
 Copy-Item -LiteralPath "$projectRoot/artwork/interaction-poses/prompts.md","$projectRoot/artwork/interaction-poses/manifest.json" -Destination $interactionDocs
 Copy-Item -LiteralPath "$projectRoot/artwork/interaction-poses/results" -Destination $interactionDocs -Recurse -Force
+$polishDocs = Join-Path $releaseRoot 'artwork/motion-polish'
+New-Item -ItemType Directory -Path $polishDocs -Force | Out-Null
+Copy-Item -LiteralPath "$projectRoot/artwork/motion-polish/prompts.md","$projectRoot/artwork/motion-polish/manifest.json" -Destination $polishDocs
+Copy-Item -LiteralPath "$projectRoot/artwork/motion-polish/prompts","$projectRoot/artwork/motion-polish/results" -Destination $polishDocs -Recurse -Force
 Write-Output "Ready: $releaseRoot/DesktopPet.exe"
 $demoPointer = Join-Path $projectRoot 'artifacts/current-deepseek-demo.txt'
 if (Test-Path -LiteralPath $demoPointer) {
@@ -30,4 +34,5 @@ if (Test-Path -LiteralPath $demoPointer) {
     $demoTarget = Join-Path $releaseRoot 'Demo'
     New-Item -ItemType Directory -Path $demoTarget -Force | Out-Null
     Copy-Item -LiteralPath (Join-Path $demoSource 'DeepSeek-demo.html'),(Join-Path $demoSource 'action-coverage.json'),(Join-Path $demoSource '動作清單.md') -Destination $demoTarget -Force
+    Copy-Item -LiteralPath (Join-Path $demoSource 'frames') -Destination $demoTarget -Recurse -Force
 }

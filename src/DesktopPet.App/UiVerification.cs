@@ -49,10 +49,12 @@ internal static class UiVerification
         Require(pet.Catalog.Find("umaru").Id == "whale", "old Umaru selection resolves to DeepSeek");
         foreach (var c in pet.Catalog.Characters.ToArray())
         {
+            await System.Windows.Threading.Dispatcher.Yield(System.Windows.Threading.DispatcherPriority.Background);
             Click("分类 " + CloudTheme.CategoryName(c.Category)); Click("选择角色 " + c.Name); Require(pet.State.Character == c.Id, "select " + c.Id);
             if (c.Category == "chibi") continue;
             foreach (var (outfit, label) in new[] { ("original", "原装"), ("swim", "泳装"), ("wedding", "婚纱") })
             {
+                await System.Windows.Threading.Dispatcher.Yield(System.Windows.Threading.DispatcherPriority.Background);
                 Click("选择服装 " + label);
                 foreach (string action in new[] { "chat", "headpat" })
                 {
@@ -165,6 +167,7 @@ internal static class UiVerification
                 pet.SelectCharacter(family); pet.State.Outfits[family] = outfit; pet.ApplySettings();
                 foreach (string style in new[] { "3d", "adult", "chibi" })
                 {
+                    await System.Windows.Threading.Dispatcher.Yield(System.Windows.Threading.DispatcherPriority.Background);
                     Click("分类 " + CloudTheme.CategoryName(style));
                     Require(pet.Character.FamilyId == family && pet.Character.Category == style && pet.State.Outfit == outfit, $"category selection applies {family}/{style}/{outfit} to live pet");
                 }

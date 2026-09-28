@@ -9,13 +9,14 @@ namespace DesktopPet.App;
 /// <summary>Vector clouds and a shared sky palette keep small desktop controls legible at any DPI.</summary>
 internal static class CloudTheme
 {
-    public static readonly Brush Ink = Brush("#1D1D1F"), Muted = Brush("#7B7D85"), Blue = Brush("#007AFF"), Line = Brush("#E5E5EA"), Pale = Brush("#EAF2FF");
-    public static readonly Geometry Cloud = Geometry.Parse("M 14,47 C 6,47 3,42 3,36 C 3,28 9,23 17,24 C 18,13 27,8 36,12 C 42,14 46,19 46,26 C 54,24 61,30 61,37 C 61,43 57,47 50,47 Z");
+    public static readonly Brush Ink = Brush("#57434C"), Muted = Brush("#937A86"), Blue = Brush("#AD526F"), Line = Brush("#EEDDE3"), Pale = Brush("#FCEBF0");
+    public static readonly Brush Cream = Brush("#FFFCF8"), Blush = Brush("#F8DCE5"), Peach = Brush("#FBE4D5");
+    public static readonly Geometry Cloud = Geometry.Parse("M16,49 C8,49 3,44 3,37 C3,30 8,25 15,25 C14,18 20,12 27,13 C31,5 45,9 46,20 C53,18 58,23 58,29 C66,36 61,49 51,49 Z");
     public static SolidColorBrush Brush(string color)
     { var brush = new SolidColorBrush((Color)ColorConverter.ConvertFromString(color)); brush.Freeze(); return brush; }
-    public static LinearGradientBrush Sky(string top = "#F6F8FC", string bottom = "#FFFFFF")
+    public static LinearGradientBrush Sky(string top = "#FFF4F3", string bottom = "#FFFCF7")
     { var brush = new LinearGradientBrush((Color)ColorConverter.ConvertFromString(top), (Color)ColorConverter.ConvertFromString(bottom), 90); brush.Freeze(); return brush; }
-    public static DropShadowEffect Shadow(double depth = 6, double opacity = .1) => new() { Color = Color.FromRgb(35, 42, 60), BlurRadius = 28, ShadowDepth = depth, Opacity = opacity };
+    public static DropShadowEffect Shadow(double depth = 6, double opacity = .1) => new() { Color = Color.FromRgb(143, 90, 108), BlurRadius = 28, ShadowDepth = depth, Opacity = opacity };
     public static LineIcon Icon(string glyph, double size = 22) => new() { Glyph = glyph, Width = size, Height = size, IsHitTestVisible = false, Focusable = false };
     public static string CategoryName(string category) => category switch { "3d" => "3D版", "adult" => "真人版", _ => "Q版" };
     public static Border Badge(string text, Brush? background = null) => new() { Background = background ?? Pale, CornerRadius = new CornerRadius(11), Padding = new Thickness(10, 4, 10, 4), Margin = new Thickness(0, 0, 7, 0), Child = new TextBlock { Text = text, Foreground = Blue, FontSize = 11 } };
@@ -51,8 +52,8 @@ internal sealed class CloudIcon : FrameworkElement
     { dc.PushTransform(new ScaleTransform(ActualWidth / 64, ActualHeight / 64)); Draw(dc, Glyph); dc.Pop(); }
     internal static void Draw(DrawingContext dc, string glyph)
     {
-        var outline = new Pen(CloudTheme.Brush("#A6CAE9"), 1.7) { LineJoin = PenLineJoin.Round };
-        dc.DrawGeometry(CloudTheme.Sky("#FFFFFF", "#E1F0FF"), outline, CloudTheme.Cloud);
+        var outline = new Pen(CloudTheme.Brush("#E4B8C8"), 1.4) { LineJoin = PenLineJoin.Round };
+        dc.DrawGeometry(CloudTheme.Sky("#FFFDF7", "#FFE3EC"), outline, CloudTheme.Cloud);
         var pen = new Pen(CloudTheme.Blue, 2.6) { StartLineCap = PenLineCap.Round, EndLineCap = PenLineCap.Round, LineJoin = PenLineJoin.Round };
         string? data = glyph switch
         {
@@ -78,11 +79,10 @@ internal sealed class CloudIcon : FrameworkElement
         if (data is not null) dc.DrawGeometry(null, pen, Geometry.Parse(data));
         else
         {
-            dc.DrawEllipse(CloudTheme.Blue, null, new Point(25, 32), 1.6, 2);
-            dc.DrawEllipse(CloudTheme.Blue, null, new Point(40, 32), 1.6, 2);
-            dc.DrawGeometry(null, pen, Geometry.Parse("M29,38 Q32,42 36,38"));
-            dc.DrawEllipse(CloudTheme.Brush("#F4CBCD"), null, new Point(21, 37), 3, 1.5);
-            dc.DrawEllipse(CloudTheme.Brush("#F4CBCD"), null, new Point(44, 37), 3, 1.5);
+            dc.DrawGeometry(null, new Pen(CloudTheme.Ink, 1.9) { StartLineCap = PenLineCap.Round, EndLineCap = PenLineCap.Round }, Geometry.Parse("M22,33 Q25,36 28,33 M37,33 Q40,36 43,33 M30,39 Q32,41 35,39"));
+            dc.DrawEllipse(CloudTheme.Brush("#F2BBCB"), null, new Point(21, 38), 3.6, 2);
+            dc.DrawEllipse(CloudTheme.Brush("#F2BBCB"), null, new Point(44, 38), 3.6, 2);
+            dc.DrawGeometry(CloudTheme.Brush("#F2C3D3"), outline, Geometry.Parse("M42,17 Q36,9 34,15 Q34,20 42,21 Q48,12 51,17 Q51,23 42,21 Z"));
         }
         if (glyph == "sun") dc.DrawEllipse(null, pen, new Point(32, 32), 5, 5);
         if (glyph == "walk") dc.DrawEllipse(CloudTheme.Blue, null, new Point(34, 22), 2.8, 2.8);
@@ -95,7 +95,10 @@ internal sealed class CloudScenery : FrameworkElement
     public CloudScenery() { IsHitTestVisible = false; }
     protected override void OnRender(DrawingContext dc)
     {
-        var glow = new RadialGradientBrush(Color.FromArgb(80, 220, 231, 247), Colors.Transparent);
+        var glow = new RadialGradientBrush(Color.FromArgb(100, 249, 216, 227), Colors.Transparent);
         dc.DrawEllipse(glow, null, new Point(ActualWidth / 2, ActualHeight * .54), ActualWidth * .48, ActualHeight * .48);
+        dc.PushOpacity(.48);
+        dc.PushTransform(new TranslateTransform(ActualWidth * .09, ActualHeight * .72)); dc.PushTransform(new ScaleTransform(ActualWidth / 90, ActualHeight / 210));
+        dc.DrawGeometry(CloudTheme.Cream, null, CloudTheme.Cloud); dc.Pop(); dc.Pop(); dc.Pop();
     }
 }

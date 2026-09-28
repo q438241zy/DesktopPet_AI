@@ -103,6 +103,13 @@ internal sealed class InteractionFeedback : FrameworkElement
             case "happy": Affection(); break;
             case "think":
                 break;
+            case "thinking":
+                for (int i = 0; i < 3; i++)
+                {
+                    double pulse = f.Reduced ? .7 : .35 + .65 * Math.Pow(Math.Max(0, Math.Sin(t * Math.PI * 2 - i * .8)), 2);
+                    dc.PushOpacity(pulse); dc.DrawEllipse(blue, null, new Point(f.Head.X + size * .22 + i * 8, f.Head.Y + 6), 2.2, 2.2); dc.Pop();
+                }
+                break;
             case "jump": case "pounce":
                 double air = Math.Clamp(f.JumpHeight / Math.Max(1, size * .3), 0, 1);
                 dc.PushOpacity(1 - air * .6); dc.DrawEllipse(ItemArt.Brush("#18000000"), null, new Point(f.Feet.X, f.Feet.Y - 1), size * .12 * (1 - air * .25), 2); dc.Pop(); break;

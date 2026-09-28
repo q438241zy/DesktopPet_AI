@@ -7,6 +7,31 @@ internal static class ChatVerification
     public static void Run(Action<string, Action> test)
     {
         void Require(bool ok) { if (!ok) throw new Exception("Chat contract failed"); }
+        test("local and immediate API replies both wait one second of thinking", () =>
+        {
+            foreach (bool api in new[] { false, true })
+            {
+                int calls = 0;
+                using var client = new HttpClient(new Handler((_, _) => { calls++; return Task.FromResult(Reply("{\"choices\":[{\"message\":{\"content\":\"ok\"}}]}")); }));
+                var elapsed = System.Diagnostics.Stopwatch.StartNew();
+                var answer = CompanionChat.ReplyAfterThinkingAsync(client, api ? new("https://example.invalid/v1", "mock") : new(), "", [new("user", "你好")], "DeepSeek", default);
+                Require(!answer.IsCompleted);
+                answer.GetAwaiter().GetResult();
+                Require(elapsed.ElapsedMilliseconds >= 990 && calls == (api ? 1 : 0));
+            }
+        });
+        test("slow API and thinking run concurrently and cancellation interrupts thinking", () =>
+        {
+            using var client = new HttpClient(new Handler(async (_, token) => { await Task.Delay(1250, token); return Reply("{\"choices\":[{\"message\":{\"content\":\"ok\"}}]}"); }));
+            var elapsed = System.Diagnostics.Stopwatch.StartNew();
+            CompanionChat.ReplyAfterThinkingAsync(client, new("https://example.invalid/v1", "mock"), "", [], "DeepSeek", default).GetAwaiter().GetResult();
+            Require(elapsed.ElapsedMilliseconds is >= 1200 and < 2200);
+            using var cancel = new CancellationTokenSource(40); elapsed.Restart();
+            bool stopped = false;
+            try { CompanionChat.ReplyAfterThinkingAsync(client, new(), "", [], "DeepSeek", cancel.Token).GetAwaiter().GetResult(); }
+            catch (OperationCanceledException) { stopped = true; }
+            Require(stopped && elapsed.ElapsedMilliseconds < 600);
+        });
         test("local conversation carries the preceding topic without making a network request", () =>
         {
             using var client = new HttpClient(new Handler((_, _) => throw new Exception("Local mode used the network")));

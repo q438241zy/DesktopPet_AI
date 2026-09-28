@@ -102,6 +102,7 @@ public sealed class Character
     {
         var motions = Outfits.TryGetValue(outfit, out var clothes) ? clothes.Motions : Motions;
         if (motions.TryGetValue(action, out var exact)) return exact;
+        if (action == "thinking") return motions.GetValueOrDefault("think");
         // Portraits have their own procedural gestures. A newly authored jump or
         // talking pose must not replace tickling, kicking or a pounce.
         if (Category != "chibi" && action is "tickle" or "kick" or "pounce") return null;

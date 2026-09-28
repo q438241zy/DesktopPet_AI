@@ -276,6 +276,30 @@ Test("fast throws use swept contact and misses remain misses", () =>
     Equal(false, BallPhysics.Hit(0, 100, 900, 100, 450, 200, 30));
     Equal(true, BallPhysics.Hit(5, 5, 5, 5, 5, 5, 1));
 });
+Test("shake ignores pointer jitter, slow corrections and single-axis double counting", () =>
+{
+    var shake = new ShakeTracker(); shake.Start(0, 0, 0);
+    for (int i = 1; i <= 12; i++) shake.Move(i % 2 == 0 ? 8 : -8, i % 2 == 0 ? 9 : -9, i * 40);
+    Equal(false, shake.IsDizzy(480)); Equal("pickup", shake.Motion);
+    shake.Start(0, 0, 0);
+    for (int i = 1; i <= 10; i++) shake.Move(i * 80, i * 30, i * 50);
+    Equal(false, shake.IsDizzy(500));
+    shake.Start(0, 0, 0);
+    for (int i = 1; i <= 10; i++) shake.Move(i % 2 == 0 ? 0 : 50, i * 450);
+    Equal(false, shake.IsDizzy(4500));
+    shake.Start(0, 0, 0);
+    for (int i = 1; i <= 3; i++) shake.Move(i % 2 == 0 ? 0 : 100, i % 2 == 0 ? 0 : 100, i * 100);
+    Equal(false, shake.IsDizzy(300)); // two diagonal reversals are still only two, not four.
+    shake.Move(0, 0, 400); shake.Move(100, 100, 500); Equal(true, shake.IsDizzy(500));
+    shake.Start(0, 0, 0);
+    for (int i = 1; i <= 5; i++) shake.Move(0, i % 2 == 0 ? 0 : 100, i * 100);
+    Equal(true, shake.IsDizzy(500)); // vertical shaking works as well as horizontal.
+    shake.Start(0, 0, 0); shake.Move(160, 0, 100); shake.Move(156, 0, 105); shake.Move(159, 0, 110); shake.Move(0, 0, 200);
+    Equal("shaken-strong", shake.Motion); // noise at an apex must not erase a real stroke.
+    shake.Move(160, 0, 300); shake.Move(0, 0, 400); shake.Move(160, 0, 1200);
+    Equal(false, shake.IsDizzy(1200)); // holding still between strokes starts a fresh gesture.
+    shake.Start(0, 0, 1300); Equal(false, shake.IsDizzy(1300));
+});
 Test("shake needs four recent reversals, then expires", () =>
 {
     var shake = new ShakeTracker(); shake.Start(0, 0);

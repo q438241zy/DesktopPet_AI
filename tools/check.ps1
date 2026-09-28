@@ -21,4 +21,5 @@ Get-Content -LiteralPath "$uiRoot/contact-check.txt" -Tail 1
 Get-Content -LiteralPath "$uiRoot/choreography-check.txt" -Tail 1
 Get-Content -LiteralPath "$uiRoot/polish-check.txt" -Tail 1
 Get-Content -LiteralPath "$uiRoot/chibi-check.txt" -Tail 1
+Get-Content -LiteralPath "$uiRoot/shake-check.txt" -Tail 1
 Write-Output "UI verification artifacts: $uiRoot"

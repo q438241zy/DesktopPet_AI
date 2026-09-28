@@ -10,7 +10,7 @@
 <div class="toolbar"><span>服裝</span><div class="segment" id="outfits"></div><button class="pill" id="reset">回到工作列</button><label><input id="loop" type="checkbox"> 循環播放</label><div class="steps"><button class="pill" id="pause">暫停</button><input id="timeline" aria-label="動作時間軸" type="range" min="0" max="100" value="0"><span id="timeLabel" class="meta">0.0 秒</span></div></div>
 <nav class="actions" id="actions" aria-label="動作選擇"></nav>
 <div class="cards" id="cards"></div>
-<div class="instructions"><span>拖住角色 → 提起；鬆手 → 放在該位置</span><span>「自然落下」或「散步」才回到工作列</span><span>「回答」可打開頭頂輸入；每次至少思考 1 秒</span></div>
+<div class="instructions"><span>拖住角色 → 提起；鬆手 → 放在該位置</span><span>連續來回搖晃 → 頭頂星星；停下約 3 秒恢復</span><span>「自然落下」或「散步」才回到工作列</span><span>「回答」可打開頭頂輸入；每次至少思考 1 秒</span></div>
 <section class="audit"><div class="auditbar"><div><h2>動作對照清單</h2><p class="summary" id="summary"></p></div><div class="filters"><select id="family" aria-label="清單角色"></select><label class="meta"><input id="onlyGaps" type="checkbox"> 只看待補</label><button id="csv" class="pill">匯出 CSV</button></div></div><div class="tablewrap"><table><thead><tr><th>動作</th><th>Q 版</th><th>3D 版</th><th>真人版</th></tr></thead><tbody id="matrix"></tbody></table></div></section>
 <div class="notes"><details><summary>這份 Demo 如何更新，以及它能驗證什麼</summary><p>每次執行 <code>pwsh -File tools/demo.ps1</code>，都會重新讀取當前的角色包、動作清單和桌面渲染器，更新這份 HTML 及完整清單。圖像由同目錄的 frames 資料夾按動作載入，可離線開啟；移動時請保留完整 Demo 資料夾。</p><p>「專用逐幀／專用姿勢」表示本外觀有對應美術；「程序動作」使用骨骼或特效；「近似動作」及「缺少動作」屬於待補。待機、聆聽和手動放置本來就可以保持安靜姿勢。</p><p>网页中的拖曳、球反應選擇與本機對話是展示邏輯，不能代替 Windows 滑鼠、跨螢幕或真實 API 驗收。此頁不會連接 API，也不收集金鑰。僅真人版提供舞蹈。</p></details></div>
 </main><script id="data" type="application/json">__DEMO_DATA__</script><script>
@@ -30,17 +30,33 @@ async function prepareFrames(s,c,generation){
   if(s.loadGeneration!==generation)return;s.preloaded=images;s.loading=false;
  }catch{if(s.loadGeneration!==generation)return;s.loading=true;s.detail.textContent='圖片讀取失敗，請保留 HTML 同目錄的 frames 資料夾。';}
 }
-function run(key){action=key;sequence++;for(const s of states){s.composer.hidden=key!=='chat';s.busy=false;s.input.disabled=false;s.drop=false;s.next=null;s.hidden=false;s.pet.style.opacity='1';if(key==='chat'){setAction(s,'listen');s.reply.textContent='今天想聊些什麼？';s.turn=0;}else if(key==='drop'){if(s.y>=floor(s)-5)s.y-=100;s.drop=true;s.v=0;setAction(s,'pickup');}else if(['walk','peek'].includes(key)&&s.y<floor(s)-4){s.drop=true;s.v=0;s.next=key;setAction(s,'pickup');}else setAction(s,key);place(s);}renderButtons();}
+function newShake(x,y,now){return{axes:[x,y].map(p=>({anchor:p,extreme:p,legTime:now,extremeTime:now,lastMove:now,dir:0,reversals:[]})),until:0,since:0};}
+function trackShake(shake,x,y,now){let reversed=false;
+ for(const [i,p] of [x,y].entries()){const a=shake.axes[i];
+  if(now-a.lastMove>500){Object.assign(a,{anchor:p,extreme:p,legTime:now,extremeTime:now,lastMove:now,dir:0,reversals:[]});continue;}a.lastMove=now;
+  if(!a.dir){if(Math.abs(p-a.anchor)>=40){a.dir=Math.sign(p-a.anchor);a.extreme=p;a.extremeTime=now;}continue;}
+  if((p-a.extreme)*a.dir>=0){a.extreme=p;a.extremeTime=now;continue;}
+  if(Math.abs(p-a.extreme)<12)continue;
+  const distance=Math.abs(a.extreme-a.anchor),speed=distance/Math.max(1,a.extremeTime-a.legTime);
+  if(distance>=40&&speed>=.18&&now-a.extremeTime<=500){a.reversals.push(now);reversed=true;}
+  a.anchor=a.extreme;a.legTime=a.extremeTime;a.extreme=p;a.extremeTime=now;a.dir*=-1;
+ }
+ for(const a of shake.axes)a.reversals=a.reversals.filter(t=>now-t<=1500);
+ if(reversed&&shake.axes.some(a=>a.reversals.length>=4)){if(shake.until<=now)shake.since=now;shake.until=now+3000;}
+ return shake.until>now;
+}
+function updateShakeFeedback(s,now){if(!s.shake?.until||now<s.shake.until)return;if(s.held&&s.action==='shake')setAction(s,'pickup');else if(!s.held&&s.action==='dizzy')setAction(s,'place');s.shake=null;}
+function run(key){action=key;sequence++;for(const s of states){s.held=null;s.shake=null;s.composer.hidden=key!=='chat';s.busy=false;s.input.disabled=false;s.drop=false;s.next=null;s.hidden=false;s.pet.style.opacity='1';if(key==='chat'){setAction(s,'listen');s.reply.textContent='今天想聊些什麼？';s.turn=0;}else if(key==='drop'){if(s.y>=floor(s)-5)s.y-=100;s.drop=true;s.v=0;setAction(s,'pickup');}else if(['walk','peek'].includes(key)&&s.y<floor(s)-4){s.drop=true;s.v=0;s.next=key;setAction(s,'pickup');}else setAction(s,key);place(s);}renderButtons();}
 function renderButtons(){$('outfits').replaceChildren(...clothes.map(([k,l])=>button(l,k===outfit,()=>{outfit=k;run(action);matrix();})));$('actions').replaceChildren(...D.actions.map(a=>button(a.key==='chat'?'頭頂聊天':a.title,a.key===action,()=>run(a.key))));}
 for(const [style,label] of styles){
  const card=document.createElement('article');card.className='card';card.innerHTML='<div class="cardhead"><h2></h2><div class="status"></div></div><div class="arena"><div class="floor">Windows 工作列</div><div class="pet"><img alt="DeepSeek 動作"><div class="grip" role="button" tabindex="0" aria-label="拖曳提起 DeepSeek"></div></div><div class="composer" hidden><p></p><form><input aria-label="角色頭頂聊天輸入" placeholder="和我說點什麼…" maxlength="200"><button>發送</button></form></div></div><div class="cardfoot"></div>';
  card.querySelector('h2').textContent=label;$('cards').append(card);
  const s={style,card,arena:card.querySelector('.arena'),pet:card.querySelector('.pet'),image:card.querySelector('img'),badge:card.querySelector('.status'),detail:card.querySelector('.cardfoot'),composer:card.querySelector('.composer'),reply:card.querySelector('.composer p'),input:card.querySelector('input'),action:'idle',elapsed:0,turn:0,x:0,y:0,drop:false,v:0,dir:1};states.push(s);s.x=s.arena.clientWidth/2;s.y=floor(s);setAction(s,'idle');place(s);
- const grip=card.querySelector('.grip');let held=null;
- grip.onpointerdown=e=>{if(e.button!==0)return;e.preventDefault();grip.setPointerCapture(e.pointerId);held={x:e.clientX,y:e.clientY,px:s.x,py:s.y};s.drop=false;s.composer.hidden=true;setAction(s,'pickup');};
- grip.onpointermove=e=>{if(!held)return;s.x=Math.max(50,Math.min(s.arena.clientWidth-50,held.px+e.clientX-held.x));s.y=Math.max(130,Math.min(floor(s),held.py+e.clientY-held.y));place(s);};
- function release(){if(!held)return;held=null;if(floor(s)-s.y<24)s.y=floor(s);setAction(s,'place');place(s);}
- grip.onpointerup=release;grip.onlostpointercapture=release;grip.onpointercancel=release;
+ const grip=card.querySelector('.grip');
+ grip.onpointerdown=e=>{if(e.button!==0)return;e.preventDefault();grip.setPointerCapture(e.pointerId);s.held={x:e.clientX,y:e.clientY,px:s.x,py:s.y};s.shake=newShake(e.clientX/.8,e.clientY/.8,performance.now());s.drop=false;s.composer.hidden=true;setAction(s,'pickup');};
+ grip.onpointermove=e=>{if(!s.held)return;const held=s.held,now=performance.now();s.x=Math.max(50,Math.min(s.arena.clientWidth-50,held.px+e.clientX-held.x));s.y=Math.max(130,Math.min(floor(s),held.py+e.clientY-held.y));s.shake??=newShake(e.clientX/.8,e.clientY/.8,now);if(trackShake(s.shake,e.clientX/.8,e.clientY/.8,now)&&s.action!=='shake')setAction(s,'shake');place(s);};
+ function release(recover){if(!s.held)return;s.held=null;if(floor(s)-s.y<24)s.y=floor(s);const dizzy=recover&&s.shake?.until>performance.now();setAction(s,dizzy?'dizzy':'place');if(!dizzy)s.shake=null;place(s);}
+ grip.onpointerup=()=>release(true);grip.onlostpointercapture=()=>release(false);grip.onpointercancel=()=>release(false);
  grip.onkeydown=e=>{if(e.key==='Enter'){e.preventDefault();s.y=s.y<floor(s)-40?floor(s):floor(s)-120;setAction(s,s.y===floor(s)?'place':'pickup');place(s);}};
  s.composer.querySelector('form').onsubmit=async e=>{e.preventDefault();const text=s.input.value.trim();if(!text||s.busy)return;s.busy=true;s.input.disabled=true;s.input.value='';const current=sequence;s.reply.textContent='…';setAction(s,'thinking');await new Promise(r=>setTimeout(r,1000));if(current!==sequence)return;s.turn++;s.reply.textContent=/工作|作業|作业/.test(text)?'原來是工作堆在一起了。我們先挑一件最小、最容易結束的事，剩下的慢慢來。':/累|困/.test(text)?'辛苦了。今天是事情太多，還是單純有點沒精神？我在這裡聽你說。':/你好|嗨/.test(text)?'你好呀，我正好在等你。今天過得怎麼樣？':['我在聽。今天有什麼想分享的小事嗎？','嗯，可以再說一點。你最在意的是哪一部分？','我們慢慢來。想繼續聊今天，還是聽個小故事？'][(s.turn-1)%3];setAction(s,'chat');s.busy=false;s.input.disabled=false;s.input.focus();};
 }
@@ -57,7 +73,7 @@ $('pause').onclick=()=>{paused=!paused;$('pause').textContent=paused?'播放':'�
 $('timeline').oninput=e=>{paused=true;$('pause').textContent='播放';for(const s of states){const c=clip(s);if(c){s.elapsed=Number(e.target.value)/100*c.duration;s.image.src=D.frames[c.frames[Math.min(c.frames.length-1,Math.floor(s.elapsed/D.sampleMs))]];}}};
 $('csv').onclick=()=>{const rows=[['角色','風格','服裝','動作','狀態','說明'],...D.coverage.map(r=>[r.character,r.category,r.outfit,r.title,labels[r.status],r.detail])];const content='\ufeff'+rows.map(row=>row.map(v=>'"'+String(v).replaceAll('"','""')+'"').join(',')).join('\r\n');const url=URL.createObjectURL(new Blob([content],{type:'text/csv;charset=utf-8'}));const a=document.createElement('a');a.href=url;a.download='全角色動作清單.csv';a.click();setTimeout(()=>URL.revokeObjectURL(url),2000);};
 let last=performance.now();function tick(now){const dt=Math.min(50,now-last);last=now;
- for(const s of states){if(paused||s.loading)continue;s.elapsed+=dt;const c=clip(s);
+ for(const s of states){if(paused||s.loading)continue;updateShakeFeedback(s,now);s.elapsed+=dt;const c=clip(s);
   if(s.drop){s.v+=650*dt/1000;s.y=Math.min(floor(s),s.y+s.v*dt/1000);if(s.y>=floor(s)){s.drop=false;const next=s.next;s.next=null;setAction(s,next||'place');}}
   else if(s.action==='walk'){
    if(s.turnRemaining>0){s.turnRemaining=Math.max(0,s.turnRemaining-dt);if(!s.turnRemaining)s.dir*=-1;}
@@ -73,6 +89,7 @@ let last=performance.now();function tick(now){const dt=Math.min(50,now-last);las
   }else s.image.style.transform='';
   const current=clip(s);if(current){
    let t=['walk','peek'].includes(s.action)?(s.walkTime||0)%current.cycleMs:$('loop').checked&&!s.drop?s.elapsed%current.duration:Math.min(s.elapsed,current.duration);
+   if(s.action==='shake'&&s.held&&s.shake)t=(now-s.shake.since)%2400;
    const source=D.frames[current.frames[Math.min(current.frames.length-1,Math.floor(t/D.sampleMs))]];
    if(s.image.getAttribute('src')!==source)s.image.src=source;
    if(s===states[0]){$('timeline').value=100*t/current.duration;$('timeLabel').textContent=(t/1000).toFixed(1)+' 秒';}

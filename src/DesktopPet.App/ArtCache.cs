@@ -17,7 +17,7 @@ public sealed class ArtCache
     private readonly LinkedList<string> order = new();
     public BitmapSource Frame(Character character, Sprite sprite, int index)
     {
-        string key = $"{character.Root}|{sprite.File}|{sprite.Columns}|{sprite.Rows}|{sprite.IsolateCells}|{string.Join(';', sprite.Cells?.Select(c => $"{c.X},{c.Y},{c.Width},{c.Height}") ?? [])}";
+        string key = $"{character.Root}|{sprite.File}|{sprite.Columns}|{sprite.Rows}|{sprite.IsolateCells}|{sprite.SeparationAlpha}|{string.Join(';', sprite.Cells?.Select(c => $"{c.X},{c.Y},{c.Width},{c.Height}") ?? [])}";
         if (!cache.TryGetValue(key, out var frames))
         {
             string path = Character.SafeFile(character.Root, sprite.File);
@@ -26,7 +26,7 @@ public sealed class ArtCache
             // high-DPI desktop discarded hair, face and lace detail before rendering.
             var source = BitmapSource.Create(decoded.Width, decoded.Height, 96, 96, PixelFormats.Pbgra32, null, decoded.GetPixels(), decoded.ByteCount, decoded.RowBytes);
             source.Freeze();
-            var owners = sprite.IsolateCells && sprite.Cells is not null ? CellOwners(source, sprite.Cells) : null;
+            var owners = sprite.IsolateCells && sprite.Cells is not null ? CellOwners(source, sprite.Cells, sprite.SeparationAlpha) : null;
             int w = source.PixelWidth / sprite.Columns, h = source.PixelHeight / sprite.Rows;
             frames = Enumerable.Range(0, sprite.Columns * sprite.Rows).Select(i =>
             {
@@ -84,14 +84,14 @@ public sealed class ArtCache
     public double SheetHeight(BitmapSource frame) => sheetHeight[frame];
     public double PoseScale(BitmapSource frame) => poseScale[frame];
     public double HorizontalAnchor(BitmapSource frame) => geometry[frame].AnchorX;
-    private static int[] CellOwners(BitmapSource source, SpriteCell[] cells)
+    private static int[] CellOwners(BitmapSource source, SpriteCell[] cells, int separationAlpha)
     {
         int width=source.PixelWidth,height=source.PixelHeight,count=width*height;
         byte[] pixels=new byte[count*4]; source.CopyPixels(pixels,width*4,0);
         int[] owners=new int[count],queue=new int[count];
         for (int start=0;start<count;start++)
         {
-            if (owners[start]!=0 || pixels[start*4+3]<48) continue;
+            if (owners[start]!=0 || pixels[start*4+3]<separationAlpha) continue;
             int read=0,end=1,left=start%width,right=left,top=start/width,bottom=top;
             queue[0]=start;owners[start]=-1;
             while (read<end)
@@ -102,7 +102,7 @@ public sealed class ArtCache
                 {
                     int nx=x+dx,ny=y+dy;if(nx<0||nx>=width||ny<0||ny>=height)continue;
                     int next=ny*width+nx;
-                    if(owners[next]==0&&pixels[next*4+3]>=48){owners[next]=-1;queue[end++]=next;}
+                    if(owners[next]==0&&pixels[next*4+3]>=separationAlpha){owners[next]=-1;queue[end++]=next;}
                 }
             }
             double best=double.MaxValue;int owner=-1;

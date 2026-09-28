@@ -1,0 +1,9338 @@
+[
+  {
+    "key": "whale-swim-body",
+    "id": "whale",
+    "outfit": "swim",
+    "kind": "body",
+    "file": "src/DesktopPet.App/Assets/Characters/whale/outfits/swim/body-continuity.png",
+    "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-b4d6397c-fb74-4075-880f-765ad17f27d1.png",
+    "sha256": "fe70d7bba05610848c29f0b7ef2bfbb3f45410ed204b7f5ac47062e7dc055967",
+    "dimensions": [
+      1024,
+      1536
+    ],
+    "cells": [
+      {
+        "x": 33,
+        "y": 33,
+        "width": 237,
+        "height": 254
+      },
+      {
+        "x": 281,
+        "y": 23,
+        "width": 243,
+        "height": 264
+      },
+      {
+        "x": 534,
+        "y": 4,
+        "width": 234,
+        "height": 255
+      },
+      {
+        "x": 784,
+        "y": 46,
+        "width": 237,
+        "height": 241
+      },
+      {
+        "x": 33,
+        "y": 293,
+        "width": 234,
+        "height": 251
+      },
+      {
+        "x": 283,
+        "y": 294,
+        "width": 243,
+        "height": 247
+      },
+      {
+        "x": 534,
+        "y": 295,
+        "width": 247,
+        "height": 245
+      },
+      {
+        "x": 796,
+        "y": 330,
+        "width": 227,
+        "height": 210
+      },
+      {
+        "x": 22,
+        "y": 548,
+        "width": 238,
+        "height": 226
+      },
+      {
+        "x": 271,
+        "y": 549,
+        "width": 228,
+        "height": 224
+      },
+      {
+        "x": 508,
+        "y": 591,
+        "width": 261,
+        "height": 178
+      },
+      {
+        "x": 776,
+        "y": 597,
+        "width": 248,
+        "height": 171
+      },
+      {
+        "x": 30,
+        "y": 781,
+        "width": 225,
+        "height": 250
+      },
+      {
+        "x": 278,
+        "y": 768,
+        "width": 223,
+        "height": 271
+      },
+      {
+        "x": 525,
+        "y": 776,
+        "width": 223,
+        "height": 274
+      },
+      {
+        "x": 787,
+        "y": 778,
+        "width": 225,
+        "height": 273
+      },
+      {
+        "x": 25,
+        "y": 1046,
+        "width": 244,
+        "height": 241
+      },
+      {
+        "x": 279,
+        "y": 1048,
+        "width": 242,
+        "height": 239
+      },
+      {
+        "x": 526,
+        "y": 1048,
+        "width": 241,
+        "height": 239
+      },
+      {
+        "x": 783,
+        "y": 1048,
+        "width": 239,
+        "height": 239
+      },
+      {
+        "x": 17,
+        "y": 1289,
+        "width": 246,
+        "height": 235
+      },
+      {
+        "x": 280,
+        "y": 1287,
+        "width": 243,
+        "height": 237
+      },
+      {
+        "x": 540,
+        "y": 1293,
+        "width": 233,
+        "height": 231
+      },
+      {
+        "x": 787,
+        "y": 1290,
+        "width": 232,
+        "height": 234
+      }
+    ],
+    "heightRatios": [
+      1.016393,
+      1.057377,
+      1.020492,
+      0.963115,
+      1.004098,
+      0.987705,
+      0.979508,
+      0.836066,
+      0.901639,
+      0.893443,
+      0.704918,
+      0.67623,
+      1.0,
+      1.086066,
+      1.098361,
+      1.094262,
+      0.963115,
+      0.954918,
+      0.954918,
+      0.954918,
+      0.938525,
+      0.946721,
+      0.922131,
+      0.934426
+    ],
+    "separationAlpha": 48,
+    "referenceHeightPixels": 244.0,
+    "transparentFraction": 0.3569,
+    "actions": [
+      "jump",
+      "curl",
+      "sleep",
+      "pickup",
+      "ball-ready",
+      "ball-hit",
+      "ball-miss"
+    ]
+  },
+  {
+    "key": "whale-swim-care",
+    "id": "whale",
+    "outfit": "swim",
+    "kind": "care",
+    "file": "src/DesktopPet.App/Assets/Characters/whale/outfits/swim/care-continuity.png",
+    "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-70cc587a-053b-4b85-83aa-c5bf0de59b3c.png",
+    "sha256": "ba98b0ef27cc356858ac2448e5b544b3679fae6f0eea7568916859a5999fb8d2",
+    "dimensions": [
+      1024,
+      1536
+    ],
+    "cells": [
+      {
+        "x": 25,
+        "y": 11,
+        "width": 233,
+        "height": 228
+      },
+      {
+        "x": 282,
+        "y": 12,
+        "width": 232,
+        "height": 227
+      },
+      {
+        "x": 535,
+        "y": 11,
+        "width": 232,
+        "height": 228
+      },
+      {
+        "x": 791,
+        "y": 10,
+        "width": 231,
+        "height": 229
+      },
+      {
+        "x": 25,
+        "y": 252,
+        "width": 235,
+        "height": 241
+      },
+      {
+        "x": 283,
+        "y": 254,
+        "width": 231,
+        "height": 239
+      },
+      {
+        "x": 533,
+        "y": 254,
+        "width": 234,
+        "height": 239
+      },
+      {
+        "x": 791,
+        "y": 252,
+        "width": 231,
+        "height": 241
+      },
+      {
+        "x": 25,
+        "y": 500,
+        "width": 235,
+        "height": 239
+      },
+      {
+        "x": 284,
+        "y": 508,
+        "width": 234,
+        "height": 232
+      },
+      {
+        "x": 542,
+        "y": 513,
+        "width": 229,
+        "height": 227
+      },
+      {
+        "x": 790,
+        "y": 500,
+        "width": 233,
+        "height": 240
+      },
+      {
+        "x": 25,
+        "y": 747,
+        "width": 234,
+        "height": 240
+      },
+      {
+        "x": 283,
+        "y": 758,
+        "width": 231,
+        "height": 229
+      },
+      {
+        "x": 533,
+        "y": 749,
+        "width": 234,
+        "height": 237
+      },
+      {
+        "x": 790,
+        "y": 747,
+        "width": 232,
+        "height": 238
+      },
+      {
+        "x": 23,
+        "y": 990,
+        "width": 237,
+        "height": 243
+      },
+      {
+        "x": 282,
+        "y": 989,
+        "width": 233,
+        "height": 244
+      },
+      {
+        "x": 527,
+        "y": 998,
+        "width": 241,
+        "height": 234
+      },
+      {
+        "x": 790,
+        "y": 992,
+        "width": 233,
+        "height": 241
+      },
+      {
+        "x": 24,
+        "y": 1237,
+        "width": 234,
+        "height": 278
+      },
+      {
+        "x": 281,
+        "y": 1248,
+        "width": 234,
+        "height": 267
+      },
+      {
+        "x": 532,
+        "y": 1274,
+        "width": 235,
+        "height": 241
+      },
+      {
+        "x": 791,
+        "y": 1264,
+        "width": 231,
+        "height": 249
+      }
+    ],
+    "heightRatios": [
+      0.954839,
+      0.950538,
+      0.954839,
+      0.95914,
+      1.010753,
+      1.002151,
+      1.002151,
+      1.010753,
+      1.002151,
+      0.972043,
+      0.950538,
+      1.006452,
+      1.006452,
+      0.95914,
+      0.993548,
+      0.997849,
+      1.019355,
+      1.023656,
+      0.980645,
+      1.010753,
+      1.169892,
+      1.122581,
+      1.010753,
+      1.045161
+    ],
+    "separationAlpha": 48,
+    "referenceHeightPixels": 232.5,
+    "transparentFraction": 0.3945,
+    "actions": [
+      "chat",
+      "think",
+      "headpat",
+      "poke",
+      "tickle",
+      "bonk"
+    ]
+  },
+  {
+    "key": "whale-swim-food",
+    "id": "whale",
+    "outfit": "swim",
+    "kind": "food",
+    "file": "src/DesktopPet.App/Assets/Characters/whale/outfits/swim/food-continuity.png",
+    "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-8300dadd-0be1-4de4-b7a5-9125995a9326.png",
+    "sha256": "faf46f95d3df0f50a1f3e828f8fd4c987bc6bdf4ce7ffc3f16a78dddbf33e2b5",
+    "dimensions": [
+      1254,
+      1254
+    ],
+    "cells": [
+      {
+        "x": 28,
+        "y": 19,
+        "width": 300,
+        "height": 308
+      },
+      {
+        "x": 337,
+        "y": 19,
+        "width": 294,
+        "height": 308
+      },
+      {
+        "x": 639,
+        "y": 19,
+        "width": 296,
+        "height": 308
+      },
+      {
+        "x": 947,
+        "y": 19,
+        "width": 292,
+        "height": 308
+      },
+      {
+        "x": 29,
+        "y": 325,
+        "width": 302,
+        "height": 312
+      },
+      {
+        "x": 337,
+        "y": 328,
+        "width": 295,
+        "height": 309
+      },
+      {
+        "x": 638,
+        "y": 330,
+        "width": 299,
+        "height": 307
+      },
+      {
+        "x": 947,
+        "y": 327,
+        "width": 295,
+        "height": 310
+      },
+      {
+        "x": 28,
+        "y": 635,
+        "width": 302,
+        "height": 308
+      },
+      {
+        "x": 338,
+        "y": 635,
+        "width": 298,
+        "height": 308
+      },
+      {
+        "x": 641,
+        "y": 634,
+        "width": 299,
+        "height": 310
+      },
+      {
+        "x": 954,
+        "y": 635,
+        "width": 293,
+        "height": 309
+      },
+      {
+        "x": 30,
+        "y": 940,
+        "width": 302,
+        "height": 308
+      },
+      {
+        "x": 337,
+        "y": 939,
+        "width": 299,
+        "height": 309
+      },
+      {
+        "x": 641,
+        "y": 941,
+        "width": 300,
+        "height": 307
+      },
+      {
+        "x": 950,
+        "y": 941,
+        "width": 298,
+        "height": 307
+      }
+    ],
+    "heightRatios": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.013245,
+      1.003311,
+      0.996689,
+      1.006623,
+      1.0,
+      1.0,
+      1.006623,
+      1.003311,
+      1.0,
+      1.003311,
+      0.996689,
+      0.996689
+    ],
+    "separationAlpha": 48,
+    "referenceHeightPixels": 302.0,
+    "transparentFraction": 0.3533,
+    "actions": [
+      "eat",
+      "meal"
+    ]
+  },
+  {
+    "key": "claude-original-touch",
+    "id": "claude",
+    "outfit": "original",
+    "kind": "touch",
+    "file": "src/DesktopPet.App/Assets/Characters/claude/motions/touch-continuity.png",
+    "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-78c91fbf-730b-4ac7-8a12-7c7c1beda372.png",
+    "sha256": "f7910186e874ff16c894811d8cead575a24ef1a14700e9495c87287e4db9e46a",
+    "dimensions": [
+      1448,
+      1086
+    ],
+    "cells": [
+      {
+        "x": 25,
+        "y": 17,
+        "width": 335,
+        "height": 353
+      },
+      {
+        "x": 382,
+        "y": 20,
+        "width": 338,
+        "height": 350
+      },
+      {
+        "x": 729,
+        "y": 18,
+        "width": 338,
+        "height": 352
+      },
+      {
+        "x": 1091,
+        "y": 17,
+        "width": 333,
+        "height": 353
+      },
+      {
+        "x": 22,
+        "y": 365,
+        "width": 338,
+        "height": 354
+      },
+      {
+        "x": 385,
+        "y": 368,
+        "width": 342,
+        "height": 351
+      },
+      {
+        "x": 723,
+        "y": 367,
+        "width": 345,
+        "height": 352
+      },
+      {
+        "x": 1090,
+        "y": 366,
+        "width": 340,
+        "height": 354
+      },
+      {
+        "x": 20,
+        "y": 716,
+        "width": 340,
+        "height": 352
+      },
+      {
+        "x": 382,
+        "y": 714,
+        "width": 340,
+        "height": 354
+      },
+      {
+        "x": 727,
+        "y": 715,
+        "width": 340,
+        "height": 353
+      },
+      {
+        "x": 1090,
+        "y": 714,
+        "width": 341,
+        "height": 355
+      }
+    ],
+    "heightRatios": [
+      1.0,
+      0.991354,
+      0.997118,
+      1.0,
+      1.002882,
+      0.994236,
+      0.997118,
+      1.002882,
+      0.997118,
+      1.002882,
+      1.0,
+      1.005764
+    ],
+    "separationAlpha": 48,
+    "referenceHeightPixels": 347.0,
+    "transparentFraction": 0.2868,
+    "actions": [
+      "poke",
+      "tickle",
+      "ball-ready"
+    ]
+  },
+  {
+    "key": "claude-swim-body",
+    "id": "claude",
+    "outfit": "swim",
+    "kind": "body",
+    "file": "src/DesktopPet.App/Assets/Characters/claude/outfits/swim/body-continuity.png",
+    "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-3ef52e2e-edc4-4a3a-86c9-7ba7b84582bd.png",
+    "sha256": "6fdcf1c29ffb9dca1642a496c28bf26ac1bcfaa3331b65196ebf4dc16933fc66",
+    "dimensions": [
+      1024,
+      1536
+    ],
+    "cells": [
+      {
+        "x": 33,
+        "y": 25,
+        "width": 221,
+        "height": 249
+      },
+      {
+        "x": 270,
+        "y": 4,
+        "width": 231,
+        "height": 274
+      },
+      {
+        "x": 512,
+        "y": 0,
+        "width": 244,
+        "height": 257
+      },
+      {
+        "x": 779,
+        "y": 34,
+        "width": 228,
+        "height": 241
+      },
+      {
+        "x": 25,
+        "y": 278,
+        "width": 233,
+        "height": 245
+      },
+      {
+        "x": 278,
+        "y": 277,
+        "width": 230,
+        "height": 246
+      },
+      {
+        "x": 520,
+        "y": 282,
+        "width": 231,
+        "height": 241
+      },
+      {
+        "x": 772,
+        "y": 291,
+        "width": 245,
+        "height": 234
+      },
+      {
+        "x": 10,
+        "y": 518,
+        "width": 231,
+        "height": 251
+      },
+      {
+        "x": 257,
+        "y": 523,
+        "width": 238,
+        "height": 235
+      },
+      {
+        "x": 498,
+        "y": 567,
+        "width": 262,
+        "height": 195
+      },
+      {
+        "x": 746,
+        "y": 610,
+        "width": 267,
+        "height": 148
+      },
+      {
+        "x": 29,
+        "y": 765,
+        "width": 222,
+        "height": 264
+      },
+      {
+        "x": 287,
+        "y": 758,
+        "width": 204,
+        "height": 261
+      },
+      {
+        "x": 535,
+        "y": 767,
+        "width": 209,
+        "height": 257
+      },
+      {
+        "x": 794,
+        "y": 765,
+        "width": 210,
+        "height": 258
+      },
+      {
+        "x": 29,
+        "y": 1025,
+        "width": 225,
+        "height": 240
+      },
+      {
+        "x": 277,
+        "y": 1022,
+        "width": 222,
+        "height": 243
+      },
+      {
+        "x": 531,
+        "y": 1028,
+        "width": 224,
+        "height": 238
+      },
+      {
+        "x": 788,
+        "y": 1025,
+        "width": 218,
+        "height": 239
+      },
+      {
+        "x": 31,
+        "y": 1261,
+        "width": 223,
+        "height": 263
+      },
+      {
+        "x": 271,
+        "y": 1262,
+        "width": 229,
+        "height": 253
+      },
+      {
+        "x": 516,
+        "y": 1271,
+        "width": 234,
+        "height": 246
+      },
+      {
+        "x": 781,
+        "y": 1262,
+        "width": 226,
+        "height": 255
+      }
+    ],
+    "heightRatios": [
+      0.968127,
+      1.067729,
+      1.007968,
+      0.936255,
+      0.952191,
+      0.956175,
+      0.936255,
+      0.908367,
+      0.976096,
+      0.912351,
+      0.752988,
+      0.565737,
+      1.027888,
+      1.015936,
+      1.0,
+      1.003984,
+      0.932271,
+      0.944223,
+      0.924303,
+      0.928287,
+      1.023904,
+      0.984064,
+      0.956175,
+      0.992032
+    ],
+    "separationAlpha": 48,
+    "referenceHeightPixels": 251.0,
+    "transparentFraction": 0.3408,
+    "actions": [
+      "jump",
+      "curl",
+      "sleep",
+      "pickup",
+      "ball-ready",
+      "ball-hit",
+      "ball-miss"
+    ]
+  },
+  {
+    "key": "gpt-original-touch",
+    "id": "gpt",
+    "outfit": "original",
+    "kind": "touch",
+    "file": "src/DesktopPet.App/Assets/Characters/gpt/motions/touch-continuity.png",
+    "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-e7fe5489-4c0a-4192-a92d-af91bdb90a75.png",
+    "sha256": "600f0e86a63d6a8ae0997e22333e4a3121eaeb3ade496e81198c80fff211736a",
+    "dimensions": [
+      1448,
+      1086
+    ],
+    "cells": [
+      {
+        "x": 1,
+        "y": 0,
+        "width": 390,
+        "height": 394
+      },
+      {
+        "x": 371,
+        "y": 0,
+        "width": 373,
+        "height": 391
+      },
+      {
+        "x": 723,
+        "y": 4,
+        "width": 365,
+        "height": 387
+      },
+      {
+        "x": 1064,
+        "y": 1,
+        "width": 384,
+        "height": 391
+      },
+      {
+        "x": 1,
+        "y": 370,
+        "width": 386,
+        "height": 383
+      },
+      {
+        "x": 370,
+        "y": 372,
+        "width": 374,
+        "height": 380
+      },
+      {
+        "x": 724,
+        "y": 376,
+        "width": 362,
+        "height": 376
+      },
+      {
+        "x": 1065,
+        "y": 370,
+        "width": 383,
+        "height": 383
+      },
+      {
+        "x": 2,
+        "y": 728,
+        "width": 383,
+        "height": 358
+      },
+      {
+        "x": 367,
+        "y": 728,
+        "width": 374,
+        "height": 358
+      },
+      {
+        "x": 725,
+        "y": 729,
+        "width": 367,
+        "height": 357
+      },
+      {
+        "x": 1073,
+        "y": 729,
+        "width": 375,
+        "height": 357
+      }
+    ],
+    "heightRatios": [
+      1.037762,
+      1.037762,
+      1.015385,
+      1.026573,
+      1.004196,
+      0.995804,
+      0.984615,
+      1.004196,
+      0.965035,
+      0.965035,
+      0.962238,
+      0.962238
+    ],
+    "separationAlpha": 200,
+    "referenceHeightPixels": 357.5,
+    "transparentFraction": 0.2452,
+    "actions": [
+      "poke",
+      "tickle",
+      "ball-ready"
+    ]
+  },
+  {
+    "key": "gpt-swim-body",
+    "id": "gpt",
+    "outfit": "swim",
+    "kind": "body",
+    "file": "src/DesktopPet.App/Assets/Characters/gpt/outfits/swim/body-continuity.png",
+    "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-fe9c00dd-0952-4529-9652-42b1bdf0b2ae.png",
+    "sha256": "bcab4c9a0d8a2b7ff3b41080ab3eee1996f361363cdf907a54b3cfd95af7769d",
+    "dimensions": [
+      1024,
+      1536
+    ],
+    "cells": [
+      {
+        "x": 20,
+        "y": 18,
+        "width": 226,
+        "height": 232
+      },
+      {
+        "x": 286,
+        "y": 5,
+        "width": 213,
+        "height": 244
+      },
+      {
+        "x": 526,
+        "y": 3,
+        "width": 229,
+        "height": 217
+      },
+      {
+        "x": 780,
+        "y": 25,
+        "width": 230,
+        "height": 225
+      },
+      {
+        "x": 21,
+        "y": 263,
+        "width": 223,
+        "height": 232
+      },
+      {
+        "x": 274,
+        "y": 263,
+        "width": 225,
+        "height": 232
+      },
+      {
+        "x": 529,
+        "y": 270,
+        "width": 225,
+        "height": 225
+      },
+      {
+        "x": 787,
+        "y": 273,
+        "width": 222,
+        "height": 222
+      },
+      {
+        "x": 19,
+        "y": 508,
+        "width": 226,
+        "height": 240
+      },
+      {
+        "x": 264,
+        "y": 515,
+        "width": 230,
+        "height": 225
+      },
+      {
+        "x": 509,
+        "y": 562,
+        "width": 246,
+        "height": 179
+      },
+      {
+        "x": 777,
+        "y": 591,
+        "width": 233,
+        "height": 149
+      },
+      {
+        "x": 23,
+        "y": 760,
+        "width": 223,
+        "height": 255
+      },
+      {
+        "x": 282,
+        "y": 748,
+        "width": 209,
+        "height": 269
+      },
+      {
+        "x": 533,
+        "y": 755,
+        "width": 213,
+        "height": 262
+      },
+      {
+        "x": 793,
+        "y": 756,
+        "width": 215,
+        "height": 261
+      },
+      {
+        "x": 21,
+        "y": 1028,
+        "width": 224,
+        "height": 232
+      },
+      {
+        "x": 276,
+        "y": 1028,
+        "width": 222,
+        "height": 235
+      },
+      {
+        "x": 531,
+        "y": 1029,
+        "width": 220,
+        "height": 233
+      },
+      {
+        "x": 788,
+        "y": 1028,
+        "width": 223,
+        "height": 234
+      },
+      {
+        "x": 20,
+        "y": 1272,
+        "width": 231,
+        "height": 247
+      },
+      {
+        "x": 275,
+        "y": 1272,
+        "width": 223,
+        "height": 248
+      },
+      {
+        "x": 524,
+        "y": 1278,
+        "width": 227,
+        "height": 240
+      },
+      {
+        "x": 782,
+        "y": 1272,
+        "width": 229,
+        "height": 247
+      }
+    ],
+    "heightRatios": [
+      0.94958,
+      1.0,
+      0.886555,
+      0.920168,
+      0.94958,
+      0.94958,
+      0.920168,
+      0.907563,
+      0.983193,
+      0.920168,
+      0.726891,
+      0.60084,
+      1.046218,
+      1.105042,
+      1.07563,
+      1.071429,
+      0.94958,
+      0.962185,
+      0.953782,
+      0.957983,
+      1.012605,
+      1.016807,
+      0.983193,
+      1.012605
+    ],
+    "separationAlpha": 48,
+    "referenceHeightPixels": 238.0,
+    "transparentFraction": 0.3591,
+    "actions": [
+      "jump",
+      "curl",
+      "sleep",
+      "pickup",
+      "ball-ready",
+      "ball-hit",
+      "ball-miss"
+    ]
+  },
+  {
+    "key": "gpt-swim-care",
+    "id": "gpt",
+    "outfit": "swim",
+    "kind": "care",
+    "file": "src/DesktopPet.App/Assets/Characters/gpt/outfits/swim/care-continuity.png",
+    "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-cdd6ffaa-b00a-478b-9bfa-e4734504871e.png",
+    "sha256": "03095d05fc2d938b6bbbf575572f0972edd20953a9c82ccd5636e6fa2db978d9",
+    "dimensions": [
+      1024,
+      1536
+    ],
+    "cells": [
+      {
+        "x": 27,
+        "y": 9,
+        "width": 228,
+        "height": 245
+      },
+      {
+        "x": 275,
+        "y": 10,
+        "width": 229,
+        "height": 244
+      },
+      {
+        "x": 526,
+        "y": 10,
+        "width": 226,
+        "height": 243
+      },
+      {
+        "x": 778,
+        "y": 11,
+        "width": 224,
+        "height": 243
+      },
+      {
+        "x": 26,
+        "y": 258,
+        "width": 230,
+        "height": 248
+      },
+      {
+        "x": 278,
+        "y": 262,
+        "width": 228,
+        "height": 244
+      },
+      {
+        "x": 525,
+        "y": 261,
+        "width": 229,
+        "height": 245
+      },
+      {
+        "x": 777,
+        "y": 260,
+        "width": 222,
+        "height": 246
+      },
+      {
+        "x": 24,
+        "y": 512,
+        "width": 233,
+        "height": 248
+      },
+      {
+        "x": 276,
+        "y": 517,
+        "width": 236,
+        "height": 244
+      },
+      {
+        "x": 522,
+        "y": 518,
+        "width": 231,
+        "height": 242
+      },
+      {
+        "x": 774,
+        "y": 515,
+        "width": 231,
+        "height": 246
+      },
+      {
+        "x": 25,
+        "y": 765,
+        "width": 231,
+        "height": 248
+      },
+      {
+        "x": 278,
+        "y": 775,
+        "width": 243,
+        "height": 238
+      },
+      {
+        "x": 522,
+        "y": 775,
+        "width": 230,
+        "height": 238
+      },
+      {
+        "x": 776,
+        "y": 766,
+        "width": 230,
+        "height": 247
+      },
+      {
+        "x": 26,
+        "y": 1025,
+        "width": 229,
+        "height": 239
+      },
+      {
+        "x": 283,
+        "y": 1026,
+        "width": 235,
+        "height": 237
+      },
+      {
+        "x": 522,
+        "y": 1027,
+        "width": 239,
+        "height": 289
+      },
+      {
+        "x": 780,
+        "y": 1025,
+        "width": 226,
+        "height": 239
+      },
+      {
+        "x": 28,
+        "y": 1262,
+        "width": 225,
+        "height": 260
+      },
+      {
+        "x": 279,
+        "y": 1274,
+        "width": 229,
+        "height": 248
+      },
+      {
+        "x": 532,
+        "y": 1280,
+        "width": 220,
+        "height": 242
+      },
+      {
+        "x": 776,
+        "y": 1279,
+        "width": 225,
+        "height": 243
+      }
+    ],
+    "heightRatios": [
+      1.004202,
+      1.0,
+      0.995798,
+      0.995798,
+      1.016807,
+      1.0,
+      1.004202,
+      1.008403,
+      1.016807,
+      1.0,
+      0.991597,
+      1.008403,
+      1.016807,
+      0.97479,
+      0.97479,
+      1.012605,
+      0.978992,
+      0.970588,
+      1.189076,
+      0.978992,
+      1.067227,
+      1.016807,
+      0.991597,
+      0.995798
+    ],
+    "separationAlpha": 48,
+    "referenceHeightPixels": 238.0,
+    "transparentFraction": 0.3243,
+    "actions": [
+      "chat",
+      "think",
+      "headpat",
+      "poke",
+      "tickle",
+      "bonk"
+    ]
+  },
+  {
+    "key": "gpt-swim-food",
+    "id": "gpt",
+    "outfit": "swim",
+    "kind": "food",
+    "file": "src/DesktopPet.App/Assets/Characters/gpt/outfits/swim/food-continuity.png",
+    "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-8ee1a5d7-52a5-4422-8bdc-30cf5a1226f6.png",
+    "sha256": "96180be554685328349e13fa66b4140a9b7e8b11c27c6571c986265fecb3d760",
+    "dimensions": [
+      1254,
+      1254
+    ],
+    "cells": [
+      {
+        "x": 24,
+        "y": 4,
+        "width": 289,
+        "height": 301
+      },
+      {
+        "x": 332,
+        "y": 3,
+        "width": 289,
+        "height": 301
+      },
+      {
+        "x": 641,
+        "y": 3,
+        "width": 289,
+        "height": 301
+      },
+      {
+        "x": 945,
+        "y": 3,
+        "width": 291,
+        "height": 302
+      },
+      {
+        "x": 22,
+        "y": 310,
+        "width": 295,
+        "height": 307
+      },
+      {
+        "x": 330,
+        "y": 309,
+        "width": 295,
+        "height": 308
+      },
+      {
+        "x": 639,
+        "y": 309,
+        "width": 294,
+        "height": 308
+      },
+      {
+        "x": 945,
+        "y": 310,
+        "width": 298,
+        "height": 307
+      },
+      {
+        "x": 22,
+        "y": 621,
+        "width": 296,
+        "height": 310
+      },
+      {
+        "x": 330,
+        "y": 620,
+        "width": 299,
+        "height": 311
+      },
+      {
+        "x": 639,
+        "y": 622,
+        "width": 299,
+        "height": 309
+      },
+      {
+        "x": 947,
+        "y": 622,
+        "width": 296,
+        "height": 309
+      },
+      {
+        "x": 22,
+        "y": 935,
+        "width": 295,
+        "height": 307
+      },
+      {
+        "x": 334,
+        "y": 934,
+        "width": 295,
+        "height": 308
+      },
+      {
+        "x": 642,
+        "y": 937,
+        "width": 292,
+        "height": 304
+      },
+      {
+        "x": 947,
+        "y": 934,
+        "width": 296,
+        "height": 308
+      }
+    ],
+    "heightRatios": [
+      0.978441,
+      0.978441,
+      0.978441,
+      0.981758,
+      0.998342,
+      1.001658,
+      1.001658,
+      0.998342,
+      1.008292,
+      1.011609,
+      1.004975,
+      1.004975,
+      0.998342,
+      1.001658,
+      0.988391,
+      1.001658
+    ],
+    "separationAlpha": 48,
+    "referenceHeightPixels": 301.5,
+    "transparentFraction": 0.3165,
+    "actions": [
+      "eat",
+      "meal"
+    ]
+  },
+  {
+    "key": "gpt-wedding-body",
+    "id": "gpt",
+    "outfit": "wedding",
+    "kind": "body",
+    "file": "src/DesktopPet.App/Assets/Characters/gpt/outfits/wedding/body-continuity.png",
+    "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-80d163f3-90ea-44c1-916e-92afa02ceed7.png",
+    "sha256": "faf3aa740431ca0dc03553c5246c8e7ac22c73f40966781d963493f385882cc3",
+    "dimensions": [
+      1024,
+      1536
+    ],
+    "cells": [
+      {
+        "x": 19,
+        "y": 37,
+        "width": 222,
+        "height": 211
+      },
+      {
+        "x": 276,
+        "y": 8,
+        "width": 217,
+        "height": 235
+      },
+      {
+        "x": 522,
+        "y": 0,
+        "width": 226,
+        "height": 221
+      },
+      {
+        "x": 781,
+        "y": 38,
+        "width": 214,
+        "height": 210
+      },
+      {
+        "x": 17,
+        "y": 268,
+        "width": 225,
+        "height": 229
+      },
+      {
+        "x": 273,
+        "y": 278,
+        "width": 224,
+        "height": 214
+      },
+      {
+        "x": 525,
+        "y": 277,
+        "width": 223,
+        "height": 214
+      },
+      {
+        "x": 781,
+        "y": 298,
+        "width": 224,
+        "height": 193
+      },
+      {
+        "x": 16,
+        "y": 512,
+        "width": 229,
+        "height": 226
+      },
+      {
+        "x": 268,
+        "y": 526,
+        "width": 229,
+        "height": 211
+      },
+      {
+        "x": 510,
+        "y": 566,
+        "width": 245,
+        "height": 165
+      },
+      {
+        "x": 775,
+        "y": 582,
+        "width": 238,
+        "height": 150
+      },
+      {
+        "x": 23,
+        "y": 749,
+        "width": 218,
+        "height": 236
+      },
+      {
+        "x": 278,
+        "y": 740,
+        "width": 209,
+        "height": 256
+      },
+      {
+        "x": 532,
+        "y": 753,
+        "width": 210,
+        "height": 250
+      },
+      {
+        "x": 787,
+        "y": 753,
+        "width": 210,
+        "height": 245
+      },
+      {
+        "x": 21,
+        "y": 1014,
+        "width": 220,
+        "height": 231
+      },
+      {
+        "x": 275,
+        "y": 1014,
+        "width": 220,
+        "height": 231
+      },
+      {
+        "x": 527,
+        "y": 1019,
+        "width": 223,
+        "height": 227
+      },
+      {
+        "x": 783,
+        "y": 1016,
+        "width": 223,
+        "height": 229
+      },
+      {
+        "x": 24,
+        "y": 1258,
+        "width": 218,
+        "height": 240
+      },
+      {
+        "x": 275,
+        "y": 1258,
+        "width": 220,
+        "height": 240
+      },
+      {
+        "x": 529,
+        "y": 1292,
+        "width": 218,
+        "height": 206
+      },
+      {
+        "x": 782,
+        "y": 1270,
+        "width": 220,
+        "height": 228
+      }
+    ],
+    "heightRatios": [
+      0.895197,
+      1.0,
+      0.938865,
+      0.89083,
+      0.973799,
+      0.908297,
+      0.908297,
+      0.816594,
+      0.960699,
+      0.895197,
+      0.694323,
+      0.628821,
+      1.004367,
+      1.091703,
+      1.065502,
+      1.043668,
+      0.982533,
+      0.982533,
+      0.965066,
+      0.973799,
+      1.021834,
+      1.021834,
+      0.873362,
+      0.969432
+    ],
+    "separationAlpha": 48,
+    "referenceHeightPixels": 229.0,
+    "transparentFraction": 0.3577,
+    "actions": [
+      "jump",
+      "curl",
+      "sleep",
+      "pickup",
+      "ball-ready",
+      "ball-hit",
+      "ball-miss"
+    ]
+  },
+  {
+    "key": "gpt-wedding-care",
+    "id": "gpt",
+    "outfit": "wedding",
+    "kind": "care",
+    "file": "src/DesktopPet.App/Assets/Characters/gpt/outfits/wedding/care-continuity.png",
+    "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-b715aaec-a424-4516-bbb7-07a129c8233f.png",
+    "sha256": "f1f6ae9738d2be5d11aefa5ae05ab2b85daeec375b04922849f7ffe05d162239",
+    "dimensions": [
+      1024,
+      1536
+    ],
+    "cells": [
+      {
+        "x": 11,
+        "y": 7,
+        "width": 248,
+        "height": 235
+      },
+      {
+        "x": 262,
+        "y": 6,
+        "width": 248,
+        "height": 239
+      },
+      {
+        "x": 513,
+        "y": 5,
+        "width": 247,
+        "height": 240
+      },
+      {
+        "x": 763,
+        "y": 6,
+        "width": 249,
+        "height": 235
+      },
+      {
+        "x": 11,
+        "y": 246,
+        "width": 249,
+        "height": 243
+      },
+      {
+        "x": 263,
+        "y": 254,
+        "width": 246,
+        "height": 236
+      },
+      {
+        "x": 512,
+        "y": 249,
+        "width": 249,
+        "height": 240
+      },
+      {
+        "x": 764,
+        "y": 248,
+        "width": 249,
+        "height": 241
+      },
+      {
+        "x": 11,
+        "y": 493,
+        "width": 249,
+        "height": 242
+      },
+      {
+        "x": 262,
+        "y": 498,
+        "width": 249,
+        "height": 236
+      },
+      {
+        "x": 512,
+        "y": 499,
+        "width": 249,
+        "height": 238
+      },
+      {
+        "x": 763,
+        "y": 495,
+        "width": 249,
+        "height": 239
+      },
+      {
+        "x": 12,
+        "y": 740,
+        "width": 248,
+        "height": 237
+      },
+      {
+        "x": 262,
+        "y": 746,
+        "width": 248,
+        "height": 231
+      },
+      {
+        "x": 514,
+        "y": 742,
+        "width": 247,
+        "height": 237
+      },
+      {
+        "x": 763,
+        "y": 740,
+        "width": 249,
+        "height": 235
+      },
+      {
+        "x": 12,
+        "y": 981,
+        "width": 247,
+        "height": 239
+      },
+      {
+        "x": 262,
+        "y": 985,
+        "width": 248,
+        "height": 236
+      },
+      {
+        "x": 512,
+        "y": 990,
+        "width": 249,
+        "height": 230
+      },
+      {
+        "x": 764,
+        "y": 982,
+        "width": 248,
+        "height": 238
+      },
+      {
+        "x": 11,
+        "y": 1225,
+        "width": 249,
+        "height": 281
+      },
+      {
+        "x": 262,
+        "y": 1230,
+        "width": 248,
+        "height": 277
+      },
+      {
+        "x": 512,
+        "y": 1217,
+        "width": 249,
+        "height": 291
+      },
+      {
+        "x": 763,
+        "y": 1260,
+        "width": 249,
+        "height": 245
+      }
+    ],
+    "heightRatios": [
+      0.989201,
+      1.006479,
+      1.010799,
+      0.989201,
+      1.023758,
+      0.993521,
+      1.010799,
+      1.015119,
+      1.019438,
+      0.993521,
+      1.00216,
+      1.006479,
+      0.99784,
+      0.971922,
+      0.99784,
+      0.989201,
+      1.006479,
+      0.993521,
+      0.967603,
+      1.00216,
+      1.187905,
+      1.170626,
+      1.231102,
+      1.032397
+    ],
+    "separationAlpha": 48,
+    "referenceHeightPixels": 231.5,
+    "transparentFraction": 0.2785,
+    "actions": [
+      "chat",
+      "think",
+      "headpat",
+      "poke",
+      "tickle",
+      "bonk"
+    ]
+  },
+  {
+    "key": "gpt-wedding-food",
+    "id": "gpt",
+    "outfit": "wedding",
+    "kind": "food",
+    "file": "src/DesktopPet.App/Assets/Characters/gpt/outfits/wedding/food-continuity.png",
+    "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-2133a9e4-b777-477f-839f-9ab7895e6c99.png",
+    "sha256": "b7c862b3d27d8a942fbef85995a4d752038df9fff4bef2f8505859f6b4f24d8f",
+    "dimensions": [
+      1254,
+      1254
+    ],
+    "cells": [
+      {
+        "x": 10,
+        "y": 8,
+        "width": 316,
+        "height": 301
+      },
+      {
+        "x": 323,
+        "y": 8,
+        "width": 310,
+        "height": 301
+      },
+      {
+        "x": 631,
+        "y": 8,
+        "width": 307,
+        "height": 302
+      },
+      {
+        "x": 934,
+        "y": 9,
+        "width": 310,
+        "height": 300
+      },
+      {
+        "x": 15,
+        "y": 311,
+        "width": 311,
+        "height": 304
+      },
+      {
+        "x": 324,
+        "y": 310,
+        "width": 307,
+        "height": 306
+      },
+      {
+        "x": 632,
+        "y": 311,
+        "width": 304,
+        "height": 305
+      },
+      {
+        "x": 935,
+        "y": 311,
+        "width": 307,
+        "height": 305
+      },
+      {
+        "x": 10,
+        "y": 621,
+        "width": 314,
+        "height": 307
+      },
+      {
+        "x": 326,
+        "y": 621,
+        "width": 306,
+        "height": 307
+      },
+      {
+        "x": 632,
+        "y": 621,
+        "width": 312,
+        "height": 307
+      },
+      {
+        "x": 943,
+        "y": 621,
+        "width": 305,
+        "height": 307
+      },
+      {
+        "x": 12,
+        "y": 928,
+        "width": 312,
+        "height": 308
+      },
+      {
+        "x": 323,
+        "y": 929,
+        "width": 310,
+        "height": 307
+      },
+      {
+        "x": 633,
+        "y": 928,
+        "width": 308,
+        "height": 308
+      },
+      {
+        "x": 939,
+        "y": 932,
+        "width": 308,
+        "height": 304
+      }
+    ],
+    "heightRatios": [
+      0.984975,
+      0.984975,
+      0.988314,
+      0.981636,
+      0.994992,
+      1.001669,
+      0.998331,
+      0.998331,
+      1.005008,
+      1.005008,
+      1.005008,
+      1.005008,
+      1.008347,
+      1.005008,
+      1.008347,
+      0.994992
+    ],
+    "separationAlpha": 48,
+    "referenceHeightPixels": 299.5,
+    "transparentFraction": 0.2517,
+    "actions": [
+      "eat",
+      "meal"
+    ]
+  },
+  {
+    "key": "whale-original-touch",
+    "id": "whale",
+    "outfit": "original",
+    "kind": "touch",
+    "file": "src/DesktopPet.App/Assets/Characters/whale/motions/touch-continuity.png",
+    "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-ff772b1c-4a7c-4c4e-9a6d-5850e60dc301.png",
+    "sha256": "97b3c3c45f1ad76ab4a00a3131fde9fa9a73c2e5c92bd10ff970a79b5a537429",
+    "dimensions": [
+      1448,
+      1086
+    ],
+    "cells": [
+      {
+        "x": 24,
+        "y": 6,
+        "width": 328,
+        "height": 360
+      },
+      {
+        "x": 383,
+        "y": 8,
+        "width": 334,
+        "height": 358
+      },
+      {
+        "x": 722,
+        "y": 9,
+        "width": 332,
+        "height": 357
+      },
+      {
+        "x": 1119,
+        "y": 8,
+        "width": 329,
+        "height": 358
+      },
+      {
+        "x": 25,
+        "y": 365,
+        "width": 333,
+        "height": 360
+      },
+      {
+        "x": 396,
+        "y": 366,
+        "width": 332,
+        "height": 360
+      },
+      {
+        "x": 732,
+        "y": 367,
+        "width": 343,
+        "height": 359
+      },
+      {
+        "x": 1120,
+        "y": 367,
+        "width": 328,
+        "height": 359
+      },
+      {
+        "x": 24,
+        "y": 721,
+        "width": 336,
+        "height": 357
+      },
+      {
+        "x": 386,
+        "y": 722,
+        "width": 339,
+        "height": 356
+      },
+      {
+        "x": 740,
+        "y": 723,
+        "width": 339,
+        "height": 356
+      },
+      {
+        "x": 1118,
+        "y": 723,
+        "width": 330,
+        "height": 356
+      }
+    ],
+    "heightRatios": [
+      1.005682,
+      1.0,
+      0.997159,
+      1.0,
+      1.005682,
+      1.005682,
+      1.002841,
+      1.002841,
+      0.997159,
+      0.994318,
+      0.994318,
+      0.994318
+    ],
+    "separationAlpha": 48,
+    "referenceHeightPixels": 352.0,
+    "transparentFraction": 0.3387,
+    "actions": [
+      "poke",
+      "tickle",
+      "ball-ready"
+    ]
+  },
+  {
+    "key": "whale-wedding-body",
+    "id": "whale",
+    "outfit": "wedding",
+    "kind": "body",
+    "file": "src/DesktopPet.App/Assets/Characters/whale/outfits/wedding/body-continuity.png",
+    "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-4afbceec-f911-45db-8ffe-cf58047a566c.png",
+    "sha256": "7e0d013921afede9ed22cc22b87e7d2917bb81056c3482b6bc45adb2980d234c",
+    "dimensions": [
+      1024,
+      1536
+    ],
+    "cells": [
+      {
+        "x": 20,
+        "y": 29,
+        "width": 233,
+        "height": 227
+      },
+      {
+        "x": 282,
+        "y": 4,
+        "width": 223,
+        "height": 253
+      },
+      {
+        "x": 535,
+        "y": 0,
+        "width": 214,
+        "height": 233
+      },
+      {
+        "x": 786,
+        "y": 33,
+        "width": 223,
+        "height": 224
+      },
+      {
+        "x": 16,
+        "y": 265,
+        "width": 231,
+        "height": 222
+      },
+      {
+        "x": 282,
+        "y": 260,
+        "width": 221,
+        "height": 226
+      },
+      {
+        "x": 538,
+        "y": 265,
+        "width": 224,
+        "height": 225
+      },
+      {
+        "x": 795,
+        "y": 284,
+        "width": 217,
+        "height": 206
+      },
+      {
+        "x": 17,
+        "y": 494,
+        "width": 234,
+        "height": 225
+      },
+      {
+        "x": 272,
+        "y": 534,
+        "width": 239,
+        "height": 184
+      },
+      {
+        "x": 523,
+        "y": 560,
+        "width": 242,
+        "height": 158
+      },
+      {
+        "x": 767,
+        "y": 571,
+        "width": 243,
+        "height": 146
+      },
+      {
+        "x": 33,
+        "y": 726,
+        "width": 220,
+        "height": 249
+      },
+      {
+        "x": 289,
+        "y": 725,
+        "width": 217,
+        "height": 263
+      },
+      {
+        "x": 539,
+        "y": 728,
+        "width": 222,
+        "height": 251
+      },
+      {
+        "x": 796,
+        "y": 731,
+        "width": 216,
+        "height": 251
+      },
+      {
+        "x": 23,
+        "y": 992,
+        "width": 232,
+        "height": 247
+      },
+      {
+        "x": 279,
+        "y": 996,
+        "width": 227,
+        "height": 243
+      },
+      {
+        "x": 531,
+        "y": 993,
+        "width": 230,
+        "height": 246
+      },
+      {
+        "x": 786,
+        "y": 994,
+        "width": 227,
+        "height": 245
+      },
+      {
+        "x": 29,
+        "y": 1250,
+        "width": 222,
+        "height": 249
+      },
+      {
+        "x": 280,
+        "y": 1250,
+        "width": 226,
+        "height": 249
+      },
+      {
+        "x": 538,
+        "y": 1258,
+        "width": 223,
+        "height": 242
+      },
+      {
+        "x": 789,
+        "y": 1251,
+        "width": 223,
+        "height": 249
+      }
+    ],
+    "heightRatios": [
+      0.909465,
+      1.016461,
+      0.934156,
+      0.897119,
+      0.888889,
+      0.90535,
+      0.901235,
+      0.823045,
+      0.901235,
+      0.73251,
+      0.625514,
+      0.576132,
+      1.0,
+      1.057613,
+      1.00823,
+      1.00823,
+      0.99177,
+      0.975309,
+      0.987654,
+      0.983539,
+      1.0,
+      1.0,
+      0.971193,
+      1.0
+    ],
+    "separationAlpha": 48,
+    "referenceHeightPixels": 243.0,
+    "transparentFraction": 0.3684,
+    "actions": [
+      "jump",
+      "curl",
+      "sleep",
+      "pickup",
+      "ball-ready",
+      "ball-hit",
+      "ball-miss"
+    ]
+  },
+  {
+    "key": "whale-wedding-care",
+    "id": "whale",
+    "outfit": "wedding",
+    "kind": "care",
+    "file": "src/DesktopPet.App/Assets/Characters/whale/outfits/wedding/care-continuity.png",
+    "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-f4f2d2c0-f2b9-4644-8e3b-934680b723e1.png",
+    "sha256": "a995a2b3ec435b9d908c879bd1af018dc8d4f1feb61e74d2a113986394cf6039",
+    "dimensions": [
+      1024,
+      1536
+    ],
+    "cells": [
+      {
+        "x": 7,
+        "y": 5,
+        "width": 245,
+        "height": 236
+      },
+      {
+        "x": 266,
+        "y": 5,
+        "width": 242,
+        "height": 236
+      },
+      {
+        "x": 519,
+        "y": 5,
+        "width": 244,
+        "height": 236
+      },
+      {
+        "x": 775,
+        "y": 5,
+        "width": 242,
+        "height": 236
+      },
+      {
+        "x": 7,
+        "y": 242,
+        "width": 247,
+        "height": 238
+      },
+      {
+        "x": 269,
+        "y": 247,
+        "width": 243,
+        "height": 234
+      },
+      {
+        "x": 520,
+        "y": 244,
+        "width": 244,
+        "height": 237
+      },
+      {
+        "x": 774,
+        "y": 243,
+        "width": 242,
+        "height": 237
+      },
+      {
+        "x": 7,
+        "y": 486,
+        "width": 246,
+        "height": 238
+      },
+      {
+        "x": 268,
+        "y": 491,
+        "width": 244,
+        "height": 233
+      },
+      {
+        "x": 522,
+        "y": 486,
+        "width": 243,
+        "height": 238
+      },
+      {
+        "x": 776,
+        "y": 486,
+        "width": 242,
+        "height": 238
+      },
+      {
+        "x": 7,
+        "y": 732,
+        "width": 245,
+        "height": 236
+      },
+      {
+        "x": 267,
+        "y": 737,
+        "width": 240,
+        "height": 232
+      },
+      {
+        "x": 520,
+        "y": 738,
+        "width": 245,
+        "height": 231
+      },
+      {
+        "x": 777,
+        "y": 732,
+        "width": 241,
+        "height": 237
+      },
+      {
+        "x": 7,
+        "y": 976,
+        "width": 245,
+        "height": 234
+      },
+      {
+        "x": 271,
+        "y": 977,
+        "width": 241,
+        "height": 236
+      },
+      {
+        "x": 519,
+        "y": 978,
+        "width": 244,
+        "height": 236
+      },
+      {
+        "x": 776,
+        "y": 976,
+        "width": 241,
+        "height": 237
+      },
+      {
+        "x": 8,
+        "y": 1213,
+        "width": 246,
+        "height": 285
+      },
+      {
+        "x": 265,
+        "y": 1241,
+        "width": 245,
+        "height": 257
+      },
+      {
+        "x": 519,
+        "y": 1212,
+        "width": 246,
+        "height": 286
+      },
+      {
+        "x": 774,
+        "y": 1256,
+        "width": 243,
+        "height": 242
+      }
+    ],
+    "heightRatios": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.008696,
+      0.991304,
+      1.004348,
+      1.004348,
+      1.008696,
+      0.986957,
+      1.008696,
+      1.008696,
+      1.0,
+      0.982609,
+      0.978261,
+      1.004348,
+      0.991304,
+      1.0,
+      1.0,
+      1.004348,
+      1.213043,
+      1.091304,
+      1.217391,
+      1.026087
+    ],
+    "separationAlpha": 48,
+    "referenceHeightPixels": 230.0,
+    "transparentFraction": 0.3444,
+    "actions": [
+      "chat",
+      "think",
+      "headpat",
+      "poke",
+      "tickle",
+      "bonk"
+    ]
+  },
+  {
+    "key": "whale-wedding-food",
+    "id": "whale",
+    "outfit": "wedding",
+    "kind": "food",
+    "file": "src/DesktopPet.App/Assets/Characters/whale/outfits/wedding/food-continuity.png",
+    "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-0e57562f-47b4-46fe-8104-4ddac0c67d18.png",
+    "sha256": "0cca0504aba2bb36dc85c22d96bbbf9577364ee8495797fc65574ddeb9764045",
+    "dimensions": [
+      1254,
+      1254
+    ],
+    "cells": [
+      {
+        "x": 22,
+        "y": 16,
+        "width": 293,
+        "height": 296
+      },
+      {
+        "x": 334,
+        "y": 12,
+        "width": 293,
+        "height": 301
+      },
+      {
+        "x": 644,
+        "y": 13,
+        "width": 295,
+        "height": 300
+      },
+      {
+        "x": 954,
+        "y": 13,
+        "width": 294,
+        "height": 300
+      },
+      {
+        "x": 23,
+        "y": 319,
+        "width": 297,
+        "height": 305
+      },
+      {
+        "x": 333,
+        "y": 318,
+        "width": 297,
+        "height": 305
+      },
+      {
+        "x": 645,
+        "y": 319,
+        "width": 296,
+        "height": 305
+      },
+      {
+        "x": 953,
+        "y": 318,
+        "width": 295,
+        "height": 306
+      },
+      {
+        "x": 23,
+        "y": 632,
+        "width": 295,
+        "height": 305
+      },
+      {
+        "x": 333,
+        "y": 632,
+        "width": 298,
+        "height": 306
+      },
+      {
+        "x": 645,
+        "y": 632,
+        "width": 295,
+        "height": 306
+      },
+      {
+        "x": 954,
+        "y": 631,
+        "width": 294,
+        "height": 307
+      },
+      {
+        "x": 23,
+        "y": 941,
+        "width": 296,
+        "height": 306
+      },
+      {
+        "x": 333,
+        "y": 941,
+        "width": 298,
+        "height": 306
+      },
+      {
+        "x": 644,
+        "y": 943,
+        "width": 297,
+        "height": 304
+      },
+      {
+        "x": 954,
+        "y": 939,
+        "width": 296,
+        "height": 308
+      }
+    ],
+    "heightRatios": [
+      0.9699,
+      0.986622,
+      0.983278,
+      0.983278,
+      1.0,
+      1.0,
+      1.0,
+      1.003344,
+      1.0,
+      1.003344,
+      1.003344,
+      1.006689,
+      1.003344,
+      1.003344,
+      0.996656,
+      1.010033
+    ],
+    "separationAlpha": 48,
+    "referenceHeightPixels": 299.0,
+    "transparentFraction": 0.3383,
+    "actions": [
+      "eat",
+      "meal"
+    ]
+  },
+  {
+    "key": "claude-swim-food",
+    "id": "claude",
+    "outfit": "swim",
+    "kind": "food",
+    "file": "src/DesktopPet.App/Assets/Characters/claude/outfits/swim/food-continuity.png",
+    "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-cb54636b-c929-4309-884b-4d52dab9f5bf.png",
+    "sha256": "4c8f7d61ca4a3a85bae59cbc62e21fd85e66b50bb3e0c1d9cc26e70ee68eeb70",
+    "dimensions": [
+      1254,
+      1254
+    ],
+    "cells": [
+      {
+        "x": 31,
+        "y": 0,
+        "width": 284,
+        "height": 293
+      },
+      {
+        "x": 344,
+        "y": 0,
+        "width": 285,
+        "height": 293
+      },
+      {
+        "x": 657,
+        "y": 0,
+        "width": 285,
+        "height": 294
+      },
+      {
+        "x": 969,
+        "y": 0,
+        "width": 285,
+        "height": 293
+      },
+      {
+        "x": 30,
+        "y": 309,
+        "width": 285,
+        "height": 298
+      },
+      {
+        "x": 343,
+        "y": 309,
+        "width": 287,
+        "height": 298
+      },
+      {
+        "x": 657,
+        "y": 309,
+        "width": 285,
+        "height": 298
+      },
+      {
+        "x": 970,
+        "y": 309,
+        "width": 284,
+        "height": 298
+      },
+      {
+        "x": 31,
+        "y": 623,
+        "width": 284,
+        "height": 297
+      },
+      {
+        "x": 344,
+        "y": 623,
+        "width": 285,
+        "height": 297
+      },
+      {
+        "x": 657,
+        "y": 623,
+        "width": 285,
+        "height": 297
+      },
+      {
+        "x": 970,
+        "y": 623,
+        "width": 284,
+        "height": 297
+      },
+      {
+        "x": 31,
+        "y": 936,
+        "width": 284,
+        "height": 298
+      },
+      {
+        "x": 344,
+        "y": 936,
+        "width": 285,
+        "height": 298
+      },
+      {
+        "x": 657,
+        "y": 936,
+        "width": 285,
+        "height": 298
+      },
+      {
+        "x": 970,
+        "y": 936,
+        "width": 284,
+        "height": 298
+      }
+    ],
+    "heightRatios": [
+      0.991424,
+      0.991424,
+      0.994854,
+      0.991424,
+      1.001715,
+      1.001715,
+      1.001715,
+      1.001715,
+      0.998285,
+      0.998285,
+      0.998285,
+      0.998285,
+      1.001715,
+      1.001715,
+      1.001715,
+      1.001715
+    ],
+    "separationAlpha": 48,
+    "referenceHeightPixels": 291.5,
+    "transparentFraction": 0.3694,
+    "actions": [
+      "eat",
+      "meal"
+    ]
+  },
+  {
+    "key": "claude-wedding-care",
+    "id": "claude",
+    "outfit": "wedding",
+    "kind": "care",
+    "file": "src/DesktopPet.App/Assets/Characters/claude/outfits/wedding/care-continuity.png",
+    "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-4b600ed4-c21c-414f-b7ce-001ec0229513.png",
+    "sha256": "56c5ca7baaa7127cdaf7f35cf05425c855b165155c292e24dbf726ed6b47d650",
+    "dimensions": [
+      1024,
+      1536
+    ],
+    "cells": [
+      {
+        "x": 22,
+        "y": 6,
+        "width": 246,
+        "height": 236
+      },
+      {
+        "x": 269,
+        "y": 9,
+        "width": 244,
+        "height": 233
+      },
+      {
+        "x": 513,
+        "y": 8,
+        "width": 242,
+        "height": 234
+      },
+      {
+        "x": 756,
+        "y": 7,
+        "width": 246,
+        "height": 235
+      },
+      {
+        "x": 21,
+        "y": 242,
+        "width": 251,
+        "height": 241
+      },
+      {
+        "x": 269,
+        "y": 247,
+        "width": 252,
+        "height": 236
+      },
+      {
+        "x": 514,
+        "y": 247,
+        "width": 243,
+        "height": 236
+      },
+      {
+        "x": 757,
+        "y": 248,
+        "width": 246,
+        "height": 235
+      },
+      {
+        "x": 21,
+        "y": 487,
+        "width": 247,
+        "height": 238
+      },
+      {
+        "x": 268,
+        "y": 490,
+        "width": 246,
+        "height": 236
+      },
+      {
+        "x": 513,
+        "y": 495,
+        "width": 244,
+        "height": 231
+      },
+      {
+        "x": 757,
+        "y": 491,
+        "width": 246,
+        "height": 235
+      },
+      {
+        "x": 21,
+        "y": 729,
+        "width": 250,
+        "height": 238
+      },
+      {
+        "x": 276,
+        "y": 732,
+        "width": 244,
+        "height": 235
+      },
+      {
+        "x": 520,
+        "y": 734,
+        "width": 244,
+        "height": 233
+      },
+      {
+        "x": 757,
+        "y": 728,
+        "width": 246,
+        "height": 239
+      },
+      {
+        "x": 21,
+        "y": 977,
+        "width": 248,
+        "height": 231
+      },
+      {
+        "x": 275,
+        "y": 977,
+        "width": 240,
+        "height": 232
+      },
+      {
+        "x": 513,
+        "y": 973,
+        "width": 244,
+        "height": 237
+      },
+      {
+        "x": 759,
+        "y": 973,
+        "width": 244,
+        "height": 236
+      },
+      {
+        "x": 20,
+        "y": 1211,
+        "width": 248,
+        "height": 276
+      },
+      {
+        "x": 268,
+        "y": 1230,
+        "width": 248,
+        "height": 257
+      },
+      {
+        "x": 516,
+        "y": 1214,
+        "width": 246,
+        "height": 273
+      },
+      {
+        "x": 760,
+        "y": 1246,
+        "width": 245,
+        "height": 241
+      }
+    ],
+    "heightRatios": [
+      1.002179,
+      0.989107,
+      0.993464,
+      0.997821,
+      1.023965,
+      1.002179,
+      1.002179,
+      0.997821,
+      1.010893,
+      1.002179,
+      0.980392,
+      0.997821,
+      1.010893,
+      0.997821,
+      0.989107,
+      1.015251,
+      0.980392,
+      0.984749,
+      1.006536,
+      1.002179,
+      1.176471,
+      1.093682,
+      1.163399,
+      1.023965
+    ],
+    "separationAlpha": 48,
+    "referenceHeightPixels": 229.5,
+    "transparentFraction": 0.3331,
+    "actions": [
+      "chat",
+      "think",
+      "headpat",
+      "poke",
+      "tickle",
+      "bonk"
+    ]
+  },
+  {
+    "key": "claude-wedding-food",
+    "id": "claude",
+    "outfit": "wedding",
+    "kind": "food",
+    "file": "src/DesktopPet.App/Assets/Characters/claude/outfits/wedding/food-continuity.png",
+    "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-2a81b384-1627-4dec-9dc0-916133a85af8.png",
+    "sha256": "cc61d5698372c8258a50e47f55f486890e0c6213dde3c6ca5af9ce3fc2b9ffe6",
+    "dimensions": [
+      1254,
+      1254
+    ],
+    "cells": [
+      {
+        "x": 3,
+        "y": 0,
+        "width": 309,
+        "height": 293
+      },
+      {
+        "x": 316,
+        "y": 0,
+        "width": 309,
+        "height": 293
+      },
+      {
+        "x": 630,
+        "y": 0,
+        "width": 309,
+        "height": 293
+      },
+      {
+        "x": 943,
+        "y": 0,
+        "width": 309,
+        "height": 293
+      },
+      {
+        "x": 3,
+        "y": 312,
+        "width": 309,
+        "height": 294
+      },
+      {
+        "x": 315,
+        "y": 312,
+        "width": 310,
+        "height": 294
+      },
+      {
+        "x": 630,
+        "y": 312,
+        "width": 308,
+        "height": 294
+      },
+      {
+        "x": 943,
+        "y": 314,
+        "width": 309,
+        "height": 292
+      },
+      {
+        "x": 3,
+        "y": 626,
+        "width": 308,
+        "height": 294
+      },
+      {
+        "x": 316,
+        "y": 626,
+        "width": 309,
+        "height": 294
+      },
+      {
+        "x": 630,
+        "y": 626,
+        "width": 308,
+        "height": 294
+      },
+      {
+        "x": 943,
+        "y": 626,
+        "width": 309,
+        "height": 294
+      },
+      {
+        "x": 3,
+        "y": 938,
+        "width": 308,
+        "height": 295
+      },
+      {
+        "x": 315,
+        "y": 939,
+        "width": 310,
+        "height": 294
+      },
+      {
+        "x": 630,
+        "y": 939,
+        "width": 308,
+        "height": 294
+      },
+      {
+        "x": 943,
+        "y": 939,
+        "width": 309,
+        "height": 294
+      }
+    ],
+    "heightRatios": [
+      0.996528,
+      0.996528,
+      0.996528,
+      0.996528,
+      1.0,
+      1.0,
+      1.0,
+      0.993056,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.003472,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "separationAlpha": 48,
+    "referenceHeightPixels": 288.0,
+    "transparentFraction": 0.3162,
+    "actions": [
+      "eat",
+      "meal"
+    ]
+  },
+  {
+    "key": "gemini-original-touch",
+    "id": "gemini",
+    "outfit": "original",
+    "kind": "touch",
+    "file": "src/DesktopPet.App/Assets/Characters/gemini/motions/touch-continuity.png",
+    "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-8df1ad56-d6f2-4abd-98af-4a0dc129f9a5.png",
+    "sha256": "69496a1d6efa2ba7d796b6f7aeedac5f100e824718bd3944fc456a4d2ff6b594",
+    "dimensions": [
+      1448,
+      1086
+    ],
+    "cells": [
+      {
+        "x": 16,
+        "y": 18,
+        "width": 331,
+        "height": 344
+      },
+      {
+        "x": 382,
+        "y": 25,
+        "width": 328,
+        "height": 337
+      },
+      {
+        "x": 739,
+        "y": 17,
+        "width": 329,
+        "height": 345
+      },
+      {
+        "x": 1103,
+        "y": 18,
+        "width": 329,
+        "height": 344
+      },
+      {
+        "x": 17,
+        "y": 372,
+        "width": 330,
+        "height": 346
+      },
+      {
+        "x": 386,
+        "y": 377,
+        "width": 338,
+        "height": 341
+      },
+      {
+        "x": 742,
+        "y": 377,
+        "width": 332,
+        "height": 341
+      },
+      {
+        "x": 1105,
+        "y": 372,
+        "width": 328,
+        "height": 346
+      },
+      {
+        "x": 17,
+        "y": 727,
+        "width": 330,
+        "height": 344
+      },
+      {
+        "x": 379,
+        "y": 727,
+        "width": 331,
+        "height": 344
+      },
+      {
+        "x": 738,
+        "y": 739,
+        "width": 333,
+        "height": 332
+      },
+      {
+        "x": 1102,
+        "y": 727,
+        "width": 331,
+        "height": 344
+      }
+    ],
+    "heightRatios": [
+      1.0,
+      0.97929,
+      1.002959,
+      1.0,
+      1.005917,
+      0.991124,
+      0.991124,
+      1.005917,
+      1.0,
+      1.0,
+      0.964497,
+      1.0
+    ],
+    "separationAlpha": 48,
+    "referenceHeightPixels": 338.0,
+    "transparentFraction": 0.3168,
+    "actions": [
+      "poke",
+      "tickle",
+      "ball-ready"
+    ]
+  },
+  {
+    "key": "gemini-swim-care",
+    "id": "gemini",
+    "outfit": "swim",
+    "kind": "care",
+    "file": "src/DesktopPet.App/Assets/Characters/gemini/outfits/swim/care-continuity.png",
+    "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-86a046a2-cf7d-4b5a-9918-dc1e87f586c3.png",
+    "sha256": "bb1db4a14034577d5fa446253a7e2a3dc6c5b17401fcc215cb8c08bc1564e1c5",
+    "dimensions": [
+      1024,
+      1536
+    ],
+    "cells": [
+      {
+        "x": 11,
+        "y": 3,
+        "width": 239,
+        "height": 243
+      },
+      {
+        "x": 269,
+        "y": 3,
+        "width": 236,
+        "height": 243
+      },
+      {
+        "x": 525,
+        "y": 3,
+        "width": 237,
+        "height": 243
+      },
+      {
+        "x": 782,
+        "y": 3,
+        "width": 236,
+        "height": 243
+      },
+      {
+        "x": 10,
+        "y": 250,
+        "width": 241,
+        "height": 252
+      },
+      {
+        "x": 270,
+        "y": 253,
+        "width": 241,
+        "height": 248
+      },
+      {
+        "x": 525,
+        "y": 254,
+        "width": 238,
+        "height": 248
+      },
+      {
+        "x": 781,
+        "y": 250,
+        "width": 238,
+        "height": 251
+      },
+      {
+        "x": 12,
+        "y": 508,
+        "width": 239,
+        "height": 251
+      },
+      {
+        "x": 270,
+        "y": 512,
+        "width": 240,
+        "height": 247
+      },
+      {
+        "x": 527,
+        "y": 510,
+        "width": 239,
+        "height": 249
+      },
+      {
+        "x": 782,
+        "y": 508,
+        "width": 237,
+        "height": 251
+      },
+      {
+        "x": 12,
+        "y": 764,
+        "width": 239,
+        "height": 249
+      },
+      {
+        "x": 270,
+        "y": 771,
+        "width": 241,
+        "height": 243
+      },
+      {
+        "x": 518,
+        "y": 765,
+        "width": 243,
+        "height": 249
+      },
+      {
+        "x": 781,
+        "y": 764,
+        "width": 237,
+        "height": 249
+      },
+      {
+        "x": 11,
+        "y": 1019,
+        "width": 240,
+        "height": 249
+      },
+      {
+        "x": 271,
+        "y": 1024,
+        "width": 239,
+        "height": 244
+      },
+      {
+        "x": 520,
+        "y": 1022,
+        "width": 243,
+        "height": 246
+      },
+      {
+        "x": 781,
+        "y": 1019,
+        "width": 237,
+        "height": 249
+      },
+      {
+        "x": 12,
+        "y": 1264,
+        "width": 233,
+        "height": 263
+      },
+      {
+        "x": 270,
+        "y": 1284,
+        "width": 235,
+        "height": 243
+      },
+      {
+        "x": 525,
+        "y": 1264,
+        "width": 229,
+        "height": 263
+      },
+      {
+        "x": 781,
+        "y": 1277,
+        "width": 236,
+        "height": 248
+      }
+    ],
+    "heightRatios": [
+      0.97732,
+      0.97732,
+      0.97732,
+      0.97732,
+      1.014433,
+      0.997938,
+      0.997938,
+      1.010309,
+      1.010309,
+      0.993814,
+      1.002062,
+      1.010309,
+      1.002062,
+      0.97732,
+      1.002062,
+      1.002062,
+      1.002062,
+      0.981443,
+      0.989691,
+      1.002062,
+      1.059794,
+      0.97732,
+      1.059794,
+      0.997938
+    ],
+    "separationAlpha": 48,
+    "referenceHeightPixels": 242.5,
+    "transparentFraction": 0.3264,
+    "actions": [
+      "chat",
+      "think",
+      "headpat",
+      "poke",
+      "tickle",
+      "bonk"
+    ]
+  },
+  {
+    "key": "gemini-wedding-body",
+    "id": "gemini",
+    "outfit": "wedding",
+    "kind": "body",
+    "file": "src/DesktopPet.App/Assets/Characters/gemini/outfits/wedding/body-continuity.png",
+    "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-09a0c413-cf3f-4e5b-b46f-6ea8971fa4c2.png",
+    "sha256": "ec5bed5bebfa24f8919a897b3362a1deefa1cf9649df1d6ebe8ee0bf834a45be",
+    "dimensions": [
+      1024,
+      1536
+    ],
+    "cells": [
+      {
+        "x": 18,
+        "y": 48,
+        "width": 246,
+        "height": 234
+      },
+      {
+        "x": 274,
+        "y": 15,
+        "width": 236,
+        "height": 258
+      },
+      {
+        "x": 515,
+        "y": 9,
+        "width": 240,
+        "height": 247
+      },
+      {
+        "x": 782,
+        "y": 49,
+        "width": 236,
+        "height": 233
+      },
+      {
+        "x": 17,
+        "y": 286,
+        "width": 244,
+        "height": 231
+      },
+      {
+        "x": 274,
+        "y": 285,
+        "width": 237,
+        "height": 232
+      },
+      {
+        "x": 524,
+        "y": 284,
+        "width": 236,
+        "height": 229
+      },
+      {
+        "x": 787,
+        "y": 302,
+        "width": 229,
+        "height": 212
+      },
+      {
+        "x": 15,
+        "y": 525,
+        "width": 246,
+        "height": 222
+      },
+      {
+        "x": 269,
+        "y": 524,
+        "width": 239,
+        "height": 223
+      },
+      {
+        "x": 513,
+        "y": 559,
+        "width": 246,
+        "height": 186
+      },
+      {
+        "x": 767,
+        "y": 588,
+        "width": 245,
+        "height": 156
+      },
+      {
+        "x": 19,
+        "y": 751,
+        "width": 238,
+        "height": 257
+      },
+      {
+        "x": 277,
+        "y": 747,
+        "width": 223,
+        "height": 262
+      },
+      {
+        "x": 529,
+        "y": 749,
+        "width": 227,
+        "height": 260
+      },
+      {
+        "x": 784,
+        "y": 748,
+        "width": 226,
+        "height": 261
+      },
+      {
+        "x": 16,
+        "y": 1012,
+        "width": 241,
+        "height": 242
+      },
+      {
+        "x": 272,
+        "y": 1012,
+        "width": 238,
+        "height": 242
+      },
+      {
+        "x": 527,
+        "y": 1012,
+        "width": 238,
+        "height": 241
+      },
+      {
+        "x": 784,
+        "y": 1012,
+        "width": 232,
+        "height": 241
+      },
+      {
+        "x": 14,
+        "y": 1254,
+        "width": 240,
+        "height": 264
+      },
+      {
+        "x": 272,
+        "y": 1254,
+        "width": 237,
+        "height": 264
+      },
+      {
+        "x": 524,
+        "y": 1261,
+        "width": 236,
+        "height": 257
+      },
+      {
+        "x": 783,
+        "y": 1260,
+        "width": 233,
+        "height": 258
+      }
+    ],
+    "heightRatios": [
+      0.908367,
+      1.003984,
+      0.960159,
+      0.904382,
+      0.896414,
+      0.900398,
+      0.888446,
+      0.820717,
+      0.860558,
+      0.864542,
+      0.717131,
+      0.59761,
+      1.0,
+      1.01992,
+      1.011952,
+      1.015936,
+      0.940239,
+      0.940239,
+      0.936255,
+      0.936255,
+      1.027888,
+      1.027888,
+      1.0,
+      1.003984
+    ],
+    "separationAlpha": 48,
+    "referenceHeightPixels": 251.0,
+    "transparentFraction": 0.3102,
+    "actions": [
+      "jump",
+      "curl",
+      "sleep",
+      "pickup",
+      "ball-ready",
+      "ball-hit",
+      "ball-miss"
+    ]
+  },
+  {
+    "key": "gemini-wedding-food",
+    "id": "gemini",
+    "outfit": "wedding",
+    "kind": "food",
+    "file": "src/DesktopPet.App/Assets/Characters/gemini/outfits/wedding/food-continuity.png",
+    "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-c9c8687c-f5bc-4c5a-a7a3-2a218ebdd4f8.png",
+    "sha256": "db6ed931351656b9f2e05cac1929d08b160f9526e882071105a7cdc157369aa2",
+    "dimensions": [
+      1254,
+      1254
+    ],
+    "cells": [
+      {
+        "x": 5,
+        "y": 7,
+        "width": 320,
+        "height": 308
+      },
+      {
+        "x": 323,
+        "y": 4,
+        "width": 309,
+        "height": 311
+      },
+      {
+        "x": 633,
+        "y": 4,
+        "width": 309,
+        "height": 311
+      },
+      {
+        "x": 942,
+        "y": 4,
+        "width": 312,
+        "height": 311
+      },
+      {
+        "x": 7,
+        "y": 317,
+        "width": 322,
+        "height": 311
+      },
+      {
+        "x": 324,
+        "y": 317,
+        "width": 311,
+        "height": 311
+      },
+      {
+        "x": 634,
+        "y": 316,
+        "width": 313,
+        "height": 312
+      },
+      {
+        "x": 946,
+        "y": 316,
+        "width": 308,
+        "height": 312
+      },
+      {
+        "x": 5,
+        "y": 627,
+        "width": 320,
+        "height": 314
+      },
+      {
+        "x": 321,
+        "y": 627,
+        "width": 316,
+        "height": 314
+      },
+      {
+        "x": 635,
+        "y": 628,
+        "width": 315,
+        "height": 313
+      },
+      {
+        "x": 947,
+        "y": 628,
+        "width": 307,
+        "height": 313
+      },
+      {
+        "x": 5,
+        "y": 941,
+        "width": 320,
+        "height": 312
+      },
+      {
+        "x": 323,
+        "y": 942,
+        "width": 313,
+        "height": 311
+      },
+      {
+        "x": 635,
+        "y": 941,
+        "width": 318,
+        "height": 312
+      },
+      {
+        "x": 947,
+        "y": 942,
+        "width": 307,
+        "height": 311
+      }
+    ],
+    "heightRatios": [
+      0.988543,
+      0.998363,
+      0.998363,
+      0.998363,
+      0.998363,
+      0.998363,
+      1.001637,
+      1.001637,
+      1.008183,
+      1.008183,
+      1.00491,
+      1.00491,
+      1.001637,
+      0.998363,
+      1.001637,
+      0.998363
+    ],
+    "separationAlpha": 48,
+    "referenceHeightPixels": 305.5,
+    "transparentFraction": 0.2414,
+    "actions": [
+      "eat",
+      "meal"
+    ]
+  },
+  {
+    "key": "grok-original-touch",
+    "id": "grok",
+    "outfit": "original",
+    "kind": "touch",
+    "file": "src/DesktopPet.App/Assets/Characters/grok/motions/touch-continuity.png",
+    "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-ccf0890c-cf5a-4056-b08c-cf09c0b34c5d.png",
+    "sha256": "d005832d81640919197cb6881ae958e265dec3c7fa16b43abc0e169be5d51ddb",
+    "dimensions": [
+      1448,
+      1086
+    ],
+    "cells": [
+      {
+        "x": 16,
+        "y": 7,
+        "width": 339,
+        "height": 351
+      },
+      {
+        "x": 370,
+        "y": 13,
+        "width": 335,
+        "height": 345
+      },
+      {
+        "x": 716,
+        "y": 12,
+        "width": 343,
+        "height": 346
+      },
+      {
+        "x": 1093,
+        "y": 7,
+        "width": 336,
+        "height": 352
+      },
+      {
+        "x": 15,
+        "y": 365,
+        "width": 341,
+        "height": 352
+      },
+      {
+        "x": 373,
+        "y": 372,
+        "width": 343,
+        "height": 346
+      },
+      {
+        "x": 728,
+        "y": 371,
+        "width": 346,
+        "height": 347
+      },
+      {
+        "x": 1093,
+        "y": 365,
+        "width": 343,
+        "height": 353
+      },
+      {
+        "x": 18,
+        "y": 722,
+        "width": 340,
+        "height": 350
+      },
+      {
+        "x": 378,
+        "y": 725,
+        "width": 339,
+        "height": 347
+      },
+      {
+        "x": 733,
+        "y": 728,
+        "width": 342,
+        "height": 345
+      },
+      {
+        "x": 1094,
+        "y": 723,
+        "width": 342,
+        "height": 350
+      }
+    ],
+    "heightRatios": [
+      1.007299,
+      0.989781,
+      0.992701,
+      1.010219,
+      1.010219,
+      0.992701,
+      0.99562,
+      1.013139,
+      1.00438,
+      0.99562,
+      0.989781,
+      1.00438
+    ],
+    "separationAlpha": 48,
+    "referenceHeightPixels": 342.5,
+    "transparentFraction": 0.3703,
+    "actions": [
+      "poke",
+      "tickle",
+      "ball-ready"
+    ]
+  },
+  {
+    "key": "grok-swim-body",
+    "id": "grok",
+    "outfit": "swim",
+    "kind": "body",
+    "file": "src/DesktopPet.App/Assets/Characters/grok/outfits/swim/body-continuity.png",
+    "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-542a98ad-dd09-48fe-8e2f-05304fdbd959.png",
+    "sha256": "09a6162c8a9dd5ee4f38bff3878a3f4fd1694d8e68a0cebd8efa06add525ee9a",
+    "dimensions": [
+      1024,
+      1536
+    ],
+    "cells": [
+      {
+        "x": 18,
+        "y": 19,
+        "width": 239,
+        "height": 237
+      },
+      {
+        "x": 270,
+        "y": 7,
+        "width": 241,
+        "height": 247
+      },
+      {
+        "x": 509,
+        "y": 3,
+        "width": 257,
+        "height": 228
+      },
+      {
+        "x": 778,
+        "y": 25,
+        "width": 239,
+        "height": 231
+      },
+      {
+        "x": 16,
+        "y": 262,
+        "width": 242,
+        "height": 240
+      },
+      {
+        "x": 269,
+        "y": 266,
+        "width": 241,
+        "height": 236
+      },
+      {
+        "x": 522,
+        "y": 268,
+        "width": 241,
+        "height": 230
+      },
+      {
+        "x": 774,
+        "y": 286,
+        "width": 236,
+        "height": 212
+      },
+      {
+        "x": 11,
+        "y": 507,
+        "width": 245,
+        "height": 222
+      },
+      {
+        "x": 261,
+        "y": 512,
+        "width": 243,
+        "height": 217
+      },
+      {
+        "x": 497,
+        "y": 543,
+        "width": 258,
+        "height": 172
+      },
+      {
+        "x": 755,
+        "y": 564,
+        "width": 261,
+        "height": 157
+      },
+      {
+        "x": 17,
+        "y": 746,
+        "width": 235,
+        "height": 254
+      },
+      {
+        "x": 274,
+        "y": 737,
+        "width": 226,
+        "height": 263
+      },
+      {
+        "x": 525,
+        "y": 737,
+        "width": 225,
+        "height": 263
+      },
+      {
+        "x": 782,
+        "y": 735,
+        "width": 226,
+        "height": 265
+      },
+      {
+        "x": 13,
+        "y": 1009,
+        "width": 240,
+        "height": 228
+      },
+      {
+        "x": 269,
+        "y": 1009,
+        "width": 238,
+        "height": 228
+      },
+      {
+        "x": 524,
+        "y": 1008,
+        "width": 234,
+        "height": 229
+      },
+      {
+        "x": 778,
+        "y": 1010,
+        "width": 234,
+        "height": 227
+      },
+      {
+        "x": 10,
+        "y": 1252,
+        "width": 245,
+        "height": 255
+      },
+      {
+        "x": 265,
+        "y": 1255,
+        "width": 246,
+        "height": 255
+      },
+      {
+        "x": 519,
+        "y": 1265,
+        "width": 243,
+        "height": 247
+      },
+      {
+        "x": 779,
+        "y": 1255,
+        "width": 237,
+        "height": 258
+      }
+    ],
+    "heightRatios": [
+      0.958506,
+      1.0,
+      0.921162,
+      0.93361,
+      0.970954,
+      0.954357,
+      0.929461,
+      0.854772,
+      0.896266,
+      0.875519,
+      0.688797,
+      0.626556,
+      1.029046,
+      1.06639,
+      1.06639,
+      1.074689,
+      0.921162,
+      0.921162,
+      0.925311,
+      0.917012,
+      1.033195,
+      1.033195,
+      1.0,
+      1.045643
+    ],
+    "separationAlpha": 48,
+    "referenceHeightPixels": 241.0,
+    "transparentFraction": 0.4342,
+    "actions": [
+      "jump",
+      "curl",
+      "sleep",
+      "pickup",
+      "ball-ready",
+      "ball-hit",
+      "ball-miss"
+    ]
+  },
+  {
+    "key": "grok-swim-care",
+    "id": "grok",
+    "outfit": "swim",
+    "kind": "care",
+    "file": "src/DesktopPet.App/Assets/Characters/grok/outfits/swim/care-continuity.png",
+    "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-28d8fa93-f947-40e2-b85f-0c1ca022831b.png",
+    "sha256": "082c76493746e3635103ac3189e0b6cbef92f12eb3f758f0f14193c13f02899c",
+    "dimensions": [
+      1024,
+      1536
+    ],
+    "cells": [
+      {
+        "x": 12,
+        "y": 8,
+        "width": 240,
+        "height": 237
+      },
+      {
+        "x": 260,
+        "y": 7,
+        "width": 238,
+        "height": 238
+      },
+      {
+        "x": 523,
+        "y": 6,
+        "width": 242,
+        "height": 239
+      },
+      {
+        "x": 778,
+        "y": 8,
+        "width": 239,
+        "height": 237
+      },
+      {
+        "x": 12,
+        "y": 248,
+        "width": 241,
+        "height": 245
+      },
+      {
+        "x": 268,
+        "y": 253,
+        "width": 241,
+        "height": 240
+      },
+      {
+        "x": 527,
+        "y": 253,
+        "width": 242,
+        "height": 240
+      },
+      {
+        "x": 779,
+        "y": 255,
+        "width": 237,
+        "height": 238
+      },
+      {
+        "x": 10,
+        "y": 498,
+        "width": 245,
+        "height": 248
+      },
+      {
+        "x": 267,
+        "y": 506,
+        "width": 243,
+        "height": 240
+      },
+      {
+        "x": 528,
+        "y": 506,
+        "width": 241,
+        "height": 240
+      },
+      {
+        "x": 774,
+        "y": 496,
+        "width": 244,
+        "height": 250
+      },
+      {
+        "x": 10,
+        "y": 749,
+        "width": 246,
+        "height": 247
+      },
+      {
+        "x": 271,
+        "y": 760,
+        "width": 239,
+        "height": 236
+      },
+      {
+        "x": 522,
+        "y": 755,
+        "width": 242,
+        "height": 241
+      },
+      {
+        "x": 777,
+        "y": 750,
+        "width": 243,
+        "height": 246
+      },
+      {
+        "x": 7,
+        "y": 1006,
+        "width": 246,
+        "height": 241
+      },
+      {
+        "x": 277,
+        "y": 1015,
+        "width": 232,
+        "height": 232
+      },
+      {
+        "x": 523,
+        "y": 1009,
+        "width": 237,
+        "height": 239
+      },
+      {
+        "x": 776,
+        "y": 1006,
+        "width": 244,
+        "height": 242
+      },
+      {
+        "x": 9,
+        "y": 1247,
+        "width": 246,
+        "height": 266
+      },
+      {
+        "x": 266,
+        "y": 1253,
+        "width": 247,
+        "height": 260
+      },
+      {
+        "x": 520,
+        "y": 1244,
+        "width": 246,
+        "height": 269
+      },
+      {
+        "x": 779,
+        "y": 1265,
+        "width": 241,
+        "height": 248
+      }
+    ],
+    "heightRatios": [
+      0.987179,
+      0.991453,
+      0.995726,
+      0.987179,
+      1.021368,
+      1.0,
+      1.0,
+      0.991453,
+      1.034188,
+      1.0,
+      1.0,
+      1.042735,
+      1.029915,
+      0.982906,
+      1.004274,
+      1.025641,
+      1.004274,
+      0.965812,
+      0.995726,
+      1.008547,
+      1.111111,
+      1.08547,
+      1.123932,
+      1.034188
+    ],
+    "separationAlpha": 48,
+    "referenceHeightPixels": 234.0,
+    "transparentFraction": 0.3827,
+    "actions": [
+      "chat",
+      "think",
+      "headpat",
+      "poke",
+      "tickle",
+      "bonk"
+    ]
+  },
+  {
+    "key": "claude-wedding-body",
+    "id": "claude",
+    "outfit": "wedding",
+    "kind": "body",
+    "file": "src/DesktopPet.App/Assets/Characters/claude/outfits/wedding/body-continuity.png",
+    "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-e74fdb47-8da6-40bf-8cb5-f10ce1927eeb.png",
+    "sha256": "34f498291139c80873d95c068543f415684332bf66558e451be6711f99b0ea5e",
+    "dimensions": [
+      1024,
+      1536
+    ],
+    "cells": [
+      {
+        "x": 1,
+        "y": 27,
+        "width": 267,
+        "height": 244
+      },
+      {
+        "x": 259,
+        "y": 7,
+        "width": 258,
+        "height": 270
+      },
+      {
+        "x": 510,
+        "y": 0,
+        "width": 274,
+        "height": 248
+      },
+      {
+        "x": 772,
+        "y": 35,
+        "width": 252,
+        "height": 236
+      },
+      {
+        "x": 0,
+        "y": 265,
+        "width": 268,
+        "height": 256
+      },
+      {
+        "x": 255,
+        "y": 271,
+        "width": 268,
+        "height": 236
+      },
+      {
+        "x": 512,
+        "y": 281,
+        "width": 269,
+        "height": 228
+      },
+      {
+        "x": 771,
+        "y": 288,
+        "width": 253,
+        "height": 221
+      },
+      {
+        "x": 5,
+        "y": 506,
+        "width": 260,
+        "height": 234
+      },
+      {
+        "x": 242,
+        "y": 513,
+        "width": 264,
+        "height": 223
+      },
+      {
+        "x": 492,
+        "y": 551,
+        "width": 280,
+        "height": 181
+      },
+      {
+        "x": 757,
+        "y": 560,
+        "width": 267,
+        "height": 167
+      },
+      {
+        "x": 10,
+        "y": 731,
+        "width": 258,
+        "height": 257
+      },
+      {
+        "x": 259,
+        "y": 720,
+        "width": 260,
+        "height": 269
+      },
+      {
+        "x": 514,
+        "y": 724,
+        "width": 258,
+        "height": 269
+      },
+      {
+        "x": 774,
+        "y": 726,
+        "width": 246,
+        "height": 268
+      },
+      {
+        "x": 0,
+        "y": 987,
+        "width": 267,
+        "height": 264
+      },
+      {
+        "x": 254,
+        "y": 987,
+        "width": 267,
+        "height": 264
+      },
+      {
+        "x": 512,
+        "y": 987,
+        "width": 267,
+        "height": 264
+      },
+      {
+        "x": 771,
+        "y": 984,
+        "width": 253,
+        "height": 267
+      },
+      {
+        "x": 3,
+        "y": 1241,
+        "width": 273,
+        "height": 274
+      },
+      {
+        "x": 260,
+        "y": 1240,
+        "width": 266,
+        "height": 275
+      },
+      {
+        "x": 510,
+        "y": 1253,
+        "width": 267,
+        "height": 262
+      },
+      {
+        "x": 770,
+        "y": 1241,
+        "width": 254,
+        "height": 274
+      }
+    ],
+    "heightRatios": [
+      0.90535,
+      1.012346,
+      0.934156,
+      0.872428,
+      0.954733,
+      0.872428,
+      0.839506,
+      0.8107,
+      0.864198,
+      0.81893,
+      0.646091,
+      0.588477,
+      0.958848,
+      1.00823,
+      1.00823,
+      1.004115,
+      0.987654,
+      0.987654,
+      0.987654,
+      1.0,
+      1.028807,
+      1.032922,
+      0.979424,
+      1.028807
+    ],
+    "separationAlpha": 240,
+    "referenceHeightPixels": 243.0,
+    "transparentFraction": 0.332,
+    "actions": [
+      "jump",
+      "curl",
+      "sleep",
+      "pickup",
+      "ball-ready",
+      "ball-hit",
+      "ball-miss"
+    ]
+  },
+  {
+    "key": "gemini-swim-body",
+    "id": "gemini",
+    "outfit": "swim",
+    "kind": "body",
+    "file": "src/DesktopPet.App/Assets/Characters/gemini/outfits/swim/body-continuity.png",
+    "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-c2c08197-8245-4d33-95c0-7e0be4f42860.png",
+    "sha256": "9d326c68920621481aacd663c2483d03727a9edc76a500543e1f60e29a269025",
+    "dimensions": [
+      1024,
+      1536
+    ],
+    "cells": [
+      {
+        "x": 2,
+        "y": 12,
+        "width": 261,
+        "height": 272
+      },
+      {
+        "x": 255,
+        "y": 0,
+        "width": 273,
+        "height": 284
+      },
+      {
+        "x": 513,
+        "y": 0,
+        "width": 258,
+        "height": 262
+      },
+      {
+        "x": 769,
+        "y": 16,
+        "width": 255,
+        "height": 268
+      },
+      {
+        "x": 2,
+        "y": 263,
+        "width": 260,
+        "height": 260
+      },
+      {
+        "x": 263,
+        "y": 266,
+        "width": 257,
+        "height": 258
+      },
+      {
+        "x": 520,
+        "y": 280,
+        "width": 256,
+        "height": 247
+      },
+      {
+        "x": 773,
+        "y": 291,
+        "width": 251,
+        "height": 234
+      },
+      {
+        "x": 1,
+        "y": 505,
+        "width": 264,
+        "height": 260
+      },
+      {
+        "x": 259,
+        "y": 528,
+        "width": 260,
+        "height": 233
+      },
+      {
+        "x": 494,
+        "y": 563,
+        "width": 294,
+        "height": 193
+      },
+      {
+        "x": 777,
+        "y": 574,
+        "width": 247,
+        "height": 183
+      },
+      {
+        "x": 9,
+        "y": 740,
+        "width": 256,
+        "height": 277
+      },
+      {
+        "x": 264,
+        "y": 732,
+        "width": 251,
+        "height": 286
+      },
+      {
+        "x": 511,
+        "y": 736,
+        "width": 254,
+        "height": 280
+      },
+      {
+        "x": 768,
+        "y": 736,
+        "width": 253,
+        "height": 278
+      },
+      {
+        "x": 6,
+        "y": 1001,
+        "width": 257,
+        "height": 264
+      },
+      {
+        "x": 260,
+        "y": 1002,
+        "width": 258,
+        "height": 262
+      },
+      {
+        "x": 512,
+        "y": 1002,
+        "width": 259,
+        "height": 263
+      },
+      {
+        "x": 769,
+        "y": 1001,
+        "width": 255,
+        "height": 265
+      },
+      {
+        "x": 0,
+        "y": 1254,
+        "width": 261,
+        "height": 267
+      },
+      {
+        "x": 253,
+        "y": 1246,
+        "width": 265,
+        "height": 276
+      },
+      {
+        "x": 510,
+        "y": 1259,
+        "width": 262,
+        "height": 263
+      },
+      {
+        "x": 769,
+        "y": 1252,
+        "width": 255,
+        "height": 269
+      }
+    ],
+    "heightRatios": [
+      0.980237,
+      1.055336,
+      0.988142,
+      0.964427,
+      0.932806,
+      0.924901,
+      0.881423,
+      0.83004,
+      0.932806,
+      0.826087,
+      0.667984,
+      0.628458,
+      1.0,
+      1.035573,
+      1.011858,
+      1.003953,
+      0.948617,
+      0.940711,
+      0.944664,
+      0.952569,
+      0.960474,
+      0.996047,
+      0.944664,
+      0.968379
+    ],
+    "separationAlpha": 96,
+    "referenceHeightPixels": 253.0,
+    "transparentFraction": 0.3146,
+    "actions": [
+      "jump",
+      "curl",
+      "sleep",
+      "pickup",
+      "ball-ready",
+      "ball-hit",
+      "ball-miss"
+    ]
+  },
+  {
+    "key": "gemini-swim-food",
+    "id": "gemini",
+    "outfit": "swim",
+    "kind": "food",
+    "file": "src/DesktopPet.App/Assets/Characters/gemini/outfits/swim/food-continuity.png",
+    "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-c36ab086-7758-4c97-8816-de0bdfe3ae32.png",
+    "sha256": "b4004baa97d1a6b6e1b893bc8f9a93e125ee557380737abf59a308aaa1f71933",
+    "dimensions": [
+      1254,
+      1254
+    ],
+    "cells": [
+      {
+        "x": 0,
+        "y": 0,
+        "width": 325,
+        "height": 327
+      },
+      {
+        "x": 312,
+        "y": 0,
+        "width": 324,
+        "height": 327
+      },
+      {
+        "x": 626,
+        "y": 0,
+        "width": 324,
+        "height": 327
+      },
+      {
+        "x": 938,
+        "y": 0,
+        "width": 316,
+        "height": 327
+      },
+      {
+        "x": 0,
+        "y": 306,
+        "width": 324,
+        "height": 333
+      },
+      {
+        "x": 312,
+        "y": 305,
+        "width": 326,
+        "height": 334
+      },
+      {
+        "x": 627,
+        "y": 305,
+        "width": 324,
+        "height": 334
+      },
+      {
+        "x": 938,
+        "y": 305,
+        "width": 316,
+        "height": 334
+      },
+      {
+        "x": 0,
+        "y": 618,
+        "width": 327,
+        "height": 336
+      },
+      {
+        "x": 312,
+        "y": 619,
+        "width": 326,
+        "height": 335
+      },
+      {
+        "x": 624,
+        "y": 619,
+        "width": 326,
+        "height": 334
+      },
+      {
+        "x": 938,
+        "y": 619,
+        "width": 316,
+        "height": 335
+      },
+      {
+        "x": 0,
+        "y": 931,
+        "width": 330,
+        "height": 323
+      },
+      {
+        "x": 311,
+        "y": 931,
+        "width": 328,
+        "height": 323
+      },
+      {
+        "x": 625,
+        "y": 932,
+        "width": 329,
+        "height": 322
+      },
+      {
+        "x": 938,
+        "y": 932,
+        "width": 316,
+        "height": 322
+      }
+    ],
+    "heightRatios": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      0.996774,
+      1.0,
+      1.0,
+      1.0,
+      1.006452,
+      1.003226,
+      1.0,
+      1.003226,
+      1.003226,
+      1.003226,
+      1.0,
+      1.0
+    ],
+    "separationAlpha": 96,
+    "referenceHeightPixels": 310.0,
+    "transparentFraction": 0.2523,
+    "actions": [
+      "eat",
+      "meal"
+    ]
+  },
+  {
+    "key": "gemini-wedding-care",
+    "id": "gemini",
+    "outfit": "wedding",
+    "kind": "care",
+    "file": "src/DesktopPet.App/Assets/Characters/gemini/outfits/wedding/care-continuity.png",
+    "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-97c01163-ae29-48ec-b258-f01fb2f4635d.png",
+    "sha256": "6b14e513a3bbd6fe585a4217ad7e9038f9f08d22934451e99b26f1d339cab2e5",
+    "dimensions": [
+      1024,
+      1536
+    ],
+    "cells": [
+      {
+        "x": 0,
+        "y": 0,
+        "width": 265,
+        "height": 256
+      },
+      {
+        "x": 249,
+        "y": 0,
+        "width": 269,
+        "height": 255
+      },
+      {
+        "x": 505,
+        "y": 0,
+        "width": 269,
+        "height": 256
+      },
+      {
+        "x": 760,
+        "y": 0,
+        "width": 264,
+        "height": 255
+      },
+      {
+        "x": 0,
+        "y": 240,
+        "width": 264,
+        "height": 270
+      },
+      {
+        "x": 249,
+        "y": 241,
+        "width": 273,
+        "height": 270
+      },
+      {
+        "x": 506,
+        "y": 241,
+        "width": 269,
+        "height": 270
+      },
+      {
+        "x": 760,
+        "y": 240,
+        "width": 264,
+        "height": 271
+      },
+      {
+        "x": 0,
+        "y": 498,
+        "width": 266,
+        "height": 269
+      },
+      {
+        "x": 249,
+        "y": 498,
+        "width": 271,
+        "height": 269
+      },
+      {
+        "x": 506,
+        "y": 497,
+        "width": 269,
+        "height": 270
+      },
+      {
+        "x": 760,
+        "y": 497,
+        "width": 264,
+        "height": 270
+      },
+      {
+        "x": 0,
+        "y": 754,
+        "width": 266,
+        "height": 268
+      },
+      {
+        "x": 250,
+        "y": 757,
+        "width": 271,
+        "height": 265
+      },
+      {
+        "x": 506,
+        "y": 754,
+        "width": 268,
+        "height": 269
+      },
+      {
+        "x": 761,
+        "y": 752,
+        "width": 263,
+        "height": 270
+      },
+      {
+        "x": 0,
+        "y": 1008,
+        "width": 265,
+        "height": 269
+      },
+      {
+        "x": 250,
+        "y": 1011,
+        "width": 270,
+        "height": 266
+      },
+      {
+        "x": 506,
+        "y": 1009,
+        "width": 269,
+        "height": 268
+      },
+      {
+        "x": 761,
+        "y": 1008,
+        "width": 263,
+        "height": 269
+      },
+      {
+        "x": 0,
+        "y": 1254,
+        "width": 265,
+        "height": 282
+      },
+      {
+        "x": 250,
+        "y": 1266,
+        "width": 269,
+        "height": 270
+      },
+      {
+        "x": 506,
+        "y": 1254,
+        "width": 268,
+        "height": 282
+      },
+      {
+        "x": 760,
+        "y": 1267,
+        "width": 264,
+        "height": 269
+      }
+    ],
+    "heightRatios": [
+      0.983673,
+      0.979592,
+      0.983673,
+      0.979592,
+      1.004082,
+      1.004082,
+      1.004082,
+      1.008163,
+      1.0,
+      1.0,
+      1.004082,
+      1.004082,
+      0.995918,
+      0.983673,
+      1.0,
+      1.004082,
+      1.0,
+      0.987755,
+      0.995918,
+      1.0,
+      1.053061,
+      1.004082,
+      1.053061,
+      1.0
+    ],
+    "separationAlpha": 160,
+    "referenceHeightPixels": 245.0,
+    "transparentFraction": 0.2392,
+    "actions": [
+      "chat",
+      "think",
+      "headpat",
+      "poke",
+      "tickle",
+      "bonk"
+    ]
+  },
+  {
+    "key": "grok-swim-food",
+    "id": "grok",
+    "outfit": "swim",
+    "kind": "food",
+    "file": "src/DesktopPet.App/Assets/Characters/grok/outfits/swim/food-continuity.png",
+    "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-61f59d24-87ef-4c45-abe2-921bb51bfd37.png",
+    "sha256": "01736cfb027da08b8e7cb5a67cec1505d15cc6de3435c5253c51368d37a953d9",
+    "dimensions": [
+      1254,
+      1254
+    ],
+    "cells": [
+      {
+        "x": 13,
+        "y": 5,
+        "width": 302,
+        "height": 301
+      },
+      {
+        "x": 328,
+        "y": 4,
+        "width": 298,
+        "height": 301
+      },
+      {
+        "x": 640,
+        "y": 5,
+        "width": 298,
+        "height": 301
+      },
+      {
+        "x": 956,
+        "y": 5,
+        "width": 296,
+        "height": 300
+      },
+      {
+        "x": 13,
+        "y": 312,
+        "width": 303,
+        "height": 306
+      },
+      {
+        "x": 328,
+        "y": 313,
+        "width": 300,
+        "height": 305
+      },
+      {
+        "x": 639,
+        "y": 314,
+        "width": 300,
+        "height": 304
+      },
+      {
+        "x": 955,
+        "y": 312,
+        "width": 299,
+        "height": 306
+      },
+      {
+        "x": 13,
+        "y": 624,
+        "width": 302,
+        "height": 308
+      },
+      {
+        "x": 325,
+        "y": 624,
+        "width": 304,
+        "height": 308
+      },
+      {
+        "x": 639,
+        "y": 624,
+        "width": 302,
+        "height": 308
+      },
+      {
+        "x": 956,
+        "y": 624,
+        "width": 298,
+        "height": 308
+      },
+      {
+        "x": 13,
+        "y": 938,
+        "width": 302,
+        "height": 306
+      },
+      {
+        "x": 328,
+        "y": 938,
+        "width": 300,
+        "height": 306
+      },
+      {
+        "x": 640,
+        "y": 938,
+        "width": 302,
+        "height": 306
+      },
+      {
+        "x": 956,
+        "y": 938,
+        "width": 298,
+        "height": 306
+      }
+    ],
+    "heightRatios": [
+      0.983333,
+      0.983333,
+      0.983333,
+      0.98,
+      1.0,
+      0.996667,
+      0.993333,
+      1.0,
+      1.006667,
+      1.006667,
+      1.006667,
+      1.006667,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "separationAlpha": 48,
+    "referenceHeightPixels": 300.0,
+    "transparentFraction": 0.3946,
+    "actions": [
+      "eat",
+      "meal"
+    ]
+  },
+  {
+    "key": "grok-wedding-body",
+    "id": "grok",
+    "outfit": "wedding",
+    "kind": "body",
+    "file": "src/DesktopPet.App/Assets/Characters/grok/outfits/wedding/body-continuity.png",
+    "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-3698ec65-cee4-4664-992e-0e63e84c25db.png",
+    "sha256": "8936de7d81627f76e054f9a8808a4d5eb70eb364ee2a2a6bbcda5f964805c505",
+    "dimensions": [
+      1024,
+      1536
+    ],
+    "cells": [
+      {
+        "x": 10,
+        "y": 32,
+        "width": 252,
+        "height": 229
+      },
+      {
+        "x": 259,
+        "y": 17,
+        "width": 255,
+        "height": 242
+      },
+      {
+        "x": 508,
+        "y": 8,
+        "width": 272,
+        "height": 227
+      },
+      {
+        "x": 768,
+        "y": 34,
+        "width": 253,
+        "height": 227
+      },
+      {
+        "x": 7,
+        "y": 276,
+        "width": 252,
+        "height": 223
+      },
+      {
+        "x": 268,
+        "y": 276,
+        "width": 247,
+        "height": 223
+      },
+      {
+        "x": 514,
+        "y": 276,
+        "width": 250,
+        "height": 223
+      },
+      {
+        "x": 770,
+        "y": 288,
+        "width": 250,
+        "height": 211
+      },
+      {
+        "x": 5,
+        "y": 506,
+        "width": 257,
+        "height": 230
+      },
+      {
+        "x": 256,
+        "y": 515,
+        "width": 249,
+        "height": 214
+      },
+      {
+        "x": 507,
+        "y": 548,
+        "width": 256,
+        "height": 167
+      },
+      {
+        "x": 765,
+        "y": 559,
+        "width": 259,
+        "height": 156
+      },
+      {
+        "x": 11,
+        "y": 752,
+        "width": 253,
+        "height": 251
+      },
+      {
+        "x": 267,
+        "y": 736,
+        "width": 247,
+        "height": 255
+      },
+      {
+        "x": 515,
+        "y": 741,
+        "width": 246,
+        "height": 264
+      },
+      {
+        "x": 767,
+        "y": 740,
+        "width": 250,
+        "height": 264
+      },
+      {
+        "x": 6,
+        "y": 1019,
+        "width": 252,
+        "height": 232
+      },
+      {
+        "x": 264,
+        "y": 1022,
+        "width": 245,
+        "height": 229
+      },
+      {
+        "x": 518,
+        "y": 1024,
+        "width": 243,
+        "height": 227
+      },
+      {
+        "x": 768,
+        "y": 1025,
+        "width": 247,
+        "height": 226
+      },
+      {
+        "x": 6,
+        "y": 1258,
+        "width": 252,
+        "height": 241
+      },
+      {
+        "x": 268,
+        "y": 1263,
+        "width": 247,
+        "height": 237
+      },
+      {
+        "x": 512,
+        "y": 1262,
+        "width": 248,
+        "height": 239
+      },
+      {
+        "x": 771,
+        "y": 1263,
+        "width": 251,
+        "height": 237
+      }
+    ],
+    "heightRatios": [
+      0.944915,
+      1.0,
+      0.936441,
+      0.936441,
+      0.919492,
+      0.919492,
+      0.919492,
+      0.868644,
+      0.949153,
+      0.881356,
+      0.682203,
+      0.635593,
+      1.038136,
+      1.055085,
+      1.09322,
+      1.09322,
+      0.957627,
+      0.944915,
+      0.936441,
+      0.932203,
+      0.995763,
+      0.978814,
+      0.987288,
+      0.978814
+    ],
+    "separationAlpha": 48,
+    "referenceHeightPixels": 236.0,
+    "transparentFraction": 0.3488,
+    "actions": [
+      "jump",
+      "curl",
+      "sleep",
+      "pickup",
+      "ball-ready",
+      "ball-hit",
+      "ball-miss"
+    ]
+  },
+  {
+    "key": "grok-wedding-care",
+    "id": "grok",
+    "outfit": "wedding",
+    "kind": "care",
+    "file": "src/DesktopPet.App/Assets/Characters/grok/outfits/wedding/care-continuity.png",
+    "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-01e19653-8c18-48eb-89dd-a6cd92b50515.png",
+    "sha256": "be2ec2ec96e4c7b24e05d6b95b4d2df66863ff5d180b01e3ee10326ce5ebf7da",
+    "dimensions": [
+      1024,
+      1536
+    ],
+    "cells": [
+      {
+        "x": 13,
+        "y": 11,
+        "width": 247,
+        "height": 222
+      },
+      {
+        "x": 271,
+        "y": 8,
+        "width": 242,
+        "height": 225
+      },
+      {
+        "x": 521,
+        "y": 10,
+        "width": 244,
+        "height": 223
+      },
+      {
+        "x": 774,
+        "y": 11,
+        "width": 242,
+        "height": 222
+      },
+      {
+        "x": 14,
+        "y": 244,
+        "width": 246,
+        "height": 226
+      },
+      {
+        "x": 272,
+        "y": 246,
+        "width": 243,
+        "height": 225
+      },
+      {
+        "x": 522,
+        "y": 245,
+        "width": 247,
+        "height": 226
+      },
+      {
+        "x": 775,
+        "y": 246,
+        "width": 240,
+        "height": 225
+      },
+      {
+        "x": 15,
+        "y": 482,
+        "width": 245,
+        "height": 225
+      },
+      {
+        "x": 271,
+        "y": 492,
+        "width": 244,
+        "height": 215
+      },
+      {
+        "x": 522,
+        "y": 487,
+        "width": 244,
+        "height": 221
+      },
+      {
+        "x": 774,
+        "y": 484,
+        "width": 244,
+        "height": 223
+      },
+      {
+        "x": 16,
+        "y": 721,
+        "width": 247,
+        "height": 225
+      },
+      {
+        "x": 273,
+        "y": 730,
+        "width": 242,
+        "height": 217
+      },
+      {
+        "x": 521,
+        "y": 726,
+        "width": 239,
+        "height": 221
+      },
+      {
+        "x": 773,
+        "y": 722,
+        "width": 244,
+        "height": 225
+      },
+      {
+        "x": 11,
+        "y": 960,
+        "width": 251,
+        "height": 229
+      },
+      {
+        "x": 281,
+        "y": 977,
+        "width": 237,
+        "height": 213
+      },
+      {
+        "x": 521,
+        "y": 966,
+        "width": 244,
+        "height": 224
+      },
+      {
+        "x": 771,
+        "y": 966,
+        "width": 246,
+        "height": 223
+      },
+      {
+        "x": 14,
+        "y": 1203,
+        "width": 247,
+        "height": 275
+      },
+      {
+        "x": 271,
+        "y": 1228,
+        "width": 241,
+        "height": 253
+      },
+      {
+        "x": 515,
+        "y": 1204,
+        "width": 248,
+        "height": 276
+      },
+      {
+        "x": 772,
+        "y": 1245,
+        "width": 245,
+        "height": 233
+      }
+    ],
+    "heightRatios": [
+      0.993103,
+      1.006897,
+      0.997701,
+      0.993103,
+      1.011494,
+      1.006897,
+      1.011494,
+      1.006897,
+      1.006897,
+      0.96092,
+      0.988506,
+      0.997701,
+      1.006897,
+      0.970115,
+      0.988506,
+      1.006897,
+      1.025287,
+      0.951724,
+      1.002299,
+      0.997701,
+      1.236782,
+      1.135632,
+      1.241379,
+      1.043678
+    ],
+    "separationAlpha": 48,
+    "referenceHeightPixels": 217.5,
+    "transparentFraction": 0.357,
+    "actions": [
+      "chat",
+      "think",
+      "headpat",
+      "poke",
+      "tickle",
+      "bonk"
+    ]
+  },
+  {
+    "key": "grok-wedding-food",
+    "id": "grok",
+    "outfit": "wedding",
+    "kind": "food",
+    "file": "src/DesktopPet.App/Assets/Characters/grok/outfits/wedding/food-continuity.png",
+    "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-88e02bf2-62b7-448f-abd8-65b8982e6efa.png",
+    "sha256": "c4edcfd772f47f406dc9c1503d1e7f827220942505be653f0076ee12d28ea6ee",
+    "dimensions": [
+      1254,
+      1254
+    ],
+    "cells": [
+      {
+        "x": 0,
+        "y": 0,
+        "width": 336,
+        "height": 321
+      },
+      {
+        "x": 311,
+        "y": 0,
+        "width": 338,
+        "height": 321
+      },
+      {
+        "x": 625,
+        "y": 0,
+        "width": 338,
+        "height": 320
+      },
+      {
+        "x": 939,
+        "y": 0,
+        "width": 315,
+        "height": 320
+      },
+      {
+        "x": 0,
+        "y": 303,
+        "width": 336,
+        "height": 332
+      },
+      {
+        "x": 312,
+        "y": 303,
+        "width": 338,
+        "height": 332
+      },
+      {
+        "x": 625,
+        "y": 303,
+        "width": 338,
+        "height": 332
+      },
+      {
+        "x": 938,
+        "y": 303,
+        "width": 316,
+        "height": 331
+      },
+      {
+        "x": 0,
+        "y": 617,
+        "width": 336,
+        "height": 331
+      },
+      {
+        "x": 311,
+        "y": 617,
+        "width": 338,
+        "height": 331
+      },
+      {
+        "x": 625,
+        "y": 617,
+        "width": 338,
+        "height": 331
+      },
+      {
+        "x": 938,
+        "y": 617,
+        "width": 316,
+        "height": 331
+      },
+      {
+        "x": 0,
+        "y": 930,
+        "width": 336,
+        "height": 324
+      },
+      {
+        "x": 312,
+        "y": 930,
+        "width": 338,
+        "height": 324
+      },
+      {
+        "x": 625,
+        "y": 930,
+        "width": 338,
+        "height": 324
+      },
+      {
+        "x": 938,
+        "y": 930,
+        "width": 316,
+        "height": 324
+      }
+    ],
+    "heightRatios": [
+      1.0,
+      1.0,
+      0.996743,
+      0.996743,
+      1.003257,
+      1.003257,
+      1.003257,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.003257,
+      1.003257,
+      1.003257,
+      1.003257
+    ],
+    "separationAlpha": 160,
+    "referenceHeightPixels": 307.0,
+    "transparentFraction": 0.2516,
+    "actions": [
+      "eat",
+      "meal"
+    ]
+  },
+  {
+    "key": "kimi-original-touch",
+    "id": "kimi",
+    "outfit": "original",
+    "kind": "touch",
+    "file": "src/DesktopPet.App/Assets/Characters/kimi/motions/touch-continuity.png",
+    "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-07b4b643-104d-4091-9410-486e1461da4e.png",
+    "sha256": "0e1f29380dc288ace453eb7986140698d22ea37f0741a6329072ac1a571168bf",
+    "dimensions": [
+      1448,
+      1086
+    ],
+    "cells": [
+      {
+        "x": 30,
+        "y": 25,
+        "width": 331,
+        "height": 345
+      },
+      {
+        "x": 390,
+        "y": 25,
+        "width": 333,
+        "height": 345
+      },
+      {
+        "x": 732,
+        "y": 25,
+        "width": 337,
+        "height": 345
+      },
+      {
+        "x": 1107,
+        "y": 25,
+        "width": 330,
+        "height": 346
+      },
+      {
+        "x": 33,
+        "y": 377,
+        "width": 331,
+        "height": 342
+      },
+      {
+        "x": 397,
+        "y": 378,
+        "width": 329,
+        "height": 341
+      },
+      {
+        "x": 748,
+        "y": 382,
+        "width": 333,
+        "height": 337
+      },
+      {
+        "x": 1106,
+        "y": 376,
+        "width": 331,
+        "height": 345
+      },
+      {
+        "x": 27,
+        "y": 723,
+        "width": 332,
+        "height": 345
+      },
+      {
+        "x": 387,
+        "y": 722,
+        "width": 331,
+        "height": 346
+      },
+      {
+        "x": 738,
+        "y": 724,
+        "width": 338,
+        "height": 345
+      },
+      {
+        "x": 1108,
+        "y": 722,
+        "width": 332,
+        "height": 347
+      }
+    ],
+    "heightRatios": [
+      1.0,
+      1.0,
+      1.0,
+      1.00295,
+      0.99115,
+      0.988201,
+      0.976401,
+      1.0,
+      1.0,
+      1.00295,
+      1.0,
+      1.0059
+    ],
+    "separationAlpha": 48,
+    "referenceHeightPixels": 339.0,
+    "transparentFraction": 0.2988,
+    "actions": [
+      "poke",
+      "tickle",
+      "ball-ready"
+    ]
+  },
+  {
+    "key": "kimi-swim-care",
+    "id": "kimi",
+    "outfit": "swim",
+    "kind": "care",
+    "file": "src/DesktopPet.App/Assets/Characters/kimi/outfits/swim/care-continuity.png",
+    "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-5d2a7b62-6109-4686-9c8b-11716579cb38.png",
+    "sha256": "dafc0fd49069934fc2635b63d7d97d28fd7994d8048ebb2fa34835d37f8793c7",
+    "dimensions": [
+      1024,
+      1536
+    ],
+    "cells": [
+      {
+        "x": 15,
+        "y": 5,
+        "width": 228,
+        "height": 237
+      },
+      {
+        "x": 271,
+        "y": 5,
+        "width": 228,
+        "height": 237
+      },
+      {
+        "x": 527,
+        "y": 4,
+        "width": 228,
+        "height": 238
+      },
+      {
+        "x": 783,
+        "y": 5,
+        "width": 228,
+        "height": 237
+      },
+      {
+        "x": 12,
+        "y": 246,
+        "width": 236,
+        "height": 250
+      },
+      {
+        "x": 271,
+        "y": 247,
+        "width": 234,
+        "height": 249
+      },
+      {
+        "x": 525,
+        "y": 246,
+        "width": 231,
+        "height": 250
+      },
+      {
+        "x": 782,
+        "y": 246,
+        "width": 234,
+        "height": 250
+      },
+      {
+        "x": 11,
+        "y": 501,
+        "width": 240,
+        "height": 251
+      },
+      {
+        "x": 270,
+        "y": 504,
+        "width": 243,
+        "height": 248
+      },
+      {
+        "x": 530,
+        "y": 500,
+        "width": 236,
+        "height": 252
+      },
+      {
+        "x": 782,
+        "y": 501,
+        "width": 234,
+        "height": 251
+      },
+      {
+        "x": 12,
+        "y": 757,
+        "width": 237,
+        "height": 251
+      },
+      {
+        "x": 275,
+        "y": 760,
+        "width": 237,
+        "height": 247
+      },
+      {
+        "x": 531,
+        "y": 759,
+        "width": 230,
+        "height": 248
+      },
+      {
+        "x": 781,
+        "y": 757,
+        "width": 234,
+        "height": 251
+      },
+      {
+        "x": 12,
+        "y": 1013,
+        "width": 237,
+        "height": 250
+      },
+      {
+        "x": 271,
+        "y": 1016,
+        "width": 235,
+        "height": 246
+      },
+      {
+        "x": 531,
+        "y": 1014,
+        "width": 230,
+        "height": 249
+      },
+      {
+        "x": 781,
+        "y": 1013,
+        "width": 235,
+        "height": 250
+      },
+      {
+        "x": 13,
+        "y": 1251,
+        "width": 235,
+        "height": 279
+      },
+      {
+        "x": 271,
+        "y": 1259,
+        "width": 232,
+        "height": 271
+      },
+      {
+        "x": 526,
+        "y": 1249,
+        "width": 237,
+        "height": 281
+      },
+      {
+        "x": 784,
+        "y": 1283,
+        "width": 231,
+        "height": 247
+      }
+    ],
+    "heightRatios": [
+      0.948665,
+      0.948665,
+      0.952772,
+      0.948665,
+      1.002053,
+      0.997947,
+      1.002053,
+      1.002053,
+      1.00616,
+      0.99384,
+      1.010267,
+      1.00616,
+      1.00616,
+      0.989733,
+      0.99384,
+      1.00616,
+      1.002053,
+      0.985626,
+      0.997947,
+      1.002053,
+      1.12115,
+      1.088296,
+      1.129363,
+      0.989733
+    ],
+    "separationAlpha": 48,
+    "referenceHeightPixels": 243.5,
+    "transparentFraction": 0.3166,
+    "actions": [
+      "chat",
+      "think",
+      "headpat",
+      "poke",
+      "tickle",
+      "bonk"
+    ]
+  },
+  {
+    "key": "kimi-wedding-care",
+    "id": "kimi",
+    "outfit": "wedding",
+    "kind": "care",
+    "file": "src/DesktopPet.App/Assets/Characters/kimi/outfits/wedding/care-continuity.png",
+    "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-34fd8aac-f71b-4f82-8e27-9b5a41b79d74.png",
+    "sha256": "5d23874505321761184e2da8c54c0843bf13eff798ab43548a823855a56a08bf",
+    "dimensions": [
+      1024,
+      1536
+    ],
+    "cells": [
+      {
+        "x": 14,
+        "y": 9,
+        "width": 251,
+        "height": 234
+      },
+      {
+        "x": 269,
+        "y": 8,
+        "width": 240,
+        "height": 234
+      },
+      {
+        "x": 512,
+        "y": 8,
+        "width": 244,
+        "height": 234
+      },
+      {
+        "x": 759,
+        "y": 8,
+        "width": 248,
+        "height": 234
+      },
+      {
+        "x": 14,
+        "y": 250,
+        "width": 251,
+        "height": 235
+      },
+      {
+        "x": 270,
+        "y": 252,
+        "width": 242,
+        "height": 233
+      },
+      {
+        "x": 514,
+        "y": 253,
+        "width": 243,
+        "height": 234
+      },
+      {
+        "x": 761,
+        "y": 251,
+        "width": 248,
+        "height": 236
+      },
+      {
+        "x": 14,
+        "y": 493,
+        "width": 252,
+        "height": 241
+      },
+      {
+        "x": 271,
+        "y": 496,
+        "width": 240,
+        "height": 237
+      },
+      {
+        "x": 515,
+        "y": 493,
+        "width": 243,
+        "height": 241
+      },
+      {
+        "x": 762,
+        "y": 494,
+        "width": 248,
+        "height": 240
+      },
+      {
+        "x": 14,
+        "y": 743,
+        "width": 253,
+        "height": 236
+      },
+      {
+        "x": 273,
+        "y": 743,
+        "width": 239,
+        "height": 235
+      },
+      {
+        "x": 515,
+        "y": 744,
+        "width": 239,
+        "height": 235
+      },
+      {
+        "x": 760,
+        "y": 742,
+        "width": 249,
+        "height": 237
+      },
+      {
+        "x": 17,
+        "y": 983,
+        "width": 247,
+        "height": 235
+      },
+      {
+        "x": 270,
+        "y": 985,
+        "width": 241,
+        "height": 233
+      },
+      {
+        "x": 515,
+        "y": 985,
+        "width": 242,
+        "height": 233
+      },
+      {
+        "x": 762,
+        "y": 984,
+        "width": 246,
+        "height": 234
+      },
+      {
+        "x": 14,
+        "y": 1215,
+        "width": 251,
+        "height": 277
+      },
+      {
+        "x": 268,
+        "y": 1246,
+        "width": 243,
+        "height": 246
+      },
+      {
+        "x": 515,
+        "y": 1214,
+        "width": 245,
+        "height": 279
+      },
+      {
+        "x": 762,
+        "y": 1257,
+        "width": 247,
+        "height": 237
+      }
+    ],
+    "heightRatios": [
+      0.995633,
+      0.995633,
+      0.995633,
+      0.995633,
+      1.0,
+      0.991266,
+      0.995633,
+      1.004367,
+      1.026201,
+      1.008734,
+      1.026201,
+      1.021834,
+      1.004367,
+      1.0,
+      1.0,
+      1.008734,
+      1.0,
+      0.991266,
+      0.991266,
+      0.995633,
+      1.183406,
+      1.048035,
+      1.19214,
+      1.008734
+    ],
+    "separationAlpha": 48,
+    "referenceHeightPixels": 229.0,
+    "transparentFraction": 0.288,
+    "actions": [
+      "chat",
+      "think",
+      "headpat",
+      "poke",
+      "tickle",
+      "bonk"
+    ]
+  },
+  {
+    "key": "qwen-original-touch",
+    "id": "qwen",
+    "outfit": "original",
+    "kind": "touch",
+    "file": "src/DesktopPet.App/Assets/Characters/qwen/motions/touch-continuity.png",
+    "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-543f0cbf-4980-418f-b33f-7fb08e534971.png",
+    "sha256": "8b97ea0882551414940040be48c6419fe9baa0b0a33d24856e852c625d9fce03",
+    "dimensions": [
+      1448,
+      1086
+    ],
+    "cells": [
+      {
+        "x": 27,
+        "y": 10,
+        "width": 341,
+        "height": 361
+      },
+      {
+        "x": 392,
+        "y": 9,
+        "width": 327,
+        "height": 362
+      },
+      {
+        "x": 730,
+        "y": 18,
+        "width": 348,
+        "height": 353
+      },
+      {
+        "x": 1105,
+        "y": 10,
+        "width": 335,
+        "height": 361
+      },
+      {
+        "x": 29,
+        "y": 375,
+        "width": 337,
+        "height": 352
+      },
+      {
+        "x": 387,
+        "y": 383,
+        "width": 345,
+        "height": 344
+      },
+      {
+        "x": 730,
+        "y": 375,
+        "width": 348,
+        "height": 352
+      },
+      {
+        "x": 1111,
+        "y": 374,
+        "width": 332,
+        "height": 354
+      },
+      {
+        "x": 27,
+        "y": 729,
+        "width": 337,
+        "height": 344
+      },
+      {
+        "x": 390,
+        "y": 729,
+        "width": 335,
+        "height": 344
+      },
+      {
+        "x": 752,
+        "y": 733,
+        "width": 333,
+        "height": 342
+      },
+      {
+        "x": 1109,
+        "y": 731,
+        "width": 335,
+        "height": 343
+      }
+    ],
+    "heightRatios": [
+      1.026012,
+      1.028902,
+      1.00289,
+      1.026012,
+      1.0,
+      0.976879,
+      1.0,
+      1.00578,
+      0.976879,
+      0.976879,
+      0.971098,
+      0.973988
+    ],
+    "separationAlpha": 48,
+    "referenceHeightPixels": 346.0,
+    "transparentFraction": 0.272,
+    "actions": [
+      "poke",
+      "tickle",
+      "ball-ready"
+    ]
+  },
+  {
+    "key": "qwen-swim-body",
+    "id": "qwen",
+    "outfit": "swim",
+    "kind": "body",
+    "file": "src/DesktopPet.App/Assets/Characters/qwen/outfits/swim/body-continuity.png",
+    "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-2f589c17-c8fe-45cf-87b0-ebb7a9dd382a.png",
+    "sha256": "be76a495e13fcbfcd233c9b1162accefc40c8401e03eeae0b57bfabb758c5238",
+    "dimensions": [
+      1024,
+      1536
+    ],
+    "cells": [
+      {
+        "x": 32,
+        "y": 21,
+        "width": 223,
+        "height": 225
+      },
+      {
+        "x": 278,
+        "y": 4,
+        "width": 228,
+        "height": 244
+      },
+      {
+        "x": 522,
+        "y": 0,
+        "width": 227,
+        "height": 235
+      },
+      {
+        "x": 774,
+        "y": 28,
+        "width": 229,
+        "height": 218
+      },
+      {
+        "x": 25,
+        "y": 257,
+        "width": 233,
+        "height": 238
+      },
+      {
+        "x": 275,
+        "y": 262,
+        "width": 231,
+        "height": 227
+      },
+      {
+        "x": 527,
+        "y": 265,
+        "width": 239,
+        "height": 220
+      },
+      {
+        "x": 781,
+        "y": 280,
+        "width": 231,
+        "height": 210
+      },
+      {
+        "x": 22,
+        "y": 506,
+        "width": 233,
+        "height": 233
+      },
+      {
+        "x": 264,
+        "y": 514,
+        "width": 245,
+        "height": 218
+      },
+      {
+        "x": 522,
+        "y": 561,
+        "width": 246,
+        "height": 171
+      },
+      {
+        "x": 772,
+        "y": 582,
+        "width": 238,
+        "height": 150
+      },
+      {
+        "x": 28,
+        "y": 741,
+        "width": 229,
+        "height": 253
+      },
+      {
+        "x": 281,
+        "y": 736,
+        "width": 230,
+        "height": 256
+      },
+      {
+        "x": 533,
+        "y": 742,
+        "width": 230,
+        "height": 254
+      },
+      {
+        "x": 781,
+        "y": 748,
+        "width": 233,
+        "height": 253
+      },
+      {
+        "x": 27,
+        "y": 1003,
+        "width": 232,
+        "height": 232
+      },
+      {
+        "x": 275,
+        "y": 1004,
+        "width": 232,
+        "height": 230
+      },
+      {
+        "x": 524,
+        "y": 1006,
+        "width": 237,
+        "height": 230
+      },
+      {
+        "x": 780,
+        "y": 1003,
+        "width": 235,
+        "height": 232
+      },
+      {
+        "x": 27,
+        "y": 1244,
+        "width": 240,
+        "height": 245
+      },
+      {
+        "x": 271,
+        "y": 1248,
+        "width": 241,
+        "height": 237
+      },
+      {
+        "x": 531,
+        "y": 1254,
+        "width": 230,
+        "height": 231
+      },
+      {
+        "x": 776,
+        "y": 1249,
+        "width": 238,
+        "height": 236
+      }
+    ],
+    "heightRatios": [
+      0.920168,
+      1.0,
+      0.97479,
+      0.890756,
+      0.97479,
+      0.928571,
+      0.89916,
+      0.857143,
+      0.953782,
+      0.890756,
+      0.693277,
+      0.605042,
+      1.037815,
+      1.05042,
+      1.042017,
+      1.037815,
+      0.94958,
+      0.941176,
+      0.941176,
+      0.94958,
+      1.004202,
+      0.970588,
+      0.945378,
+      0.966387
+    ],
+    "separationAlpha": 48,
+    "referenceHeightPixels": 238.0,
+    "transparentFraction": 0.3392,
+    "actions": [
+      "jump",
+      "curl",
+      "sleep",
+      "pickup",
+      "ball-ready",
+      "ball-hit",
+      "ball-miss"
+    ]
+  },
+  {
+    "key": "qwen-swim-care",
+    "id": "qwen",
+    "outfit": "swim",
+    "kind": "care",
+    "file": "src/DesktopPet.App/Assets/Characters/qwen/outfits/swim/care-continuity.png",
+    "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-e12f12de-76e1-49d8-88f4-6a64b8ae001e.png",
+    "sha256": "bc001d9ed1ebb8285039d52ec37cb151e28308989e3bdc1450c6de3b7365aa8c",
+    "dimensions": [
+      1024,
+      1536
+    ],
+    "cells": [
+      {
+        "x": 22,
+        "y": 5,
+        "width": 224,
+        "height": 240
+      },
+      {
+        "x": 281,
+        "y": 4,
+        "width": 221,
+        "height": 241
+      },
+      {
+        "x": 532,
+        "y": 5,
+        "width": 225,
+        "height": 240
+      },
+      {
+        "x": 787,
+        "y": 5,
+        "width": 220,
+        "height": 240
+      },
+      {
+        "x": 23,
+        "y": 251,
+        "width": 227,
+        "height": 244
+      },
+      {
+        "x": 286,
+        "y": 251,
+        "width": 223,
+        "height": 244
+      },
+      {
+        "x": 536,
+        "y": 251,
+        "width": 223,
+        "height": 244
+      },
+      {
+        "x": 788,
+        "y": 251,
+        "width": 224,
+        "height": 244
+      },
+      {
+        "x": 23,
+        "y": 496,
+        "width": 224,
+        "height": 248
+      },
+      {
+        "x": 278,
+        "y": 500,
+        "width": 230,
+        "height": 244
+      },
+      {
+        "x": 538,
+        "y": 502,
+        "width": 225,
+        "height": 242
+      },
+      {
+        "x": 788,
+        "y": 500,
+        "width": 224,
+        "height": 244
+      },
+      {
+        "x": 23,
+        "y": 749,
+        "width": 223,
+        "height": 242
+      },
+      {
+        "x": 268,
+        "y": 743,
+        "width": 234,
+        "height": 248
+      },
+      {
+        "x": 532,
+        "y": 756,
+        "width": 234,
+        "height": 235
+      },
+      {
+        "x": 793,
+        "y": 749,
+        "width": 218,
+        "height": 242
+      },
+      {
+        "x": 24,
+        "y": 995,
+        "width": 224,
+        "height": 238
+      },
+      {
+        "x": 284,
+        "y": 995,
+        "width": 224,
+        "height": 236
+      },
+      {
+        "x": 529,
+        "y": 987,
+        "width": 230,
+        "height": 312
+      },
+      {
+        "x": 792,
+        "y": 997,
+        "width": 220,
+        "height": 237
+      },
+      {
+        "x": 23,
+        "y": 1228,
+        "width": 225,
+        "height": 283
+      },
+      {
+        "x": 278,
+        "y": 1246,
+        "width": 226,
+        "height": 265
+      },
+      {
+        "x": 531,
+        "y": 1264,
+        "width": 225,
+        "height": 247
+      },
+      {
+        "x": 791,
+        "y": 1268,
+        "width": 222,
+        "height": 243
+      }
+    ],
+    "heightRatios": [
+      0.991525,
+      0.995763,
+      0.991525,
+      0.991525,
+      1.008475,
+      1.008475,
+      1.008475,
+      1.008475,
+      1.025424,
+      1.008475,
+      1.0,
+      1.008475,
+      1.0,
+      1.025424,
+      0.970339,
+      1.0,
+      0.983051,
+      0.974576,
+      1.29661,
+      0.978814,
+      1.173729,
+      1.097458,
+      1.021186,
+      1.004237
+    ],
+    "separationAlpha": 48,
+    "referenceHeightPixels": 236.0,
+    "transparentFraction": 0.3238,
+    "actions": [
+      "chat",
+      "think",
+      "headpat",
+      "poke",
+      "tickle",
+      "bonk"
+    ]
+  },
+  {
+    "key": "qwen-swim-food",
+    "id": "qwen",
+    "outfit": "swim",
+    "kind": "food",
+    "file": "src/DesktopPet.App/Assets/Characters/qwen/outfits/swim/food-continuity.png",
+    "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-f399ec1e-507c-4016-9b27-e77aa59e0775.png",
+    "sha256": "a53271eb99e6c74fcd05c762daf42aeab853197530d9a5da289903758516342a",
+    "dimensions": [
+      1254,
+      1254
+    ],
+    "cells": [
+      {
+        "x": 26,
+        "y": 4,
+        "width": 289,
+        "height": 305
+      },
+      {
+        "x": 339,
+        "y": 4,
+        "width": 290,
+        "height": 305
+      },
+      {
+        "x": 653,
+        "y": 4,
+        "width": 290,
+        "height": 305
+      },
+      {
+        "x": 966,
+        "y": 4,
+        "width": 288,
+        "height": 305
+      },
+      {
+        "x": 26,
+        "y": 318,
+        "width": 289,
+        "height": 304
+      },
+      {
+        "x": 338,
+        "y": 319,
+        "width": 292,
+        "height": 303
+      },
+      {
+        "x": 653,
+        "y": 318,
+        "width": 290,
+        "height": 304
+      },
+      {
+        "x": 966,
+        "y": 318,
+        "width": 288,
+        "height": 304
+      },
+      {
+        "x": 26,
+        "y": 631,
+        "width": 290,
+        "height": 304
+      },
+      {
+        "x": 338,
+        "y": 629,
+        "width": 291,
+        "height": 306
+      },
+      {
+        "x": 653,
+        "y": 630,
+        "width": 290,
+        "height": 305
+      },
+      {
+        "x": 965,
+        "y": 629,
+        "width": 289,
+        "height": 306
+      },
+      {
+        "x": 25,
+        "y": 946,
+        "width": 291,
+        "height": 303
+      },
+      {
+        "x": 339,
+        "y": 944,
+        "width": 290,
+        "height": 305
+      },
+      {
+        "x": 652,
+        "y": 945,
+        "width": 290,
+        "height": 304
+      },
+      {
+        "x": 965,
+        "y": 943,
+        "width": 289,
+        "height": 306
+      }
+    ],
+    "heightRatios": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      0.996656,
+      0.993311,
+      0.996656,
+      0.996656,
+      0.996656,
+      1.003344,
+      1.0,
+      1.003344,
+      0.993311,
+      1.0,
+      0.996656,
+      1.003344
+    ],
+    "separationAlpha": 48,
+    "referenceHeightPixels": 299.0,
+    "transparentFraction": 0.3092,
+    "actions": [
+      "eat",
+      "meal"
+    ]
+  },
+  {
+    "key": "qwen-wedding-body",
+    "id": "qwen",
+    "outfit": "wedding",
+    "kind": "body",
+    "file": "src/DesktopPet.App/Assets/Characters/qwen/outfits/wedding/body-continuity.png",
+    "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-3e2acb48-cab8-42ea-abae-2f4ddae42579.png",
+    "sha256": "599f5ebc4bf185b621f8591b2569767ee2a7605bb4c68d22d8c9536b95f0128e",
+    "dimensions": [
+      1024,
+      1536
+    ],
+    "cells": [
+      {
+        "x": 8,
+        "y": 36,
+        "width": 243,
+        "height": 222
+      },
+      {
+        "x": 269,
+        "y": 8,
+        "width": 238,
+        "height": 250
+      },
+      {
+        "x": 511,
+        "y": 2,
+        "width": 248,
+        "height": 239
+      },
+      {
+        "x": 776,
+        "y": 38,
+        "width": 242,
+        "height": 220
+      },
+      {
+        "x": 5,
+        "y": 273,
+        "width": 248,
+        "height": 226
+      },
+      {
+        "x": 265,
+        "y": 273,
+        "width": 249,
+        "height": 223
+      },
+      {
+        "x": 516,
+        "y": 276,
+        "width": 248,
+        "height": 221
+      },
+      {
+        "x": 774,
+        "y": 291,
+        "width": 248,
+        "height": 205
+      },
+      {
+        "x": 7,
+        "y": 509,
+        "width": 247,
+        "height": 214
+      },
+      {
+        "x": 258,
+        "y": 523,
+        "width": 254,
+        "height": 195
+      },
+      {
+        "x": 516,
+        "y": 556,
+        "width": 253,
+        "height": 162
+      },
+      {
+        "x": 771,
+        "y": 578,
+        "width": 253,
+        "height": 140
+      },
+      {
+        "x": 10,
+        "y": 731,
+        "width": 247,
+        "height": 257
+      },
+      {
+        "x": 278,
+        "y": 722,
+        "width": 234,
+        "height": 272
+      },
+      {
+        "x": 524,
+        "y": 731,
+        "width": 237,
+        "height": 267
+      },
+      {
+        "x": 780,
+        "y": 734,
+        "width": 240,
+        "height": 262
+      },
+      {
+        "x": 6,
+        "y": 1003,
+        "width": 249,
+        "height": 236
+      },
+      {
+        "x": 262,
+        "y": 1002,
+        "width": 250,
+        "height": 237
+      },
+      {
+        "x": 515,
+        "y": 1001,
+        "width": 248,
+        "height": 236
+      },
+      {
+        "x": 775,
+        "y": 1004,
+        "width": 247,
+        "height": 233
+      },
+      {
+        "x": 10,
+        "y": 1244,
+        "width": 256,
+        "height": 254
+      },
+      {
+        "x": 268,
+        "y": 1252,
+        "width": 250,
+        "height": 253
+      },
+      {
+        "x": 522,
+        "y": 1256,
+        "width": 247,
+        "height": 248
+      },
+      {
+        "x": 775,
+        "y": 1258,
+        "width": 241,
+        "height": 240
+      }
+    ],
+    "heightRatios": [
+      0.885246,
+      1.0,
+      0.954918,
+      0.877049,
+      0.901639,
+      0.889344,
+      0.881148,
+      0.815574,
+      0.852459,
+      0.77459,
+      0.639344,
+      0.54918,
+      1.028689,
+      1.090164,
+      1.069672,
+      1.04918,
+      0.942623,
+      0.946721,
+      0.942623,
+      0.930328,
+      1.016393,
+      1.012295,
+      0.991803,
+      0.959016
+    ],
+    "separationAlpha": 48,
+    "referenceHeightPixels": 244.0,
+    "transparentFraction": 0.3134,
+    "actions": [
+      "jump",
+      "curl",
+      "sleep",
+      "pickup",
+      "ball-ready",
+      "ball-hit",
+      "ball-miss"
+    ]
+  },
+  {
+    "key": "qwen-wedding-care",
+    "id": "qwen",
+    "outfit": "wedding",
+    "kind": "care",
+    "file": "src/DesktopPet.App/Assets/Characters/qwen/outfits/wedding/care-continuity.png",
+    "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-0a5c0cec-18be-4d40-baf1-4c60010ef42e.png",
+    "sha256": "b2acccb3c4ea3e9179d7a964bcf066f417ee15baf11a581c454b0e49a275f5d9",
+    "dimensions": [
+      1024,
+      1536
+    ],
+    "cells": [
+      {
+        "x": 4,
+        "y": 0,
+        "width": 272,
+        "height": 240
+      },
+      {
+        "x": 260,
+        "y": 0,
+        "width": 264,
+        "height": 240
+      },
+      {
+        "x": 508,
+        "y": 0,
+        "width": 267,
+        "height": 240
+      },
+      {
+        "x": 759,
+        "y": 0,
+        "width": 265,
+        "height": 239
+      },
+      {
+        "x": 4,
+        "y": 232,
+        "width": 272,
+        "height": 245
+      },
+      {
+        "x": 262,
+        "y": 235,
+        "width": 267,
+        "height": 244
+      },
+      {
+        "x": 513,
+        "y": 232,
+        "width": 264,
+        "height": 246
+      },
+      {
+        "x": 761,
+        "y": 234,
+        "width": 263,
+        "height": 245
+      },
+      {
+        "x": 4,
+        "y": 471,
+        "width": 274,
+        "height": 248
+      },
+      {
+        "x": 261,
+        "y": 473,
+        "width": 270,
+        "height": 246
+      },
+      {
+        "x": 516,
+        "y": 474,
+        "width": 264,
+        "height": 243
+      },
+      {
+        "x": 763,
+        "y": 471,
+        "width": 261,
+        "height": 246
+      },
+      {
+        "x": 4,
+        "y": 712,
+        "width": 273,
+        "height": 245
+      },
+      {
+        "x": 263,
+        "y": 712,
+        "width": 269,
+        "height": 244
+      },
+      {
+        "x": 510,
+        "y": 705,
+        "width": 266,
+        "height": 248
+      },
+      {
+        "x": 762,
+        "y": 709,
+        "width": 262,
+        "height": 248
+      },
+      {
+        "x": 6,
+        "y": 952,
+        "width": 277,
+        "height": 243
+      },
+      {
+        "x": 266,
+        "y": 952,
+        "width": 267,
+        "height": 242
+      },
+      {
+        "x": 510,
+        "y": 947,
+        "width": 265,
+        "height": 246
+      },
+      {
+        "x": 761,
+        "y": 952,
+        "width": 263,
+        "height": 244
+      },
+      {
+        "x": 4,
+        "y": 1182,
+        "width": 275,
+        "height": 308
+      },
+      {
+        "x": 261,
+        "y": 1202,
+        "width": 271,
+        "height": 287
+      },
+      {
+        "x": 511,
+        "y": 1181,
+        "width": 268,
+        "height": 308
+      },
+      {
+        "x": 761,
+        "y": 1229,
+        "width": 263,
+        "height": 260
+      }
+    ],
+    "heightRatios": [
+      0.995475,
+      1.0,
+      1.0,
+      0.99095,
+      1.0,
+      0.995475,
+      1.004525,
+      1.0,
+      1.013575,
+      1.004525,
+      0.99095,
+      1.004525,
+      1.0,
+      0.995475,
+      1.013575,
+      1.013575,
+      0.99095,
+      0.986425,
+      1.004525,
+      0.995475,
+      1.285068,
+      1.190045,
+      1.285068,
+      1.067873
+    ],
+    "separationAlpha": 240,
+    "referenceHeightPixels": 221.0,
+    "transparentFraction": 0.3013,
+    "actions": [
+      "chat",
+      "think",
+      "headpat",
+      "poke",
+      "tickle",
+      "bonk"
+    ]
+  },
+  {
+    "key": "qwen-wedding-food",
+    "id": "qwen",
+    "outfit": "wedding",
+    "kind": "food",
+    "file": "src/DesktopPet.App/Assets/Characters/qwen/outfits/wedding/food-continuity.png",
+    "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-003f8bdf-d8ed-4e5b-8b68-6ef473a8ee4d.png",
+    "sha256": "669b0b0a115dd5a75fcbae94169450f88155bf7714a1d7efa235b50c989f3245",
+    "dimensions": [
+      1254,
+      1254
+    ],
+    "cells": [
+      {
+        "x": 0,
+        "y": 2,
+        "width": 314,
+        "height": 293
+      },
+      {
+        "x": 313,
+        "y": 2,
+        "width": 315,
+        "height": 293
+      },
+      {
+        "x": 626,
+        "y": 2,
+        "width": 315,
+        "height": 293
+      },
+      {
+        "x": 940,
+        "y": 2,
+        "width": 314,
+        "height": 293
+      },
+      {
+        "x": 0,
+        "y": 314,
+        "width": 314,
+        "height": 295
+      },
+      {
+        "x": 313,
+        "y": 314,
+        "width": 315,
+        "height": 295
+      },
+      {
+        "x": 627,
+        "y": 314,
+        "width": 314,
+        "height": 295
+      },
+      {
+        "x": 940,
+        "y": 314,
+        "width": 314,
+        "height": 295
+      },
+      {
+        "x": 0,
+        "y": 628,
+        "width": 314,
+        "height": 295
+      },
+      {
+        "x": 313,
+        "y": 628,
+        "width": 314,
+        "height": 295
+      },
+      {
+        "x": 626,
+        "y": 628,
+        "width": 316,
+        "height": 295
+      },
+      {
+        "x": 940,
+        "y": 628,
+        "width": 314,
+        "height": 295
+      },
+      {
+        "x": 0,
+        "y": 941,
+        "width": 314,
+        "height": 295
+      },
+      {
+        "x": 313,
+        "y": 941,
+        "width": 315,
+        "height": 295
+      },
+      {
+        "x": 627,
+        "y": 941,
+        "width": 314,
+        "height": 295
+      },
+      {
+        "x": 940,
+        "y": 941,
+        "width": 314,
+        "height": 295
+      }
+    ],
+    "heightRatios": [
+      0.99308,
+      0.99308,
+      0.99308,
+      0.99308,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "separationAlpha": 48,
+    "referenceHeightPixels": 289.0,
+    "transparentFraction": 0.3017,
+    "actions": [
+      "eat",
+      "meal"
+    ]
+  },
+  {
+    "key": "zhipu-original-touch",
+    "id": "zhipu",
+    "outfit": "original",
+    "kind": "touch",
+    "file": "src/DesktopPet.App/Assets/Characters/zhipu/motions/touch-continuity.png",
+    "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-d550f784-cb6a-4b2d-8284-41c03d71c9ad.png",
+    "sha256": "01db59b9eb12d6f3a5a519662de80753333969c4a5e38939a9aa901b29d79545",
+    "dimensions": [
+      1448,
+      1086
+    ],
+    "cells": [
+      {
+        "x": 24,
+        "y": 20,
+        "width": 325,
+        "height": 354
+      },
+      {
+        "x": 388,
+        "y": 21,
+        "width": 320,
+        "height": 353
+      },
+      {
+        "x": 745,
+        "y": 19,
+        "width": 321,
+        "height": 355
+      },
+      {
+        "x": 1107,
+        "y": 19,
+        "width": 322,
+        "height": 355
+      },
+      {
+        "x": 26,
+        "y": 373,
+        "width": 325,
+        "height": 352
+      },
+      {
+        "x": 389,
+        "y": 384,
+        "width": 322,
+        "height": 341
+      },
+      {
+        "x": 744,
+        "y": 374,
+        "width": 327,
+        "height": 351
+      },
+      {
+        "x": 1110,
+        "y": 373,
+        "width": 321,
+        "height": 352
+      },
+      {
+        "x": 27,
+        "y": 723,
+        "width": 323,
+        "height": 346
+      },
+      {
+        "x": 389,
+        "y": 723,
+        "width": 321,
+        "height": 346
+      },
+      {
+        "x": 749,
+        "y": 722,
+        "width": 322,
+        "height": 347
+      },
+      {
+        "x": 1108,
+        "y": 723,
+        "width": 322,
+        "height": 346
+      }
+    ],
+    "heightRatios": [
+      1.007236,
+      1.004342,
+      1.01013,
+      1.01013,
+      1.001447,
+      0.969609,
+      0.998553,
+      1.001447,
+      0.984081,
+      0.984081,
+      0.986975,
+      0.984081
+    ],
+    "separationAlpha": 48,
+    "referenceHeightPixels": 345.5,
+    "transparentFraction": 0.3487,
+    "actions": [
+      "poke",
+      "tickle",
+      "ball-ready"
+    ]
+  },
+  {
+    "key": "zhipu-swim-body",
+    "id": "zhipu",
+    "outfit": "swim",
+    "kind": "body",
+    "file": "src/DesktopPet.App/Assets/Characters/zhipu/outfits/swim/body-continuity.png",
+    "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-a732d354-6078-47d9-823b-8d7aa8406e16.png",
+    "sha256": "c6e409385a4a180f66c9410adc34c0669bdd4861cf2f1283ef19415f77de8adf",
+    "dimensions": [
+      1024,
+      1536
+    ],
+    "cells": [
+      {
+        "x": 36,
+        "y": 19,
+        "width": 228,
+        "height": 225
+      },
+      {
+        "x": 295,
+        "y": 10,
+        "width": 214,
+        "height": 234
+      },
+      {
+        "x": 526,
+        "y": 0,
+        "width": 205,
+        "height": 220
+      },
+      {
+        "x": 768,
+        "y": 38,
+        "width": 221,
+        "height": 206
+      },
+      {
+        "x": 39,
+        "y": 258,
+        "width": 223,
+        "height": 214
+      },
+      {
+        "x": 288,
+        "y": 264,
+        "width": 221,
+        "height": 209
+      },
+      {
+        "x": 532,
+        "y": 263,
+        "width": 221,
+        "height": 210
+      },
+      {
+        "x": 777,
+        "y": 275,
+        "width": 222,
+        "height": 198
+      },
+      {
+        "x": 36,
+        "y": 480,
+        "width": 224,
+        "height": 225
+      },
+      {
+        "x": 280,
+        "y": 482,
+        "width": 215,
+        "height": 217
+      },
+      {
+        "x": 484,
+        "y": 501,
+        "width": 248,
+        "height": 198
+      },
+      {
+        "x": 738,
+        "y": 528,
+        "width": 263,
+        "height": 170
+      },
+      {
+        "x": 41,
+        "y": 725,
+        "width": 220,
+        "height": 241
+      },
+      {
+        "x": 288,
+        "y": 707,
+        "width": 215,
+        "height": 256
+      },
+      {
+        "x": 531,
+        "y": 709,
+        "width": 211,
+        "height": 257
+      },
+      {
+        "x": 775,
+        "y": 710,
+        "width": 212,
+        "height": 257
+      },
+      {
+        "x": 41,
+        "y": 993,
+        "width": 223,
+        "height": 238
+      },
+      {
+        "x": 291,
+        "y": 983,
+        "width": 216,
+        "height": 264
+      },
+      {
+        "x": 531,
+        "y": 983,
+        "width": 222,
+        "height": 264
+      },
+      {
+        "x": 775,
+        "y": 992,
+        "width": 224,
+        "height": 254
+      },
+      {
+        "x": 35,
+        "y": 1239,
+        "width": 219,
+        "height": 243
+      },
+      {
+        "x": 286,
+        "y": 1259,
+        "width": 214,
+        "height": 229
+      },
+      {
+        "x": 527,
+        "y": 1260,
+        "width": 219,
+        "height": 227
+      },
+      {
+        "x": 776,
+        "y": 1259,
+        "width": 221,
+        "height": 227
+      }
+    ],
+    "heightRatios": [
+      0.876,
+      0.912,
+      0.868,
+      0.8,
+      0.832,
+      0.812,
+      0.816,
+      0.768,
+      0.876,
+      0.844,
+      0.768,
+      0.656,
+      0.94,
+      1.0,
+      1.004,
+      1.004,
+      0.928,
+      1.032,
+      1.032,
+      0.992,
+      0.948,
+      0.892,
+      0.884,
+      0.884
+    ],
+    "separationAlpha": 48,
+    "referenceHeightPixels": 250.0,
+    "transparentFraction": 0.3922,
+    "actions": [
+      "jump",
+      "curl",
+      "sleep",
+      "pickup",
+      "ball-ready",
+      "ball-hit",
+      "ball-miss"
+    ]
+  },
+  {
+    "key": "zhipu-swim-care",
+    "id": "zhipu",
+    "outfit": "swim",
+    "kind": "care",
+    "file": "src/DesktopPet.App/Assets/Characters/zhipu/outfits/swim/care-continuity.png",
+    "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-0708633c-1598-40e0-b4d2-68cd42cbce0c.png",
+    "sha256": "6969536c22e8252ebdc963ee09ccdb01ec5abc3990e5f9c3bf6bdf4e409c0a8e",
+    "dimensions": [
+      1024,
+      1536
+    ],
+    "cells": [
+      {
+        "x": 41,
+        "y": 8,
+        "width": 225,
+        "height": 230
+      },
+      {
+        "x": 285,
+        "y": 8,
+        "width": 226,
+        "height": 230
+      },
+      {
+        "x": 530,
+        "y": 9,
+        "width": 223,
+        "height": 230
+      },
+      {
+        "x": 775,
+        "y": 8,
+        "width": 221,
+        "height": 230
+      },
+      {
+        "x": 35,
+        "y": 246,
+        "width": 228,
+        "height": 237
+      },
+      {
+        "x": 280,
+        "y": 246,
+        "width": 232,
+        "height": 237
+      },
+      {
+        "x": 530,
+        "y": 249,
+        "width": 225,
+        "height": 234
+      },
+      {
+        "x": 778,
+        "y": 249,
+        "width": 221,
+        "height": 234
+      },
+      {
+        "x": 38,
+        "y": 495,
+        "width": 226,
+        "height": 233
+      },
+      {
+        "x": 284,
+        "y": 501,
+        "width": 229,
+        "height": 226
+      },
+      {
+        "x": 533,
+        "y": 495,
+        "width": 226,
+        "height": 232
+      },
+      {
+        "x": 777,
+        "y": 493,
+        "width": 227,
+        "height": 234
+      },
+      {
+        "x": 37,
+        "y": 746,
+        "width": 227,
+        "height": 231
+      },
+      {
+        "x": 278,
+        "y": 741,
+        "width": 219,
+        "height": 237
+      },
+      {
+        "x": 520,
+        "y": 735,
+        "width": 232,
+        "height": 245
+      },
+      {
+        "x": 777,
+        "y": 746,
+        "width": 223,
+        "height": 232
+      },
+      {
+        "x": 32,
+        "y": 982,
+        "width": 234,
+        "height": 238
+      },
+      {
+        "x": 286,
+        "y": 988,
+        "width": 218,
+        "height": 231
+      },
+      {
+        "x": 526,
+        "y": 987,
+        "width": 237,
+        "height": 233
+      },
+      {
+        "x": 781,
+        "y": 989,
+        "width": 219,
+        "height": 231
+      },
+      {
+        "x": 33,
+        "y": 1227,
+        "width": 233,
+        "height": 275
+      },
+      {
+        "x": 284,
+        "y": 1244,
+        "width": 233,
+        "height": 259
+      },
+      {
+        "x": 529,
+        "y": 1224,
+        "width": 233,
+        "height": 277
+      },
+      {
+        "x": 778,
+        "y": 1267,
+        "width": 228,
+        "height": 236
+      }
+    ],
+    "heightRatios": [
+      0.988962,
+      0.988962,
+      0.988962,
+      0.988962,
+      1.019868,
+      1.019868,
+      1.006623,
+      1.006623,
+      1.002208,
+      0.971302,
+      0.997792,
+      1.006623,
+      0.993377,
+      1.019868,
+      1.055188,
+      0.997792,
+      1.024283,
+      0.993377,
+      1.002208,
+      0.993377,
+      1.187638,
+      1.116998,
+      1.196468,
+      1.015453
+    ],
+    "separationAlpha": 48,
+    "referenceHeightPixels": 226.5,
+    "transparentFraction": 0.3985,
+    "actions": [
+      "chat",
+      "think",
+      "headpat",
+      "poke",
+      "tickle",
+      "bonk"
+    ]
+  },
+  {
+    "key": "zhipu-swim-food",
+    "id": "zhipu",
+    "outfit": "swim",
+    "kind": "food",
+    "file": "src/DesktopPet.App/Assets/Characters/zhipu/outfits/swim/food-continuity.png",
+    "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-a81e9a1b-9339-46f5-82f9-3dc5c6d10f46.png",
+    "sha256": "dd3f4054b2d63d778efbdd0c2b249de9d7dc092c0aa31b51f7e3bd9210206a26",
+    "dimensions": [
+      1254,
+      1254
+    ],
+    "cells": [
+      {
+        "x": 22,
+        "y": 0,
+        "width": 304,
+        "height": 315
+      },
+      {
+        "x": 327,
+        "y": 4,
+        "width": 306,
+        "height": 312
+      },
+      {
+        "x": 630,
+        "y": 4,
+        "width": 308,
+        "height": 312
+      },
+      {
+        "x": 939,
+        "y": 5,
+        "width": 306,
+        "height": 312
+      },
+      {
+        "x": 21,
+        "y": 310,
+        "width": 308,
+        "height": 318
+      },
+      {
+        "x": 328,
+        "y": 310,
+        "width": 306,
+        "height": 318
+      },
+      {
+        "x": 631,
+        "y": 312,
+        "width": 310,
+        "height": 317
+      },
+      {
+        "x": 939,
+        "y": 312,
+        "width": 306,
+        "height": 317
+      },
+      {
+        "x": 19,
+        "y": 623,
+        "width": 306,
+        "height": 319
+      },
+      {
+        "x": 327,
+        "y": 625,
+        "width": 305,
+        "height": 317
+      },
+      {
+        "x": 631,
+        "y": 626,
+        "width": 308,
+        "height": 316
+      },
+      {
+        "x": 939,
+        "y": 626,
+        "width": 305,
+        "height": 316
+      },
+      {
+        "x": 19,
+        "y": 937,
+        "width": 306,
+        "height": 316
+      },
+      {
+        "x": 328,
+        "y": 936,
+        "width": 304,
+        "height": 317
+      },
+      {
+        "x": 631,
+        "y": 938,
+        "width": 310,
+        "height": 315
+      },
+      {
+        "x": 939,
+        "y": 937,
+        "width": 306,
+        "height": 316
+      }
+    ],
+    "heightRatios": [
+      0.996774,
+      0.987097,
+      0.987097,
+      0.987097,
+      1.006452,
+      1.006452,
+      1.003226,
+      1.003226,
+      1.009677,
+      1.003226,
+      1.0,
+      1.0,
+      1.0,
+      1.003226,
+      0.996774,
+      1.0
+    ],
+    "separationAlpha": 48,
+    "referenceHeightPixels": 310.0,
+    "transparentFraction": 0.2768,
+    "actions": [
+      "eat",
+      "meal"
+    ]
+  },
+  {
+    "key": "zhipu-wedding-body",
+    "id": "zhipu",
+    "outfit": "wedding",
+    "kind": "body",
+    "file": "src/DesktopPet.App/Assets/Characters/zhipu/outfits/wedding/body-continuity.png",
+    "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-ff238a1e-78c9-4985-836d-bf32c2f6afdd.png",
+    "sha256": "8a08fa3da1b250be9c51d458c7a3f93dad6f1fcf0f65adea0a4476afb5119d52",
+    "dimensions": [
+      1024,
+      1536
+    ],
+    "cells": [
+      {
+        "x": 21,
+        "y": 23,
+        "width": 232,
+        "height": 253
+      },
+      {
+        "x": 271,
+        "y": 0,
+        "width": 236,
+        "height": 269
+      },
+      {
+        "x": 518,
+        "y": 0,
+        "width": 247,
+        "height": 247
+      },
+      {
+        "x": 775,
+        "y": 43,
+        "width": 231,
+        "height": 232
+      },
+      {
+        "x": 23,
+        "y": 286,
+        "width": 236,
+        "height": 234
+      },
+      {
+        "x": 278,
+        "y": 282,
+        "width": 231,
+        "height": 232
+      },
+      {
+        "x": 521,
+        "y": 297,
+        "width": 236,
+        "height": 223
+      },
+      {
+        "x": 773,
+        "y": 318,
+        "width": 231,
+        "height": 200
+      },
+      {
+        "x": 17,
+        "y": 522,
+        "width": 230,
+        "height": 237
+      },
+      {
+        "x": 263,
+        "y": 520,
+        "width": 234,
+        "height": 235
+      },
+      {
+        "x": 496,
+        "y": 565,
+        "width": 259,
+        "height": 181
+      },
+      {
+        "x": 739,
+        "y": 576,
+        "width": 278,
+        "height": 168
+      },
+      {
+        "x": 22,
+        "y": 765,
+        "width": 223,
+        "height": 229
+      },
+      {
+        "x": 291,
+        "y": 751,
+        "width": 204,
+        "height": 238
+      },
+      {
+        "x": 530,
+        "y": 764,
+        "width": 214,
+        "height": 235
+      },
+      {
+        "x": 788,
+        "y": 762,
+        "width": 211,
+        "height": 232
+      },
+      {
+        "x": 16,
+        "y": 1014,
+        "width": 238,
+        "height": 236
+      },
+      {
+        "x": 273,
+        "y": 998,
+        "width": 236,
+        "height": 254
+      },
+      {
+        "x": 522,
+        "y": 1015,
+        "width": 230,
+        "height": 236
+      },
+      {
+        "x": 785,
+        "y": 1013,
+        "width": 227,
+        "height": 240
+      },
+      {
+        "x": 14,
+        "y": 1251,
+        "width": 241,
+        "height": 256
+      },
+      {
+        "x": 269,
+        "y": 1266,
+        "width": 228,
+        "height": 243
+      },
+      {
+        "x": 520,
+        "y": 1276,
+        "width": 233,
+        "height": 241
+      },
+      {
+        "x": 783,
+        "y": 1273,
+        "width": 220,
+        "height": 244
+      }
+    ],
+    "heightRatios": [
+      1.073913,
+      1.156522,
+      1.056522,
+      0.982609,
+      0.991304,
+      0.982609,
+      0.943478,
+      0.843478,
+      1.004348,
+      0.995652,
+      0.76087,
+      0.704348,
+      0.969565,
+      1.008696,
+      0.995652,
+      0.982609,
+      1.0,
+      1.078261,
+      1.0,
+      1.017391,
+      1.086957,
+      1.030435,
+      1.021739,
+      1.034783
+    ],
+    "separationAlpha": 48,
+    "referenceHeightPixels": 230.0,
+    "transparentFraction": 0.3813,
+    "actions": [
+      "jump",
+      "curl",
+      "sleep",
+      "pickup",
+      "ball-ready",
+      "ball-hit",
+      "ball-miss"
+    ]
+  },
+  {
+    "key": "zhipu-wedding-care",
+    "id": "zhipu",
+    "outfit": "wedding",
+    "kind": "care",
+    "file": "src/DesktopPet.App/Assets/Characters/zhipu/outfits/wedding/care-continuity.png",
+    "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-f6af3a76-ee73-4e97-bc92-6bf903aa6f88.png",
+    "sha256": "096df2dd6df1136c0f6f95f2b7061eb91a7fb92a6aec3ae60f34cf4c36b11af6",
+    "dimensions": [
+      1024,
+      1536
+    ],
+    "cells": [
+      {
+        "x": 10,
+        "y": 4,
+        "width": 256,
+        "height": 247
+      },
+      {
+        "x": 268,
+        "y": 3,
+        "width": 252,
+        "height": 248
+      },
+      {
+        "x": 524,
+        "y": 3,
+        "width": 254,
+        "height": 249
+      },
+      {
+        "x": 781,
+        "y": 4,
+        "width": 243,
+        "height": 247
+      },
+      {
+        "x": 10,
+        "y": 253,
+        "width": 249,
+        "height": 253
+      },
+      {
+        "x": 268,
+        "y": 252,
+        "width": 246,
+        "height": 255
+      },
+      {
+        "x": 525,
+        "y": 257,
+        "width": 251,
+        "height": 250
+      },
+      {
+        "x": 780,
+        "y": 254,
+        "width": 244,
+        "height": 253
+      },
+      {
+        "x": 10,
+        "y": 510,
+        "width": 255,
+        "height": 253
+      },
+      {
+        "x": 268,
+        "y": 510,
+        "width": 250,
+        "height": 253
+      },
+      {
+        "x": 524,
+        "y": 509,
+        "width": 256,
+        "height": 254
+      },
+      {
+        "x": 780,
+        "y": 514,
+        "width": 244,
+        "height": 248
+      },
+      {
+        "x": 11,
+        "y": 766,
+        "width": 252,
+        "height": 255
+      },
+      {
+        "x": 267,
+        "y": 767,
+        "width": 256,
+        "height": 253
+      },
+      {
+        "x": 527,
+        "y": 766,
+        "width": 251,
+        "height": 254
+      },
+      {
+        "x": 781,
+        "y": 765,
+        "width": 243,
+        "height": 254
+      },
+      {
+        "x": 12,
+        "y": 1025,
+        "width": 248,
+        "height": 246
+      },
+      {
+        "x": 268,
+        "y": 1018,
+        "width": 253,
+        "height": 254
+      },
+      {
+        "x": 526,
+        "y": 1020,
+        "width": 240,
+        "height": 249
+      },
+      {
+        "x": 780,
+        "y": 1023,
+        "width": 244,
+        "height": 249
+      },
+      {
+        "x": 13,
+        "y": 1269,
+        "width": 251,
+        "height": 265
+      },
+      {
+        "x": 273,
+        "y": 1282,
+        "width": 244,
+        "height": 252
+      },
+      {
+        "x": 527,
+        "y": 1269,
+        "width": 243,
+        "height": 265
+      },
+      {
+        "x": 780,
+        "y": 1283,
+        "width": 244,
+        "height": 252
+      }
+    ],
+    "heightRatios": [
+      0.975709,
+      0.979757,
+      0.983806,
+      0.975709,
+      1.0,
+      1.008097,
+      0.987854,
+      1.0,
+      1.0,
+      1.0,
+      1.004049,
+      0.979757,
+      1.008097,
+      1.0,
+      1.004049,
+      1.004049,
+      0.97166,
+      1.004049,
+      0.983806,
+      0.983806,
+      1.048583,
+      0.995951,
+      1.048583,
+      0.995951
+    ],
+    "separationAlpha": 48,
+    "referenceHeightPixels": 247.0,
+    "transparentFraction": 0.2937,
+    "actions": [
+      "chat",
+      "think",
+      "headpat",
+      "poke",
+      "tickle",
+      "bonk"
+    ]
+  },
+  {
+    "key": "zhipu-wedding-food",
+    "id": "zhipu",
+    "outfit": "wedding",
+    "kind": "food",
+    "file": "src/DesktopPet.App/Assets/Characters/zhipu/outfits/wedding/food-continuity.png",
+    "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-234239d2-3acc-4a0e-8813-34c4e287b3a3.png",
+    "sha256": "cffc9f4035f4978d47a154c88bc9c767ee34927ea6e2315b6635c630a907566a",
+    "dimensions": [
+      1254,
+      1254
+    ],
+    "cells": [
+      {
+        "x": 3,
+        "y": 2,
+        "width": 308,
+        "height": 309
+      },
+      {
+        "x": 316,
+        "y": 2,
+        "width": 310,
+        "height": 309
+      },
+      {
+        "x": 630,
+        "y": 1,
+        "width": 308,
+        "height": 310
+      },
+      {
+        "x": 944,
+        "y": 2,
+        "width": 309,
+        "height": 309
+      },
+      {
+        "x": 3,
+        "y": 315,
+        "width": 308,
+        "height": 309
+      },
+      {
+        "x": 317,
+        "y": 315,
+        "width": 308,
+        "height": 309
+      },
+      {
+        "x": 630,
+        "y": 315,
+        "width": 308,
+        "height": 309
+      },
+      {
+        "x": 944,
+        "y": 315,
+        "width": 308,
+        "height": 309
+      },
+      {
+        "x": 3,
+        "y": 628,
+        "width": 308,
+        "height": 310
+      },
+      {
+        "x": 317,
+        "y": 628,
+        "width": 309,
+        "height": 310
+      },
+      {
+        "x": 630,
+        "y": 628,
+        "width": 308,
+        "height": 310
+      },
+      {
+        "x": 943,
+        "y": 627,
+        "width": 310,
+        "height": 311
+      },
+      {
+        "x": 3,
+        "y": 941,
+        "width": 308,
+        "height": 310
+      },
+      {
+        "x": 316,
+        "y": 941,
+        "width": 309,
+        "height": 310
+      },
+      {
+        "x": 630,
+        "y": 942,
+        "width": 308,
+        "height": 309
+      },
+      {
+        "x": 943,
+        "y": 942,
+        "width": 309,
+        "height": 309
+      }
+    ],
+    "heightRatios": [
+      1.0,
+      1.0,
+      1.0033,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0033,
+      1.0033,
+      1.0033,
+      1.006601,
+      1.0033,
+      1.0033,
+      1.0,
+      1.0
+    ],
+    "separationAlpha": 48,
+    "referenceHeightPixels": 303.0,
+    "transparentFraction": 0.2853,
+    "actions": [
+      "eat",
+      "meal"
+    ]
+  },
+  {
+    "key": "claude-swim-care",
+    "id": "claude",
+    "outfit": "swim",
+    "kind": "care",
+    "file": "src/DesktopPet.App/Assets/Characters/claude/outfits/swim/care-continuity.png",
+    "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-d7de3792-38c9-4fdb-807b-b3db12d547b6.png",
+    "sha256": "c8a38d55ae93c776872d940c6d35ff774b7af14539cc24c46e6642cc0f1da07a",
+    "dimensions": [
+      1024,
+      1536
+    ],
+    "cells": [
+      {
+        "x": 46,
+        "y": 46,
+        "width": 199,
+        "height": 197
+      },
+      {
+        "x": 297,
+        "y": 45,
+        "width": 200,
+        "height": 197
+      },
+      {
+        "x": 534,
+        "y": 47,
+        "width": 199,
+        "height": 196
+      },
+      {
+        "x": 782,
+        "y": 46,
+        "width": 200,
+        "height": 197
+      },
+      {
+        "x": 44,
+        "y": 279,
+        "width": 203,
+        "height": 200
+      },
+      {
+        "x": 295,
+        "y": 280,
+        "width": 205,
+        "height": 198
+      },
+      {
+        "x": 537,
+        "y": 283,
+        "width": 201,
+        "height": 196
+      },
+      {
+        "x": 782,
+        "y": 280,
+        "width": 202,
+        "height": 199
+      },
+      {
+        "x": 44,
+        "y": 521,
+        "width": 206,
+        "height": 205
+      },
+      {
+        "x": 297,
+        "y": 523,
+        "width": 207,
+        "height": 202
+      },
+      {
+        "x": 535,
+        "y": 523,
+        "width": 206,
+        "height": 204
+      },
+      {
+        "x": 781,
+        "y": 522,
+        "width": 205,
+        "height": 204
+      },
+      {
+        "x": 43,
+        "y": 771,
+        "width": 209,
+        "height": 207
+      },
+      {
+        "x": 288,
+        "y": 773,
+        "width": 211,
+        "height": 205
+      },
+      {
+        "x": 534,
+        "y": 781,
+        "width": 211,
+        "height": 199
+      },
+      {
+        "x": 780,
+        "y": 772,
+        "width": 208,
+        "height": 207
+      },
+      {
+        "x": 37,
+        "y": 1016,
+        "width": 215,
+        "height": 206
+      },
+      {
+        "x": 294,
+        "y": 1020,
+        "width": 206,
+        "height": 202
+      },
+      {
+        "x": 533,
+        "y": 1022,
+        "width": 205,
+        "height": 202
+      },
+      {
+        "x": 779,
+        "y": 1017,
+        "width": 210,
+        "height": 206
+      },
+      {
+        "x": 44,
+        "y": 1252,
+        "width": 208,
+        "height": 224
+      },
+      {
+        "x": 297,
+        "y": 1244,
+        "width": 206,
+        "height": 232
+      },
+      {
+        "x": 536,
+        "y": 1274,
+        "width": 205,
+        "height": 203
+      },
+      {
+        "x": 780,
+        "y": 1274,
+        "width": 206,
+        "height": 203
+      }
+    ],
+    "heightRatios": [
+      0.97449,
+      0.97449,
+      0.969388,
+      0.97449,
+      0.989796,
+      0.979592,
+      0.969388,
+      0.984694,
+      1.015306,
+      1.0,
+      1.010204,
+      1.010204,
+      1.02551,
+      1.015306,
+      0.984694,
+      1.02551,
+      1.020408,
+      1.0,
+      1.0,
+      1.020408,
+      1.112245,
+      1.153061,
+      1.005102,
+      1.005102
+    ],
+    "separationAlpha": 48,
+    "referenceHeightPixels": 196.0,
+    "transparentFraction": 0.5057,
+    "actions": [
+      "chat",
+      "think",
+      "headpat",
+      "poke",
+      "tickle",
+      "bonk"
+    ]
+  },
+  {
+    "key": "kimi-swim-body",
+    "id": "kimi",
+    "outfit": "swim",
+    "kind": "body",
+    "file": "src/DesktopPet.App/Assets/Characters/kimi/outfits/swim/body-continuity.png",
+    "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-8e46e26f-fb32-4492-844d-77b2ed24e9ae.png",
+    "sha256": "fbd1aadf8dbaceb5ab43c5dfb2475244825b253b2785b8bb1130697a7378255f",
+    "dimensions": [
+      1024,
+      1536
+    ],
+    "cells": [
+      {
+        "x": 26,
+        "y": 46,
+        "width": 237,
+        "height": 241
+      },
+      {
+        "x": 277,
+        "y": 11,
+        "width": 230,
+        "height": 277
+      },
+      {
+        "x": 512,
+        "y": 5,
+        "width": 242,
+        "height": 259
+      },
+      {
+        "x": 767,
+        "y": 46,
+        "width": 244,
+        "height": 245
+      },
+      {
+        "x": 22,
+        "y": 295,
+        "width": 241,
+        "height": 240
+      },
+      {
+        "x": 272,
+        "y": 295,
+        "width": 235,
+        "height": 240
+      },
+      {
+        "x": 519,
+        "y": 292,
+        "width": 241,
+        "height": 241
+      },
+      {
+        "x": 767,
+        "y": 309,
+        "width": 244,
+        "height": 225
+      },
+      {
+        "x": 15,
+        "y": 535,
+        "width": 239,
+        "height": 235
+      },
+      {
+        "x": 253,
+        "y": 543,
+        "width": 235,
+        "height": 225
+      },
+      {
+        "x": 486,
+        "y": 587,
+        "width": 270,
+        "height": 178
+      },
+      {
+        "x": 760,
+        "y": 606,
+        "width": 257,
+        "height": 162
+      },
+      {
+        "x": 28,
+        "y": 775,
+        "width": 227,
+        "height": 252
+      },
+      {
+        "x": 274,
+        "y": 763,
+        "width": 232,
+        "height": 276
+      },
+      {
+        "x": 529,
+        "y": 771,
+        "width": 228,
+        "height": 269
+      },
+      {
+        "x": 776,
+        "y": 767,
+        "width": 232,
+        "height": 272
+      },
+      {
+        "x": 22,
+        "y": 1037,
+        "width": 237,
+        "height": 234
+      },
+      {
+        "x": 269,
+        "y": 1039,
+        "width": 237,
+        "height": 232
+      },
+      {
+        "x": 520,
+        "y": 1043,
+        "width": 239,
+        "height": 228
+      },
+      {
+        "x": 770,
+        "y": 1044,
+        "width": 240,
+        "height": 227
+      },
+      {
+        "x": 23,
+        "y": 1272,
+        "width": 238,
+        "height": 254
+      },
+      {
+        "x": 268,
+        "y": 1272,
+        "width": 243,
+        "height": 250
+      },
+      {
+        "x": 518,
+        "y": 1281,
+        "width": 239,
+        "height": 240
+      },
+      {
+        "x": 774,
+        "y": 1272,
+        "width": 238,
+        "height": 247
+      }
+    ],
+    "heightRatios": [
+      0.955285,
+      1.101626,
+      1.028455,
+      0.971545,
+      0.95122,
+      0.95122,
+      0.955285,
+      0.890244,
+      0.930894,
+      0.890244,
+      0.699187,
+      0.634146,
+      1.0,
+      1.097561,
+      1.069106,
+      1.081301,
+      0.926829,
+      0.918699,
+      0.902439,
+      0.898374,
+      1.00813,
+      0.99187,
+      0.95122,
+      0.979675
+    ],
+    "separationAlpha": 48,
+    "referenceHeightPixels": 246.0,
+    "transparentFraction": 0.2708,
+    "actions": [
+      "jump",
+      "curl",
+      "sleep",
+      "pickup",
+      "ball-ready",
+      "ball-hit",
+      "ball-miss"
+    ]
+  },
+  {
+    "key": "kimi-swim-food",
+    "id": "kimi",
+    "outfit": "swim",
+    "kind": "food",
+    "file": "src/DesktopPet.App/Assets/Characters/kimi/outfits/swim/food-continuity.png",
+    "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-d60c31c5-eb4a-4402-b996-8984bdf9735e.png",
+    "sha256": "1e1dbfd6c1d28e8b8b4c3edc729b0d05f98fc641622fa06a641c9decc357100b",
+    "dimensions": [
+      1254,
+      1254
+    ],
+    "cells": [
+      {
+        "x": 19,
+        "y": 9,
+        "width": 302,
+        "height": 304
+      },
+      {
+        "x": 334,
+        "y": 7,
+        "width": 297,
+        "height": 306
+      },
+      {
+        "x": 648,
+        "y": 7,
+        "width": 298,
+        "height": 306
+      },
+      {
+        "x": 960,
+        "y": 7,
+        "width": 293,
+        "height": 306
+      },
+      {
+        "x": 20,
+        "y": 319,
+        "width": 300,
+        "height": 308
+      },
+      {
+        "x": 334,
+        "y": 319,
+        "width": 298,
+        "height": 308
+      },
+      {
+        "x": 648,
+        "y": 319,
+        "width": 298,
+        "height": 308
+      },
+      {
+        "x": 962,
+        "y": 319,
+        "width": 292,
+        "height": 308
+      },
+      {
+        "x": 20,
+        "y": 634,
+        "width": 300,
+        "height": 306
+      },
+      {
+        "x": 333,
+        "y": 633,
+        "width": 300,
+        "height": 308
+      },
+      {
+        "x": 647,
+        "y": 633,
+        "width": 299,
+        "height": 307
+      },
+      {
+        "x": 960,
+        "y": 633,
+        "width": 294,
+        "height": 307
+      },
+      {
+        "x": 19,
+        "y": 946,
+        "width": 301,
+        "height": 308
+      },
+      {
+        "x": 334,
+        "y": 946,
+        "width": 299,
+        "height": 308
+      },
+      {
+        "x": 648,
+        "y": 947,
+        "width": 296,
+        "height": 307
+      },
+      {
+        "x": 960,
+        "y": 946,
+        "width": 294,
+        "height": 308
+      }
+    ],
+    "heightRatios": [
+      0.988391,
+      0.995025,
+      0.995025,
+      0.995025,
+      1.001658,
+      1.001658,
+      1.001658,
+      1.001658,
+      0.995025,
+      1.001658,
+      0.998342,
+      0.998342,
+      1.001658,
+      1.001658,
+      0.998342,
+      1.001658
+    ],
+    "separationAlpha": 48,
+    "referenceHeightPixels": 301.5,
+    "transparentFraction": 0.3006,
+    "actions": [
+      "eat",
+      "meal"
+    ]
+  },
+  {
+    "key": "kimi-wedding-body",
+    "id": "kimi",
+    "outfit": "wedding",
+    "kind": "body",
+    "file": "src/DesktopPet.App/Assets/Characters/kimi/outfits/wedding/body-continuity.png",
+    "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-b90a859a-71da-4b45-a5de-9b8b4948a7f1.png",
+    "sha256": "ff17c60cf6d74725b49c78798a631791775958569872a63eeb1ea01fb3514927",
+    "dimensions": [
+      1024,
+      1536
+    ],
+    "cells": [
+      {
+        "x": 5,
+        "y": 19,
+        "width": 248,
+        "height": 235
+      },
+      {
+        "x": 261,
+        "y": 10,
+        "width": 249,
+        "height": 246
+      },
+      {
+        "x": 515,
+        "y": 6,
+        "width": 249,
+        "height": 232
+      },
+      {
+        "x": 773,
+        "y": 27,
+        "width": 246,
+        "height": 227
+      },
+      {
+        "x": 6,
+        "y": 265,
+        "width": 245,
+        "height": 228
+      },
+      {
+        "x": 264,
+        "y": 269,
+        "width": 243,
+        "height": 224
+      },
+      {
+        "x": 517,
+        "y": 270,
+        "width": 246,
+        "height": 225
+      },
+      {
+        "x": 779,
+        "y": 291,
+        "width": 237,
+        "height": 203
+      },
+      {
+        "x": 5,
+        "y": 503,
+        "width": 246,
+        "height": 234
+      },
+      {
+        "x": 256,
+        "y": 521,
+        "width": 249,
+        "height": 209
+      },
+      {
+        "x": 506,
+        "y": 557,
+        "width": 260,
+        "height": 172
+      },
+      {
+        "x": 769,
+        "y": 586,
+        "width": 252,
+        "height": 144
+      },
+      {
+        "x": 4,
+        "y": 748,
+        "width": 246,
+        "height": 265
+      },
+      {
+        "x": 264,
+        "y": 738,
+        "width": 243,
+        "height": 279
+      },
+      {
+        "x": 518,
+        "y": 741,
+        "width": 244,
+        "height": 281
+      },
+      {
+        "x": 776,
+        "y": 745,
+        "width": 241,
+        "height": 271
+      },
+      {
+        "x": 5,
+        "y": 1032,
+        "width": 250,
+        "height": 231
+      },
+      {
+        "x": 260,
+        "y": 1031,
+        "width": 250,
+        "height": 232
+      },
+      {
+        "x": 517,
+        "y": 1035,
+        "width": 244,
+        "height": 228
+      },
+      {
+        "x": 772,
+        "y": 1031,
+        "width": 248,
+        "height": 232
+      },
+      {
+        "x": 7,
+        "y": 1271,
+        "width": 250,
+        "height": 254
+      },
+      {
+        "x": 260,
+        "y": 1267,
+        "width": 250,
+        "height": 258
+      },
+      {
+        "x": 511,
+        "y": 1280,
+        "width": 251,
+        "height": 245
+      },
+      {
+        "x": 771,
+        "y": 1266,
+        "width": 250,
+        "height": 259
+      }
+    ],
+    "heightRatios": [
+      0.954167,
+      1.0,
+      0.941667,
+      0.920833,
+      0.925,
+      0.908333,
+      0.9125,
+      0.820833,
+      0.95,
+      0.845833,
+      0.691667,
+      0.575,
+      1.079167,
+      1.1375,
+      1.145833,
+      1.104167,
+      0.9375,
+      0.941667,
+      0.925,
+      0.941667,
+      1.033333,
+      1.05,
+      0.995833,
+      1.054167
+    ],
+    "separationAlpha": 48,
+    "referenceHeightPixels": 240.0,
+    "transparentFraction": 0.2635,
+    "actions": [
+      "jump",
+      "curl",
+      "sleep",
+      "pickup",
+      "ball-ready",
+      "ball-hit",
+      "ball-miss"
+    ]
+  },
+  {
+    "key": "kimi-wedding-food",
+    "id": "kimi",
+    "outfit": "wedding",
+    "kind": "food",
+    "file": "src/DesktopPet.App/Assets/Characters/kimi/outfits/wedding/food-continuity.png",
+    "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-bd2c590e-0101-4550-b7ec-6433fd0f84c3.png",
+    "sha256": "009093b081101a93e57d04c318ffaff53d936dbca663fda72e7f7c910a7baecf",
+    "dimensions": [
+      1254,
+      1254
+    ],
+    "cells": [
+      {
+        "x": 1,
+        "y": 7,
+        "width": 313,
+        "height": 298
+      },
+      {
+        "x": 315,
+        "y": 7,
+        "width": 313,
+        "height": 298
+      },
+      {
+        "x": 629,
+        "y": 7,
+        "width": 312,
+        "height": 298
+      },
+      {
+        "x": 942,
+        "y": 7,
+        "width": 312,
+        "height": 298
+      },
+      {
+        "x": 2,
+        "y": 319,
+        "width": 312,
+        "height": 299
+      },
+      {
+        "x": 315,
+        "y": 319,
+        "width": 312,
+        "height": 299
+      },
+      {
+        "x": 629,
+        "y": 320,
+        "width": 312,
+        "height": 298
+      },
+      {
+        "x": 942,
+        "y": 319,
+        "width": 312,
+        "height": 299
+      },
+      {
+        "x": 2,
+        "y": 633,
+        "width": 312,
+        "height": 299
+      },
+      {
+        "x": 314,
+        "y": 633,
+        "width": 313,
+        "height": 299
+      },
+      {
+        "x": 629,
+        "y": 633,
+        "width": 312,
+        "height": 299
+      },
+      {
+        "x": 942,
+        "y": 633,
+        "width": 312,
+        "height": 299
+      },
+      {
+        "x": 1,
+        "y": 947,
+        "width": 313,
+        "height": 298
+      },
+      {
+        "x": 315,
+        "y": 946,
+        "width": 312,
+        "height": 299
+      },
+      {
+        "x": 629,
+        "y": 946,
+        "width": 312,
+        "height": 299
+      },
+      {
+        "x": 942,
+        "y": 946,
+        "width": 312,
+        "height": 299
+      }
+    ],
+    "heightRatios": [
+      0.996587,
+      0.996587,
+      0.996587,
+      0.996587,
+      1.0,
+      1.0,
+      0.996587,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      0.996587,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "separationAlpha": 48,
+    "referenceHeightPixels": 293.0,
+    "transparentFraction": 0.2758,
+    "actions": [
+      "eat",
+      "meal"
+    ]
+  }
+]

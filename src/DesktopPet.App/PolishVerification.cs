@@ -46,6 +46,26 @@ internal static class PolishVerification
         Require(ReferenceEquals(green,pet.Art.Frame(fixtureCharacter,fixtureClip,0)),"recently used sprites retain their decoded native pixels");
         pet.Art.Frame(fixtureCharacter,new Sprite("cell-ownership.png",1,1,Cells:[new(0,0,520,80)]),0);
         Require(pet.Art.GroundLine(green)>0,"loading another sheet never evicts a freshly used sprite's geometry");
+        // A faint hair fringe may connect neighbouring opaque figures. Choosing
+        // stronger seeds must separate the figures without discarding soft alpha.
+        var fringeVisual=new DrawingVisual();
+        using(var dc=fringeVisual.RenderOpen())
+        {
+            dc.DrawRectangle(new SolidColorBrush(Color.FromArgb(64,0,128,0)),null,new Rect(20,16,60,8));
+            dc.DrawRectangle(Brushes.Green,null,new Rect(10,10,20,20));
+            dc.DrawRectangle(Brushes.Blue,null,new Rect(70,10,20,20));
+        }
+        var fringeBitmap=new RenderTargetBitmap(100,40,96,96,PixelFormats.Pbgra32);fringeBitmap.Render(fringeVisual);
+        var fringePng=new PngBitmapEncoder();fringePng.Frames.Add(BitmapFrame.Create(fringeBitmap));
+        string fringePath=Path.Combine(output,"soft-cell-ownership.png");using(var file=File.Create(fringePath))fringePng.Save(file);
+        byte[] fringeBytes=File.ReadAllBytes(fringePath);
+        var fringeClip=new Sprite("soft-cell-ownership.png",2,1,Cells:[new(0,0,80,40),new(20,0,80,40)],IsolateCells:true,SeparationAlpha:128);
+        var fringeLeft=pet.Art.Frame(fixtureCharacter,fringeClip,0);var fringeRight=pet.Art.Frame(fixtureCharacter,fringeClip,1);
+        Require(Alpha(fringeLeft,20,20)==255 && Alpha(fringeLeft,75,20)==0,"opaque neighbours separate across a faint alpha bridge");
+        Require(Alpha(fringeLeft,35,20)==64 && Alpha(fringeRight,45,20)==64,"isolated sprites preserve their native semitransparent hair edges");
+        Require(Alpha(fringeRight,55,20)==255 && Alpha(fringeRight,5,20)==0,"both sides of a faint bridge retain only their own figure");
+        Require(!ReferenceEquals(fringeLeft,pet.Art.Frame(fixtureCharacter,fringeClip with { SeparationAlpha=48 },0)),"alpha separation settings have independent cached frames");
+        Require(fringeBytes.SequenceEqual(File.ReadAllBytes(fringePath)),"soft-edge isolation leaves source bytes unchanged");
         void Save(BitmapSource bitmap, string file)
         {
             var png = new PngBitmapEncoder(); png.Frames.Add(BitmapFrame.Create(bitmap));

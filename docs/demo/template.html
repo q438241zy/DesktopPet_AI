@@ -48,7 +48,9 @@ const families=[['whale','DeepSeek'],['gpt','GPT'],['claude','Claude'],['gemini'
 $('family').replaceChildren(...families.map(([id,name])=>{const o=document.createElement('option');o.value=id;o.textContent=name;return o;}));
 function matrix(){const family=$('family').value;const rows=D.coverage.filter(r=>r.family===family&&r.outfit===outfit);$('summary').textContent=`${families.find(f=>f[0]===family)[1]} · ${clothes.find(c=>c[0]===outfit)[1]} · ${rows.filter(isGap).length} 個待補項目（含近似動作）`;$('matrix').replaceChildren(...D.actions.flatMap(a=>{const cells=styles.map(([style])=>rows.find(r=>r.category===style&&r.action===a.key));if($('onlyGaps').checked&&!cells.some(isGap))return[];const tr=document.createElement('tr'),name=document.createElement('td');name.textContent=a.title;tr.append(name);for(const c of cells){const td=document.createElement('td');td.title=c.detail+' / '+c.file;td.append(badge(c.status));tr.append(td);}return[tr];}));}
 $('family').onchange=matrix;$('onlyGaps').onchange=matrix;
-$('gaps').textContent=`目前全角色清單共有 ${D.coverage.filter(r=>r.status==='缺少动作').length} 個缺少動作、${D.coverage.filter(r=>r.status==='近似动作').length} 個近似動作。請以清單標記判讀，不能把「服裝沒有變」當成「動作已完成」。`;
+const missing=D.coverage.filter(r=>r.status==='缺少动作').length,approximate=D.coverage.filter(r=>r.status==='近似动作').length;
+$('gaps').hidden=missing+approximate===0;
+$('gaps').textContent=`目前全角色清單共有 ${missing} 個缺少動作、${approximate} 個近似動作。請以清單標記判讀，不能把「服裝沒有變」當成「動作已完成」。`;
 $('version').textContent=`桌面版 ${D.version} · ${new Date(D.generatedAt).toLocaleString('zh-TW',{hour12:false})}`;
 $('reset').onclick=()=>{for(const s of states){s.x=s.arena.clientWidth/2;s.y=floor(s);}run('idle');};
 $('pause').onclick=()=>{paused=!paused;$('pause').textContent=paused?'播放':'暫停';};

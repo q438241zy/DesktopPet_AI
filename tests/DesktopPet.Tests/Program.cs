@@ -334,6 +334,10 @@ try
         c.Atlas = new Sprite("atlas.png", 1, 1, HeightRatios: [.49]); Write(); Equal(.49, Character.Load(root).Atlas.HeightRatios![0]);
         c.Atlas = new Sprite("atlas.png", 1, 1, HeightRatios: []); Write(); Reject(() => Character.Load(root));
         c.Atlas = new Sprite("atlas.png", 1, 1, HeightRatios: [0]); Write(); Reject(() => Character.Load(root));
+        c.Atlas = new Sprite("atlas.png", 4, 6, SeparationAlpha: 200, ReferenceHeightPixels: 280); Write();
+        Equal(200, Character.Load(root).Atlas.SeparationAlpha); Equal(280d, Character.Load(root).Atlas.ReferenceHeightPixels);
+        c.Atlas = c.Atlas with { SeparationAlpha=255 }; Write(); Reject(() => Character.Load(root));
+        c.Atlas = c.Atlas with { SeparationAlpha=48, ReferenceHeightPixels=-1 }; Write(); Reject(() => Character.Load(root));
         c.Atlas = new Sprite("atlas.png", 1, 1); c.Category = "unknown"; Write(); Reject(() => Character.Load(root));
         c.Category = "adult"; Write(); Equal("adult", Character.Load(root).Category);
         c.Outfits["empty"] = new Outfit { Name = "empty" }; Write(); Reject(() => Character.Load(root)); c.Outfits.Clear();

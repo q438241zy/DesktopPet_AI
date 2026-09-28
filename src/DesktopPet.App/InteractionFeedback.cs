@@ -61,17 +61,20 @@ internal sealed class InteractionFeedback : FrameworkElement
         switch (f.Action)
         {
             case "headpat":
-                Hand(new Point(f.Head.X - 14, f.Head.Y - 33 + 6 * Math.Pow(Math.Sin(t * 4), 2)), -70); Affection(); break;
+                if (!f.DrawnPose) Hand(new Point(f.Head.X - 14, f.Head.Y - 33 + 6 * Math.Pow(Math.Sin(t * 4), 2)), -70);
+                Affection(); break;
             case "poke":
                 double rub = Math.Sin(t * 10) * 3;
-                Hand(new Point(f.Mouth.X - 29 + rub, f.Mouth.Y - 9), -80, .75);
-                Hand(new Point(f.Mouth.X + 12 - rub, f.Mouth.Y - 11), 80, .75);
+                if (!f.DrawnPose) {
+                    Hand(new Point(f.Mouth.X - 29 + rub, f.Mouth.Y - 9), -80, .75);
+                    Hand(new Point(f.Mouth.X + 12 - rub, f.Mouth.Y - 11), 80, .75);
+                }
                 dc.PushOpacity(.28); dc.DrawEllipse(pink, null, new Point(f.Mouth.X - 7, f.Mouth.Y - 2), 4, 2); dc.DrawEllipse(pink, null, new Point(f.Mouth.X + 7, f.Mouth.Y - 2), 4, 2); dc.Pop(); break;
             case "tickle":
                 for (int side = -1; side <= 1; side += 2)
                 {
                     var at = new Point(f.Body.X + side * size * .11, f.Body.Y - 15 + Math.Sin(t * 15) * 3);
-                    Hand(at, side * 85, .8);
+                    if (!f.DrawnPose) Hand(at, side * 85, .8);
                     Symbol("M2,4 Q7,0 12,4 M3,9 Q8,5 13,9", new Point(at.X - side * 13, at.Y - 5), .7, null, "#D8B971");
                 }
                 Affection(); break;

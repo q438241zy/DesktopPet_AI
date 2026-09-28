@@ -598,16 +598,21 @@ public sealed class PetWindow : Window
         UsingDrawnAction = dance is null && action != "walk" && Character.MotionFor(State.Outfit, action) is not null;
         DrawnFrame = art.Frame; bakedProps = art.Sprite.BakedProps;
         double size = State.Size;
-        if (action == "walk" || UsingDrawnAction && (Character.Category != "chibi" || art.Sprite.HeightRatios is not null))
+        if (action == "walk" || UsingDrawnAction && (Character.Category != "chibi" || art.Sprite.HeightRatios is not null || art.Sprite.ReferenceHeightPixels > 0))
         {
             // Scale each appearance to its own idle silhouette, including Q wardrobes.
             var reference = Character.Resolve(State.Outfit, "idle", 0).Sprite;
             if (reference is not null)
             {
                 var calibration = Art.Frame(Character, reference, 0);
-                size *= action == "walk" ? Art.VisibleHeight(calibration) * Art.PoseScale(frame)
-                    : Math.Clamp(Art.VisibleHeight(calibration) / Math.Max(.1, Art.VisibleHeight(frame)), .6, 2.2);
-                size *= art.Sprite.HeightRatios?[art.Frame] ?? 1;
+                if (art.Sprite.ReferenceHeightPixels > 0)
+                    size *= Art.VisibleHeight(calibration) * Math.Max(frame.PixelWidth,frame.PixelHeight) / art.Sprite.ReferenceHeightPixels;
+                else
+                {
+                    size *= action == "walk" ? Art.VisibleHeight(calibration) * Art.PoseScale(frame)
+                        : Math.Clamp(Art.VisibleHeight(calibration) / Math.Max(.1, Art.VisibleHeight(frame)), .6, 2.2);
+                    size *= art.Sprite.HeightRatios?[art.Frame] ?? 1;
+                }
             }
         }
         if (action == "sleep") size *= PortraitChoreography.Breath(Now - actionStarted, State.ReducedMotion);
@@ -617,7 +622,7 @@ public sealed class PetWindow : Window
         Canvas.SetTop(sprite, PetTop - AirborneOffset); Canvas.SetTop(bubble, Math.Max(8, PetTop - AirborneOffset - 78));
         sprite.RenderTransformOrigin = new Point(.5, .5);
         facing.ScaleX = action is "walk" or "peek" ? DesktopWalk.ScaleX(direction, art.Sprite.Facing) : 1;
-        Canvas.SetLeft(sprite, CenterX - size * (.5 + (action == "walk" ? facing.ScaleX * (Art.HorizontalAnchor(frame) - .5) : UsingDrawnAction && Character.Category != "chibi" ? Art.HorizontalAnchor(frame) - .5 : 0)));
+        Canvas.SetLeft(sprite, CenterX - size * (.5 + (action == "walk" ? facing.ScaleX * (Art.HorizontalAnchor(frame) - .5) : UsingDrawnAction && (Character.Category != "chibi" || art.Sprite.IsolateCells) ? Art.HorizontalAnchor(frame) - .5 : 0)));
         sprite.RenderTransform = facing;
         HandTarget = null;
         if (art.Sprite.Hands?[art.Frame] is { } contact)
@@ -665,6 +670,11 @@ public sealed class PetWindow : Window
             double h = sprite.Height * Art.VisibleHeight(drawn), top = FloorY - h;
             top -= AirborneOffset;
             head = new(CenterX, top + h * .07); mouth = new(CenterX, top + h * .16); body = new(CenterX, top + h * .43);
+        }
+        else if (UsingDrawnAction && Character.Category == "chibi" && sprite.Source is System.Windows.Media.Imaging.BitmapSource chibi)
+        {
+            double h = sprite.Height * Art.VisibleHeight(chibi), top = FloorY - h - AirborneOffset;
+            head = new(CenterX, top + h * .25); mouth = new(CenterX, top + h * .5); body = new(CenterX, top + h * .77);
         }
         if (danceVisual is { } visual)
         {

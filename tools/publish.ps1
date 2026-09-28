@@ -28,6 +28,10 @@ New-Item -ItemType Directory -Path $polishDocs -Force | Out-Null
 Copy-Item -LiteralPath "$projectRoot/artwork/motion-polish/prompts.md","$projectRoot/artwork/motion-polish/manifest.json" -Destination $polishDocs
 Copy-Item -LiteralPath "$projectRoot/artwork/motion-polish/prompts","$projectRoot/artwork/motion-polish/results" -Destination $polishDocs -Recurse -Force
 Write-Output "Ready: $releaseRoot/DesktopPet.exe"
+$chibiDocs = Join-Path $releaseRoot 'artwork/chibi-continuity'
+New-Item -ItemType Directory -Path $chibiDocs -Force | Out-Null
+Copy-Item -LiteralPath "$projectRoot/artwork/chibi-continuity/prompts.md","$projectRoot/artwork/chibi-continuity/manifest.json" -Destination $chibiDocs
+Copy-Item -LiteralPath "$projectRoot/artwork/chibi-continuity/prompts","$projectRoot/artwork/chibi-continuity/results" -Destination $chibiDocs -Recurse -Force
 $demoPointer = Join-Path $projectRoot 'artifacts/current-deepseek-demo.txt'
 if (Test-Path -LiteralPath $demoPointer) {
     $demoSource = (Get-Content -LiteralPath $demoPointer -Raw).Trim()

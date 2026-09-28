@@ -34,6 +34,8 @@ public sealed class PetWindow : Window
     internal bool IsExploring => exploring;
     internal RigVisual? ActiveMotion => danceVisual;
     internal string EffectKey => effects.EffectKey;
+    internal bool DrawsExtraFood => effects.DrawsFood;
+    internal bool DrawsExtraHammer => effects.DrawsHammer;
     internal bool UsingDrawnAction { get; private set; }
     internal int DrawnFrame { get; private set; }
     internal Point? HandTarget { get; private set; }
@@ -51,6 +53,7 @@ public sealed class PetWindow : Window
     private readonly DispatcherTimer timer;
     private readonly Stopwatch clock = Stopwatch.StartNew();
     private readonly ScaleTransform facing = new(1, 1);
+    private readonly WalkPlayback walkPlayback = new();
     private RigVisual? danceVisual;
     private EdgeHide? hideJourney;
     private Rect hideArea;
@@ -87,6 +90,7 @@ public sealed class PetWindow : Window
     internal void PreviewMotion(string motion, double elapsed, int duration)
     {
         previewClock = elapsed; action = motion; actionStarted = 0; actionUntil = duration;
+        direction = 1;
         sprite.Visibility = Visibility.Visible;
         prop = motion is "eat" or "meal" ? "food" : motion == "build" ? "blocks" : null;
         activeFood = Collectibles.Get(motion == "meal" ? "rice" : "bread"); propStart = 0;
@@ -111,7 +115,7 @@ public sealed class PetWindow : Window
         sprite.RenderTransform = facing;
         ball.RenderTransform = ballSpin;
         surface.Children.Add(sprite); surface.Children.Add(effects); surface.Children.Add(menu);
-        bubble = new Border { Background = CloudTheme.Brush("#F8FCFF"), BorderBrush = CloudTheme.Line, BorderThickness = new Thickness(1), CornerRadius = new CornerRadius(20), Padding = new Thickness(15, 10, 15, 10), Width = 238, Child = speech, IsHitTestVisible = false, Visibility = Visibility.Collapsed };
+        bubble = new Border { Background = CloudTheme.Cream, BorderBrush = CloudTheme.Line, BorderThickness = new Thickness(1), CornerRadius = new CornerRadius(20), Padding = new Thickness(15, 10, 15, 10), Width = 238, Child = speech, IsHitTestVisible = false, Visibility = Visibility.Collapsed };
         surface.Children.Add(bubble); surface.Children.Add(ball);
         ball.Visibility = Visibility.Collapsed;
         AutomationProperties.SetName(sprite, "桌面宠物：点击摸头，拖动抱起，右键互动");
@@ -132,7 +136,8 @@ public sealed class PetWindow : Window
         Deactivated += (_, _) => { CancelInput(); menu.Children.Clear(); };
         SourceInitialized += (_, _) => InitializeDesktop();
         Loaded += (_, _) => Welcome();
-        timer = new DispatcherTimer(DispatcherPriority.Background) { Interval = TimeSpan.FromMilliseconds(33) };
+        RenderOptions.SetBitmapScalingMode(sprite, BitmapScalingMode.HighQuality);
+        timer = new DispatcherTimer(DispatcherPriority.Render) { Interval = TimeSpan.FromMilliseconds(16) };
         timer.Tick += (_, _) => Tick(); timer.Start();
         Closed += (_, _) => { closing = true; timer.Stop(); CancelInput(); CancelChoreography(); chatWindow?.Dispose(); settings?.Close(); desktop?.Dispose(); Save(); };
         day = DateOnly.FromDateTime(DateTime.Now);
@@ -171,7 +176,7 @@ public sealed class PetWindow : Window
         bool keepChat = ActiveChat is not null;
         CancelInput(); ClearTransient(keepChat); resting = false;
         sprite.Visibility = Visibility.Visible;
-        State.Character = selected.Id; Art.Clear(); ApplySettings(false); Save();
+        State.Character = selected.Id; ApplySettings(false); Save();
         chatWindow?.SetCompanion();
         if (keepChat) { conversationActive = true; SetAction(Chat.IsThinking ? "thinking" : "listen"); Render(); }
         else Play("chat", $"你好，我是{Character.Name}。", 2600);
@@ -235,7 +240,7 @@ public sealed class PetWindow : Window
     private void Say(string message, double duration = 2800)
     { speech.Text = message; speechUntil = Now + duration; bubble.Visibility = Visibility.Visible; }
     private void SetAction(string next, double duration = 0, Action? completed = null)
-    { action = next; actionStarted = Now; actionUntil = duration > 0 ? Now + duration : 0; onMotionEnd = completed; }
+    { action = next; actionStarted = Now; actionUntil = duration > 0 ? Now + duration : 0; onMotionEnd = completed; if (next == "walk") walkPlayback.Reset(); timer.Interval = TimeSpan.FromMilliseconds(16); }
     public void Play(string next, string? message = null, double duration = 2600)
     {
         resting = false; sprite.Visibility = Visibility.Visible;
@@ -426,7 +431,7 @@ public sealed class PetWindow : Window
         }
     }
     public void StopInteraction() { CancelInput(); ClearTransient(); SetAction("idle"); lastInteraction = Now; Render(); }
-    private void Snack() { ClearTransient(); activeFood = Character.MotionFor(State.Outfit, "eat")?.BakedProps == true ? Collectibles.Get("bread") : snacks.Draw(); Play("eat", activeFood.Name + "，啊呜。", PortraitMotion.Duration("eat")); prop = "food"; propStart = Now; }
+    private void Snack() { ClearTransient(); activeFood = Character.MotionFor(State.Outfit, "eat")?.BakedProps == true ? Collectibles.Get("bread") : snacks.Draw(); Play("eat", Character.MotionFor(State.Outfit,"eat")?.BakedProps == true ? "啊呜，好吃。" : activeFood.Name + "，啊呜。", PortraitMotion.Duration("eat")); prop = "food"; propStart = Now; }
     private void BuildBlocks() { ClearTransient(); Play("build", duration: PortraitMotion.Duration("build")); prop = "blocks"; propStart = Now; onMotionEnd = () => prop = null; }
     private void Celebrate(string label) { ClearTransient(); Play("chat", label + "。这封信送给你 ♡", 5200); prop = "letter"; propStart = Now; }
     private void Peek() => BeginHide();
@@ -545,7 +550,7 @@ public sealed class PetWindow : Window
         {
             var area = WorkArea;
             var clip = Character.Resolve(State.Outfit, "walk", now - actionStarted).Sprite;
-            var step = DesktopWalk.Step(Left + CenterX, direction, DesktopWalk.Speed(State.Size, clip) * dt, area.Left + State.Size * .46, area.Right - State.Size * .46);
+            var step = walkPlayback.Advance(Left + CenterX, direction, dt, State.Size, clip, area.Left + State.Size * .46, area.Right - State.Size * .46);
             Left = step.Center - CenterX; direction = step.Direction;
             Top = area.Bottom - FloorY;
             if (now >= roamDeadline)
@@ -582,25 +587,26 @@ public sealed class PetWindow : Window
         }
         Render();
         bool moving = dragging || dropping || holdingBall || flyingBall || roaming || hideJourney is not null || prop is not null || actionUntil > 0 || danceVisual is not null || action == "thinking";
-        timer.Interval = TimeSpan.FromMilliseconds(action == "sleep" ? 125 : moving ? 33 : 200);
+        timer.Interval = TimeSpan.FromMilliseconds(action == "sleep" ? 80 : moving ? 16 : 200);
     }
     private void Render()
     {
-        var art = Character.Resolve(State.Outfit, dance is null ? action : "idle", (Now - actionStarted) * (hideJourney is not null && action == "walk" ? 1.7 : 1), State.ReducedMotion);
+        double elapsed = roaming && previewClock is null ? walkPlayback.Milliseconds : (Now - actionStarted) * (hideJourney is not null && action == "walk" ? 1.7 : 1);
+        var art = Character.Resolve(State.Outfit, dance is null ? action : "idle", elapsed, State.ReducedMotion);
         var frame = Art.Frame(Character, art.Sprite, art.Frame);
         sprite.Source = frame;
         UsingDrawnAction = dance is null && action != "walk" && Character.MotionFor(State.Outfit, action) is not null;
         DrawnFrame = art.Frame; bakedProps = art.Sprite.BakedProps;
         double size = State.Size;
-        if (action == "walk" || UsingDrawnAction && Character.Category != "chibi")
+        if (action == "walk" || UsingDrawnAction && (Character.Category != "chibi" || art.Sprite.HeightRatios is not null))
         {
-            // Match upright portraits to their walk; Q outfits keep the original walk's body scale.
-            var reference = Character.Atlas.Columns * Character.Atlas.Rows == 1
-                ? Character.Resolve(State.Outfit, "idle", 0).Sprite : Character.MotionFor("original", "walk");
+            // Scale each appearance to its own idle silhouette, including Q wardrobes.
+            var reference = Character.Resolve(State.Outfit, "idle", 0).Sprite;
             if (reference is not null)
             {
                 var calibration = Art.Frame(Character, reference, 0);
-                size *= Math.Clamp(Art.SheetHeight(calibration) / Math.Max(.1, UsingDrawnAction ? Art.VisibleHeight(frame) : Art.SheetHeight(frame)), UsingDrawnAction ? .6 : .7, UsingDrawnAction ? 2.2 : 1.5);
+                size *= action == "walk" ? Art.VisibleHeight(calibration) * Art.PoseScale(frame)
+                    : Math.Clamp(Art.VisibleHeight(calibration) / Math.Max(.1, Art.VisibleHeight(frame)), .6, 2.2);
                 size *= art.Sprite.HeightRatios?[art.Frame] ?? 1;
             }
         }
@@ -669,6 +675,8 @@ public sealed class PetWindow : Window
             body = Map(visual.Pose.Bones[0].A + new RigPoint(0, -.07));
         }
         effects.Opacity = State.Opacity;
+        if (action == "bonk" && !bakedProps && effects.Hammer is null)
+            effects.Hammer = Art.Frame(Catalog.Find("whale"), new Sprite("motions/bonk.webp", 1, 1, Cells: [new SpriteCell(65, 26, 107, 113)]), 0);
         var area = WorkArea;
         var bounds = new Rect(new Point(Math.Max(0, area.Left - Left), Math.Max(0, area.Top - Top)),
             new Point(Math.Min(Width, area.Right - Left), Math.Min(Height, area.Bottom - Top)));

@@ -32,7 +32,7 @@ internal sealed class InlineChat : Border, IDisposable
     {
         this.pet = pet;
         Width = 306; Padding = new Thickness(13); CornerRadius = new CornerRadius(18);
-        Background = CloudTheme.Brush("#FAFCFF"); BorderBrush = CloudTheme.Line; BorderThickness = new Thickness(1);
+        Background = CloudTheme.Cream; BorderBrush = CloudTheme.Line; BorderThickness = new Thickness(1);
         Visibility = Visibility.Collapsed;
         var root = new StackPanel(); Child = root;
         var row = new DockPanel();

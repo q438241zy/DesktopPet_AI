@@ -1,0 +1,12 @@
+{
+  "key": "claude-adult-swim-walk",
+  "id": "claude-adult",
+  "category": "adult",
+  "outfit": "swim",
+  "action": "walk",
+  "reference": "C:\\Users\\99000256\\Desktop\\Character\\src\\DesktopPet.App\\Assets\\Characters\\claude-adult\\outfits\\swim\\walk.png",
+  "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-f4e9c8e2-0688-4a63-a470-a823dc52578c.png",
+  "revision": 2,
+  "columns": 4,
+  "rows": 3
+}

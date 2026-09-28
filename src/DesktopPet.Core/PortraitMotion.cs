@@ -42,7 +42,7 @@ public static class PortraitMotion
             "nudge" => new(Turn: E(-.065 * bite), LeftStep: E(-.06 * bite), LeftLift: E(-.025 * bite), RightArm: E(-.09)),
             "ball-ready" or "anticipate" => new(Turn: E(.025 * wave), Head: E(-.055), Squat: E(.012), LeftElbow: E(.11), RightArm: E(-.16), RightElbow: E(-.22)),
             "ball-hit" => new(Squat: E(.034), Head: E(-.09), Turn: E(.065), LeftElbow: E(.24), RightArm: E(-.2), RightElbow: E(-.32)),
-            "bonk" => new(Head: E(.15 * Math.Pow(Math.Max(0, Math.Sin(t * 8)), 2)), Squat: E(.018 * Math.Pow(Math.Max(0, Math.Sin(t * 8)), 2))),
+            "bonk" => new(Head: E(.12 * Math.Exp(-Math.Pow((t - .49) / .14, 2))), Squat: E(.012 * Math.Exp(-Math.Pow((t - .49) / .14, 2)))),
             "peek" => new(Turn: E(.06 * Math.Sin(t * 3)), Head: E(-.12), Sway: E(.018 * Math.Sin(t * 3))),
             "pickup" => new(Lift: E(-.016), Head: E(-.07), LeftStep: E(-.009 * wave), LeftLift: E(-.016), RightArm: E(-.05)),
             "shaken" or "shaken-strong" => new(Turn: E((action == "shaken" ? .055 : .1) * fast), Head: E(-.12 * fast), LeftElbow: E(.18 * fast), RightArm: E(-.1 * fast)),

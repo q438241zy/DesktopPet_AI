@@ -9,7 +9,7 @@ public sealed record SpriteCell(int X, int Y, int Width, int Height);
 /// <summary>A sheet with optional authored crop regions, frame order and contact points.</summary>
 public sealed record Sprite(string File, int Columns = 3, int Rows = 2, int[]? FrameMs = null, string Facing = "right",
     int[]? Frames = null, bool Loop = true, bool BakedProps = false, HandContact?[]? Hands = null, SpriteCell[]? Cells = null,
-    double[]? HeightRatios = null);
+    double[]? HeightRatios = null, bool IsolateCells = false);
 
 /// <summary>A self-contained appearance. Missing motions never borrow another outfit's art.</summary>
 public sealed class Outfit

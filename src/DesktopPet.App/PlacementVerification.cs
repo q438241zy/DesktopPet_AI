@@ -15,6 +15,8 @@ internal static class PlacementVerification
         void Require(bool ok, string message) { if (!ok) throw new InvalidOperationException(message); checks.Add("PASS " + message); }
         async Task Until(Func<bool> ok) { var time=Stopwatch.StartNew(); while(!ok()) { if(time.ElapsedMilliseconds>4000) throw new InvalidOperationException("placement timed out: "+pet.CurrentAction); await Task.Delay(25); } }
         var canvas=(Canvas)pet.Content; var sprite=canvas.Children.OfType<Image>().Single();
+        // HWND positions round to device pixels on fractional-DPI desktops.
+        double positionTolerance=1/VisualTreeHelper.GetDpi(pet).DpiScaleY+.01;
         pet.IsHitTestVisible=false; pet.State.Size=200; pet.State.Wander=pet.State.ReducedMotion=false; pet.State.CheckIn(DateOnly.FromDateTime(DateTime.Now));
         foreach(var c in pet.Catalog.Characters)
         foreach(string outfit in new[]{"original","swim","wedding"})
@@ -25,8 +27,8 @@ internal static class PlacementVerification
             foreach(double dx in new[]{-60d,70,-85,100,-60,0}) pet.MoveLift(x+dx,y);
             Require(pet.CurrentAction=="pickup" && sprite.RenderTransform is ScaleTransform,c.Id+"/"+outfit+": dragging never becomes shaking or a pendulum");
             pet.ReleaseLift(); await Task.Delay(70);
-            Require(!pet.IsDropping && Math.Abs(pet.Top-y)<.1,c.Id+"/"+outfit+": manual placement detaches from taskbar");
-            Require(Math.Abs(new StateStore(output).Load().Top!.Value-y)<.1,c.Id+"/"+outfit+": chosen height is persisted");
+            Require(!pet.IsDropping && Math.Abs(pet.Top-y)<positionTolerance,c.Id+"/"+outfit+": manual placement detaches from taskbar");
+            Require(Math.Abs(new StateStore(output).Load().Top!.Value-y)<positionTolerance,c.Id+"/"+outfit+": chosen height is persisted");
             var frame=(BitmapSource)sprite.Source;
             Require(Math.Abs(Canvas.GetTop(sprite)+sprite.Height*pet.Art.GroundLine(frame)-468)<.15,c.Id+"/"+outfit+": foot baseline uses rendered alpha bounds");
             if(c.FamilyId=="whale")
@@ -34,7 +36,7 @@ internal static class PlacementVerification
                 pet.DropToFloor(); await Task.Delay(80); double interrupted=pet.Top;
                 pet.BeginLift(); Require(!pet.IsDropping && Math.Abs(pet.Top-interrupted)<.1,c.Id+"/"+outfit+": grabbing a falling pet does not teleport it to taskbar");
                 pet.MoveLift(x,y); pet.ReleaseLift(); await Task.Delay(550);
-                Require(!pet.IsDropping && Math.Abs(pet.Top-y)<.1,c.Id+"/"+outfit+": released pet stays placed across timer updates");
+                Require(!pet.IsDropping && Math.Abs(pet.Top-y)<positionTolerance,c.Id+"/"+outfit+$": released pet stays placed across timer updates (expected {y:0.###}, actual {pet.Top:0.###})");
                 pet.StartWalk(false,1); Require(pet.IsDropping,c.Id+"/"+outfit+": walking first requests a natural return to floor");
                 await Until(()=>pet.CurrentAction=="walk");
                 Require(Math.Abs(pet.Top+468-pet.WorkArea.Bottom)<.1,c.Id+"/"+outfit+": natural fall completes before walking");

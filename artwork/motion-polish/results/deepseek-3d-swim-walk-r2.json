@@ -1,0 +1,11 @@
+{
+  "id": "deepseek-3d",
+  "outfit": "swim",
+  "key": "deepseek-3d-swim-walk",
+  "action": "walk",
+  "reference": "C:/Users/99000256/Desktop/Character/src/DesktopPet.App/Assets/Characters/deepseek-3d/outfits/swim/walk.png",
+  "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-49535992-1745-4cbc-8cf4-bfdc7addc88a.png",
+  "revision": 2,
+  "columns": 4,
+  "rows": 3
+}

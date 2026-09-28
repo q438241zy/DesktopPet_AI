@@ -1,0 +1,18 @@
+Create a transparent animation sprite sheet of the SAME character in the EXACT outfit and rendering style of the reference. Keep identity, costume, hair colors and reference rendering style. This is a WALK CYCLE animation timing chart, not 12 variations of the same pose. EXACTLY 12 frames, 3 columns × 4 rows, portrait canvas 1024×1536, equal cells. Entire figure inside every cell, same head height, scale and baseline, 14px transparent margin inside every cell. Pure transparent alpha background, no backdrop or ground shadow, no labels.
+ALL figures face strictly RIGHT in SIDE PROFILE (one visible eye). If this character has a tail, it trails behind to LEFT in all frames. Long hair trails LEFT. Nose points RIGHT, shoes point RIGHT. Body does not turn.
+Read cells left-to-right top-to-bottom. Animate one complete natural small-step walk:
+0: NEAR LEG in front, FAR LEG behind, both feet on ground (contact).
+1: near foot planted below hips, far knee bends behind.
+2: far knee moves forward past near knee, near foot planted.
+3: far leg swings forward, near heel rises behind.
+4: far heel approaches ground in front, near toes stay behind.
+5: FAR LEG in front, NEAR LEG behind (opposite contact).
+6: far foot planted below hips, near knee bends behind.
+7: near knee moves forward past far knee, far foot planted.
+8: near leg swings forward, far heel rises behind.
+9: near heel approaches ground in front, far toes stay behind.
+10: near foot lands front, far foot behind.
+11: transition seamlessly into frame0.
+The moving leg MUST pass through a bent knee pose under the body and alternate. Frames 2 and7 have feet CLOSE TOGETHER under hips. Frames0and5 have opposite legs APART. Arms naturally swing opposite legs. Preserve any existing tail BEHIND the hips; do not add a tail if absent; no tail on the forward side. Clean crisp contours, no speedlines, no extra hands, no duplicate poses.
+
+Appearance lock: Grok. Chibi anime proportions, same outlined illustration style. Keep precisely the same modest sporty swimwear and footwear as reference in every frame. No added or removed accessories.

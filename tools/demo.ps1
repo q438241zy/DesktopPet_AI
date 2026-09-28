@@ -1,4 +1,4 @@
-param([string]$Executable = '', [switch]$NoDesktopCopy)
+param([string]$Executable = '')
 $ErrorActionPreference = 'Stop'
 $projectRoot = Split-Path -Parent $PSScriptRoot
 if (-not $Executable) {
@@ -13,8 +13,6 @@ $outputRoot | Set-Content -LiteralPath (Join-Path $projectRoot 'artifacts/curren
 $runtimeDemo = Join-Path (Split-Path -Parent ([IO.Path]::GetFullPath($Executable))) 'Demo'
 New-Item -ItemType Directory -Path $runtimeDemo -Force | Out-Null
 Copy-Item -LiteralPath (Join-Path $outputRoot 'DeepSeek-demo.html'),(Join-Path $outputRoot 'action-coverage.json'),(Join-Path $outputRoot '動作清單.md') -Destination $runtimeDemo -Force
-if (-not $NoDesktopCopy) {
-    Copy-Item -LiteralPath (Join-Path $outputRoot 'DeepSeek-demo.html') -Destination (Join-Path ([Environment]::GetFolderPath('Desktop')) 'DeepSeek-動作Demo.html') -Force
-}
+Copy-Item -LiteralPath (Join-Path $outputRoot 'frames') -Destination $runtimeDemo -Recurse -Force
 Get-Content -LiteralPath (Join-Path $outputRoot 'demo-export.json')
 Write-Output (Join-Path $outputRoot 'DeepSeek-demo.html')

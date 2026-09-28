@@ -2,6 +2,7 @@
 **/obj/
 Release/
 artifacts/
+.artifacts/
 *.user
 *.tmp
 *.log

@@ -1,0 +1,12 @@
+{
+  "key": "gpt-adult-swim-walk",
+  "id": "gpt-adult",
+  "category": "adult",
+  "outfit": "swim",
+  "action": "walk",
+  "reference": "C:\\Users\\99000256\\Desktop\\Character\\src\\DesktopPet.App\\Assets\\Characters\\gpt-adult\\outfits\\swim\\walk.png",
+  "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-0e1fdf40-8575-409e-9703-d82b18f99b5c.png",
+  "revision": 2,
+  "columns": 4,
+  "rows": 3
+}

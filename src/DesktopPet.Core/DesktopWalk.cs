@@ -18,7 +18,7 @@ public static class DesktopWalk
     public static double Speed(double size, Sprite clip) => size * .22 / (CycleMilliseconds(clip) / 1000d);
 }
 
-/// <summary>The feet advance only with travelled distance. A boundary turn holds a planted pose.</summary>
+/// <summary>The feet advance only with travelled distance. A boundary turn holds the arriving pose.</summary>
 public sealed class WalkPlayback
 {
     public double Milliseconds { get; private set; }
@@ -27,19 +27,34 @@ public sealed class WalkPlayback
     public void Reset() { Milliseconds = TurnRemaining = 0; nextDirection = 0; }
     public (double Center, int Direction) Advance(double center, int direction, double seconds, double size, Sprite clip, double left, double right)
     {
-        if (TurnRemaining > 0)
-        {
-            TurnRemaining = Math.Max(0, TurnRemaining - seconds);
-            return (center, TurnRemaining == 0 ? nextDirection : direction);
-        }
         double speed = DesktopWalk.Speed(size, clip);
-        var step = DesktopWalk.Step(center, direction, speed * seconds, left, right);
-        Milliseconds += Math.Abs(step.Center - center) / speed * 1000;
-        if (step.Direction != direction)
+        if (seconds <= 0 || speed <= 0 || right <= left) return (center, direction);
+        // Consume all elapsed time, including the part after a turn. Neither a
+        // delayed frame nor the monitor refresh rate should change walking speed.
+        while (seconds > 0)
         {
-            nextDirection = step.Direction; TurnRemaining = .16; Milliseconds = 0;
-            return (step.Center, direction);
+            if (TurnRemaining > 0)
+            {
+                double hold = Math.Min(seconds, TurnRemaining);
+                TurnRemaining -= hold; seconds -= hold;
+                if (TurnRemaining == 0) direction = nextDirection;
+                if (seconds <= 0) break;
+            }
+            double distance = Math.Max(0, direction > 0 ? right - center : center - left);
+            double moving = Math.Min(seconds, distance / speed);
+            center += direction * speed * moving;
+            Milliseconds += moving * 1000;
+            seconds -= moving;
+            if (distance <= speed * moving + 1e-9)
+            {
+                center = direction > 0 ? right : left;
+                nextDirection = -direction;
+                TurnRemaining = .16;
+                // Hold the actual arriving pose. Resetting to frame zero made the
+                // feet snap at every screen edge, unrelated to their stride phase.
+            }
+            else break;
         }
-        return step;
+        return (center, direction);
     }
 }

@@ -17,16 +17,52 @@ Test("walk gait follows actual travel and stands still through a boundary turn",
     var first = gait.Advance(100, 1, .1, 240, clip, 20, 200);
     Equal(true, first.Center > 100); Equal(1, first.Direction);
     Equal(true, Math.Abs(gait.Milliseconds - 100) < .001);
-    var edge = gait.Advance(199, 1, .1, 240, clip, 20, 200);
-    Equal(200d, edge.Center); Equal(1, edge.Direction); Equal(0d, gait.Milliseconds);
+    double timeToEdge = 1 / DesktopWalk.Speed(240, clip);
+    var edge = gait.Advance(199, 1, timeToEdge, 240, clip, 20, 200);
+    double arrivedPhase = gait.Milliseconds;
+    Equal(200d, edge.Center); Equal(1, edge.Direction); Equal(true, arrivedPhase > 100);
     var hold = gait.Advance(edge.Center, edge.Direction, .08, 240, clip, 20, 200);
-    Equal(200d, hold.Center); Equal(1, hold.Direction); Equal(0d, gait.Milliseconds);
+    Equal(200d, hold.Center); Equal(1, hold.Direction); Equal(arrivedPhase, gait.Milliseconds);
     var turn = gait.Advance(hold.Center, hold.Direction, .08, 240, clip, 20, 200);
     Equal(200d, turn.Center); Equal(-1, turn.Direction);
     var back = gait.Advance(turn.Center, turn.Direction, .04, 240, clip, 20, 200);
     Equal(true, back.Center < 200); Equal(-1d, DesktopWalk.ScaleX(back.Direction,"right"));
-    Equal(true, Math.Abs(gait.Milliseconds - 40) < .001);
+    Equal(true, Math.Abs(gait.Milliseconds - arrivedPhase - 40) < .001);
     gait.Reset(); Equal(0d,gait.Milliseconds); Equal(0d,gait.TurnRemaining);
+});
+
+Test("walk distance and stride do not depend on refresh rate or delayed frames", () =>
+{
+    var clip = new Sprite("walk.png", 3, 4, Enumerable.Repeat(80,12).ToArray());
+    foreach (int hz in new[] { 30, 60, 75, 120, 144 })
+    foreach (int direction in new[] { -1, 1 })
+    {
+        var gait = new WalkPlayback(); double center = 500;
+        for (int i=0;i<hz*3;i++) center = gait.Advance(center,direction,1d/hz,200,clip,0,1000).Center;
+        Equal(true, Math.Abs(center-(500+direction*DesktopWalk.Speed(200,clip)*3)) < 1e-7);
+        Equal(true, Math.Abs(gait.Milliseconds-3000) < 1e-7);
+    }
+    var delayed = new WalkPlayback(); double x = 500;
+    foreach(double dt in new[] { .008, .017, .09, .12, .015, .25, .01, .24, .25 })
+        x = delayed.Advance(x,1,dt,200,clip,0,1000).Center;
+    Equal(true,Math.Abs(x-500-DesktopWalk.Speed(200,clip))<1e-7);
+    Equal(true,Math.Abs(delayed.Milliseconds-1000)<1e-7);
+});
+
+Test("edge turns consume leftover time and preserve the arriving stride", () =>
+{
+    var clip = new Sprite("walk.png",3,4,Enumerable.Repeat(80,12).ToArray());
+    (double Center,int Direction,double Phase) Travel(double dt)
+    {
+        var gait = new WalkPlayback(); double center=194; int direction=1;
+        for(int i=0;i<(int)Math.Round(4/dt);i++)
+            (center,direction)=gait.Advance(center,direction,dt,200,clip,20,200);
+        return (center,direction,gait.Milliseconds);
+    }
+    var fast=Travel(.01); var slow=Travel(.2);
+    Equal(fast.Direction,slow.Direction);
+    Equal(true,Math.Abs(fast.Center-slow.Center)<1e-7);
+    Equal(true,Math.Abs(fast.Phase-slow.Phase)<1e-7);
 });
 
 Test("daily check-in is idempotent and a missed day preserves affection", () =>

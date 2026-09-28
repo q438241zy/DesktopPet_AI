@@ -17,25 +17,30 @@ internal static class ActionCoverage
         new("ball-hit","球命中","ball-hit",1500), new("ball-miss","球未命中","ball-miss",1800),
         new("walk","散步","walk",3000), new("peek","走到边缘躲藏","walk",3200),
         new("pickup","提起","pickup",1800), new("place","手动放置","idle",1200), new("drop","自然落下","pickup",1800),
+        new("shake","摇晃提起","pickup-dizzy",3000), new("dizzy","头晕恢复","dizzy",3000),
         new("bonk","轻敲","bonk",1900), new("dance","互动舞蹈","dance",3600)
     ];
     internal static CoverageRow Assess(Character c, string outfit, DemoAction action)
     {
-        var clip = c.MotionFor(outfit, action.Motion);
-        var art = c.Resolve(outfit, action.Motion, 0);
+        string motion = action.Motion == "pickup-dizzy" ? "pickup" : action.Motion;
+        var clip = c.MotionFor(outfit, motion);
+        var art = c.Resolve(outfit, motion, 0);
         int count = clip?.Frames?.Distinct().Count() ?? (clip is null ? 0 : clip.Columns * clip.Rows);
         string status, detail;
         if (action.Key == "dance")
         { status = PortraitRig.SupportsDance(c.Category,c.FamilyId) ? "程序动作" : "不适用"; detail = status == "不适用" ? "按设计仅真人版提供舞蹈" : "使用当前服装的骨骼程序舞蹈"; }
         else if (action.Key is "idle" or "listen" or "place")
         { status = "静态姿势"; detail = action.Key == "place" ? "手动放置后停留在用户指定的位置" : clip is null ? "使用本外观的安静待机姿势" : "本外观专用聆听姿势"; }
+        else if (action.Key == "dizzy")
+        { status = "程序动作"; detail = c.Category == "chibi" ? "当前服装的晕眩姿势与头顶环绕星星，3 秒内恢复" : "当前服装轻微晕眩动作与头顶环绕星星，3 秒内恢复"; }
         else if (clip is not null)
         {
-            bool alias = !(outfit == "original" ? c.Motions : c.Outfits[outfit].Motions).ContainsKey(action.Motion);
+            bool alias = !(outfit == "original" ? c.Motions : c.Outfits[outfit].Motions).ContainsKey(motion);
             status = alias && action.Key != "thinking" ? "近似动作" : count > 1 ? "专用逐帧" : "专用姿势";
             detail = alias && action.Key != "thinking" ? "复用本外观的相近动作，尚未有独立动作图" : $"本外观 {count} 张独立姿势";
             if (action.Key == "thinking") detail += "，配合思考提示；至少 1 秒后才回答";
             if (action.Key == "drop") detail += "；自然落下和手动放置分开处理";
+            if (action.Key == "shake") detail += "；连续摇晃触发头顶星星，身体仍保持提起";
         }
         else if (PortraitRig.Supports(c.Category,c.FamilyId) && PortraitMotion.Supports(action.Motion))
         { status = "程序动作"; detail = "当前服装的骨骼动作与反馈特效"; }

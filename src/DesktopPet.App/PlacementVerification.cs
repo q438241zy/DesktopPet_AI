@@ -24,8 +24,8 @@ internal static class PlacementVerification
             pet.SelectCharacter(c.Id); pet.State.Outfits[c.Id]=outfit; pet.ApplySettings();
             pet.Left=pet.WorkArea.Left+pet.WorkArea.Width/2-280; pet.Top=pet.WorkArea.Bottom-468;
             pet.BeginLift(); double x=pet.Left,y=pet.Top-130;
-            foreach(double dx in new[]{-60d,70,-85,100,-60,0}) pet.MoveLift(x+dx,y);
-            Require(pet.CurrentAction=="pickup" && sprite.RenderTransform is ScaleTransform,c.Id+"/"+outfit+": dragging never becomes shaking or a pendulum");
+            foreach(double dx in new[]{0d,20,40,60,50}) pet.MoveLift(x+dx,y);
+            Require(pet.CurrentAction=="pickup" && !pet.HasDizzyStars && sprite.RenderTransform is ScaleTransform,c.Id+"/"+outfit+": ordinary dragging stays lifted without dizziness or a pendulum");
             pet.ReleaseLift(); await Task.Delay(70);
             Require(!pet.IsDropping && Math.Abs(pet.Top-y)<positionTolerance,c.Id+"/"+outfit+": manual placement detaches from taskbar");
             Require(Math.Abs(new StateStore(output).Load().Top!.Value-y)<positionTolerance,c.Id+"/"+outfit+": chosen height is persisted");

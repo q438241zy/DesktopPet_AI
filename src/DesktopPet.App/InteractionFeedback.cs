@@ -9,7 +9,7 @@ namespace DesktopPet.App;
 internal sealed record FeedbackFrame(string Action, double Elapsed, double Duration, double Size, Point Head, Point Mouth,
     Point Hand, Point Body, Point Feet, Rect WorkBounds, bool Reduced, string? Prop, double PropElapsed,
     Collectible Food, Collectible? Prize, bool BakedProps = false, int? DanceBeat = null, bool OnBeat = false,
-    double JumpHeight = 0, bool LiftedFromTaskbar = false, bool DrawnPose = false);
+    double JumpHeight = 0, bool LiftedFromTaskbar = false, bool DrawnPose = false, double DizzyElapsed = -1, double DizzyRemaining = 0);
 
 /// <summary>Action-specific, code-drawn feedback. Anchors follow the same animated skeleton as the portrait.</summary>
 internal sealed class InteractionFeedback : FrameworkElement
@@ -18,6 +18,7 @@ internal sealed class InteractionFeedback : FrameworkElement
     public BitmapSource? Hammer { get; set; }
     internal bool DrawsFood => frame is { Action: "eat" or "meal", BakedProps: false };
     internal bool DrawsHammer => frame is { Action: "bonk", BakedProps: false } && Hammer is not null;
+    internal bool DrawsDizzyStars => frame is { } f && (f.DizzyElapsed >= 0 || f.Action is "dizzy" or "faint" or "shaken" or "shaken-strong");
     public string EffectKey => frame is null ? "" : frame.Action;
     public void Update(FeedbackFrame next) { frame = next; InvalidateVisual(); }
     public void Clear() { frame = null; InvalidateVisual(); }
@@ -140,8 +141,6 @@ internal sealed class InteractionFeedback : FrameworkElement
                 Symbol("M6,0 Q-3,12 6,14 Q15,12 6,0 Z", new Point(f.Head.X + 20, f.Head.Y + 2), .65, "#BAD7EF", "#8CB4D2"); break;
             case "kick": case "nudge":
                 Symbol("M0,0 L13,0 M2,5 L17,5 M0,10 L12,10", new Point(f.Feet.X + (f.Action == "kick" ? 22 : -38), f.Feet.Y - 16), .8, null, "#A9C6DF"); break;
-            case "dizzy": case "faint": case "shaken": case "shaken-strong":
-                for (int i = 0; i < 3; i++) Spark(new Point(f.Head.X + Math.Cos(t * 4 + i * 2.1) * 27, f.Head.Y - 12 + Math.Sin(t * 4 + i * 2.1) * 7), 3.5); break;
             case "peek":
                 Text("?", f.Head.X + 18, f.Head.Y - 20, 17); break;
             case "pickup":
@@ -152,6 +151,29 @@ internal sealed class InteractionFeedback : FrameworkElement
                     dc.DrawEllipse(ItemArt.Brush("#18000000"), null, new Point(f.Feet.X, f.WorkBounds.Bottom - 1), size * .11, 2); dc.Pop();
                 }
                 break;
+        }
+        if (DrawsDizzyStars)
+        {
+            // Independent of the body pose: a held pet stays lifted while the halo orbits its head.
+            double phase = f.Reduced ? .62 : (f.DizzyElapsed >= 0 ? f.DizzyElapsed : f.Elapsed) / 1000;
+            double remaining = f.DizzyElapsed >= 0 ? f.DizzyRemaining : f.Duration > 0 ? f.Duration - f.Elapsed : 1000;
+            double radius = 34 * unit, height = 9 * unit;
+            var center = new Point(f.Head.X, f.Head.Y - 15 * unit);
+            dc.PushOpacity(Math.Clamp(remaining / 350, 0, 1));
+            dc.DrawEllipse(null, Line("#B9DFBCD0", 1.1), center, radius, height);
+            for (int i = 0; i < 3; i++)
+            {
+                double angle = phase * Math.PI * 2 / 2.4 + i * Math.PI * 2 / 3;
+                var at = new Point(center.X + Math.Cos(angle) * radius, center.Y + Math.Sin(angle) * height);
+                double star = (5 + Math.Sin(angle) * .7) * unit;
+                dc.PushTransform(new TranslateTransform(at.X, at.Y));
+                dc.PushTransform(new RotateTransform(-10 + 12 * Math.Sin(angle)));
+                dc.PushTransform(new ScaleTransform(star / 10, star / 10));
+                dc.DrawGeometry(ItemArt.Brush(i == 1 ? "#F1BCCF" : "#FFE3A0"), Line("#B99370", 1.7),
+                    ItemArt.Path("M0,-10 L3,-3 L10,-3 L5,2 L6,9 L0,5 L-6,9 L-5,2 L-10,-3 L-3,-3 Z"));
+                dc.Pop(); dc.Pop(); dc.Pop();
+            }
+            dc.Pop();
         }
         if (f.DanceBeat is { } beat)
             for (int i = 0; i < 4; i++) dc.DrawEllipse(i == beat % 4 ? ItemArt.Brush(f.OnBeat ? "#66B28B" : "#7CADD6") : ItemArt.Brush("#C4D4E3"), null, new Point(f.Head.X - 21 + i * 14, f.Head.Y - 18), i == beat % 4 ? 3.5 : 2, i == beat % 4 ? 3.5 : 2);

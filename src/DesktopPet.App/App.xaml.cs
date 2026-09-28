@@ -51,7 +51,7 @@ public partial class App : Application
             catch (Exception ex) { Directory.CreateDirectory(DataRoot); File.WriteAllText(Path.Combine(DataRoot,"demo-error.txt"),ex.ToString()); Shutdown(1); }
             return;
         }
-        if (e.Args.Contains("--verify-ui") || e.Args.Contains("--verify-interface") || e.Args.Contains("--verify-interactions") || e.Args.Contains("--verify-details") || e.Args.Contains("--verify-contacts") || e.Args.Contains("--verify-poses") || e.Args.Contains("--verify-placement") || e.Args.Contains("--verify-polish") || e.Args.Contains("--verify-chibi"))
+        if (e.Args.Contains("--verify-ui") || e.Args.Contains("--verify-interface") || e.Args.Contains("--verify-interactions") || e.Args.Contains("--verify-details") || e.Args.Contains("--verify-contacts") || e.Args.Contains("--verify-poses") || e.Args.Contains("--verify-placement") || e.Args.Contains("--verify-polish") || e.Args.Contains("--verify-chibi") || e.Args.Contains("--verify-shake"))
         {
             try
             {
@@ -66,6 +66,7 @@ public partial class App : Application
                 if (e.Args.Contains("--verify-ui") || e.Args.Contains("--verify-poses")) await ChoreographyVerification.Run(pet, DataRoot, e.Args.Contains("--pose-pilot"), e.Args.Contains("--pose-available"), appearance);
                 if (e.Args.Contains("--verify-ui") || e.Args.Contains("--verify-polish")) await PolishVerification.Run(pet, DataRoot);
                 if (e.Args.Contains("--verify-ui") || e.Args.Contains("--verify-chibi")) await ChibiVerification.Run(pet, DataRoot, appearance);
+                if (e.Args.Contains("--verify-ui") || e.Args.Contains("--verify-shake")) await ShakeVerification.Run(pet, DataRoot);
                 Shutdown(0);
             }
             catch (Exception ex) { File.WriteAllText(Path.Combine(DataRoot, "ui-check.txt"), ex.ToString()); Shutdown(1); }

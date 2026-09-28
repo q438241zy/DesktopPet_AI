@@ -22,7 +22,7 @@
 
 ## 迁移与恢复
 
-删除旧仓库之前先保留完整本地克隆和 `git bundle --all`，并验证 bundle 可恢复全部历史。备份位于用户桌面的 `DesktopPet_Migration_Backup`，独立于本仓库与 DS Go；它不上传到新项目。
+删除旧仓库之前先保留完整本地克隆和 `git bundle --all`，并验证 bundle 可恢复全部历史。2026-09-28 搬迁后，备份位于 `D:\VibeCoding\_Archive\DesktopPet-20260928\DesktopPet_Migration_Backup`，独立于本仓库与 DS Go；它不上传到新项目。日常运行版位于 `D:\VibeCoding\Character\Release\win-x64`，不依赖旧桌面工程。用户后来明确保留桌面的长期 Demo 捷径，目标和素材仍在 D 槽。
 
 旧仓库原始提交分别为 `a09cc84d5f9cd14232d65178a2c245e3529b53b6` 与 `b147334b04e2b280a5ab171a67918d3904dab378`。迁移检查时两个仓库均无 Issue、Release、Star 或 Fork；仓库元数据另存于本地备份目录。
 

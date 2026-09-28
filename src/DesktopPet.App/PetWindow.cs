@@ -36,6 +36,7 @@ public sealed class PetWindow : Window
     internal string EffectKey => effects.EffectKey;
     internal bool DrawsExtraFood => effects.DrawsFood;
     internal bool DrawsExtraHammer => effects.DrawsHammer;
+    internal bool HasDizzyStars => effects.DrawsDizzyStars;
     internal bool UsingDrawnAction { get; private set; }
     internal int DrawnFrame { get; private set; }
     internal Point? HandTarget { get; private set; }
@@ -54,6 +55,9 @@ public sealed class PetWindow : Window
     private readonly Stopwatch clock = Stopwatch.StartNew();
     private readonly ScaleTransform facing = new(1, 1);
     private readonly WalkPlayback walkPlayback = new();
+    private readonly ShakeTracker shake = new();
+    private bool liftActive;
+    private double dizzyStarted, dizzyUntil, observedReversal = double.NegativeInfinity;
     private RigVisual? danceVisual;
     private EdgeHide? hideJourney;
     private Rect hideArea;
@@ -87,9 +91,11 @@ public sealed class PetWindow : Window
     private double? previewClock;
     private double Now => previewClock ?? clock.Elapsed.TotalMilliseconds;
     internal void BeginPreview() { timer.Stop(); previewClock = 0; IsHitTestVisible = false; }
+    internal void AdvancePreview(double elapsed) { previewClock = elapsed; Tick(); }
     internal void PreviewMotion(string motion, double elapsed, int duration)
     {
-        previewClock = elapsed; action = motion; actionStarted = 0; actionUntil = duration;
+        previewClock = elapsed; action = motion == "pickup-dizzy" ? "pickup" : motion; actionStarted = 0; actionUntil = duration;
+        dizzyStarted = 0; dizzyUntil = motion == "pickup-dizzy" ? duration : 0;
         direction = 1;
         sprite.Visibility = Visibility.Visible;
         prop = motion is "eat" or "meal" ? "food" : motion == "build" ? "blocks" : null;
@@ -118,7 +124,7 @@ public sealed class PetWindow : Window
         bubble = new Border { Background = CloudTheme.Cream, BorderBrush = CloudTheme.Line, BorderThickness = new Thickness(1), CornerRadius = new CornerRadius(20), Padding = new Thickness(15, 10, 15, 10), Width = 238, Child = speech, IsHitTestVisible = false, Visibility = Visibility.Collapsed };
         surface.Children.Add(bubble); surface.Children.Add(ball);
         ball.Visibility = Visibility.Collapsed;
-        AutomationProperties.SetName(sprite, "桌面宠物：点击摸头，拖动抱起，右键互动");
+        AutomationProperties.SetName(sprite, "桌面宠物：点击摸头，拖动抱起，来回摇晃会头晕，右键互动");
         sprite.MouseLeftButtonDown += PetDown; sprite.MouseMove += PetMove; sprite.MouseLeftButtonUp += PetUp;
         sprite.MouseRightButtonUp += (_, e) => { if (menu.Children.Count > 0) menu.Children.Clear(); else ShowMenu(); e.Handled = true; };
         sprite.LostMouseCapture += (_, _) => { if (pressed) CancelInput(); };
@@ -297,6 +303,16 @@ public sealed class PetWindow : Window
     }
     internal void MoveLift(double left, double top)
     {
+        if (liftActive)
+        {
+            shake.Move(left, top, Now);
+            if (shake.IsDizzy(Now) && shake.LastReversal > observedReversal)
+            {
+                if (dizzyUntil <= Now) dizzyStarted = Now;
+                dizzyUntil = Now + ShakeTracker.RecoveryMilliseconds;
+                observedReversal = shake.LastReversal;
+            }
+        }
         Left = left; Top = top;
         if (action != "pickup") SetAction("pickup");
         Render();
@@ -317,13 +333,18 @@ public sealed class PetWindow : Window
     internal void BeginLift()
     {
         bool fromEdge = Math.Abs(Top + FloorY - WorkArea.Bottom) < 28;
-        ClearTransient(); liftedFromTaskbar = fromEdge; roaming = false; SetAction("pickup"); Render();
+        ClearTransient(); liftedFromTaskbar = fromEdge; roaming = false; liftActive = true;
+        shake.Start(Left, Top, Now); SetAction("pickup"); Render();
     }
     internal void ReleaseLift()
     {
         Constrain();
+        liftActive = false;
         dropping = liftedFromTaskbar = false; afterDrop = null;
-        if (WorkArea.Bottom - FloorY - Top <= 24) { Top = WorkArea.Bottom - FloorY; Play("land", duration: 410); }
+        bool atFloor = WorkArea.Bottom - FloorY - Top <= 24;
+        if (atFloor) Top = WorkArea.Bottom - FloorY;
+        if (dizzyUntil > Now) Play("dizzy", duration: dizzyUntil - Now);
+        else if (atFloor) Play("land", duration: 410);
         else { SetAction("idle"); Render(); }
         lastInteraction = Now; Save();
     }
@@ -344,13 +365,17 @@ public sealed class PetWindow : Window
     private void CancelInput()
     {
         bool hadDrag = dragging;
+        ResetShake();
         pressed = dragging = holdingBall = false;
         if (sprite.IsMouseCaptured) sprite.ReleaseMouseCapture();
         if (ball.IsMouseCaptured) ball.ReleaseMouseCapture();
         if (hadDrag) { dropping = liftedFromTaskbar = false; afterDrop = null; Constrain(); SetAction("idle"); if (!closing) Save(); }
     }
     private void ClearTransient(bool keepChat = false)
-    { CancelChoreography(); if (!keepChat) chatWindow?.Close(); resting = roaming = exploring = conversationActive = liftedFromTaskbar = false; sprite.Visibility = Visibility.Visible; menu.Children.Clear(); effects.Clear(); prop = null; flyingBall = holdingBall = caughtBall = false; ball.Visibility = Visibility.Collapsed; bubble.Visibility = Visibility.Collapsed; onMotionEnd = null; }
+    { ResetShake(); CancelChoreography(); if (!keepChat) chatWindow?.Close(); resting = roaming = exploring = conversationActive = liftedFromTaskbar = false; sprite.Visibility = Visibility.Visible; menu.Children.Clear(); effects.Clear(); prop = null; flyingBall = holdingBall = caughtBall = false; ball.Visibility = Visibility.Collapsed; bubble.Visibility = Visibility.Collapsed; onMotionEnd = null; }
+
+    private void ResetShake()
+    { liftActive = false; dizzyUntil = 0; observedReversal = double.NegativeInfinity; shake.Start(0, 0, Now); }
 
     private void CancelChoreography()
     {
@@ -586,7 +611,7 @@ public sealed class PetWindow : Window
             PlaceBall();
         }
         Render();
-        bool moving = dragging || dropping || holdingBall || flyingBall || roaming || hideJourney is not null || prop is not null || actionUntil > 0 || danceVisual is not null || action == "thinking";
+        bool moving = dragging || liftActive || dropping || holdingBall || flyingBall || roaming || hideJourney is not null || prop is not null || actionUntil > 0 || danceVisual is not null || action == "thinking";
         timer.Interval = TimeSpan.FromMilliseconds(action == "sleep" ? 80 : moving ? 16 : 200);
     }
     private void Render()
@@ -692,7 +717,8 @@ public sealed class PetWindow : Window
             new Point(Math.Min(Width, area.Right - Left), Math.Min(Height, area.Bottom - Top)));
         effects.Update(new FeedbackFrame(action, now - actionStarted, actionUntil > 0 ? actionUntil - actionStarted : 0, State.Size,
             head, mouth, HandTarget ?? hand, body, new Point(CenterX, FloorY), bounds, State.ReducedMotion, prop, now - propStart, activeFood, activePrize, bakedProps,
-            dance is not null ? PetDance.BeatAt(now - actionStarted) : null, danceFeedbackBeat == PetDance.BeatAt(now - actionStarted), AirborneOffset, liftedFromTaskbar, UsingDrawnAction));
+            dance is not null ? PetDance.BeatAt(now - actionStarted) : null, danceFeedbackBeat == PetDance.BeatAt(now - actionStarted), AirborneOffset, liftedFromTaskbar, UsingDrawnAction,
+            now < dizzyUntil ? now - dizzyStarted : -1, Math.Max(0, dizzyUntil - now)));
         if (prop == "letter") bubble.Visibility = Visibility.Collapsed;
     }
 }

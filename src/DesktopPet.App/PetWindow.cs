@@ -71,7 +71,7 @@ public sealed class PetWindow : Window
     internal HidePhase? HideStage => hideJourney?.At((Now - hideStarted) / 1000).Phase;
     internal bool IsDancing => dance is not null;
     internal RigVisual? ActiveDance => dance is null ? null : danceVisual;
-    internal bool CanDance => PortraitRig.SupportsDance(Character.Category, Character.FamilyId);
+    internal bool CanDance => PortraitRig.SupportsDance(Character.Category, Character.FamilyId) && Character.MotionFor(State.Outfit,"dance")?.DanceRig is not null;
     internal string CurrentAction => action;
     private DesktopHost? desktop;
     private SettingsWindow? settings;
@@ -257,7 +257,7 @@ public sealed class PetWindow : Window
     { action = next; actionStarted = Now; actionUntil = duration > 0 ? Now + duration : 0; onMotionEnd = completed; if (next == "walk") walkPlayback.Reset(); timer.Interval = TimeSpan.FromMilliseconds(16); }
     private void UpdateWalkClock()
     {
-        bool useRendering = !closing && previewClock is null && IsVisible && (roaming || hideJourney is not null);
+        bool useRendering = !closing && previewClock is null && IsVisible && (roaming || hideJourney is not null || dance is not null);
         if (useRendering == renderingWalk) return;
         renderingWalk = useRendering; lastTick = Now; lastPresentation = TimeSpan.MinValue;
         if (useRendering) { timer.Stop(); CompositionTarget.Rendering += RenderWalk; }
@@ -652,12 +652,17 @@ public sealed class PetWindow : Window
     private void Render()
     {
         double elapsed = roaming ? walkPlayback.Milliseconds : (Now - actionStarted) * (hideJourney is not null && action == "walk" ? 1.7 : 1);
-        var art = Character.Resolve(State.Outfit, dance is null ? action : "idle", elapsed, State.ReducedMotion);
+        var art = Character.Resolve(State.Outfit, dance is null ? action : "dance", elapsed, State.ReducedMotion);
         var frame = Art.Frame(Character, art.Sprite, art.Frame);
         sprite.Source = frame;
         UsingDrawnAction = dance is null && action != "walk" && Character.MotionFor(State.Outfit, action) is not null;
         DrawnFrame = art.Frame; bakedProps = art.Sprite.BakedProps;
         double size = State.Size;
+        if(dance is not null)
+        {
+            var idle=Character.Resolve(State.Outfit,"idle",0);
+            size*=Art.VisibleHeight(Art.Frame(Character,idle.Sprite,idle.Frame))/Art.VisibleHeight(frame);
+        }
         if (action == "walk" || UsingDrawnAction && (Character.Category != "chibi" || art.Sprite.HeightRatios is not null || art.Sprite.ReferenceHeightPixels > 0))
         {
             // Scale each appearance to its own idle silhouette, including Q wardrobes.
@@ -698,13 +703,29 @@ public sealed class PetWindow : Window
             if (danceVisual is null || !ReferenceEquals(danceVisual.Texture, frame))
             {
                 if (danceVisual is not null) surface.Children.Remove(danceVisual);
-                danceVisual = new RigVisual(frame, Character.FamilyId, State.Outfit, Character.Category);
+                danceVisual = new RigVisual(frame, Character.FamilyId, State.Outfit, Character.Category, dance is not null?art.Sprite.DanceRig:null);
                 surface.Children.Insert(surface.Children.IndexOf(sprite) + 1, danceVisual);
             }
             sprite.Opacity = 0;
             danceVisual.Width = danceVisual.Height = size; danceVisual.Opacity = State.Opacity;
-            Canvas.SetLeft(danceVisual, CenterX - size / 2); Canvas.SetTop(danceVisual, PetTop);
+            Canvas.SetLeft(danceVisual, CenterX - size*(dance is not null?Art.HorizontalAnchor(frame):.5)); Canvas.SetTop(danceVisual, PetTop);
             danceVisual.UpdateMotion(action, Now - actionStarted, actionUntil > 0 ? actionUntil - actionStarted : 0);
+            if(dance is not null)
+            {
+                double phase=Now-actionStarted;
+                double fade=Math.Clamp(Math.Min(phase,PetDance.DurationMs-phase)/220,0,1);
+                fade=fade*fade*(3-2*fade);
+                danceVisual.Opacity=State.Opacity*fade;
+                if(fade<1)
+                {
+                    var idle=Character.Resolve(State.Outfit,"idle",0);
+                    var restFrame=Art.Frame(Character,idle.Sprite,idle.Frame);
+                    sprite.Source=restFrame;sprite.Width=sprite.Height=State.Size;
+                    Canvas.SetLeft(sprite,CenterX-State.Size/2);
+                    Canvas.SetTop(sprite,FloorY-State.Size*Art.GroundLine(restFrame));
+                    sprite.Opacity=State.Opacity*(1-fade);
+                }
+            }
         }
         else
         {
@@ -738,7 +759,7 @@ public sealed class PetWindow : Window
         }
         if (danceVisual is { } visual)
         {
-            Point Map(RigPoint p) => new(CenterX + p.X * State.Size, PetTop + (.5 + p.Y) * State.Size);
+            Point Map(RigPoint p) => new(Canvas.GetLeft(visual)+(.5+p.X)*visual.Width,Canvas.GetTop(visual)+(.5+p.Y)*visual.Height);
             head = Map(visual.Rig.Anchor(visual.Pose, 1, visual.Rig.Rest[1].B + new RigPoint(0, -.07)));
             mouth = Map(visual.Rig.Anchor(visual.Pose, 1, visual.Rig.MouthRest));
             hand = Map(visual.Pose.Bones[3].B + (visual.Pose.Bones[3].B - visual.Pose.Bones[3].A) * .35);

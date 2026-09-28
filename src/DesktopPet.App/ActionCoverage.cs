@@ -18,7 +18,7 @@ internal static class ActionCoverage
         new("walk","散步","walk",3000), new("peek","走到边缘躲藏","walk",3200),
         new("pickup","提起","pickup",1800), new("place","手动放置","idle",1200), new("drop","自然落下","pickup",1800),
         new("shake","摇晃提起","pickup-dizzy",3000), new("dizzy","头晕恢复","dizzy",3000),
-        new("bonk","轻敲","bonk",1900), new("dance","互动舞蹈","dance",3600)
+        new("bonk","轻敲","bonk",1900), new("dance","互动舞蹈","dance",(int)PetDance.DurationMs)
     ];
     internal static CoverageRow Assess(Character c, string outfit, DemoAction action)
     {
@@ -28,7 +28,7 @@ internal static class ActionCoverage
         int count = clip?.Frames?.Distinct().Count() ?? (clip is null ? 0 : clip.Columns * clip.Rows);
         string status, detail;
         if (action.Key == "dance")
-        { status = PortraitRig.SupportsDance(c.Category,c.FamilyId) ? "程序动作" : "不适用"; detail = status == "不适用" ? "按设计仅真人版提供舞蹈" : "使用当前服装的骨骼程序舞蹈"; }
+        { status = !PortraitRig.SupportsDance(c.Category,c.FamilyId)?"不适用":clip?.DanceRig is not null?"程序动作":"缺少动作"; detail = status == "不适用" ? "按设计仅真人版提供舞蹈" : "专用舞蹈底图与独立关节；16 拍侧步、点地、展臂和收势，支撑脚固定，长裙保持连贯"; }
         else if (action.Key is "idle" or "listen" or "place")
         { status = "静态姿势"; detail = action.Key == "place" ? "手动放置后停留在用户指定的位置" : clip is null ? "使用本外观的安静待机姿势" : "本外观专用聆听姿势"; }
         else if (action.Key == "dizzy")

@@ -28,6 +28,10 @@ const match=html.match(/<script id="data" type="application\/json">([\s\S]*?)<\/
 if(match && !match[1].includes('__DEMO_DATA__')){
  const exported=JSON.parse(match[1]);assert.equal(exported.sampleMs,40);assert.equal(exported.frameWidth,560);assert.equal(exported.frameHeight,680);
  assert.equal(Object.keys(exported.clips).length,9);
+ for(const [key,appearance] of Object.entries(exported.clips)){
+  if(key.startsWith('adult-')){assert.equal(appearance.dance.duration,8000,'dance must finish all sixteen counts');assert.equal(appearance.dance.frames.length,201);assert.ok(new Set(appearance.dance.frames).size>180,'dance must contain the rendered continuous choreography');}
+  else assert.equal(appearance.dance,undefined,'dance remains exclusive to adult appearances');
+ }
  for(const appearance of Object.values(exported.clips)){assert.equal(appearance.walk.cycleMs,960);assert.equal(new Set(appearance.walk.frames.slice(0,24)).size,12);assert.ok(new Set(appearance.shake.frames).size>8,'all appearances need moving stars while lifted');assert.ok(new Set(appearance.dizzy.frames).size>8,'all appearances need visible recovery feedback');}
  assert.ok(fs.statSync(file).size<5_000_000,'HTML must stay small enough to open promptly');
  for(const image of exported.frames){

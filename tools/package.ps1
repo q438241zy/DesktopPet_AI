@@ -1,4 +1,4 @@
-param([string]$Runtime = 'win-x64', [string]$Version = '1.2.0-preview.12', [string]$SourceDirectory = '')
+param([string]$Runtime = 'win-x64', [string]$Version = '1.2.0-preview.13', [string]$SourceDirectory = '')
 $ErrorActionPreference = 'Stop'
 $projectRoot = Split-Path -Parent $PSScriptRoot
 $releaseRoot = (Resolve-Path -LiteralPath $(if ($SourceDirectory) { $SourceDirectory } else { "$projectRoot/Release/$Runtime" })).Path

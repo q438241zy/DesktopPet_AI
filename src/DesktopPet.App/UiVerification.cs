@@ -179,8 +179,8 @@ internal static class UiVerification
         foreach (string style in new[] { "3d", "adult" })
         {
             pet.StartWalk(false, 1); pet.SelectStyle(style); await Task.Delay(220);
-            var selected = pet.Art.Frame(pet.Character, pet.Character.Resolve("wedding", "chat", 0).Sprite, 0);
-            Require(pet.Character.Category == style && pet.State.Outfit == "wedding" && ReferenceEquals(Find<Image>(pet).Single().Source, selected), "style change mid-walk cancels old frames and preserves wedding: " + style);
+            var selected = pet.Art.Frame(pet.Character, pet.Character.Resolve("wedding", "chat", 0).Sprite, pet.DrawnFrame);
+            Require(pet.CurrentAction == "chat" && pet.Character.Category == style && pet.State.Outfit == "wedding" && ReferenceEquals(Find<Image>(pet).Single().Source, selected), "style change mid-walk cancels old frames and preserves wedding: " + style);
         }
         Click("风格预览");
         foreach (string family in Catalog.BuiltInFamilies)

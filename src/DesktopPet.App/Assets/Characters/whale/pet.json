@@ -172,16 +172,19 @@
     },
     "pickup": {
       "frameMs": [
+        140,
         180,
-        180,
-        200,
-        200,
-        200,
-        200
+        5000
       ],
       "columns": 3,
       "file": "motions/pickup.webp",
-      "rows": 2
+      "rows": 2,
+      "frames": [
+        0,
+        1,
+        5
+      ],
+      "loop": false
     },
     "shaken": {
       "frameMs": [

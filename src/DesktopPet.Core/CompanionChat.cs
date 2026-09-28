@@ -10,6 +10,17 @@ public sealed record ChatOptions(string Endpoint = "", string Model = "");
 /// <summary>Explicit local conversation, or an optional user-configured chat-completions service.</summary>
 public static class CompanionChat
 {
+    public static async Task<string> ReplyAfterThinkingAsync(HttpClient client, ChatOptions options, string apiKey,
+        IReadOnlyList<ChatMessage> messages, string name, CancellationToken cancellationToken)
+    {
+        // Start transport and the visible thinking period together. A fast API
+        // response waits one second; a slow service does not incur another second.
+        var minimum = Task.Delay(1000, cancellationToken);
+        var reply = ReplyAsync(client, options, apiKey, messages, name, cancellationToken);
+        await Task.WhenAll(minimum, reply);
+        cancellationToken.ThrowIfCancellationRequested();
+        return await reply;
+    }
     public static Uri Endpoint(string value)
     {
         if (!Uri.TryCreate(value.Trim(), UriKind.Absolute, out var uri) || uri.UserInfo.Length > 0

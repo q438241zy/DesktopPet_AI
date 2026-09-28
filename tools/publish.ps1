@@ -24,3 +24,10 @@ New-Item -ItemType Directory -Path $interactionDocs -Force | Out-Null
 Copy-Item -LiteralPath "$projectRoot/artwork/interaction-poses/prompts.md","$projectRoot/artwork/interaction-poses/manifest.json" -Destination $interactionDocs
 Copy-Item -LiteralPath "$projectRoot/artwork/interaction-poses/results" -Destination $interactionDocs -Recurse -Force
 Write-Output "Ready: $releaseRoot/DesktopPet.exe"
+$demoPointer = Join-Path $projectRoot 'artifacts/current-deepseek-demo.txt'
+if (Test-Path -LiteralPath $demoPointer) {
+    $demoSource = (Get-Content -LiteralPath $demoPointer -Raw).Trim()
+    $demoTarget = Join-Path $releaseRoot 'Demo'
+    New-Item -ItemType Directory -Path $demoTarget -Force | Out-Null
+    Copy-Item -LiteralPath (Join-Path $demoSource 'DeepSeek-demo.html'),(Join-Path $demoSource 'action-coverage.json'),(Join-Path $demoSource '動作清單.md') -Destination $demoTarget -Force
+}

@@ -47,7 +47,7 @@ public sealed class SettingsWindow : Window
         brand.Children.Add(new TextBlock { Text = "云朵伙伴", FontSize = 21, FontWeight = FontWeights.SemiBold, Margin = new Thickness(0, 12, 0, 5) });
         brand.Children.Add(new TextBlock { Text = "你的桌边小小陪伴", Foreground = muted, FontSize = 11 });
         DockPanel.SetDock(brand, Dock.Top); sidebar.Children.Add(brand);
-        var foot = new StackPanel { Margin = new Thickness(12, 0, 0, 0) }; foot.Children.Add(new TextBlock { Text = "●  正在桌面陪伴", Foreground = CloudTheme.Brush("#34845A"), FontSize = 11 }); foot.Children.Add(new TextBlock { Text = "DesktopPet  /  1.2 Preview 6", FontSize = 10, Foreground = muted, Margin = new Thickness(0, 8, 0, 0) });
+        var foot = new StackPanel { Margin = new Thickness(12, 0, 0, 0) }; foot.Children.Add(new TextBlock { Text = "●  正在桌面陪伴", Foreground = CloudTheme.Brush("#34845A"), FontSize = 11 }); foot.Children.Add(new TextBlock { Text = "DesktopPet  /  1.2 Preview 8", FontSize = 10, Foreground = muted, Margin = new Thickness(0, 8, 0, 0) });
         DockPanel.SetDock(foot, Dock.Bottom); sidebar.Children.Add(foot);
         var nav = new StackPanel(); sidebar.Children.Add(nav);
         foreach (var (id, label, icon) in new[] { ("partners", "我的伙伴", "heart"), ("styles", "风格预览", "cube"), ("life", "陪伴日常", "sun"), ("studio", "角色工坊", "brush"), ("preferences", "桌面偏好", "settings") })
@@ -251,10 +251,15 @@ public sealed class SettingsWindow : Window
         Toggle("减少动态效果", pet.State.ReducedMotion, x => { pet.State.ReducedMotion = x; pet.ApplySettings(); });
         Toggle("鼠标穿透（Ctrl+Alt+L 恢复）", pet.IsClickThrough, pet.SetClickThrough);
         content.Children.Add(Card(panel));
+        content.Children.Add(Text("角色聊天", 17));
+        content.Children.Add(Text("直接在角色上方输入。每次回复前至少思考 1 秒；API 地址留空时使用本机预设对话。", 12, true));
+        content.Children.Add(Card(pet.Chat.SettingsPanel()));
         content.Children.Add(Text("Ctrl+Alt+U  显示 / 隐藏     Ctrl+Alt+S  打开云朵伙伴\nCtrl+Alt+L  解除鼠标穿透     Esc  取消当前互动", 12, true));
         var buttons = new WrapPanel(); buttons.Children.Add(MakeButton("打开本地存档", () => { Directory.CreateDirectory(App.DataRoot); Process.Start(new ProcessStartInfo(App.DataRoot) { UseShellExecute = true }); }));
         buttons.Children.Add(MakeButton("退出桌面宠物", () => Application.Current.Shutdown())); content.Children.Add(buttons);
-        content.Children.Add(Text("无需账号或 API Key。不会读取浏览器登录资料、监听麦克风或上传互动记录。", 12, true));
+        string demo = Path.Combine(AppContext.BaseDirectory, "Demo", "DeepSeek-demo.html");
+        if (File.Exists(demo)) content.Children.Add(MakeButton("DeepSeek 动作 Demo", () => Process.Start(new ProcessStartInfo(demo) { UseShellExecute = true })));
+        content.Children.Add(Text("本机对话无需账号或 API Key。填写模型服务后，只将聊天内容发送至你设置的 API。", 12, true));
         foreach (string warning in pet.Catalog.Warnings) content.Children.Add(Text(warning, 11, true));
     }
     private void Studio()

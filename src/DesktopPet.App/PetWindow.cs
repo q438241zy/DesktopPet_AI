@@ -402,8 +402,8 @@ public sealed class PetWindow : Window
         var buttons = new List<Button>();
         foreach (var (entry, i) in entries.Select((entry, i) => (entry, i)))
         {
-            var button = new Button { Content = CloudTheme.Icon(entry.Icon, 23), ToolTip = entry.Title,
-                Style = (Style)FindResource("RadialAction"), Foreground = entry.Key.StartsWith("group:") ? CloudTheme.Blue : CloudTheme.Ink };
+            var button = new Button { Content = new LineIcon { Glyph = entry.Icon, Soft = true, Width = 25, Height = 25, IsHitTestVisible = false, Focusable = false }, ToolTip = entry.Title,
+                Style = (Style)FindResource("RadialAction") };
             AutomationProperties.SetName(button, entry.Title);
             ToolTipService.SetInitialShowDelay(button, 300); ToolTipService.SetShowDuration(button, 2500);
             button.Click += (_, _) =>

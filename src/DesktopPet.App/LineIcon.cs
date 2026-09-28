@@ -8,6 +8,7 @@ namespace DesktopPet.App;
 internal sealed class LineIcon : Control
 {
     public string Glyph { get; init; } = "cloud";
+    public bool Soft { get; init; }
     private static readonly Dictionary<string, Geometry> Shapes = new Dictionary<string, string>
     {
         ["cloud"] = "M6,18 C1,18 1,10 6,10 C6,3 17,3 18,10 C24,10 23,18 18,18 Z",
@@ -48,11 +49,43 @@ internal sealed class LineIcon : Control
         ["arrow"] = "M4,12 L20,12 M14,6 L20,12 L14,18"
     }.ToDictionary(pair => pair.Key, pair => { var geometry = Geometry.Parse(pair.Value); geometry.Freeze(); return geometry; });
 
+    // The floating menu uses pill-shaped ends and curved corners, while the rest of the UI keeps its existing symbols.
+    private static readonly Dictionary<string, Geometry> SoftShapes = new Dictionary<string, string>
+    {
+        ["heart"] = "M12,19 C10.5,19 3.5,13.5 3.5,8.5 C3.5,3.5 9.5,3 12,7 C14.5,3 20.5,3.5 20.5,8.5 C20.5,13.5 13.5,19 12,19 Z",
+        ["spark"] = "M12,3 C13,3 13.2,7.4 15,9 C16.6,10.8 21,11 21,12 C21,13 16.6,13.2 15,15 C13.2,16.6 13,21 12,21 C11,21 10.8,16.6 9,15 C7.4,13.2 3,13 3,12 C3,11 7.4,10.8 9,9 C10.8,7.4 11,3 12,3 Z",
+        ["settings"] = "M6,4 L6,7 M6,12 L6,20 M12,4 L12,13 M12,18 L12,20 M18,4 L18,6 M18,11 L18,20 M3.5,9.5 A2.5,2.5 0 1 0 8.5,9.5 A2.5,2.5 0 1 0 3.5,9.5 M9.5,15.5 A2.5,2.5 0 1 0 14.5,15.5 A2.5,2.5 0 1 0 9.5,15.5 M15.5,8.5 A2.5,2.5 0 1 0 20.5,8.5 A2.5,2.5 0 1 0 15.5,8.5",
+        ["ball"] = "M3.5,12 A8.5,8.5 0 1 0 20.5,12 A8.5,8.5 0 1 0 3.5,12 M6.5,5.5 C13,9 13,15 8,19.5 M20,8 C13,7 7,11 4,16",
+        ["moon"] = "M17.5,15.5 C10,17 6.5,10 10,4 C4,5 2.3,11 4.5,16 C7,22 15.5,22 19,16.5 Q20,15 17.5,15.5 Z",
+        ["blocks"] = "M5,13.5 H9 Q10.5,13.5 10.5,15 V19 Q10.5,20.5 9,20.5 H5 Q3.5,20.5 3.5,19 V15 Q3.5,13.5 5,13.5 Z M15,13.5 H19 Q20.5,13.5 20.5,15 V19 Q20.5,20.5 19,20.5 H15 Q13.5,20.5 13.5,19 V15 Q13.5,13.5 15,13.5 Z M10,3.5 H14 Q15.5,3.5 15.5,5 V9 Q15.5,10.5 14,10.5 H10 Q8.5,10.5 8.5,9 V5 Q8.5,3.5 10,3.5 Z",
+        ["food"] = "M5,12 H19 Q20.5,12 20,13.5 C18.5,22 5.5,22 4,13.5 Q3.5,12 5,12 Z M8,8 C5,5 10,5 8,2.5 M15.5,8 C12.5,5 17.5,5 15.5,2.5",
+        ["chat"] = "M7,4 H17 Q21,4 21,8 V13 Q21,17 17,17 H11 Q10,17 9,18 L6.5,20 Q5.5,21 5.5,19 V17 Q3,16 3,13 V8 Q3,4 7,4 Z M7.5,10.5 H7.6 M12,10.5 H12.1 M16.5,10.5 H16.6",
+        ["walk"] = "M12,4.5 A2,2 0 1 0 16,4.5 A2,2 0 1 0 12,4.5 M5,12 Q8,11 10,8.5 Q11,8 12.5,9 L15.5,12 Q17,13.5 20,13 M12,9 L10,14 Q9.5,15.5 8,17 L4.5,20.5 M10,14.5 L14.5,16 Q16,16.5 16,18 V21",
+        ["back"] = "M14.5,5.5 L9,10.5 Q7.5,12 9,13.5 L14.5,18.5",
+        ["jump"] = "M5,20 Q12,22 19,20 M12,17 V5 M6.5,9.5 L10.5,5.5 Q12,4 13.5,5.5 L17.5,9.5",
+        ["peek"] = "M5.5,3.5 H11 Q12.5,3.5 12.5,5 V19 Q12.5,20.5 11,20.5 H5.5 Q4,20.5 4,19 V5 Q4,3.5 5.5,3.5 Z M16.5,6 C22,6 22,13 16.5,13 M17,16 V20 M17,9.5 H17.1",
+        ["peek-left"] = "M14.5,3.5 H19 Q20.5,3.5 20.5,5 V19 Q20.5,20.5 19,20.5 H14.5 Q13,20.5 13,19 V5 Q13,3.5 14.5,3.5 Z M8.5,7 C2,7 2,15 8.5,15 M7,11 H7.1",
+        ["peek-right"] = "M5,3.5 H9.5 Q11,3.5 11,5 V19 Q11,20.5 9.5,20.5 H5 Q3.5,20.5 3.5,19 V5 Q3.5,3.5 5,3.5 Z M15.5,7 C22,7 22,15 15.5,15 M17,11 H17.1",
+        ["bonk"] = "M5,5 L8,3 Q9,2 10,3 L17,10 Q18,11 17,12 L14,15 Q13,16 12,15 L5,8 Q3.5,6.5 5,5 Z M13,15 L8,20 Q7,21 6,20 M18,4 L19.5,3 M21,8 H22",
+        ["headpat"] = "M8,21 Q6,21 6,18 V14 L4.5,11 Q3.5,8.5 5.5,9 Q7,9.5 8.5,12 V5 Q8.5,2.5 10.5,4 V9 M10.5,9 V3.5 Q12.5,1 12.5,4 V9 M12.5,9 V4.5 Q14.5,2.5 14.5,5.5 V10 M14.5,10 V7 Q17,4.5 17,8.5 V15 Q17,20 14,21 Z",
+        ["poke"] = "M9,21 Q7,21 6,18 L4.5,15.5 Q4,13.5 6,14 Q7.5,14.5 10,16 V8 Q10,5 12.5,6.5 V12.5 Q18,10 18.5,14.5 V18 Q18.5,21 16,21 Z M6,4 L5,3 M3,8 H2 M18,4 L19,3",
+        ["think"] = "M8,21 V16 C2,13 4,4 10,3.5 Q18,2.5 18.5,9 L20,11.5 Q20.5,12.5 18,13 V16 Q18,18 16,18 H14 V21 M9,8 Q12,5.5 14,8 Q15,10 12,11 M12,13.5 V13.6",
+        ["dance"] = "M13.5,17.5 V6 Q13.5,4.5 15,4 L19.5,3 Q21,2.5 21,4 V15.5 M13.5,8.5 L21,6.5 M8.5,18 A2.5,2.5 0 1 0 13.5,18 A2.5,2.5 0 1 0 8.5,18 M16,16 A2.5,2.5 0 1 0 21,16 A2.5,2.5 0 1 0 16,16 M3,5 Q1,8 3,10 M6,4 Q4,8 6,12",
+        ["close"] = "M7.5,7.5 L16.5,16.5 M7.5,16.5 L16.5,7.5"
+    }.ToDictionary(pair => pair.Key, pair => { var geometry = Geometry.Parse(pair.Value); geometry.Freeze(); return geometry; });
+
     protected override void OnRender(DrawingContext dc)
     {
-        var pen = new Pen(Foreground ?? CloudTheme.Ink, 1.65) { StartLineCap = PenLineCap.Round, EndLineCap = PenLineCap.Round, LineJoin = PenLineJoin.Round };
+        var shape = Soft && SoftShapes.TryGetValue(Glyph, out var rounded) ? rounded : Shapes.GetValueOrDefault(Glyph, Shapes["cloud"]);
+        var pen = new Pen(Foreground ?? CloudTheme.Ink, Soft ? 1.8 : 1.65) { StartLineCap = PenLineCap.Round, EndLineCap = PenLineCap.Round, LineJoin = PenLineJoin.Round };
         dc.PushTransform(new ScaleTransform(ActualWidth / 24, ActualHeight / 24));
-        dc.DrawGeometry(null, pen, Shapes.GetValueOrDefault(Glyph, Shapes["cloud"]));
+        if (Soft)
+        {
+            // A narrow halo follows only the stroke, keeping it readable over wallpaper without adding a button plate.
+            var halo = new Pen(CloudTheme.Brush("#A6FFFCFA"), 3.6) { StartLineCap = PenLineCap.Round, EndLineCap = PenLineCap.Round, LineJoin = PenLineJoin.Round };
+            dc.DrawGeometry(null, halo, shape);
+        }
+        dc.DrawGeometry(null, pen, shape);
         dc.Pop();
     }
 }

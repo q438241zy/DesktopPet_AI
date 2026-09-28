@@ -23,17 +23,19 @@
     </Style>
     <Style x:Key="RadialAction" TargetType="Button">
       <Setter Property="Width" Value="44" /><Setter Property="Height" Value="44" /><Setter Property="Margin" Value="0" /><Setter Property="Padding" Value="0" /><Setter Property="Cursor" Value="Hand" />
+      <!-- One alpha step keeps the full target clickable in a layered HWND; no visible button plate. -->
+      <Setter Property="Background" Value="#01FFFFFF" /><Setter Property="BorderThickness" Value="0" /><Setter Property="Foreground" Value="#A17C8F" /><Setter Property="FocusVisualStyle" Value="{x:Null}" />
       <Setter Property="Template"><Setter.Value><ControlTemplate TargetType="Button">
-        <Grid x:Name="Tile" RenderTransformOrigin="0.5,0.5">
+        <Grid x:Name="Tile" Background="{TemplateBinding Background}" RenderTransformOrigin="0.5,0.5">
           <Grid.RenderTransform><ScaleTransform /></Grid.RenderTransform>
-          <Path x:Name="Surface" Data="M16,49 C8,49 3,44 3,37 C3,30 8,25 15,25 C14,18 20,12 27,13 C31,5 45,9 46,20 C53,18 58,23 58,29 C66,36 61,49 51,49 Z" Stretch="Fill" Margin="0,3,0,3" Fill="#FFFFF7F3" Stroke="#EDD0DC" StrokeThickness="1"><Path.Effect><DropShadowEffect Color="#926578" BlurRadius="10" ShadowDepth="2" Opacity="0.13" /></Path.Effect></Path>
-          <Ellipse x:Name="Focus" Stroke="#80AD526F" StrokeThickness="2" Margin="-3" Visibility="Collapsed" />
+          <Ellipse x:Name="Focus" Stroke="#99B9849E" StrokeThickness="1.4" Margin="2" Visibility="Collapsed" IsHitTestVisible="False" />
           <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
         </Grid>
         <ControlTemplate.Triggers>
-          <Trigger Property="IsMouseOver" Value="True"><Setter TargetName="Surface" Property="Fill" Value="#FCEBF0" /><Setter Property="Foreground" Value="#AD526F" /><Setter TargetName="Tile" Property="RenderTransform"><Setter.Value><ScaleTransform ScaleX="1.06" ScaleY="1.06" /></Setter.Value></Setter></Trigger>
+          <Trigger Property="IsMouseOver" Value="True"><Setter Property="Foreground" Value="#916278" /><Setter TargetName="Tile" Property="RenderTransform"><Setter.Value><ScaleTransform ScaleX="1.07" ScaleY="1.07" /></Setter.Value></Setter></Trigger>
           <Trigger Property="IsKeyboardFocused" Value="True"><Setter TargetName="Focus" Property="Visibility" Value="Visible" /></Trigger>
-          <Trigger Property="IsPressed" Value="True"><Setter TargetName="Surface" Property="Fill" Value="#F7D8E4" /><Setter TargetName="Tile" Property="RenderTransform"><Setter.Value><ScaleTransform ScaleX="0.96" ScaleY="0.96" /></Setter.Value></Setter></Trigger>
+          <Trigger Property="IsPressed" Value="True"><Setter Property="Foreground" Value="#85576C" /><Setter TargetName="Tile" Property="RenderTransform"><Setter.Value><ScaleTransform ScaleX="0.96" ScaleY="0.96" /></Setter.Value></Setter></Trigger>
+          <Trigger Property="IsEnabled" Value="False"><Setter TargetName="Tile" Property="Opacity" Value="0.42" /></Trigger>
         </ControlTemplate.Triggers>
       </ControlTemplate></Setter.Value></Setter>
       <Style.Resources><Style TargetType="ToolTip"><Setter Property="Background" Value="#F5FFFFFF" /><Setter Property="Foreground" Value="#57434C" /><Setter Property="FontSize" Value="11" /><Setter Property="Padding" Value="9,5" /><Setter Property="Template"><Setter.Value><ControlTemplate TargetType="ToolTip"><Border Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}" CornerRadius="10" BorderThickness="1" BorderBrush="#EEDDE3"><ContentPresenter /></Border></ControlTemplate></Setter.Value></Setter></Style></Style.Resources>

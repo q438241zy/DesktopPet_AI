@@ -202,29 +202,72 @@ Test("hide-and-seek reaches the nearest edge before disappearing and returns inw
     Equal(1, new EdgeHide(100, 0, 1920, 200, 80, 1).Side);
     var atEdge = new EdgeHide(92, 0, 1920, 200, 80, -1); Equal(0d, atEdge.ApproachSeconds); Equal(HidePhase.Hide, atEdge.At(0).Phase);
 });
-Test("skeletal dance articulates limbs, preserves bone lengths and returns to rest", () =>
+Test("silhouette binding does not reach across a transparent gap", () =>
 {
+    const int columns=24,rows=24,stride=25;
+    var vertices=Enumerable.Range(0,stride*stride).Select(i=>new RigPoint(i%stride/24d,i/stride/24d)).ToArray();
+    var opaque=Enumerable.Range(0,vertices.Length).Select(i=>
+    {
+        int x=i%stride,y=i/stride;
+        return y>=3&&y<=22&&((x>=4&&x<=7)||(x>=11&&x<=14)||(y<=5&&x>=4&&x<=14));
+    }).ToArray();
+    RigBone[] bones=[new(new(6/24d,4/24d),new(6/24d,8/24d)),new(new(12/24d,18/24d),new(12/24d,22/24d))];
+    var weights=SilhouetteSkinning.Bind(vertices,bones,opaque,columns,rows);
+    Equal(true,weights[20*stride+6][0]>.9); // The nearby arm is separated by transparent space.
+    Equal(true,weights[20*stride+12][1]>.99);
+    Equal(true,weights[20*stride+8][0]>.9); // Antialiased edge keeps the same ownership.
+    Equal(true,weights.All(w=>w.All(double.IsFinite)&&Math.Abs(w.Sum()-1)<1e-8));
+});
+Test("measured dance has planted support, continuous joints and a neutral finish", () =>
+{
+    var profile=new DanceRig([
+        new(.5,.47),new(.5,.18),new(.5,.10),
+        new(.35,.22),new(.24,.35),new(.11,.48),
+        new(.65,.22),new(.76,.35),new(.89,.48),
+        new(.42,.48),new(.40,.70),new(.38,.93),
+        new(.58,.48),new(.60,.70),new(.62,.93),
+        new(.38,.99),new(.62,.99)],.36,.64,.46);
+    Equal(true,profile.IsValid);
+    Equal(false,(profile with { Joints=profile.Joints[..16] }).IsValid);
+    Equal(false,(profile with { Joints=Enumerable.Repeat(new RigPoint(.5,.5),17).ToArray() }).IsValid);
+    Equal(false,(profile with { ClothWidths=[.2,.3,double.NaN,.4,.45] }).IsValid);
+    Equal(false,(profile with { FrontHem=.2 }).IsValid);
+    var unsupported=new PortraitRig("gpt","original");
+    Equal(true,unsupported.Pose(750).Bones.SequenceEqual(unsupported.Rest));
     foreach (string family in new[] { "whale", "gpt", "claude", "gemini", "grok", "qwen", "zhipu", "kimi" })
     {
-        Equal(true, PortraitRig.SupportsDance("adult", family)); Equal(false, PortraitRig.SupportsDance("3d", family)); Equal(false, PortraitRig.SupportsDance("chibi", family));
-        var rig = new PortraitRig(family, "original");
+        Equal(true,PortraitRig.SupportsDance("adult",family));
+        Equal(false,PortraitRig.SupportsDance("3d",family)); Equal(false,PortraitRig.SupportsDance("chibi",family));
+        var rig=new PortraitRig(family,"original",.5,danceRig:profile);
         foreach (double t in new[] { 0d, PetDance.DurationMs })
-            Equal(true, rig.Skin(rig.Pose(t)).Zip(rig.Vertices).All(p => (p.First - p.Second).Length < .000001));
-        for (double t = 0; t <= PetDance.DurationMs; t += 37)
+            Equal(true,rig.Skin(rig.Pose(t)).Zip(rig.Vertices).All(p=>(p.First-p.Second).Length<1e-8));
+        for (double t=0;t<=PetDance.DurationMs;t+=37)
         {
-            var pose = rig.Pose(t); var quiet = rig.Pose(t, true);
-            Equal(true, quiet.Bones.SequenceEqual(rig.Rest));
-            var next = rig.Pose(t + 16);
-            Equal(true, pose.Bones.Zip(next.Bones).All(p => (p.First.A - p.Second.A).Length < .025 && (p.First.B - p.Second.B).Length < .025));
-            foreach (int bone in new[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 })
-                Equal(true, Math.Abs((pose.Bones[bone].B - pose.Bones[bone].A).Length - (rig.Rest[bone].B - rig.Rest[bone].A).Length) < .003);
+            var pose=rig.Pose(t);var next=rig.Pose(t+16);
+            Equal(true,rig.Pose(t,true).Bones.SequenceEqual(rig.Rest));
+            Equal(true,pose.Bones.Zip(next.Bones).All(p=>(p.First.A-p.Second.A).Length<.006&&(p.First.B-p.Second.B).Length<.006));
+            foreach(int bone in new[]{0,1,2,3,4,5,8,11})
+                Equal(true,Math.Abs((pose.Bones[bone].B-pose.Bones[bone].A).Length-(rig.Rest[bone].B-rig.Rest[bone].A).Length)<1e-8);
+            foreach(int bone in new[]{6,7,9,10})
+            {
+                double projected=(pose.Bones[bone].B-pose.Bones[bone].A).Length/(rig.Rest[bone].B-rig.Rest[bone].A).Length;
+                Equal(true,projected is >=.9 and <=1.01);
+            }
+            // At least one sole is on the floor and stationary. The moving foot
+            // lifts before stepping, never slides both soles with the body.
+            Equal(true,Math.Abs(pose.Bones[8].B.Y-rig.Rest[8].B.Y)<1e-8||Math.Abs(pose.Bones[11].B.Y-rig.Rest[11].B.Y)<1e-8);
+            if((int)(t/PetDance.BeatMs)==(int)((t+16)/PetDance.BeatMs))
+                Equal(true,(pose.Bones[8].B-next.Bones[8].B).Length<1e-8||(pose.Bones[11].B-next.Bones[11].B).Length<1e-8);
+            Equal(true,pose.Bones[8].B.Y<=rig.Rest[8].B.Y+1e-8&&pose.Bones[11].B.Y<=rig.Rest[11].B.Y+1e-8);
+            Equal(true,pose.Bones[8].A.X<pose.Bones[11].A.X);
         }
-        var moving = rig.Pose(750);
-        Equal(true, (moving.Bones[3].B - rig.Rest[3].B).Length > .01);
-        Equal(true, (moving.Bones[5].B - rig.Rest[5].B).Length > .01);
-        Equal(true, (moving.Bones[8].A - rig.Rest[8].A).Length > .001);
-        var dress = new PortraitRig(family, "wedding");
-        Equal(true, dress.Skin(dress.Pose(750)).All(v => double.IsFinite(v.X) && double.IsFinite(v.Y)));
+        var moving=rig.Pose(750);
+        Equal(true,(moving.Bones[3].B-rig.Rest[3].B).Length>.01);
+        Equal(true,(moving.Bones[5].B-rig.Rest[5].B).Length>.01);
+        Equal(true,(moving.Bones[8].A-rig.Rest[8].A).Length>.001);
+        var dress=new PortraitRig(family,"wedding",.5,danceRig:profile with { Hem=.97 });
+        Equal(true,Math.Abs(dress.Pose(500).Bones[8].A.X-dress.Rest[8].A.X)<Math.Abs(rig.Pose(500).Bones[8].A.X-rig.Rest[8].A.X));
+        Equal(true,dress.Skin(dress.Pose(750)).All(v=>double.IsFinite(v.X)&&double.IsFinite(v.Y)));
     }
 });
 Test("radial menus fit corners and negative monitors without overlapping buttons", () =>

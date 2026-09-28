@@ -1,0 +1,1 @@
+Intervals: 119; median: 16.67 ms; p95: 16.96 ms. Local diagnostic, not a universal performance guarantee.

@@ -33,6 +33,10 @@ New-Item -ItemType Directory -Path $chibiDocs -Force | Out-Null
 Copy-Item -LiteralPath "$projectRoot/artwork/chibi-continuity/prompts.md","$projectRoot/artwork/chibi-continuity/manifest.json" -Destination $chibiDocs
 Copy-Item -LiteralPath "$projectRoot/artwork/chibi-continuity/prompts","$projectRoot/artwork/chibi-continuity/results" -Destination $chibiDocs -Recurse -Force
 $demoPointer = Join-Path $projectRoot 'artifacts/current-deepseek-demo.txt'
+$danceDocs = Join-Path $releaseRoot 'artwork/dance-repair'
+New-Item -ItemType Directory -Path $danceDocs -Force | Out-Null
+Copy-Item -LiteralPath "$projectRoot/artwork/dance-repair/prompts.md","$projectRoot/artwork/dance-repair/manifest.json","$projectRoot/artwork/dance-repair/calibration.json" -Destination $danceDocs
+Copy-Item -LiteralPath "$projectRoot/artwork/dance-repair/prompts","$projectRoot/artwork/dance-repair/results" -Destination $danceDocs -Recurse -Force
 if (Test-Path -LiteralPath $demoPointer) {
     $demoSource = (Get-Content -LiteralPath $demoPointer -Raw).Trim()
     $demoTarget = Join-Path $releaseRoot 'Demo'

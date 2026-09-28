@@ -41,8 +41,8 @@ internal static class InteractionVerification
             int proofRow = 0;
             foreach (string outfit in new[] { "original", "swim", "wedding" })
             {
-                var art = adult.Resolve(outfit, "idle", 0);
-                var view = new RigVisual(pet.Art.Frame(adult, art.Sprite, art.Frame), adult.FamilyId, outfit) { Width = 200, Height = 200 };
+                var art = adult.Resolve(outfit, "dance", 0);
+                var view = new RigVisual(pet.Art.Frame(adult, art.Sprite, art.Frame), adult.FamilyId, outfit, danceRig: art.Sprite.DanceRig) { Width = 200, Height = 200 };
                 view.Update(750); proof.Children.Add(view); Canvas.SetLeft(view, proofColumn * 200); Canvas.SetTop(view, proofRow * 220);
                 var label = new TextBlock { Text = adult.FamilyId + " / " + outfit, FontSize = 11, Foreground = CloudTheme.Muted, Width = 200, TextAlignment = TextAlignment.Center };
                 proof.Children.Add(label); Canvas.SetLeft(label, proofColumn * 200); Canvas.SetTop(label, proofRow * 220 + 202); proofRow++;
@@ -57,12 +57,13 @@ internal static class InteractionVerification
             {
                 pet.SelectCharacter(character.Id); pet.State.Outfits[character.Id] = outfit; pet.ApplySettings();
                 pet.Left = pet.WorkArea.Left + pet.WorkArea.Width / 2 - 280;
-                pet.RunInteraction("dance"); await Task.Delay(95);
+                pet.RunInteraction("dance"); await Task.Delay(260);
                 var sprite = Find<Image>(pet).Single();
                 if (character.Category == "adult")
                 {
-                    var expected = character.Resolve(outfit, "idle", 0);
+                    var expected = character.Resolve(outfit, "dance", 0);
                     Require(pet.IsDancing && pet.ActiveDance is { } visual && ReferenceEquals(visual.Texture, pet.Art.Frame(character, expected.Sprite, expected.Frame)), $"{character.Id}/{outfit}: dance retains selected adult outfit");
+                    await Until(()=>pet.ActiveDance is { } animated && (animated.Pose.Bones[3].B-animated.Rig.Rest[3].B).Length>.00001 && sprite.Opacity==0,"dance intro must finish on a rendered frame");
                     var rig = pet.ActiveDance!;
                     Require((rig.Pose.Bones[3].B - rig.Rig.Rest[3].B).Length > .00001 && sprite.Opacity == 0, $"{character.Id}/{outfit}: skeletal hands move and rigid portrait is hidden");
                     pet.TapDance(); Require(pet.IsDancing, $"{character.Id}/{outfit}: tapping keeps dance active");

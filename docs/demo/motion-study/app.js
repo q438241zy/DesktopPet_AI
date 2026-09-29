@@ -1,16 +1,16 @@
 'use strict';
 (async function(){
   const $=id=>document.getElementById(id),M=MotionStudy,A=window.MOTION_ASSETS;
-  const names=['自然站立','轻拢双手','侧头看看','整理头发','闭目呼吸'];
+  const names=A.idles.map(i=>i.name);
   const spontaneous={stretch:{pose:'idle:5',name:'伸个懒腰',duration:3500},yawn:{pose:'idle:6',name:'掩嘴打哈欠',duration:3200},greet:{pose:'idle:7',name:'和你招招手',duration:2900}};
   let renderer;
   try{renderer=new PetRenderer($('pet'),A);await renderer.load();}catch(error){$('loading').hidden=true;$('error').hidden=false;$('error').textContent=error.message;window.demoError=error.message;return;}
   $('loading').hidden=true;
   let clock=0,waitClock=0,last=performance.now(),paused=false,playlist=false,nextDance=Infinity;
   let state={kind:'idle',pose:'idle:0',from:'idle:0',started:0,duration:0},active='idle',manualScrub=false;
-  const scheduler=new M.IdleSchedule(),danceBag=new M.ShuffleBag(['tt','heart','wave']),walker=new M.Walker();
+  const scheduler=new M.IdleSchedule(Math.random,A.idles.length),danceBag=new M.ShuffleBag(Object.keys(A.clips).filter(k=>k!=='tickle')),walker=new M.Walker();
   scheduler.poses.last=0;
-  let lastAction='自动待机',lastDetail='5 个站立姿势',notice='每隔几秒换个姿势，久等后会自己活动。';
+  let lastAction='自动待机',lastDetail=names.length+' 个站立姿势',notice='每隔几秒换个姿势，久等后会自己活动。';
   let stats={frames:0,events:[],loaded:true,maxSupportError:0},lastFpsAt=last,lastFpsCount=0;
   const actorHeight=()=>Math.min(356,renderer.height-105),floor=()=>renderer.height-50;
   let actorX=0;
@@ -19,7 +19,7 @@
     for(const b of document.querySelectorAll('[data-action]'))b.setAttribute('aria-pressed',String(b.dataset.action===active));
     for(const b of document.querySelectorAll('[data-dance]'))b.setAttribute('aria-pressed',String(state.kind==='clip'&&state.key===b.dataset.dance));
     $('randomDance').setAttribute('aria-pressed',String(playlist));
-    for(const b of $('poses').children)b.setAttribute('aria-pressed',String(state.kind==='idle'&&state.pose===`idle:${b.dataset.pose}`));
+    for(const b of $('poses').children)b.setAttribute('aria-pressed',String(state.kind==='idle'&&state.pose===A.idles[Number(b.dataset.pose)].pose));
     $('actionLabel').textContent=lastAction;$('detailLabel').textContent=lastDetail;
   }
   function currentPose(){
@@ -31,14 +31,14 @@
   function activity(){scheduler.reset(waitClock);manualScrub=false;}
   function idle(pose=0,manual=true){
     const previous=currentPose();if(manual){playlist=false;nextDance=Infinity;activity();}
-    state={kind:'idle',pose:`idle:${pose}`,from:previous,started:clock,duration:650};active='idle';
+    state={kind:'idle',pose:A.idles[pose].pose,from:previous,started:clock,duration:850};active='idle';
     scheduler.poses.last=pose;scheduler.poses.remaining=scheduler.poses.remaining.filter(x=>x!==pose);
     lastAction='自动待机';lastDetail=names[pose];buttonState();
   }
   function play(key,manual=true){
     const previous=currentPose();if(manual){playlist=false;nextDance=Infinity;activity();}
     state={kind:'clip',key,from:previous,started:clock};active=key==='tickle'?'tickle':'dance';
-    lastAction=A.clips[key].name;lastDetail=key==='tt'?'TWICE 标志手势样例':key==='tickle'?'笑着躲一躲，再慢慢恢复':'短动作 · 自然收回';
+    lastAction=A.clips[key].name;lastDetail=({tt:'TWICE 手势样例',nextLevel:'aespa 折臂样例',loveDive:'IVE 镜面样例',tickle:'笑着躲一躲，再慢慢恢复'})[key]||'短动作 · 自然收回';
     log((playlist?'随机抽到：':'正在播放：')+lastAction);buttonState();
   }
   function walk(){playlist=false;nextDance=Infinity;activity();active='walk';state={kind:'walk',started:clock};walker.x=actorX||renderer.width/2;walker.turn=0;
@@ -61,11 +61,11 @@
     if(Math.abs(x-actorX)<actorHeight()*.28&&y>floor()-actorHeight()&&y<floor()){paused=false;setPauseLabel();play('tickle');}
   };
   $('pet').onkeydown=e=>{if(e.key==='Enter'){play('tickle');e.preventDefault();}else if(e.code==='Space'){paused=!paused;setPauseLabel();e.preventDefault();}else if(e.key==='Escape')idle(0);};
-  for(let i=0;i<5;i++){
+  for(let i=0;i<A.idles.length;i++){
     const button=document.createElement('button'),thumb=document.createElement('canvas'),label=document.createElement('span');button.type='button';button.dataset.pose=i;button.title=names[i];button.setAttribute('aria-label',names[i]);
-    thumb.width=88;thumb.height=128;const pose=A.poses[`idle:${i}`],img=renderer.images.idle,ctx=thumb.getContext('2d'),[x,y,w,h]=pose.pixels;
+    thumb.width=88;thumb.height=128;const pose=A.poses[A.idles[i].pose],img=renderer.images[pose.atlas],ctx=thumb.getContext('2d'),[x,y,w,h]=pose.pixels;
     const scale=122/pose.height;ctx.drawImage(img,x,y,w,h,44-w*scale/2,125-h*scale,w*scale,h*scale);
-    label.textContent=['自然','拢手','侧望','理发','闭目'][i];button.append(thumb,label);button.onclick=()=>{paused=false;setPauseLabel();idle(i);};$('poses').append(button);
+    label.textContent=A.idles[i].label;button.append(thumb,label);button.onclick=()=>{paused=false;setPauseLabel();idle(i);};$('poses').append(button);
   }
   document.addEventListener('visibilitychange',()=>{last=performance.now();});
   function drawGuides(skeleton){
@@ -81,7 +81,7 @@
   function render(dt=0){
     renderer.clear();const h=actorHeight(),f=floor();if(!actorX)actorX=renderer.width/2;
     let skeleton=null,progress=0,duration=1;
-    const sprite=(a,b,t,height=h)=>renderer.sprite(a,b,t,actorX,f,height,1,$('interpolation').checked);
+    const sprite=(a,b,t,height=h,context=null)=>renderer.sprite(a,b,t,actorX,f,height,1,$('interpolation').checked,context);
     if(state.kind==='walk'){
       const margin=Math.min(140,renderer.width*.28),left=margin,right=Math.max(left+1,renderer.width-margin);
       walker.x=M.clamp(walker.x,left,right);if(dt)walker.advance(dt,left,right,h);actorX=walker.x;skeleton=renderer.walk(walker,actorX,f,h);
@@ -94,9 +94,19 @@
         const breath=1+Math.sin(clock/1600)*.0012;const blend=M.smooth(age/Math.max(1,state.duration));sprite(state.from,state.pose,blend,h*breath);
       }else if(state.kind==='clip'){
         const clip=A.clips[state.key],t=age-420;duration=clip.duration/1000;progress=M.clamp(t/clip.duration);
-        if(age<420)sprite(state.from,clip.frames[0],M.smooth(age/420));
-        else if(t<=clip.duration){const p=M.clipPose(clip,t);sprite(p.a,p.b,p.t);}
-        else {sprite(clip.frames.at(-1),'idle:0',M.smooth((t-clip.duration)/450));if(t>clip.duration+450&&!paused){idle(0,false);if(playlist)nextDance=clock+650;}}
+        const rigged=!!A.hands[clip.frames[0]]&&$('interpolation').checked;
+        if(rigged){
+          const blendPoints=(a,b,amount)=>a.map((p,i)=>p.map((v,j)=>M.mix(v,b[i][j],amount)));
+          const neutral=[[80,267],[241,267]],restFeet=[[140,460.8],[180,460.8]];
+          let hands,feet,head;
+          if(age<420){const amount=M.smooth(age/420);hands=blendPoints(neutral,A.hands[clip.frames[0]],amount);feet=blendPoints(restFeet,A.feet[clip.frames[0]],amount);head=blendPoints([[160,96]],A.heads[clip.frames[0]],amount);}
+          else if(t<=clip.duration){const p=M.clipPose(clip,t);hands=M.trackPoints(A.hands,p);feet=M.trackPoints(A.feet,p);head=M.trackPoints(A.heads,p);}
+          else {const amount=M.smooth((t-clip.duration)/380);hands=blendPoints(A.hands[clip.frames.at(-1)],neutral,amount);feet=blendPoints(A.feet[clip.frames.at(-1)],restFeet,amount);head=blendPoints(A.heads[clip.frames.at(-1)],[[160,96]],amount);}
+          skeleton=renderer.dance(hands,feet,actorX,f,h,t,state.key,head);window.demoRig=skeleton;
+        }else if(age<420)sprite(state.from,clip.frames[0],M.smooth(age/420));
+        else if(t<=clip.duration){const p=M.clipPose(clip,t);sprite(p.a,p.b,p.t,h,p);}
+        else sprite(clip.frames.at(-1),'idle:0',M.smooth((t-clip.duration)/380));
+        if(t>clip.duration+380&&!paused){idle(0,false);if(playlist)nextDance=clock+180;}
       }else if(state.kind==='auto'){
         const auto=spontaneous[state.key],entrance=850,exit=700;duration=(auto.duration+entrance+exit)/1000;progress=M.clamp(age/(duration*1000));
         if(age<entrance)sprite(state.from,auto.pose,M.smooth(age/entrance));
@@ -104,7 +114,7 @@
         else {sprite(auto.pose,'idle:0',M.smooth((age-entrance-auto.duration)/exit));if(age>duration*1000&&!paused){idle(0,false);scheduler.poseAt=waitClock+scheduler.poseDelay();}}
       }
     }
-    drawGuides(skeleton);$('shadow').style.left=actorX+'px';$('timeline').disabled=state.kind!=='clip';
+    drawGuides(skeleton?.near?skeleton:null);$('shadow').style.left=actorX+'px';$('timeline').disabled=state.kind!=='clip';
     if(!manualScrub)$('timeline').value=Math.round(progress*1000);$('timeLabel').textContent=(progress*duration).toFixed(1)+' s';
     const seconds=Math.max(0,(scheduler.actionAt-waitClock)/1000);
     $('waitLabel').textContent=$('autonomous').checked?(state.kind==='idle'?`${Math.ceil(seconds)} 秒后，自己活动一下`:'互动结束后继续等待'):'自发动作已关闭';

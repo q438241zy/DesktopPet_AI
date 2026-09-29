@@ -42,9 +42,10 @@ internal static class UiVerification
         async Task Until(Func<bool> condition, string context)
         {
             var timeout = System.Diagnostics.Stopwatch.StartNew();
-            while (!condition()) { if (timeout.Elapsed > TimeSpan.FromSeconds(4)) throw new TimeoutException($"WPF movement did not advance: {context}; selected={pet.State.Character}/{pet.State.Outfit}; left={pet.Left}; reduced={pet.State.ReducedMotion}"); await Task.Delay(40); }
+            while (!condition()) { if (timeout.Elapsed > TimeSpan.FromSeconds(4)) throw new TimeoutException($"WPF movement did not advance: {context}; selected={pet.State.Character}/{pet.State.Outfit}; left={pet.Left}; reduced={pet.State.ReducedMotion}; action={pet.CurrentAction}; frame={pet.DrawnFrame}; phase={pet.WalkPhaseMilliseconds}; compositor={pet.WalkUsesRendering}"); await Task.Delay(40); }
         }
-        Require(pet.Catalog.Characters.Count == 24 && new[] { "chibi", "3d", "adult" }.All(style => pet.Catalog.Characters.Count(c => c.Category == style) == 8), "eight AI companions in each of three styles");
+        Require(pet.Catalog.Characters.Count == 16 && CharacterStyles.All.All(style => pet.Catalog.Characters.Count(c => c.Category == style) == 8), "eight AI companions in each of two styles");
+        Require(Catalog.BuiltInFamilies.All(family => ReferenceEquals(pet.Catalog.Find(Catalog.VariantId(family, CharacterStyles.Realistic)), pet.Catalog.Find((family == "whale" ? "deepseek" : family) + "-3d"))), "legacy 3D IDs resolve to the merged companion");
         Require(!pet.Catalog.Characters.Any(c => c.Id == "umaru") && !Directory.Exists(Path.Combine(AppContext.BaseDirectory, "Assets", "Characters", "umaru")), "Umaru assets and catalog entry removed");
         Require(pet.Catalog.Find("umaru").Id == "whale", "old Umaru selection resolves to DeepSeek");
         foreach (var c in pet.Catalog.Characters.ToArray())
@@ -106,13 +107,12 @@ internal static class UiVerification
                 {
                     pet.SelectCharacter(c.Id); pet.State.Outfits[c.Id] = outfit; pet.ApplySettings();
                     pet.Left = pet.WorkArea.Left + pet.WorkArea.Width / 2 - 280; double start = pet.Left;
-                    pet.StartWalk(false, direction); await Until(() => (pet.Left - start) * direction > .5, $"{c.Id}/{outfit}, direction={direction}, start={start}");
+                    pet.StartWalk(false, direction); await Until(() => pet.CurrentAction == "walk" && (pet.Left - start) * direction > .5, $"{c.Id}/{outfit}, direction={direction}, start={start}");
                     var sprite = Find<Image>(pet).Single();
                     double scale = ((ScaleTransform)sprite.RenderTransform).ScaleX;
                     Require(scale == direction, $"{c.Id}/{outfit}: travel and facing agree ({direction})");
                     var walk = outfit == "original" ? c.Motions["walk"] : c.Outfits[outfit].Motions["walk"];
-                    var expectedWalk = Enumerable.Range(0, walk.Columns * walk.Rows).Select(i => pet.Art.Frame(c, walk, i)).ToArray();
-                    Require(expectedWalk.Contains(sprite.Source), $"{c.Id}/{outfit}: walk uses this exact style and clothing");
+                    Require(ReferenceEquals(sprite.Source, pet.Art.Frame(c, walk, pet.DrawnFrame)), $"{c.Id}/{outfit}: walk uses this exact style and clothing; action={pet.CurrentAction}, frame={pet.DrawnFrame}, appearance={pet.State.Character}/{pet.State.Outfit}");
                     if (c.Category != "chibi")
                     {
                         var idle = pet.Art.Frame(c, c.Resolve(outfit, "idle", 0).Sprite, 0);
@@ -122,9 +122,11 @@ internal static class UiVerification
                     }
                     if (direction == 1)
                     {
-                        var first = sprite.Source;
-                        await Until(() => !ReferenceEquals(sprite.Source, first), $"{c.Id}/{outfit}: animation advances");
-                        Require(expectedWalk.Contains(sprite.Source), $"{c.Id}/{outfit}: next walking frame keeps the same appearance");
+                        int first = pet.DrawnFrame;
+                        await Until(() => pet.CurrentAction == "walk" && pet.DrawnFrame != first, $"{c.Id}/{outfit}: walking frame advances");
+                        // The bounded image cache can replace bitmap instances. Compare
+                        // the currently drawn cell, rather than retaining stale references.
+                        Require(ReferenceEquals(sprite.Source, pet.Art.Frame(c, walk, pet.DrawnFrame)), $"{c.Id}/{outfit}: next walking frame keeps the same appearance");
                     }
                     double foot = pet.Top + Canvas.GetTop(sprite) + sprite.Height * pet.Art.GroundLine((BitmapSource)sprite.Source);
                     Require(Math.Abs(foot - pet.WorkArea.Bottom) < .1, $"{c.Id}/{outfit}: visible feet stay on desktop floor ({direction})");
@@ -153,7 +155,7 @@ internal static class UiVerification
         Require(imported.Atlas.Columns == 1 && imported.Motions["walk"].Columns == 1, "generator outputs import as static poses");
         Require(File.Exists(Path.Combine(imported.Root, "pet.json")), "import persists a portable manifest");
         var portrait = pet.Catalog.ImportPortrait(Directory.GetFiles(source)[0], "测试立绘", "adult");
-        Require(portrait.Atlas.Rows == 1 && portrait.Category == "adult", "single-image import retains its adult category and a single cell");
+        Require(portrait.Atlas.Rows == 1 && portrait.Category == CharacterStyles.Realistic, "legacy portrait import uses the merged category and a single cell");
         foreach (var still in new[] { imported, portrait })
         {
             pet.SelectCharacter(still.Id); double beforeStatic = pet.Left; pet.StartWalk(false, -1); await Task.Delay(250);
@@ -165,7 +167,7 @@ internal static class UiVerification
             foreach (string outfit in new[] { "original", "swim", "wedding" })
             {
                 pet.SelectCharacter(family); pet.State.Outfits[family] = outfit; pet.ApplySettings();
-                foreach (string style in new[] { "3d", "adult", "chibi" })
+                foreach (string style in new[] { CharacterStyles.Realistic, CharacterStyles.Chibi })
                 {
                     await System.Windows.Threading.Dispatcher.Yield(System.Windows.Threading.DispatcherPriority.Background);
                     Click("分类 " + CloudTheme.CategoryName(style));
@@ -179,7 +181,7 @@ internal static class UiVerification
         Require(pet.State.Character == "deepseek-adult" && pet.State.Outfit == "wedding" && ReferenceEquals(Find<Image>(pet).Single().Source, bridal), "changing clothes mid-walk cancels old frames and keeps realistic style");
         pet.SelectCharacter("missing-realistic-variant");
         Require(pet.State.Character == "deepseek-adult", "a missing explicit selection never silently changes to chibi");
-        foreach (string style in new[] { "3d", "adult" })
+        foreach (string style in new[] { CharacterStyles.Chibi, CharacterStyles.Realistic })
         {
             pet.StartWalk(false, 1); pet.SelectStyle(style); await Task.Delay(220);
             var selected = pet.Art.Frame(pet.Character, pet.Character.Resolve("wedding", "chat", 0).Sprite, pet.DrawnFrame);
@@ -192,7 +194,7 @@ internal static class UiVerification
             foreach (var (outfit, label) in new[] { ("original", "原装"), ("swim", "泳装"), ("wedding", "婚纱") })
             {
                 Click("对照服装 " + label);
-                foreach (string style in new[] { "chibi", "3d", "adult" })
+                foreach (string style in CharacterStyles.All)
                 {
                     string id = Catalog.VariantId(family, style);
                     var c = pet.Catalog.Find(id);
@@ -204,20 +206,20 @@ internal static class UiVerification
                 await Capture($"styles-{family}-{outfit}");
             }
         }
-        pet.SelectCharacter("gpt-3d"); pet.State.Outfits["gpt-3d"] = "wedding"; pet.ApplySettings();
+        pet.SelectCharacter("gpt-3d"); pet.State.Outfits[pet.State.Character] = "wedding"; pet.ApplySettings();
         pet.SelectCharacter("claude-adult"); pet.State.Outfits["claude-adult"] = "swim"; pet.ApplySettings();
         pet.SelectCharacter("gpt-3d");
-        Require(pet.State.Outfit == "wedding", "3D outfit is restored after switching to a realistic companion");
+        Require(pet.State.Character == "gpt-adult" && pet.State.Outfit == "wedding", "legacy 3D selection restores the merged companion's outfit");
         pet.SelectCharacter("claude-adult");
-        Require(pet.State.Outfit == "swim", "realistic outfit is restored after switching back from 3D");
-        Click("我的伙伴"); Click("分类 3D版"); await Capture("roster-3d");
-        Click("分类 真人版"); await Capture("roster-adult");
+        Require(pet.State.Outfit == "swim", "merged companion outfit is restored independently");
+        Click("我的伙伴"); Click("分类 3D真人"); await Capture("roster-realistic");
+        Require(Find<Button>(window).Count(button => AutomationProperties.GetName(button).StartsWith("分类 ")) == 2, "settings shows exactly two style choices");
         pet.SelectCharacter("whale"); pet.State.Outfits["whale"] = "original"; pet.ApplySettings();
         Click("风格预览"); await Capture("deepseek-styles");
         Click("陪伴日常"); await Capture("cloud-life"); Click("角色工坊"); await Capture("cloud-studio"); Click("桌面偏好"); await Capture("cloud-settings");
         pet.Save(); var restored = new StateStore(output).Load();
         Require(restored.Character == "whale" && restored.Outfit == "original" && restored.CheckIns.Count == total, "state reload preserves selection and progress");
-        Require(restored.Outfits["gpt-3d"] == "wedding" && restored.Outfits["claude-adult"] == "swim", "state reload preserves both new styles' outfit selections");
+        Require(restored.Outfits["gpt-adult"] == "wedding" && restored.Outfits["claude-adult"] == "swim" && !restored.Outfits.ContainsKey("gpt-3d"), "state reload preserves merged companions' outfit selections without retired IDs");
         File.WriteAllLines(Path.Combine(output, "ui-check.txt"), checks.Append($"{checks.Count} WPF integration checks passed."));
         window.Close();
     }

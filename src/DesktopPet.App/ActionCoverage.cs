@@ -28,7 +28,7 @@ internal static class ActionCoverage
         int count = clip?.Frames?.Distinct().Count() ?? (clip is null ? 0 : clip.Columns * clip.Rows);
         string status, detail;
         if (action.Key == "dance")
-        { status = !PortraitRig.SupportsDance(c.Category,c.FamilyId)?"不适用":clip?.DanceRig is not null?"程序动作":"缺少动作"; detail = status == "不适用" ? "按设计仅真人版提供舞蹈" : "专用舞蹈底图与独立关节；16 拍侧步、点地、展臂和收势，支撑脚固定，长裙保持连贯"; }
+        { status = !PortraitRig.SupportsDance(c.Category,c.FamilyId)?"不适用":clip?.DanceRig is not null?"程序动作":"缺少动作"; detail = status == "不适用" ? "按设计仅3D真人提供舞蹈" : "专用舞蹈底图与独立关节；16 拍侧步、点地、展臂和收势，支撑脚固定，长裙保持连贯"; }
         else if (action.Key is "idle" or "listen" or "place")
         { status = "静态姿势"; detail = action.Key == "place" ? "手动放置后停留在用户指定的位置" : clip is null ? "使用本外观的安静待机姿势" : "本外观专用聆听姿势"; }
         else if (action.Key == "dizzy")

@@ -1,10 +1,10 @@
 {
   "version": 1,
   "id": "claude-adult",
-  "name": "Claude · 真人",
-  "category": "adult",
+  "name": "Claude · 3D真人",
+  "category": "realistic",
   "family": "claude",
-  "description": "成年比例 · 写实真人质感",
+  "description": "成年比例 · 3D真人质感",
   "demo": true,
   "accent": "#D59477",
   "atlas": {

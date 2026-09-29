@@ -1,10 +1,10 @@
 {
   "version": 1,
   "id": "kimi-adult",
-  "name": "Kimi · 真人",
-  "category": "adult",
+  "name": "Kimi · 3D真人",
+  "category": "realistic",
   "family": "kimi",
-  "description": "成年比例 · 写实真人质感",
+  "description": "成年比例 · 3D真人质感",
   "demo": true,
   "accent": "#D198BA",
   "atlas": {

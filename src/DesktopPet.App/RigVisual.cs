@@ -15,7 +15,7 @@ internal sealed class RigVisual : Viewport3D
     public BitmapSource Texture { get; }
     public RigPose Pose { get; private set; }
     public string ActionName { get; private set; } = "idle";
-    public RigVisual(BitmapSource texture, string family, string outfit, string category = "adult", DanceRig? danceRig = null)
+    public RigVisual(BitmapSource texture, string family, string outfit, string category = CharacterStyles.Realistic, DanceRig? danceRig = null)
     {
         Texture = texture; Rig = new PortraitRig(family, outfit, (double)texture.PixelWidth / texture.PixelHeight, category, danceRig,
             danceRig is null?null:Silhouette(texture,PortraitRig.Columns*2,PortraitRig.Rows*2));

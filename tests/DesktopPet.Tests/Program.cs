@@ -236,8 +236,9 @@ Test("measured dance has planted support, continuous joints and a neutral finish
     Equal(true,unsupported.Pose(750).Bones.SequenceEqual(unsupported.Rest));
     foreach (string family in new[] { "whale", "gpt", "claude", "gemini", "grok", "qwen", "zhipu", "kimi" })
     {
-        Equal(true,PortraitRig.SupportsDance("adult",family));
-        Equal(false,PortraitRig.SupportsDance("3d",family)); Equal(false,PortraitRig.SupportsDance("chibi",family));
+        Equal(true,PortraitRig.SupportsDance(CharacterStyles.Realistic,family));
+        Equal(true,PortraitRig.SupportsDance("adult",family)); Equal(true,PortraitRig.SupportsDance("3d",family));
+        Equal(false,PortraitRig.SupportsDance("chibi",family));
         var rig=new PortraitRig(family,"original",.5,danceRig:profile);
         foreach (double t in new[] { 0d, PetDance.DurationMs })
             Equal(true,rig.Skin(rig.Pose(t)).Zip(rig.Vertices).All(p=>(p.First-p.Second).Length<1e-8));
@@ -388,6 +389,22 @@ Test("shake needs four recent reversals, then expires", () =>
     shake.Start(0, 0); shake.Move(60, 200); shake.Move(0, 400); Equal("shaken", shake.Motion);
 });
 ChatVerification.Run(Test);
+Test("style merge preserves the worn outfit and progress and is safe to repeat", () =>
+{
+    var aliases = new Dictionary<string,string> { ["gpt-3d"]="gpt-adult", ["deepseek-3d"]="deepseek-adult", ["claude-3d"]="claude-adult" };
+    var state = new PetState { Character="gpt-3d", Outfits=new() { ["gpt-3d"]="wedding", ["gpt-adult"]="swim", ["deepseek-3d"]="swim", ["claude-3d"]="swim", ["claude-adult"]="wedding", ["custom-3d"]="swim" }, Treasures=["贝壳"], Left=372, Top=215 };
+    state.CheckIn(new DateOnly(2026,9,29)); string adopted=state.AdoptedAt;
+    state.MigrateCharacters(aliases);
+    Equal("gpt-adult",state.Character); Equal("wedding",state.Outfit);
+    Equal("swim",state.Outfits["deepseek-adult"]); Equal("wedding",state.Outfits["claude-adult"]);
+    Equal("swim",state.Outfits["custom-3d"]); Equal(false,state.Outfits.ContainsKey("gpt-3d"));
+    Equal(1,state.CheckIns.Count); Equal("贝壳",state.Treasures.Single()); Equal(adopted,state.AdoptedAt);
+    Equal<double?>(372,state.Left); Equal<double?>(215,state.Top);
+    string migrated=JsonSerializer.Serialize(state,Json.Options);
+    state.MigrateCharacters(aliases); Equal(migrated,JsonSerializer.Serialize(state,Json.Options));
+    var missingOutfit=new PetState { Character="gpt-3d",Outfits=new() { ["gpt-adult"]="wedding" } };
+    missingOutfit.MigrateCharacters(aliases); Equal("gpt-adult",missingOutfit.Character); Equal("original",missingOutfit.Outfit);
+});
 Test("jump has grounded preparation and landing with one continuous airborne arc", () =>
 {
     foreach (double size in new[] { 120d, 200, 280 })
@@ -442,7 +459,8 @@ try
         c.Atlas = c.Atlas with { SeparationAlpha=255 }; Write(); Reject(() => Character.Load(root));
         c.Atlas = c.Atlas with { SeparationAlpha=48, ReferenceHeightPixels=-1 }; Write(); Reject(() => Character.Load(root));
         c.Atlas = new Sprite("atlas.png", 1, 1); c.Category = "unknown"; Write(); Reject(() => Character.Load(root));
-        c.Category = "adult"; Write(); Equal("adult", Character.Load(root).Category);
+        foreach (string category in new[] { "3d", "adult", CharacterStyles.Realistic })
+        { c.Category = category; Write(); Equal(CharacterStyles.Realistic, Character.Load(root).Category); }
         c.Outfits["empty"] = new Outfit { Name = "empty" }; Write(); Reject(() => Character.Load(root)); c.Outfits.Clear();
         c.Atlas = new Sprite("missing.png"); Write(); Reject(() => Character.Load(root));
     });

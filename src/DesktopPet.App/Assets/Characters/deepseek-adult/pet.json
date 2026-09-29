@@ -1,10 +1,10 @@
 {
   "version": 1,
   "id": "deepseek-adult",
-  "name": "DeepSeek · 真人",
-  "category": "adult",
+  "name": "DeepSeek · 3D真人",
+  "category": "realistic",
   "family": "whale",
-  "description": "成年比例 · 写实真人质感",
+  "description": "成年比例 · 3D真人质感",
   "demo": true,
   "accent": "#74B3E6",
   "atlas": {

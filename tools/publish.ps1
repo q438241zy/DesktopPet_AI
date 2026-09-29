@@ -5,7 +5,9 @@ $releaseRoot = if ($OutputDirectory) { [IO.Path]::GetFullPath($OutputDirectory) 
 dotnet publish "$projectRoot/src/DesktopPet.App/DesktopPet.App.csproj" -c Release -r $Runtime --self-contained true -o $releaseRoot -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true
 if ($LASTEXITCODE -ne 0) { throw 'Publish failed' }
 Copy-Item -LiteralPath "$projectRoot/LICENSE","$projectRoot/README.md","$projectRoot/THIRD_PARTY_NOTICES.md" -Destination $releaseRoot
-Copy-Item -LiteralPath "$projectRoot/docs" -Destination $releaseRoot -Recurse -Force
+$docsTarget = Join-Path $releaseRoot 'docs'
+New-Item -ItemType Directory -Path $docsTarget -Force | Out-Null
+Get-ChildItem -LiteralPath (Join-Path $projectRoot 'docs') | Where-Object Name -ne 'demo' | ForEach-Object { Copy-Item -LiteralPath $_.FullName -Destination $docsTarget -Recurse -Force }
 $styleDocs = Join-Path $releaseRoot 'artwork/style-demo'
 New-Item -ItemType Directory -Path $styleDocs -Force | Out-Null
 Copy-Item -LiteralPath "$projectRoot/artwork/style-demo/prompts.md" -Destination $styleDocs
@@ -47,3 +49,4 @@ if (Test-Path -LiteralPath $demoPointer) {
 if (Test-Path -LiteralPath (Join-Path $projectRoot 'docs/demo/motion-study/assets.js')) {
     & (Join-Path $PSScriptRoot 'install-motion-study.ps1') -DemoDirectory (Join-Path $releaseRoot 'Demo')
 }
+& (Join-Path $PSScriptRoot 'trim-runtime-content.ps1') -RuntimeRoot $releaseRoot -DemoSource $(if (Test-Path -LiteralPath $demoPointer) { $demoSource } else { '' })

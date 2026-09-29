@@ -37,11 +37,11 @@ internal static class ContactVerification
         pet.State.CheckIn(DateOnly.FromDateTime(DateTime.Now)); pet.ApplySettings();
         var appearances = (from c in pet.Catalog.Characters where c.Category != "chibi"
                            from outfit in new[] { "original", "swim", "wedding" }
-                           where !pilot || c.Id == "qwen-3d" && outfit == "swim"
+                           where !pilot || c.Id == "qwen-adult" && outfit == "swim"
                            where appearance is null || c.Id + "-" + outfit == appearance
                            where !availableOnly || c.MotionFor(outfit, "meal")?.BakedProps == true
                            select (c, outfit)).ToArray();
-        Require(availableOnly ? appearances.Length > 0 : appearances.Length == (pilot || appearance is not null ? 1 : 48), availableOnly ? "covers installed action sheets for visual review" : "covers every requested portrait appearance");
+        Require(availableOnly ? appearances.Length > 0 : appearances.Length == (pilot || appearance is not null ? 1 : 24), availableOnly ? "covers installed action sheets for visual review" : "covers every requested portrait appearance");
         foreach (var (character, outfit) in appearances)
         {
             pet.SelectCharacter(character.Id); pet.State.Outfits[character.Id] = outfit; pet.ApplySettings();

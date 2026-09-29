@@ -1,10 +1,10 @@
 {
   "version": 1,
   "id": "gpt-adult",
-  "name": "GPT · 真人",
-  "category": "adult",
+  "name": "GPT · 3D真人",
+  "category": "realistic",
   "family": "gpt",
-  "description": "成年比例 · 写实真人质感",
+  "description": "成年比例 · 3D真人质感",
   "demo": true,
   "accent": "#A895E8",
   "atlas": {

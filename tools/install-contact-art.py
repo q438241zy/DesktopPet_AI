@@ -76,6 +76,7 @@ for record in sorted(results.glob('*.json')):
 if args.key and args.key not in selected:
     parser.error(f'Unknown appearance: {args.key}')
 for job in selected.values():
+    if job['id'].endswith('-3d'): continue
     if args.key and job['key'] != args.key:
         continue
     print('Inspecting', job['key'], flush=True)
@@ -138,4 +139,4 @@ report = root / 'artwork/contact-motion/manifest.json'
 combined = {entry['key']: entry for entry in json.loads(report.read_text(encoding='utf-8'))} if args.key and report.exists() else {}
 combined.update((entry['key'], entry) for entry in reports)
 report.write_text(json.dumps([combined[key] for key in sorted(combined)], ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
-print(f'{len(reports)}/48 appearance sheets inspected' + (' and installed.' if args.install else '.'))
+print(f'{len(reports)}/24 appearance sheets inspected' + (' and installed.' if args.install else '.'))

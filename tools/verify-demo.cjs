@@ -27,10 +27,10 @@ state.loading=false;step();assert.ok(state.x<frozen,'gait resumes when decoding 
 const match=html.match(/<script id="data" type="application\/json">([\s\S]*?)<\/script>/);
 if(match && !match[1].includes('__DEMO_DATA__')){
  const exported=JSON.parse(match[1]);assert.equal(exported.sampleMs,40);assert.equal(exported.frameWidth,560);assert.equal(exported.frameHeight,680);
- assert.equal(Object.keys(exported.clips).length,9);
+ assert.equal(Object.keys(exported.clips).length,6);
  for(const [key,appearance] of Object.entries(exported.clips)){
-  if(key.startsWith('adult-')){assert.equal(appearance.dance.duration,8000,'dance must finish all sixteen counts');assert.equal(appearance.dance.frames.length,201);assert.ok(new Set(appearance.dance.frames).size>180,'dance must contain the rendered continuous choreography');}
-  else assert.equal(appearance.dance,undefined,'dance remains exclusive to adult appearances');
+  if(key.startsWith('realistic-')){assert.equal(appearance.dance.duration,8000,'dance must finish all sixteen counts');assert.equal(appearance.dance.frames.length,201);assert.ok(new Set(appearance.dance.frames).size>180,'dance must contain the rendered continuous choreography');}
+  else assert.equal(appearance.dance,undefined,'dance remains exclusive to 3D-realistic appearances');
  }
  for(const appearance of Object.values(exported.clips)){assert.equal(appearance.walk.cycleMs,960);assert.equal(new Set(appearance.walk.frames.slice(0,24)).size,12);assert.ok(new Set(appearance.shake.frames).size>8,'all appearances need moving stars while lifted');assert.ok(new Set(appearance.dizzy.frames).size>8,'all appearances need visible recovery feedback');}
  assert.ok(fs.statSync(file).size<5_000_000,'HTML must stay small enough to open promptly');
@@ -40,7 +40,7 @@ if(match && !match[1].includes('__DEMO_DATA__')){
   assert.equal(bytes.toString('ascii',0,4),'RIFF');assert.equal(bytes.toString('ascii',8,12),'WEBP');
   assert.ok(bytes.includes(Buffer.from('VP8L')),'lossless WebP required');
  }
- console.log('PASS: native dimensions, nine appearances, twelve poses per gait, portable relative paths and all lossless WebP files');
+ console.log('PASS: native dimensions, six appearances, twelve poses per gait, portable relative paths and all lossless WebP files');
 }
 console.log('PASS: syntax, continuous gait beyond clip duration, travelled distance, planted turn and pause');
 function travel(dt,count,start=500){Object.assign(state,{x:start,dir:1,turnRemaining:0,walkTime:0});for(let i=0;i<count;i++)step(dt);return {x:state.x,phase:state.walkTime,dir:state.dir};}

@@ -61,7 +61,7 @@ internal static class ShakeVerification
             Require(ReferenceEquals(sprite.Source, pet.Art.Frame(c, expected.Sprite, expected.Frame)), label + ": recovery keeps the current appearance and outfit");
             if (c.Category != "chibi") Require(pet.ActiveMotion is not null, label + ": portrait has the gentle recovery motion");
             if (c.FamilyId == "gpt" && c.Category != "chibi")
-                proofs.Add(($"GPT · {(c.Category == "3d" ? "3D" : "真人")} · {outfit}", Capture(canvas)));
+                proofs.Add(($"GPT · 3D真人 · {outfit}", Capture(canvas)));
             pet.AdvancePreview(5501);
             Require(pet.CurrentAction == "idle" && !pet.HasDizzyStars && !pet.IsDropping && Math.Abs(pet.Top - placedTop) < .1,
                 label + ": automatic recovery clears the halo after three seconds");
@@ -95,6 +95,6 @@ internal static class ShakeVerification
         var proof = new RenderTargetBitmap(960, 820, 96, 96, PixelFormats.Pbgra32); proof.Render(board);
         var png = new PngBitmapEncoder(); png.Frames.Add(BitmapFrame.Create(proof));
         using (var stream = File.Create(Path.Combine(output, "gpt-dizzy-proof.png"))) png.Save(stream);
-        File.WriteAllLines(Path.Combine(output, "shake-check.txt"), checks.Append($"{checks.Count} shake and recovery checks passed across 72 appearances."));
+        File.WriteAllLines(Path.Combine(output, "shake-check.txt"), checks.Append($"{checks.Count} shake and recovery checks passed across 48 appearances."));
     }
 }

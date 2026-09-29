@@ -7,3 +7,4 @@ artifacts/
 *.tmp
 *.log
 .vs/
+__pycache__/

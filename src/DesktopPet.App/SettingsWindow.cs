@@ -47,7 +47,7 @@ public sealed class SettingsWindow : Window
         brand.Children.Add(new TextBlock { Text = "云朵伙伴", FontSize = 21, FontWeight = FontWeights.SemiBold, Margin = new Thickness(0, 12, 0, 5) });
         brand.Children.Add(new TextBlock { Text = "你的桌边小小陪伴", Foreground = muted, FontSize = 11 });
         DockPanel.SetDock(brand, Dock.Top); sidebar.Children.Add(brand);
-        var foot = new StackPanel { Margin = new Thickness(12, 0, 0, 0) }; foot.Children.Add(new TextBlock { Text = "●  正在桌面陪伴", Foreground = CloudTheme.Brush("#967460"), FontSize = 11 }); foot.Children.Add(new TextBlock { Text = "DesktopPet  /  1.2 Preview 10", FontSize = 10, Foreground = muted, Margin = new Thickness(0, 8, 0, 0) });
+        var foot = new StackPanel { Margin = new Thickness(12, 0, 0, 0) }; foot.Children.Add(new TextBlock { Text = "●  正在桌面陪伴", Foreground = CloudTheme.Brush("#967460"), FontSize = 11 }); foot.Children.Add(new TextBlock { Text = "DesktopPet  /  1.2 Preview 14", FontSize = 10, Foreground = muted, Margin = new Thickness(0, 8, 0, 0) });
         DockPanel.SetDock(foot, Dock.Bottom); sidebar.Children.Add(foot);
         var nav = new StackPanel(); sidebar.Children.Add(nav);
         foreach (var (id, label, icon) in new[] { ("partners", "我的伙伴", "heart"), ("styles", "风格预览", "cube"), ("life", "陪伴日常", "sun"), ("studio", "角色工坊", "brush"), ("preferences", "桌面偏好", "settings") })
@@ -117,9 +117,9 @@ public sealed class SettingsWindow : Window
         else intro.Children.Add(Text("当前使用你导入的角色。", 11, true));
         var heroCard = Card(hero, CloudTheme.Sky()); heroCard.Padding = new Thickness(15, 12, 18, 12); content.Children.Add(heroCard);
         var categoryRow = new DockPanel { Margin = new Thickness(0, 0, 0, 11) };
-        var compare = MakeButton("三种风格对照", () => Navigate("styles")); compare.Background = Brushes.Transparent; compare.BorderThickness = new Thickness(0); compare.FontSize = 11; DockPanel.SetDock(compare, Dock.Right); categoryRow.Children.Add(compare);
+        var compare = MakeButton("两种风格对照", () => Navigate("styles")); compare.Background = Brushes.Transparent; compare.BorderThickness = new Thickness(0); compare.FontSize = 11; DockPanel.SetDock(compare, Dock.Right); categoryRow.Children.Add(compare);
         var filters = new StackPanel { Orientation = Orientation.Horizontal }; categoryRow.Children.Add(new Border { Background = CloudTheme.Brush("#F3E6EB"), Padding = new Thickness(3), CornerRadius = new CornerRadius(11), HorizontalAlignment = HorizontalAlignment.Left, Child = filters });
-        foreach (var (id, glyph) in new[] { ("chibi", "heart"), ("3d", "cube"), ("adult", "person") })
+        foreach (var (id, glyph) in new[] { (CharacterStyles.Chibi, "heart"), (CharacterStyles.Realistic, "person") })
         {
             var b = MakeButton(CloudTheme.CategoryName(id), () => { pet.SelectStyle(id); category = id; Rebuild(); }, glyph); b.Padding = new Thickness(13, 7, 13, 7); b.Margin = new Thickness(1, 0, 1, 0); b.Background = category == id ? Brushes.White : Brushes.Transparent; b.Foreground = category == id ? CloudTheme.Blue : CloudTheme.Muted; b.BorderThickness = new Thickness(0);
             AutomationProperties.SetName(b, "分类 " + CloudTheme.CategoryName(id)); filters.Children.Add(b);
@@ -143,7 +143,7 @@ public sealed class SettingsWindow : Window
 
     private void Styles()
     {
-        Heading("", "风格预览", "同一位伙伴，三种模样。选好画风和服装，就能带到桌边。");
+        Heading("", "风格预览", "同一位伙伴，两种模样。选好画风和服装，就能带到桌边。");
         var families = new WrapPanel { Margin = new Thickness(0, 3, 0, 2) };
         foreach (string family in Catalog.BuiltInFamilies)
         {
@@ -162,11 +162,10 @@ public sealed class SettingsWindow : Window
             AutomationProperties.SetName(b, "对照服装 " + label); wardrobe.Children.Add(b);
         }
         content.Children.Add(wardrobe);
-        var grid = new System.Windows.Controls.Primitives.UniformGrid { Columns = 3 };
+        var grid = new System.Windows.Controls.Primitives.UniformGrid { Columns = 2 };
         foreach (var (style, subtitle, detail) in new[] {
-            ("chibi", "小比例 · 二次元", "现有逐帧动作与服饰。"),
-            ("3d", "成年比例 · 3D 动画风格", "柔和塑形、立体发丝与布料。"),
-            ("adult", "成年比例 · 写实真人风格", "自然五官、发丝与真实材质。") })
+            (CharacterStyles.Chibi, "小比例 · 二次元", "现有逐帧动作与服饰。"),
+            (CharacterStyles.Realistic, "成年比例 · 3D真人", "自然五官、立体发丝与真实材质。") })
         {
             string id = Catalog.VariantId(compareFamily, style), title = CloudTheme.CategoryName(style);
             var character = pet.Catalog.Find(id); var panel = new StackPanel();
@@ -179,7 +178,7 @@ public sealed class SettingsWindow : Window
             var card = Card(panel); card.Margin = new Thickness(0, 6, 12, 16); card.Padding = new Thickness(15); grid.Children.Add(card);
         }
         content.Children.Add(grid);
-        content.Children.Add(Text("三种画风、三套服装均有独立行走动画。切换画风会保留同一伙伴和服装；未补齐的互动使用当前服装的姿势图。", 12, true));
+        content.Children.Add(Text("Q版、3D真人均有原装、泳装和婚纱。切换风格会保留同一伙伴和服装。", 12, true));
     }
     public void RefreshStatus()
     {
@@ -270,7 +269,7 @@ public sealed class SettingsWindow : Window
         var name = new TextBox { Text = pet.Character.Name, Margin = new Thickness(0, 0, 0, 12) }; AutomationProperties.SetName(name, "角色名称"); form.Children.Add(name);
         var description = new TextBox { Text = "沿用参考图片的发型、服装、瞳色、比例与配饰。", Margin = new Thickness(0, 0, 0, 12) }; AutomationProperties.SetName(description, "角色外观"); form.Children.Add(description);
         var style = new ComboBox();
-        foreach (string id in new[] { "chibi", "3d", "adult" }) style.Items.Add(new ComboBoxItem { Content = CloudTheme.CategoryName(id), Tag = id });
+        foreach (string id in CharacterStyles.All) style.Items.Add(new ComboBoxItem { Content = CloudTheme.CategoryName(id), Tag = id });
         style.SelectedItem = style.Items.Cast<ComboBoxItem>().First(x => (string)x.Tag == importCategory);
         style.SelectionChanged += (_, _) => importCategory = (string)((ComboBoxItem)style.SelectedItem).Tag;
         AutomationProperties.SetName(style, "生成角色分类"); form.Children.Add(style);
@@ -281,7 +280,7 @@ public sealed class SettingsWindow : Window
         void Generate()
         {
             string poseText = (string)((ComboBoxItem)pose.SelectedItem).Tag, expressionText = (string)((ComboBoxItem)expression.SelectedItem).Tag;
-            string rendering = importCategory switch { "3d" => "明确成年、正常成人比例的三维动画风格，立体塑形和柔和材质。", "adult" => "明确成年、正常成人比例的写实 3D 数字人，自然五官与发丝、真实布料。", _ => "沿用 Q 版头身比例与二次元画风。" };
+            string rendering = importCategory == CharacterStyles.Realistic ? "明确成年、正常成人比例的 3D 真人数字人，自然五官与发丝、立体塑形和真实布料。" : "沿用 Q 版头身比例与二次元画风。";
             prompt.Text = $"为桌面宠物制作角色「{name.Text}」的透明背景 PNG。{description.Text}\n风格：{rendering}\n保持角色身份和完整身体，不举看板，不画界面、文字、背景光晕或投影。\n姿势：{poseText}\n表情：{expressionText}\n单图：512×512，身体中心 x=256，落地脚底 y=448，四周留透明边距。需要动画时生成 3 列 × 2 行、每格 512×512 的六帧图集，共 1536×1024；整组保持同一比例和基线，连续运动。走路统一朝右，脚底接地，步幅连贯。\n先确认角色校准图，再扩展动作。未成年人或年龄不明角色使用全年龄、非性化服装与动作。\n宠物动作：eat、chat、headpat、walk、pickup、shaken、shaken-strong、dizzy、bonk、ball-hit、ball-miss、think、jump、peek、curl、farewell。静态单图不可伪称六帧动画。";
         }
         Generate(); var row = new WrapPanel(); row.Children.Add(MakeButton("生成提示词", Generate)); row.Children.Add(MakeButton("复制提示词", () => { System.Windows.Clipboard.SetText(prompt.Text); pet.Play("happy", "提示词已经复制好啦。", 1500); }));

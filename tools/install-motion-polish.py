@@ -48,6 +48,7 @@ for p in sorted((folder/'results').glob('*.json')):
     if j.get('revision',1)>=selected.get(j['key'],{}).get('revision',0):selected[j['key']]=j
 reports=[]; failures=[]
 for key,j in selected.items():
+    if j['id'].endswith('-3d'): continue
     if args.key and args.key!=key:continue
     try:
         source=Path(j['source']);columns=j.get('columns',3);rows=j.get('rows',4)

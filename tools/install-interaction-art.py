@@ -62,6 +62,7 @@ if args.key and args.key not in selected: parser.error('Unknown appearance: '+ar
 reports=[]
 failures=[]
 for key,job in selected.items():
+    if job['id'].endswith('-3d'): continue
     if args.key and args.key!=key: continue
     print('Inspecting '+key,flush=True)
     source=Path(job['source'])
@@ -114,5 +115,5 @@ if args.install:
     write_json(path,[combined[k] for k in sorted(combined)])
 (root/'artifacts').mkdir(exist_ok=True)
 write_json(root/'artifacts/interaction-art-audit.json',dict(accepted=reports,rejected=failures))
-print(f'{len(reports)}/48 appearance sheets inspected'+(' and installed.' if args.install else '.'))
+print(f'{len(reports)}/24 appearance sheets inspected'+(' and installed.' if args.install else '.'))
 if failures: raise SystemExit(1)

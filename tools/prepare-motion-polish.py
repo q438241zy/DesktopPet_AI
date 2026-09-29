@@ -19,12 +19,11 @@ Only the cube carried in the character's hand moves. Previously placed cubes sta
 for path in sorted((root / 'src/DesktopPet.App/Assets/Characters').glob('*/pet.json')):
     c = json.loads(path.read_text(encoding='utf-8-sig'))
     category = c.get('category','chibi')
-    if category not in ('chibi','3d','adult'): continue
+    if category not in ('chibi','realistic'): continue
     for outfit in ['original','swim','wedding']:
         motions = c['motions'] if outfit=='original' else c['outfits'][outfit]['motions']
         reference = str(path.parent / motions['walk']['file'])
         lock = ('Chibi anime proportions, same outlined illustration style.' if category=='chibi' else
-                'Adult-proportioned 3D animated woman, never chibi; keep the same adult height and 3D materials.' if category=='3d' else
                 'Realistic adult woman, lifelike anatomy and realistic materials; never chibi or cartoon.')
         lock += ' Keep precisely the same '+{'original':'original costume','swim':'modest sporty swimwear','wedding':'wedding dress and veil'}[outfit]+' and footwear as reference in every frame. No added or removed accessories.'
         for action in (['walk','build'] if category=='chibi' else ['walk']):

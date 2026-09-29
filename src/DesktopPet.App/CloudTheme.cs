@@ -3,6 +3,7 @@ using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Media.Effects;
 using System.Windows.Media.Imaging;
+using DesktopPet.Core;
 
 namespace DesktopPet.App;
 
@@ -18,7 +19,7 @@ internal static class CloudTheme
     { var brush = new LinearGradientBrush((Color)ColorConverter.ConvertFromString(top), (Color)ColorConverter.ConvertFromString(bottom), 90); brush.Freeze(); return brush; }
     public static DropShadowEffect Shadow(double depth = 6, double opacity = .1) => new() { Color = Color.FromRgb(143, 90, 108), BlurRadius = 28, ShadowDepth = depth, Opacity = opacity };
     public static LineIcon Icon(string glyph, double size = 22) => new() { Glyph = glyph, Width = size, Height = size, IsHitTestVisible = false, Focusable = false };
-    public static string CategoryName(string category) => category switch { "3d" => "3D版", "adult" => "真人版", _ => "Q版" };
+    public static string CategoryName(string category) => CharacterStyles.Name(category);
     public static Border Badge(string text, Brush? background = null) => new() { Background = background ?? Pale, CornerRadius = new CornerRadius(11), Padding = new Thickness(10, 4, 10, 4), Margin = new Thickness(0, 0, 7, 0), Child = new TextBlock { Text = text, Foreground = Blue, FontSize = 11 } };
 
     public static ImageSource AppIcon

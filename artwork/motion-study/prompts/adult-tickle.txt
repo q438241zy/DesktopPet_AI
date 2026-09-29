@@ -1,0 +1,12 @@
+Use case: identity-preserve. Make a sprite sequence for a wholesome TICKLE REACTION of the adult DeepSeek desktop companion. Reference image leftmost model ONLY: same realistic adult woman, blue hair/eyes, frilled maid headband, navy long-sleeve dress, white whale apron, dark tights and navy ankle boots. Same face and adult proportions across all poses.
+Exactly EIGHT FULL-BODY sprites arranged 4 columns by 2 rows, one per equal cell, 2048x1536. Front-facing camera, same scale, clear transparent margin around every figure. Entire hair tuft and both boots MUST be inside each cell. No text, no numbers, no effects, no separate props, no extra hands, no floor or background. True transparency.
+Chronological sequence:
+1 calm standing with hands resting at waist.
+2 pleasantly surprised, shoulders draw up slightly, forearms move towards her own sides, small smile.
+3 giggling with eyes closed and mouth laughing naturally, elbows gently tucked and both hands guarding her own ribs OVER her clothing, torso curves modestly toward image-left.
+4 same reaction slightly stronger lean left, knees softly flex, feet stay on ground, laughing face.
+5 gentle rebound through center, still giggling, hands guarding sides, no flailing.
+6 a smaller lean toward image-right, eyes happily squinting, shoulders raised, hands still protecting her sides.
+7 laugh begins to settle, shoulders and forearms relax gradually, eyes reopen.
+8 relaxed recovery standing matching pose1, small lingering smile.
+Make this readable as a ticklish laugh and protective shoulder scrunch, not anger, crying, talking, convulsion, squatting or waving. No grabbing hair, no exaggerated twisted limbs. Natural cloth folds follow the modest torso bend. Preserve wardrobe fully.

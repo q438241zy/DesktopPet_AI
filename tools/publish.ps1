@@ -44,3 +44,6 @@ if (Test-Path -LiteralPath $demoPointer) {
     Copy-Item -LiteralPath (Join-Path $demoSource 'DeepSeek-demo.html'),(Join-Path $demoSource 'action-coverage.json'),(Join-Path $demoSource '動作清單.md') -Destination $demoTarget -Force
     Copy-Item -LiteralPath (Join-Path $demoSource 'frames') -Destination $demoTarget -Recurse -Force
 }
+if (Test-Path -LiteralPath (Join-Path $projectRoot 'docs/demo/motion-study/assets.js')) {
+    & (Join-Path $PSScriptRoot 'install-motion-study.ps1') -DemoDirectory (Join-Path $releaseRoot 'Demo')
+}

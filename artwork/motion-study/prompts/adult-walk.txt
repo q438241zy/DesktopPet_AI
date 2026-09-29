@@ -1,0 +1,12 @@
+Use case: identity-preserve. Input image is identity/wardrobe reference: use only the left navy maid outfit. Same adult blue-haired DeepSeek woman, realistic adult proportions, gold-edged navy dress, long sleeves, white whale apron, dark tights, navy ankle boots.
+Generate a complete LOOPING WALK CYCLE as EXACTLY EIGHT consecutive full-body sprites. Precise 4 columns by 2 rows, wide 2048x1536 composition. All eight figures face RIGHT in exact side view, never toward camera. The camera-near leg is clearly visible; the far leg appears slightly darker and behind. Same head, same scale, same side profile, same wardrobe, same calm expression. Hair and small whale tail flow gently BEHIND the character to IMAGE LEFT. Tail never moves to front. Full figure is well inside every cell with generous transparent margins, completely visible boots and hair. True transparent background, no text/grid/shadows/background.
+Chronological poses left-to-right top row then bottom row of a slow natural stroll:
+1 CONTACT A: near leg extended modestly forward right, heel lightly on the ground, far leg behind left on ball of foot. Opposite arm swing.
+2 DOWN A: near forward foot flat supports body, far heel lifts, knees softly flex, body barely lower.
+3 PASS A: near leg supports straight underneath hip, far swing knee bends forward with foot passing very close above ground beside stance ankle, never kicked high backward.
+4 UP A: near supporting heel rises slightly behind hip, far leg reaches forward right for next heel contact.
+5 CONTACT B: FAR leg forward right heel contacts; NEAR leg behind left toe contacts. This reverses frame 1 anatomically.
+6 DOWN B: far forward foot flat supports body, near heel lifts and knee advances, body slightly lower.
+7 PASS B: far leg stands under hip, near leg bends forward with ankle passing beside support ankle.
+8 UP B: far supporting heel rises slightly behind hip, near leg reaches forward to match frame 1.
+Small comfortable stride, not running, no high knees, no ballet tiptoe, no bent ankle backward kick, no repeated same-leading leg. Subtle natural opposing arm swing. Single continuous gait with alternating support. Natural leg length stays identical throughout. Realistic photographed quality, sharp cloth and fingers.

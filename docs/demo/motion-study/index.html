@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>DeepSeek · 新动作 Demo</title><link rel="stylesheet" href="study.css"></head>
+<body>
+<main>
+  <header>
+    <div class="brand"><svg viewBox="0 0 52 44" aria-hidden="true"><path d="M13 34C2 34 2 19 13 18C13 4 35 3 37 18C50 17 51 34 39 34Z"/><path d="M21 25q5 5 10 0"/><path d="M19 20h.1M33 20h.1"/></svg><div><p class="eyebrow">MOTION STUDY · 01</p><h1>DeepSeek 的小日常</h1></div></div>
+    <div class="headerlinks"><span class="tag">真人 · 原装样例</span><a href="../DeepSeek-demo.html">全风格常态 Demo <span aria-hidden="true">↗</span></a></div>
+  </header>
+  <div class="layout">
+    <section class="theater" aria-label="动作预览">
+      <div class="stagehead"><div><span class="dot"></span><strong id="actionLabel">正在准备</strong></div><span id="detailLabel">加载角色素材…</span></div>
+      <div class="stage" id="stage">
+        <div class="cloud cloud-one"></div><div class="cloud cloud-two"></div>
+        <div class="ground"></div><div class="shadow" id="shadow"></div>
+        <canvas id="pet" aria-label="DeepSeek 动作，点击角色可以挠痒" tabindex="0"></canvas>
+        <canvas id="guides" aria-hidden="true"></canvas>
+        <div id="loading" role="status">正在准备小剧场…</div><div id="error" role="alert" hidden></div>
+        <span class="stagehint" id="stagehint">点击角色，挠挠痒</span>
+      </div>
+      <div class="transport">
+        <button id="pause" class="iconbutton" aria-label="暂停" title="暂停"><svg viewBox="0 0 24 24"><path d="M9 5v14M15 5v14"/></svg></button>
+        <input id="timeline" type="range" min="0" max="1000" value="0" aria-label="动作进度"><output id="timeLabel">0.0 s</output>
+        <label class="speedlabel"><span class="sr-only">播放速度</span><select id="speed"><option value="0.5">0.5× 慢放</option><option value="1" selected>1×</option><option value="1.5">1.5×</option></select></label>
+        <button id="reset" class="textbutton">重来</button>
+      </div>
+      <div class="posebar"><div class="smalltitle">5 个站立姿势 <span>自动每 5–9 秒换一个</span></div><div class="poses" id="poses"></div></div>
+    </section>
+    <aside class="controls" aria-label="选择动作">
+      <section class="panel"><p class="eyebrow">陪伴</p><div class="actiongrid">
+        <button data-action="idle" aria-pressed="true"><svg viewBox="0 0 28 28"><circle cx="14" cy="7" r="3"/><path d="M10 24v-8m8 8v-8m-9-3c0-3 10-3 10 0l2 5M9 13l-2 5"/></svg><span>自动待机</span></button>
+        <button data-action="walk"><svg viewBox="0 0 28 28"><circle cx="16" cy="5" r="2.5"/><path d="m16 10-3 7 5 7m-5-7-5 7m7-13-6 3-3-1m10-3 3 5 4 1"/></svg><span>散步</span></button>
+        <button data-action="tickle"><svg viewBox="0 0 28 28"><path d="M9 24c-5-5-5-8-3-9 2-1 3 3 4 3V8c0-3 3-3 3 0v6-8c0-3 3-3 3 0v8-6c0-3 3-3 3 0v7-4c0-3 3-3 3 0v7c0 4-1 6-3 7M3 7l2 1m0-5 1 2"/></svg><span>挠痒</span></button>
+      </div></section>
+      <section class="panel"><div class="sectionrow"><p class="eyebrow">跳一小段</p><span class="small">3 款随机，不连着重复</span></div>
+        <button id="randomDance" class="primary"><svg viewBox="0 0 24 24"><path d="m18 3 3 3-3 3m0 6 3 3-3 3M3 6h3c5 0 7 12 12 12h3M3 18h3c2 0 4-3 6-6s4-6 6-6h3"/></svg>随机跳舞</button>
+        <div class="dancechoices"><button data-dance="tt">TT 手势</button><button data-dance="heart">比心轻踏</button><button data-dance="wave">侧步招手</button></div>
+        <a class="reference" href="https://www.youtube.com/watch?v=9uypQGzzhns" target="_blank" rel="noreferrer">TWICE《TT》官方参考 ↗</a><p class="caption">取脸旁手势做简化样例，另外两款为原创短动作。</p>
+      </section>
+      <section class="panel"><div class="sectionrow"><p class="eyebrow">自己找点事做</p><label class="switch"><input id="autonomous" type="checkbox" checked><span></span><span class="sr-only">允许久等后自发动作</span></label></div>
+        <p class="caption">闲置 30–50 秒，随机伸懒腰、打哈欠或招手。</p>
+        <div class="waitline"><span id="waitLabel">稍后活动一下</span><button id="tryAuto" class="textbutton">立即试一轮</button></div>
+        <label class="check"><input id="fastWait" type="checkbox">加速等待 ×10</label>
+      </section>
+      <section class="panel inspection"><div class="sectionrow"><p class="eyebrow">细看动作</p><span id="fps" class="small"></span></div>
+        <label class="check"><input id="feet" type="checkbox">显示落脚点</label>
+        <label class="check"><input id="interpolation" type="checkbox" checked>姿势之间平滑过渡</label>
+        <div class="event" id="event" aria-live="polite">素材就绪后开始待机。</div>
+      </section>
+    </aside>
+  </div>
+  <footer><span>本轮先审 DeepSeek 真人原装；桌面宠物仍保留现有版本。</span><details><summary>动作说明与素材</summary><p>5 张站立姿势、3 张自发姿势、3 款舞蹈、新挠痒序列。走路采用重新绘制的分层部件与脚部落地控制。舞蹈关键姿势之间使用图像位移估计做过渡；慢放可检查手部等容易失真的位置。</p><p>内置 ImageGen 生成原始 PNG，保留透明度；全部数据在 D 盘，离线可打开。此页是浏览器验证样例，尚未接入桌面运行版或扩展到其他角色、服装与风格。</p><a href="manifest.json">素材清单</a></details></footer>
+</main>
+<script src="assets.js"></script><script src="motion.js"></script><script src="renderer.js"></script><script src="app.js"></script>
+</body></html>

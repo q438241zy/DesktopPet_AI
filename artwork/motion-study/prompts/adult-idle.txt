@@ -1,0 +1,14 @@
+Use case: identity-preserve.
+Asset type: transparent sprite atlas for the existing DeepSeek ADULT / realistic desktop companion.
+Input image 1 is identity and wardrobe reference ONLY: use ONLY the LEFTMOST navy-and-white maid outfit, never the swim or wedding variants. Keep the same adult woman's blue eyes, realistic facial identity, long royal blue hair, white frilled headband, small side fins, navy long sleeves, white whale apron, gold edging, dark tights and navy ankle boots. Full adult proportions, photorealistic rendered collectible quality, clean and sharp.
+Create exactly EIGHT full-body standing poses arranged in a precise 4-column by 2-row grid. Large 2048x1536 canvas. One person per cell, equal scale, eye level fixed camera, same shoe baseline inside each cell, generous transparent gutters, no neighboring overlap. Entire hair, fingers and boots visible. True transparent background, no environment, no cast floor shadows, no text/numbers/grid lines.
+Reading order:
+1 relaxed neutral standing, both arms resting naturally beside apron, soft closed-mouth smile, feet comfortably together.
+2 relaxed standing with hands loosely joined at lower waist over apron, small curious head tilt.
+3 standing gently looking to her left, arms resting, slight weight on right foot, no foot crossing.
+4 standing gently looking to her right, one hand lightly touching loose hair beside shoulder, composed expression.
+5 standing eyes softly closed for a peaceful breath, hands relaxed behind back, shoulders dropped.
+6 spontaneous gentle stretch: both arms raised above shoulders, elbows bent naturally, eyes smiling, feet firmly grounded.
+7 spontaneous small yawn: one hand politely covers mouth, other arm resting, shoulders relaxed, eyes half closed.
+8 spontaneous friendly small wave: one forearm raised, palm open, other hand on apron, smiling.
+All eight must remain unmistakably the SAME woman and outfit. Make the five first poses visually distinct but subtle. No seated poses, no dance, no huge expressions, no separate props, no captions.

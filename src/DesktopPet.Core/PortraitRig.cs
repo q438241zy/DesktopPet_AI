@@ -11,7 +11,7 @@ public readonly record struct RigPoint(double X, double Y)
 public readonly record struct RigBone(RigPoint A, RigPoint B);
 public sealed record RigPose(RigBone[] Bones, double ClothSway, double Cheeks = 0, double Mouth = 0);
 
-/// <summary>Shared 2D skeleton for the built-in 3D-style and adult portraits, measured in image-height units.</summary>
+/// <summary>Shared 2D skeleton for 3D-realistic portraits, measured in image-height units.</summary>
 public sealed class PortraitRig
 {
     public const int Columns = 48, Rows = 72;
@@ -24,17 +24,17 @@ public sealed class PortraitRig
     private readonly bool longDress;
     private readonly DanceRig? danceRig;
     private readonly RigPoint hips, neck, head, ls, le, lw, rs, re, rw, lh, lk, la, rh, rk, ra;
-    public static bool Supports(string category, string family) => category is "adult" or "3d" && family is "whale" or "gpt" or "claude" or "gemini" or "grok" or "qwen" or "zhipu" or "kimi";
-    public static bool SupportsDance(string category, string family) => category == "adult" && Supports(category, family);
+    public static bool Supports(string category, string family) => CharacterStyles.Normalize(category) == CharacterStyles.Realistic && family is "whale" or "gpt" or "claude" or "gemini" or "grok" or "qwen" or "zhipu" or "kimi";
+    public static bool SupportsDance(string category, string family) => Supports(category, family);
     public RigPoint MouthRest => head + new RigPoint(.005, .047);
 
-    public PortraitRig(string family, string outfit, double aspect = 2d / 3, string category = "adult", DanceRig? danceRig = null, bool[]? silhouette = null)
+    public PortraitRig(string family, string outfit, double aspect = 2d / 3, string category = CharacterStyles.Realistic, DanceRig? danceRig = null, bool[]? silhouette = null)
     {
         Aspect = aspect; this.danceRig = danceRig; longDress = danceRig?.FloorLength ?? outfit == "wedding";
         // Per-family landmarks follow the standing portrait; each outfit retains that character's pose.
         double dx = family switch { "gemini" => .04, "zhipu" => .02, "qwen" => .01, _ => 0 };
         double dy = family switch { "grok" or "qwen" => -.015, "zhipu" => .017, _ => 0 };
-        RigPoint P(double x, double y) => new((x + dx - .5) * aspect, y + dy - .5 + (category == "3d" ? .022 * Math.Clamp((.9 - y) / .55, 0, 1) : 0));
+        RigPoint P(double x, double y) => new((x + dx - .5) * aspect, y + dy - .5);
         hips = P(.52, .465); neck = P(.515, .185); head = P(.50, .105);
         ls = P(.408, .21); le = P(.368, .322); lw = P(.337, .224);
         rs = P(.623, .22); re = P(.682, .359); rw = P(.749, .471);

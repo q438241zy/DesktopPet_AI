@@ -10,8 +10,8 @@ parser.add_argument('--partial', action='store_true')
 args = parser.parse_args()
 root = Path(__file__).resolve().parents[1]
 requests = json.loads((root / 'artwork/wardrobe-expansion/requests.json').read_text(encoding='utf-8'))
-targets = [job['target'] for job in requests['jobs']]
-targets += [f'src/DesktopPet.App/Assets/Characters/deepseek-{style}/portrait.png' for style in ('3d', 'adult')]
+targets = [job['target'] for job in requests['jobs'] if '-3d/' not in job['target'].replace('\\','/')]
+targets += ['src/DesktopPet.App/Assets/Characters/deepseek-adult/portrait.png']
 report, errors, missing, hashes = [], [], [], set()
 for target in targets:
     path = root / target
@@ -47,6 +47,6 @@ for error in errors:
 for item in report:
     if item['touchesEdge']:
         print('REVIEW EDGE', item['target'])
-print(f'{len(report)}/48 images inspected; {len(missing)} pending; {len(errors)} errors.')
+print(f'{len(report)}/{len(targets)} images inspected; {len(missing)} pending; {len(errors)} errors.')
 if errors or (missing and not args.partial):
     raise SystemExit(1)

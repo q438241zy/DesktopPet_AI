@@ -44,6 +44,18 @@ public sealed class PetState
     }
     public int DaysAway(DateOnly today) => DateOnly.TryParse(LastSeen, out var seen) ? Math.Max(0, today.DayNumber - seen.DayNumber) : 0;
 
+    /// <summary>The currently worn legacy outfit wins; other merged entries keep the target's existing choice.</summary>
+    public void MigrateCharacters(IReadOnlyDictionary<string, string> aliases)
+    {
+        foreach (var (oldId, newId) in aliases)
+        {
+            if (Character == oldId) Outfits[newId] = Outfits.GetValueOrDefault(oldId, "original");
+            else if (!Outfits.ContainsKey(newId) && Outfits.TryGetValue(oldId, out var outfit)) Outfits[newId] = outfit;
+            Outfits.Remove(oldId);
+        }
+        if (aliases.TryGetValue(Character, out var replacement)) Character = replacement;
+    }
+
     public void Validate()
     {
         if (Version != 1 || Outfits is null || CheckIns is null || Treasures is null

@@ -1,10 +1,10 @@
 {
   "version": 1,
   "id": "zhipu-adult",
-  "name": "GLM · 真人",
-  "category": "adult",
+  "name": "GLM · 3D真人",
+  "category": "realistic",
   "family": "zhipu",
-  "description": "成年比例 · 写实真人质感",
+  "description": "成年比例 · 3D真人质感",
   "demo": true,
   "accent": "#78BEA7",
   "atlas": {

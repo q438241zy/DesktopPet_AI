@@ -13,7 +13,7 @@ public static class PortraitMotion
     public static bool Supports(string action) => Actions.Contains(action);
     public static string TouchRegion(string category, double y) => category == "chibi"
         ? y < .52 ? "headpat" : y < .73 ? "poke" : "tickle"
-        : y < (category == "3d" ? .135 : .11) ? "headpat" : y < (category == "3d" ? .255 : .22) ? "poke" : "tickle";
+        : y < .11 ? "headpat" : y < .22 ? "poke" : "tickle";
     public static double Duration(string action) => action switch { "meal" => 4200, "eat" => 3000, "jump" => 1320, "bonk" => 1900, "tickle" => 2200, "build" => 4400, "curl" => 5500, "think" => 6500, _ => 2600 };
     public static RigGesture At(string action, double milliseconds, double duration, bool reducedMotion = false)
     {

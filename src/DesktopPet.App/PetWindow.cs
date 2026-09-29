@@ -120,6 +120,7 @@ public sealed class PetWindow : Window
     public PetWindow(StateStore store, Catalog catalog)
     {
         this.store = store; Catalog = catalog; State = store.Load();
+        State.MigrateCharacters(Catalog.LegacyAliases);
         State.Character = catalog.Find(State.Character).Id;
         Title = "DesktopPet · 桌边伙伴"; Icon = CloudTheme.AppIcon; Width = 560; Height = 680;
         WindowStyle = WindowStyle.None; ResizeMode = ResizeMode.NoResize; AllowsTransparency = true;
@@ -197,6 +198,7 @@ public sealed class PetWindow : Window
     }
     public void SelectStyle(string category)
     {
+        category = CharacterStyles.Normalize(category);
         if (Character.Category == category) return;
         var variant = Catalog.Characters.FirstOrDefault(c => c.FamilyId == Character.FamilyId && c.Category == category);
         if (variant is null) return;

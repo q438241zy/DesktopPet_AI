@@ -62,7 +62,7 @@ internal static class DetailVerification
             Require(pet.CurrentAction == "eat" && pet.EffectKey == "eat" && pet.UsingDrawnAction && pet.ActiveMotion is null
                 && food is { BakedProps: true } && ReferenceEquals(Find<Image>(pet).Single().Source, pet.Art.Frame(character, food, pet.DrawnFrame)), $"{character.Id}/{outfit}: snack uses this outfit's drawn hands and food");
         }
-        foreach (string id in new[] { "deepseek-3d", "deepseek-adult" })
+        foreach (string id in new[] { "deepseek-adult" })
         foreach (string outfit in new[] { "swim", "wedding" })
         {
             pet.SelectCharacter(id); pet.State.Outfits[id] = outfit; pet.ApplySettings();
@@ -78,7 +78,7 @@ internal static class DetailVerification
                 Require(bytes.Where((b, i) => i % 4 == 3 && b > 30).Count() > 2500, $"{id}/{outfit}/{input}: transparent desktop renders the actual portrait and effects");
             }
         }
-        foreach (string id in new[] { "deepseek-3d", "deepseek-adult" })
+        foreach (string id in new[] { "deepseek-adult" })
         {
             pet.SelectCharacter(id); pet.RunInteraction("rest"); await Task.Delay(1700);
             var sleepingSprite = Find<Image>(pet).Single();
@@ -90,7 +90,7 @@ internal static class DetailVerification
             pet.Touch(.16); Require(!pet.IsResting && pet.CurrentAction == "farewell", id + ": touching the resting pet wakes it");
         }
         pet.Touch(.16); Require(pet.CurrentAction == "poke", "adult face hit region invokes cheek rubbing");
-        pet.SelectStyle("3d"); pet.Touch(.19); Require(pet.CurrentAction == "poke", "3D face hit region invokes cheek rubbing");
+        pet.SelectStyle(CharacterStyles.Realistic); pet.Touch(.19); Require(pet.CurrentAction == "poke", "3D-realistic face hit region invokes cheek rubbing");
         pet.Touch(.44); Require(pet.CurrentAction == "tickle", "portrait body hit region invokes tickling");
         pet.State.ReducedMotion = true; pet.ApplySettings(); pet.RunInteraction("headpat");
         Require(pet.ActiveMotion is null && pet.EffectKey == "headpat", "reduced motion retains static feedback without mesh motion");

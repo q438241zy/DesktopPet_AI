@@ -215,7 +215,7 @@ feet['heart:5']=[[133,444],[176,460.8]]
 payload={'version':'demo-2026-09-29-r2','poses':poses,'images':images,'flow':flow,'idles':idles,
          'hands':hands,'feet':feet,'heads':heads,
          'flowSize':[FW,FH],'flowEncoding':'gzip','clips':clips,'sources':source_report,
-         'scope':'DeepSeek · 真人 · 原装 / Demo only'}
+         'scope':'DeepSeek · 3D真人 · 原装 / Demo only'}
 (DEST/'assets.js').write_text('window.MOTION_ASSETS = '+json.dumps(payload,ensure_ascii=False,separators=(',',':'))+';\n',encoding='utf-8')
 (DEST/'manifest.json').write_text(json.dumps({k:v for k,v in payload.items() if k not in ['images','flow']},ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
 print('Saved metadata and offline image bundle:',DEST,flush=True)

@@ -36,7 +36,7 @@ internal static class InteractionVerification
         }
         var proof = new Canvas { Width = 1600, Height = 660, Background = CloudTheme.Brush("#F5F5F7") };
         int proofColumn = 0;
-        foreach (var adult in pet.Catalog.Characters.Where(c => c.Category == "adult" && PortraitRig.SupportsDance(c.Category, c.FamilyId)))
+        foreach (var adult in pet.Catalog.Characters.Where(c => c.Category == CharacterStyles.Realistic && PortraitRig.SupportsDance(c.Category, c.FamilyId)))
         {
             int proofRow = 0;
             foreach (string outfit in new[] { "original", "swim", "wedding" })
@@ -59,7 +59,7 @@ internal static class InteractionVerification
                 pet.Left = pet.WorkArea.Left + pet.WorkArea.Width / 2 - 280;
                 pet.RunInteraction("dance"); await Task.Delay(260);
                 var sprite = Find<Image>(pet).Single();
-                if (character.Category == "adult")
+                if (character.Category == CharacterStyles.Realistic)
                 {
                     var expected = character.Resolve(outfit, "dance", 0);
                     Require(pet.IsDancing && pet.ActiveDance is { } visual && ReferenceEquals(visual.Texture, pet.Art.Frame(character, expected.Sprite, expected.Frame)), $"{character.Id}/{outfit}: dance retains selected adult outfit");
@@ -126,7 +126,7 @@ internal static class InteractionVerification
         {
             pet.SelectCharacter(id);
             Find<Button>(window).Single(b => AutomationProperties.GetName(b) == "陪伴日常").RaiseEvent(new RoutedEventArgs(Button.ClickEvent)); window.UpdateLayout();
-            Require(Find<Button>(window).Any(b => AutomationProperties.GetName(b) == "跳舞") == (id == "deepseek-adult"), "daily page shows dance only for adult style: " + id);
+            Require(Find<Button>(window).Any(b => AutomationProperties.GetName(b) == "跳舞") == (pet.Character.Category == CharacterStyles.Realistic), "daily page shows dance for the merged style including legacy aliases: " + id);
         }
         Find<Button>(window).Single(b => AutomationProperties.GetName(b) == "我的伙伴").RaiseEvent(new RoutedEventArgs(Button.ClickEvent)); window.UpdateLayout();
         window.Width = 920; window.Height = 650; window.UpdateLayout(); Capture((FrameworkElement)window.Content, "refined-home-compact");
@@ -144,7 +144,7 @@ internal static class InteractionVerification
         Find<Button>(window).Single(b => AutomationProperties.GetName(b) == "跳舞").RaiseEvent(new RoutedEventArgs(Button.ClickEvent)); Require(pet.IsDancing, "settings dance tile starts dancing");
         Find<Button>(window).Single(b => AutomationProperties.GetName(b) == "结束互动").RaiseEvent(new RoutedEventArgs(Button.ClickEvent)); Require(!pet.IsDancing, "settings stop cancels dancing");
         window.Close();
-        foreach (var (id, outfit) in new[] { ("whale", "original"), ("deepseek-3d", "swim"), ("deepseek-adult", "wedding") })
+        foreach (var (id, outfit) in new[] { ("whale", "original"), ("deepseek-adult", "swim"), ("deepseek-adult", "wedding") })
             foreach (int side in new[] { -1, 1 })
             {
                 pet.SelectCharacter(id); pet.State.Outfits[id] = outfit; pet.ApplySettings();

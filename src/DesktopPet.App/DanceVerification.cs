@@ -16,7 +16,7 @@ internal static class DanceVerification
         void Require(bool pass,string label){if(!pass)throw new InvalidOperationException(label);checks.Add("PASS "+label);}
         pet.State.Size=300;pet.State.Opacity=1;pet.State.Wander=pet.State.ReducedMotion=false;pet.BeginPreview();
         var canvas=(Canvas)pet.Content;
-        var characters=pet.Catalog.Characters.Where(c=>c.Category=="adult"&&(appearance is null||appearance==c.Id)).ToArray();
+        var characters=pet.Catalog.Characters.Where(c=>c.Category==CharacterStyles.Realistic&&(appearance is null||appearance==c.Id)).ToArray();
         Require(characters.Length>0,"at least one requested dance character exists");
         foreach(var c in characters)
         {

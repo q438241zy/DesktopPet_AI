@@ -47,11 +47,12 @@ public sealed class Character
         if (new FileInfo(manifest).Length > 262144) throw new InvalidDataException("角色清单超过 256 KB。");
         var c = JsonSerializer.Deserialize<Character>(File.ReadAllText(manifest), Json.Options)
             ?? throw new InvalidDataException("角色清单为空。");
+        c.Category = CharacterStyles.Normalize(c.Category);
         c.Root = Path.GetFullPath(folder);
         if (c.Version != 1 || !Regex.IsMatch(c.Id ?? "", "^[a-z0-9][a-z0-9-]{0,47}$")
             || string.IsNullOrWhiteSpace(c.Name) || c.Name.Length > 60 || c.Atlas is null
             || c.Motions is null || c.Outfits is null || c.Motions.Count > 40 || c.Outfits.Count > 12
-            || c.Category is not ("chibi" or "3d" or "adult")
+            || c.Category is not (CharacterStyles.Chibi or CharacterStyles.Realistic)
             || (!string.IsNullOrEmpty(c.Family) && !Regex.IsMatch(c.Family, "^[a-z0-9][a-z0-9-]{0,47}$")))
             throw new InvalidDataException("角色 ID、名称或版本无效。");
         if (!Regex.IsMatch(c.Accent ?? "", "^#[0-9a-fA-F]{6}$")) c.Accent = "#EE9177";

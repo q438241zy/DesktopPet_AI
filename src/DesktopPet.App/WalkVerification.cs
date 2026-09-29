@@ -21,7 +21,7 @@ internal static class WalkVerification
         pet.State.CheckIn(DateOnly.FromDateTime(DateTime.Now));
         var canvas = (Canvas)pet.Content;
         var reports = new List<object>();
-        foreach (string id in new[] { "whale", "deepseek-3d", "deepseek-adult" })
+        foreach (string id in new[] { "whale", "deepseek-adult" })
         {
             pet.SelectCharacter(id); pet.State.Outfits[id] = "original"; pet.ApplySettings();
             pet.Left = pet.WorkArea.Left + pet.WorkArea.Width / 2 - 280; pet.Top = pet.WorkArea.Bottom - 468;

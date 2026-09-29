@@ -6,7 +6,11 @@ namespace DesktopPet.App;
 public sealed class Catalog
 {
     public static readonly string[] BuiltInFamilies = ["whale", "gpt", "claude", "gemini", "grok", "qwen", "zhipu", "kimi"];
-    public static string VariantId(string family, string category) => category == "chibi" ? family : $"{(family == "whale" ? "deepseek" : family)}-{category}";
+    // Keep established realistic IDs so existing saves, art records and custom references stay valid.
+    public static string VariantId(string family, string category) => CharacterStyles.Normalize(category) == CharacterStyles.Chibi
+        ? family : $"{(family == "whale" ? "deepseek" : family)}-adult";
+    public static readonly IReadOnlyDictionary<string, string> LegacyAliases = BuiltInFamilies.ToDictionary(
+        family => $"{(family == "whale" ? "deepseek" : family)}-3d", family => VariantId(family, CharacterStyles.Realistic));
     public List<Character> Characters { get; } = [];
     public List<string> Warnings { get; } = [];
     private readonly string customRoot;
@@ -14,21 +18,21 @@ public sealed class Catalog
     {
         customRoot = Path.Combine(dataRoot, "Characters");
         string builtins = Path.Combine(AppContext.BaseDirectory, "Assets", "Characters");
-        var ids = new[] { "chibi", "3d", "adult" }.SelectMany(category => BuiltInFamilies.Select(family => VariantId(family, category)));
+        var ids = CharacterStyles.All.SelectMany(category => BuiltInFamilies.Select(family => VariantId(family, category)));
         foreach (var id in ids) Characters.Add(Character.Load(Path.Combine(builtins, id)));
         if (Directory.Exists(customRoot))
             foreach (string folder in Directory.EnumerateDirectories(customRoot))
             {
-                try { var c = Character.Load(folder); if (Characters.Any(x => x.Id == c.Id)) throw new InvalidDataException("角色 ID 重复。"); Characters.Add(c); }
+                try { var c = Character.Load(folder); if (LegacyAliases.ContainsKey(c.Id) || Characters.Any(x => x.Id == c.Id)) throw new InvalidDataException("角色 ID 重复或已保留给合并角色。"); Characters.Add(c); }
                 catch (Exception ex) when (ex is IOException or JsonException or UnauthorizedAccessException) { Warnings.Add(Path.GetFileName(folder) + ": " + ex.Message); }
             }
     }
-    public Character? FindExact(string id) => Characters.FirstOrDefault(c => c.Id == id);
+    public Character? FindExact(string id) => Characters.FirstOrDefault(c => c.Id == LegacyAliases.GetValueOrDefault(id, id));
     public Character Find(string id) => FindExact(id) ?? Characters[0];
     public Character Import(string source)
     {
         var c = Character.Load(source);
-        if (Characters.Any(x => x.Id == c.Id)) throw new InvalidDataException("角色 ID 已存在，请给新角色设置不同的 ID。");
+        if (LegacyAliases.ContainsKey(c.Id) || Characters.Any(x => x.Id == c.Id)) throw new InvalidDataException("角色 ID 已存在或已保留给合并角色，请设置不同的 ID。");
         foreach (var s in c.Sprites()) ArtCache.Validate(c, s);
         var files = c.Sprites().Select(s => s.File).Distinct().ToArray();
         if (files.Sum(f => new FileInfo(Character.SafeFile(c.Root, f)).Length) > 180 * 1024 * 1024)

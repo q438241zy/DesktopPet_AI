@@ -11,6 +11,7 @@ parser.add_argument('--partial', action='store_true')
 args = parser.parse_args()
 root = Path(__file__).resolve().parents[1]
 requests = json.loads((root / 'artwork/motion-continuity/requests.json').read_text(encoding='utf-8'))
+requests = [job for job in requests if '-3d/' not in job['dest'].replace('\\','/')]
 report, errors, missing, hashes = [], [], [], set()
 for job in requests:
     key, target = job['key'], job['dest']

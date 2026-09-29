@@ -51,11 +51,11 @@ internal static class ChoreographyVerification
         pet.State.CheckIn(DateOnly.FromDateTime(DateTime.Now)); pet.ApplySettings();
         var appearances = (from c in pet.Catalog.Characters where c.Category != "chibi"
                            from outfit in new[] { "original", "swim", "wedding" }
-                           where !pilot || c.Id == "deepseek-3d" && outfit == "original"
+                           where !pilot || c.Id == "deepseek-adult" && outfit == "original"
                            where appearance is null || c.Id + "-" + outfit == appearance
                            where !availableOnly || c.MotionFor(outfit,"think")?.HeightRatios is not null
                            select (c,outfit)).ToArray();
-        Require(appearances.Length == (pilot || appearance is not null ? 1 : 48) || availableOnly && appearances.Length > 0, "requested appearances are installed");
+        Require(appearances.Length == (pilot || appearance is not null ? 1 : 24) || availableOnly && appearances.Length > 0, "requested appearances are installed");
         foreach (var (character,outfit) in appearances)
         {
             string key = character.Id + "-" + outfit;
@@ -112,10 +112,10 @@ internal static class ChoreographyVerification
         await chat!.SendText("今天好累"); await chat.SendText("工作有点多");
         Require(chat.History.Count==6 && chat.History[^1].Content.Contains("工作") && chat.History.Where(m=>m.Role=="assistant").Select(m=>m.Content).Distinct().Count()==3,"three real UI turns respond and carry the preceding topic in local mode");
         Capture(canvas,"local-chat");
-        string sameFamily=pet.Character.FamilyId; pet.SelectStyle("3d");
+        string sameFamily=pet.Character.FamilyId; pet.SelectStyle(CharacterStyles.Chibi);
         Require(pet.Character.FamilyId==sameFamily && chat.History.Count==6,"style changes preserve the active conversation");
         var pendingReply=chat.SendText("再说一点");
-        pet.SelectCharacter(sameFamily=="gpt"?"deepseek-3d":"gpt-3d"); await pendingReply;
+        pet.SelectCharacter(sameFamily=="gpt"?"deepseek-adult":"gpt-adult"); await pendingReply;
         Require(chat.History.Count==0,"changing companions cancels an old reply before it reaches the new conversation");
         chat.Close(); pet.StopInteraction();
         await Task.WhenAll(captures);

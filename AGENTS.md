@@ -4,6 +4,7 @@
 - 2026-09-29 分类合并：今后只维护「Q版」(`chibi`) 与「3D真人」(`realistic`)。以已有真人画稿作为统一底稿，8 位角色 × 2 种风格 × 3 套服装，共 16 项、48 套外观。原 `*-adult` 目录和 ID 保留兼容；旧 `*-3d` ID 与服装存档自动迁移，原 3D 画稿归档到 `artwork/retired-3d/characters`，不再生成或打包。旧导入包的 `3d`、`adult` 分类读取为 `realistic`。界面、工坊、Demo、清单及后续提示词都使用新分类；不要重新维护第三套动作矩阵。新动作 Demo 的五款舞蹈仍需后续单独接入原生程序。
 - 用户明确要求：DeepSeek 长期动作 Demo 的入口保留在 Windows 桌面。使用 `DeepSeek-動作Demo.lnk` 指向 D 槽运行目录的 `Demo\DeepSeek-demo.html`；HTML 和 `frames` 素材仍在 D 槽。此入口是保持桌面干净的例外，不要清理掉。
 - 2026-09-29 本轮用户要求先做 Demo：桌面同一个快捷方式暂指向 `Release\win-x64\Demo\MotionStudy\index.html`，页内可进入上面的全风格常态 Demo。新样例源码在 `docs/demo/motion-study`，先审 DeepSeek 3D真人原装的 5 款随机舞蹈、走路、挠痒、10 个待机与久等自发动作；未获后续接入要求前不要把样例当成桌面全角色已完成。用 `tools/install-motion-study.ps1 -DesktopShortcut` 同步，素材始终留在 D 盘。
+- 2026-09-30 任务栏抓起交互先做独立 Demo：`docs/demo/taskbar-lift` 部署到 `Release/win-x64/Demo/TaskbarLift`，入口由桌面 MotionStudy 页跳转。当前只是浏览器原型，原生 `PetWindow.ReleaseLift` 尚未改动。判定原型：只有从任务栏起手、离地至少 24px、未在半空停留 450ms 且按下至松手少于 900ms、也没有 Shift 明确固定时才自动落下；普通半空移动或下落中重抓改为手动放置。`tools/install-taskbar-lift-demo.ps1` 从常态 Demo 抽取 Q版/3D真人三套服装的现有渲染帧，打包时持续同步。
 - 五款舞蹈（新增 Next Level、LOVE DIVE）按参考姿势的手部轨迹驱动独立部件和连续关节，不能用整张图的半透明叠图替代；TT、比心及向上指尖使用专用手势图。检查每段 50% 的中间画面及实际帧率。10 个待机映射到两张图集，旧图的 5–7 帧仍是伸懒腰/哈欠/招手，不要误作新待机。走路靴口位于原分层图的 y=567，整只靴子应保持完整。
 - 修改互动后同步更新长期 Demo 和动作清单。普通拖动保持提起姿势，只有连续明显来回摇晃才触发头晕；手动放置应停留在选定位置。
 - 圆盘菜单采用透明背景、无可见云朵底板和柔和圆润的线形图标；保留悬停提示及键盘操作。

@@ -34,6 +34,8 @@
 
 ## DeepSeek 长期动作 Demo
 
+从 Windows 任务栏往上抓再松手的新交互目前先做成独立 [任务栏提起 Demo](docs/plan-taskbar-lift.md)：点击桌面动作 Demo 顶部的「任务栏提起 Demo」进入，可试快速下落、半空停留固定、慢慢上移、Shift 固定及下落中重抓。它使用 Q版和3D真人现有渲染帧，覆盖三套服装；原生桌面宠物的松手判定尚未修改，后续实施步骤在计划中。
+
 `tools/demo.ps1` 从当前桌面渲染器重新导出两种风格 × 三套服装的 DeepSeek 离线 HTML，并生成全部八位角色、48 套外观的动作清单。打开程序目录中的 `Demo/DeepSeek-demo.html`，保留同目录的 `frames` 文件夹；高清图片按当前动作载入。本机项目和素材保存在 `D:\VibeCoding\Character`，桌面保留 `DeepSeek-動作Demo.lnk`。当前入口为 `Demo/MotionStudy/index.html`，其中演示已确认的五款舞蹈、十个待机与连续行走，并可进入上述全风格 Demo；新动作仍是独立样例，尚未接入原生宠物。更新后执行 `tools/install-motion-study.ps1 -DesktopShortcut` 维护入口，不把工程或素材复制到桌面。
 
 可以并排播放、暂停逐帧比较、换装、拖动放置、摇晃触发头晕、演示自然落下与头顶本机聊天。网页交互是独立展示逻辑，不能代替 Windows 鼠标或真实 API 验收。图像来自桌面渲染器，清单区分专用逐帧、专用姿势、程序动作、近似动作和缺少动作。

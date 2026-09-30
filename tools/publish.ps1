@@ -49,4 +49,5 @@ if (Test-Path -LiteralPath $demoPointer) {
 if (Test-Path -LiteralPath (Join-Path $projectRoot 'docs/demo/motion-study/assets.js')) {
     & (Join-Path $PSScriptRoot 'install-motion-study.ps1') -DemoDirectory (Join-Path $releaseRoot 'Demo')
 }
+& (Join-Path $PSScriptRoot 'install-taskbar-lift-demo.ps1') -DemoDirectory (Join-Path $releaseRoot 'Demo')
 & (Join-Path $PSScriptRoot 'trim-runtime-content.ps1') -RuntimeRoot $releaseRoot -DemoSource $(if (Test-Path -LiteralPath $demoPointer) { $demoSource } else { '' })

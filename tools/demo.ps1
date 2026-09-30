@@ -15,5 +15,6 @@ New-Item -ItemType Directory -Path $runtimeDemo -Force | Out-Null
 Copy-Item -LiteralPath (Join-Path $outputRoot 'DeepSeek-demo.html'),(Join-Path $outputRoot 'action-coverage.json'),(Join-Path $outputRoot '動作清單.md') -Destination $runtimeDemo -Force
 Copy-Item -LiteralPath (Join-Path $outputRoot 'frames') -Destination $runtimeDemo -Recurse -Force
 & (Join-Path $PSScriptRoot 'trim-runtime-content.ps1') -RuntimeRoot (Split-Path -Parent ([IO.Path]::GetFullPath($Executable))) -DemoSource $outputRoot
+& (Join-Path $PSScriptRoot 'install-taskbar-lift-demo.ps1') -DemoDirectory $runtimeDemo
 Get-Content -LiteralPath (Join-Path $outputRoot 'demo-export.json')
 Write-Output (Join-Path $outputRoot 'DeepSeek-demo.html')

@@ -3,7 +3,7 @@
 <head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>云朵伙伴 · 任务栏提起 Demo</title><link rel="stylesheet" href="style.css"></head>
 <body><main>
   <header><div class="brand"><div class="mark" aria-hidden="true">☁</div><div><p class="eyebrow">INTERACTION STUDY · 02</p><h1>从任务栏抱起</h1></div></div><div class="links"><span>Q版 / 3D真人 · 三套服装</span><a href="../MotionStudy/index.html">返回动作 Demo ↗</a></div></header>
-  <p class="intro">拖住角色往上提。普通松手停在当前位置；按住 Shift 松手才落回任务栏。</p>
+  <p class="intro">普通松手停在半空，Shift 松手落回任务栏。碰到任务栏后会自动散步，不需要先打卡。</p>
   <div class="toolbar"><div class="segments" id="styles" aria-label="选择风格"></div><div class="segments" id="outfits" aria-label="选择服装"></div><button id="reset" class="quiet">回到任务栏</button></div>
   <div class="layout"><section class="showcase" aria-label="提起与下落实验">
     <div class="stagehead"><strong id="stateLabel">任务栏待机</strong><span id="intentLabel">抓住人物往上提</span></div>
@@ -12,7 +12,7 @@
     <div class="actions"><button id="showDrop">▶ Shift 松手下落</button><button id="showPlace">▶ 普通松手停住</button><button id="showCatch">▶ 半空接住</button></div>
   </section><aside class="side"><section class="card"><p class="eyebrow">松手前看这里</p><h2 id="outcome">还没抓起</h2><p id="why">快慢都一样；只看松手时有没有按住 Shift。</p><div class="meter"><span>任务栏</span><div class="track"><div id="rise"></div></div><span>半空</span></div><p id="metrics" class="metrics">高度 0 px · Shift 未按</p></section>
     <section class="card"><p class="eyebrow">试三种手势</p><ol><li><strong>Shift 松手</strong>：提到半空后按住 Shift 松手，落回任务栏。</li><li><strong>普通松手</strong>：直接停在新位置，不需要慢慢移或等半秒。</li><li><strong>半空接住</strong>：掉落时再次抓住，普通松手即可停住。</li></ol><p class="hint">从已抬高的位置也能 Shift 松手下落；距任务栏 24 px 内会吸附。</p></section>
-    <section class="card fineprint"><p class="eyebrow">Demo 边界</p><p>此页使用当前宠物渲染帧。任务栏为模拟区域；Windows 宠物采用相同的松手规则，实际鼠标和屏幕边界仍以桌面程序为准。</p></section>
+    <section class="card fineprint"><p class="eyebrow">落地后的行为</p><p>缓冲后散步，走一会儿再清醒待机。Windows 程序沿用「落地与闲时散步」开关；主动休息与减少动态效果优先。此页的任务栏为模拟区域。</p></section>
   </aside></div>
-  <footer>普通松手固定位置，Shift 松手下落。拖动过程中跟随鼠标，下落途中可以重新抓住；失去焦点或取消拖动会安全停住。</footer>
+  <footer>半空放置停住，落地后散步。Shift 松手才下落，下落途中可重新抓住；取消拖动会停住。打卡只记录陪伴进度，不再强制睡觉。</footer>
 </main><script src="data.js"></script><script src="lift-logic.js"></script><script src="app.js"></script></body></html>

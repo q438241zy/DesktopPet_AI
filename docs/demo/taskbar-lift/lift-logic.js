@@ -5,11 +5,13 @@
 })(globalThis, function () {
   const clamp = (value, low, high) => Math.min(high, Math.max(low, value));
   class LiftController {
-    constructor() { this.reset(); }
+    constructor({ autoWalk = true } = {}) { this.autoWalk = autoWalk; this.walkSpeed = 49.5; this.reset(); }
     reset() {
       this.mode = 'grounded'; this.lift = 0; this.x = 0; this.speed = 0;
       this.held = null; this.originTaskbar = false;
       this.pickupStartedAt = 0;
+      this.walkMilliseconds = 0; this.direction = 1; this.turnRemaining = 0;
+      this.walkUntil = 0; this.nextWalkAt = 0;
       this.lastDecision = '在任务栏待机'; this.landingUntil = 0; this.lastTick = 0;
     }
     down(x, y, now) {
@@ -28,11 +30,14 @@
       this.lift = clamp(h.lift + h.y - y, 0, 230);
       this.x = clamp(h.offset + x - h.x, -165, 165);
     }
-    release(now, dropOnRelease = false) {
+    release(now, dropOnRelease = false, resumeOnFloor = true) {
       if (this.mode !== 'dragging' || !this.held) return this.lastDecision;
       this.held = null;
       if (this.lift <= 24) {
-        this.lift = 0; this.mode = 'grounded'; this.lastDecision = '仍在任务栏：保持待机';
+        this.lift = 0;
+        this.mode = resumeOnFloor ? 'landing' : 'grounded';
+        this.landingUntil = now + 410; this.nextWalkAt = now + 45000;
+        this.lastDecision = resumeOnFloor ? '放回任务栏：落地缓冲后自动散步' : '取消拖动：清醒待机';
       } else if (dropOnRelease) {
         this.mode = 'dropping'; this.speed = 30; this.lastTick = now;
         this.lastDecision = '按住 Shift 松手：自然落回任务栏';
@@ -56,7 +61,37 @@
           if (this.lift === 0) { this.mode = 'landing'; this.landingUntil = now + 410; this.speed = 0; }
         }
       } else if (this.mode === 'landing' && now >= this.landingUntil) {
-        this.mode = 'grounded'; this.lastDecision = '落地完成：继续在任务栏待机';
+        this.mode = 'grounded'; this.nextWalkAt = now;
+        this.lastDecision = '落地完成：保持清醒';
+      }
+      if (this.mode === 'grounded' && this.autoWalk && !reducedMotion && now >= this.nextWalkAt) {
+        this.mode = 'walking'; this.walkUntil = now + 15000;
+        this.walkMilliseconds = this.turnRemaining = 0;
+        this.lastDecision = '碰到任务栏：自动散步，不需要先打卡';
+      } else if (this.mode === 'walking') {
+        if (!this.autoWalk || reducedMotion) this.mode = 'grounded';
+        else {
+          let remaining = Math.min(250, Math.max(0, Math.min(now, this.walkUntil) - this.lastTick));
+          while (remaining > 0) {
+            if (this.turnRemaining > 0) {
+              const hold = Math.min(remaining, this.turnRemaining);
+              this.turnRemaining -= hold; remaining -= hold;
+              if (this.turnRemaining === 0) this.direction *= -1;
+              if (remaining === 0) break;
+            }
+            const distance = Math.max(0, this.direction > 0 ? 165 - this.x : this.x + 165);
+            const moving = Math.min(remaining, distance / this.walkSpeed * 1000);
+            this.x += this.direction * this.walkSpeed * moving / 1000;
+            this.walkMilliseconds += moving; remaining -= moving;
+            if (distance <= this.walkSpeed * moving / 1000 + 1e-9) {
+              this.x = this.direction > 0 ? 165 : -165; this.turnRemaining = 160;
+            } else break;
+          }
+          if (now >= this.walkUntil) {
+            this.mode = 'grounded'; this.nextWalkAt = now + 45000;
+            this.lastDecision = '散步结束：清醒待机，稍后再走走';
+          }
+        }
       }
       this.lastTick = now;
       return this.mode;

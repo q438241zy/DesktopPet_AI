@@ -23,7 +23,8 @@
   function preload() {
     const clips = appearance();
     if (!clips) return;
-    for (const source of new Set([clips.idle[0], ...clips.pickup, ...clips.land])) {
+    controller.walkSpeed = clips.walkSpeed;
+    for (const source of new Set([clips.idle[0], ...clips.pickup, ...clips.land, ...clips.walk])) {
       const image = new Image(); image.src = source;
     }
   }
@@ -34,6 +35,7 @@
       return clips.pickup[Math.min(clips.pickup.length - 1, Math.floor(elapsed / 40))];
     }
     if (controller.mode === 'dropping') return clips.pickup.at(-1);
+    if (controller.mode === 'walking') return clips.walk[Math.floor(controller.walkMilliseconds % clips.walkCycleMs / 40)];
     if (controller.mode === 'landing') {
       const elapsed = 410 - Math.max(0, controller.landingUntil - now);
       return clips.land[Math.min(clips.land.length - 1, Math.max(0, Math.floor(elapsed / 40)))];
@@ -47,6 +49,7 @@
     pet.style.left = (stageWidth / 2 - 252 + controller.x) + 'px';
     pet.style.top = (stageHeight - 72 - 421.2 - lift) + 'px';
     pet.style.transform = mode === 'landing' && controller.landingUntil - now > 275 ? 'scaleY(.96)' : '';
+    sprite.style.transform = mode === 'walking' ? `scaleX(${controller.direction})` : '';
     $('shadow').style.left = (stageWidth / 2 + controller.x) + 'px';
     $('shadow').style.width = (90 + lift * .17) + 'px';
     $('shadow').style.opacity = String(Math.max(.16, 1 - lift / 340));
@@ -58,18 +61,19 @@
     if (mode === 'dragging') {
       $('stateLabel').textContent = '抱在半空';
       $('intentLabel').textContent = controller.originTaskbar ? '从任务栏抓起' : '重新抓取';
-      $('outcome').textContent = lift <= 24 ? '松手留在任务栏' : shiftHeld ? '松手会下落' : '松手会停住';
+      $('outcome').textContent = lift <= 24 ? '落地后自动散步' : shiftHeld ? '松手会下落' : '松手会停住';
       $('why').textContent = lift <= 24 ? '距任务栏 24 px 内，松手会吸附到地面。' :
         shiftHeld ? '正在按住 Shift；松手后启用重力。' : '普通松手停在当前位置，快慢与停留时间都不影响结果。';
       setStatus(lift <= 24 ? '继续向上提；按住 Shift 松手可试下落。' :
         shiftHeld ? '按住 Shift 松手：自然落回任务栏。' : '普通松手：停在这里。');
     } else {
-      $('stateLabel').textContent = { grounded:'任务栏待机',dropping:'自然下落',landing:'轻轻落地',placed:'手动摆放' }[mode];
+      $('stateLabel').textContent = { grounded:'清醒待机',walking:'任务栏散步',dropping:'自然下落',landing:'轻轻落地',placed:'手动摆放' }[mode];
       $('intentLabel').textContent = controller.lastDecision;
-      $('outcome').textContent = { grounded:'已回到任务栏',dropping:'正在落下',landing:'已经着地',placed:'停在新位置' }[mode];
+      $('outcome').textContent = { grounded:'已回到任务栏',walking:'沿任务栏走动',dropping:'正在落下',landing:'已经着地',placed:'停在新位置' }[mode];
       $('why').textContent = mode === 'placed' ? '当前位置由你选定；之后不会自己跳回任务栏。' :
         mode === 'dropping' ? '松手后才启用重力。掉落途中仍能再抓住。' :
-        mode === 'landing' ? '落地缓冲后回到待机。' : '从任务栏抓住她，再试不同提起方式。';
+        mode === 'landing' ? '落地缓冲后自动散步。' :
+        mode === 'walking' ? '碰到任务栏后自动走动，不需要先打卡。普通放在半空仍会停住。' : '清醒待机；可以继续抓住她，稍后也会再走走。';
       setStatus(controller.lastDecision);
     }
   }
@@ -87,16 +91,16 @@
     shiftHeld = !!event.shiftKey;
     controller.move(event.clientX, event.clientY); render(performance.now());
   };
-  function release(dropOnRelease) {
+  function release(dropOnRelease, resumeOnFloor = true) {
     if (controller.mode !== 'dragging') return;
-    controller.release(performance.now(), dropOnRelease); render(performance.now());
+    controller.release(performance.now(), dropOnRelease, resumeOnFloor); render(performance.now());
   }
   grip.onpointerup = event => release(!!event.shiftKey);
-  grip.onpointercancel = () => release(false);
-  grip.onlostpointercapture = () => release(false);
+  grip.onpointercancel = () => release(false, false);
+  grip.onlostpointercapture = () => release(false, false);
   window.addEventListener('keydown', event => { shiftHeld = event.shiftKey; render(performance.now()); });
   window.addEventListener('keyup', event => { shiftHeld = event.shiftKey; render(performance.now()); });
-  window.addEventListener('blur', () => { shiftHeld = false; release(false); });
+  window.addEventListener('blur', () => { shiftHeld = false; release(false, false); });
   grip.onkeydown = event => {
     if (event.key !== 'Enter' && event.key !== ' ') return;
     event.preventDefault(); demo = null;

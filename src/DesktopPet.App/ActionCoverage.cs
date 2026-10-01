@@ -42,6 +42,7 @@ internal static class ActionCoverage
             if (action.Key == "drop") detail += "；按住 Shift 松手才下落，半空重抓可中断，普通松手停住；散步或躲藏也会先回到地面";
             if (action.Key == "shake") detail += "；连续摇晃触发头顶星星，身体仍保持提起";
             if (action.Key is "walk" or "peek") detail += "；按画面刷新连续移动，保留小数位置，脚步跟随实际位移";
+            if (action.Key == "walk") detail += "；不受打卡限制，开启自动散步时落地缓冲后自动走动；主动休息保留睡眠";
         }
         else if (PortraitRig.Supports(c.Category,c.FamilyId) && PortraitMotion.Supports(action.Motion))
         { status = "程序动作"; detail = "当前服装的骨骼动作与反馈特效"; }

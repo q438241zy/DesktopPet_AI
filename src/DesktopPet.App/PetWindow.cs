@@ -174,8 +174,10 @@ public sealed class PetWindow : Window
         State.LastSeen = day.ToString("yyyy-MM-dd"); Save();
         if (away >= 3) { prop = "blocks"; propStart = Now; Play("pounce", $"{Character.Name}等到你啦，欢迎回来。", 3100); }
         else if (anniversary is not null && State.LastCelebration != State.LastSeen) { State.LastCelebration = State.LastSeen; Celebrate(anniversary); Save(); }
-        else if (!State.CheckedIn(day)) { SetAction("sleep"); Say("点我打卡，一起吃早饭 ☀", 5500); }
+        else if (!State.CheckedIn(day)) { SetAction("idle"); Render(); Say("点我打卡，一起吃早饭 ☀", 5500); }
         else Play("chat", "今天也陪你一起。右键找我玩。", 2600);
+        if (actionUntil > 0) onMotionEnd += ResumeFloorWalk;
+        else ResumeFloorWalk();
         if (store.Warning is { } warning) Say(warning, 6500);
     }
     public void Save()
@@ -385,8 +387,8 @@ public sealed class PetWindow : Window
         {
             ResetShake(); DropToFloor();
         }
-        else if (dizzyUntil > Now) Play("dizzy", duration: dizzyUntil - Now);
-        else if (atFloor) Play("land", duration: 410);
+        else if (dizzyUntil > Now) { Play("dizzy", duration: dizzyUntil - Now); if (atFloor) onMotionEnd = ResumeFloorWalk; }
+        else if (atFloor) { Play("land", duration: 410); onMotionEnd = ResumeFloorWalk; }
         else { SetAction("idle"); Render(); }
         lastInteraction = Now; Save();
     }
@@ -397,7 +399,7 @@ public sealed class PetWindow : Window
         {
             dropping = liftedFromTaskbar = false; afterDrop = null;
             Top = WorkArea.Bottom - FloorY; SetAction("idle"); Render(); Save();
-            then?.Invoke(); return;
+            (then ?? ResumeFloorWalk).Invoke(); return;
         }
         dropping = true; dropSpeed = 30; liftedFromTaskbar = false; afterDrop = then;
         double liftedFor = action == "pickup" ? Math.Max(0, Now - actionStarted) : 0;
@@ -540,12 +542,17 @@ public sealed class PetWindow : Window
     private void RestorePet()
     {
         ClearTransient(); Play("farewell", "睡醒啦。", 1800);
+        onMotionEnd = ResumeFloorWalk;
     }
     internal bool CanWalk => Character.CanWalk(State.Outfit);
+    private void ResumeFloorWalk()
+    {
+        if (State.Wander && !State.ReducedMotion && CanWalk && action == "idle" && !pressed && !liftActive && !resting && !conversationActive && menu.Children.Count == 0 && Math.Abs(Top + FloorY - WorkArea.Bottom) < 1)
+            StartWalk(false);
+    }
     internal void StartWalk(bool explore, int? initialDirection = null)
     {
         if (State.ReducedMotion) { Say("已开启减少动态效果。", 2500); return; }
-        if (!State.CheckedIn(day)) { Say("先点我打卡吃早饭，再一起散步吧。", 3000); return; }
         var clip = Character.Resolve(State.Outfit, "walk", 0).Sprite;
         if (!CanWalk || clip.Columns * clip.Rows < 2) { Say("这套外观目前是静态立绘，逐帧行走动作尚未制作。", 3500); return; }
         ClearTransient();
@@ -606,7 +613,7 @@ public sealed class PetWindow : Window
         {
             dropSpeed += 1050 * dt; Top = Math.Min(WorkArea.Bottom - FloorY, Top + dropSpeed * dt);
             if (Top + FloorY >= WorkArea.Bottom - .1)
-            { var completion = afterDrop; afterDrop = null; dropping = liftedFromTaskbar = false; Play("land", duration: 410); onMotionEnd = completion; Save(); }
+            { var completion = afterDrop ?? ResumeFloorWalk; afterDrop = null; dropping = liftedFromTaskbar = false; Play("land", duration: 410); onMotionEnd = completion; Save(); }
         }
         if (dragging && action != "pickup") SetAction("pickup");
         if (hideJourney is { } journey)
@@ -636,8 +643,7 @@ public sealed class PetWindow : Window
         }
         if (action == "idle" && hideJourney is null && !pressed && !resting && menu.Children.Count == 0)
         {
-            if (!State.CheckedIn(day)) SetAction("sleep");
-            else if (State.Wander && CanWalk && !State.ReducedMotion && now - lastInteraction > 45000 && Math.Abs(Top + FloorY - WorkArea.Bottom) < 28) StartWalk(false);
+            if (State.Wander && CanWalk && !State.ReducedMotion && now - lastInteraction > 45000 && Math.Abs(Top + FloorY - WorkArea.Bottom) < 1) StartWalk(false);
         }
         if (flyingBall)
         {

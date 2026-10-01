@@ -14,7 +14,7 @@ const files = new Set();
 for (const style of ['chibi', 'realistic']) {
   for (const outfit of ['original', 'swim', 'wedding']) {
     const key = `${style}-${outfit}`, clips = source.clips[key];
-    if (!clips?.idle || !clips?.pickup || !clips?.place) throw new Error(`Incomplete ${key} lift artwork.`);
+    if (!clips?.idle || !clips?.pickup || !clips?.place || !clips?.walk) throw new Error(`Incomplete ${key} lift artwork.`);
     const imagePaths = action => {
       const clip = clips[action];
       if (!clip?.frames?.length) throw new Error(`Missing ${key}/${action} frame sequence.`);
@@ -26,7 +26,9 @@ for (const style of ['chibi', 'realistic']) {
       });
     };
     appearances[key] = { idle: imagePaths('idle'), pickup: imagePaths('pickup'),
-      land: imagePaths(clips.land ? 'land' : 'place') };
+      land: imagePaths(clips.land ? 'land' : 'place'),
+      walk: imagePaths('walk').slice(0, Math.round(clips.walk.cycleMs / source.sampleMs)),
+      walkCycleMs: clips.walk.cycleMs, walkSpeed: clips.walk.walkSpeed / .8 * .9 };
   }
 }
 for (const file of files) {

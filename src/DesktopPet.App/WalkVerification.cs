@@ -15,6 +15,8 @@ internal static class WalkVerification
         Directory.CreateDirectory(output);
         var checks = new List<string>();
         void Require(bool pass, string label) { if (!pass) throw new InvalidOperationException(label); checks.Add("PASS " + label); }
+        if (!pet.State.CheckedIn(DateOnly.FromDateTime(DateTime.Now)) && pet.State.Wander && !pet.State.ReducedMotion && pet.CanWalk && Math.Abs(pet.Top + 468 - pet.WorkArea.Bottom) < 1)
+            Require(pet.CurrentAction == "walk" && !pet.IsResting, "unchecked startup at taskbar walks without forcing sleep or adding a check-in");
         pet.EndPreview();
         pet.IsHitTestVisible = false;
         pet.State.Size = 200; pet.State.Wander = pet.State.ReducedMotion = false;
@@ -91,6 +93,7 @@ internal static class WalkVerification
             await System.Windows.Threading.Dispatcher.Yield(System.Windows.Threading.DispatcherPriority.Background);
         }
         pet.EndPreview();
+        await FloorWalkVerification.Run(pet, output);
         File.WriteAllLines(Path.Combine(output,"walk-check.txt"),checks.Append($"{checks.Count} walking checks passed."));
     }
 }

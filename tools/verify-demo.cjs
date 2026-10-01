@@ -7,8 +7,8 @@ const elements={loop:{checked:false},timeline:{value:0},timeLabel:{textContent:'
 let source='';const state={action:'walk',elapsed:0,walkTime:0,turnRemaining:0,x:300,y:300,dir:1,drop:false,arena:{clientWidth:1000},image:{style:{},getAttribute:()=>source,set src(value){source=value;}}};
 const data={sampleMs:40,frames:Array.from({length:24},(_,i)=>'frame-'+i)};
 const clip={walkSpeed:44,cycleMs:960,duration:3000,frames:Array.from({length:76},(_,i)=>i%24)};
-const context={performance:{now:()=>0},states:[state],paused:false,D:data,clip:()=>clip,$:id=>elements[id],place:()=>{},floor:()=>300,setAction:(s,key)=>{s.action=key;},updateShakeFeedback:()=>{},requestAnimationFrame:()=>{}};
-vm.createContext(context);vm.runInContext(body,context);
+const context={window:{matchMedia:()=>({matches:false})},performance:{now:()=>0},states:[state],paused:false,D:data,clip:()=>clip,$:id=>elements[id],place:()=>{},floor:()=>300,setAction:(s,key)=>{s.action=key;s.elapsed=0;s.walkTime=0;s.turnRemaining=0;},updateShakeFeedback:()=>{},requestAnimationFrame:()=>{}};
+vm.createContext(context);vm.runInContext(script.slice(script.indexOf('function scheduleFloorWalk'),script.indexOf('function run(key)')),context);vm.runInContext(body,context);
 let now=0;function step(dt=40){now+=dt;context.tick(now);}
 for(let i=0;i<100;i++)step();const after4s=source;step();assert.notEqual(source,after4s,'walking must continue animating after the 3 second demo clip');
 assert.ok(Math.abs(state.x-(300+44*4.04))<1e-8,'distance must match the gait speed');
@@ -47,6 +47,13 @@ function travel(dt,count,start=500){Object.assign(state,{x:start,dir:1,turnRemai
 for(const hz of [30,60,75,120,144]){const result=travel(1000/hz,hz*3);assert.ok(Math.abs(result.x-632)<1e-7);assert.ok(Math.abs(result.phase-3000)<1e-7);}
 const fastTurn=travel(10,400,930),slowTurn=travel(200,20,930);assert.ok(Math.abs(fastTurn.x-slowTurn.x)<1e-7);assert.ok(Math.abs(fastTurn.phase-slowTurn.phase)<1e-7);assert.equal(fastTurn.dir,slowTurn.dir);
 console.log('PASS: 30/60/75/120/144 Hz distance, delayed frames and refresh-independent boundary turns');
+Object.assign(state,{held:null,action:'pickup',x:300,y:299.9,dir:1,drop:true,v:0,next:null,floorWalkAt:null});step(16);
+assert.equal(state.action,'place');assert.equal(state.y,300);assert.equal(state.drop,false);assert.equal(state.floorWalkAt,now+410);
+step(400);assert.equal(state.action,'place','landing buffers before walking');step(20);assert.equal(state.action,'walk','floor contact automatically walks');assert.ok(state.x>300);
+Object.assign(state,{action:'pickup',y:299.9,drop:true,v:0,next:'peek',floorWalkAt:null});step(16);step(420);assert.equal(state.action,'peek','requested edge hiding still follows landing');
+context.window.matchMedia=()=>({matches:true});Object.assign(state,{action:'pickup',y:299.9,drop:true,v:0,next:null,floorWalkAt:null});step(16);step(1000);
+assert.equal(state.action,'place');assert.equal(state.floorWalkAt,null,'reduced motion does not force walking');context.window.matchMedia=()=>({matches:false});
+console.log('PASS: actual Demo timer buffers landing, starts walking, retains explicit follow-up and respects reduced motion');
 const shakeContext={setAction:(s,key)=>{s.action=key;}};vm.createContext(shakeContext);
 vm.runInContext(script.slice(script.indexOf('function newShake'),script.indexOf('function run(key)')),shakeContext);
 const shake=()=>shakeContext.newShake(0,0,0),move=(s,x,y,t)=>shakeContext.trackShake(s,x,y,t);
@@ -60,7 +67,7 @@ move(gesture,160,0,300);move(gesture,0,0,400);move(gesture,160,0,1200);assert.eq
 for(const held of [true,false]){const s={held,action:held?'shake':'dizzy',shake:{until:3500},drop:false,x:200,y:170};shakeContext.updateShakeFeedback(s,3499);assert.equal(s.action,held?'shake':'dizzy');shakeContext.updateShakeFeedback(s,3500);assert.equal(s.action,held?'pickup':'place');assert.equal(s.drop,false);assert.equal(s.y,170);assert.equal(s.shake,null);}
 console.log('PASS: horizontal/vertical shaking, jitter, slow drag, diagonal counting, stale gestures and recovery without falling');
 const grip={setPointerCapture:()=>{}},pointerState={x:200,y:300,arena:{clientWidth:500},composer:{hidden:true},action:'idle',drop:false};
-const pointerContext={card:{querySelector:()=>grip},s:pointerState,performance:{now:()=>pointerContext.now},now:0,
+const pointerContext={window:{matchMedia:()=>({matches:false})},card:{querySelector:()=>grip},s:pointerState,performance:{now:()=>pointerContext.now},now:0,
  setAction:(s,key)=>{s.action=key;s.elapsed=0;},floor:()=>300,place:()=>{}};
 vm.createContext(pointerContext);
 vm.runInContext(script.slice(script.indexOf('function newShake'),script.indexOf('function run(key)'))+
@@ -82,7 +89,9 @@ assert.equal(pointerState.elapsed,850,'re-grab does not restart the pickup artwo
 pointerMove(0,-20,6250);grip.onpointerup({shiftKey:false});assert.equal(pointerState.drop,false);assert.equal(pointerState.y,180);
 down();grip.onpointercancel({shiftKey:true});assert.equal(pointerState.drop,false,'cancel while Shift is held must stay put');
 down();grip.onlostpointercapture({shiftKey:true});assert.equal(pointerState.drop,false,'unexpected capture loss is not a drop request');
-Object.assign(pointerState,{y:276});down();grip.onpointerup({shiftKey:true});assert.equal(pointerState.y,300);assert.equal(pointerState.drop,false,'24px floor magnet has no fall loop');
+Object.assign(pointerState,{y:276});down();grip.onpointerup({shiftKey:true});assert.equal(pointerState.y,300);assert.equal(pointerState.drop,false,'24px floor magnet has no fall loop');assert.equal(pointerState.floorWalkAt,pointerContext.now+410);
+down();assert.equal(pointerState.floorWalkAt,null,'re-grab cancels scheduled floor walking');pointerMove(0,-100,pointerContext.now+50);grip.onpointerup({shiftKey:false});assert.equal(pointerState.floorWalkAt,null);
+Object.assign(pointerState,{y:300});down();grip.onpointercancel();assert.equal(pointerState.floorWalkAt,null,'cancel at floor must not queue walking');
 Object.assign(pointerState,{y:170});pointerContext.now=7000;down();pointerContext.now=12000;grip.onpointerup({shiftKey:true});assert.equal(pointerState.drop,true,'long holding does not override an explicit Shift drop');
 pointerContext.now=12500;down();for(let i=1;i<=5;i++)pointerMove(i%2?80:0,0,12500+i*100);
 grip.onpointerup({shiftKey:true});assert.equal(pointerState.drop,true);assert.equal(pointerState.shake,null,'explicit drop clears shake recovery');

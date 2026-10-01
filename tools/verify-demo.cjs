@@ -61,7 +61,7 @@ for(const held of [true,false]){const s={held,action:held?'shake':'dizzy',shake:
 console.log('PASS: horizontal/vertical shaking, jitter, slow drag, diagonal counting, stale gestures and recovery without falling');
 const grip={setPointerCapture:()=>{}},pointerState={x:200,y:300,arena:{clientWidth:500},composer:{hidden:true},action:'idle',drop:false};
 const pointerContext={card:{querySelector:()=>grip},s:pointerState,performance:{now:()=>pointerContext.now},now:0,
- setAction:(s,key)=>{s.action=key;},floor:()=>300,place:()=>{}};
+ setAction:(s,key)=>{s.action=key;s.elapsed=0;},floor:()=>300,place:()=>{}};
 vm.createContext(pointerContext);
 vm.runInContext(script.slice(script.indexOf('function newShake'),script.indexOf('function run(key)'))+
  script.slice(script.indexOf(" const grip=card.querySelector('.grip');"),script.indexOf(" s.composer.querySelector('form').onsubmit")),pointerContext);
@@ -73,6 +73,20 @@ assert.equal(pointerState.y,200);grip.onpointerup();grip.onlostpointercapture();
 pointerContext.updateShakeFeedback(pointerState,4501);assert.equal(pointerState.action,'place');assert.equal(pointerState.y,200);
 pointerContext.now=5000;down();for(let i=1;i<=5;i++)pointerMove(i%2?80:0,0,5000+i*100);assert.equal(pointerState.action,'shake');grip.onpointercancel();assert.equal(pointerState.action,'place');assert.equal(pointerState.shake,null);
 console.log('PASS: actual Demo pointer handlers distinguish ordinary drag, repeated shake, release, capture loss and cancellation');
+pointerContext.now=6000;Object.assign(pointerState,{x:200,y:300,drop:false});down();pointerMove(0,-100,6100);pointerState.elapsed=850;
+grip.onpointerup({shiftKey:true});grip.onlostpointercapture();
+assert.equal(pointerState.drop,true,'Shift release starts gravity and capture loss must not cancel it');assert.equal(pointerState.action,'pickup');
+assert.equal(pointerState.elapsed,850,'Shift release keeps the lifted animation phase');
+pointerState.next='walk';pointerContext.now=6200;down();assert.equal(pointerState.drop,false);assert.equal(pointerState.next,null,'re-grab cancels a queued walk');
+assert.equal(pointerState.elapsed,850,'re-grab does not restart the pickup artwork');
+pointerMove(0,-20,6250);grip.onpointerup({shiftKey:false});assert.equal(pointerState.drop,false);assert.equal(pointerState.y,180);
+down();grip.onpointercancel({shiftKey:true});assert.equal(pointerState.drop,false,'cancel while Shift is held must stay put');
+down();grip.onlostpointercapture({shiftKey:true});assert.equal(pointerState.drop,false,'unexpected capture loss is not a drop request');
+Object.assign(pointerState,{y:276});down();grip.onpointerup({shiftKey:true});assert.equal(pointerState.y,300);assert.equal(pointerState.drop,false,'24px floor magnet has no fall loop');
+Object.assign(pointerState,{y:170});pointerContext.now=7000;down();pointerContext.now=12000;grip.onpointerup({shiftKey:true});assert.equal(pointerState.drop,true,'long holding does not override an explicit Shift drop');
+pointerContext.now=12500;down();for(let i=1;i<=5;i++)pointerMove(i%2?80:0,0,12500+i*100);
+grip.onpointerup({shiftKey:true});assert.equal(pointerState.drop,true);assert.equal(pointerState.shake,null,'explicit drop clears shake recovery');
+console.log('PASS: Shift-only drop, elevated starts, re-grab, queued action cancellation, floor magnet and safe capture cancellation');
 (async()=>{
  const pending=[];
  const preloadContext={D:{frames:['old.webp','current.webp','missing.webp']},Image:class{decode(){return new Promise((resolve,reject)=>pending.push({resolve,reject}));}}};

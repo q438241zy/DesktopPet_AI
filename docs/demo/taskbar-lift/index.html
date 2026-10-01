@@ -3,16 +3,16 @@
 <head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>云朵伙伴 · 任务栏提起 Demo</title><link rel="stylesheet" href="style.css"></head>
 <body><main>
   <header><div class="brand"><div class="mark" aria-hidden="true">☁</div><div><p class="eyebrow">INTERACTION STUDY · 02</p><h1>从任务栏抱起</h1></div></div><div class="links"><span>Q版 / 3D真人 · 三套服装</span><a href="../MotionStudy/index.html">返回动作 Demo ↗</a></div></header>
-  <p class="intro">拖住角色往上提，再松手。快速提起会自然落下；想把她放到高处，就慢慢移动、稍作停留，或按住 Shift 松手。</p>
+  <p class="intro">拖住角色往上提。普通松手停在当前位置；按住 Shift 松手才落回任务栏。</p>
   <div class="toolbar"><div class="segments" id="styles" aria-label="选择风格"></div><div class="segments" id="outfits" aria-label="选择服装"></div><button id="reset" class="quiet">回到任务栏</button></div>
   <div class="layout"><section class="showcase" aria-label="提起与下落实验">
     <div class="stagehead"><strong id="stateLabel">任务栏待机</strong><span id="intentLabel">抓住人物往上提</span></div>
     <div class="stage" id="stage"><div class="cloud one"></div><div class="cloud two"></div><div class="heightmark" id="heightmark"></div><div class="shadow" id="shadow"></div><div id="pet" class="pet"><img id="sprite" alt="DeepSeek 桌面宠物"><div id="grip" class="grip" role="button" tabindex="0" aria-label="抓住 DeepSeek 并向上拖动"></div></div><div class="taskbar"><span class="windowmark" aria-hidden="true">▦</span><span>Windows 任务栏</span></div></div>
-    <div class="status" role="status" aria-live="polite"><span class="statusdot"></span><span id="statusText">从底部抓住她，试试快速提起后松手。</span></div>
-    <div class="actions"><button id="showDrop">▶ 快速抓起</button><button id="showPlace">▶ 慢慢摆放</button><button id="showCatch">▶ 半空接住</button></div>
-  </section><aside class="side"><section class="card"><p class="eyebrow">松手前看这里</p><h2 id="outcome">还没抓起</h2><p id="why">任务栏上的宠物，只有快速提起并直接松手才会自然掉落。</p><div class="meter"><span>任务栏</span><div class="track"><div id="rise"></div></div><span>半空</span></div><p id="metrics" class="metrics">高度 0 px · 停留 0 ms</p></section>
-    <section class="card"><p class="eyebrow">试三种手势</p><ol><li><strong>快速抓起</strong>：从底部提起后立即松手，会掉回任务栏。</li><li><strong>主动摆放</strong>：往上拖后停半秒，或慢慢移动，松手会停在新位置。</li><li><strong>半空接住</strong>：掉落时再次抓住，可重新调整并固定。</li></ol><p class="hint">需要快速放到高处？按住 Shift 松手即可固定。</p></section>
-    <section class="card fineprint"><p class="eyebrow">Demo 边界</p><p>这是离线浏览器原型，直接使用当前宠物渲染帧。任务栏只是模拟区域；实际 Windows 鼠标、任务栏遮挡和多屏幕规则要在原生程序中验证。</p></section>
+    <div class="status" role="status" aria-live="polite"><span class="statusdot"></span><span id="statusText">普通松手停住，Shift 松手下落。</span></div>
+    <div class="actions"><button id="showDrop">▶ Shift 松手下落</button><button id="showPlace">▶ 普通松手停住</button><button id="showCatch">▶ 半空接住</button></div>
+  </section><aside class="side"><section class="card"><p class="eyebrow">松手前看这里</p><h2 id="outcome">还没抓起</h2><p id="why">快慢都一样；只看松手时有没有按住 Shift。</p><div class="meter"><span>任务栏</span><div class="track"><div id="rise"></div></div><span>半空</span></div><p id="metrics" class="metrics">高度 0 px · Shift 未按</p></section>
+    <section class="card"><p class="eyebrow">试三种手势</p><ol><li><strong>Shift 松手</strong>：提到半空后按住 Shift 松手，落回任务栏。</li><li><strong>普通松手</strong>：直接停在新位置，不需要慢慢移或等半秒。</li><li><strong>半空接住</strong>：掉落时再次抓住，普通松手即可停住。</li></ol><p class="hint">从已抬高的位置也能 Shift 松手下落；距任务栏 24 px 内会吸附。</p></section>
+    <section class="card fineprint"><p class="eyebrow">Demo 边界</p><p>此页使用当前宠物渲染帧。任务栏为模拟区域；Windows 宠物采用相同的松手规则，实际鼠标和屏幕边界仍以桌面程序为准。</p></section>
   </aside></div>
-  <footer>观察重点：从任务栏起手才有自然落下；从半空重新抓取、明确摆放和普通上移都不自动掉落。此页尚未改动正在运行的宠物。</footer>
+  <footer>普通松手固定位置，Shift 松手下落。拖动过程中跟随鼠标，下落途中可以重新抓住；失去焦点或取消拖动会安全停住。</footer>
 </main><script src="data.js"></script><script src="lift-logic.js"></script><script src="app.js"></script></body></html>

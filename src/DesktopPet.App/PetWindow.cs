@@ -133,7 +133,7 @@ public sealed class PetWindow : Window
         bubble = new Border { Background = CloudTheme.Cream, BorderBrush = CloudTheme.Line, BorderThickness = new Thickness(1), CornerRadius = new CornerRadius(20), Padding = new Thickness(15, 10, 15, 10), Width = 238, Child = speech, IsHitTestVisible = false, Visibility = Visibility.Collapsed };
         surface.Children.Add(bubble); surface.Children.Add(ball);
         ball.Visibility = Visibility.Collapsed;
-        AutomationProperties.SetName(sprite, "桌面宠物：点击摸头，拖动抱起，来回摇晃会头晕，右键互动");
+        AutomationProperties.SetName(sprite, "桌面宠物：点击摸头，拖动抱起，松手放置，按住 Shift 松手下落，来回摇晃会头晕，右键互动");
         sprite.MouseLeftButtonDown += PetDown; sprite.MouseMove += PetMove; sprite.MouseLeftButtonUp += PetUp;
         sprite.MouseRightButtonUp += (_, e) => { if (menu.Children.Count > 0) menu.Children.Clear(); else ShowMenu(); e.Handled = true; };
         sprite.LostMouseCapture += (_, _) => { if (pressed) CancelInput(); };
@@ -321,7 +321,7 @@ public sealed class PetWindow : Window
         if (e.ChangedButton != MouseButton.Left) return;
         if (resting) { RestorePet(); e.Handled = true; return; }
         if (hideJourney is not null) { ClearTransient(); Play("happy", "被你找到啦！", 2000); e.Handled = true; return; }
-        if (dropping) { CancelChoreography(); SetAction("idle"); Render(); Save(); }
+        if (dropping) { CancelChoreography(); Render(); Save(); }
         if (roaming) { roaming = false; SetAction("idle"); Render(); }
         lastInteraction = Now;
         menu.Children.Clear(); sprite.Focus(); pressed = true; dragging = false;
@@ -356,10 +356,11 @@ public sealed class PetWindow : Window
     private void PetUp(object sender, MouseButtonEventArgs e)
     {
         if (!pressed) return;
-        bool wasDrag = dragging; pressed = dragging = false; sprite.ReleaseMouseCapture();
+        bool wasDrag = dragging, dropOnRelease = Keyboard.Modifiers.HasFlag(ModifierKeys.Shift);
+        pressed = dragging = false; sprite.ReleaseMouseCapture();
         if (wasDrag)
         {
-            ReleaseLift();
+            ReleaseLift(dropOnRelease);
         }
         else if (dance is not null) TapDance();
         else Touch(e.GetPosition(sprite).Y / sprite.Height);
@@ -369,17 +370,22 @@ public sealed class PetWindow : Window
     internal void BeginLift()
     {
         bool fromEdge = Math.Abs(Top + FloorY - WorkArea.Bottom) < 28;
+        double liftedFor = action == "pickup" ? Math.Max(0, Now - actionStarted) : 0;
         ClearTransient(); liftedFromTaskbar = fromEdge; roaming = false; liftActive = true;
-        shake.Start(Left, Top, Now); SetAction("pickup"); Render();
+        shake.Start(Left, Top, Now); SetAction("pickup"); actionStarted -= liftedFor; Render();
     }
-    internal void ReleaseLift()
+    internal void ReleaseLift(bool dropOnRelease = false)
     {
         Constrain();
         liftActive = false;
         dropping = liftedFromTaskbar = false; afterDrop = null;
         bool atFloor = WorkArea.Bottom - FloorY - Top <= 24;
         if (atFloor) Top = WorkArea.Bottom - FloorY;
-        if (dizzyUntil > Now) Play("dizzy", duration: dizzyUntil - Now);
+        if (dropOnRelease && !atFloor)
+        {
+            ResetShake(); DropToFloor();
+        }
+        else if (dizzyUntil > Now) Play("dizzy", duration: dizzyUntil - Now);
         else if (atFloor) Play("land", duration: 410);
         else { SetAction("idle"); Render(); }
         lastInteraction = Now; Save();
@@ -388,9 +394,14 @@ public sealed class PetWindow : Window
     {
         Constrain();
         if (State.ReducedMotion || WorkArea.Bottom - FloorY - Top < 1)
-        { Top = WorkArea.Bottom - FloorY; then?.Invoke(); return; }
+        {
+            dropping = liftedFromTaskbar = false; afterDrop = null;
+            Top = WorkArea.Bottom - FloorY; SetAction("idle"); Render(); Save();
+            then?.Invoke(); return;
+        }
         dropping = true; dropSpeed = 30; liftedFromTaskbar = false; afterDrop = then;
-        SetAction("pickup"); Render();
+        double liftedFor = action == "pickup" ? Math.Max(0, Now - actionStarted) : 0;
+        SetAction("pickup"); actionStarted -= liftedFor; Render();
     }
     private void Constrain()
     {

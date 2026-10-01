@@ -30,7 +30,7 @@ internal static class ActionCoverage
         if (action.Key == "dance")
         { status = !PortraitRig.SupportsDance(c.Category,c.FamilyId)?"不适用":clip?.DanceRig is not null?"程序动作":"缺少动作"; detail = status == "不适用" ? "按设计仅3D真人提供舞蹈" : "专用舞蹈底图与独立关节；16 拍侧步、点地、展臂和收势，支撑脚固定，长裙保持连贯"; }
         else if (action.Key is "idle" or "listen" or "place")
-        { status = "静态姿势"; detail = action.Key == "place" ? "手动放置后停留在用户指定的位置" : clip is null ? "使用本外观的安静待机姿势" : "本外观专用聆听姿势"; }
+        { status = "静态姿势"; detail = action.Key == "place" ? "普通松手停留在用户指定的位置，距底部 24px 内吸附；拖动速度和停留时间不影响结果" : clip is null ? "使用本外观的安静待机姿势" : "本外观专用聆听姿势"; }
         else if (action.Key == "dizzy")
         { status = "程序动作"; detail = c.Category == "chibi" ? "当前服装的晕眩姿势与头顶环绕星星，3 秒内恢复" : "当前服装轻微晕眩动作与头顶环绕星星，3 秒内恢复"; }
         else if (clip is not null)
@@ -39,7 +39,7 @@ internal static class ActionCoverage
             status = alias && action.Key != "thinking" ? "近似动作" : count > 1 ? "专用逐帧" : "专用姿势";
             detail = alias && action.Key != "thinking" ? "复用本外观的相近动作，尚未有独立动作图" : $"本外观 {count} 张独立姿势";
             if (action.Key == "thinking") detail += "，配合思考提示；至少 1 秒后才回答";
-            if (action.Key == "drop") detail += "；自然落下和手动放置分开处理";
+            if (action.Key == "drop") detail += "；按住 Shift 松手才下落，半空重抓可中断，普通松手停住；散步或躲藏也会先回到地面";
             if (action.Key == "shake") detail += "；连续摇晃触发头顶星星，身体仍保持提起";
             if (action.Key is "walk" or "peek") detail += "；按画面刷新连续移动，保留小数位置，脚步跟随实际位移";
         }

@@ -1,0 +1,10 @@
+const fs=require('node:fs'),path=require('node:path');
+const [source,output]=process.argv.slice(2);if(!source||!output)throw Error('Expected source HTML and output assets.js');
+const html=fs.readFileSync(source,'utf8'),match=html.match(/<script id="data" type="application\/json">([\s\S]*?)<\/script>/);
+if(!match)throw Error('Native frame metadata missing');
+const data=JSON.parse(match[1]);
+const relative=p=>path.relative(path.dirname(path.resolve(output)),path.resolve(path.dirname(source),p)).replaceAll('\\','/');
+for(const file of data.frames)if(!fs.existsSync(path.resolve(path.dirname(source),file)))throw Error('Missing '+file);
+const bundle={renderVersion:data.renderVersion||data.version,sampleMs:data.sampleMs,frames:data.frames.map(relative),clips:data.clips};
+fs.writeFileSync(output,'globalThis.CLUB_ASSETS='+JSON.stringify(bundle).replaceAll('<','\\u003c')+';\n');
+console.log(`Cloud Club Demo: ${Object.keys(bundle.clips).length} appearances; reused ${data.frames.length} native frames, no image copies.`);

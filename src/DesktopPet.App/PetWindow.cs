@@ -1,4 +1,5 @@
 using System.Diagnostics;
+using System.Text.Json;
 using System.Windows;
 using System.Windows.Automation;
 using System.Windows.Controls;
@@ -81,6 +82,7 @@ public sealed class PetWindow : Window
     private Action? afterDrop;
     private string action = "idle";
     private double actionStarted, actionUntil, speechUntil, lastTick, lastInteraction;
+    private double lastMotionTrace;
     private Action? onMotionEnd;
     private bool dragging, pressed, resting, roaming, exploring, closing, holdingBall, flyingBall, ballHit, caughtBall, clickThrough;
     private Point downScreen, downWindow, ballPrevious;
@@ -136,7 +138,7 @@ public sealed class PetWindow : Window
         AutomationProperties.SetName(sprite, "桌面宠物：点击摸头，拖动抱起，松手放置，按住 Shift 松手下落，来回摇晃会头晕，右键互动");
         sprite.MouseLeftButtonDown += PetDown; sprite.MouseMove += PetMove; sprite.MouseLeftButtonUp += PetUp;
         sprite.MouseRightButtonUp += (_, e) => { if (menu.Children.Count > 0) menu.Children.Clear(); else ShowMenu(); e.Handled = true; };
-        sprite.LostMouseCapture += (_, _) => { if (pressed) CancelInput(); };
+        sprite.LostMouseCapture += (_, _) => { if (pressed) CancelInput(true); };
         sprite.KeyDown += (_, e) => { if (e.Key is Key.Enter or Key.Space) { if (dance is not null) TapDance(); else Touch(.3); e.Handled = true; } else if (e.Key == Key.F10 && Keyboard.Modifiers.HasFlag(ModifierKeys.Shift)) { ShowMenu("root", true); e.Handled = true; } };
         KeyDown += (_, e) => { if (e.Key == Key.Escape) { StopInteraction(); e.Handled = true; } };
         ball.MouseLeftButtonDown += (_, e) =>
@@ -148,7 +150,7 @@ public sealed class PetWindow : Window
         ball.MouseMove += BallMove;
         ball.MouseLeftButtonUp += (_, e) => { if (!holdingBall) return; holdingBall = false; ball.ReleaseMouseCapture(); ThrowToy(ballX, ballY, ballVx, ballVy); e.Handled = true; };
         ball.LostMouseCapture += (_, _) => { if (holdingBall) CancelInput(); };
-        Deactivated += (_, _) => { CancelInput(); menu.Children.Clear(); };
+        Deactivated += (_, _) => { CancelInput(true); menu.Children.Clear(); };
         SourceInitialized += (_, _) => InitializeDesktop();
         Loaded += (_, _) => Welcome();
         RenderOptions.SetBitmapScalingMode(sprite, BitmapScalingMode.HighQuality);
@@ -157,6 +159,7 @@ public sealed class PetWindow : Window
         Closed += (_, _) => { closing = true; UpdateWalkClock(); timer.Stop(); CancelInput(); CancelChoreography(); chatWindow?.Dispose(); settings?.Close(); desktop?.Dispose(); Save(); };
         day = DateOnly.FromDateTime(DateTime.Now);
         ApplySettings(false);
+        TraceMotion("created");
     }
     private void InitializeDesktop()
     {
@@ -179,6 +182,7 @@ public sealed class PetWindow : Window
         if (actionUntil > 0) onMotionEnd += ResumeFloorWalk;
         else ResumeFloorWalk();
         if (store.Warning is { } warning) Say(warning, 6500);
+        TraceMotion("welcome");
     }
     public void Save()
     {
@@ -321,23 +325,34 @@ public sealed class PetWindow : Window
     private void PetDown(object sender, MouseButtonEventArgs e)
     {
         if (e.ChangedButton != MouseButton.Left) return;
-        if (resting) { RestorePet(); e.Handled = true; return; }
-        if (hideJourney is not null) { ClearTransient(); Play("happy", "被你找到啦！", 2000); e.Handled = true; return; }
+        if (BeginPointerGesture(ScreenPoint(e))) sprite.CaptureMouse();
+        e.Handled = true;
+    }
+    internal bool BeginPointerGesture(Point screen)
+    {
+        if (resting) { RestorePet(); return false; }
+        if (hideJourney is not null) { ClearTransient(); Play("happy", "被你找到啦！", 2000); return false; }
         if (dropping) { CancelChoreography(); Render(); Save(); }
         if (roaming) { roaming = false; SetAction("idle"); Render(); }
         lastInteraction = Now;
         menu.Children.Clear(); sprite.Focus(); pressed = true; dragging = false;
-        downScreen = ScreenPoint(e); downWindow = new Point(Left + walkOffset.X, Top);
-        sprite.CaptureMouse(); e.Handled = true;
+        downScreen = screen; downWindow = new Point(Left + walkOffset.X, Top);
+        TraceMotion("pointer-down");
+        return true;
     }
     private void PetMove(object sender, MouseEventArgs e)
     {
         if (!pressed) return;
-        var screen = ScreenPoint(e); var delta = screen - downScreen;
-        if (!dragging && delta.Length < 8) return;
+        if (MovePointerGesture(ScreenPoint(e))) e.Handled = true;
+    }
+    internal bool MovePointerGesture(Point screen)
+    {
+        if (!pressed) return false;
+        var delta = screen - downScreen;
+        if (!dragging && delta.Length < 8) return false;
         if (!dragging) { dragging = true; BeginLift(); }
         MoveLift(downWindow.X + delta.X, downWindow.Y + delta.Y);
-        e.Handled = true;
+        return true;
     }
     internal void MoveLift(double left, double top)
     {
@@ -358,15 +373,20 @@ public sealed class PetWindow : Window
     private void PetUp(object sender, MouseButtonEventArgs e)
     {
         if (!pressed) return;
-        bool wasDrag = dragging, dropOnRelease = Keyboard.Modifiers.HasFlag(ModifierKeys.Shift);
+        if (EndPointerGesture(Keyboard.Modifiers.HasFlag(ModifierKeys.Shift), e.GetPosition(sprite).Y / sprite.Height)) e.Handled = true;
+    }
+    internal bool EndPointerGesture(bool dropOnRelease, double touchFraction = .3)
+    {
+        if (!pressed) return false;
+        bool wasDrag = dragging;
         pressed = dragging = false; sprite.ReleaseMouseCapture();
         if (wasDrag)
         {
             ReleaseLift(dropOnRelease);
         }
         else if (dance is not null) TapDance();
-        else Touch(e.GetPosition(sprite).Y / sprite.Height);
-        e.Handled = true;
+        else Touch(touchFraction);
+        return true;
     }
     internal Rect WorkArea => desktop?.WorkArea(this) ?? SystemParameters.WorkArea;
     internal void BeginLift()
@@ -375,6 +395,7 @@ public sealed class PetWindow : Window
         double liftedFor = action == "pickup" ? Math.Max(0, Now - actionStarted) : 0;
         ClearTransient(); liftedFromTaskbar = fromEdge; roaming = false; liftActive = true;
         shake.Start(Left, Top, Now); SetAction("pickup"); actionStarted -= liftedFor; Render();
+        TraceMotion("lift");
     }
     internal void ReleaseLift(bool dropOnRelease = false)
     {
@@ -391,6 +412,7 @@ public sealed class PetWindow : Window
         else if (atFloor) { Play("land", duration: 410); onMotionEnd = ResumeFloorWalk; }
         else { SetAction("idle"); Render(); }
         lastInteraction = Now; Save();
+        TraceMotion("release");
     }
     internal void DropToFloor(Action? then = null)
     {
@@ -411,14 +433,20 @@ public sealed class PetWindow : Window
         Left = Math.Clamp(Left, area.Left - CenterX + State.Size * .46, area.Right - CenterX - State.Size * .46);
         Top = Math.Clamp(Top, area.Top - PetTop + 90, area.Bottom - FloorY);
     }
-    private void CancelInput()
+    internal void CancelInput(bool settleOnFloor = false)
     {
-        bool hadDrag = dragging;
+        bool hadDrag = dragging || liftActive;
         ResetShake();
         pressed = dragging = holdingBall = false;
         if (sprite.IsMouseCaptured) sprite.ReleaseMouseCapture();
         if (ball.IsMouseCaptured) ball.ReleaseMouseCapture();
-        if (hadDrag) { dropping = liftedFromTaskbar = false; afterDrop = null; Constrain(); SetAction("idle"); if (!closing) Save(); }
+        if (hadDrag)
+        {
+            dropping = liftedFromTaskbar = false; afterDrop = null;
+            if (settleOnFloor && !closing) ReleaseLift();
+            else { Constrain(); SetAction("idle"); if (!closing) Save(); }
+        }
+        if (hadDrag) TraceMotion("capture-cancelled");
     }
     private void ClearTransient(bool keepChat = false)
     { ResetShake(); CancelChoreography(); if (!keepChat) chatWindow?.Close(); resting = roaming = exploring = conversationActive = liftedFromTaskbar = false; sprite.Visibility = Visibility.Visible; menu.Children.Clear(); effects.Clear(); prop = null; flyingBall = holdingBall = caughtBall = false; ball.Visibility = Visibility.Collapsed; bubble.Visibility = Visibility.Collapsed; onMotionEnd = null; }
@@ -547,6 +575,7 @@ public sealed class PetWindow : Window
     internal bool CanWalk => Character.CanWalk(State.Outfit);
     private void ResumeFloorWalk()
     {
+        TraceMotion("resume-floor-walk");
         if (State.Wander && !State.ReducedMotion && CanWalk && action == "idle" && !pressed && !liftActive && !resting && !conversationActive && menu.Children.Count == 0 && Math.Abs(Top + FloorY - WorkArea.Bottom) < 1)
             StartWalk(false);
     }
@@ -665,8 +694,25 @@ public sealed class PetWindow : Window
             PlaceBall();
         }
         Render();
+        if (App.MotionLog is not null && now - lastMotionTrace >= 1000) { lastMotionTrace = now; TraceMotion("tick"); }
         bool moving = dragging || liftActive || dropping || holdingBall || flyingBall || roaming || hideJourney is not null || prop is not null || actionUntil > 0 || danceVisual is not null || action == "thinking";
         timer.Interval = TimeSpan.FromMilliseconds(action == "sleep" ? 80 : moving ? 16 : 200);
+    }
+    private void TraceMotion(string eventName)
+    {
+        if (App.MotionLog is not { } path) return;
+        try
+        {
+            Directory.CreateDirectory(Path.GetDirectoryName(path)!);
+            string line = JsonSerializer.Serialize(new { eventName, time = DateTimeOffset.Now, ms = Now, App.DataRoot,
+                IsLoaded, IsVisible, action, State.Wander, State.ReducedMotion, State.LastSeen,
+                left = double.IsFinite(Left) ? (double?)Left : null, top = double.IsFinite(Top) ? (double?)Top : null,
+                floor = WorkArea.Bottom - FloorY, pressed, dragging, liftActive, dropping, resting, roaming,
+                conversationActive, menuCount = menu.Children.Count, renderingWalk, timerRunning = timer.IsEnabled, DrawnFrame }) + Environment.NewLine;
+            if (File.Exists(path) && new FileInfo(path).Length > 2 * 1024 * 1024) File.WriteAllText(path, line);
+            else File.AppendAllText(path, line);
+        }
+        catch (Exception ex) when (ex is IOException or UnauthorizedAccessException) { }
     }
     private void Render()
     {

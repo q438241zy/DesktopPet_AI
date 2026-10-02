@@ -46,8 +46,6 @@ internal static class ContactVerification
         {
             pet.SelectCharacter(character.Id); pet.State.Outfits[character.Id] = outfit; pet.ApplySettings();
             pet.Left = pet.WorkArea.Left + pet.WorkArea.Width / 2 - 280; pet.Top = pet.WorkArea.Bottom - 468;
-            var idle = pet.Art.Frame(character, character.Resolve(outfit, "idle", 0).Sprite, 0);
-            double expectedHeight = pet.State.Size * pet.Art.VisibleHeight(idle);
             foreach (var (input, action) in new[] { ("snack", "eat"), ("checkin", "meal") })
             {
                 var clip = character.MotionFor(outfit, action);
@@ -55,10 +53,13 @@ internal static class ContactVerification
                 pet.RunInteraction(input);
                 Require(pet.UsingDrawnAction && pet.ActiveMotion is null, "drawn hands are never deformed by the waving-portrait rig");
                 Require(ReferenceEquals(sprite.Source, pet.Art.Frame(character, clip!, clip!.Frames![0])), "first pose comes from this exact outfit's action sheet");
+                double feedingPixelScale = sprite.Height / Math.Max(((BitmapSource)sprite.Source).PixelWidth,((BitmapSource)sprite.Source).PixelHeight);
                 Capture($"contact-{character.Id}-{outfit}-{action}-0");
                 await Until(() => pet.DrawnFrame == clip.Frames[1], character.Id + "/" + outfit + ": next feeding pose");
                 Require(pet.DrawnFrame == clip.Frames[1], "the next drawn hand pose actually advances");
-                Require(Math.Abs(sprite.Height * pet.Art.VisibleHeight((BitmapSource)sprite.Source) - expectedHeight) < .5, "drawn pose preserves visible character height");
+                var feedingFrame=(BitmapSource)sprite.Source;
+                Require(Math.Abs(sprite.Height / Math.Max(feedingFrame.PixelWidth,feedingFrame.PixelHeight) / feedingPixelScale - 1) < .003,
+                    "feeding retains the same body pixel scale as hands and food move");
                 Capture($"contact-{character.Id}-{outfit}-{action}-1");
                 await Until(() => pet.DrawnFrame == clip.Frames[2], character.Id + "/" + outfit + ": third feeding pose");
                 Capture($"contact-{character.Id}-{outfit}-{action}-2");

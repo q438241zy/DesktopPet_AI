@@ -39,6 +39,9 @@ $danceDocs = Join-Path $releaseRoot 'artwork/dance-repair'
 New-Item -ItemType Directory -Path $danceDocs -Force | Out-Null
 Copy-Item -LiteralPath "$projectRoot/artwork/dance-repair/prompts.md","$projectRoot/artwork/dance-repair/manifest.json","$projectRoot/artwork/dance-repair/calibration.json" -Destination $danceDocs
 Copy-Item -LiteralPath "$projectRoot/artwork/dance-repair/prompts","$projectRoot/artwork/dance-repair/results" -Destination $danceDocs -Recurse -Force
+$scaleDocs = Join-Path $releaseRoot 'artwork/scale-consistency'
+New-Item -ItemType Directory -Path $scaleDocs -Force | Out-Null
+Copy-Item -LiteralPath "$projectRoot/artwork/scale-consistency/README.md","$projectRoot/artwork/scale-consistency/calibration.json" -Destination $scaleDocs -Force
 if (Test-Path -LiteralPath $demoPointer) {
     $demoSource = (Get-Content -LiteralPath $demoPointer -Raw).Trim()
     $demoTarget = Join-Path $releaseRoot 'Demo'

@@ -454,6 +454,9 @@ try
         c.Atlas = new Sprite("atlas.png", 1, 1, HeightRatios: [.49]); Write(); Equal(.49, Character.Load(root).Atlas.HeightRatios![0]);
         c.Atlas = new Sprite("atlas.png", 1, 1, HeightRatios: []); Write(); Reject(() => Character.Load(root));
         c.Atlas = new Sprite("atlas.png", 1, 1, HeightRatios: [0]); Write(); Reject(() => Character.Load(root));
+        c.Atlas = new Sprite("atlas.png", 1, 1, FrameScaleFactors: [1.5]); Write(); Equal(1.5, Character.Load(root).Atlas.FrameScaleFactors![0]);
+        foreach (double[] factors in new[] { Array.Empty<double>(), new[] {0d}, new[] {5d}, new[] {1d,1d} })
+        { c.Atlas = c.Atlas with { FrameScaleFactors=factors }; Write(); Reject(() => Character.Load(root)); }
         c.Atlas = new Sprite("atlas.png", 4, 6, SeparationAlpha: 200, ReferenceHeightPixels: 280); Write();
         Equal(200, Character.Load(root).Atlas.SeparationAlpha); Equal(280d, Character.Load(root).Atlas.ReferenceHeightPixels);
         c.Atlas = c.Atlas with { SeparationAlpha=255 }; Write(); Reject(() => Character.Load(root));

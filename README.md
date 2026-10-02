@@ -4,7 +4,9 @@
 
 ![云朵伙伴：角色分类与更衣室](docs/images/pet-home.png)
 
-由 **QQ奶茶大神** 的 UsageDashboard_AI 与 Character_Generator 整合而来，互动和八位 AI 角色的 Q 版画稿来自 DS Go。沿用原生 WPF 透明窗口、托盘与快捷键；取消举看板、余额采集与平台登录。当前分支为 1.2.0-preview.17。
+由 **QQ奶茶大神** 的 UsageDashboard_AI 与 Character_Generator 整合而来，互动和八位 AI 角色的 Q 版画稿来自 DS Go。沿用原生 WPF 透明窗口、托盘与快捷键；取消举看板、余额采集与平台登录。当前分支为 1.2.0-preview.18。
+
+Preview 18 校正切换动作时的尺寸：历史 Q版中间帧的源图缩小、积木重复缩小，以及日常图集随姿势变化的缩放。48 套外观的尺寸、动作与发布版回归记录见 [动作尺寸检查](docs/verification-scale.md)。
 
 ## 开始使用
 

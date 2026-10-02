@@ -723,14 +723,15 @@ public sealed class PetWindow : Window
         UsingDrawnAction = dance is null && action != "walk" && Character.MotionFor(State.Outfit, action) is not null;
         DrawnFrame = art.Frame; bakedProps = art.Sprite.BakedProps;
         double size = State.Size;
-        if(dance is not null)
+        if(dance is not null && art.Sprite.ReferenceHeightPixels == 0)
         {
             var idle=Character.Resolve(State.Outfit,"idle",0);
             size*=Art.VisibleHeight(Art.Frame(Character,idle.Sprite,idle.Frame))/Art.VisibleHeight(frame);
         }
-        if (action == "walk" || UsingDrawnAction && (Character.Category != "chibi" || art.Sprite.HeightRatios is not null || art.Sprite.ReferenceHeightPixels > 0))
+        if (art.Sprite.ReferenceHeightPixels > 0 || action == "walk" || UsingDrawnAction && (Character.Category != "chibi" || art.Sprite.HeightRatios is not null))
         {
-            // Scale each appearance to its own idle silhouette, including Q wardrobes.
+            // Authored reference pixels keep one anatomical scale for an entire
+            // sheet. Bent knees, raised hands and props must not resize the body.
             var reference = Character.Resolve(State.Outfit, "idle", 0).Sprite;
             if (reference is not null)
             {
@@ -745,6 +746,7 @@ public sealed class PetWindow : Window
                 }
             }
         }
+        size *= art.Sprite.FrameScaleFactors?[art.Frame] ?? 1;
         if (action == "sleep") size *= PortraitChoreography.Breath(Now - actionStarted, State.ReducedMotion);
         sprite.Width = sprite.Height = size;
         groundLine = Art.GroundLine(frame);

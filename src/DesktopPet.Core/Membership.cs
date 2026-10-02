@@ -21,6 +21,8 @@ public interface IAccountService
 
 public static class Membership
 {
+    // Public preview policy is independent of account identity and purchased rank.
+    public const bool TestingOpen = true;
     public static IReadOnlyList<MembershipTier> Tiers { get; } = Array.AsReadOnly(new[]
         { MembershipTier.BlackGold, MembershipTier.Platinum, MembershipTier.Gold, MembershipTier.Silver, MembershipTier.Brass });
     // Add the owner's future pose decisions here. No unannounced pose restrictions are invented.
@@ -33,6 +35,8 @@ public static class Membership
         MembershipTier.Silver => "白银", _ => "黄铜"
     };
     public static MemberAccess Access(string feature, MembershipTier? tier)
+        => TestingOpen ? new(true, Requirements.TryGetValue(feature, out var minimum) ? minimum : null) : PlannedAccess(feature, tier);
+    public static MemberAccess PlannedAccess(string feature, MembershipTier? tier)
     {
         if (!Requirements.TryGetValue(feature, out var minimum)) return new(true, null);
         return new(tier is { } current && Enum.IsDefined(current) && current >= minimum, minimum);

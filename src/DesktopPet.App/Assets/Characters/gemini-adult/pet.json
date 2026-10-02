@@ -2190,6 +2190,534 @@
         "openingWidth": 0.17118997912317327
       },
       "referenceHeightPixels": 981.0
+    },
+    "stars": {
+      "file": "motions/cloud-club-original.png",
+      "columns": 4,
+      "rows": 6,
+      "frames": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "frameMs": [
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        500
+      ],
+      "loop": false,
+      "bakedProps": false,
+      "isolateCells": true,
+      "separationAlpha": 80,
+      "referenceHeightPixels": 315,
+      "cells": [
+        {
+          "x": 15,
+          "y": 39,
+          "width": 157,
+          "height": 319
+        },
+        {
+          "x": 214,
+          "y": 46,
+          "width": 157,
+          "height": 312
+        },
+        {
+          "x": 410,
+          "y": 38,
+          "width": 158,
+          "height": 321
+        },
+        {
+          "x": 600,
+          "y": 38,
+          "width": 159,
+          "height": 321
+        },
+        {
+          "x": 797,
+          "y": 8,
+          "width": 156,
+          "height": 350
+        },
+        {
+          "x": 991,
+          "y": 42,
+          "width": 152,
+          "height": 316
+        },
+        {
+          "x": 1174,
+          "y": 47,
+          "width": 155,
+          "height": 311
+        },
+        {
+          "x": 1363,
+          "y": 42,
+          "width": 145,
+          "height": 316
+        },
+        {
+          "x": 21,
+          "y": 371,
+          "width": 151,
+          "height": 309
+        },
+        {
+          "x": 210,
+          "y": 370,
+          "width": 157,
+          "height": 310
+        },
+        {
+          "x": 414,
+          "y": 371,
+          "width": 154,
+          "height": 309
+        },
+        {
+          "x": 606,
+          "y": 371,
+          "width": 155,
+          "height": 309
+        },
+        {
+          "x": 787,
+          "y": 375,
+          "width": 168,
+          "height": 305
+        },
+        {
+          "x": 991,
+          "y": 372,
+          "width": 149,
+          "height": 308
+        },
+        {
+          "x": 1174,
+          "y": 372,
+          "width": 160,
+          "height": 308
+        },
+        {
+          "x": 1362,
+          "y": 370,
+          "width": 149,
+          "height": 310
+        },
+        {
+          "x": 30,
+          "y": 696,
+          "width": 141,
+          "height": 308
+        },
+        {
+          "x": 219,
+          "y": 694,
+          "width": 150,
+          "height": 310
+        },
+        {
+          "x": 423,
+          "y": 700,
+          "width": 147,
+          "height": 303
+        },
+        {
+          "x": 612,
+          "y": 681,
+          "width": 143,
+          "height": 322
+        },
+        {
+          "x": 805,
+          "y": 687,
+          "width": 142,
+          "height": 316
+        },
+        {
+          "x": 995,
+          "y": 703,
+          "width": 147,
+          "height": 300
+        },
+        {
+          "x": 1187,
+          "y": 698,
+          "width": 143,
+          "height": 305
+        },
+        {
+          "x": 1371,
+          "y": 699,
+          "width": 143,
+          "height": 304
+        }
+      ]
+    },
+    "bubbles": {
+      "file": "motions/cloud-club-original.png",
+      "columns": 4,
+      "rows": 6,
+      "frames": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "frameMs": [
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        500
+      ],
+      "loop": true,
+      "bakedProps": true,
+      "isolateCells": true,
+      "separationAlpha": 80,
+      "referenceHeightPixels": 305,
+      "cells": [
+        {
+          "x": 15,
+          "y": 39,
+          "width": 157,
+          "height": 319
+        },
+        {
+          "x": 214,
+          "y": 46,
+          "width": 157,
+          "height": 312
+        },
+        {
+          "x": 410,
+          "y": 38,
+          "width": 158,
+          "height": 321
+        },
+        {
+          "x": 600,
+          "y": 38,
+          "width": 159,
+          "height": 321
+        },
+        {
+          "x": 797,
+          "y": 8,
+          "width": 156,
+          "height": 350
+        },
+        {
+          "x": 991,
+          "y": 42,
+          "width": 152,
+          "height": 316
+        },
+        {
+          "x": 1174,
+          "y": 47,
+          "width": 155,
+          "height": 311
+        },
+        {
+          "x": 1363,
+          "y": 42,
+          "width": 145,
+          "height": 316
+        },
+        {
+          "x": 21,
+          "y": 371,
+          "width": 151,
+          "height": 309
+        },
+        {
+          "x": 210,
+          "y": 370,
+          "width": 157,
+          "height": 310
+        },
+        {
+          "x": 414,
+          "y": 371,
+          "width": 154,
+          "height": 309
+        },
+        {
+          "x": 606,
+          "y": 371,
+          "width": 155,
+          "height": 309
+        },
+        {
+          "x": 787,
+          "y": 375,
+          "width": 168,
+          "height": 305
+        },
+        {
+          "x": 991,
+          "y": 372,
+          "width": 149,
+          "height": 308
+        },
+        {
+          "x": 1174,
+          "y": 372,
+          "width": 160,
+          "height": 308
+        },
+        {
+          "x": 1362,
+          "y": 370,
+          "width": 149,
+          "height": 310
+        },
+        {
+          "x": 30,
+          "y": 696,
+          "width": 141,
+          "height": 308
+        },
+        {
+          "x": 219,
+          "y": 694,
+          "width": 150,
+          "height": 310
+        },
+        {
+          "x": 423,
+          "y": 700,
+          "width": 147,
+          "height": 303
+        },
+        {
+          "x": 612,
+          "y": 681,
+          "width": 143,
+          "height": 322
+        },
+        {
+          "x": 805,
+          "y": 687,
+          "width": 142,
+          "height": 316
+        },
+        {
+          "x": 995,
+          "y": 703,
+          "width": 147,
+          "height": 300
+        },
+        {
+          "x": 1187,
+          "y": 698,
+          "width": 143,
+          "height": 305
+        },
+        {
+          "x": 1371,
+          "y": 699,
+          "width": 143,
+          "height": 304
+        }
+      ]
+    },
+    "stretch": {
+      "file": "motions/cloud-club-original.png",
+      "columns": 4,
+      "rows": 6,
+      "frames": [
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "frameMs": [
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        500
+      ],
+      "loop": false,
+      "bakedProps": false,
+      "isolateCells": true,
+      "separationAlpha": 80,
+      "referenceHeightPixels": 304,
+      "cells": [
+        {
+          "x": 15,
+          "y": 39,
+          "width": 157,
+          "height": 319
+        },
+        {
+          "x": 214,
+          "y": 46,
+          "width": 157,
+          "height": 312
+        },
+        {
+          "x": 410,
+          "y": 38,
+          "width": 158,
+          "height": 321
+        },
+        {
+          "x": 600,
+          "y": 38,
+          "width": 159,
+          "height": 321
+        },
+        {
+          "x": 797,
+          "y": 8,
+          "width": 156,
+          "height": 350
+        },
+        {
+          "x": 991,
+          "y": 42,
+          "width": 152,
+          "height": 316
+        },
+        {
+          "x": 1174,
+          "y": 47,
+          "width": 155,
+          "height": 311
+        },
+        {
+          "x": 1363,
+          "y": 42,
+          "width": 145,
+          "height": 316
+        },
+        {
+          "x": 21,
+          "y": 371,
+          "width": 151,
+          "height": 309
+        },
+        {
+          "x": 210,
+          "y": 370,
+          "width": 157,
+          "height": 310
+        },
+        {
+          "x": 414,
+          "y": 371,
+          "width": 154,
+          "height": 309
+        },
+        {
+          "x": 606,
+          "y": 371,
+          "width": 155,
+          "height": 309
+        },
+        {
+          "x": 787,
+          "y": 375,
+          "width": 168,
+          "height": 305
+        },
+        {
+          "x": 991,
+          "y": 372,
+          "width": 149,
+          "height": 308
+        },
+        {
+          "x": 1174,
+          "y": 372,
+          "width": 160,
+          "height": 308
+        },
+        {
+          "x": 1362,
+          "y": 370,
+          "width": 149,
+          "height": 310
+        },
+        {
+          "x": 30,
+          "y": 696,
+          "width": 141,
+          "height": 308
+        },
+        {
+          "x": 219,
+          "y": 694,
+          "width": 150,
+          "height": 310
+        },
+        {
+          "x": 423,
+          "y": 700,
+          "width": 147,
+          "height": 303
+        },
+        {
+          "x": 612,
+          "y": 681,
+          "width": 143,
+          "height": 322
+        },
+        {
+          "x": 805,
+          "y": 687,
+          "width": 142,
+          "height": 316
+        },
+        {
+          "x": 995,
+          "y": 703,
+          "width": 147,
+          "height": 300
+        },
+        {
+          "x": 1187,
+          "y": 698,
+          "width": 143,
+          "height": 305
+        },
+        {
+          "x": 1371,
+          "y": 699,
+          "width": 143,
+          "height": 304
+        }
+      ]
     }
   },
   "outfits": {
@@ -4377,6 +4905,534 @@
             "armRadius": 0.027135678391959798
           },
           "referenceHeightPixels": 983.0
+        },
+        "stars": {
+          "file": "motions/cloud-club-swim.png",
+          "columns": 4,
+          "rows": 6,
+          "frames": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "frameMs": [
+            500,
+            500,
+            500,
+            500,
+            500,
+            500,
+            500,
+            500
+          ],
+          "loop": false,
+          "bakedProps": false,
+          "isolateCells": true,
+          "separationAlpha": 80,
+          "referenceHeightPixels": 338,
+          "cells": [
+            {
+              "x": 18,
+              "y": 29,
+              "width": 177,
+              "height": 342
+            },
+            {
+              "x": 210,
+              "y": 27,
+              "width": 173,
+              "height": 344
+            },
+            {
+              "x": 402,
+              "y": 29,
+              "width": 173,
+              "height": 342
+            },
+            {
+              "x": 594,
+              "y": 8,
+              "width": 172,
+              "height": 363
+            },
+            {
+              "x": 787,
+              "y": 3,
+              "width": 175,
+              "height": 368
+            },
+            {
+              "x": 980,
+              "y": 30,
+              "width": 195,
+              "height": 341
+            },
+            {
+              "x": 1168,
+              "y": 30,
+              "width": 179,
+              "height": 341
+            },
+            {
+              "x": 1353,
+              "y": 30,
+              "width": 173,
+              "height": 341
+            },
+            {
+              "x": 19,
+              "y": 382,
+              "width": 176,
+              "height": 321
+            },
+            {
+              "x": 212,
+              "y": 381,
+              "width": 172,
+              "height": 322
+            },
+            {
+              "x": 403,
+              "y": 382,
+              "width": 176,
+              "height": 321
+            },
+            {
+              "x": 596,
+              "y": 383,
+              "width": 181,
+              "height": 320
+            },
+            {
+              "x": 788,
+              "y": 387,
+              "width": 180,
+              "height": 316
+            },
+            {
+              "x": 983,
+              "y": 386,
+              "width": 178,
+              "height": 317
+            },
+            {
+              "x": 1176,
+              "y": 382,
+              "width": 170,
+              "height": 321
+            },
+            {
+              "x": 1356,
+              "y": 382,
+              "width": 169,
+              "height": 321
+            },
+            {
+              "x": 24,
+              "y": 717,
+              "width": 167,
+              "height": 292
+            },
+            {
+              "x": 219,
+              "y": 718,
+              "width": 160,
+              "height": 291
+            },
+            {
+              "x": 413,
+              "y": 724,
+              "width": 154,
+              "height": 285
+            },
+            {
+              "x": 604,
+              "y": 706,
+              "width": 155,
+              "height": 303
+            },
+            {
+              "x": 796,
+              "y": 713,
+              "width": 155,
+              "height": 296
+            },
+            {
+              "x": 990,
+              "y": 738,
+              "width": 155,
+              "height": 271
+            },
+            {
+              "x": 1178,
+              "y": 733,
+              "width": 157,
+              "height": 276
+            },
+            {
+              "x": 1360,
+              "y": 718,
+              "width": 163,
+              "height": 291
+            }
+          ]
+        },
+        "bubbles": {
+          "file": "motions/cloud-club-swim.png",
+          "columns": 4,
+          "rows": 6,
+          "frames": [
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15
+          ],
+          "frameMs": [
+            500,
+            500,
+            500,
+            500,
+            500,
+            500,
+            500,
+            500
+          ],
+          "loop": true,
+          "bakedProps": true,
+          "isolateCells": true,
+          "separationAlpha": 80,
+          "referenceHeightPixels": 317,
+          "cells": [
+            {
+              "x": 18,
+              "y": 29,
+              "width": 177,
+              "height": 342
+            },
+            {
+              "x": 210,
+              "y": 27,
+              "width": 173,
+              "height": 344
+            },
+            {
+              "x": 402,
+              "y": 29,
+              "width": 173,
+              "height": 342
+            },
+            {
+              "x": 594,
+              "y": 8,
+              "width": 172,
+              "height": 363
+            },
+            {
+              "x": 787,
+              "y": 3,
+              "width": 175,
+              "height": 368
+            },
+            {
+              "x": 980,
+              "y": 30,
+              "width": 195,
+              "height": 341
+            },
+            {
+              "x": 1168,
+              "y": 30,
+              "width": 179,
+              "height": 341
+            },
+            {
+              "x": 1353,
+              "y": 30,
+              "width": 173,
+              "height": 341
+            },
+            {
+              "x": 19,
+              "y": 382,
+              "width": 176,
+              "height": 321
+            },
+            {
+              "x": 212,
+              "y": 381,
+              "width": 172,
+              "height": 322
+            },
+            {
+              "x": 403,
+              "y": 382,
+              "width": 176,
+              "height": 321
+            },
+            {
+              "x": 596,
+              "y": 383,
+              "width": 181,
+              "height": 320
+            },
+            {
+              "x": 788,
+              "y": 387,
+              "width": 180,
+              "height": 316
+            },
+            {
+              "x": 983,
+              "y": 386,
+              "width": 178,
+              "height": 317
+            },
+            {
+              "x": 1176,
+              "y": 382,
+              "width": 170,
+              "height": 321
+            },
+            {
+              "x": 1356,
+              "y": 382,
+              "width": 169,
+              "height": 321
+            },
+            {
+              "x": 24,
+              "y": 717,
+              "width": 167,
+              "height": 292
+            },
+            {
+              "x": 219,
+              "y": 718,
+              "width": 160,
+              "height": 291
+            },
+            {
+              "x": 413,
+              "y": 724,
+              "width": 154,
+              "height": 285
+            },
+            {
+              "x": 604,
+              "y": 706,
+              "width": 155,
+              "height": 303
+            },
+            {
+              "x": 796,
+              "y": 713,
+              "width": 155,
+              "height": 296
+            },
+            {
+              "x": 990,
+              "y": 738,
+              "width": 155,
+              "height": 271
+            },
+            {
+              "x": 1178,
+              "y": 733,
+              "width": 157,
+              "height": 276
+            },
+            {
+              "x": 1360,
+              "y": 718,
+              "width": 163,
+              "height": 291
+            }
+          ]
+        },
+        "stretch": {
+          "file": "motions/cloud-club-swim.png",
+          "columns": 4,
+          "rows": 6,
+          "frames": [
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ],
+          "frameMs": [
+            500,
+            500,
+            500,
+            500,
+            500,
+            500,
+            500,
+            500
+          ],
+          "loop": false,
+          "bakedProps": false,
+          "isolateCells": true,
+          "separationAlpha": 80,
+          "referenceHeightPixels": 288,
+          "cells": [
+            {
+              "x": 18,
+              "y": 29,
+              "width": 177,
+              "height": 342
+            },
+            {
+              "x": 210,
+              "y": 27,
+              "width": 173,
+              "height": 344
+            },
+            {
+              "x": 402,
+              "y": 29,
+              "width": 173,
+              "height": 342
+            },
+            {
+              "x": 594,
+              "y": 8,
+              "width": 172,
+              "height": 363
+            },
+            {
+              "x": 787,
+              "y": 3,
+              "width": 175,
+              "height": 368
+            },
+            {
+              "x": 980,
+              "y": 30,
+              "width": 195,
+              "height": 341
+            },
+            {
+              "x": 1168,
+              "y": 30,
+              "width": 179,
+              "height": 341
+            },
+            {
+              "x": 1353,
+              "y": 30,
+              "width": 173,
+              "height": 341
+            },
+            {
+              "x": 19,
+              "y": 382,
+              "width": 176,
+              "height": 321
+            },
+            {
+              "x": 212,
+              "y": 381,
+              "width": 172,
+              "height": 322
+            },
+            {
+              "x": 403,
+              "y": 382,
+              "width": 176,
+              "height": 321
+            },
+            {
+              "x": 596,
+              "y": 383,
+              "width": 181,
+              "height": 320
+            },
+            {
+              "x": 788,
+              "y": 387,
+              "width": 180,
+              "height": 316
+            },
+            {
+              "x": 983,
+              "y": 386,
+              "width": 178,
+              "height": 317
+            },
+            {
+              "x": 1176,
+              "y": 382,
+              "width": 170,
+              "height": 321
+            },
+            {
+              "x": 1356,
+              "y": 382,
+              "width": 169,
+              "height": 321
+            },
+            {
+              "x": 24,
+              "y": 717,
+              "width": 167,
+              "height": 292
+            },
+            {
+              "x": 219,
+              "y": 718,
+              "width": 160,
+              "height": 291
+            },
+            {
+              "x": 413,
+              "y": 724,
+              "width": 154,
+              "height": 285
+            },
+            {
+              "x": 604,
+              "y": 706,
+              "width": 155,
+              "height": 303
+            },
+            {
+              "x": 796,
+              "y": 713,
+              "width": 155,
+              "height": 296
+            },
+            {
+              "x": 990,
+              "y": 738,
+              "width": 155,
+              "height": 271
+            },
+            {
+              "x": 1178,
+              "y": 733,
+              "width": 157,
+              "height": 276
+            },
+            {
+              "x": 1360,
+              "y": 718,
+              "width": 163,
+              "height": 291
+            }
+          ]
         }
       }
     },
@@ -6566,6 +7622,534 @@
             "armRadius": 0.02716297786720322
           },
           "referenceHeightPixels": 982.0
+        },
+        "stars": {
+          "file": "motions/cloud-club-wedding.png",
+          "columns": 4,
+          "rows": 6,
+          "frames": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "frameMs": [
+            500,
+            500,
+            500,
+            500,
+            500,
+            500,
+            500,
+            500
+          ],
+          "loop": false,
+          "bakedProps": false,
+          "isolateCells": true,
+          "separationAlpha": 80,
+          "referenceHeightPixels": 320,
+          "cells": [
+            {
+              "x": 16,
+              "y": 18,
+              "width": 186,
+              "height": 324
+            },
+            {
+              "x": 206,
+              "y": 23,
+              "width": 182,
+              "height": 319
+            },
+            {
+              "x": 395,
+              "y": 38,
+              "width": 180,
+              "height": 303
+            },
+            {
+              "x": 584,
+              "y": 36,
+              "width": 180,
+              "height": 305
+            },
+            {
+              "x": 773,
+              "y": 8,
+              "width": 176,
+              "height": 334
+            },
+            {
+              "x": 959,
+              "y": 37,
+              "width": 178,
+              "height": 304
+            },
+            {
+              "x": 1150,
+              "y": 38,
+              "width": 179,
+              "height": 304
+            },
+            {
+              "x": 1336,
+              "y": 35,
+              "width": 177,
+              "height": 306
+            },
+            {
+              "x": 20,
+              "y": 358,
+              "width": 183,
+              "height": 309
+            },
+            {
+              "x": 209,
+              "y": 358,
+              "width": 182,
+              "height": 309
+            },
+            {
+              "x": 395,
+              "y": 359,
+              "width": 184,
+              "height": 308
+            },
+            {
+              "x": 585,
+              "y": 358,
+              "width": 182,
+              "height": 308
+            },
+            {
+              "x": 774,
+              "y": 366,
+              "width": 185,
+              "height": 300
+            },
+            {
+              "x": 966,
+              "y": 361,
+              "width": 181,
+              "height": 304
+            },
+            {
+              "x": 1152,
+              "y": 360,
+              "width": 178,
+              "height": 307
+            },
+            {
+              "x": 1337,
+              "y": 360,
+              "width": 182,
+              "height": 306
+            },
+            {
+              "x": 20,
+              "y": 686,
+              "width": 184,
+              "height": 320
+            },
+            {
+              "x": 209,
+              "y": 693,
+              "width": 183,
+              "height": 313
+            },
+            {
+              "x": 396,
+              "y": 684,
+              "width": 182,
+              "height": 322
+            },
+            {
+              "x": 583,
+              "y": 662,
+              "width": 182,
+              "height": 344
+            },
+            {
+              "x": 774,
+              "y": 672,
+              "width": 182,
+              "height": 334
+            },
+            {
+              "x": 965,
+              "y": 696,
+              "width": 180,
+              "height": 307
+            },
+            {
+              "x": 1150,
+              "y": 695,
+              "width": 180,
+              "height": 311
+            },
+            {
+              "x": 1336,
+              "y": 687,
+              "width": 183,
+              "height": 319
+            }
+          ]
+        },
+        "bubbles": {
+          "file": "motions/cloud-club-wedding.png",
+          "columns": 4,
+          "rows": 6,
+          "frames": [
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15
+          ],
+          "frameMs": [
+            500,
+            500,
+            500,
+            500,
+            500,
+            500,
+            500,
+            500
+          ],
+          "loop": true,
+          "bakedProps": true,
+          "isolateCells": true,
+          "separationAlpha": 80,
+          "referenceHeightPixels": 305,
+          "cells": [
+            {
+              "x": 16,
+              "y": 18,
+              "width": 186,
+              "height": 324
+            },
+            {
+              "x": 206,
+              "y": 23,
+              "width": 182,
+              "height": 319
+            },
+            {
+              "x": 395,
+              "y": 38,
+              "width": 180,
+              "height": 303
+            },
+            {
+              "x": 584,
+              "y": 36,
+              "width": 180,
+              "height": 305
+            },
+            {
+              "x": 773,
+              "y": 8,
+              "width": 176,
+              "height": 334
+            },
+            {
+              "x": 959,
+              "y": 37,
+              "width": 178,
+              "height": 304
+            },
+            {
+              "x": 1150,
+              "y": 38,
+              "width": 179,
+              "height": 304
+            },
+            {
+              "x": 1336,
+              "y": 35,
+              "width": 177,
+              "height": 306
+            },
+            {
+              "x": 20,
+              "y": 358,
+              "width": 183,
+              "height": 309
+            },
+            {
+              "x": 209,
+              "y": 358,
+              "width": 182,
+              "height": 309
+            },
+            {
+              "x": 395,
+              "y": 359,
+              "width": 184,
+              "height": 308
+            },
+            {
+              "x": 585,
+              "y": 358,
+              "width": 182,
+              "height": 308
+            },
+            {
+              "x": 774,
+              "y": 366,
+              "width": 185,
+              "height": 300
+            },
+            {
+              "x": 966,
+              "y": 361,
+              "width": 181,
+              "height": 304
+            },
+            {
+              "x": 1152,
+              "y": 360,
+              "width": 178,
+              "height": 307
+            },
+            {
+              "x": 1337,
+              "y": 360,
+              "width": 182,
+              "height": 306
+            },
+            {
+              "x": 20,
+              "y": 686,
+              "width": 184,
+              "height": 320
+            },
+            {
+              "x": 209,
+              "y": 693,
+              "width": 183,
+              "height": 313
+            },
+            {
+              "x": 396,
+              "y": 684,
+              "width": 182,
+              "height": 322
+            },
+            {
+              "x": 583,
+              "y": 662,
+              "width": 182,
+              "height": 344
+            },
+            {
+              "x": 774,
+              "y": 672,
+              "width": 182,
+              "height": 334
+            },
+            {
+              "x": 965,
+              "y": 696,
+              "width": 180,
+              "height": 307
+            },
+            {
+              "x": 1150,
+              "y": 695,
+              "width": 180,
+              "height": 311
+            },
+            {
+              "x": 1336,
+              "y": 687,
+              "width": 183,
+              "height": 319
+            }
+          ]
+        },
+        "stretch": {
+          "file": "motions/cloud-club-wedding.png",
+          "columns": 4,
+          "rows": 6,
+          "frames": [
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ],
+          "frameMs": [
+            500,
+            500,
+            500,
+            500,
+            500,
+            500,
+            500,
+            500
+          ],
+          "loop": false,
+          "bakedProps": false,
+          "isolateCells": true,
+          "separationAlpha": 80,
+          "referenceHeightPixels": 316,
+          "cells": [
+            {
+              "x": 16,
+              "y": 18,
+              "width": 186,
+              "height": 324
+            },
+            {
+              "x": 206,
+              "y": 23,
+              "width": 182,
+              "height": 319
+            },
+            {
+              "x": 395,
+              "y": 38,
+              "width": 180,
+              "height": 303
+            },
+            {
+              "x": 584,
+              "y": 36,
+              "width": 180,
+              "height": 305
+            },
+            {
+              "x": 773,
+              "y": 8,
+              "width": 176,
+              "height": 334
+            },
+            {
+              "x": 959,
+              "y": 37,
+              "width": 178,
+              "height": 304
+            },
+            {
+              "x": 1150,
+              "y": 38,
+              "width": 179,
+              "height": 304
+            },
+            {
+              "x": 1336,
+              "y": 35,
+              "width": 177,
+              "height": 306
+            },
+            {
+              "x": 20,
+              "y": 358,
+              "width": 183,
+              "height": 309
+            },
+            {
+              "x": 209,
+              "y": 358,
+              "width": 182,
+              "height": 309
+            },
+            {
+              "x": 395,
+              "y": 359,
+              "width": 184,
+              "height": 308
+            },
+            {
+              "x": 585,
+              "y": 358,
+              "width": 182,
+              "height": 308
+            },
+            {
+              "x": 774,
+              "y": 366,
+              "width": 185,
+              "height": 300
+            },
+            {
+              "x": 966,
+              "y": 361,
+              "width": 181,
+              "height": 304
+            },
+            {
+              "x": 1152,
+              "y": 360,
+              "width": 178,
+              "height": 307
+            },
+            {
+              "x": 1337,
+              "y": 360,
+              "width": 182,
+              "height": 306
+            },
+            {
+              "x": 20,
+              "y": 686,
+              "width": 184,
+              "height": 320
+            },
+            {
+              "x": 209,
+              "y": 693,
+              "width": 183,
+              "height": 313
+            },
+            {
+              "x": 396,
+              "y": 684,
+              "width": 182,
+              "height": 322
+            },
+            {
+              "x": 583,
+              "y": 662,
+              "width": 182,
+              "height": 344
+            },
+            {
+              "x": 774,
+              "y": 672,
+              "width": 182,
+              "height": 334
+            },
+            {
+              "x": 965,
+              "y": 696,
+              "width": 180,
+              "height": 307
+            },
+            {
+              "x": 1150,
+              "y": 695,
+              "width": 180,
+              "height": 311
+            },
+            {
+              "x": 1336,
+              "y": 687,
+              "width": 183,
+              "height": 319
+            }
+          ]
         }
       }
     }

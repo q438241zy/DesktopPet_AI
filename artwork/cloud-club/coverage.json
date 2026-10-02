@@ -1,0 +1,338 @@
+[
+  {
+    "id": "claude",
+    "outfit": "original",
+    "poses": 24,
+    "transitions": 21,
+    "sha256": "338cc12f340782bc6dba2e1570e7227b820458affe90469cfb7d23c7955605be"
+  },
+  {
+    "id": "claude",
+    "outfit": "swim",
+    "poses": 24,
+    "transitions": 21,
+    "sha256": "e7a7ceac220107eb035fff63c81d9842e33e08c1f4e86704875159287a60daf9"
+  },
+  {
+    "id": "claude",
+    "outfit": "wedding",
+    "poses": 24,
+    "transitions": 21,
+    "sha256": "8a68d4a047d7c345af1f50e4bbb57eaa347ee8622d6015bf6dbbe1dcb56a5c21"
+  },
+  {
+    "id": "claude-adult",
+    "outfit": "original",
+    "poses": 24,
+    "transitions": 21,
+    "sha256": "18173fee7fc10c10a095448ea1f9b0acaef2aa53cac2b106d64e3b743fd10f67"
+  },
+  {
+    "id": "claude-adult",
+    "outfit": "swim",
+    "poses": 24,
+    "transitions": 21,
+    "sha256": "13124483d7b42d9d5a632f1aae38b880254e4f82f4aaa45fa9bc462efefbadb3"
+  },
+  {
+    "id": "claude-adult",
+    "outfit": "wedding",
+    "poses": 24,
+    "transitions": 21,
+    "sha256": "9d56723482e4a770489b3a1ae83895e85fbc87ef0a25e619347483d9c1c52e56"
+  },
+  {
+    "id": "deepseek-adult",
+    "outfit": "original",
+    "poses": 24,
+    "transitions": 21,
+    "sha256": "ba65ac025ee4d9d3c3396d3fd7da3a94e28163ebddeae3542d744a817e35fea6"
+  },
+  {
+    "id": "deepseek-adult",
+    "outfit": "swim",
+    "poses": 24,
+    "transitions": 21,
+    "sha256": "10466d03084d16b1010cb898e962da190e2d7e26ec7bddf1a81303c63ae575ae"
+  },
+  {
+    "id": "deepseek-adult",
+    "outfit": "wedding",
+    "poses": 24,
+    "transitions": 21,
+    "sha256": "5562d0860367e37d21f993bf8e906db236d7af1dc97639b25a7c9845e458f77a"
+  },
+  {
+    "id": "gemini",
+    "outfit": "original",
+    "poses": 24,
+    "transitions": 21,
+    "sha256": "d5fff305ea122be2fec404e8d11cf7f333abe8657030c6eda365d1a10d9bed15"
+  },
+  {
+    "id": "gemini",
+    "outfit": "swim",
+    "poses": 24,
+    "transitions": 21,
+    "sha256": "6a3659c067d9bf1b1a049efa61bb3fc87de08f0e88a7981592cfae506f702cd2"
+  },
+  {
+    "id": "gemini",
+    "outfit": "wedding",
+    "poses": 24,
+    "transitions": 21,
+    "sha256": "0621b5c4ba02af16902098eef36abd9a1279d55dd88a4c3aef11265813bf4d22"
+  },
+  {
+    "id": "gemini-adult",
+    "outfit": "original",
+    "poses": 24,
+    "transitions": 21,
+    "sha256": "682f22b88c0ba3ea936f3cba113d3e4db65c5205ca2caa2fcefa078081cc4912"
+  },
+  {
+    "id": "gemini-adult",
+    "outfit": "swim",
+    "poses": 24,
+    "transitions": 21,
+    "sha256": "bd261033ef64a0348b3451455d5c52c0c4627bf0707faa98426299d8df6532c7"
+  },
+  {
+    "id": "gemini-adult",
+    "outfit": "wedding",
+    "poses": 24,
+    "transitions": 21,
+    "sha256": "c00b18966f71c99d263678f58d0127a2f16a0d854a2c54735e615e2dc4ec1a8b"
+  },
+  {
+    "id": "gpt",
+    "outfit": "original",
+    "poses": 24,
+    "transitions": 21,
+    "sha256": "039a900b43477b43609d374806543bacc88b0962ee60aa100cdd99094252d08d"
+  },
+  {
+    "id": "gpt",
+    "outfit": "swim",
+    "poses": 24,
+    "transitions": 21,
+    "sha256": "9ee162c5555fc9b6276d969a395e9bec11126c82583bcf13f12f7d439accc596"
+  },
+  {
+    "id": "gpt",
+    "outfit": "wedding",
+    "poses": 24,
+    "transitions": 21,
+    "sha256": "ba760e27b7cd6b10e087ce0e602f8c69a072d835798b34a09876c5cf8dc03b95"
+  },
+  {
+    "id": "gpt-adult",
+    "outfit": "original",
+    "poses": 24,
+    "transitions": 21,
+    "sha256": "338dc73906c921d68ee02b22b1c7775a350b2bf36aec2626182b2488f46cbb21"
+  },
+  {
+    "id": "gpt-adult",
+    "outfit": "swim",
+    "poses": 24,
+    "transitions": 21,
+    "sha256": "d53137550a07cd62a3dcd040c7161b49a5d17822f4aba249fa4ab0639d3c1bad"
+  },
+  {
+    "id": "gpt-adult",
+    "outfit": "wedding",
+    "poses": 24,
+    "transitions": 21,
+    "sha256": "e3753d91db5cb6a7b9731036fa5dd741c12afb494f89d9a21300878c4498e9be"
+  },
+  {
+    "id": "grok",
+    "outfit": "original",
+    "poses": 24,
+    "transitions": 21,
+    "sha256": "eecc69a8720213789352fe1d1ff87f37714306a0dcaa2fce12acb530d0a37a10"
+  },
+  {
+    "id": "grok",
+    "outfit": "swim",
+    "poses": 24,
+    "transitions": 21,
+    "sha256": "f215b666b6d89d79a5fe6e233ceefea843571e137cdb81f4c91afca272d4f27d"
+  },
+  {
+    "id": "grok",
+    "outfit": "wedding",
+    "poses": 24,
+    "transitions": 21,
+    "sha256": "d86d58796bb8a2022a877ce39a294d806be15cfa98f0bebed4bcff0d8ff27907"
+  },
+  {
+    "id": "grok-adult",
+    "outfit": "original",
+    "poses": 24,
+    "transitions": 21,
+    "sha256": "0e74629dbc765d16a8f6cc75a9f2781ec991392b1a8bf821f5e4a9dd229df808"
+  },
+  {
+    "id": "grok-adult",
+    "outfit": "swim",
+    "poses": 24,
+    "transitions": 21,
+    "sha256": "296b1182a4675a84a2d2aa2504630bfc01d1154f3bfb1875a8b381d778f0dd5c"
+  },
+  {
+    "id": "grok-adult",
+    "outfit": "wedding",
+    "poses": 24,
+    "transitions": 21,
+    "sha256": "b9f31a5938e2f6d309088f09cca56408615562f8c15887800a5a6563403dd4a9"
+  },
+  {
+    "id": "kimi",
+    "outfit": "original",
+    "poses": 24,
+    "transitions": 21,
+    "sha256": "d4f92185ad3779a37413d1f536610617ab947279703429df35c525cf2a89e0e0"
+  },
+  {
+    "id": "kimi",
+    "outfit": "swim",
+    "poses": 24,
+    "transitions": 21,
+    "sha256": "2ba2f77b996ef6db9e225c224c478dc5602d7725ae4557debb66ee87da678dc9"
+  },
+  {
+    "id": "kimi",
+    "outfit": "wedding",
+    "poses": 24,
+    "transitions": 21,
+    "sha256": "fb45da65dd5e60445c52684c593df3870a5e06a41e4932c4de222476660236f6"
+  },
+  {
+    "id": "kimi-adult",
+    "outfit": "original",
+    "poses": 24,
+    "transitions": 21,
+    "sha256": "5bba45c153780669fecbf4eb14384d65757de6c1fcb7947bfe765ab87a30b95a"
+  },
+  {
+    "id": "kimi-adult",
+    "outfit": "swim",
+    "poses": 24,
+    "transitions": 21,
+    "sha256": "a696754b5f4776b6df90281478b541ec2dc01a7e52a0d020df27309f8a0d8aad"
+  },
+  {
+    "id": "kimi-adult",
+    "outfit": "wedding",
+    "poses": 24,
+    "transitions": 21,
+    "sha256": "055704d767d1da7b6f3014b5b250202e352afafcaddaee7c823b04de4f2779c9"
+  },
+  {
+    "id": "qwen",
+    "outfit": "original",
+    "poses": 24,
+    "transitions": 21,
+    "sha256": "fcc2cc335e5d9ccfc03b494e915680b6401927c06a5997c1552da56495fa9e17"
+  },
+  {
+    "id": "qwen",
+    "outfit": "swim",
+    "poses": 24,
+    "transitions": 21,
+    "sha256": "a3ab43ae8292ddb5b96b7cd3567dc15ef6afc1e6214d366f49d36fa607ea438a"
+  },
+  {
+    "id": "qwen",
+    "outfit": "wedding",
+    "poses": 24,
+    "transitions": 21,
+    "sha256": "d66865d2358b4be1abca1e0cec51f2431bb0681fea7c583613e29eb0fe8def5a"
+  },
+  {
+    "id": "qwen-adult",
+    "outfit": "original",
+    "poses": 24,
+    "transitions": 21,
+    "sha256": "3bd49ea7c5cd4d6618fd630b3f70a81158be8c93d54428b9c283bd8fdbdfa835"
+  },
+  {
+    "id": "qwen-adult",
+    "outfit": "swim",
+    "poses": 24,
+    "transitions": 21,
+    "sha256": "bb1980c88329a2c99d295725a37324063fd2023eee3b4114ea2d3bc3918d9d01"
+  },
+  {
+    "id": "qwen-adult",
+    "outfit": "wedding",
+    "poses": 24,
+    "transitions": 21,
+    "sha256": "0ed681e5e73b4ccc6d9931760fb086560a1383fd9c0ab017ab64b1f18bff7dff"
+  },
+  {
+    "id": "whale",
+    "outfit": "original",
+    "poses": 24,
+    "transitions": 21,
+    "sha256": "ead08dafae0f076f03927f9b6b1de7ca23ceb397bb9d7843dcd0ba48981d2d0c"
+  },
+  {
+    "id": "whale",
+    "outfit": "swim",
+    "poses": 24,
+    "transitions": 21,
+    "sha256": "ea59dc87293b46f4390a639ec447249032ea0bd91263e17d305663728dbdd305"
+  },
+  {
+    "id": "whale",
+    "outfit": "wedding",
+    "poses": 24,
+    "transitions": 21,
+    "sha256": "db96ec7bc98ac1c7159215082bc258ab1d179332570ef8d87b8dc7e34924b1b2"
+  },
+  {
+    "id": "zhipu",
+    "outfit": "original",
+    "poses": 24,
+    "transitions": 21,
+    "sha256": "09b38b3c52cf8a9115ea645ed36fcbd930733e9c5f475c185f8e05fb56a56727"
+  },
+  {
+    "id": "zhipu",
+    "outfit": "swim",
+    "poses": 24,
+    "transitions": 21,
+    "sha256": "63bdd3baed7ec89d98bf22ee30cd86c0afc9028c4f73d140ef2eda7a09ec0d6e"
+  },
+  {
+    "id": "zhipu",
+    "outfit": "wedding",
+    "poses": 24,
+    "transitions": 21,
+    "sha256": "b9317d34ab08f161a6548d17be0a2943461244b6a889b5ed05d96870c52e2709"
+  },
+  {
+    "id": "zhipu-adult",
+    "outfit": "original",
+    "poses": 24,
+    "transitions": 21,
+    "sha256": "6a75ec14a87a8239a69b3780828e81b414174762c0d17f89d8e78c39c94e64d9"
+  },
+  {
+    "id": "zhipu-adult",
+    "outfit": "swim",
+    "poses": 24,
+    "transitions": 21,
+    "sha256": "e4336186f1c539298d69181f35d1c95bdabf584ba563b1d1076c5c787e3861f2"
+  },
+  {
+    "id": "zhipu-adult",
+    "outfit": "wedding",
+    "poses": 24,
+    "transitions": 21,
+    "sha256": "f87bd1236b9aed69b694b1e6d2de1047fef708846818ba6f117502a8d2fd573f"
+  }
+]

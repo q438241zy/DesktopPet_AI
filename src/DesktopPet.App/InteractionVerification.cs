@@ -115,7 +115,7 @@ internal static class InteractionVerification
             if (group == "care") Require(new[] {"夸夸", "安抚", "哄睡"}.All(labels.Contains), "three additional care actions in the radial menu");
             Require(labels.Contains(group == "root" ? "收起" : "返回"), "radial menu has accessible navigation: " + group);
             Require(!labels.Contains("跳舞"), "chibi radial menu hides dancing: " + group);
-            Require(!Find<TextBlock>(pet).Any(t => t.IsVisible && t.Text.Length > 0), "menu has no permanent text: " + group);
+            Require(!Find<Button>(pet).SelectMany(Find<TextBlock>).Any(t => t.IsVisible && t.Text.Length > 0), "menu buttons have no permanent text: " + group);
         }
         pet.Top -= 260; pet.ShowMenu("root"); pet.UpdateLayout(); Capture((FrameworkElement)pet.Content, "menu-full-circle");
         pet.Top = pet.WorkArea.Bottom - 468;
@@ -182,7 +182,15 @@ internal static class InteractionVerification
             pet.BeginHide(side); await Until(() => pet.HideStage == HidePhase.Peek, "found setup"); await Task.Delay(550);
             var image = Find<Image>(pet).Single();
             image.RaiseEvent(new MouseButtonEventArgs(Mouse.PrimaryDevice, 0, button) { RoutedEvent = button == MouseButton.Left ? UIElement.MouseLeftButtonDownEvent : UIElement.MouseRightButtonUpEvent });
-            Require(pet.HideStage is null && pet.CurrentAction == "happy" && pet.CurrentSpeech == "被你找到啦！", $"{id}/{outfit}/{side}/{button}: finds the peeking pet with the same response");
+            if(button==MouseButton.Right)
+            {
+                Require(pet.HideStage==HidePhase.Peek && pet.IsMenuOpen,$"{id}/{outfit}/{side}: right click keeps hiding and opens the menu");
+                await Task.Delay(50);
+                image.RaiseEvent(new MouseButtonEventArgs(Mouse.PrimaryDevice,0,MouseButton.Left){RoutedEvent=UIElement.MouseLeftButtonDownEvent});
+            }
+            Require(pet.HideStage==HidePhase.Return && pet.CurrentAction=="walk", "finding walks back instead of teleporting");
+            await Until(()=>pet.HideStage is null,"found pet did not finish walking back");
+            Require(pet.CurrentAction == "happy" && pet.CurrentSpeech == "被你找到啦！", $"{id}/{outfit}/{side}/{button}: left click finds the peeking pet");
             Require(((Canvas)pet.Content).Clip is null && !pet.IsMenuOpen, "finding restores visibility without opening a menu");
             await Task.Delay(60);
             Require(pet.CurrentAction == "happy", "finding does not get overwritten by the journey timer");

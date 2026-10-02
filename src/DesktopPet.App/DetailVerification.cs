@@ -89,9 +89,10 @@ internal static class DetailVerification
             Capture((FrameworkElement)pet.Content, "sleep-" + id);
             pet.Touch(.16); Require(!pet.IsResting && pet.CurrentAction == "farewell", id + ": touching the resting pet wakes it");
         }
-        pet.Touch(.16); Require(pet.CurrentAction == "poke", "adult face hit region invokes cheek rubbing");
-        pet.SelectStyle(CharacterStyles.Realistic); pet.Touch(.19); Require(pet.CurrentAction == "poke", "3D-realistic face hit region invokes cheek rubbing");
-        pet.Touch(.44); Require(pet.CurrentAction == "tickle", "portrait body hit region invokes tickling");
+        pet.SelectStyle(CharacterStyles.Realistic);
+        var touchCycle=new List<string>();
+        for(int i=0;i<6;i++) { pet.Touch(i%2==0?.16:.44);touchCycle.Add(pet.CurrentAction); }
+        Require(touchCycle.Take(3).ToHashSet().SetEquals(new[]{"headpat","poke","tickle"}) && touchCycle.Take(3).SequenceEqual(touchCycle.Skip(3)), "ordinary clicks cycle the three care gestures regardless of hit region");
         pet.State.ReducedMotion = true; pet.ApplySettings(); pet.RunInteraction("headpat");
         Require(pet.ActiveMotion is null && pet.EffectKey == "headpat", "reduced motion retains static feedback without mesh motion");
         pet.State.ReducedMotion = false; pet.ApplySettings();

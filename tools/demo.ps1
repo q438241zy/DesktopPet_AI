@@ -1,4 +1,4 @@
-param([string]$Executable = '')
+﻿param([string]$Executable = '')
 $ErrorActionPreference = 'Stop'
 $projectRoot = Split-Path -Parent $PSScriptRoot
 if (-not $Executable) {

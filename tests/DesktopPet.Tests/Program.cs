@@ -301,6 +301,27 @@ Test("radial menus fit corners and negative monitors without overlapping buttons
             Equal(true, Math.Sqrt(Math.Pow(menu[i].X - menu[j].X, 2) + Math.Pow(menu[i].Y - menu[j].Y, 2)) > 48);
     }
 });
+Test("club poses count five before lowering and bubbles only blow after lifting", () =>
+{
+    foreach(double time in new[]{0d,400,800,1100}) Equal(false,ClubMotion.Sample("bubbles",time).Blowing);
+    Equal(true,ClubMotion.Sample("bubbles",1400).Blowing);
+    Equal(false,ClubMotion.Sample("bubbles",2600).Blowing);
+    Equal(5,ClubMotion.Sample("stars",7050).Count);
+    Equal(5,ClubMotion.Sample("stars",7050).A);
+    Equal(0d,ClubMotion.Sample("stars",7050).Amount);
+    foreach(string key in new[]{"stars","bubbles","stretch"})for(int t=0;t<ClubMotion.Duration(key);t+=17)
+    { var pose=ClubMotion.Sample(key,t);Equal(true,pose.A>=0&&pose.B<24&&pose.Amount>=0&&pose.Amount<=1); }
+});
+Test("hidden pet menus fit the visible strip without button overlap", () =>
+{
+    foreach(var bounds in new[]{new MenuBounds(0,0,145,468),new MenuBounds(415,0,560,468)})
+    foreach(int count in new[]{7,9,12})
+    {
+        var points=RadialMenu.Place(count,new MenuPoint(280,345),250,bounds);
+        foreach(var p in points)Equal(true,p.X>=bounds.Left+22&&p.X<=bounds.Right-22&&p.Y>=22&&p.Y<=446);
+        for(int i=0;i<count;i++)for(int j=i+1;j<count;j++)Equal(true,Math.Sqrt(Math.Pow(points[i].X-points[j].X,2)+Math.Pow(points[i].Y-points[j].Y,2))>48);
+    }
+});
 Test("dance taps score once per beat inside the timing window", () =>
 {
     var dance = new PetDance(); Equal(true, dance.Tap(20)); Equal(false, dance.Tap(90));

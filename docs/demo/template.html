@@ -9,7 +9,7 @@
 <p class="intro">並排比較 Q版與3D真人。動作畫面由桌面程式的渲染器匯出；換裝、拖曳放置、自然落下與頭頂聊天可以在這裡反覆試看。</p>
 <div class="alert" id="gaps"></div>
 <div class="toolbar"><span>服裝</span><div class="segment" id="outfits"></div><button class="pill" id="reset">回到工作列</button><label><input id="loop" type="checkbox"> 循環播放</label><div class="steps"><button class="pill" id="pause">暫停</button><input id="timeline" aria-label="動作時間軸" type="range" min="0" max="100" value="0"><span id="timeLabel" class="meta">0.0 秒</span></div></div>
-<div class="membership-preview"><label>會員預覽 <select id="memberTier" aria-label="會員預覽等級"><option value="4">黑金</option><option value="3">白金</option><option value="2">黃金</option><option value="1">白銀</option><option value="0">黃銅</option></select></label><span id="memberNote" class="meta">黑金全部開放。這裡只預覽權益，註冊與登入請到程式主頁。</span></div>
+<div class="membership-preview"><label>會員預覽 <select id="memberTier" aria-label="會員預覽等級"><option value="4">黑金</option><option value="3">白金</option><option value="2">黃金</option><option value="1">白銀</option><option value="0">黃銅</option></select></label><span id="memberNote" class="meta">測試期間全部開放。這裡只預覽會員，註冊與登入請到程式主頁。</span></div>
 <nav class="actions" id="actions" aria-label="動作選擇"></nav>
 <div class="cards" id="cards"></div>
 <div class="instructions"><span>點擊輪換摸頭、揉臉、搔癢；左右鍵都能找到躲藏角色</span><span>拖住角色 → 提起；普通鬆手 → 放在該位置</span><span>Shift 鬆手 → 下落；碰到工作列後自動散步</span><span>連續來回搖晃 → 頭頂星星；停下約 3 秒恢復</span><span>「聊天」可打開頭頂輸入；每次至少思考 1 秒</span></div>
@@ -19,14 +19,14 @@
 const D=JSON.parse(document.getElementById('data').textContent), $=id=>document.getElementById(id);
 const styles=[['chibi','Q版'],['realistic','3D真人']], clothes=[['original','原服'],['swim','泳裝'],['wedding','婚紗']];
 let outfit='original',action='idle',paused=false,sequence=0;const states=[];
-const labels={'专用逐帧':'專用逐幀','专用姿势':'專用姿勢','程序动作':'程式動作','组合动作':'組合動作','近似动作':'近似動作','缺少动作':'缺少動作','静态姿势':'靜態姿勢','不适用':'不適用'};
+const labels={'连续姿势':'連續姿勢','专用逐帧':'專用逐幀','专用姿势':'專用姿勢','程序动作':'程式動作','组合动作':'組合動作','近似动作':'近似動作','缺少动作':'缺少動作','静态姿势':'靜態姿勢','不适用':'不適用'};
 const isGap=r=>['缺少动作','近似动作'].includes(r.status);
 function badge(status){const el=document.createElement('span');el.className='badge'+(['缺少动作','近似动作'].includes(status)?' gap':['静态姿势','不适用'].includes(status)?' neutral':'');el.textContent=labels[status]||status;return el;}
 function button(label,selected,run){const b=document.createElement('button');b.textContent=label;b.setAttribute('aria-pressed',selected);b.onclick=run;return b;}
 function clip(s,key=s.action){return D.clips[s.style+'-'+outfit][key];}
 function floor(s){return s.arena.clientHeight-43;}
 function place(s){s.pet.style.left=(s.x-224)+'px';s.pet.style.top=(s.y-374.4)+'px';s.composer.style.left=Math.max(8,Math.min(s.arena.clientWidth-278,s.x-135))+'px';s.composer.style.top=Math.max(8,s.y-374.4+D.headTops[s.style+'-'+outfit]*1.6-s.composer.offsetHeight-10)+'px';}
-function setAction(s,key){s.action=key;s.elapsed=0;s.walkTime=0;s.turnRemaining=0;s.start=performance.now();const c=clip(s);s.badge.replaceChildren(badge(c?.status||'不适用'));s.detail.textContent=c?.detail||'按設計僅3D真人提供舞蹈';s.preloaded=[];s.loading=!!c;const generation=s.loadGeneration=(s.loadGeneration||0)+1;if(c){s.image.src=D.frames[c.frames[0]];prepareFrames(s,c,generation);}}
+function setAction(s,key){s.foundReturn=false;if(key==='peek')s.hideSide=Math.random()<.5?-1:1;s.action=key;s.elapsed=0;s.walkTime=0;s.turnRemaining=0;s.start=performance.now();const c=clip(s);s.badge.replaceChildren(badge(c?.status||'不适用'));s.detail.textContent=c?.detail||'按設計僅3D真人提供舞蹈';s.preloaded=[];s.loading=!!c;const generation=s.loadGeneration=(s.loadGeneration||0)+1;if(c){s.image.src=D.frames[c.frames[0]];prepareFrames(s,c,generation);}}
 async function prepareFrames(s,c,generation){
  try{const images=await Promise.all([...new Set(c.frames)].map(async index=>{const image=new Image();image.src=D.frames[index];await image.decode();return image;}));
   if(s.loadGeneration!==generation)return;s.preloaded=images;s.loading=false;
@@ -49,10 +49,10 @@ function trackShake(shake,x,y,now){let reversed=false;
 }
 function updateShakeFeedback(s,now){if(!s.shake?.until||now<s.shake.until)return;if(s.held&&s.action==='shake')setAction(s,'pickup');else if(!s.held&&s.action==='dizzy')setAction(s,'place');s.shake=null;}
 function scheduleFloorWalk(s,now,next='walk'){s.floorWalkAt=window.matchMedia('(prefers-reduced-motion: reduce)').matches?null:now+410;s.floorNext=next;}
-function findHiddenPet(s){if(s.action!=='peek')return false;s.held=null;s.shake=null;s.drop=false;s.next=null;s.floorWalkAt=null;s.x=Math.max(65,Math.min(s.arena.clientWidth-65,s.x));s.dir=s.x>s.arena.clientWidth/2?-1:1;setAction(s,'found');place(s);return true;}
+function findHiddenPet(s){if(s.action!=='peek')return false;s.held=null;s.shake=null;s.drop=false;s.next=null;s.floorWalkAt=null;s.foundReturn=true;return true;}
 function touchCare(s){const gestures=['headpat','poke','tickle'];const index=s.nextTouch||0;s.nextTouch=(index+1)%gestures.length;setAction(s,gestures[index]);}
-function memberAllows(key){const minimum=D.membership?.requirements?.[key]??(key==='chat'?2:null);return minimum==null||Number($('memberTier')?.value??4)>=minimum;}
-function memberPreviewChanged(){run('idle');$('memberNote').textContent=memberAllows('chat')?'聊天已開放；其他姿態分級待公布。註冊與登入請到程式主頁。':'聊天需黃金及以上；其他姿態分級待公布。註冊與登入請到程式主頁。';}
+function memberAllows(key){if(D.membership?.testingOpen)return true;const minimum=D.membership?.requirements?.[key]??(key==='chat'?2:null);return minimum==null||Number($('memberTier')?.value??4)>=minimum;}
+function memberPreviewChanged(){renderButtons();$('memberNote').textContent=D.membership?.testingOpen?'測試期間所有等級與訪客的聊天、互動均開放。':memberAllows('chat')?'聊天已開放；其他姿態分級待公布。註冊與登入請到程式主頁。':'聊天需黃金及以上；其他姿態分級待公布。註冊與登入請到程式主頁。';}
 function run(key){if(!memberAllows(key)){for(const s of states)s.detail.textContent='聊天需黃金、白金或黑金會員。';return;}action=key;sequence++;for(const s of states){s.held=null;s.shake=null;s.composer.hidden=key!=='chat';s.busy=false;s.input.disabled=false;s.drop=false;s.next=null;s.floorWalkAt=null;s.floorNext=null;s.hidden=false;s.pet.style.opacity='1';if(key==='chat'){setAction(s,'listen');s.reply.textContent='今天想聊些什麼？';s.turn=0;}else if(key==='drop'){if(s.y>=floor(s)-5)s.y-=100;s.drop=true;s.v=0;setAction(s,'pickup');}else if(['walk','peek'].includes(key)&&s.y<floor(s)-4){s.drop=true;s.v=0;s.next=key;setAction(s,'pickup');}else setAction(s,key);place(s);}renderButtons();}
 function renderButtons(){$('outfits').replaceChildren(...clothes.map(([k,l])=>button(l,k===outfit,()=>{outfit=k;run(action);matrix();})));$('actions').replaceChildren(...D.actions.map(a=>{const b=button(a.key==='chat'?'頭頂聊天':a.title,a.key===action,()=>run(a.key));if(!memberAllows(a.key)){b.className='locked';b.title='黃金及以上開放';const lock=document.createElement('span');lock.className='member-lock';lock.setAttribute('aria-hidden','true');lock.innerHTML='<svg viewBox="0 0 24 26" fill="none" stroke="#bd7894" stroke-width="1.7" stroke-linecap="round"><path d="M7 12V8C7 1 17 1 17 8V12"/><rect x="3" y="11" width="18" height="13" rx="5" fill="#ffeaf0"/><ellipse cx="6.5" cy="19" rx="1.9" ry="1.1" fill="#efafc4" stroke="none"/><ellipse cx="17.5" cy="19" rx="1.9" ry="1.1" fill="#efafc4" stroke="none"/><path d="M8 16v.4m8-.4v.4m-6 2.6q2 2 4 0"/></svg>';b.appendChild(lock);}return b;}));}
 for(const [style,label] of styles){
@@ -64,7 +64,7 @@ for(const [style,label] of styles){
  grip.onpointermove=e=>{if(!s.held)return;const held=s.held,now=performance.now();if(!held.moved){if(Math.hypot(e.clientX-held.x,e.clientY-held.y)<8)return;held.moved=true;setAction(s,'pickup');s.elapsed=held.liftedFor;}s.x=Math.max(50,Math.min(s.arena.clientWidth-50,held.px+e.clientX-held.x));s.y=Math.max(130,Math.min(floor(s),held.py+e.clientY-held.y));s.shake??=newShake(e.clientX/.8,e.clientY/.8,now);if(trackShake(s.shake,e.clientX/.8,e.clientY/.8,now)&&s.action!=='shake')setAction(s,'shake');place(s);};
  function release(recover,dropOnRelease=false){if(!s.held)return;const moved=s.held.moved;s.held=null;if(recover&&!moved){s.shake=null;touchCare(s);place(s);return;}if(floor(s)-s.y<=24)s.y=floor(s);s.next=null;if(dropOnRelease&&s.y<floor(s)){const liftedFor=['pickup','shake'].includes(s.action)?s.elapsed||0:0;s.shake=null;s.drop=true;s.v=0;setAction(s,'pickup');s.elapsed=liftedFor;}else{const dizzy=recover&&s.shake?.until>performance.now();s.drop=false;setAction(s,dizzy?'dizzy':'place');if(s.y===floor(s))scheduleFloorWalk(s,Math.max(performance.now(),dizzy?s.shake.until:0));if(!dizzy)s.shake=null;}place(s);}
  grip.onpointerup=e=>release(true,!!e?.shiftKey);grip.onlostpointercapture=()=>release(false);grip.onpointercancel=()=>release(false);
- grip.oncontextmenu=e=>{e.preventDefault();findHiddenPet(s);};
+ grip.oncontextmenu=e=>{e.preventDefault();s.detail.textContent='右鍵保留目前動作；圓盤互動請見雲朵俱樂部 Demo。';};
  grip.onkeydown=e=>{if(e.key==='Enter'){e.preventDefault();s.y=s.y<floor(s)-40?floor(s):floor(s)-120;setAction(s,s.y===floor(s)?'place':'pickup');place(s);}};
  s.composer.querySelector('form').onsubmit=async e=>{e.preventDefault();const text=s.input.value.trim();if(!memberAllows('chat')||!text||s.busy)return;s.busy=true;s.input.disabled=true;s.input.value='';const current=sequence;s.reply.textContent='…';setAction(s,'thinking');await new Promise(r=>setTimeout(r,1000));if(current!==sequence)return;s.turn++;s.reply.textContent=/工作|作業|作业/.test(text)?'原來是工作堆在一起了。我們先挑一件最小、最容易結束的事，剩下的慢慢來。':/累|困/.test(text)?'辛苦了。今天是事情太多，還是單純有點沒精神？我在這裡聽你說。':/你好|嗨/.test(text)?'你好呀，我正好在等你。今天過得怎麼樣？':['我在聽。今天有什麼想分享的小事嗎？','嗯，可以再說一點。你最在意的是哪一部分？','我們慢慢來。想繼續聊今天，還是聽個小故事？'][(s.turn-1)%3];setAction(s,'chat');s.busy=false;s.input.disabled=false;s.input.focus();};
 }
@@ -94,11 +94,12 @@ let last=performance.now();function tick(now){const walkDt=Math.max(0,Math.min(2
    }
    s.image.style.transform=`scaleX(${s.dir})`;
   }else if(s.action==='peek'){
-   const speed=(c?.walkSpeed||44)*1.7,travel=(s.arena.clientWidth/2+75)/speed*1000,period=travel*2+1500,t=s.elapsed%period;
-   const leg=t<travel?t:t<travel+1500?travel:period-t;
-   s.x=s.arena.clientWidth/2+Math.min(travel,leg)*speed/1000;
-   s.walkTime=t<travel?t*1.7:t<travel+1500?0:(t-travel-1500)*1.7;
-   s.image.style.transform=`scaleX(${t<travel+1500?1:-1})`;
+   const speed=c?.walkSpeed||44,center=s.arena.clientWidth/2;
+   if(s.foundReturn){const delta=center-s.x,moving=Math.min(Math.abs(delta),speed*walkDt/1000);s.x+=Math.sign(delta)*moving;s.walkTime+=moving/speed*1000;s.image.style.transform=`scaleX(${Math.sign(delta)||1})`;if(Math.abs(center-s.x)<1)setAction(s,'found');}
+   else{const travel=(center+75)/speed*1000,period=travel*2+1500,t=s.elapsed%period,leg=t<travel?t:t<travel+1500?travel:period-t;
+   s.x=center+(s.hideSide||1)*Math.min(travel,leg)*speed/1000;
+   s.walkTime=t<travel?t:t<travel+1500?0:t-travel-1500;
+   s.image.style.transform=`scaleX(${(s.hideSide||1)*(t<travel+1500?1:-1)})`; }
   }else s.image.style.transform='';
   const current=clip(s);if(current){
    let t=['walk','peek'].includes(s.action)?(s.walkTime||0)%current.cycleMs:$('loop').checked&&!s.drop?s.elapsed%current.duration:Math.min(s.elapsed,current.duration);

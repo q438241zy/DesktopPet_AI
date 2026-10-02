@@ -11,7 +11,7 @@ using DesktopPet.Core;
 namespace DesktopPet.App;
 
 /// <summary>A transparent native desktop surface; all transient interactions belong to this window.</summary>
-public sealed class PetWindow : Window
+public sealed partial class PetWindow : Window
 {
     public PetState State { get; }
     public Catalog Catalog { get; }
@@ -69,9 +69,11 @@ public sealed class PetWindow : Window
     private EdgeHide? hideJourney;
     private Rect hideArea;
     private double hideStarted;
+    private double? foundStarted;
+    private double foundCenter, foundDuration;
     private PetDance? dance;
     private int? danceFeedbackBeat;
-    internal HidePhase? HideStage => hideJourney?.At((Now - hideStarted) / 1000).Phase;
+    internal HidePhase? HideStage => foundStarted is not null ? HidePhase.Return : hideJourney?.At((Now - hideStarted) / 1000).Phase;
     internal bool IsDancing => dance is not null;
     internal RigVisual? ActiveDance => dance is null ? null : danceVisual;
     internal bool CanDance => PortraitRig.SupportsDance(Character.Category, Character.FamilyId) && Character.MotionFor(State.Outfit,"dance")?.DanceRig is not null;
@@ -151,6 +153,7 @@ public sealed class PetWindow : Window
         surface.Children.Add(sprite); surface.Children.Add(effects); surface.Children.Add(menu);
         bubble = new Border { Background = CloudTheme.Cream, BorderBrush = CloudTheme.Line, BorderThickness = new Thickness(1), CornerRadius = new CornerRadius(20), Padding = new Thickness(15, 10, 15, 10), Width = 238, Child = speech, IsHitTestVisible = false, Visibility = Visibility.Collapsed };
         surface.Children.Add(bubble); surface.Children.Add(ball);
+        InitializeClub();
         ball.Visibility = Visibility.Collapsed;
         AutomationProperties.SetName(sprite, "桌面宠物：点击轮换摸头、揉脸、挠痒，拖动抱起，松手放置，按住 Shift 松手下落，来回摇晃会头晕，右键聊天与互动");
         sprite.MouseLeftButtonDown += PetDown; sprite.MouseMove += PetMove; sprite.MouseLeftButtonUp += PetUp;
@@ -296,7 +299,7 @@ public sealed class PetWindow : Window
     { action = next; actionStarted = Now; actionUntil = duration > 0 ? Now + duration : 0; onMotionEnd = completed; if (next == "walk") walkPlayback.Reset(); timer.Interval = TimeSpan.FromMilliseconds(16); }
     private void UpdateWalkClock()
     {
-        bool useRendering = !closing && previewClock is null && IsVisible && (roaming || hideJourney is not null || dance is not null);
+        bool useRendering = !closing && previewClock is null && IsVisible && (roaming || hideJourney is not null || dance is not null || clubAction is not null);
         if (useRendering == renderingWalk) return;
         renderingWalk = useRendering; lastTick = Now; lastPresentation = TimeSpan.MinValue;
         if (useRendering) { timer.Stop(); CompositionTarget.Rendering += RenderWalk; }
@@ -354,13 +357,15 @@ public sealed class PetWindow : Window
     }
     private bool FindHiddenPet()
     {
-        if (hideJourney is null) return false;
-        CancelInput(); ClearTransient(); Play("happy", "被你找到啦！", 2000); Save();
+        if (hideJourney is not {} journey) return false;
+        if(foundStarted is not null) return true;
+        menu.Children.Clear();foundStarted=Now;foundCenter=Left+walkOffset.X+CenterX;
+        foundDuration=Math.Max(260,Math.Abs(foundCenter-journey.RestingCenter)/DesktopWalk.Speed(State.Size,Character.MotionFor(State.Outfit,"walk")!)*1000);
+        SetAction("walk");Say("被你找到啦！",foundDuration+2000);Render();
         return true;
     }
     internal void HandleRightClick()
     {
-        if (FindHiddenPet()) return;
         if (menu.Children.Count > 0) menu.Children.Clear(); else ShowMenu();
     }
     private Point ScreenPoint(MouseEventArgs e)
@@ -502,6 +507,8 @@ public sealed class PetWindow : Window
 
     private void CancelChoreography()
     {
+        ClearClub();
+        foundStarted=null;
         dropping = false; afterDrop = null;
         if (hideJourney is not null)
         {
@@ -517,7 +524,9 @@ public sealed class PetWindow : Window
 
     internal void ShowMenu(string group = "root", bool keyboard = false)
     {
-        ClearTransient(); roaming = false; lastInteraction = Now; SetAction("idle"); Render();
+        // Opening/navigating the menu is presentation only. Keep action clocks,
+        // movement, chat, toys and edge-hide choreography running unchanged.
+        menu.Children.Clear();
         var entries = PetActions.Menu(group, CanDance);
         var area = WorkArea;
         var positions = RadialMenu.Place(entries.Length, new MenuPoint(CenterX, PetTop + State.Size * .5), State.Size,
@@ -549,6 +558,14 @@ public sealed class PetWindow : Window
         }
         if (keyboard) buttons[0].Focus();
     }
+    private void LayoutMenu()
+    {
+        if(menu.Children.Count==0)return;
+        var area=hideJourney is null?WorkArea:hideArea;
+        var positions=RadialMenu.Place(menu.Children.Count,new MenuPoint(CenterX,PetTop+State.Size*.5),State.Size,
+            new MenuBounds(Math.Max(0,area.Left-Left-walkOffset.X),Math.Max(0,area.Top-Top),Math.Min(Width,area.Right-Left-walkOffset.X),Math.Min(Height,area.Bottom-Top)));
+        for(int i=0;i<positions.Length;i++) { Canvas.SetLeft(menu.Children[i],positions[i].X-RadialMenu.ButtonSize/2);Canvas.SetTop(menu.Children[i],positions[i].Y-RadialMenu.ButtonSize/2); }
+    }
     public void RunInteraction(string key)
     {
         if (!RequireMembership(key)) return;
@@ -559,6 +576,7 @@ public sealed class PetWindow : Window
             case "snack": Snack(); break;
             case "headpat": case "poke": case "tickle": RunTouch(key); break;
             case "praise": case "comfort": case "lullaby": StartCare(CareRoutine.Find(key)!); break;
+            case "comb": case "wipe": case "stretch": case "bubbles": case "stars": case "butterfly": StartClubAction(key); break;
             case "ball": TakeBall(); break;
             case "blocks": BuildBlocks(); break;
             case "walk": StartWalk(true); break;
@@ -611,6 +629,7 @@ public sealed class PetWindow : Window
     private void Peek(int side) => BeginHide(side);
     internal void BeginHide(int? side = null)
     {
+        side ??= Random.Shared.Next(2) == 0 ? -1 : 1;
         ClearTransient();
         if (State.ReducedMotion) { SetAction("idle"); Say("减少动态效果已开启，先在这里陪你。", 2600); return; }
         if (!CanWalk) { SetAction("idle"); Say("这套外观还没有行走动画，暂时不能走到边边躲藏。", 3200); return; }
@@ -705,6 +724,8 @@ public sealed class PetWindow : Window
         var today = DateOnly.FromDateTime(DateTime.Now);
         if (day != today) { day = today; State.LastSeen = day.ToString("yyyy-MM-dd"); Save(); }
         UpdateCare(now);
+        TickClub(walkDt);
+        LayoutMenu();
         if (actionUntil > 0 && now >= actionUntil)
         {
             var completion = onMotionEnd; onMotionEnd = null; actionUntil = 0; SetAction("idle"); completion?.Invoke();
@@ -720,14 +741,20 @@ public sealed class PetWindow : Window
         if (hideJourney is { } journey)
         {
             var pose = journey.At((now - hideStarted) / 1000);
+            bool found=foundStarted is not null;
+            if(foundStarted is {} foundAt)
+            {
+                double progress=Math.Clamp((now-foundAt)/foundDuration,0,1);
+                pose=new HidePose(foundCenter+(journey.RestingCenter-foundCenter)*progress,Math.Sign(journey.RestingCenter-foundCenter),progress<1?HidePhase.Return:HidePhase.Complete,progress<1);
+            }
             PlaceWalk(pose.Center); Top = hideArea.Bottom - FloorY; direction = pose.Direction;
             string motion = pose.Walking ? "walk" : "idle";
             if (action != motion) SetAction(motion);
             surface.Clip = new RectangleGeometry(new Rect(hideArea.Left - Left - walkOffset.X, hideArea.Top - Top, hideArea.Width, hideArea.Height));
             if (pose.Phase != HidePhase.Approach) bubble.Visibility = Visibility.Collapsed;
-            if (pose.Phase == HidePhase.Complete) { hideJourney = null; surface.Clip = null; SetAction("idle"); Say("我回来啦，有没有找到我？", 2200); lastInteraction = now; Save(); }
+            if (pose.Phase == HidePhase.Complete) { hideJourney = null; foundStarted=null; surface.Clip = null; SetAction(found?"happy":"idle",found?2000:0); Say(found?"被你找到啦！":"我回来啦，有没有找到我？", 2200); lastInteraction = now; Save(); }
         }
-        if (roaming && menu.Children.Count == 0)
+        if (roaming)
         {
             var area = WorkArea;
             var clip = Character.Resolve(State.Outfit, "walk", now - actionStarted).Sprite;
@@ -788,11 +815,14 @@ public sealed class PetWindow : Window
     }
     private void Render()
     {
-        double elapsed = roaming ? walkPlayback.Milliseconds : (Now - actionStarted) * (hideJourney is not null && action == "walk" ? 1.7 : 1);
-        var art = Character.Resolve(State.Outfit, dance is null ? action : "dance", elapsed, State.ReducedMotion);
+        if (RenderClubPose()) return;
+        double elapsed = roaming ? walkPlayback.Milliseconds : (Now - actionStarted) * (hideJourney is not null && foundStarted is null && action == "walk" ? 1.7 : 1);
+        string renderAction=clubAction is "comb" or "wipe" ? "idle" : clubAction=="butterfly" ? Math.Abs(butterflyTarget-(Left+walkOffset.X+CenterX))>2 && !State.ReducedMotion ? "walk" : "ball-ready" : dance is null ? action : "dance";
+        if (clubAction=="butterfly" && renderAction=="walk") elapsed=walkPlayback.Milliseconds;
+        var art = Character.Resolve(State.Outfit, renderAction, elapsed, State.ReducedMotion);
         var frame = Art.Frame(Character, art.Sprite, art.Frame);
         sprite.Source = frame;
-        UsingDrawnAction = dance is null && action != "walk" && Character.MotionFor(State.Outfit, action) is not null;
+        UsingDrawnAction = dance is null && renderAction != "walk" && Character.MotionFor(State.Outfit, renderAction) is not null;
         DrawnFrame = art.Frame; bakedProps = art.Sprite.BakedProps;
         double size = State.Size;
         if(dance is not null && art.Sprite.ReferenceHeightPixels == 0)
@@ -800,7 +830,7 @@ public sealed class PetWindow : Window
             var idle=Character.Resolve(State.Outfit,"idle",0);
             size*=Art.VisibleHeight(Art.Frame(Character,idle.Sprite,idle.Frame))/Art.VisibleHeight(frame);
         }
-        if (art.Sprite.ReferenceHeightPixels > 0 || action == "walk" || UsingDrawnAction && (Character.Category != "chibi" || art.Sprite.HeightRatios is not null))
+        if (art.Sprite.ReferenceHeightPixels > 0 || renderAction == "walk" || UsingDrawnAction && (Character.Category != "chibi" || art.Sprite.HeightRatios is not null))
         {
             // Authored reference pixels keep one anatomical scale for an entire
             // sheet. Bent knees, raised hands and props must not resize the body.
@@ -812,7 +842,7 @@ public sealed class PetWindow : Window
                     size *= Art.VisibleHeight(calibration) * Math.Max(frame.PixelWidth,frame.PixelHeight) / art.Sprite.ReferenceHeightPixels;
                 else
                 {
-                    size *= action == "walk" ? Art.VisibleHeight(calibration) * Art.PoseScale(frame)
+                    size *= renderAction == "walk" ? Art.VisibleHeight(calibration) * Art.PoseScale(frame)
                         : Math.Clamp(Art.VisibleHeight(calibration) / Math.Max(.1, Art.VisibleHeight(frame)), .6, 2.2);
                     size *= art.Sprite.HeightRatios?[art.Frame] ?? 1;
                 }
@@ -825,8 +855,8 @@ public sealed class PetWindow : Window
         AirborneOffset = UsingDrawnAction && action == "jump" ? PortraitChoreography.JumpHeight(Now - actionStarted, State.Size, State.ReducedMotion) : 0;
         Canvas.SetTop(sprite, PetTop - AirborneOffset); Canvas.SetTop(bubble, Math.Max(8, PetTop - AirborneOffset - 78));
         sprite.RenderTransformOrigin = new Point(.5, .5);
-        facing.ScaleX = action is "walk" or "peek" ? DesktopWalk.ScaleX(direction, art.Sprite.Facing) : 1;
-        Canvas.SetLeft(sprite, CenterX - size * (.5 + (action == "walk" ? facing.ScaleX * (Art.HorizontalAnchor(frame) - .5) : UsingDrawnAction && (Character.Category != "chibi" || art.Sprite.IsolateCells) ? Art.HorizontalAnchor(frame) - .5 : 0)));
+        facing.ScaleX = renderAction is "walk" or "peek" ? DesktopWalk.ScaleX(direction, art.Sprite.Facing) : 1;
+        Canvas.SetLeft(sprite, CenterX - size * (.5 + (renderAction == "walk" ? facing.ScaleX * (Art.HorizontalAnchor(frame) - .5) : UsingDrawnAction && (Character.Category != "chibi" || art.Sprite.IsolateCells) ? Art.HorizontalAnchor(frame) - .5 : 0)));
         sprite.RenderTransform = facing;
         HandTarget = null;
         if (art.Sprite.Hands?[art.Frame] is { } contact)
@@ -877,6 +907,11 @@ public sealed class PetWindow : Window
             ball.Width = ball.Height = heldSize; ballX = hands.X - heldSize / 2; ballY = hands.Y - heldSize / 2; PlaceBall();
         }
         DrawEffects(Now); LayoutChat(); UpdateWalkClock();
+        if (clubAction is { } club)
+        {
+            if (renderAction=="walk") facing.ScaleX=DesktopWalk.ScaleX(direction,art.Sprite.Facing);
+            RenderClubFeedback(club,Now-clubStarted,State.Size*Art.VisibleHeight(Art.Frame(Character,Character.Resolve(State.Outfit,"idle",0).Sprite,0)));
+        }
     }
     private void DrawEffects(double now)
     {

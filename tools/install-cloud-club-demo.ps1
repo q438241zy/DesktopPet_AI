@@ -1,8 +1,8 @@
-param([switch]$DesktopShortcut)
+param([switch]$DesktopShortcut, [string]$DemoDirectory = '')
 $ErrorActionPreference = 'Stop'
 $projectRoot = Split-Path -Parent $PSScriptRoot
 $source = Join-Path $projectRoot 'docs/demo/cloud-club'
-$demoRoot = Join-Path $projectRoot 'Release/win-x64/Demo'
+$demoRoot = if ($DemoDirectory) { [IO.Path]::GetFullPath($DemoDirectory) } else { Join-Path $projectRoot 'Release/win-x64/Demo' }
 $target = Join-Path $demoRoot 'CloudClub'
 New-Item -ItemType Directory -Path $target -Force | Out-Null
 foreach ($name in @('index.html','style.css','model.js','icons.js','app.js','pose-renderer.js','pose-motion.js')) {

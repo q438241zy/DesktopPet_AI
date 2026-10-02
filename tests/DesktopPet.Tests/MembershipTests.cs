@@ -10,11 +10,13 @@ internal static class MembershipTests
         void Check(bool pass) { if (!pass) throw new Exception("Membership assertion failed."); }
         void InStore(Action<string, LocalAccountService> run)
         { string root = Temporary(); try { run(root, new LocalAccountService(root)); } finally { Directory.Delete(root, true); } }
-        test("membership has five tiers and only gold or higher can chat", () =>
+        test("testing opens five tiers and guests while planned chat starts at gold", () =>
         {
+            foreach (var tier in Membership.Tiers) Check(Membership.Access("chat", tier).Allowed);
+            Check(Membership.TestingOpen && Membership.Access("chat", null).Allowed);
             Check(Membership.Tiers.Count == 5 && Membership.Name(Membership.Tiers[0]) == "黑金" && Membership.Name(Membership.Tiers[^1]) == "黄铜");
-            foreach (var tier in Membership.Tiers) Check(Membership.Access("chat", tier).Allowed == (tier >= MembershipTier.Gold));
-            Check(!Membership.Access("chat", null).Allowed && !Membership.Access("chat", (MembershipTier)90).Allowed);
+            foreach (var tier in Membership.Tiers) Check(Membership.PlannedAccess("chat", tier).Allowed == (tier >= MembershipTier.Gold));
+            Check(!Membership.PlannedAccess("chat", null).Allowed && !Membership.PlannedAccess("chat", (MembershipTier)90).Allowed);
         });
         test("unannounced pose grades do not remove existing actions", () =>
         {

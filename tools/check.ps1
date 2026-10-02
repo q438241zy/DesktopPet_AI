@@ -11,10 +11,11 @@ Get-Content -LiteralPath "$verifyRoot/asset-check.txt"
 if ($process.ExitCode -ne 0) { throw 'Asset validation failed' }
 $uiRoot = Join-Path $projectRoot ('artifacts/ui-smoke-' + [Guid]::NewGuid().ToString('N'))
 $uiRoot | Set-Content -LiteralPath (Join-Path $projectRoot 'artifacts/current-ui-check.txt')
-$process = Start-Process -FilePath $exe -ArgumentList @('--verify-ui','--verify-scale','--data-dir',('"' + $uiRoot + '"')) -PassThru -Wait -WindowStyle Hidden
+$process = Start-Process -FilePath $exe -ArgumentList @('--verify-ui','--verify-scale','--verify-club','--data-dir',('"' + $uiRoot + '"')) -PassThru -Wait -WindowStyle Hidden
 if ($process.ExitCode -ne 0) { Get-Content -LiteralPath "$uiRoot/ui-check.txt"; throw 'WPF integration checks failed' }
 Get-Content -LiteralPath "$uiRoot/ui-check.txt" -Tail 1
 Get-Content -LiteralPath "$uiRoot/scale-check.txt" -Tail 1
+Get-Content -LiteralPath "$uiRoot/club-check.txt" -Tail 1
 Get-Content -LiteralPath "$uiRoot/interaction-check.txt" -Tail 1
 Get-Content -LiteralPath "$uiRoot/care-check.txt" -Tail 1
 Get-Content -LiteralPath "$uiRoot/membership-check.txt" -Tail 1

@@ -1,7 +1,7 @@
-// Browser regression for the pending HTML proposal. Never launches DesktopPet.exe.
+// Browser regression for the approved HTML design. Native integration has separate checks.
 const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),{pathToFileURL}=require('node:url');
 const root=path.resolve(__dirname,'..'),M=require(path.join(root,'docs/demo/cloud-club/model.js'));
-const output=path.join(root,'.artifacts/cloud-club-review-v2');fs.mkdirSync(output,{recursive:true});
+const output=path.join(root,'.artifacts/cloud-club-review-v3');fs.mkdirSync(output,{recursive:true});
 const P=require(path.join(root,'docs/demo/cloud-club/pose-motion.js'));
 assert(!M.actions.breathe);assert.equal(M.actions.stars.title,'数星星');
 assert.equal(P.sample('bubbles',1100).blowing,false);assert.equal(P.sample('bubbles',1120).blowing,true);assert.equal(P.sample('bubbles',2250).blowing,false);

@@ -9,7 +9,8 @@ public sealed record SpriteCell(int X, int Y, int Width, int Height);
 /// <summary>A sheet with optional authored crop regions, frame order and contact points.</summary>
 public sealed record Sprite(string File, int Columns = 3, int Rows = 2, int[]? FrameMs = null, string Facing = "right",
     int[]? Frames = null, bool Loop = true, bool BakedProps = false, HandContact?[]? Hands = null, SpriteCell[]? Cells = null,
-    double[]? HeightRatios = null, bool IsolateCells = false, int SeparationAlpha = 48, double ReferenceHeightPixels = 0, DanceRig? DanceRig = null);
+    double[]? HeightRatios = null, bool IsolateCells = false, int SeparationAlpha = 48, double ReferenceHeightPixels = 0, DanceRig? DanceRig = null,
+    double[]? FrameScaleFactors = null);
 
 /// <summary>A self-contained appearance. Missing motions never borrow another outfit's art.</summary>
 public sealed class Outfit
@@ -70,6 +71,7 @@ public sealed class Character
                     || c.Width < 1 || c.Height < 1 || (long)c.X + c.Width > 6144 || (long)c.Y + c.Height > 6144)))
                 || (s.FrameMs is { } ms && (ms.Length != (s.Frames?.Length ?? s.Columns * s.Rows) || ms.Any(t => t < 40 || t > 5000)))
                 || (s.HeightRatios is { } ratios && (ratios.Length != s.Columns * s.Rows || ratios.Any(r => !double.IsFinite(r) || r is < .15 or > 1.5)))
+                || (s.FrameScaleFactors is { } scales && (scales.Length != s.Columns * s.Rows || scales.Any(r => !double.IsFinite(r) || r is < .25 or > 4)))
                 || (s.Hands is { } hands && (hands.Length != s.Columns * s.Rows || hands.Any(h => h is not null
                     && (!double.IsFinite(h.Height) || !double.IsFinite(h.Offset) || !double.IsFinite(h.Span)
                         || h.Height is < 0 or > 1 || h.Offset is < -.5 or > .5 || h.Span is < .02 or > .4)))))

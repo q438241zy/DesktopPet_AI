@@ -6,12 +6,23 @@
   "atlas": {
     "columns": 3,
     "file": "atlas.png",
-    "rows": 2
+    "rows": 2,
+    "frameScaleFactors": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ]
   },
   "dizzy": {
     "columns": 1,
     "file": "dizzy.png",
-    "rows": 1
+    "rows": 1,
+    "frameScaleFactors": [
+      1.0
+    ]
   },
   "motions": {
     "angry": {
@@ -25,7 +36,15 @@
       ],
       "columns": 3,
       "file": "motions/angry.webp",
-      "rows": 2
+      "rows": 2,
+      "frameScaleFactors": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
     },
     "ball-hit": {
       "frameMs": [
@@ -38,7 +57,15 @@
       ],
       "columns": 3,
       "file": "motions/ball-hit.webp",
-      "rows": 2
+      "rows": 2,
+      "frameScaleFactors": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
     },
     "ball-miss": {
       "frameMs": [
@@ -51,7 +78,15 @@
       ],
       "columns": 3,
       "file": "motions/ball-miss.webp",
-      "rows": 2
+      "rows": 2,
+      "frameScaleFactors": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
     },
     "bonk": {
       "frameMs": [
@@ -65,7 +100,15 @@
       "columns": 3,
       "file": "motions/bonk.webp",
       "rows": 2,
-      "bakedProps": true
+      "bakedProps": true,
+      "frameScaleFactors": [
+        1.128262,
+        1.099021,
+        1.099021,
+        1.099021,
+        1.099021,
+        1.07161
+      ]
     },
     "chat": {
       "frameMs": [
@@ -78,7 +121,15 @@
       ],
       "columns": 3,
       "file": "motions/chat.webp",
-      "rows": 2
+      "rows": 2,
+      "frameScaleFactors": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
     },
     "curl": {
       "frameMs": [
@@ -91,7 +142,15 @@
       ],
       "columns": 3,
       "file": "motions/curl.webp",
-      "rows": 2
+      "rows": 2,
+      "frameScaleFactors": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.041836
+      ]
     },
     "eat": {
       "frameMs": [
@@ -105,7 +164,15 @@
       "columns": 3,
       "file": "motions/feed.webp",
       "rows": 2,
-      "bakedProps": true
+      "bakedProps": true,
+      "frameScaleFactors": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
     },
     "farewell": {
       "frameMs": [
@@ -118,7 +185,15 @@
       ],
       "columns": 3,
       "file": "motions/farewell.webp",
-      "rows": 2
+      "rows": 2,
+      "frameScaleFactors": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
     },
     "feed": {
       "frameMs": [
@@ -132,7 +207,15 @@
       "columns": 3,
       "file": "motions/feed.webp",
       "rows": 2,
-      "bakedProps": true
+      "bakedProps": true,
+      "frameScaleFactors": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
     },
     "headpat": {
       "frameMs": [
@@ -145,7 +228,15 @@
       ],
       "columns": 3,
       "file": "motions/headpat.webp",
-      "rows": 2
+      "rows": 2,
+      "frameScaleFactors": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
     },
     "jump": {
       "frameMs": [
@@ -158,7 +249,15 @@
       ],
       "columns": 3,
       "file": "motions/jump.webp",
-      "rows": 2
+      "rows": 2,
+      "frameScaleFactors": [
+        0.947382,
+        1.534518,
+        1.534518,
+        1.534518,
+        1.534518,
+        1.0
+      ]
     },
     "peek": {
       "frameMs": [
@@ -171,7 +270,15 @@
       ],
       "columns": 3,
       "file": "motions/peek.webp",
-      "rows": 2
+      "rows": 2,
+      "frameScaleFactors": [
+        1.494864,
+        1.432312,
+        1.432312,
+        1.432312,
+        1.432312,
+        1.484234
+      ]
     },
     "pickup": {
       "frameMs": [
@@ -187,7 +294,15 @@
         1,
         5
       ],
-      "loop": false
+      "loop": false,
+      "frameScaleFactors": [
+        1.178178,
+        1.179929,
+        1.179929,
+        1.179929,
+        1.179929,
+        1.179131
+      ]
     },
     "shaken": {
       "frameMs": [
@@ -200,7 +315,15 @@
       ],
       "columns": 3,
       "file": "motions/shaken.webp",
-      "rows": 2
+      "rows": 2,
+      "frameScaleFactors": [
+        1.157571,
+        1.157571,
+        1.157571,
+        1.157571,
+        1.157571,
+        1.157571
+      ]
     },
     "shaken-strong": {
       "frameMs": [
@@ -213,7 +336,15 @@
       ],
       "columns": 3,
       "file": "motions/shaken-strong.webp",
-      "rows": 2
+      "rows": 2,
+      "frameScaleFactors": [
+        1.1002,
+        1.1002,
+        1.1002,
+        1.1002,
+        1.1002,
+        1.1002
+      ]
     },
     "think": {
       "frameMs": [
@@ -226,7 +357,15 @@
       ],
       "columns": 3,
       "file": "motions/think.webp",
-      "rows": 2
+      "rows": 2,
+      "frameScaleFactors": [
+        1.0,
+        1.244219,
+        1.244219,
+        1.244219,
+        1.244219,
+        1.0
+      ]
     },
     "walk": {
       "file": "motions/walk-smooth.png",
@@ -350,7 +489,15 @@
       "columns": 3,
       "file": "motions/eat.webp",
       "rows": 2,
-      "bakedProps": true
+      "bakedProps": true,
+      "frameScaleFactors": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
     },
     "build": {
       "file": "motions/build-smooth.png",
@@ -558,7 +705,8 @@
         0.76,
         0.76,
         0.76
-      ]
+      ],
+      "referenceHeightPixels": 206.0
     },
     "poke": {
       "file": "motions/touch-continuity.png",
@@ -1129,7 +1277,8 @@
             0.76,
             0.76,
             0.76
-          ]
+          ],
+          "referenceHeightPixels": 357.0
         },
         "jump": {
           "file": "outfits/swim/body-continuity.png",
@@ -4360,7 +4509,8 @@
             0.76,
             0.76,
             0.76
-          ]
+          ],
+          "referenceHeightPixels": 351.5
         },
         "jump": {
           "file": "outfits/wedding/body-continuity.png",

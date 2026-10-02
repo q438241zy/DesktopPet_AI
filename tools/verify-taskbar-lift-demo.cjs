@@ -62,7 +62,7 @@ for(const height of [0,20,24]) for(const modifier of [false,true]) {
 }
 const disabled=new LiftController({autoWalk:false});disabled.down(0,0,0);disabled.move(0,-130,150);disabled.release(200,true);
 for(let t=216;t<=1700;t+=16)disabled.tick(t);check(disabled.mode==='grounded','disabled automatic walking remains awake and still');
-const cancel=new LiftController();cancel.down(0,0,0);cancel.release(100,false,false);cancel.tick(500);check(cancel.mode==='grounded','floor cancellation pauses automatic walking');
+const cancel=new LiftController();cancel.down(0,0,0);cancel.release(100,false,false);cancel.tick(500);check(cancel.mode==='landing','floor cancellation buffers landing');cancel.tick(520);check(cancel.mode==='walking','floor cancellation still resumes automatic walking');
 for(const hz of [30,60,75,120,144]) {
   const walker=new LiftController();walker.tick(0);
   for(let i=1;i<=hz*3;i++)walker.tick(i*1000/hz);

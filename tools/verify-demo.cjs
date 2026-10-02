@@ -91,7 +91,7 @@ down();grip.onpointercancel({shiftKey:true});assert.equal(pointerState.drop,fals
 down();grip.onlostpointercapture({shiftKey:true});assert.equal(pointerState.drop,false,'unexpected capture loss is not a drop request');
 Object.assign(pointerState,{y:276});down();grip.onpointerup({shiftKey:true});assert.equal(pointerState.y,300);assert.equal(pointerState.drop,false,'24px floor magnet has no fall loop');assert.equal(pointerState.floorWalkAt,pointerContext.now+410);
 down();assert.equal(pointerState.floorWalkAt,null,'re-grab cancels scheduled floor walking');pointerMove(0,-100,pointerContext.now+50);grip.onpointerup({shiftKey:false});assert.equal(pointerState.floorWalkAt,null);
-Object.assign(pointerState,{y:300});down();grip.onpointercancel();assert.equal(pointerState.floorWalkAt,null,'cancel at floor must not queue walking');
+Object.assign(pointerState,{y:300});down();grip.onpointercancel();assert.equal(pointerState.floorWalkAt,pointerContext.now+410,'cancel at floor still queues walking');
 Object.assign(pointerState,{y:170});pointerContext.now=7000;down();pointerContext.now=12000;grip.onpointerup({shiftKey:true});assert.equal(pointerState.drop,true,'long holding does not override an explicit Shift drop');
 pointerContext.now=12500;down();for(let i=1;i<=5;i++)pointerMove(i%2?80:0,0,12500+i*100);
 grip.onpointerup({shiftKey:true});assert.equal(pointerState.drop,true);assert.equal(pointerState.shake,null,'explicit drop clears shake recovery');

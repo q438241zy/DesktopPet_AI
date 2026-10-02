@@ -61,6 +61,19 @@ internal static class FloorWalkVerification
                 pet.StopInteraction(); Advance(45001);
                 Require(pet.CurrentAction == "walk", label + ": later idle walking remains available without breakfast");
                 pet.StopInteraction();
+                pet.Left = x; pet.Top = air;
+                pet.BeginPointerGesture(new Point(x + 280, air + 360));
+                pet.MovePointerGesture(new Point(x + 280, floor + 348)); pet.EndPointerGesture(false); Advance(430);
+                Require(pet.CurrentAction == "walk", label + ": mouse gesture release on floor clears drag flags and walks");
+                pet.StopInteraction(); pet.Left = x; pet.Top = air;
+                pet.BeginPointerGesture(new Point(x + 280, air + 360));
+                pet.MovePointerGesture(new Point(x + 280, floor + 360)); pet.CancelInput(true); Advance(430);
+                Require(pet.CurrentAction == "walk", label + ": interrupted floor gesture still buffers and walks");
+                pet.StopInteraction(); pet.Left = x; pet.Top = floor;
+                pet.BeginPointerGesture(new Point(x + 280, floor + 360));
+                pet.MovePointerGesture(new Point(x + 280, air + 360)); pet.CancelInput(true); Advance(1000);
+                Require(pet.CurrentAction == "idle" && !pet.IsDropping && Math.Abs(pet.Top - air) < tolerance, label + ": interrupted air gesture stays placed without Shift gravity");
+                pet.StopInteraction();
                 await System.Windows.Threading.Dispatcher.Yield(System.Windows.Threading.DispatcherPriority.Background);
             }
         }

@@ -6,6 +6,7 @@ namespace DesktopPet.App;
 public partial class App : Application
 {
     private Mutex? singleton;
+    internal static string? MotionLog { get; private set; }
     public static string DataRoot { get; private set; } = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "DesktopPetAI");
     private async void OnStartup(object sender, StartupEventArgs e)
     {
@@ -13,6 +14,8 @@ public partial class App : Application
         if (iconIndex >= 0 && iconIndex + 1 < e.Args.Length) { CloudTheme.WriteIcon(Path.GetFullPath(e.Args[iconIndex + 1])); Shutdown(0); return; }
         int dataIndex = Array.IndexOf(e.Args, "--data-dir");
         if (dataIndex >= 0 && dataIndex + 1 < e.Args.Length) DataRoot = Path.GetFullPath(e.Args[dataIndex + 1]);
+        int motionLogIndex = Array.IndexOf(e.Args, "--motion-log");
+        if (motionLogIndex >= 0 && motionLogIndex + 1 < e.Args.Length) MotionLog = Path.GetFullPath(e.Args[motionLogIndex + 1]);
         if ((e.Args.Any(a => a.StartsWith("--verify-")) || e.Args.Contains("--export-demo")) && (dataIndex < 0 || dataIndex + 1 >= e.Args.Length))
         { MessageBox.Show("--verify-ui 必须指定独立的 --data-dir。"); Shutdown(1); return; }
         if (e.Args.Contains("--verify-assets"))
@@ -51,10 +54,11 @@ public partial class App : Application
             catch (Exception ex) { Directory.CreateDirectory(DataRoot); File.WriteAllText(Path.Combine(DataRoot,"demo-error.txt"),ex.ToString()); Shutdown(1); }
             return;
         }
-        if (e.Args.Contains("--verify-ui") || e.Args.Contains("--verify-interface") || e.Args.Contains("--verify-interactions") || e.Args.Contains("--verify-details") || e.Args.Contains("--verify-contacts") || e.Args.Contains("--verify-poses") || e.Args.Contains("--verify-placement") || e.Args.Contains("--verify-polish") || e.Args.Contains("--verify-chibi") || e.Args.Contains("--verify-shake") || e.Args.Contains("--verify-walk") || e.Args.Contains("--verify-dance"))
+        if (e.Args.Contains("--verify-ui") || e.Args.Contains("--verify-interface") || e.Args.Contains("--verify-interactions") || e.Args.Contains("--verify-details") || e.Args.Contains("--verify-contacts") || e.Args.Contains("--verify-poses") || e.Args.Contains("--verify-placement") || e.Args.Contains("--verify-polish") || e.Args.Contains("--verify-chibi") || e.Args.Contains("--verify-shake") || e.Args.Contains("--verify-walk") || e.Args.Contains("--verify-dance") || e.Args.Contains("--verify-floor-contact"))
         {
             try
             {
+                if (e.Args.Contains("--verify-floor-contact")) await TaskbarContactVerification.Run(pet, DataRoot);
                 int appearanceIndex = Array.IndexOf(e.Args, "--appearance");
                 string? appearance = appearanceIndex < 0 ? null : appearanceIndex + 1 < e.Args.Length
                     ? e.Args[appearanceIndex + 1] : throw new ArgumentException("--appearance 需要指定角色与服装。");

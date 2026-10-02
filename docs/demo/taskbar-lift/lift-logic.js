@@ -35,9 +35,9 @@
       this.held = null;
       if (this.lift <= 24) {
         this.lift = 0;
-        this.mode = resumeOnFloor ? 'landing' : 'grounded';
+        this.mode = 'landing';
         this.landingUntil = now + 410; this.nextWalkAt = now + 45000;
-        this.lastDecision = resumeOnFloor ? '放回任务栏：落地缓冲后自动散步' : '取消拖动：清醒待机';
+        this.lastDecision = resumeOnFloor ? '放回任务栏：落地缓冲后自动散步' : '拖动中断：已落地，缓冲后自动散步';
       } else if (dropOnRelease) {
         this.mode = 'dropping'; this.speed = 30; this.lastTick = now;
         this.lastDecision = '按住 Shift 松手：自然落回任务栏';

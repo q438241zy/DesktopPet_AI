@@ -54,11 +54,12 @@ public partial class App : Application
             catch (Exception ex) { Directory.CreateDirectory(DataRoot); File.WriteAllText(Path.Combine(DataRoot,"demo-error.txt"),ex.ToString()); Shutdown(1); }
             return;
         }
-        if (e.Args.Contains("--verify-ui") || e.Args.Contains("--verify-interface") || e.Args.Contains("--verify-interactions") || e.Args.Contains("--verify-details") || e.Args.Contains("--verify-contacts") || e.Args.Contains("--verify-poses") || e.Args.Contains("--verify-placement") || e.Args.Contains("--verify-polish") || e.Args.Contains("--verify-chibi") || e.Args.Contains("--verify-shake") || e.Args.Contains("--verify-walk") || e.Args.Contains("--verify-dance") || e.Args.Contains("--verify-floor-contact") || e.Args.Contains("--verify-scale"))
+        if (e.Args.Contains("--verify-ui") || e.Args.Contains("--verify-interface") || e.Args.Contains("--verify-interactions") || e.Args.Contains("--verify-details") || e.Args.Contains("--verify-contacts") || e.Args.Contains("--verify-poses") || e.Args.Contains("--verify-placement") || e.Args.Contains("--verify-polish") || e.Args.Contains("--verify-chibi") || e.Args.Contains("--verify-shake") || e.Args.Contains("--verify-walk") || e.Args.Contains("--verify-dance") || e.Args.Contains("--verify-floor-contact") || e.Args.Contains("--verify-scale") || e.Args.Contains("--verify-care"))
         {
             try
             {
                 if (e.Args.Contains("--verify-scale")) await ScaleVerification.Run(pet, DataRoot,e.Args.Contains("--scale-baseline"));
+                if (e.Args.Contains("--verify-ui") || e.Args.Contains("--verify-care")) await CareVerification.Run(pet, DataRoot);
                 if (e.Args.Contains("--verify-floor-contact")) await TaskbarContactVerification.Run(pet, DataRoot);
                 int appearanceIndex = Array.IndexOf(e.Args, "--appearance");
                 string? appearance = appearanceIndex < 0 ? null : appearanceIndex + 1 < e.Args.Length

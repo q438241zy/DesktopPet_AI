@@ -153,26 +153,94 @@
       ]
     },
     "eat": {
-      "frameMs": [
-        180,
-        210,
-        330,
-        320,
-        320,
-        440
-      ],
-      "columns": 3,
-      "file": "motions/feed.webp",
+      "file": "motions/snack-continuity.png",
+      "columns": 4,
       "rows": 2,
+      "cells": [
+        {
+          "x": 23,
+          "y": 72,
+          "width": 373,
+          "height": 417
+        },
+        {
+          "x": 407,
+          "y": 72,
+          "width": 370,
+          "height": 417
+        },
+        {
+          "x": 784,
+          "y": 72,
+          "width": 372,
+          "height": 419
+        },
+        {
+          "x": 1163,
+          "y": 71,
+          "width": 369,
+          "height": 419
+        },
+        {
+          "x": 22,
+          "y": 551,
+          "width": 375,
+          "height": 418
+        },
+        {
+          "x": 407,
+          "y": 552,
+          "width": 371,
+          "height": 418
+        },
+        {
+          "x": 786,
+          "y": 552,
+          "width": 370,
+          "height": 418
+        },
+        {
+          "x": 1163,
+          "y": 551,
+          "width": 369,
+          "height": 419
+        }
+      ],
+      "frames": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "frameMs": [
+        240,
+        260,
+        340,
+        340,
+        380,
+        400,
+        420,
+        620
+      ],
+      "loop": false,
       "bakedProps": true,
-      "frameScaleFactors": [
+      "isolateCells": true,
+      "separationAlpha": 48,
+      "heightRatios": [
+        0.997573,
+        0.997573,
+        1.002427,
+        1.002427,
         1.0,
         1.0,
         1.0,
-        1.0,
-        1.0,
-        1.0
-      ]
+        1.002427
+      ],
+      "referenceHeightPixels": 412.0
     },
     "farewell": {
       "frameMs": [
@@ -196,26 +264,94 @@
       ]
     },
     "feed": {
-      "frameMs": [
-        180,
-        210,
-        330,
-        320,
-        320,
-        440
-      ],
-      "columns": 3,
-      "file": "motions/feed.webp",
+      "file": "motions/snack-continuity.png",
+      "columns": 4,
       "rows": 2,
+      "cells": [
+        {
+          "x": 23,
+          "y": 72,
+          "width": 373,
+          "height": 417
+        },
+        {
+          "x": 407,
+          "y": 72,
+          "width": 370,
+          "height": 417
+        },
+        {
+          "x": 784,
+          "y": 72,
+          "width": 372,
+          "height": 419
+        },
+        {
+          "x": 1163,
+          "y": 71,
+          "width": 369,
+          "height": 419
+        },
+        {
+          "x": 22,
+          "y": 551,
+          "width": 375,
+          "height": 418
+        },
+        {
+          "x": 407,
+          "y": 552,
+          "width": 371,
+          "height": 418
+        },
+        {
+          "x": 786,
+          "y": 552,
+          "width": 370,
+          "height": 418
+        },
+        {
+          "x": 1163,
+          "y": 551,
+          "width": 369,
+          "height": 419
+        }
+      ],
+      "frames": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "frameMs": [
+        240,
+        260,
+        340,
+        340,
+        380,
+        400,
+        420,
+        620
+      ],
+      "loop": false,
       "bakedProps": true,
-      "frameScaleFactors": [
+      "isolateCells": true,
+      "separationAlpha": 48,
+      "heightRatios": [
+        0.997573,
+        0.997573,
+        1.002427,
+        1.002427,
         1.0,
         1.0,
         1.0,
-        1.0,
-        1.0,
-        1.0
-      ]
+        1.002427
+      ],
+      "referenceHeightPixels": 412.0
     },
     "headpat": {
       "frameMs": [

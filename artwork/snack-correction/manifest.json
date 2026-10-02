@@ -1,0 +1,802 @@
+[
+  {
+    "id": "claude",
+    "source": "artwork\\snack-correction\\sources\\claude.png",
+    "sha256": "53081f38413c450ffc6b5239fde526a6624096596e6aa73d02b8b7a1de820711",
+    "dimensions": [
+      1536,
+      1024
+    ],
+    "transparentFraction": 0.3402303059895833,
+    "sprite": {
+      "file": "motions/snack-continuity.png",
+      "columns": 4,
+      "rows": 2,
+      "cells": [
+        {
+          "x": 13,
+          "y": 42,
+          "width": 378,
+          "height": 442
+        },
+        {
+          "x": 393,
+          "y": 42,
+          "width": 376,
+          "height": 442
+        },
+        {
+          "x": 772,
+          "y": 44,
+          "width": 379,
+          "height": 440
+        },
+        {
+          "x": 1156,
+          "y": 44,
+          "width": 378,
+          "height": 440
+        },
+        {
+          "x": 11,
+          "y": 537,
+          "width": 381,
+          "height": 445
+        },
+        {
+          "x": 393,
+          "y": 537,
+          "width": 379,
+          "height": 444
+        },
+        {
+          "x": 772,
+          "y": 535,
+          "width": 381,
+          "height": 446
+        },
+        {
+          "x": 1154,
+          "y": 536,
+          "width": 381,
+          "height": 445
+        }
+      ],
+      "frames": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "frameMs": [
+        240,
+        260,
+        340,
+        340,
+        380,
+        400,
+        420,
+        620
+      ],
+      "loop": false,
+      "bakedProps": true,
+      "isolateCells": true,
+      "separationAlpha": 48,
+      "heightRatios": [
+        0.997712,
+        0.997712,
+        0.993135,
+        0.993135,
+        1.004577,
+        1.002288,
+        1.006865,
+        1.004577
+      ],
+      "referenceHeightPixels": 437.0
+    }
+  },
+  {
+    "id": "gemini",
+    "source": "artwork\\snack-correction\\sources\\gemini.png",
+    "sha256": "feb20a51986e1ccab2b8aa5a139cfd2c6452ca1eb809111e9b403cbce848e113",
+    "dimensions": [
+      1536,
+      1024
+    ],
+    "transparentFraction": 0.3037274678548177,
+    "sprite": {
+      "file": "motions/snack-continuity.png",
+      "columns": 4,
+      "rows": 2,
+      "cells": [
+        {
+          "x": 4,
+          "y": 34,
+          "width": 388,
+          "height": 448
+        },
+        {
+          "x": 385,
+          "y": 34,
+          "width": 386,
+          "height": 448
+        },
+        {
+          "x": 769,
+          "y": 34,
+          "width": 385,
+          "height": 448
+        },
+        {
+          "x": 1153,
+          "y": 34,
+          "width": 383,
+          "height": 448
+        },
+        {
+          "x": 4,
+          "y": 547,
+          "width": 385,
+          "height": 443
+        },
+        {
+          "x": 386,
+          "y": 544,
+          "width": 384,
+          "height": 447
+        },
+        {
+          "x": 769,
+          "y": 544,
+          "width": 385,
+          "height": 449
+        },
+        {
+          "x": 1153,
+          "y": 547,
+          "width": 383,
+          "height": 446
+        }
+      ],
+      "frames": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "frameMs": [
+        240,
+        260,
+        340,
+        340,
+        380,
+        400,
+        420,
+        620
+      ],
+      "loop": false,
+      "bakedProps": true,
+      "isolateCells": true,
+      "separationAlpha": 48,
+      "heightRatios": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        0.988688,
+        0.997738,
+        1.002262,
+        0.995475
+      ],
+      "referenceHeightPixels": 442.0
+    }
+  },
+  {
+    "id": "gpt",
+    "source": "artwork\\snack-correction\\sources\\gpt.png",
+    "sha256": "3c70a6eceb2cbd5f76a559cc7d2a9ef8b455cf7cac630ccf34e3f141b451737e",
+    "dimensions": [
+      1536,
+      1024
+    ],
+    "transparentFraction": 0.5878702799479166,
+    "sprite": {
+      "file": "motions/snack-continuity.png",
+      "columns": 4,
+      "rows": 2,
+      "cells": [
+        {
+          "x": 56,
+          "y": 133,
+          "width": 301,
+          "height": 344
+        },
+        {
+          "x": 441,
+          "y": 133,
+          "width": 300,
+          "height": 344
+        },
+        {
+          "x": 825,
+          "y": 133,
+          "width": 300,
+          "height": 342
+        },
+        {
+          "x": 1208,
+          "y": 133,
+          "width": 301,
+          "height": 344
+        },
+        {
+          "x": 57,
+          "y": 608,
+          "width": 300,
+          "height": 347
+        },
+        {
+          "x": 442,
+          "y": 607,
+          "width": 302,
+          "height": 348
+        },
+        {
+          "x": 825,
+          "y": 606,
+          "width": 302,
+          "height": 349
+        },
+        {
+          "x": 1209,
+          "y": 607,
+          "width": 300,
+          "height": 347
+        }
+      ],
+      "frames": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "frameMs": [
+        240,
+        260,
+        340,
+        340,
+        380,
+        400,
+        420,
+        620
+      ],
+      "loop": false,
+      "bakedProps": true,
+      "isolateCells": true,
+      "separationAlpha": 48,
+      "heightRatios": [
+        0.995582,
+        0.995582,
+        0.989691,
+        0.995582,
+        1.004418,
+        1.007364,
+        1.010309,
+        1.004418
+      ],
+      "referenceHeightPixels": 339.5
+    }
+  },
+  {
+    "id": "grok",
+    "source": "artwork\\snack-correction\\sources\\grok.png",
+    "sha256": "e2d7dd1b137ae92cb741fbedf88b5a72a0b907aecca9414a507766a3841fd4a4",
+    "dimensions": [
+      1536,
+      1024
+    ],
+    "transparentFraction": 0.6252307891845703,
+    "sprite": {
+      "file": "motions/snack-continuity.png",
+      "columns": 4,
+      "rows": 2,
+      "cells": [
+        {
+          "x": 59,
+          "y": 138,
+          "width": 315,
+          "height": 338
+        },
+        {
+          "x": 429,
+          "y": 136,
+          "width": 317,
+          "height": 341
+        },
+        {
+          "x": 796,
+          "y": 136,
+          "width": 317,
+          "height": 341
+        },
+        {
+          "x": 1174,
+          "y": 136,
+          "width": 320,
+          "height": 341
+        },
+        {
+          "x": 59,
+          "y": 593,
+          "width": 317,
+          "height": 341
+        },
+        {
+          "x": 430,
+          "y": 593,
+          "width": 317,
+          "height": 341
+        },
+        {
+          "x": 797,
+          "y": 591,
+          "width": 321,
+          "height": 343
+        },
+        {
+          "x": 1175,
+          "y": 592,
+          "width": 318,
+          "height": 342
+        }
+      ],
+      "frames": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "frameMs": [
+        240,
+        260,
+        340,
+        340,
+        380,
+        400,
+        420,
+        620
+      ],
+      "loop": false,
+      "bakedProps": true,
+      "isolateCells": true,
+      "separationAlpha": 48,
+      "heightRatios": [
+        0.991045,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.00597,
+        1.002985
+      ],
+      "referenceHeightPixels": 335.0
+    }
+  },
+  {
+    "id": "kimi",
+    "source": "artwork\\snack-correction\\sources\\kimi.png",
+    "sha256": "fd2401204fc126ce072e42fc82e700861b8bc3043369cab80c7ef32524d695ba",
+    "dimensions": [
+      1536,
+      1024
+    ],
+    "transparentFraction": 0.3181508382161458,
+    "sprite": {
+      "file": "motions/snack-continuity.png",
+      "columns": 4,
+      "rows": 2,
+      "cells": [
+        {
+          "x": 6,
+          "y": 48,
+          "width": 387,
+          "height": 441
+        },
+        {
+          "x": 392,
+          "y": 48,
+          "width": 386,
+          "height": 441
+        },
+        {
+          "x": 771,
+          "y": 48,
+          "width": 383,
+          "height": 441
+        },
+        {
+          "x": 1150,
+          "y": 48,
+          "width": 384,
+          "height": 441
+        },
+        {
+          "x": 7,
+          "y": 541,
+          "width": 386,
+          "height": 439
+        },
+        {
+          "x": 392,
+          "y": 541,
+          "width": 384,
+          "height": 439
+        },
+        {
+          "x": 771,
+          "y": 541,
+          "width": 383,
+          "height": 439
+        },
+        {
+          "x": 1150,
+          "y": 541,
+          "width": 384,
+          "height": 439
+        }
+      ],
+      "frames": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "frameMs": [
+        240,
+        260,
+        340,
+        340,
+        380,
+        400,
+        420,
+        620
+      ],
+      "loop": false,
+      "bakedProps": true,
+      "isolateCells": true,
+      "separationAlpha": 48,
+      "heightRatios": [
+        1.002304,
+        1.002304,
+        1.002304,
+        1.002304,
+        0.997696,
+        0.997696,
+        0.997696,
+        0.997696
+      ],
+      "referenceHeightPixels": 434.0
+    }
+  },
+  {
+    "id": "qwen",
+    "source": "artwork\\snack-correction\\sources\\qwen.png",
+    "sha256": "4cf8833cf152aa6c53d3713afa202ca65fa596c199ce960ec9284ffc368091ec",
+    "dimensions": [
+      1536,
+      1024
+    ],
+    "transparentFraction": 0.3683179219563802,
+    "sprite": {
+      "file": "motions/snack-continuity.png",
+      "columns": 4,
+      "rows": 2,
+      "cells": [
+        {
+          "x": 23,
+          "y": 72,
+          "width": 373,
+          "height": 417
+        },
+        {
+          "x": 407,
+          "y": 72,
+          "width": 370,
+          "height": 417
+        },
+        {
+          "x": 784,
+          "y": 72,
+          "width": 372,
+          "height": 419
+        },
+        {
+          "x": 1163,
+          "y": 71,
+          "width": 369,
+          "height": 419
+        },
+        {
+          "x": 22,
+          "y": 551,
+          "width": 375,
+          "height": 418
+        },
+        {
+          "x": 407,
+          "y": 552,
+          "width": 371,
+          "height": 418
+        },
+        {
+          "x": 786,
+          "y": 552,
+          "width": 370,
+          "height": 418
+        },
+        {
+          "x": 1163,
+          "y": 551,
+          "width": 369,
+          "height": 419
+        }
+      ],
+      "frames": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "frameMs": [
+        240,
+        260,
+        340,
+        340,
+        380,
+        400,
+        420,
+        620
+      ],
+      "loop": false,
+      "bakedProps": true,
+      "isolateCells": true,
+      "separationAlpha": 48,
+      "heightRatios": [
+        0.997573,
+        0.997573,
+        1.002427,
+        1.002427,
+        1.0,
+        1.0,
+        1.0,
+        1.002427
+      ],
+      "referenceHeightPixels": 412.0
+    }
+  },
+  {
+    "id": "whale",
+    "source": "artwork\\snack-correction\\sources\\whale.png",
+    "sha256": "7b8aea5dfcb0560f018fe0bf76265382301487e2ef1bdf23249824faef93fe3a",
+    "dimensions": [
+      1536,
+      1024
+    ],
+    "transparentFraction": 0.6130364735921224,
+    "sprite": {
+      "file": "motions/snack-continuity.png",
+      "columns": 4,
+      "rows": 2,
+      "cells": [
+        {
+          "x": 51,
+          "y": 134,
+          "width": 319,
+          "height": 350
+        },
+        {
+          "x": 435,
+          "y": 134,
+          "width": 319,
+          "height": 350
+        },
+        {
+          "x": 818,
+          "y": 134,
+          "width": 320,
+          "height": 350
+        },
+        {
+          "x": 1203,
+          "y": 134,
+          "width": 319,
+          "height": 350
+        },
+        {
+          "x": 51,
+          "y": 614,
+          "width": 319,
+          "height": 350
+        },
+        {
+          "x": 435,
+          "y": 614,
+          "width": 319,
+          "height": 350
+        },
+        {
+          "x": 818,
+          "y": 614,
+          "width": 320,
+          "height": 350
+        },
+        {
+          "x": 1202,
+          "y": 614,
+          "width": 320,
+          "height": 350
+        }
+      ],
+      "frames": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "frameMs": [
+        240,
+        260,
+        340,
+        340,
+        380,
+        400,
+        420,
+        620
+      ],
+      "loop": false,
+      "bakedProps": true,
+      "isolateCells": true,
+      "separationAlpha": 48,
+      "heightRatios": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "referenceHeightPixels": 344.0
+    }
+  },
+  {
+    "id": "zhipu",
+    "source": "artwork\\snack-correction\\sources\\zhipu.png",
+    "sha256": "8221120e79be554d0f94367c77f41a506637a5be8a4e1b0c0db7997fcbe98674",
+    "dimensions": [
+      1536,
+      1024
+    ],
+    "transparentFraction": 0.33399518330891925,
+    "sprite": {
+      "file": "motions/snack-continuity.png",
+      "columns": 4,
+      "rows": 2,
+      "cells": [
+        {
+          "x": 8,
+          "y": 48,
+          "width": 387,
+          "height": 444
+        },
+        {
+          "x": 384,
+          "y": 50,
+          "width": 387,
+          "height": 442
+        },
+        {
+          "x": 757,
+          "y": 56,
+          "width": 387,
+          "height": 436
+        },
+        {
+          "x": 1135,
+          "y": 61,
+          "width": 390,
+          "height": 431
+        },
+        {
+          "x": 6,
+          "y": 542,
+          "width": 387,
+          "height": 444
+        },
+        {
+          "x": 383,
+          "y": 542,
+          "width": 385,
+          "height": 444
+        },
+        {
+          "x": 759,
+          "y": 537,
+          "width": 381,
+          "height": 449
+        },
+        {
+          "x": 1135,
+          "y": 543,
+          "width": 389,
+          "height": 442
+        }
+      ],
+      "frames": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "frameMs": [
+        240,
+        260,
+        340,
+        340,
+        380,
+        400,
+        420,
+        620
+      ],
+      "loop": false,
+      "bakedProps": true,
+      "isolateCells": true,
+      "separationAlpha": 48,
+      "heightRatios": [
+        1.002288,
+        0.997712,
+        0.983982,
+        0.97254,
+        1.002288,
+        1.002288,
+        1.01373,
+        0.997712
+      ],
+      "referenceHeightPixels": 437.0
+    }
+  }
+]

@@ -65,6 +65,7 @@ internal static class DemoExporter
                 for(int t=0;t<=a.Duration;t+=SampleMs)
                 {
                     if(a.Key=="dance") pet.PreviewDance(t);
+                    else if(CareRoutine.Find(a.Key) is { } routine) pet.PreviewCare(routine,t);
                     else pet.PreviewMotion(a.Motion,t,a.Duration);
                     sequence.Add(Capture());
                     if(t%500==0) await System.Windows.Threading.Dispatcher.Yield(System.Windows.Threading.DispatcherPriority.Background);

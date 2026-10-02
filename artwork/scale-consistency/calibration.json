@@ -338,54 +338,6 @@
   {
     "character": "claude",
     "outfit": "original",
-    "action": "eat",
-    "file": "motions/feed.webp",
-    "sha256": "6dd34ddba890f455f999a2cb90120002c63b711b1377f73e0fabb8940cd4e9e4",
-    "method": "legacy face/hair similarity fit",
-    "fits": [
-      {
-        "scale": 1.000134,
-        "inliers": 279,
-        "matches": 279
-      },
-      {
-        "scale": 0.977559,
-        "inliers": 27,
-        "matches": 51
-      },
-      {
-        "scale": 0.999194,
-        "inliers": 49,
-        "matches": 114
-      },
-      {
-        "scale": 0.99424,
-        "inliers": 59,
-        "matches": 130
-      },
-      {
-        "scale": 1.001053,
-        "inliers": 45,
-        "matches": 121
-      },
-      {
-        "scale": 0.993253,
-        "inliers": 17,
-        "matches": 46
-      }
-    ],
-    "frameScaleFactors": [
-      1.0,
-      1.0,
-      1.0,
-      1.0,
-      1.0,
-      1.0
-    ]
-  },
-  {
-    "character": "claude",
-    "outfit": "original",
     "action": "farewell",
     "file": "motions/farewell.webp",
     "sha256": "ec0486694e9c1044af63ca248e86ca6a0cb59b7abc2ca78e8c0480308ccef1fa",
@@ -2009,54 +1961,6 @@
   {
     "character": "gemini",
     "outfit": "original",
-    "action": "eat",
-    "file": "motions/feed.webp",
-    "sha256": "4bb9123105509c0ab77484ecf5d6c17aad43b53ee113d0815ac25c1817f29636",
-    "method": "legacy face/hair similarity fit",
-    "fits": [
-      {
-        "scale": 1.000021,
-        "inliers": 295,
-        "matches": 300
-      },
-      {
-        "scale": 1.04587,
-        "inliers": 22,
-        "matches": 44
-      },
-      {
-        "scale": 1.000059,
-        "inliers": 66,
-        "matches": 89
-      },
-      {
-        "scale": 1.002388,
-        "inliers": 65,
-        "matches": 96
-      },
-      {
-        "scale": 0.998607,
-        "inliers": 62,
-        "matches": 100
-      },
-      {
-        "scale": 0.999165,
-        "inliers": 17,
-        "matches": 41
-      }
-    ],
-    "frameScaleFactors": [
-      1.0,
-      1.0,
-      1.0,
-      1.0,
-      1.0,
-      1.0
-    ]
-  },
-  {
-    "character": "gemini",
-    "outfit": "original",
     "action": "farewell",
     "file": "motions/farewell.webp",
     "sha256": "b91818bb7fa8000fb2de4ad53e8722bcd38afff6b4d0f558e45e8c55f7ab7010",
@@ -3261,54 +3165,6 @@
         "scale": 0.973859,
         "inliers": 30,
         "matches": 50
-      }
-    ],
-    "frameScaleFactors": [
-      1.0,
-      1.0,
-      1.0,
-      1.0,
-      1.0,
-      1.0
-    ]
-  },
-  {
-    "character": "gpt",
-    "outfit": "original",
-    "action": "eat",
-    "file": "motions/feed.webp",
-    "sha256": "38a4ac82c712a2b0160f73fac006ec0ab26ae22094b4a9f19a15d41739724c54",
-    "method": "legacy face/hair similarity fit",
-    "fits": [
-      {
-        "scale": 0.999992,
-        "inliers": 283,
-        "matches": 283
-      },
-      {
-        "scale": 1.020186,
-        "inliers": 17,
-        "matches": 40
-      },
-      {
-        "scale": 0.987753,
-        "inliers": 52,
-        "matches": 89
-      },
-      {
-        "scale": 1.006495,
-        "inliers": 58,
-        "matches": 88
-      },
-      {
-        "scale": 1.001595,
-        "inliers": 57,
-        "matches": 89
-      },
-      {
-        "scale": 1.015269,
-        "inliers": 16,
-        "matches": 35
       }
     ],
     "frameScaleFactors": [
@@ -4537,54 +4393,6 @@
   {
     "character": "grok",
     "outfit": "original",
-    "action": "eat",
-    "file": "motions/feed.webp",
-    "sha256": "5673976f096a2dad3df855f89d552706d004a4f77662b9ee94880912791050e9",
-    "method": "legacy face/hair similarity fit",
-    "fits": [
-      {
-        "scale": 0.999999,
-        "inliers": 202,
-        "matches": 204
-      },
-      {
-        "scale": 1.002154,
-        "inliers": 26,
-        "matches": 53
-      },
-      {
-        "scale": 0.961519,
-        "inliers": 48,
-        "matches": 83
-      },
-      {
-        "scale": 0.956246,
-        "inliers": 56,
-        "matches": 86
-      },
-      {
-        "scale": 0.954689,
-        "inliers": 52,
-        "matches": 85
-      },
-      {
-        "scale": 1.007635,
-        "inliers": 34,
-        "matches": 53
-      }
-    ],
-    "frameScaleFactors": [
-      1.0,
-      1.042881,
-      1.042881,
-      1.042881,
-      1.042881,
-      1.0
-    ]
-  },
-  {
-    "character": "grok",
-    "outfit": "original",
     "action": "farewell",
     "file": "motions/farewell.webp",
     "sha256": "22e8a56c7e048b2aa2d17bfa812a4b603a1b03f4f45f56646d81e527a4ee0b59",
@@ -5789,54 +5597,6 @@
         "scale": 0.990138,
         "inliers": 24,
         "matches": 54
-      }
-    ],
-    "frameScaleFactors": [
-      1.0,
-      1.0,
-      1.0,
-      1.0,
-      1.0,
-      1.0
-    ]
-  },
-  {
-    "character": "kimi",
-    "outfit": "original",
-    "action": "eat",
-    "file": "motions/feed.webp",
-    "sha256": "7665445259148bcf8ff625e85a34436adf8312dd1911453aea84e84606fc270b",
-    "method": "legacy face/hair similarity fit",
-    "fits": [
-      {
-        "scale": 1.000044,
-        "inliers": 278,
-        "matches": 279
-      },
-      {
-        "scale": 0.994433,
-        "inliers": 63,
-        "matches": 71
-      },
-      {
-        "scale": 0.990609,
-        "inliers": 48,
-        "matches": 100
-      },
-      {
-        "scale": 0.989521,
-        "inliers": 43,
-        "matches": 111
-      },
-      {
-        "scale": 0.989724,
-        "inliers": 49,
-        "matches": 108
-      },
-      {
-        "scale": 1.001308,
-        "inliers": 61,
-        "matches": 72
       }
     ],
     "frameScaleFactors": [
@@ -7069,54 +6829,6 @@
   {
     "character": "qwen",
     "outfit": "original",
-    "action": "eat",
-    "file": "motions/feed.webp",
-    "sha256": "fb16743315bc0298fd447234e148943b2f6f413b21b9b170cf1c4fa0f04a86a7",
-    "method": "legacy face/hair similarity fit",
-    "fits": [
-      {
-        "scale": 1.000151,
-        "inliers": 271,
-        "matches": 273
-      },
-      {
-        "scale": 1.03808,
-        "inliers": 23,
-        "matches": 46
-      },
-      {
-        "scale": 0.985562,
-        "inliers": 63,
-        "matches": 96
-      },
-      {
-        "scale": 0.986603,
-        "inliers": 72,
-        "matches": 111
-      },
-      {
-        "scale": 0.976283,
-        "inliers": 66,
-        "matches": 108
-      },
-      {
-        "scale": 1.017501,
-        "inliers": 35,
-        "matches": 60
-      }
-    ],
-    "frameScaleFactors": [
-      1.0,
-      1.0,
-      1.0,
-      1.0,
-      1.0,
-      1.0
-    ]
-  },
-  {
-    "character": "qwen",
-    "outfit": "original",
     "action": "farewell",
     "file": "motions/farewell.webp",
     "sha256": "b53c231157b6f89b1cb1814acf20aaedf87d4a40e2f16b3fc87011598879bb1d",
@@ -8335,54 +8047,6 @@
   {
     "character": "whale",
     "outfit": "original",
-    "action": "eat",
-    "file": "motions/feed.webp",
-    "sha256": "711d80b6fe64741ef7d5297400e64e69102b3d864f9b3703fecf2228247591de",
-    "method": "legacy face/hair similarity fit",
-    "fits": [
-      {
-        "scale": 1.000074,
-        "inliers": 340,
-        "matches": 342
-      },
-      {
-        "scale": 0.971834,
-        "inliers": 40,
-        "matches": 79
-      },
-      {
-        "scale": 1.026909,
-        "inliers": 79,
-        "matches": 131
-      },
-      {
-        "scale": 1.021756,
-        "inliers": 81,
-        "matches": 127
-      },
-      {
-        "scale": 1.028794,
-        "inliers": 71,
-        "matches": 122
-      },
-      {
-        "scale": 0.997003,
-        "inliers": 54,
-        "matches": 116
-      }
-    ],
-    "frameScaleFactors": [
-      1.0,
-      1.0,
-      1.0,
-      1.0,
-      1.0,
-      1.0
-    ]
-  },
-  {
-    "character": "whale",
-    "outfit": "original",
     "action": "farewell",
     "file": "motions/farewell.webp",
     "sha256": "92f5cc77df74945cccfaa873c12024190555a0c4b43545f0f2ba6192ed91ba66",
@@ -9187,54 +8851,6 @@
       1.0,
       1.0,
       1.053281
-    ]
-  },
-  {
-    "character": "zhipu",
-    "outfit": "original",
-    "action": "eat",
-    "file": "motions/feed.webp",
-    "sha256": "1af29e50ec4d61f91c744dcb56d1e0b356021225af5b7d356f6f3a8a14693b90",
-    "method": "legacy face/hair similarity fit",
-    "fits": [
-      {
-        "scale": 1.000033,
-        "inliers": 292,
-        "matches": 293
-      },
-      {
-        "scale": 1.002549,
-        "inliers": 60,
-        "matches": 79
-      },
-      {
-        "scale": 1.008677,
-        "inliers": 115,
-        "matches": 143
-      },
-      {
-        "scale": 1.006695,
-        "inliers": 107,
-        "matches": 142
-      },
-      {
-        "scale": 1.006879,
-        "inliers": 114,
-        "matches": 144
-      },
-      {
-        "scale": 1.002645,
-        "inliers": 49,
-        "matches": 93
-      }
-    ],
-    "frameScaleFactors": [
-      1.0,
-      1.0,
-      1.0,
-      1.0,
-      1.0,
-      1.0
     ]
   },
   {

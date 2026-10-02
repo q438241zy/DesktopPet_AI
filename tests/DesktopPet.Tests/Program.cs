@@ -10,6 +10,20 @@ void Test(string name, Action run)
 void Equal<T>(T expected, T actual) { if (!EqualityComparer<T>.Default.Equals(expected, actual)) throw new Exception($"Expected {expected}; got {actual}"); }
 void Reject(Action run) { try { run(); } catch (InvalidDataException) { return; } throw new Exception("Invalid input was accepted"); }
 
+Test("care tolerates a delayed frame and sleep belongs only to lullaby", () =>
+{
+    var lullaby = CareRoutine.Find("lullaby")!;
+    Equal("think", lullaby.At(-200).Motion);
+    Equal("curl", lullaby.At(800).Motion);
+    Equal("sleep", lullaby.At(4100).Motion);
+    Equal(1800d, lullaby.At(4100).Elapsed);
+    Equal(3000d, lullaby.At(50000).Elapsed);
+    Equal(true, lullaby.FallsAsleep);
+    foreach (var routine in CareRoutine.All.Where(r => !r.FallsAsleep))
+        Equal(false, routine.Steps.Any(step => step.Motion == "sleep"));
+    Equal<CareRoutine?>(null, CareRoutine.Find("unknown"));
+});
+
 Test("walk gait follows actual travel and stands still through a boundary turn", () =>
 {
     var clip = new Sprite("walk.png", 3, 4, Enumerable.Repeat(80,12).ToArray());

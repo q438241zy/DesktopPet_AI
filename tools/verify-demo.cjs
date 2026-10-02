@@ -89,13 +89,23 @@ assert.equal(pointerState.elapsed,850,'re-grab does not restart the pickup artwo
 pointerMove(0,-20,6250);grip.onpointerup({shiftKey:false});assert.equal(pointerState.drop,false);assert.equal(pointerState.y,180);
 down();grip.onpointercancel({shiftKey:true});assert.equal(pointerState.drop,false,'cancel while Shift is held must stay put');
 down();grip.onlostpointercapture({shiftKey:true});assert.equal(pointerState.drop,false,'unexpected capture loss is not a drop request');
-Object.assign(pointerState,{y:276});down();grip.onpointerup({shiftKey:true});assert.equal(pointerState.y,300);assert.equal(pointerState.drop,false,'24px floor magnet has no fall loop');assert.equal(pointerState.floorWalkAt,pointerContext.now+410);
+Object.assign(pointerState,{y:276});down();pointerMove(9,0,pointerContext.now+10);grip.onpointerup({shiftKey:true});assert.equal(pointerState.y,300);assert.equal(pointerState.drop,false,'24px floor magnet has no fall loop');assert.equal(pointerState.floorWalkAt,pointerContext.now+410);
 down();assert.equal(pointerState.floorWalkAt,null,'re-grab cancels scheduled floor walking');pointerMove(0,-100,pointerContext.now+50);grip.onpointerup({shiftKey:false});assert.equal(pointerState.floorWalkAt,null);
 Object.assign(pointerState,{y:300});down();grip.onpointercancel();assert.equal(pointerState.floorWalkAt,pointerContext.now+410,'cancel at floor still queues walking');
-Object.assign(pointerState,{y:170});pointerContext.now=7000;down();pointerContext.now=12000;grip.onpointerup({shiftKey:true});assert.equal(pointerState.drop,true,'long holding does not override an explicit Shift drop');
+Object.assign(pointerState,{y:170});pointerContext.now=7000;down();pointerMove(10,0,7050);pointerContext.now=12000;grip.onpointerup({shiftKey:true});assert.equal(pointerState.drop,true,'long holding does not override an explicit Shift drop');
 pointerContext.now=12500;down();for(let i=1;i<=5;i++)pointerMove(i%2?80:0,0,12500+i*100);
 grip.onpointerup({shiftKey:true});assert.equal(pointerState.drop,true);assert.equal(pointerState.shake,null,'explicit drop clears shake recovery');
 console.log('PASS: Shift-only drop, elevated starts, re-grab, queued action cancellation, floor magnet and safe capture cancellation');
+const careClicks=[];Object.assign(pointerState,{action:'idle',nextTouch:0,drop:false,floorWalkAt:null});
+for(let i=0;i<6;i++){down();pointerMove(2,1,pointerContext.now+10);grip.onpointerup();careClicks.push(pointerState.action);}
+assert.deepEqual(careClicks,['headpat','poke','tickle','headpat','poke','tickle']);
+down();pointerMove(20,-50,pointerContext.now+10);grip.onpointerup();assert.equal(pointerState.nextTouch,0,'dragging must not consume the care cycle');
+for(const side of [-1,1])for(const button of ['left','right']){
+ Object.assign(pointerState,{action:'peek',x:side<0?-40:540});
+ if(button==='left')down();else grip.oncontextmenu({preventDefault:()=>{}});
+ assert.equal(pointerState.action,'found');assert.equal(pointerState.held,null);assert.ok(pointerState.x>=65&&pointerState.x<=435);assert.equal(pointerState.floorWalkAt,null);
+}
+console.log('PASS: real Demo handlers cycle three care gestures, ignore small click jitter and find hiding pets with either mouse button');
 (async()=>{
  const pending=[];
  const preloadContext={D:{frames:['old.webp','current.webp','missing.webp']},Image:class{decode(){return new Promise((resolve,reject)=>pending.push({resolve,reject}));}}};

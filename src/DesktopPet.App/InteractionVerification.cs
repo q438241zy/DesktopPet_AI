@@ -57,6 +57,7 @@ internal static class InteractionVerification
             {
                 pet.SelectCharacter(character.Id); pet.State.Outfits[character.Id] = outfit; pet.ApplySettings();
                 pet.Left = pet.WorkArea.Left + pet.WorkArea.Width / 2 - 280;
+                pet.Top = pet.WorkArea.Bottom - 468;
                 pet.RunInteraction("dance"); await Task.Delay(260);
                 var sprite = Find<Image>(pet).Single();
                 if (character.Category == CharacterStyles.Realistic)
@@ -110,6 +111,8 @@ internal static class InteractionVerification
         {
             pet.ShowMenu(group); pet.UpdateLayout(); Capture((FrameworkElement)pet.Content, "menu-" + group);
             var labels = Find<Button>(pet).Select(AutomationProperties.GetName).ToArray();
+            Require(labels.Contains("聊天") == (group == "root"), "chat is a first-level action only: " + group);
+            if (group == "care") Require(new[] {"夸夸", "安抚", "哄睡"}.All(labels.Contains), "three additional care actions in the radial menu");
             Require(labels.Contains(group == "root" ? "收起" : "返回"), "radial menu has accessible navigation: " + group);
             Require(!labels.Contains("跳舞"), "chibi radial menu hides dancing: " + group);
             Require(!Find<TextBlock>(pet).Any(t => t.IsVisible && t.Text.Length > 0), "menu has no permanent text: " + group);
@@ -168,9 +171,26 @@ internal static class InteractionVerification
         pet.Left = pet.WorkArea.Left + pet.State.Size * .46 - 280; pet.BeginHide(-1);
         await Until(() => pet.HideStage == HidePhase.Hidden, "cancel-hidden setup");
         pet.StopInteraction(); Require(pet.Left + 280 >= pet.WorkArea.Left && pet.HideStage is null, "stop rescues a fully hidden pet");
-        pet.BeginHide(-1); await Until(() => pet.HideStage == HidePhase.Peek, "found setup"); await Task.Delay(550);
-        Find<Image>(pet).Single().RaiseEvent(new MouseButtonEventArgs(Mouse.PrimaryDevice, 0, MouseButton.Left) { RoutedEvent = UIElement.MouseLeftButtonDownEvent });
-        Require(pet.HideStage is null && pet.CurrentAction == "happy", "clicking the peeking pet finds it and ends hiding");
+        foreach (string id in new[] {"whale", "deepseek-adult"})
+        foreach (string outfit in new[] {"original", "swim", "wedding"})
+        foreach (int side in new[] {-1, 1})
+        foreach (var button in new[] {MouseButton.Left, MouseButton.Right})
+        {
+            pet.SelectCharacter(id); pet.State.Outfits[id] = outfit; pet.ApplySettings();
+            pet.Left = (side < 0 ? pet.WorkArea.Left + pet.State.Size*.46 : pet.WorkArea.Right - pet.State.Size*.46) - 280;
+            pet.Top = pet.WorkArea.Bottom - 468;
+            pet.BeginHide(side); await Until(() => pet.HideStage == HidePhase.Peek, "found setup"); await Task.Delay(550);
+            var image = Find<Image>(pet).Single();
+            image.RaiseEvent(new MouseButtonEventArgs(Mouse.PrimaryDevice, 0, button) { RoutedEvent = button == MouseButton.Left ? UIElement.MouseLeftButtonDownEvent : UIElement.MouseRightButtonUpEvent });
+            Require(pet.HideStage is null && pet.CurrentAction == "happy" && pet.CurrentSpeech == "被你找到啦！", $"{id}/{outfit}/{side}/{button}: finds the peeking pet with the same response");
+            Require(((Canvas)pet.Content).Clip is null && !pet.IsMenuOpen, "finding restores visibility without opening a menu");
+            await Task.Delay(60);
+            Require(pet.CurrentAction == "happy", "finding does not get overwritten by the journey timer");
+        }
+        pet.ShowMenu();
+        Find<Button>(pet).Single(b => AutomationProperties.GetName(b) == "聊天").RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
+        Require(pet.ActiveChat is not null && pet.CurrentAction == "listen", "first-level chat invokes the embedded composer");
+        pet.StopInteraction();
         pet.BeginHide(); pet.ToggleVisible(); pet.ToggleVisible();
         Require(pet.HideStage is null && pet.CurrentAction == "idle", "hiding/showing the application cancels the journey without an orphan walking loop");
         File.WriteAllLines(Path.Combine(output, "interaction-check.txt"), checks.Append($"{checks.Count} interaction checks passed."));

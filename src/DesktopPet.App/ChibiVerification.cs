@@ -26,7 +26,7 @@ internal static class ChibiVerification
             string key=c.Id+"/"+outfit;pet.SelectCharacter(c.Id);pet.State.Outfits[c.Id]=outfit;pet.ApplySettings();
             var catalogRows=ActionCoverage.Actions.Select(a=>ActionCoverage.Assess(c,outfit,a));
             Require(catalogRows.All(r=>r.Status is not ("缺少动作" or "近似动作")),key+": audited actions have their own implementation");
-            string[] actions=outfit=="original"?["poke","tickle","ball-ready"]:["chat","think","headpat","poke","tickle","bonk","jump","curl","sleep","pickup","ball-ready","ball-hit","ball-miss","eat","meal"];
+            string[] actions=outfit=="original"?["poke","tickle","ball-ready","eat"]:["chat","think","headpat","poke","tickle","bonk","jump","curl","sleep","pickup","ball-ready","ball-hit","ball-miss","eat","meal"];
             foreach(string action in actions)
             {
                 var motions=outfit=="original"?c.Motions:c.Outfits[outfit].Motions;
@@ -74,5 +74,6 @@ internal static class ChibiVerification
             }
         }
         File.WriteAllLines(Path.Combine(output,"chibi-check.txt"),checks.Append($"{checks.Count} Q wardrobe action checks passed."));
+        pet.EndPreview();
     }
 }

@@ -8,7 +8,7 @@
   if (!D || !M) { $('#load-error').hidden = false; $('#load-error').textContent = '素材索引未载入。请从桌面的 DeepSeek-動作Demo 入口打开已安装的 Demo。'; return; }
 
   let W = stage.clientWidth, H = stage.clientHeight, scale = 1.25, outfit = 'original', group = 'care';
-  const s = M.create(W), menuEl = $('#radial-menu');
+  const s = M.create(W), menuEl = $('#radial-menu');s.tier=3;
   const tiers = [
     {name:'黑金',css:'black',material:'曜石 · 香槟金',level:4},
     {name:'白金',css:'platinum',material:'浅玉 · 拉丝金属',level:3},
@@ -16,10 +16,13 @@
     {name:'白银',css:'silver',material:'月光 · 冷银',level:1},
     {name:'黄铜',css:'brass',material:'暖砂 · 黄铜',level:0}
   ];
-  let palette = 'jade', actionStamp = '', lastTime = 0, lastFrame = null, lastLook = '';
+  let actionStamp = '', lastTime = 0, lastFrame = null, lastLook = '', poseDebug=null, poseRenderer=null;
   let fx = {bubbles:[],stars:[],pops:[],nextBubble:0,catchGlow:0,landAt:0};
   let talk = {phase:'welcome',started:0,message:'想聊点什么？我在听。',turn:0,until:0};
   const errors = [], cache = new Map();
+  const poseMotion=globalThis.ClubPoseMotion;
+  try {poseRenderer=new ClubPoseRenderer($('#pose-canvas'),globalThis.CLUB_POSES);poseRenderer.load().catch(reportPoseError);}catch(error){reportPoseError(error);}
+  function reportPoseError(error){errors.push(String(error));$('#load-error').hidden=false;$('#load-error').textContent='专用动作加载失败：'+error.message;}
   const clamp = (v,a,b) => Math.max(a,Math.min(b,v));
   const ease = t => { t=clamp(t,0,1); return t*t*(3-2*t); };
   const lerp = (a,b,t) => a+(b-a)*t;
@@ -51,13 +54,19 @@
   function frameSelection() {
     let clip = M.actions[s.action].clip, time = s.elapsed;
     if(walking()){clip='walk';time=s.phase%(D.clips[look()].walk.cycleMs || 960);}
-    else if(['comb','wipe','breathe','bubbles','stars','butterfly'].includes(s.action)||s.action==='peek'){clip='listen';time=0;}
+    else if(['comb','wipe','stretch','bubbles','stars','butterfly'].includes(s.action)||s.action==='peek'){clip='listen';time=0;}
     else if(s.action==='chat') {clip=talk.phase==='thinking'?'thinking':talk.phase==='reply'?'chat':'listen';time=s.age-talk.started;}
     const animation=D.clips[look()][clip] || D.clips[look()].listen;
     const index=Math.min(animation.frames.length-1,Math.floor(Math.max(0,time)/D.sampleMs));
     return {id:animation.frames[index],index,animation,clip};
   }
   function drawActor() {
+    const motion=poseMotion.sample(s.action,s.elapsed);poseDebug=null;
+    if(motion&&poseRenderer?.ready){
+      const height=(s.style==='chibi'?185:237)*scale;
+      poseRenderer.draw(`${look()}:${motion.a}`,`${look()}:${motion.b}`,motion.t,s.x,feet(),height);
+      poseDebug={...motion,look:look(),height};return;
+    }
     const selection=frameSelection(), currentLook=look();
     if(lastLook!==currentLook){lastLook=currentLook;lastFrame=null;}
     const im=getFrame(selection.id);if(im)lastFrame={image:im,id:selection.id,look:currentLook};
@@ -65,7 +74,6 @@
     if(!lastFrame)return;
     ctx.save();ctx.translate(s.x,feet());
     if(walking())ctx.scale(s.dir,1);
-    if(s.action==='breathe')ctx.translate(0,-Math.sin(s.elapsed/6000*Math.PI*2)*.65);
     ctx.drawImage(lastFrame.image,-280*scale,-468*scale,560*scale,680*scale);ctx.restore();
   }
   function roundedRect(x,y,w,h,r,fill,stroke) {
@@ -78,13 +86,6 @@
   }
   function twinkle(x,y,r=4,color='#cbb082'){line([[x-r,y],[x+r,y]],color,1.1);line([[x,y-r],[x,y+r]],color,1.1);}
   function textAt(message,x,y,color='#ac91a4'){ctx.fillStyle=color;ctx.font='11px "Segoe UI","Microsoft YaHei",sans-serif';ctx.textAlign='center';ctx.fillText(message,x,y);}
-  function careBehind() {
-    if(s.action!=='breathe')return;
-    const f=anchor('face'),phase=(s.elapsed%6000)/6000,inhale=phase<.5;
-    const expansion=inhale?ease(phase*2):1-ease((phase-.5)*2),radius=72+expansion*30;
-    ctx.save();ctx.globalAlpha=.42;const grad=ctx.createRadialGradient(s.x,f.y+45,20,s.x,f.y+45,radius+20);grad.addColorStop(0,'#ebdfea00');grad.addColorStop(.75,'#e1dbea55');grad.addColorStop(1,'#e1dbea00');ctx.fillStyle=grad;ctx.beginPath();ctx.arc(s.x,f.y+45,radius+20,0,Math.PI*2);ctx.fill();ctx.strokeStyle='#c4b7d6';ctx.lineWidth=1.7;ctx.beginPath();ctx.arc(s.x,f.y+45,radius,0,Math.PI*2);ctx.stroke();ctx.restore();
-    textAt(inhale?'吸气…':'呼气…',s.x,f.y-72,'#9983ac');
-  }
   function combEffect() {
     const h=anchor('hair'),t=s.elapsed,cycle=t%1650;
     const stroke=ease(clamp((cycle-200)/1000,0,1)),side=Math.floor(t/1650)%2?-1:1;
@@ -103,18 +104,21 @@
     roundedRect(-10,-9,20,19,5,'#fcf5ec','#dccbbb');line([[-6,-4],[6,-4]],'#e9d8d8');line([[-6,4],[6,4]],'#e9d8d8');ctx.restore();
     if(t>1400) {ctx.save();ctx.globalAlpha=.6*fade;twinkle(f.x-side*24*scale,f.y+8,3,'#d6b9c8');ctx.restore();}
   }
-  function bubblePosition(b) { const age=(s.elapsed-b.born)/1000;return {x:b.x+Math.sin(age*1.5+b.seed)*18+age*b.drift,y:b.y-age*(21+b.seed*3),r:b.r}; }
+  function bubblePosition(b) { const age=(s.elapsed-b.born)/1000;return {x:b.x+Math.sin(age*1.5+b.seed)*7+age*b.drift,y:b.y-age*(21+b.seed*3),r:b.r}; }
+  function bubbleSource(){const height=(s.style==='chibi'?185:237)*scale;return {x:s.x-height*(s.style==='chibi'?.17:.055),y:feet()-height*(s.style==='chibi'?.43:.80)};}
   function drawBubbles() {
-    const mouth=anchor('mouth');
-    // A small soap ring beside the mouth belongs only to the bubble interaction.
-    ctx.save();ctx.strokeStyle='#c0a2b6';ctx.lineWidth=1.4;ctx.beginPath();ctx.arc(mouth.x+19,mouth.y,5,0,Math.PI*2);ctx.stroke();line([[mouth.x+19,mouth.y+5],[mouth.x+24,mouth.y+20]],'#c0a2b6');ctx.restore();
     for(const b of fx.bubbles){const p=bubblePosition(b);ctx.save();ctx.globalAlpha=Math.min(1,(s.elapsed-b.born)/300);const g=ctx.createLinearGradient(p.x-p.r,p.y-p.r,p.x+p.r,p.y+p.r);g.addColorStop(0,'#afcde788');g.addColorStop(.5,'#e2c1da77');g.addColorStop(1,'#b4d9cd99');ctx.fillStyle='#ffffff18';ctx.strokeStyle=g;ctx.lineWidth=1.7;ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fill();ctx.stroke();ctx.beginPath();ctx.strokeStyle='#fff';ctx.arc(p.x-1,p.y-1,p.r*.65,Math.PI*1.1,Math.PI*1.5);ctx.stroke();ctx.restore();}
   }
-  function restingStar(p){return {x:p.x,y:p.y+Math.sin(s.elapsed/830+p.seed)*9,r:15};}
+  function restingStar(p){const f=anchor('face');return {x:clamp(s.x+p.dx,25,W-25),y:Math.max(48,f.y-p.dy-(s.style==='chibi'?45:0))+Math.sin(s.elapsed/1200+p.seed)*2,r:15};}
   function drawStars() {
-    const h=anchor('hands');
-    for(const p of fx.stars){let pos=restingStar(p);if(p.flight!=null){const t=clamp((s.elapsed-p.flight)/800,0,1),u=ease(t);pos={x:lerp(p.from.x,h.x,u),y:lerp(p.from.y,h.y-3,u)-Math.sin(t*Math.PI)*23};}star(pos.x,pos.y,p.flight!=null?11:14,'#ecd088',Math.sin(s.elapsed/1400+p.seed)*.15);}
-    if(fx.catchGlow>s.elapsed){const t=1-(fx.catchGlow-s.elapsed)/1000;ctx.save();ctx.globalAlpha=1-t;star(h.x,h.y-4,9,'#f4cd69');for(let i=0;i<5;i++){const a=i*1.25;twinkle(h.x+Math.cos(a)*(15+t*25),h.y+Math.sin(a)*(15+t*25),3);}ctx.restore();}
+    const count=poseMotion.sample('stars',s.elapsed).count;
+    for(let i=0;i<fx.stars.length;i++){
+      const p=restingStar(fx.stars[i]),active=i===count-1;
+      if(active){ctx.save();ctx.globalAlpha=.16;dot(p.x,p.y,27,'#e5b357');ctx.restore();twinkle(p.x+22,p.y-8,3);}
+      star(p.x,p.y,active?17:13,i<count?'#e5bf68':'#dbd1ba',Math.sin(s.elapsed/1400+i)*.08);
+      if(i<count)textAt(String(i+1),p.x,p.y+33,'#b2955d');
+    }
+    const f=anchor('face');if(count){const label=count===5?'五颗，数完啦！':['一颗','两颗','三颗','四颗'][count-1],x=s.x+(s.x<=W/2?1:-1)*(s.style==='chibi'?145:110),y=f.y+16;ctx.lineWidth=1;roundedRect(x-47,y-18,94,29,14,'#ffffffdd','#e9dfeb');textAt(label,x,y,'#9b83a5');}
   }
   function butterflyPosition(){
     if(walking())return {x:s.target+Math.sin(s.elapsed/350)*10,y:anchor('face').y-22+Math.sin(s.elapsed/280)*11,landed:false};
@@ -130,24 +134,24 @@
   }
   function updateFx(){
     if(s.action==='bubbles'){
-      if(s.elapsed>=fx.nextBubble){const m=anchor('mouth'),seed=(fx.nextBubble/820)%7;fx.bubbles.push({born:s.elapsed,x:m.x+20,y:m.y,r:12+seed*1.8,seed,drift:seed%2?6:-8});fx.nextBubble=s.elapsed+820;}
+      const motion=poseMotion.sample('bubbles',s.elapsed);
+      if(motion.blowing&&poseRenderer?.ready&&s.elapsed>=fx.nextBubble){const m=bubbleSource(),seed=fx.bubbles.length%7;fx.bubbles.push({born:s.elapsed,x:m.x,y:m.y,r:9+seed*1.5,seed,drift:-27-seed*3});fx.nextBubble=s.elapsed+270;}
       fx.bubbles=fx.bubbles.filter(b=>s.elapsed-b.born<9000&&bubblePosition(b).y>-35);
     }
     if(s.action==='stars'){
-      fx.stars=fx.stars.filter(p=>{if(p.flight!=null&&s.elapsed-p.flight>=800){s.score++;fx.catchGlow=s.elapsed+1000;return false;}return true;});
-      if(!fx.stars.length&&s.elapsed+2500<M.actions.stars.duration)seedStars();
+      s.score=poseMotion.sample('stars',s.elapsed).count;
     }
     if(s.action==='butterfly'){if(walking())fx.landAt=s.elapsed;}
     fx.pops=fx.pops.filter(p=>s.elapsed-p.born<500);
   }
-  function seedStars(){fx.stars=Array.from({length:5},(_,i)=>({x:W*.15+i*W*.17,y:70+(i%2)*45,seed:i,flight:null}));}
+  function seedStars(){fx.stars=Array.from({length:5},(_,i)=>({dx:[-118,-68,-8,68,118][i],dy:[57,95,111,95,57][i],seed:i}));}
   function resetFx(){fx={bubbles:[],stars:[],pops:[],nextBubble:0,catchGlow:0,landAt:0};if(s.action==='stars')seedStars();if(s.action==='butterfly')s.target=clamp(s.x+W*.22,edge(),W-edge());}
   function drawFx(){
     if(s.action==='comb')combEffect();if(s.action==='wipe')wipeEffect();if(s.action==='bubbles')drawBubbles();if(s.action==='stars')drawStars();if(s.action==='butterfly')drawButterfly();
     for(const p of fx.pops){let t=(s.elapsed-p.born)/500;ctx.save();ctx.globalAlpha=1-t;for(let i=0;i<6;i++){let a=i*Math.PI/3;dot(p.x+Math.cos(a)*t*28,p.y+Math.sin(a)*t*28,2,'#bda3c8');}ctx.restore();}
   }
   function renderTiers(){
-    $('#tier-cards').innerHTML=tiers.map((t,i)=>`<button class="tier-card ${t.css}" data-tier="${t.level}" aria-pressed="${s.tier===t.level}" aria-label="预览${t.name}，测试全部开放"><span class="card-number">CLOUD / 0${5-i}</span><span class="card-crest">${icon('cloud')}</span><strong>${t.name}</strong><span class="material-name">${t.css==='platinum'&&palette==='emerald'?'翡翠 · 拉丝金属':t.material}</span><span class="card-open">测试开放</span></button>`).join('');
+    $('#tier-cards').innerHTML=tiers.map((t,i)=>`<button class="tier-card ${t.css}" data-tier="${t.level}" aria-pressed="${s.tier===t.level}" aria-label="预览${t.name}，测试全部开放"><span class="card-number">CLOUD / 0${5-i}</span><span class="card-crest">${icon('cloud')}</span><strong>${t.name}</strong><span class="material-name">${t.material}</span><span class="card-open">测试开放</span></button>`).join('');
     $('#tier-note').textContent=`当前预览：${tiers.find(t=>t.level===s.tier).name} · 聊天与互动全部开放`;
   }
   function renderActions(){
@@ -170,14 +174,16 @@
     actionStamp='';syncStatus();if(key==='chat')setTimeout(()=>$('#chat-input').focus(),0);
   }
   function syncStatus(){
-    const stamp=[s.action,s.hideStage,s.score,s.paused,talk.phase].join('|');
+    const motion=poseMotion.sample(s.action,s.elapsed);
+    const stamp=[s.action,s.hideStage,s.score,s.paused,talk.phase,motion?.phase].join('|');
     if(stamp!==actionStamp){
       actionStamp=stamp;let title=M.actions[s.action].title;
       if(s.action==='peek')title=s.hideStage==='hidden'?'藏好了…':s.hideStage==='returning'?'找到啦，走回来':'去藏起来';
       if(s.action==='chat'&&talk.phase==='thinking')title='想一想…';
+      if(motion)title=M.actions[s.action].title+' · '+motion.phase;
       $('#action-status').textContent=title+(s.paused?' · 已暂停':'');
       $('#action-hint').textContent=M.actions[s.action].hint || (s.action==='peek'?'每次随机选一边。左键找到；右键开菜单，仍然躲藏。':s.action==='chat'?'直接在角色上方聊天，回复前先思考 1 秒。':'右键只开关菜单，动作继续。试试右边的新互动。');
-      $('#score').hidden=!['stars','bubbles'].includes(s.action);$('#score').textContent=`${s.action==='stars'?'接住':'戳破'} ${s.score}`;
+      $('#score').hidden=!['stars','bubbles'].includes(s.action);$('#score').textContent=s.action==='stars'?`数了 ${s.score} / 5 颗`:`戳破 ${s.score}`;
       $$('#action-list [data-action]').forEach(b=>{b.classList.toggle('active',b.dataset.action===s.action);b.setAttribute('aria-pressed',String(b.dataset.action===s.action));});
       const find=$('#find-pet');find.hidden=!(s.action==='peek'&&s.hideStage==='hidden');find.style.left=s.hideSide<0?'9px':'auto';find.style.right=s.hideSide>0?'9px':'auto';
     }
@@ -193,7 +199,7 @@
     const before=W;W=stage.clientWidth;H=stage.clientHeight;scale=Math.min(1.25,W/380);
     const dpr=Math.min(devicePixelRatio||1,2);canvas.width=Math.round(W*dpr);canvas.height=Math.round(H*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);ctx.lineCap='round';ctx.lineJoin='round';ctx.imageSmoothingEnabled=true;ctx.imageSmoothingQuality='high';
     s.edgePadding=edge();
-    if(before!==W){s.x=s.x/before*W;if(s.action!=='peek')s.x=clamp(s.x,edge(),W-edge());if(s.target!=null)s.target=clamp(s.target/before*W,edge(),W-edge());for(const p of fx.stars)p.x=p.x/before*W;}
+    if(before!==W){s.x=s.x/before*W;if(s.action!=='peek')s.x=clamp(s.x,edge(),W-edge());if(s.target!=null)s.target=clamp(s.target/before*W,edge(),W-edge());}
     renderMenu();
   }
   function changeLook(){
@@ -217,8 +223,8 @@
       const hit=fx.bubbles.findIndex(b=>{const q=bubblePosition(b);return Math.hypot(q.x-p.x,q.y-p.y)<q.r+10;});
       if(hit>=0){const q=bubblePosition(fx.bubbles[hit]);fx.bubbles.splice(hit,1);fx.pops.push({...q,born:s.elapsed});s.score++;}
     }else if(s.action==='stars'){
-      const hit=fx.stars.find(star=>{const q=restingStar(star);return star.flight==null&&Math.hypot(q.x-p.x,q.y-p.y)<26;});
-      if(hit){hit.flight=s.elapsed;hit.from=restingStar(hit);}
+      const hit=fx.stars.find(star=>{const q=restingStar(star);return Math.hypot(q.x-p.x,q.y-p.y)<26;});
+      if(hit)setAction('stars');
     }else if(s.action==='butterfly'){s.target=clamp(p.x,edge(),W-edge());fx.landAt=s.elapsed;}
     syncStatus();
   });
@@ -238,7 +244,6 @@
   $('#action-list').addEventListener('click',e=>{const b=e.target.closest('[data-action]');if(b)setAction(b.dataset.action);});
   $$('.category-tabs button').forEach(b=>b.addEventListener('click',()=>{group=b.dataset.group;$$('.category-tabs button').forEach(x=>{const selected=x===b;x.classList.toggle('selected',selected);x.setAttribute('aria-selected',selected);});renderActions();}));
   for(const selector of ['.style-options','.outfit-options'])$$(selector+' button').forEach(b=>b.addEventListener('click',()=>{$$(selector+' button').forEach(x=>{x.classList.toggle('selected',x===b);x.setAttribute('aria-pressed',x===b);});changeLook();}));
-  $$('.palette-options [data-palette]').forEach(b=>b.addEventListener('click',()=>{palette=b.dataset.palette;document.body.dataset.palette=palette;$$('.palette-options [data-palette]').forEach(x=>{x.classList.toggle('selected',x===b);x.setAttribute('aria-pressed',x===b);});renderTiers();}));
   $('#tier-cards').addEventListener('click',e=>{const b=e.target.closest('[data-tier]');if(b){s.tier=+b.dataset.tier;renderTiers();}});
   $('#chat-form').addEventListener('submit',e=>{
     e.preventDefault();if(s.action!=='chat'||talk.phase==='thinking')return;
@@ -260,16 +265,17 @@
   });
   function animate(now){
     const dt=lastTime?Math.min(now-lastTime,100):0;lastTime=now;const old=s.action,oldElapsed=s.elapsed;
-    M.tick(s,dt,W,speed());
+    if(!poseMotion.sample(s.action,s.elapsed)||poseRenderer?.ready)M.tick(s,dt,W,speed());
     if(old!==s.action||s.elapsed<oldElapsed)resetFx();
     if(!s.paused){updateFx();if(s.action==='chat'&&talk.phase==='thinking'&&s.age>=talk.until){talk.phase='reply';talk.message=reply(talk.prompt);talk.started=s.age;}else if(talk.phase==='reply'&&s.age-talk.started>2600)talk.phase='listen';}
-    ctx.clearRect(0,0,W,H);careBehind();drawActor();drawFx();syncStatus();requestAnimationFrame(animate);
+    ctx.clearRect(0,0,W,H);poseRenderer?.clear();drawActor();drawFx();syncStatus();requestAnimationFrame(animate);
   }
   document.addEventListener('visibilitychange',()=>lastTime=0);
   new ResizeObserver(resize).observe(stage);resize();renderTiers();renderActions();syncStatus();requestAnimationFrame(animate);
   // Read-only browser inspection plus explicit action selection for repeatable Demo QA.
   globalThis.__clubDemo={
-    snapshot:()=>({action:s.action,elapsed:s.elapsed,x:s.x,phase:s.phase,dir:s.dir,menu:s.menu,hideStage:s.hideStage,hideSide:s.hideSide,hideHistory:[...s.hideHistory],paused:s.paused,look:look(),tier:s.tier,score:s.score,thinking:talk.phase==='thinking',reply:talk.message,frame:lastFrame?.id,frameLook:lastFrame?.look,cacheSize:cache.size,errors:[...errors],scale,edgePadding:s.edgePadding,width:W,anchors:{face:anchor('face'),hands:anchor('hands'),hair:anchor('hair')},targets:s.action==='bubbles'?fx.bubbles.map(bubblePosition):s.action==='stars'?fx.stars.filter(p=>p.flight==null).map(restingStar):[],butterfly:s.action==='butterfly'?butterflyPosition():null}),
-    play:setAction
+    snapshot:()=>({action:s.action,elapsed:s.elapsed,x:s.x,phase:s.phase,dir:s.dir,menu:s.menu,hideStage:s.hideStage,hideSide:s.hideSide,hideHistory:[...s.hideHistory],paused:s.paused,look:look(),tier:s.tier,score:s.score,thinking:talk.phase==='thinking',reply:talk.message,frame:poseDebug?`pose:${poseDebug.look}:${poseDebug.a}`:lastFrame?.id,frameLook:poseDebug?.look||lastFrame?.look,pose:poseDebug,poseReady:!!poseRenderer?.ready,cacheSize:cache.size,errors:[...errors],scale,edgePadding:s.edgePadding,width:W,anchors:{face:anchor('face'),hands:anchor('hands'),hair:anchor('hair')},bubbleSource:bubbleSource(),targets:s.action==='bubbles'?fx.bubbles.map(bubblePosition):s.action==='stars'?fx.stars.map(restingStar):[],butterfly:s.action==='butterfly'?butterflyPosition():null}),
+    play:setAction,
+    seek:(key,ms)=>{setAction(key);s.elapsed=clamp(ms,0,M.actions[key].duration);s.paused=true;resetFx();updateFx();$('#pause-button').innerHTML=icon('resume');$('#pause-button').setAttribute('aria-label','继续');syncStatus();}
   };
 })();

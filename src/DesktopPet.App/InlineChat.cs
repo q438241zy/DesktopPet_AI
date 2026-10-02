@@ -22,6 +22,7 @@ internal sealed class InlineChat : Border, IDisposable
     private CancellationTokenSource? pending;
     private string family = "", apiKey = "";
     private bool disposed;
+    private int sessionGeneration;
     internal ChatOptions Options { get; private set; } = new();
     internal IReadOnlyList<ChatMessage> History => history;
     internal bool IsThinking => pending is { IsCancellationRequested: false };
@@ -56,6 +57,7 @@ internal sealed class InlineChat : Border, IDisposable
     }
     internal void Open()
     {
+        if (!pet.AccessTo("chat").Allowed) return;
         SetCompanion(); Visibility = Visibility.Visible;
         if (pet.IsHitTestVisible) { pet.Activate(); input.Focus(); Keyboard.Focus(input); }
     }
@@ -63,6 +65,10 @@ internal sealed class InlineChat : Border, IDisposable
     {
         pending?.Cancel(); Visibility = Visibility.Collapsed;
         pet.EndConversation();
+    }
+    internal void ResetSession()
+    {
+        sessionGeneration++; Close(); history.Clear(); input.Clear(); reply.Text = "今天想聊些什么？"; apiKey = "";
     }
     internal void SetCompanion()
     {
@@ -94,23 +100,23 @@ internal sealed class InlineChat : Border, IDisposable
     }
     internal async Task SendText(string text)
     {
-        if (pending is not null || disposed || Visibility != Visibility.Visible || string.IsNullOrWhiteSpace(text)) return;
+        if (!pet.AccessTo("chat").Allowed || pending is not null || disposed || Visibility != Visibility.Visible || string.IsNullOrWhiteSpace(text)) return;
         text = text.Trim(); if (text.Length > 4000) text = text[..4000];
-        string turnFamily = family; var turnOptions = Options; string turnKey = apiKey;
+        string turnFamily = family; int turnSession = sessionGeneration; var turnOptions = Options; string turnKey = apiKey;
         history.Add(new("user", text)); input.Clear(); reply.Text = "…";
         var cancellation = new CancellationTokenSource(); pending = cancellation;
         send.Visibility = Visibility.Collapsed; stop.Visibility = Visibility.Visible; pet.ConversationThinking();
         try
         {
             string answer = await CompanionChat.ReplyAfterThinkingAsync(client, turnOptions, turnKey, history.ToArray(), pet.Character.Name, cancellation.Token);
-            if (disposed || turnFamily != family || cancellation.IsCancellationRequested || Visibility != Visibility.Visible) return;
+            if (disposed || turnFamily != family || turnSession != sessionGeneration || cancellation.IsCancellationRequested || Visibility != Visibility.Visible) return;
             history.Add(new("assistant", answer)); if (history.Count > 48) history.RemoveRange(0, history.Count - 48);
             reply.Text = answer; pet.ConversationReply(answer);
         }
-        catch (OperationCanceledException) { if (!disposed && turnFamily == family) { reply.Text = cancellation.IsCancellationRequested ? "已停止" : "回复超时，请重试。"; pet.ConversationListen(); } }
+        catch (OperationCanceledException) { if (!disposed && turnFamily == family && turnSession == sessionGeneration) { reply.Text = cancellation.IsCancellationRequested ? "已停止" : "回复超时，请重试。"; pet.ConversationListen(); } }
         catch (ObjectDisposedException) when (disposed) { }
         catch (Exception ex) when (ex is HttpRequestException or JsonException or IOException or ArgumentException or FormatException)
-        { if (!disposed && turnFamily == family) { reply.Text = ex.Message; pet.ConversationListen(); } }
+        { if (!disposed && turnFamily == family && turnSession == sessionGeneration) { reply.Text = ex.Message; pet.ConversationListen(); } }
         finally
         {
             if (ReferenceEquals(pending, cancellation)) pending = null;

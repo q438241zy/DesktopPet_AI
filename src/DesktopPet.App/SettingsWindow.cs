@@ -11,7 +11,7 @@ using DesktopPet.Core;
 namespace DesktopPet.App;
 
 /// <summary>The character, life and creator controls share the live desktop pet's state.</summary>
-public sealed class SettingsWindow : Window
+public sealed partial class SettingsWindow : Window
 {
     private readonly PetWindow pet;
     private readonly StackPanel content = new();
@@ -47,10 +47,10 @@ public sealed class SettingsWindow : Window
         brand.Children.Add(new TextBlock { Text = "云朵伙伴", FontSize = 21, FontWeight = FontWeights.SemiBold, Margin = new Thickness(0, 12, 0, 5) });
         brand.Children.Add(new TextBlock { Text = "你的桌边小小陪伴", Foreground = muted, FontSize = 11 });
         DockPanel.SetDock(brand, Dock.Top); sidebar.Children.Add(brand);
-        var foot = new StackPanel { Margin = new Thickness(12, 0, 0, 0) }; foot.Children.Add(new TextBlock { Text = "●  正在桌面陪伴", Foreground = CloudTheme.Brush("#967460"), FontSize = 11 }); foot.Children.Add(new TextBlock { Text = "DesktopPet  /  1.2 Preview 19", FontSize = 10, Foreground = muted, Margin = new Thickness(0, 8, 0, 0) });
+        var foot = new StackPanel { Margin = new Thickness(12, 0, 0, 0) }; foot.Children.Add(new TextBlock { Text = "●  正在桌面陪伴", Foreground = CloudTheme.Brush("#967460"), FontSize = 11 }); foot.Children.Add(new TextBlock { Text = "DesktopPet  /  1.2 Preview 20", FontSize = 10, Foreground = muted, Margin = new Thickness(0, 8, 0, 0) });
         DockPanel.SetDock(foot, Dock.Bottom); sidebar.Children.Add(foot);
         var nav = new StackPanel(); sidebar.Children.Add(nav);
-        foreach (var (id, label, icon) in new[] { ("partners", "我的伙伴", "heart"), ("styles", "风格预览", "cube"), ("life", "陪伴日常", "sun"), ("studio", "角色工坊", "brush"), ("preferences", "桌面偏好", "settings") })
+        foreach (var (id, label, icon) in new[] { ("partners", "我的伙伴", "heart"), ("members", "会员中心", "member"), ("styles", "风格预览", "cube"), ("life", "陪伴日常", "sun"), ("studio", "角色工坊", "brush"), ("preferences", "桌面偏好", "settings") })
         {
             var b = MakeButton(label, () => Navigate(id), icon); b.HorizontalContentAlignment = HorizontalAlignment.Left; b.Padding = new Thickness(12, 11, 6, 11); b.Margin = new Thickness(0, 0, 0, 5); b.BorderThickness = new Thickness(0); navigation[id] = b; nav.Children.Add(b);
         }
@@ -87,7 +87,7 @@ public sealed class SettingsWindow : Window
     {
         content.Children.Clear();
         foreach (var (id, b) in navigation) { b.Background = id == page ? CloudTheme.Brush("#F3DCE5") : Brushes.Transparent; b.Foreground = id == page ? CloudTheme.Blue : CloudTheme.Ink; b.FontWeight = id == page ? FontWeights.SemiBold : FontWeights.Normal; }
-        switch (page) { case "styles": Styles(); break; case "life": Life(); break; case "studio": Studio(); break; case "preferences": Preferences(); break; default: Partners(); break; }
+        switch (page) { case "members": Members(); break; case "styles": Styles(); break; case "life": Life(); break; case "studio": Studio(); break; case "preferences": Preferences(); break; default: Partners(); break; }
     }
     private Grid Stage(Character character, double height, string outfit = "original")
     {
@@ -98,6 +98,7 @@ public sealed class SettingsWindow : Window
     private void Partners()
     {
         Heading("", "我的伙伴", "选一个喜欢的伙伴，让今天多一点陪伴。");
+        MemberHome();
         var hero = new Grid(); hero.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(236) }); hero.ColumnDefinitions.Add(new ColumnDefinition());
         hero.Children.Add(Stage(pet.Character, 182, pet.State.Outfit));
         var intro = new StackPanel { VerticalAlignment = VerticalAlignment.Center, Margin = new Thickness(18, 0, 0, 0) }; Grid.SetColumn(intro, 1); hero.Children.Add(intro);
@@ -202,9 +203,12 @@ public sealed class SettingsWindow : Window
         var actions = new System.Windows.Controls.Primitives.UniformGrid { Columns = 4 };
         foreach (var entry in PetActions.Daily.Where(e => e.Key != "dance" || pet.CanDance))
         {
-            var tile = new StackPanel(); var icon = CloudTheme.Icon(entry.Icon, 25); icon.Foreground = CloudTheme.Blue; icon.HorizontalAlignment = HorizontalAlignment.Left; tile.Children.Add(icon);
+            var access = pet.AccessTo(entry.Key);
+            var tile = new StackPanel(); var icon = MemberVisual.ActionIcon(entry.Icon, !access.Allowed); icon.HorizontalAlignment = HorizontalAlignment.Left; tile.Children.Add(icon);
             tile.Children.Add(new TextBlock { Text = entry.Title, FontSize = 13, FontWeight = FontWeights.SemiBold, Margin = new Thickness(0, 10, 0, 4) });
-            var b = MakeButton(entry.Title, () => pet.RunInteraction(entry.Key)); b.Content = tile; b.HorizontalContentAlignment = HorizontalAlignment.Stretch; b.Height = 88; b.Padding = new Thickness(14); actions.Children.Add(b);
+            var b = MakeButton(entry.Title, () => pet.RunInteraction(entry.Key)); b.Content = tile; b.HorizontalContentAlignment = HorizontalAlignment.Stretch; b.Height = 88; b.Padding = new Thickness(14);
+            if (!access.Allowed) { b.ToolTip = access.Hint; AutomationProperties.SetHelpText(b, access.Hint); }
+            actions.Children.Add(b);
         }
         content.Children.Add(actions);
         var owned = pet.State.Treasures.Select(Collectibles.FromSavedName).Where(x => x is not null).GroupBy(x => x!.Id).ToDictionary(g => g.Key, g => g.Count());
@@ -251,7 +255,7 @@ public sealed class SettingsWindow : Window
         Toggle("鼠标穿透（Ctrl+Alt+L 恢复）", pet.IsClickThrough, pet.SetClickThrough);
         content.Children.Add(Card(panel));
         content.Children.Add(Text("角色聊天", 17));
-        content.Children.Add(Text("直接在角色上方输入。每次回复前至少思考 1 秒；API 地址留空时使用本机预设对话。", 12, true));
+        content.Children.Add(Text("黄金及以上开放。直接在角色上方输入，每次回复前至少思考 1 秒；API 地址留空时使用本机预设对话。", 12, true));
         content.Children.Add(Card(pet.Chat.SettingsPanel()));
         content.Children.Add(Text("Ctrl+Alt+U  显示 / 隐藏     Ctrl+Alt+S  打开云朵伙伴\nCtrl+Alt+L  解除鼠标穿透     Esc  取消当前互动", 12, true));
         var buttons = new WrapPanel(); buttons.Children.Add(MakeButton("打开本地存档", () => { Directory.CreateDirectory(App.DataRoot); Process.Start(new ProcessStartInfo(App.DataRoot) { UseShellExecute = true }); }));

@@ -9,6 +9,7 @@ void Test(string name, Action run)
 }
 void Equal<T>(T expected, T actual) { if (!EqualityComparer<T>.Default.Equals(expected, actual)) throw new Exception($"Expected {expected}; got {actual}"); }
 void Reject(Action run) { try { run(); } catch (InvalidDataException) { return; } throw new Exception("Invalid input was accepted"); }
+MembershipTests.Run(Test);
 
 Test("care tolerates a delayed frame and sleep belongs only to lullaby", () =>
 {

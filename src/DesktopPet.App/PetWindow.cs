@@ -74,6 +74,7 @@ public sealed class PetWindow : Window
     internal RigVisual? ActiveDance => dance is null ? null : danceVisual;
     internal bool CanDance => PortraitRig.SupportsDance(Character.Category, Character.FamilyId) && Character.MotionFor(State.Outfit,"dance")?.DanceRig is not null;
     internal string CurrentAction => action;
+    internal bool IsMenuOpen => menu.Children.Count > 0;
     private DesktopHost? desktop;
     private SettingsWindow? settings;
     private InlineChat? chatWindow;
@@ -88,6 +89,12 @@ public sealed class PetWindow : Window
     private Point downScreen, downWindow, ballPrevious;
     private double ballX, ballY, ballVx, ballVy, ballSampleTime, ballStarted, roamDeadline;
     private int direction = -1;
+    private int nextTouch;
+    private CareRoutine? careRoutine;
+    private double careStarted;
+    private int careStep = -1;
+    internal string? CurrentCare => careRoutine?.Key;
+    internal string CurrentSpeech => speech.Text;
     private string? prop;
     private double propStart;
     private DateOnly day;
@@ -118,6 +125,11 @@ public sealed class PetWindow : Window
     }
     internal void PreviewDance(double elapsed)
     { previewClock=elapsed; dance ??= new PetDance(); action="dance"; actionStarted=0; actionUntil=PetDance.DurationMs; Render(); }
+    internal void PreviewCare(CareRoutine routine, double elapsed)
+    {
+        var pose = routine.At(elapsed);
+        PreviewMotion(pose.Motion, pose.Elapsed, pose.Duration);
+    }
 
     public PetWindow(StateStore store, Catalog catalog)
     {
@@ -135,9 +147,9 @@ public sealed class PetWindow : Window
         bubble = new Border { Background = CloudTheme.Cream, BorderBrush = CloudTheme.Line, BorderThickness = new Thickness(1), CornerRadius = new CornerRadius(20), Padding = new Thickness(15, 10, 15, 10), Width = 238, Child = speech, IsHitTestVisible = false, Visibility = Visibility.Collapsed };
         surface.Children.Add(bubble); surface.Children.Add(ball);
         ball.Visibility = Visibility.Collapsed;
-        AutomationProperties.SetName(sprite, "桌面宠物：点击摸头，拖动抱起，松手放置，按住 Shift 松手下落，来回摇晃会头晕，右键互动");
+        AutomationProperties.SetName(sprite, "桌面宠物：点击轮换摸头、揉脸、挠痒，拖动抱起，松手放置，按住 Shift 松手下落，来回摇晃会头晕，右键聊天与互动");
         sprite.MouseLeftButtonDown += PetDown; sprite.MouseMove += PetMove; sprite.MouseLeftButtonUp += PetUp;
-        sprite.MouseRightButtonUp += (_, e) => { if (menu.Children.Count > 0) menu.Children.Clear(); else ShowMenu(); e.Handled = true; };
+        sprite.MouseRightButtonUp += (_, e) => { HandleRightClick(); e.Handled = true; };
         sprite.LostMouseCapture += (_, _) => { if (pressed) CancelInput(true); };
         sprite.KeyDown += (_, e) => { if (e.Key is Key.Enter or Key.Space) { if (dance is not null) TapDance(); else Touch(.3); e.Handled = true; } else if (e.Key == Key.F10 && Keyboard.Modifiers.HasFlag(ModifierKeys.Shift)) { ShowMenu("root", true); e.Handled = true; } };
         KeyDown += (_, e) => { if (e.Key == Key.Escape) { StopInteraction(); e.Handled = true; } };
@@ -177,7 +189,7 @@ public sealed class PetWindow : Window
         State.LastSeen = day.ToString("yyyy-MM-dd"); Save();
         if (away >= 3) { prop = "blocks"; propStart = Now; Play("pounce", $"{Character.Name}等到你啦，欢迎回来。", 3100); }
         else if (anniversary is not null && State.LastCelebration != State.LastSeen) { State.LastCelebration = State.LastSeen; Celebrate(anniversary); Save(); }
-        else if (!State.CheckedIn(day)) { SetAction("idle"); Render(); Say("点我打卡，一起吃早饭 ☀", 5500); }
+        else if (!State.CheckedIn(day)) { SetAction("idle"); Render(); Say("右键照顾，一起吃早饭 ☀", 5500); }
         else Play("chat", "今天也陪你一起。右键找我玩。", 2600);
         if (actionUntil > 0) onMotionEnd += ResumeFloorWalk;
         else ResumeFloorWalk();
@@ -312,10 +324,26 @@ public sealed class PetWindow : Window
     internal void Touch(double fraction)
     {
         if (resting) { RestorePet(); return; }
-        if (!State.CheckedIn(day)) { CheckIn(); return; }
+        if (FindHiddenPet()) return;
+        string motion = PetActions.Touches[nextTouch].Key;
+        nextTouch = (nextTouch + 1) % PetActions.Touches.Length;
+        RunTouch(motion);
+    }
+    private void RunTouch(string motion)
+    {
         ClearTransient();
-        string motion = PortraitMotion.TouchRegion(Character.Category, fraction);
         Play(motion, motion switch { "headpat" => "再摸摸～", "poke" => "软软的。", _ => "哈哈，好痒！" }, PortraitMotion.Duration(motion));
+    }
+    private bool FindHiddenPet()
+    {
+        if (hideJourney is null) return false;
+        CancelInput(); ClearTransient(); Play("happy", "被你找到啦！", 2000); Save();
+        return true;
+    }
+    internal void HandleRightClick()
+    {
+        if (FindHiddenPet()) return;
+        if (menu.Children.Count > 0) menu.Children.Clear(); else ShowMenu();
     }
     private Point ScreenPoint(MouseEventArgs e)
     {
@@ -331,7 +359,7 @@ public sealed class PetWindow : Window
     internal bool BeginPointerGesture(Point screen)
     {
         if (resting) { RestorePet(); return false; }
-        if (hideJourney is not null) { ClearTransient(); Play("happy", "被你找到啦！", 2000); return false; }
+        if (FindHiddenPet()) return false;
         if (dropping) { CancelChoreography(); Render(); Save(); }
         if (roaming) { roaming = false; SetAction("idle"); Render(); }
         lastInteraction = Now;
@@ -449,7 +477,7 @@ public sealed class PetWindow : Window
         if (hadDrag) TraceMotion("capture-cancelled");
     }
     private void ClearTransient(bool keepChat = false)
-    { ResetShake(); CancelChoreography(); if (!keepChat) chatWindow?.Close(); resting = roaming = exploring = conversationActive = liftedFromTaskbar = false; sprite.Visibility = Visibility.Visible; menu.Children.Clear(); effects.Clear(); prop = null; flyingBall = holdingBall = caughtBall = false; ball.Visibility = Visibility.Collapsed; bubble.Visibility = Visibility.Collapsed; onMotionEnd = null; }
+    { careRoutine = null; careStep = -1; ResetShake(); CancelChoreography(); if (!keepChat) chatWindow?.Close(); resting = roaming = exploring = conversationActive = liftedFromTaskbar = false; sprite.Visibility = Visibility.Visible; menu.Children.Clear(); effects.Clear(); prop = null; flyingBall = holdingBall = caughtBall = false; ball.Visibility = Visibility.Collapsed; bubble.Visibility = Visibility.Collapsed; onMotionEnd = null; }
 
     private void ResetShake()
     { liftActive = false; dizzyUntil = 0; observedReversal = double.NegativeInfinity; shake.Start(0, 0, Now); }
@@ -508,6 +536,8 @@ public sealed class PetWindow : Window
         {
             case "checkin": CheckIn(); break;
             case "snack": Snack(); break;
+            case "headpat": case "poke": case "tickle": RunTouch(key); break;
+            case "praise": case "comfort": case "lullaby": StartCare(CareRoutine.Find(key)!); break;
             case "ball": TakeBall(); break;
             case "blocks": BuildBlocks(); break;
             case "walk": StartWalk(true); break;
@@ -536,6 +566,26 @@ public sealed class PetWindow : Window
     private void Snack() { ClearTransient(); activeFood = Character.MotionFor(State.Outfit, "eat")?.BakedProps == true ? Collectibles.Get("bread") : snacks.Draw(); Play("eat", Character.MotionFor(State.Outfit,"eat")?.BakedProps == true ? "啊呜，好吃。" : activeFood.Name + "，啊呜。", PortraitMotion.Duration("eat")); prop = "food"; propStart = Now; }
     private void BuildBlocks() { ClearTransient(); Play("build", duration: PortraitMotion.Duration("build")); prop = "blocks"; propStart = Now; onMotionEnd = () => prop = null; }
     private void Celebrate(string label) { ClearTransient(); Play("chat", label + "。这封信送给你 ♡", 5200); prop = "letter"; propStart = Now; }
+    private void StartCare(CareRoutine routine)
+    {
+        careRoutine = routine; careStarted = Now; careStep = -1; lastInteraction = Now;
+        UpdateCare(Now); Say(routine.Message, routine.Duration); Render();
+    }
+    private void UpdateCare(double now)
+    {
+        if (careRoutine is not { } routine) return;
+        double elapsed = now - careStarted;
+        if (elapsed >= routine.Duration)
+        {
+            careRoutine = null; careStep = -1; resting = routine.FallsAsleep;
+            SetAction(resting ? "sleep" : "idle"); lastInteraction = now;
+            if (resting) bubble.Visibility = Visibility.Collapsed;
+            return;
+        }
+        var pose = routine.At(elapsed);
+        if (pose.Step == careStep) return;
+        careStep = pose.Step; SetAction(pose.Motion, pose.Duration - pose.Elapsed); actionStarted = now - pose.Elapsed;
+    }
     private void Peek() => BeginHide();
     private void Peek(int side) => BeginHide(side);
     internal void BeginHide(int? side = null)
@@ -633,6 +683,7 @@ public sealed class PetWindow : Window
         double now = Now, walkDt = Math.Clamp((now - lastTick) / 1000, 0, .25), dt = Math.Min(walkDt, .05); lastTick = now;
         var today = DateOnly.FromDateTime(DateTime.Now);
         if (day != today) { day = today; State.LastSeen = day.ToString("yyyy-MM-dd"); Save(); }
+        UpdateCare(now);
         if (actionUntil > 0 && now >= actionUntil)
         {
             var completion = onMotionEnd; onMotionEnd = null; actionUntil = 0; SetAction("idle"); completion?.Invoke();

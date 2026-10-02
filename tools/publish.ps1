@@ -42,6 +42,10 @@ Copy-Item -LiteralPath "$projectRoot/artwork/dance-repair/prompts","$projectRoot
 $scaleDocs = Join-Path $releaseRoot 'artwork/scale-consistency'
 New-Item -ItemType Directory -Path $scaleDocs -Force | Out-Null
 Copy-Item -LiteralPath "$projectRoot/artwork/scale-consistency/README.md","$projectRoot/artwork/scale-consistency/calibration.json" -Destination $scaleDocs -Force
+$snackDocs = Join-Path $releaseRoot 'artwork/snack-correction'
+New-Item -ItemType Directory -Path $snackDocs -Force | Out-Null
+Copy-Item -LiteralPath "$projectRoot/artwork/snack-correction/README.md","$projectRoot/artwork/snack-correction/manifest.json" -Destination $snackDocs -Force
+Copy-Item -LiteralPath "$projectRoot/artwork/snack-correction/prompts","$projectRoot/artwork/snack-correction/results" -Destination $snackDocs -Recurse -Force
 if (Test-Path -LiteralPath $demoPointer) {
     $demoSource = (Get-Content -LiteralPath $demoPointer -Raw).Trim()
     $demoTarget = Join-Path $releaseRoot 'Demo'

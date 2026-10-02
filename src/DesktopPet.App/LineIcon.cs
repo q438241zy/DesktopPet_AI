@@ -58,6 +58,12 @@ internal sealed class LineIcon : Control
     // Literal gestures share one silhouette in the radial menu and daily activity buttons.
     private static readonly Dictionary<string, Geometry> ActionShapes = new Dictionary<string, string>
     {
+        ["comb"] = "M5 4h9q3 0 3 3v6h-3V8H5q-3 0-3-2t3-2Z M5 8v5m3-5v5m3-5v5m3 0h3v7q-1.5 3-3 0Z M20 3v3m-1.5-1.5h3",
+        ["wipe"] = "M5 5q7-3 14 0l1 14q-8 3-16 0Z M7 9h10M8 13q2 2 4 0 2 2 4 0M8 18h8",
+        ["stretch"] = "M10 9a2 2 0 1 0 4 0 2 2 0 1 0-4 0M6 3q0 8 6 10 6-2 6-10M12 13v4m-4 5 4-5 4 5M4 2l2 1 2-1m8 0 2 1 2-1",
+        ["bubbles"] = "M3 15a5 5 0 1 0 10 0 5 5 0 1 0-10 0M12 6a4 4 0 1 0 8 0 4 4 0 1 0-8 0M17 17a2 2 0 1 0 4 0 2 2 0 1 0-4 0M5 13q1-2 3-2",
+        ["stars"] = "m12 3 2.5 5 5.5.8-4 4 .9 5.5-4.9-2.5L7.1 18l.9-5.2-4-4L9.5 8Z M3 21h18",
+        ["butterfly"] = "M12 9C1-5 0 13 10 13 0 18 8 24 12 14 16 24 24 18 14 13 24 13 23-5 12 9ZM12 9v7m-3-13 3 6 3-6",
         ["pose"] = "M9.7,4.8 A2.3,2.3 0 1 0 14.3,4.8 A2.3,2.3 0 1 0 9.7,4.8 M5,5 Q5.5,10 9,10 H14 Q17,10 19,7 M12,10 V15 M8,21 L11,15 Q12,14 13,15 L16,21",
         ["think"] = "M15,10 C13,6 5,6 4,12 C2.5,19 7,22 12,20 Q16,18.5 16,14 M7,13 H8 M11.5,13 H12.5 M9,17 H11 M17,9 L17.1,9 M17,4.5 L17.1,4.5 M20.5,4.5 L20.6,4.5",
         ["jump"] = "M9.7,4.5 A2.3,2.3 0 1 0 14.3,4.5 A2.3,2.3 0 1 0 9.7,4.5 M4.5,4.5 L8,9 Q9,10 12,10 Q15,10 16,9 L19.5,4.5 M12,10 V13 M12,13 L9,16.5 Q8.5,17.5 7.5,17.5 H5.5 M12,13 L15,16.5 Q15.5,17.5 16.5,17.5 H18.5 M8,21.5 H16",

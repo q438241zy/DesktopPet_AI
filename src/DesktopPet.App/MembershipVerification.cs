@@ -78,12 +78,12 @@ internal static class MembershipVerification
         Require(pet.Accounts.CurrentAccount!.Username == username, "actual login reopens the registered account");
         foreach (var tier in Membership.Tiers)
         {
-            fixture.SetTier(tier); bool allowed = tier >= MembershipTier.Gold;
+            fixture.SetTier(tier); bool allowed = Membership.TestingOpen || tier >= MembershipTier.Gold;
             pet.ShowMenu(); pet.UpdateLayout();
             var chat = Find<Button>(pet).Single(b => AutomationProperties.GetName(b) == "聊天");
             Require(Find<MemberLock>(chat).Any() == !allowed, tier + ": root chat uses a cute lock only when gated");
             Require(allowed || AutomationProperties.GetHelpText(chat).Contains("黄金"), tier + ": keyboard and accessible names expose the requirement");
-            if (tier == MembershipTier.Brass) Capture((FrameworkElement)pet.Content, "membership-locked-circle");
+            if (tier == MembershipTier.Brass) Capture((FrameworkElement)pet.Content, "membership-test-open-circle");
             Click("陪伴日常"); var daily = Find<Button>(window).Single(b => AutomationProperties.GetName(b) == "聊天");
             Require(Find<MemberLock>(daily).Any() == !allowed, tier + ": daily chat has the same lock and access rule");
             foreach (string id in new[] { "whale", "deepseek-adult" })
@@ -112,6 +112,8 @@ internal static class MembershipVerification
         }
         fixture.SetTier(MembershipTier.Gold); pet.OpenChat(); var pending = pet.Chat.SendText("晚安"); await Task.Delay(100); fixture.Logout(); await pending;
         Require(pet.ActiveChat is null && pet.Chat.History.Count == 0 && !pet.Chat.IsThinking, "logout cancels pending chat and clears account conversation");
+        pet.OpenChat();Require(pet.Accounts.CurrentAccount is null && pet.ActiveChat is not null,"guest chat is available during testing without creating an account");
+        await pet.Chat.SendText("你好");Require(pet.Chat.History.Count==2 && pet.Chat.ReplyText.Length>4,"guest receives the default local conversation");pet.StopInteraction();
         fixture.UseFullAccess(); window.ShowMembership(); Capture(window, "membership-blackgold");
         window.Close(); pet.StopInteraction();
         File.WriteAllLines(Path.Combine(output, "membership-check.txt"), checks.Append($"PASS {checks.Count} membership, actual registration/login, tier access and account isolation checks."));

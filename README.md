@@ -4,9 +4,9 @@
 
 ![云朵伙伴：角色分类与更衣室](docs/images/pet-home.png)
 
-由 **QQ奶茶大神** 的 UsageDashboard_AI 与 Character_Generator 整合而来，互动和八位 AI 角色的 Q 版画稿来自 DS Go。沿用原生 WPF 透明窗口、托盘与快捷键；取消举看板、余额采集与平台登录。当前分支为 1.2.0-preview.20。
+由 **QQ奶茶大神** 的 UsageDashboard_AI 与 Character_Generator 整合而来，互动和八位 AI 角色的 Q 版画稿来自 DS Go。沿用原生 WPF 透明窗口、托盘与快捷键；取消举看板、余额采集与平台登录。当前分支为 1.2.0-preview.21。
 
-Preview 20 在主页加入会员注册入口与会员中心，提供黑金、白金、黄金、白银、黄铜五档。当前注册与登录使用本机账号，新账号为黄铜；聊天入口对黄金以下显示可爱小锁。其他姿态暂保留现有开放状态，等待等级规则。账号服务器尚未接入，接口与后续分级配置见 [会员制度与验证](docs/membership.md)。
+Preview 21 接入已确认的云朵俱乐部：浅玉金属绿白金、测试阶段所有等级与访客开放、右键只开关菜单、一级「互动」、随机侧躲藏，以及梳头、擦脸、伸懒腰、吹泡泡、数星星、捉蝴蝶。新动作覆盖 8 位角色 × 2 种风格 × 3 套原有服装。注册仍是本机账号，新账号黄铜，实际等级不因测试开放改变；账号服务器尚未接入。学校运动衫已改为 DeepSeek 两版短袖样稿，暂未制作第四套服装的完整动作。
 
 Preview 19 修正原装 Q版零食误用魔法棒画稿；左、右键找到躲藏角色会有相同回应。聊天移到第一层圆盘菜单，点击角色轮换三种触摸互动，照顾新增夸夸、安抚、哄睡。验证记录见 [照顾与点击检查](docs/verification-care.md)。此前的 [动作尺寸检查](docs/verification-scale.md) 继续保留。
 
@@ -41,7 +41,7 @@ Preview 19 修正原装 Q版零食误用魔法棒画稿；左、右键找到躲�
 
 [任务栏提起 Demo](docs/plan-taskbar-lift.md) 与 Preview 17 原生宠物同步：普通松手停住，按住 Shift 松手才下落，落地后自动散步。鼠标捕获或焦点中断拖动时，已到任务栏也会缓冲后继续散步，半空中断保持原位。点击桌面动作 Demo 顶部的「任务栏提起 Demo」进入，可演示普通放置、Shift 下落和半空接住；支持 Q版、3D真人及原装、泳装、婚纱。常态 Demo 的拖动和全角色动作清单也采用相同规则。发布包的 48 套外观验证见 [提起交互检查](docs/verification-taskbar-lift.md)、[未打卡落地散步修正](docs/verification-floor-walk.md) 和 [拖放中断检查](docs/verification-taskbar-contact.md)。
 
-`tools/demo.ps1` 从当前桌面渲染器重新导出两种风格 × 三套服装的 DeepSeek 离线 HTML，并生成全部八位角色、48 套外观的动作清单。打开程序目录中的 `Demo/DeepSeek-demo.html`，保留同目录的 `frames` 文件夹；高清图片按当前动作载入。本机项目和素材保存在 `D:\VibeCoding\Character`，桌面保留 `DeepSeek-動作Demo.lnk`。当前入口为 `Demo/MotionStudy/index.html`，其中演示已确认的五款舞蹈、十个待机与连续行走，并可进入上述全风格 Demo；新动作仍是独立样例，尚未接入原生宠物。更新后执行 `tools/install-motion-study.ps1 -DesktopShortcut` 维护入口，不把工程或素材复制到桌面。
+`tools/demo.ps1` 从当前桌面渲染器重新导出两种风格 × 三套服装的 DeepSeek 离线 HTML，并生成全部八位角色、48 套外观的动作清单。打开程序目录中的 `Demo/DeepSeek-demo.html`，保留同目录的 `frames` 文件夹；高清图片按当前动作载入。本机项目和素材保存在 `D:\VibeCoding\Character`，桌面保留 `DeepSeek-動作Demo.lnk`。当前入口为 `Demo/CloudClub/index.html`，其中演示已确认的五款舞蹈、十个待机与连续行走，并可进入上述全风格 Demo；新动作仍是独立样例，尚未接入原生宠物。更新后执行 `tools/install-cloud-club-demo.ps1 -DesktopShortcut` 维护入口，不把工程或素材复制到桌面。
 
 可以并排播放、暂停逐帧比较、换装、拖动放置、摇晃触发头晕、演示自然落下与头顶本机聊天。网页交互是独立展示逻辑，不能代替 Windows 鼠标或真实 API 验收。图像来自桌面渲染器，清单区分专用逐帧、专用姿势、程序动作、近似动作和缺少动作。
 

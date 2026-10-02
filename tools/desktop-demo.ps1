@@ -1,4 +1,4 @@
-param([string]$DemoPath = '')
+﻿param([string]$DemoPath = '')
 $ErrorActionPreference = 'Stop'
 $projectRoot = Split-Path -Parent $PSScriptRoot
 if (-not $DemoPath) {

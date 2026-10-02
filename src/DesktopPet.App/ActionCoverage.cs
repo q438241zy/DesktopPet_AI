@@ -13,6 +13,7 @@ internal static class ActionCoverage
         new("chat","聊天","chat"), new("checkin","早餐","meal",4200), new("snack","零食","eat",3000),
         new("headpat","摸头","headpat"), new("poke","揉脸","poke"), new("tickle","挠痒","tickle",2200),
         .. CareRoutine.All.Select(routine => new DemoAction(routine.Key,routine.Title,"idle",routine.Duration)),
+        .. ClubMotion.Actions.Select(key => new DemoAction(key,ClubMotion.Title(key),ClubMotion.HasPoses(key)?key:key=="butterfly"?"ball-ready":"idle",ClubMotion.Duration(key))),
         new("think","发呆","think",3200), new("jump","跳跃与落地","jump",1400), new("curl","抱膝","curl",3000),
         new("rest","休息","sleep",3200), new("blocks","堆积木","build",4400), new("ball","等待投球","ball-ready"),
         new("ball-hit","球命中","ball-hit",1500), new("ball-miss","球未命中","ball-miss",1800),
@@ -29,7 +30,12 @@ internal static class ActionCoverage
         var art = c.Resolve(outfit, motion, 0);
         int count = clip?.Frames?.Distinct().Count() ?? (clip is null ? 0 : clip.Columns * clip.Rows);
         string status, detail;
-        if (CareRoutine.Find(action.Key) is { } routine)
+        if (ClubMotion.Actions.Contains(action.Key))
+        {
+            status=ClubMotion.HasPoses(action.Key)?clip is null?"缺少动作":"连续姿势":"程序动作";
+            detail=action.Key switch { "stars"=>"8 张指星与抬头姿势连续衔接，按手势数到 5；点星星重新数", "bubbles"=>"8 张举棒、送嘴、吹气与收手姿势连续衔接；只在吹气时出泡泡，点击可戳破", "stretch"=>"8 张准备、举手、上伸和放松姿势，身体与脚底比例固定", "comb"=>"梳子沿两侧头发轻梳，保持当前外观", "wipe"=>"软布轮流擦两侧脸颊，保持当前外观", _=>"走向点击处的蝴蝶，停下后蝴蝶落在手心" };
+        }
+        else if (CareRoutine.Find(action.Key) is { } routine)
         {
             bool available = routine.Steps.All(step => step.Motion is "idle" or "listen" or "happy" or "sleep"
                 || c.MotionFor(outfit,step.Motion) is not null || PortraitRig.Supports(c.Category,c.FamilyId) && PortraitMotion.Supports(step.Motion));
@@ -39,7 +45,7 @@ internal static class ActionCoverage
         else if (action.Key == "dance")
         { status = !PortraitRig.SupportsDance(c.Category,c.FamilyId)?"不适用":clip?.DanceRig is not null?"程序动作":"缺少动作"; detail = status == "不适用" ? "按设计仅3D真人提供舞蹈" : "专用舞蹈底图与独立关节；16 拍侧步、点地、展臂和收势，支撑脚固定，长裙保持连贯"; }
         else if (action.Key == "found")
-        { status = "静态姿势"; detail = "被你找到啦！左键和右键均结束躲藏、回到桌面并开心回应"; }
+        { status = "组合动作"; detail = "左键找到后走回桌面并开心回应；右键仅开关菜单，躲藏继续"; }
         else if (action.Key is "idle" or "listen" or "place")
         { status = "静态姿势"; detail = action.Key == "place" ? "普通松手停留在用户指定的位置，距底部 24px 内吸附；拖动速度和停留时间不影响结果" : clip is null ? "使用本外观的安静待机姿势" : "本外观专用聆听姿势"; }
         else if (action.Key == "dizzy")
@@ -60,7 +66,7 @@ internal static class ActionCoverage
         else if (action.Key == "rest")
         { status = "静态姿势"; detail = "本外观睡姿配合轻微呼吸，缺少入睡过渡图"; }
         else { status = "缺少动作"; detail = "当前只保留本外观静态图与可用特效，不能算作完整动作"; }
-        if (Membership.Requirements.TryGetValue(action.Key, out var minimum)) detail += $"；会员：{Membership.Name(minimum)}及以上开放";
+        if (Membership.Requirements.TryGetValue(action.Key, out var minimum)) detail += Membership.TestingOpen ? "；测试阶段所有等级与访客开放" : $"；会员：{Membership.Name(minimum)}及以上开放";
         return new(c.Id,c.FamilyId,c.Category,outfit,action.Key,action.Title,status,detail,art.Sprite.File,count);
     }
     internal static CoverageRow[] All(Catalog catalog) =>

@@ -93,6 +93,10 @@ for manifest in sorted(assets.glob('*/pet.json')):
             sheets['dizzy'] = data['dizzy']
         measured = {}
         for action, sprite in sheets.items():
+            # Club poses carry a measured per-sequence body plane and optical-flow
+            # coordinates. Their fixed references are installed with the sidecar.
+            if sprite['file'].startswith('motions/cloud-club-'):
+                continue
             key = (sprite['file'], tuple(sprite.get('frames', [])))
             if key in measured:
                 sprite.update(measured[key])

@@ -13,7 +13,7 @@ public partial class App : Application
         int membershipIndex = Array.IndexOf(e.Args, "--export-membership");
         if (membershipIndex >= 0 && membershipIndex + 1 < e.Args.Length)
         {
-            var rules = new { requirements = Membership.Requirements.ToDictionary(p => p.Key, p => (int)p.Value), tiers = Membership.Tiers.Select(t => new { value = (int)t, name = Membership.Name(t) }) };
+            var rules = new { testingOpen = Membership.TestingOpen, requirements = Membership.Requirements.ToDictionary(p => p.Key, p => (int)p.Value), tiers = Membership.Tiers.Select(t => new { value = (int)t, name = Membership.Name(t) }) };
             File.WriteAllText(Path.GetFullPath(e.Args[membershipIndex + 1]), System.Text.Json.JsonSerializer.Serialize(rules, Json.Options)); Shutdown(0); return;
         }
         int iconIndex = Array.IndexOf(e.Args, "--export-icon");
@@ -63,11 +63,12 @@ public partial class App : Application
             catch (Exception ex) { Directory.CreateDirectory(DataRoot); File.WriteAllText(Path.Combine(DataRoot,"demo-error.txt"),ex.ToString()); Shutdown(1); }
             return;
         }
-        if (e.Args.Contains("--verify-ui") || e.Args.Contains("--verify-interface") || e.Args.Contains("--verify-interactions") || e.Args.Contains("--verify-details") || e.Args.Contains("--verify-contacts") || e.Args.Contains("--verify-poses") || e.Args.Contains("--verify-placement") || e.Args.Contains("--verify-polish") || e.Args.Contains("--verify-chibi") || e.Args.Contains("--verify-shake") || e.Args.Contains("--verify-walk") || e.Args.Contains("--verify-dance") || e.Args.Contains("--verify-floor-contact") || e.Args.Contains("--verify-scale") || e.Args.Contains("--verify-care") || e.Args.Contains("--verify-membership"))
+        if (e.Args.Contains("--verify-club") || e.Args.Contains("--verify-ui") || e.Args.Contains("--verify-interface") || e.Args.Contains("--verify-interactions") || e.Args.Contains("--verify-details") || e.Args.Contains("--verify-contacts") || e.Args.Contains("--verify-poses") || e.Args.Contains("--verify-placement") || e.Args.Contains("--verify-polish") || e.Args.Contains("--verify-chibi") || e.Args.Contains("--verify-shake") || e.Args.Contains("--verify-walk") || e.Args.Contains("--verify-dance") || e.Args.Contains("--verify-floor-contact") || e.Args.Contains("--verify-scale") || e.Args.Contains("--verify-care") || e.Args.Contains("--verify-membership"))
         {
             try
             {
                 if (e.Args.Contains("--verify-ui") || e.Args.Contains("--verify-membership")) await MembershipVerification.Run(pet, DataRoot);
+                if (e.Args.Contains("--verify-club")) await ClubVerification.Run(pet, DataRoot, e.Args.Contains("--club-pilot"));
                 if (e.Args.Contains("--verify-scale")) await ScaleVerification.Run(pet, DataRoot,e.Args.Contains("--scale-baseline"));
                 if (e.Args.Contains("--verify-ui") || e.Args.Contains("--verify-care")) await CareVerification.Run(pet, DataRoot);
                 if (e.Args.Contains("--verify-floor-contact")) await TaskbarContactVerification.Run(pet, DataRoot);

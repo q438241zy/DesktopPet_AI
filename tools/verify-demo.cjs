@@ -101,11 +101,14 @@ for(let i=0;i<6;i++){down();pointerMove(2,1,pointerContext.now+10);grip.onpointe
 assert.deepEqual(careClicks,['headpat','poke','tickle','headpat','poke','tickle']);
 down();pointerMove(20,-50,pointerContext.now+10);grip.onpointerup();assert.equal(pointerState.nextTouch,0,'dragging must not consume the care cycle');
 for(const side of [-1,1])for(const button of ['left','right']){
- Object.assign(pointerState,{action:'peek',x:side<0?-40:540});
+ Object.assign(pointerState,{action:'peek',x:side<0?-40:540,foundReturn:false,detail:{textContent:''}});
  if(button==='left')down();else grip.oncontextmenu({preventDefault:()=>{}});
- assert.equal(pointerState.action,'found');assert.equal(pointerState.held,null);assert.ok(pointerState.x>=65&&pointerState.x<=435);assert.equal(pointerState.floorWalkAt,null);
+ assert.equal(pointerState.action,'peek');assert.equal(pointerState.foundReturn,button==='left');assert.equal(pointerState.x,side<0?-40:540,'finding does not teleport the pet');
 }
-console.log('PASS: real Demo handlers cycle three care gestures, ignore small click jitter and find hiding pets with either mouse button');
+Object.assign(state,{action:'peek',x:-40,foundReturn:true,elapsed:0,walkTime:0});
+for(let i=0;i<80&&state.action!=='found';i++)step(250);
+assert.equal(state.action,'found');assert.ok(Math.abs(state.x-500)<1,'left-find walks all the way back');
+console.log('PASS: Demo care cycle, left-find return movement and non-destructive right click');
 (async()=>{
  const pending=[];
  const preloadContext={D:{frames:['old.webp','current.webp','missing.webp']},Image:class{decode(){return new Promise((resolve,reject)=>pending.push({resolve,reject}));}}};

@@ -9,11 +9,11 @@ internal static class MemberVisual
 {
     internal static (Brush Surface, Brush Ink) Colors(MembershipTier tier) => tier switch
     {
-        MembershipTier.BlackGold => (CloudTheme.Brush("#44363C"), CloudTheme.Brush("#F5DBAB")),
-        MembershipTier.Platinum => (CloudTheme.Brush("#F2ECF5"), CloudTheme.Brush("#8C789A")),
-        MembershipTier.Gold => (CloudTheme.Brush("#FFF1D5"), CloudTheme.Brush("#A77732")),
-        MembershipTier.Silver => (CloudTheme.Brush("#EEF1F5"), CloudTheme.Brush("#7C8799")),
-        _ => (CloudTheme.Brush("#F8E6D9"), CloudTheme.Brush("#A4795C"))
+        MembershipTier.BlackGold => (CloudTheme.Sky("#151C23", "#41474D"), CloudTheme.Brush("#D2B890")),
+        MembershipTier.Platinum => (CloudTheme.Sky("#E0EFE7", "#93B6A6"), CloudTheme.Brush("#325C49")),
+        MembershipTier.Gold => (CloudTheme.Sky("#F3EAD7", "#D7C096"), CloudTheme.Brush("#785B32")),
+        MembershipTier.Silver => (CloudTheme.Sky("#F1F3F7", "#C8D0DA"), CloudTheme.Brush("#526071")),
+        _ => (CloudTheme.Sky("#EDDBC6", "#CAA587"), CloudTheme.Brush("#704B35"))
     };
     internal static FrameworkElement ActionIcon(string glyph, bool locked, double size = 25)
     {

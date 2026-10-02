@@ -99,7 +99,7 @@
         1024,
         1536
       ],
-      "sha256": "1d322f17df61adb43139d4ba4c78153ef0839b79cc799f3406781f4bf5fe1082"
+      "sha256": "5d92a341bc9d2b8286a4892570c820ad92b71e1fd20132ae699a3ac45f6423f6"
     },
     {
       "style": "realistic",
@@ -108,7 +108,7 @@
         1024,
         1536
       ],
-      "sha256": "ef911c9275b63ffae19a5c3bb463c3d00584c3e2cf1956350d849857cfdf49b0"
+      "sha256": "947a454f2cabb5167fec451f4a8fa1c0a91a0ec1a7bbe816cdbf2f6bf65345f7"
     }
   ],
   "poses": {

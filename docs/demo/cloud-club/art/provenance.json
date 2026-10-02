@@ -1,6 +1,6 @@
 {
   "date": "2026-10-02",
-  "scope": "HTML Demo only",
+  "scope": "Second-round Demo artwork archive; approved motion sheets promoted to native Preview 21.",
   "prompts": [
     {
       "key": "school-chibi",
@@ -8,8 +8,9 @@
       "prompt": "Use case: identity-preserve. Asset type: one transparent full-body desktop pet costume concept. Input image is a reference atlas: use ONLY its upper-left blue-haired DeepSeek chibi character as the identity reference; output ONE character, not a sheet. Preserve her recognizably huge blue eyes, cobalt-to-cyan long wavy hair, single loop-shaped ahoge, little whale-fin ear shapes, cyan hair bows, friendly round face, short chibi proportions and blue whale tail. Replace the maid costume with an original school sports tracksuit: soft ivory long-sleeve zip-up school athletic sweatshirt, cobalt raglan shoulder panels, thin cyan piping, ribbed cuffs, a tiny blue whale emblem at left chest, full-length navy track pants with one cream side stripe, rounded white trainers with pale blue accents. Comfortable modest loose fit. Remove maid cap, apron, maid collar, skirt and stockings. Standing relaxed, both feet fully visible, arms relaxed slightly away from body, small smile. High quality clean anime game-character illustration, sharp silhouette and readable fabric folds, front three-quarter view, even soft light. One complete isolated character centered with 8% clear margins on ALL sides. GENUINELY transparent background with alpha; no colored background, no scenery, no pedestal, no shadow block, no text, no labels, no watermark. This is a clothing design preview, not a motion sheet.",
       "output": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-3f46863e-5d03-4bf8-8d57-7e6ba1dedeec.png",
       "tool": "built-in image_gen",
-      "selected": true,
-      "workspaceFile": "docs/demo/cloud-club/art/school-chibi.png"
+      "selected": false,
+      "workspaceFile": "docs/demo/cloud-club/art/school-chibi.png",
+      "supersededBy": "artwork/cloud-club/short-sleeve-prompts.json"
     },
     {
       "key": "school-realistic",
@@ -17,8 +18,9 @@
       "prompt": "Use case: identity-preserve. Asset type: one transparent full-body desktop pet costume concept. Input image is the identity reference. Keep this SAME clearly adult woman age 23+, face identity, blue eyes, cobalt-to-cyan long wavy hair, ahoge, small whale-fin ear accessories and cyan bows, mature adult proportions, high-quality realistic 3D game rendering. Change ONLY clothing and pose to an original college athletic tracksuit: soft ivory long-sleeve zip-up school athletic sweatshirt, cobalt raglan shoulders, thin cyan piping, ribbed cuffs, small blue whale emblem on left chest, full-length navy track pants with a cream side stripe, white running shoes with pale blue accents. Comfortable modest fit with realistic heavyweight jersey fabric, closed zip and high collar. Remove the maid cap, apron, skirt, stockings, heeled boots. Standing relaxed, both feet on same baseline, arms relaxed slightly away from sides, gentle smile, front three-quarter view. One complete isolated full-body character from ahoge to soles with 8% clear margins on all sides. Soft neutral studio light, crisp detailed fabric and face. GENUINELY transparent alpha background, absolutely NO blurred colored glow/background from the reference; no text, no labels, no scenery, no pedestal, no watermark. The clothing matches an ivory-and-cobalt school sports set, the subject remains visibly an adult.",
       "output": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-a61acc9d-3dad-4ab6-83cd-3b18c51ecb6c.png",
       "tool": "built-in image_gen",
-      "selected": true,
-      "workspaceFile": "docs/demo/cloud-club/art/school-realistic.png"
+      "selected": false,
+      "workspaceFile": "docs/demo/cloud-club/art/school-realistic.png",
+      "supersededBy": "artwork/cloud-club/short-sleeve-prompts.json"
     },
     {
       "key": "actions-chibi-original",

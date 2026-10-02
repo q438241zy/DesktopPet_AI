@@ -66,6 +66,7 @@ internal static class DemoExporter
                 {
                     if(a.Key=="dance") pet.PreviewDance(t);
                     else if(CareRoutine.Find(a.Key) is { } routine) pet.PreviewCare(routine,t);
+                    else if(ClubMotion.Actions.Contains(a.Key)) pet.PreviewClub(a.Key,t);
                     else pet.PreviewMotion(a.Motion,t,a.Duration);
                     sequence.Add(Capture());
                     if(t%500==0) await System.Windows.Threading.Dispatcher.Yield(System.Windows.Threading.DispatcherPriority.Background);
@@ -77,7 +78,7 @@ internal static class DemoExporter
             File.AppendAllText(Path.Combine(output,"demo-progress.txt"),c.Id+"/"+outfit+" exported\n");
         }
         var payload=new { version=typeof(App).Assembly.GetCustomAttribute<AssemblyInformationalVersionAttribute>()?.InformationalVersion.Split('+')[0], generatedAt=DateTimeOffset.Now, actions=ActionCoverage.Actions, coverage, frames, clips, headTops,
-            membership=new { requirements=Membership.Requirements.ToDictionary(p=>p.Key,p=>(int)p.Value), tiers=Membership.Tiers.Select(t=>new { value=(int)t, name=Membership.Name(t) }) },
+            membership=new { testingOpen=Membership.TestingOpen, requirements=Membership.Requirements.ToDictionary(p=>p.Key,p=>(int)p.Value), tiers=Membership.Tiers.Select(t=>new { value=(int)t, name=Membership.Name(t) }) },
             source="WPF desktop renderer at native resolution, lossless WebP, 25 samples per second; browser interaction simulation is separate from Windows input", sampleMs=SampleMs, frameWidth=Width,frameHeight=Height };
         string json=JsonSerializer.Serialize(payload,Json.Options);
         string template=File.ReadAllText(Path.Combine(AppContext.BaseDirectory,"Demo","template.html"));

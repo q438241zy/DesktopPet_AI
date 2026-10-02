@@ -1,16 +1,16 @@
-# 云朵俱乐部 · 待拍板 HTML Demo
+# 云朵俱乐部 · 已确认互动 Demo
 
-2026-10-02 第二轮。按用户要求继续做 Demo；白金配色已选浅玉绿，其他修改及学校运动衫仍待拍板。本页的会员选择器仅预览外观，测试期间五档均可体验聊天与所有适用互动。Q版沿用无舞蹈的现有设计。
+2026-10-02 用户已确认并授权扩展。Preview 21 已接入本轮互动与会员外观，覆盖 48 套现有外观。DeepSeek 运动衫已按要求改为短袖服装样稿。本页的会员选择器仅预览外观，测试期间五档均可体验聊天与所有适用互动。Q版沿用无舞蹈的现有设计。
 
 ## 打开与更新
 
 - 运行页：`D:\VibeCoding\Character\Release\win-x64\Demo\CloudClub\index.html`
 - 桌面唯一入口：`DeepSeek-動作Demo.lnk`。HTML、脚本、帧图与验证截图都放在 D 盘。
-- 页尾保留舞蹈/待机研究页与现行完整动作 Demo；这些链接是旧版本参考，权限和右键行为不代表本轮方案。
+- 页尾保留舞蹈/待机研究页与现行完整动作 Demo；完整动作 Demo 与本轮会员、右键行为同步；舞蹈研究页仍是独立样例。
 - 同步源码与素材索引：`powershell -File tools/install-cloud-club-demo.ps1 -DesktopShortcut`
 - 浏览器回归：`node tools/verify-cloud-club.cjs`。需要 Playwright 与本机 Chrome；可通过 `CODEX_PLAYWRIGHT_ROOT`、`CLOUD_CLUB_BROWSER` 指定路径。
 
-Demo 离线运行，不依赖网页服务器。索引复用 `Demo/frames` 中已有的 4598 张原生导出帧。新增三项角色动作由六张专用图集提供，共 144 个姿势；`poses.js` 内嵌原图及位移/部件归属元数据，避免本地文件的 WebGL 跨源限制。安装前需有现行完整 Demo，并具备 Python、Pillow、NumPy、OpenCV。不会运行原生程序。
+Demo 离线运行，不依赖网页服务器。索引复用 `Demo/frames` 中当前版本的原生导出帧。新增三项角色动作由六张专用图集提供，共 144 个姿势；`poses.js` 内嵌原图及位移/部件归属元数据，避免本地文件的 WebGL 跨源限制。安装前需有现行完整 Demo，并具备 Python、Pillow、NumPy、OpenCV。不会运行原生程序。
 
 ## 本轮交互
 
@@ -65,4 +65,4 @@ Demo 离线运行，不依赖网页服务器。索引复用 `Demo/frames` 中已
 - 躲藏左右分支均走到边缘，右键不找到；实际浏览器验证隐藏后右键与左键返回。
 - 独立暂停/继续/结束按钮，390px 窄屏无横向溢出，圆盘在视区内；未出现脚本错误或素材请求失败。
 
-本轮不实现或更改云端账号服务器、收费授权、原生权限、拖放规则及桌面程序。本地默认聊天仅为交互预览，不调用外部模型。原生 `DesktopPet.exe` 的 SHA-256 保持 `91A16CA84895308731A1D5AB4E5B5C1A96FBDC240977526ED933EC8A67BB6579`。
+本轮已获批准并接入原生互动与测试权限，账号服务器和收费授权仍未接入。拖放规则继续沿用普通放置 / Shift 下落。上面第二轮浏览器证据为设计批准前的记录，第三轮原生与发布验证见 `.artifacts/cloud-club-native`。

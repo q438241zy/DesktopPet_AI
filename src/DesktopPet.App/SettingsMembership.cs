@@ -38,7 +38,7 @@ public sealed partial class SettingsWindow
             var colors = MemberVisual.Colors(tier); var stack = new StackPanel();
             stack.Children.Add(new LineIcon { Glyph = "member", Width = 26, Height = 26, Foreground = colors.Ink, HorizontalAlignment = HorizontalAlignment.Left, Margin = new Thickness(0, 0, 0, 11) });
             stack.Children.Add(new TextBlock { Text = Membership.Name(tier), Foreground = colors.Ink, FontSize = 18, FontWeight = FontWeights.SemiBold });
-            stack.Children.Add(new TextBlock { Text = tier == MembershipTier.BlackGold ? "全部姿态开放" : "姿态权益待公布", Foreground = colors.Ink, FontSize = 10, Margin = new Thickness(0, 8, 0, 0), TextWrapping = TextWrapping.Wrap });
+            stack.Children.Add(new TextBlock { Text = Membership.TestingOpen ? "测试期全部开放" : tier == MembershipTier.BlackGold ? "全部姿态开放" : "姿态权益待公布", Foreground = colors.Ink, FontSize = 10, Margin = new Thickness(0, 8, 0, 0), TextWrapping = TextWrapping.Wrap });
             var chat = new StackPanel { Orientation = Orientation.Horizontal, Margin = new Thickness(0, 8, 0, 0) };
             bool chatOpen = Membership.Access("chat", tier).Allowed;
             if (!chatOpen) chat.Children.Add(new MemberLock { Width = 14, Height = 16, Margin = new Thickness(0, 0, 5, 0) });
@@ -48,7 +48,7 @@ public sealed partial class SettingsWindow
             AutomationProperties.SetName(tile, Membership.Name(tier) + "会员权益"); tiers.Children.Add(tile);
         }
         content.Children.Add(tiers);
-        content.Children.Add(Text("聊天从黄金开始开放；其他等级的姿态权益等待公布。", 11, true));
+        content.Children.Add(Text(Membership.TestingOpen ? "测试期间全部开放，无需登录。正式权益：聊天黄金起，其余待公布。" : "聊天从黄金开始开放；其他等级的姿态权益等待公布。", 11, true));
         if (pet.Accounts.CurrentAccount is { } account)
         {
             var panel = new DockPanel(); var logout = MakeButton("退出登录", () => pet.Accounts.Logout());

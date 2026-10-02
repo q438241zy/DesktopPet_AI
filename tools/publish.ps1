@@ -1,4 +1,4 @@
-param([string]$Runtime = 'win-x64', [string]$OutputDirectory = '')
+﻿param([string]$Runtime = 'win-x64', [string]$OutputDirectory = '')
 $ErrorActionPreference = 'Stop'
 $projectRoot = Split-Path -Parent $PSScriptRoot
 $releaseRoot = if ($OutputDirectory) { [IO.Path]::GetFullPath($OutputDirectory) } else { Join-Path $projectRoot "Release/$Runtime" }
@@ -57,4 +57,8 @@ if (Test-Path -LiteralPath (Join-Path $projectRoot 'docs/demo/motion-study/asset
     & (Join-Path $PSScriptRoot 'install-motion-study.ps1') -DemoDirectory (Join-Path $releaseRoot 'Demo')
 }
 & (Join-Path $PSScriptRoot 'install-taskbar-lift-demo.ps1') -DemoDirectory (Join-Path $releaseRoot 'Demo')
+& (Join-Path $PSScriptRoot 'install-cloud-club-demo.ps1') -DemoDirectory (Join-Path $releaseRoot 'Demo')
+$clubDocs = Join-Path $releaseRoot 'artwork/cloud-club'
+New-Item -ItemType Directory -Path $clubDocs -Force | Out-Null
+Copy-Item -LiteralPath "$projectRoot/artwork/cloud-club/README.md","$projectRoot/artwork/cloud-club/generation-results.json","$projectRoot/artwork/cloud-club/short-sleeve-prompts.json","$projectRoot/artwork/cloud-club/coverage.json" -Destination $clubDocs -Force
 & (Join-Path $PSScriptRoot 'trim-runtime-content.ps1') -RuntimeRoot $releaseRoot -DemoSource $(if (Test-Path -LiteralPath $demoPointer) { $demoSource } else { '' })

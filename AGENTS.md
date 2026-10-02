@@ -1,5 +1,8 @@
 # 本项目的持续约定
 
+- 2026-10-02 最新规则：后续改动一律先做 HTML Demo，用户明确拍板后才接入桌面程序；未拍板持续迭代 Demo。本轮 `docs/demo/cloud-club` 为待审方案：测试期间全部会员等级和聊天开放，白金尝试金属绿色，新增三项照顾与三项玩耍；右键只切换圆盘且不取消、重启或暂停当前动作（躲藏时也如此，左键找到）；一级「动作」改「互动」，左右躲藏合并为随机侧「躲藏」。该新要求优先于下面已发布版本的行为记录。此轮不改原生源代码、账号权限或运行程序，不把 Demo 通过当作用户拍板。
+- 本轮待审入口为 `Release/win-x64/Demo/CloudClub/index.html`，桌面原有 `DeepSeek-動作Demo.lnk` 暂指向此页；由 `tools/install-cloud-club-demo.ps1 -DesktopShortcut` 更新。页尾保留 MotionStudy 与现行完整动作 Demo。六项新增为梳头、擦脸、陪伴呼吸、吹泡泡、接星星、捉蝴蝶；目前是现有画稿的交互编排，尚未新绘专用角色姿势。回归使用 `node tools/verify-cloud-club.cjs`，记录与截图在 `.artifacts/cloud-club-review`。
+
 - 最新整合项目位于 `D:\VibeCoding\Character`，日常运行版本为 `Release\win-x64\DesktopPet.exe`。不要依赖或重建 C 槽桌面的旧工程。
 - 2026-09-29 分类合并：今后只维护「Q版」(`chibi`) 与「3D真人」(`realistic`)。以已有真人画稿作为统一底稿，8 位角色 × 2 种风格 × 3 套服装，共 16 项、48 套外观。原 `*-adult` 目录和 ID 保留兼容；旧 `*-3d` ID 与服装存档自动迁移，原 3D 画稿归档到 `artwork/retired-3d/characters`，不再生成或打包。旧导入包的 `3d`、`adult` 分类读取为 `realistic`。界面、工坊、Demo、清单及后续提示词都使用新分类；不要重新维护第三套动作矩阵。新动作 Demo 的五款舞蹈仍需后续单独接入原生程序。
 - 用户明确要求：DeepSeek 长期动作 Demo 的入口保留在 Windows 桌面。使用 `DeepSeek-動作Demo.lnk` 指向 D 槽运行目录的 `Demo\DeepSeek-demo.html`；HTML 和 `frames` 素材仍在 D 槽。此入口是保持桌面干净的例外，不要清理掉。

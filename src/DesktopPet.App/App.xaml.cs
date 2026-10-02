@@ -10,6 +10,12 @@ public partial class App : Application
     public static string DataRoot { get; private set; } = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "DesktopPetAI");
     private async void OnStartup(object sender, StartupEventArgs e)
     {
+        int membershipIndex = Array.IndexOf(e.Args, "--export-membership");
+        if (membershipIndex >= 0 && membershipIndex + 1 < e.Args.Length)
+        {
+            var rules = new { requirements = Membership.Requirements.ToDictionary(p => p.Key, p => (int)p.Value), tiers = Membership.Tiers.Select(t => new { value = (int)t, name = Membership.Name(t) }) };
+            File.WriteAllText(Path.GetFullPath(e.Args[membershipIndex + 1]), System.Text.Json.JsonSerializer.Serialize(rules, Json.Options)); Shutdown(0); return;
+        }
         int iconIndex = Array.IndexOf(e.Args, "--export-icon");
         if (iconIndex >= 0 && iconIndex + 1 < e.Args.Length) { CloudTheme.WriteIcon(Path.GetFullPath(e.Args[iconIndex + 1])); Shutdown(0); return; }
         int dataIndex = Array.IndexOf(e.Args, "--data-dir");
@@ -43,7 +49,10 @@ public partial class App : Application
             args.Handled = true;
             Shutdown(1);
         };
-        var pet = new PetWindow(new StateStore(DataRoot), new Catalog(DataRoot));
+        // Only isolated native checks receive test levels. A normal launch always uses the real local provider.
+        IAccountService? accounts = e.Args.Any(a => a.StartsWith("--verify-"))
+            ? MembershipVerification.CreateFixture(DataRoot) : null;
+        var pet = new PetWindow(new StateStore(DataRoot), new Catalog(DataRoot), accounts);
         if (e.Args.Contains("--ui-test")) pet.ShowInTaskbar = true;
         MainWindow = pet;
         pet.Show();
@@ -54,10 +63,11 @@ public partial class App : Application
             catch (Exception ex) { Directory.CreateDirectory(DataRoot); File.WriteAllText(Path.Combine(DataRoot,"demo-error.txt"),ex.ToString()); Shutdown(1); }
             return;
         }
-        if (e.Args.Contains("--verify-ui") || e.Args.Contains("--verify-interface") || e.Args.Contains("--verify-interactions") || e.Args.Contains("--verify-details") || e.Args.Contains("--verify-contacts") || e.Args.Contains("--verify-poses") || e.Args.Contains("--verify-placement") || e.Args.Contains("--verify-polish") || e.Args.Contains("--verify-chibi") || e.Args.Contains("--verify-shake") || e.Args.Contains("--verify-walk") || e.Args.Contains("--verify-dance") || e.Args.Contains("--verify-floor-contact") || e.Args.Contains("--verify-scale") || e.Args.Contains("--verify-care"))
+        if (e.Args.Contains("--verify-ui") || e.Args.Contains("--verify-interface") || e.Args.Contains("--verify-interactions") || e.Args.Contains("--verify-details") || e.Args.Contains("--verify-contacts") || e.Args.Contains("--verify-poses") || e.Args.Contains("--verify-placement") || e.Args.Contains("--verify-polish") || e.Args.Contains("--verify-chibi") || e.Args.Contains("--verify-shake") || e.Args.Contains("--verify-walk") || e.Args.Contains("--verify-dance") || e.Args.Contains("--verify-floor-contact") || e.Args.Contains("--verify-scale") || e.Args.Contains("--verify-care") || e.Args.Contains("--verify-membership"))
         {
             try
             {
+                if (e.Args.Contains("--verify-ui") || e.Args.Contains("--verify-membership")) await MembershipVerification.Run(pet, DataRoot);
                 if (e.Args.Contains("--verify-scale")) await ScaleVerification.Run(pet, DataRoot,e.Args.Contains("--scale-baseline"));
                 if (e.Args.Contains("--verify-ui") || e.Args.Contains("--verify-care")) await CareVerification.Run(pet, DataRoot);
                 if (e.Args.Contains("--verify-floor-contact")) await TaskbarContactVerification.Run(pet, DataRoot);

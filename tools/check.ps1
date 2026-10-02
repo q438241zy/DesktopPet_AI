@@ -17,6 +17,7 @@ Get-Content -LiteralPath "$uiRoot/ui-check.txt" -Tail 1
 Get-Content -LiteralPath "$uiRoot/scale-check.txt" -Tail 1
 Get-Content -LiteralPath "$uiRoot/interaction-check.txt" -Tail 1
 Get-Content -LiteralPath "$uiRoot/care-check.txt" -Tail 1
+Get-Content -LiteralPath "$uiRoot/membership-check.txt" -Tail 1
 Get-Content -LiteralPath "$uiRoot/detail-check.txt" -Tail 1
 Get-Content -LiteralPath "$uiRoot/placement-check.txt" -Tail 1
 Get-Content -LiteralPath "$uiRoot/contact-check.txt" -Tail 1

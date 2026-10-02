@@ -60,6 +60,7 @@ internal static class ActionCoverage
         else if (action.Key == "rest")
         { status = "静态姿势"; detail = "本外观睡姿配合轻微呼吸，缺少入睡过渡图"; }
         else { status = "缺少动作"; detail = "当前只保留本外观静态图与可用特效，不能算作完整动作"; }
+        if (Membership.Requirements.TryGetValue(action.Key, out var minimum)) detail += $"；会员：{Membership.Name(minimum)}及以上开放";
         return new(c.Id,c.FamilyId,c.Category,outfit,action.Key,action.Title,status,detail,art.Sprite.File,count);
     }
     internal static CoverageRow[] All(Catalog catalog) =>

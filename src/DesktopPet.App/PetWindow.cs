@@ -16,6 +16,8 @@ public sealed class PetWindow : Window
     public PetState State { get; }
     public Catalog Catalog { get; }
     public ArtCache Art { get; } = new();
+    internal IAccountService Accounts { get; }
+    internal MemberAccess AccessTo(string feature) => Membership.Access(feature, Accounts.CurrentAccount?.Tier);
     public Character Character => Catalog.Find(State.Character);
     private readonly StateStore store;
     private readonly Canvas surface = new();
@@ -131,9 +133,12 @@ public sealed class PetWindow : Window
         PreviewMotion(pose.Motion, pose.Elapsed, pose.Duration);
     }
 
-    public PetWindow(StateStore store, Catalog catalog)
+    public PetWindow(StateStore store, Catalog catalog, IAccountService? accounts = null)
     {
         this.store = store; Catalog = catalog; State = store.Load();
+        Accounts = accounts ?? new LocalAccountService(store.Root);
+        Accounts.Changed += AccountChanged;
+        Closed += (_, _) => Accounts.Changed -= AccountChanged;
         State.MigrateCharacters(Catalog.LegacyAliases);
         State.Character = catalog.Find(State.Character).Id;
         Title = "DesktopPet · 桌边伙伴"; Icon = CloudTheme.AppIcon; Width = 560; Height = 680;
@@ -243,9 +248,23 @@ public sealed class PetWindow : Window
     }
     internal void OpenChat()
     {
+        if (!RequireMembership("chat")) return;
         if (clickThrough) { clickThrough = false; desktop?.ClickThrough(false); }
         ClearTransient(); conversationActive = true; SetAction("listen"); Render();
         Chat.Open(); LayoutChat(true);
+    }
+    internal void OpenMembership()
+    { OpenSettings(); settings!.ShowMembership(); }
+    private bool RequireMembership(string feature)
+    {
+        var access = AccessTo(feature);
+        if (access.Allowed) return true;
+        menu.Children.Clear(); Say(access.Hint + "，去会员中心看看吧。", 4000); OpenMembership(); return false;
+    }
+    private void AccountChanged()
+    {
+        if (!Dispatcher.CheckAccess()) { Dispatcher.Invoke(AccountChanged); return; }
+        StopInteraction(); chatWindow?.ResetSession(); settings?.RefreshMembership();
     }
     private InlineChat CreateChat() { var chat = new InlineChat(this); surface.Children.Add(chat); Panel.SetZIndex(chat, 30); return chat; }
     internal void LayoutChat(bool makeRoom = false)
@@ -326,8 +345,7 @@ public sealed class PetWindow : Window
         if (resting) { RestorePet(); return; }
         if (FindHiddenPet()) return;
         string motion = PetActions.Touches[nextTouch].Key;
-        nextTouch = (nextTouch + 1) % PetActions.Touches.Length;
-        RunTouch(motion);
+        if (RequireMembership(motion)) { nextTouch = (nextTouch + 1) % PetActions.Touches.Length; RunTouch(motion); }
     }
     private void RunTouch(string motion)
     {
@@ -507,9 +525,11 @@ public sealed class PetWindow : Window
         var buttons = new List<Button>();
         foreach (var (entry, i) in entries.Select((entry, i) => (entry, i)))
         {
-            var button = new Button { Content = new LineIcon { Glyph = entry.Icon, Soft = true, Width = 25, Height = 25, IsHitTestVisible = false, Focusable = false }, ToolTip = entry.Title,
+            var access = AccessTo(entry.Key);
+            var button = new Button { Content = MemberVisual.ActionIcon(entry.Icon, !access.Allowed, 25), ToolTip = access.Allowed ? entry.Title : entry.Title + " · " + access.Hint,
                 Style = (Style)FindResource("RadialAction") };
             AutomationProperties.SetName(button, entry.Title);
+            if (!access.Allowed) AutomationProperties.SetHelpText(button, access.Hint);
             ToolTipService.SetInitialShowDelay(button, 300); ToolTipService.SetShowDuration(button, 2500);
             button.Click += (_, _) =>
             {
@@ -531,6 +551,7 @@ public sealed class PetWindow : Window
     }
     public void RunInteraction(string key)
     {
+        if (!RequireMembership(key)) return;
         CancelInput(); ClearTransient();
         switch (key)
         {

@@ -1,5 +1,7 @@
 # 本项目的持续约定
 
+- 2026-10-02 CloudClub 第二轮仍仅做 Demo：白金已选定浅玉金属绿，去掉深翡翠选择；接星星按数星星制作，需要人物指点/抬头/计数，吹泡泡需要举棒、送嘴、吹气、收手专用姿势，不能只有道具产生；陪伴呼吸替换为待审伸懒腰。学校运动衫先做 DeepSeek Q版/3D真人服装样稿，未批准全动作接入，不覆盖现有服装。新样稿与提示词保存在 `docs/demo/cloud-club/art`，素材留在 D 盘，桌面仍仅保留同一个 Demo 快捷方式。
+
 - 2026-10-02 最新规则：后续改动一律先做 HTML Demo，用户明确拍板后才接入桌面程序；未拍板持续迭代 Demo。本轮 `docs/demo/cloud-club` 为待审方案：测试期间全部会员等级和聊天开放，白金尝试金属绿色，新增三项照顾与三项玩耍；右键只切换圆盘且不取消、重启或暂停当前动作（躲藏时也如此，左键找到）；一级「动作」改「互动」，左右躲藏合并为随机侧「躲藏」。该新要求优先于下面已发布版本的行为记录。此轮不改原生源代码、账号权限或运行程序，不把 Demo 通过当作用户拍板。
 - 本轮待审入口为 `Release/win-x64/Demo/CloudClub/index.html`，桌面原有 `DeepSeek-動作Demo.lnk` 暂指向此页；由 `tools/install-cloud-club-demo.ps1 -DesktopShortcut` 更新。页尾保留 MotionStudy 与现行完整动作 Demo。六项新增为梳头、擦脸、陪伴呼吸、吹泡泡、接星星、捉蝴蝶；目前是现有画稿的交互编排，尚未新绘专用角色姿势。回归使用 `node tools/verify-cloud-club.cjs`，记录与截图在 `.artifacts/cloud-club-review`。
 

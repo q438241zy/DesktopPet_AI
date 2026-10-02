@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
   <title>云朵俱乐部 · DeepSeek 互动 Demo</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="assets.js" defer></script><script src="model.js" defer></script><script src="icons.js" defer></script><script src="app.js" defer></script>
+  <link rel="stylesheet" href="style.css?v=2">
+  <script src="assets.js" defer></script><script src="poses.js" defer></script><script src="pose-motion.js?v=2" defer></script><script src="pose-renderer.js?v=2" defer></script><script src="model.js?v=2" defer></script><script src="icons.js?v=2" defer></script><script src="app.js?v=2" defer></script>
 </head>
 <body>
   <main class="shell">
@@ -15,7 +15,7 @@
 
     <section class="membership" aria-labelledby="membership-title">
       <div class="section-head"><div><h2 id="membership-title">每一份陪伴，都有自己的光泽</h2><p>挑一个喜欢的质感。测试期间，所有等级都能聊天、体验全部互动。</p></div>
-        <div class="segmented palette-options" aria-label="会员配色方案"><button data-palette="jade" class="selected" aria-pressed="true">浅玉绿</button><button data-palette="emerald" aria-pressed="false">深翡翠</button></div>
+        <span class="jade-approved">白金 · 浅玉绿已选定</span>
       </div>
       <div id="tier-cards" class="tier-cards" aria-label="会员外观预览"></div>
       <div class="membership-foot"><span id="tier-note">当前预览：黄铜 · 聊天与互动全部开放</span><span>色彩预览不改变实际账号等级</span></div>
@@ -31,7 +31,7 @@
           <div class="stage-cloud cloud-one"></div><div class="stage-cloud cloud-two"></div>
           <div class="stage-caption"><span class="live-dot"></span><span id="action-status" aria-live="polite">待机</span></div>
           <span id="score" class="score" hidden></span>
-          <canvas id="pet-canvas" aria-label="DeepSeek 动画"></canvas>
+          <canvas id="pose-canvas" aria-hidden="true"></canvas><canvas id="pet-canvas" aria-label="DeepSeek 动画"></canvas>
           <div id="speech" class="speech" aria-live="polite" hidden></div>
           <form id="chat-form" class="chat-form" hidden><label class="sr-only" for="chat-input">对 DeepSeek 说</label><input id="chat-input" maxlength="180" placeholder="和我说说吧…" autocomplete="off"><button type="submit" aria-label="发送">↑</button></form>
           <div id="radial-menu" class="radial-menu" role="group" aria-label="圆盘菜单" hidden></div>
@@ -44,16 +44,23 @@
       </section>
 
       <aside class="actions-panel" aria-label="互动选择">
-        <div class="actions-title"><span class="eyebrow">LITTLE MOMENTS</span><h2>陪伴的小日常</h2><p>六个新点子，先玩一遍。</p></div>
+        <div class="actions-title"><span class="eyebrow">LITTLE MOMENTS</span><h2>陪伴的小日常</h2><p>一起数星星，吹个小泡泡。</p></div>
         <div class="category-tabs" role="tablist" aria-label="互动分类"><button id="tab-care" role="tab" data-group="care" class="selected" aria-selected="true" aria-controls="action-list">照顾</button><button id="tab-play" role="tab" data-group="play" aria-selected="false" aria-controls="action-list">玩耍</button><button id="tab-interaction" role="tab" data-group="interaction" aria-selected="false" aria-controls="action-list">互动</button></div>
         <div id="action-list" class="action-list" role="tabpanel" aria-labelledby="tab-care"></div>
         <div class="right-click-note"><span data-icon="cloud"></span><div><strong>右键，继续陪伴</strong><p>打开菜单时继续做当前动作。<br>躲藏后左键找到，右键只开菜单。</p></div></div>
       </aside>
     </div>
 
-    <section class="review-strip" aria-label="本轮变化"><div><span>01</span><strong>先全部开放</strong><p>五档会员都能体验，聊天也一样。</p></div><div><span>02</span><strong>轻轻开个菜单</strong><p>右键不取消、不重播、不暂停动作。</p></div><div><span>03</span><strong>躲到哪边呢</strong><p>一个躲藏入口，每次随机左右。</p></div></section>
-    <details class="review-notes"><summary>本轮 Demo 范围与配色参考</summary><p>本轮是待拍板的网页方案，未接入桌面程序。新增六项复用当前外观的现有画稿，先审阅道具、时序与互动编排；专用角色姿势尚未新绘。Q版和3D真人的原装、泳装、婚纱均可预览，角色使用固定比例。</p><p>配色参考 <a href="https://www.revolut.com/cards/" target="_blank" rel="noreferrer">Revolut 的金属卡颜色</a>与 <a href="https://support.n26.com/en-de/memberships-and-account-types/premium-accounts/how-to-upgrade-to-metal" target="_blank" rel="noreferrer">N26 Metal 的低饱和金属质感</a>，本页纹理与云朵图案为独立绘制。白金提供浅玉金属绿、深翡翠绿两种方案。</p></details>
-    <footer><span>云朵俱乐部 · 互动提案 01</span><nav><a href="../MotionStudy/index.html">舞蹈与待机 Demo ↗</a><a href="../DeepSeek-demo.html">现行完整动作 Demo ↗</a></nav></footer>
+    <section class="wardrobe-study" id="school-study" aria-labelledby="school-title">
+      <div class="section-head"><div><span class="eyebrow">AFTER SCHOOL, WITH YOU</span><h2 id="school-title">放学后，穿得软软的</h2><p>学校运动衫 · DeepSeek 两种风格的服装样稿</p></div><span class="tag">服装待拍板</span></div>
+      <div class="school-cards">
+        <article class="school-card"><div class="school-art"><img src="art/school-chibi.png" alt="DeepSeek Q版学校运动衫：奶白深蓝拼色上衣、长运动裤、白色运动鞋和蓝色鲸尾" loading="lazy"></div><div class="school-caption"><div><h3>DeepSeek · Q版</h3><p>宽松袖口，圆头运动鞋，保留小鲸尾。</p></div><a href="art/school-chibi.png" target="_blank">查看原图 ↗</a></div></article>
+        <article class="school-card"><div class="school-art"><img src="art/school-realistic.png" alt="DeepSeek 3D真人学校运动衫：奶白深蓝拼色拉链上衣、深蓝长运动裤、白色运动鞋" loading="lazy"></div><div class="school-caption"><div><h3>DeepSeek · 3D真人</h3><p>立领拉链、柔软针织面料与自然褶皱。</p></div><a href="art/school-realistic.png" target="_blank">查看原图 ↗</a></div></article>
+      </div><p class="wardrobe-note"><span class="swatch ivory"></span>奶白上衣 <span class="swatch navy"></span>深蓝拼色 <span class="swatch cyan"></span>浅蓝滚边 · 同款鲸鱼标识。先审款式，尚未加入全套动作。</p>
+    </section>
+    <section class="review-strip" aria-label="本轮变化"><div><span>01</span><strong>一颗、两颗、三颗</strong><p>抬头指星星，计数跟着手势走。</p></div><div><span>02</span><strong>轻轻吹一口气</strong><p>举棒、送到嘴边、吹气，再收手。</p></div><div><span>03</span><strong>伸个懒腰吧</strong><p>抬手向上伸展，慢慢放松下来。</p></div></section>
+    <details class="review-notes"><summary>本轮 Demo 范围与配色参考</summary><p>本轮仍为待拍板的网页方案，未接入桌面程序。数星星、吹泡泡与伸懒腰新增专用角色姿势，并用连续位移过渡衔接；Q版与3D真人的原装、泳装、婚纱均有对应画稿。运动衫目前仅审服装样稿。</p><p>配色参考 <a href="https://www.revolut.com/cards/" target="_blank" rel="noreferrer">Revolut 的金属卡颜色</a>与 <a href="https://support.n26.com/en-de/memberships-and-account-types/premium-accounts/how-to-upgrade-to-metal" target="_blank" rel="noreferrer">N26 Metal 的低饱和金属质感</a>。白金已按你的选择固定为浅玉金属绿。</p></details>
+    <footer><span>云朵俱乐部 · 互动提案 02</span><nav><a href="../MotionStudy/index.html">舞蹈与待机 Demo ↗</a><a href="../DeepSeek-demo.html">现行完整动作 Demo ↗</a></nav></footer>
   </main>
 </body>
 </html>

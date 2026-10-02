@@ -6,17 +6,17 @@
     praise:{title:'夸夸',clip:'praise',duration:4800},comfort:{title:'安抚',clip:'comfort',duration:4200},lullaby:{title:'哄睡',clip:'lullaby',duration:5300},
     comb:{title:'梳头',clip:'listen',duration:6800,fresh:true,group:'care',hint:'慢慢理顺头发，最后轻轻收起梳子。'},
     wipe:{title:'擦脸',clip:'listen',duration:5800,fresh:true,group:'care',hint:'柔软的小毛巾，轻擦两边脸颊。'},
-    breathe:{title:'陪伴呼吸',clip:'listen',duration:12000,fresh:true,group:'care',hint:'跟着光圈吸气、呼气，慢慢放松。'},
+    stretch:{title:'伸懒腰',clip:'listen',duration:5200,fresh:true,group:'care',hint:'抬起双手，向上伸展，再慢慢放下来。'},
     ball:{title:'玩球',clip:'ball',duration:6200},blocks:{title:'积木',clip:'blocks',duration:4400},walk:{title:'散步',clip:'walk',duration:Infinity},peek:{title:'躲藏',clip:'walk',duration:Infinity},
     dance:{title:'跳舞',clip:'dance',duration:8000},
-    bubbles:{title:'吹泡泡',clip:'chat',duration:14000,fresh:true,group:'play',hint:'泡泡从嘴边飘起，点一下把它戳破。'},
-    stars:{title:'接星星',clip:'listen',duration:18000,fresh:true,group:'play',hint:'点一颗星星，送进伙伴的掌心。'},
+    bubbles:{title:'吹泡泡',clip:'listen',duration:14400,fresh:true,group:'play',hint:'举起泡泡棒，轻轻吹气，再收手。点泡泡可以戳破。'},
+    stars:{title:'数星星',clip:'listen',duration:9600,fresh:true,group:'play',hint:'跟着手指一颗颗数：1、2、3、4、5。点星星也能请她再数一遍。'},
     butterfly:{title:'捉蝴蝶',clip:'walk',duration:15000,fresh:true,group:'play',hint:'点击空处引导蝴蝶，伙伴会追过去；停下后让它落在手心。'},
     think:{title:'发呆',clip:'think',duration:3200},jump:{title:'跳跃',clip:'jump',duration:1400},curl:{title:'蜷起',clip:'curl',duration:3000},bonk:{title:'轻敲',clip:'bonk',duration:1900},rest:{title:'休息',clip:'rest',duration:Infinity},
     found:{title:'找到啦',clip:'found',duration:2000},pickup:{title:'提起',clip:'pickup',duration:Infinity},place:{title:'放置',clip:'place',duration:Infinity}
   };
   const menus={root:['chat','care','play','interaction','dance','rest','member','close'],
-    care:['comb','wipe','breathe','checkin','snack','headpat','poke','tickle','praise','comfort','lullaby'],
+    care:['comb','wipe','stretch','checkin','snack','headpat','poke','tickle','praise','comfort','lullaby'],
     play:['bubbles','stars','butterfly','ball','blocks','walk','peek','dance'],interaction:['think','jump','peek','curl','bonk']};
   const labels={care:'照顾',play:'玩耍',interaction:'互动',member:'会员',close:'收起',back:'返回'};
   function menu(group,style){return (menus[group]||menus.root).filter(k=>k!=='dance'||style==='realistic');}

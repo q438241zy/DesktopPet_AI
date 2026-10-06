@@ -1,0 +1,18 @@
+Use case: stylized-concept
+Asset type: 12 NEW interaction keyframe sprites, transparent character atlas, for the SAME existing DeepSeek 3D-realistic adult desktop pet. Input image 1 is identity, clothing, camera and proportions REFERENCE, not the new pose order.
+Keep the exact SAME clearly adult woman, cobalt-blue long hair with cyan ends, blue eyes, curved blue ahoge, whale-inspired ear fins, white maid frill headband and cyan bow, navy maid dress with white apron bearing a small blue whale, dark tights and navy ankle boots. Same adult face and natural long legs. Polished realistic 3D rendering, not chibi.
+Strict 3 columns x 4 rows equal square cells, portrait atlas. Fully TRANSPARENT ALPHA; NO backdrop/checkerboard/labels/grid. 12 isolated FULL BODY figures, same body/head scale, frontal camera, feet planted on same baseline per cell. At least 6% transparent margin above hair and below boots and 8% side margin. ALL boots completely visible, especially row 4! Center pelvis in every cell. Do not shorten legs or resize the character per gesture.
+Row-major poses:
+1 high-five preparation: right palm beside right shoulder on viewer's left, elbow bent.
+2 high-five invitation: right arm raised, open five-finger palm faces viewer on viewer's left, palm slightly ABOVE shoulder but BELOW hair top.
+3 high-five CONTACT: same palm presses slightly toward viewer, right elbow flexes naturally, shoulder slightly forward, bright smiling expression. Feet stay planted and body size identical.
+4 high-five recoil: same connected right wrist recoils only a little toward shoulder after slap, fingers relaxed, cheerful closed-eye smile; no fist.
+5 guessing game windup HIGH: right closed fist near chin on viewer's left, elbow flexed, left hand by hip.
+6 guessing game windup MIDDLE: same closed fist in front of lower chest, elbow naturally connected.
+7 guessing game windup LOW: same closed fist lowers to waist, elbow angle changes naturally; shoulder/head/feet stay planted.
+8 guessing game reveal ROCK: right fist extends forward at chest height.
+9 reveal SCISSORS: same right forearm position as pose 8, only index/middle finger extend in clear V.
+10 reveal PAPER: same right forearm position, five-finger open palm.
+11 gift OPEN EMPTY: left hand SUPPORTS a small white square gift box with pink ribbon at waist; right hand holds detached pink-white lid raised beside it. The inside of box is CLEARLY EMPTY, dark light-grey cavity visible above front wall. NO cloud plush, no gifts or other contents; software will draw the random present inside this box. Hands visibly TOUCH the box and lid.
+12 reading FINISHED: both hands hold a CLOSED small BLUE HARDCOVER BOOK against lower chest, relaxed smiling face after finishing a story, no other props.
+Crisp details, anatomically correct hands, stable wrist attached to forearm. Gestures 1-4 form one natural high-five sequence; 5-7 form three connected positions of one fist pump. Keep every requested difference visible and character identity consistent. No dancing, no food, no detached limbs.

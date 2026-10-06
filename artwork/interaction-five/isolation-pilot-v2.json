@@ -1,0 +1,40 @@
+[
+  {
+    "key": "gpt-adult-swim-highfive",
+    "character": "gpt-adult",
+    "outfit": "swim",
+    "group": "highfive",
+    "poses": [
+      "high-prep",
+      "high-ready",
+      "high-contact",
+      "high-recoil"
+    ],
+    "filename": "gpt-adult-swim-highfive-v2.png",
+    "references": [
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/gpt-adult/outfits/swim.png",
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/gpt-adult/portrait.png"
+    ],
+    "prompt": "Create a transparent production full-body character keyframe sheet. The character is our existing GPT woman: silver-lavender long wavy hair, cream horns, pointed ears, lilac eyes, intricate silver knot hair ornament. Preserve horns and pointed ears across every outfit. Reference 1 defines exact character identity and swim outfit; use its exact colors, textile details, ornaments and footwear in all four figures.  Reference 2 is original adult proportion/face only. Never borrow reference 2's clothes.\nKeep ADULT 25+ anatomy, original mature face, approximately 7.5-8 heads tall, normal small head, long natural thighs and shins. Match original portrait's head-to-body ratio, torso length, waist, knee and ankle heights. Don't shorten legs to fit layout. Photorealistic 3D digital human rendering, lifelike skin, detailed hair and cloth. No chibi or doll proportions.\nLAYOUT: exactly FOUR complete FULL BODY figures in TWO COLUMNS and TWO ROWS. Square high-resolution 2048x2048 transparent canvas. Each full body must fit inside its cell from head to shoe: top-row figures from y=6% to y=43%; bottom-row figures from y=56% to y=93%. Both rows are the same scale. There must be clear EMPTY TRANSPARENT space BELOW all four pairs of shoes, and between each person's entire hair/skirt silhouette. Reduce the size of ALL four figures together to fit, keeping original mature proportions. Never zoom in, never crop at shins, ankles or feet. Broad gowns and hair stay within each column, no contact between people. Keep exact outfit and long-leg natural adult anatomy. All stand straight, identical camera distance. No floor, shadows, backdrop, panels, text, labels or grid. True transparent alpha. POSES top-left, top-right, bottom-left, bottom-right:  1) High-five preparation: her RIGHT hand (viewer LEFT) rises to shoulder height, relaxed open palm. 2) High-five ready: the same connected arm, open palm facing viewer beside her temple, NOT above head; five natural fingers. 3) High-five contact: the same palm gently presses forward toward viewer at shoulder/temple level; a small happy smile; natural elbow and wrist, no separate floating arm. 4) High-five recoil: hand withdraws slightly back beside shoulder, open relaxed fingers, pleased smile. Left arm rests by side throughout.",
+    "rows": 2
+  },
+  {
+    "key": "claude-adult-wedding-handoff",
+    "character": "claude-adult",
+    "outfit": "wedding",
+    "group": "handoff",
+    "poses": [
+      "reveal-scissors",
+      "reveal-paper",
+      "receive",
+      "gift"
+    ],
+    "filename": "claude-adult-wedding-handoff-v2.png",
+    "references": [
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/claude-adult/outfits/wedding.png",
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/claude-adult/portrait.png"
+    ],
+    "prompt": "Create a transparent production full-body character keyframe sheet. The character is our existing Claude woman: copper-orange long wavy hair, amber eyes, round thin gold glasses, orange flower ornament with dark ribbon. Preserve glasses across every outfit. Reference 1 defines exact character identity and wedding outfit; use its exact colors, textile details, ornaments and footwear in all four figures.  Reference 2 is original adult proportion/face only. Never borrow reference 2's clothes.\nKeep ADULT 25+ anatomy, original mature face, approximately 7.5-8 heads tall, normal small head, long natural thighs and shins. Match original portrait's head-to-body ratio, torso length, waist, knee and ankle heights. Don't shorten legs to fit layout. Photorealistic 3D digital human rendering, lifelike skin, detailed hair and cloth. No chibi or doll proportions.\nLAYOUT: exactly FOUR complete FULL BODY figures in TWO COLUMNS and TWO ROWS. Square high-resolution 2048x2048 transparent canvas. Each full body must fit inside its cell from head to shoe: top-row figures from y=6% to y=43%; bottom-row figures from y=56% to y=93%. Both rows are the same scale. There must be clear EMPTY TRANSPARENT space BELOW all four pairs of shoes, and between each person's entire hair/skirt silhouette. Reduce the size of ALL four figures together to fit, keeping original mature proportions. Never zoom in, never crop at shins, ankles or feet. Broad gowns and hair stay within each column, no contact between people. Keep exact outfit and long-leg natural adult anatomy. All stand straight, identical camera distance. No floor, shadows, backdrop, panels, text, labels or grid. True transparent alpha. POSES top-left, top-right, bottom-left, bottom-right:  1) SCISSORS reveal: her right hand (viewer LEFT) extends at chest level showing only index and middle finger V, other fingers folded, natural wrist. 2) PAPER reveal: same hand/forearm position shows open five-finger palm toward viewer. 3) Receive gift: BOTH empty hands cupped together at natural waist, palms up, looking gently toward viewer. 4) Holds small WHITE gift box with PINK ribbon/bow, both hands physically support the closed box at waist; no floating props. Box no wider than torso.",
+    "rows": 2
+  }
+]

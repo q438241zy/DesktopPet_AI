@@ -80,15 +80,15 @@ reduced.tick(380,true);check(reduced.mode==='grounded','reduced-motion landing e
 reduced.down(0,0,400);reduced.move(0,-130,500);reduced.release(550);reduced.tick(1000,true);
 check(reduced.mode==='placed' && reduced.lift===130,'reduced motion preserves ordinary placement');
 
-const demoRoot = path.resolve(__dirname, '../Release/win-x64/Demo');
+const demoRoot = process.argv[2] ? path.resolve(process.argv[2]) : path.resolve(__dirname, '../Release/win-x64/Demo');
 const pageRoot = path.join(demoRoot, 'TaskbarLift');
 const html = fs.readFileSync(path.join(pageRoot, 'index.html'), 'utf8');
 const context = { window: {} };
 vm.runInNewContext(fs.readFileSync(path.join(pageRoot, 'data.js'), 'utf8'), context);
 const bundle = context.window.TASKBAR_FRAMES;
-check(!!bundle && Object.keys(bundle.appearances).length === 6, 'both styles and three outfits are present');
+check(!!bundle && Object.keys(bundle.appearances).length === 8, 'both styles and four outfits are present');
 for (const [key, clips] of Object.entries(bundle.appearances)) {
-  check(clips.walkCycleMs===960 && new Set(clips.walk).size===12, `${key} reuses all twelve walking poses`);
+  check(key.endsWith('-sports')?clips.walkCycleMs>=720&&clips.walkCycleMs<=1600&&new Set(clips.walk).size>=12:clips.walkCycleMs===960&&new Set(clips.walk).size===12, `${key} reuses at least twelve walking poses`);
   for (const name of ['idle', 'pickup', 'land', 'walk']) {
     check(clips[name]?.length > 0, `${key}/${name} has rendered poses`);
     for (const relative of new Set(clips[name])) {
@@ -99,7 +99,8 @@ for (const [key, clips] of Object.entries(bundle.appearances)) {
   }
 }
 for (const script of ['data.js', 'lift-logic.js', 'app.js']) check(html.includes(`src="${script}"`), `${script} linked`);
-check(html.includes('../MotionStudy/index.html'), 'permanent Demo navigation works');
+check(html.includes('../CloudClub/index.html'), 'permanent Demo navigation uses the approved CloudClub entry');
+check(fs.existsSync(path.resolve(pageRoot,'../CloudClub/index.html')), 'permanent Demo navigation target exists offline');
 // Execute the real UI handlers, including release-time modifiers and cancellation.
 const elements=new Map(),listeners={};let now=0,tickUI;
 function element(id) {

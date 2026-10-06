@@ -20,6 +20,9 @@ public sealed class PetState
     public string? LastCelebration { get; set; }
     public SortedSet<string> CheckIns { get; set; } = [];
     public List<string> Treasures { get; set; } = [];
+    public Dictionary<string,int> ReadStories { get; set; } = [];
+    public List<string> GiftDrawRemaining { get; set; } = Collectibles.All.Select(x=>x.Id).ToList();
+    public string? LastGift { get; set; }
 
     public static readonly int[] BondDays = [0, 3, 7, 14, 30, 60, 100, 200, 365];
     public static readonly string[] BondNames = ["初次相遇", "渐渐熟悉", "桌边伙伴", "默契朋友", "亲密搭档", "心有灵犀", "长久陪伴", "不可替代", "一生挚友"];
@@ -66,6 +69,13 @@ public sealed class PetState
         Opacity = double.IsFinite(Opacity) ? Math.Clamp(Opacity, .3, 1) : 1;
         if (Left is { } x && !double.IsFinite(x)) Left = null;
         if (Top is { } y && !double.IsFinite(y)) Top = null;
+        ReadStories ??= [];
+        foreach(string id in ReadStories.Keys.ToArray())
+            if(StoryLibrary.Find(id) is null || ReadStories[id] is <1 or >100000) ReadStories.Remove(id);
+        if(GiftDrawRemaining is null || GiftDrawRemaining.Count>20 || GiftDrawRemaining.Distinct().Count()!=GiftDrawRemaining.Count
+            || GiftDrawRemaining.Any(id=>!Collectibles.All.Any(x=>x.Id==id)))
+            GiftDrawRemaining=Collectibles.All.Select(x=>x.Id).ToList();
+        if(!Collectibles.All.Any(x=>x.Id==LastGift)) LastGift=null;
     }
 }
 

@@ -1,0 +1,147 @@
+[
+  {
+    "file": "whale-swim-v2.png",
+    "ok": true,
+    "height": 269.0
+  },
+  {
+    "file": "whale-wedding-v2.png",
+    "ok": true,
+    "height": 268.5
+  },
+  {
+    "file": "whale-sports-v2.png",
+    "ok": true,
+    "height": 269.0
+  },
+  {
+    "file": "claude-original-v2.png",
+    "ok": true,
+    "height": 254.5
+  },
+  {
+    "file": "claude-swim-v2.png",
+    "ok": true,
+    "height": 268.0
+  },
+  {
+    "file": "claude-wedding-v2.png",
+    "ok": true,
+    "height": 273.0
+  },
+  {
+    "file": "claude-sports-v2.png",
+    "ok": true,
+    "height": 267.0
+  },
+  {
+    "file": "gemini-original-v2.png",
+    "ok": true,
+    "height": 273.0
+  },
+  {
+    "file": "gemini-swim-v2.png",
+    "ok": true,
+    "height": 268.0
+  },
+  {
+    "file": "gemini-wedding-v2.png",
+    "ok": true,
+    "height": 266.0
+  },
+  {
+    "file": "gemini-sports-v2.png",
+    "ok": true,
+    "height": 273.0
+  },
+  {
+    "file": "grok-original-v2.png",
+    "ok": true,
+    "height": 270.0
+  },
+  {
+    "file": "grok-swim-v2.png",
+    "ok": true,
+    "height": 270.0
+  },
+  {
+    "file": "grok-wedding-v2.png",
+    "ok": true,
+    "height": 266.0
+  },
+  {
+    "file": "grok-sports-v2.png",
+    "ok": true,
+    "height": 267.5
+  },
+  {
+    "file": "gpt-swim-v2.png",
+    "ok": false,
+    "error": "(WindowsPath('D:/VibeCoding/Character/artwork/interaction-five/gpt-swim-v2.png'), 'body count', 17, 20)"
+  },
+  {
+    "file": "gpt-wedding-v2.png",
+    "ok": true,
+    "height": 273.0
+  },
+  {
+    "file": "kimi-original-v2.png",
+    "ok": true,
+    "height": 266.0
+  },
+  {
+    "file": "kimi-swim-v2.png",
+    "ok": true,
+    "height": 271.5
+  },
+  {
+    "file": "kimi-wedding-v2.png",
+    "ok": true,
+    "height": 267.5
+  },
+  {
+    "file": "kimi-sports-v2.png",
+    "ok": true,
+    "height": 262.0
+  },
+  {
+    "file": "qwen-original-v2.png",
+    "ok": true,
+    "height": 277.0
+  },
+  {
+    "file": "qwen-swim-v2.png",
+    "ok": true,
+    "height": 271.0
+  },
+  {
+    "file": "qwen-wedding-v2.png",
+    "ok": true,
+    "height": 251.5
+  },
+  {
+    "file": "qwen-sports-v2.png",
+    "ok": true,
+    "height": 255.5
+  },
+  {
+    "file": "zhipu-original-v2.png",
+    "ok": true,
+    "height": 273.0
+  },
+  {
+    "file": "zhipu-swim-v2.png",
+    "ok": true,
+    "height": 272.0
+  },
+  {
+    "file": "zhipu-wedding-v2.png",
+    "ok": true,
+    "height": 265.0
+  },
+  {
+    "file": "zhipu-sports-v2.png",
+    "ok": true,
+    "height": 264.5
+  }
+]

@@ -1,0 +1,40 @@
+{
+  "key": "deepseek-adult-shorts-walk-v2",
+  "id": "deepseek-adult",
+  "family": "whale",
+  "style": "realistic",
+  "kind": "walk",
+  "columns": 4,
+  "rows": 2,
+  "refs": [
+    "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/deepseek-adult/outfits/sports/portrait.png"
+  ],
+  "prompt": "Create EIGHT distinctly different key poses of one full natural walking cycle for this SAME adult 3D woman in SHORT-SLEEVE ivory/navy sports top and MID-THIGH SHORTS, ankle socks and trainers. All look SIDEWAYS TO THE RIGHT. 4 COLUMNS, 2 ROWS, wide canvas, all full bodies equal scale with 15% transparent margins.\nRead each cell precisely. TOP ROW cell1: NEAR leg straight diagonally forward, FAR leg diagonally back, heel strike. Cell2: NEAR foot planted under front of hip and FAR knee bent strongly behind, far heel clearly lifted. Cell3: passing position BOTH KNEES NEXT TO EACH OTHER UNDER HIP, far shin angled back and far foot airborne; NOT a wide split stance. Cell4: FAR knee moving in front of body, NEAR straight support leg under hip.\nBOTTOM ROW cell1: FAR leg stretched diagonally FORWARD and NEAR leg stretched diagonally BACK, opposite of first cell. Cell2: FAR foot planted forward and NEAR knee bent behind, near heel lifted. Cell3: passing position knees NEXT TO EACH OTHER directly under hips, NEAR shin angled back and near foot airborne. Cell4: NEAR knee moving ahead and FAR support leg under hip ready for first pose. All noses and shoes oriented right, hair trails left. Arms reverse their front/back swing exactly at the second row. At least FOUR of the EIGHT cells must have one knee bent and the two feet close together horizontally; do NOT draw eight duplicated wide strides. Preserve both leg attachments and separate feet, no floating leg fragments. Actual transparent background no aura/text/numbers/floor.",
+  "dest": "src/DesktopPet.App/Assets/Characters/deepseek-adult/outfits/sports/walk.png",
+  "source": "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/deepseek-adult/outfits/sports/portrait.png",
+  "clips": {
+    "walk": [
+      [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      [
+        125,
+        125,
+        125,
+        125,
+        125,
+        125,
+        125,
+        125
+      ],
+      true
+    ]
+  }
+}

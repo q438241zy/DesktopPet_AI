@@ -48,7 +48,7 @@ internal static class DemoExporter
             frames.Add(relative); hashes[hash]=index; return index;
         }
         foreach(var c in pet.Catalog.Characters.Where(c=>c.FamilyId=="whale"))
-        foreach(string outfit in new[]{"original","swim","wedding"})
+        foreach(string outfit in Catalog.BuiltInOutfits)
         {
             pet.SelectCharacter(c.Id); pet.State.Outfits[c.Id]=outfit; pet.ApplySettings();
             pet.Left=pet.WorkArea.Left+pet.WorkArea.Width/2-280; pet.Top=pet.WorkArea.Bottom-468;
@@ -64,7 +64,7 @@ internal static class DemoExporter
                 var sequence=new List<int>();
                 for(int t=0;t<=a.Duration;t+=SampleMs)
                 {
-                    if(a.Key=="dance") pet.PreviewDance(t);
+                    if(FiveInteraction.Keys.Contains(a.Key))pet.PreviewFive(a.Key,t);
                     else if(CareRoutine.Find(a.Key) is { } routine) pet.PreviewCare(routine,t);
                     else if(ClubMotion.Actions.Contains(a.Key)) pet.PreviewClub(a.Key,t);
                     else pet.PreviewMotion(a.Motion,t,a.Duration);

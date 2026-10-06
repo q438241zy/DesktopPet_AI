@@ -21,7 +21,7 @@ internal static class FloorWalkVerification
         {
             pet.State.CheckIns.Remove(today);
             foreach (var character in pet.Catalog.Characters)
-            foreach (string outfit in new[] { "original", "swim", "wedding" })
+            foreach (string outfit in Catalog.BuiltInOutfits)
             {
                 string label = character.Id + "/" + outfit;
                 double now = 0;
@@ -82,6 +82,6 @@ internal static class FloorWalkVerification
             pet.State.CheckIns.Clear(); pet.State.CheckIns.UnionWith(originalCheckIns);
             pet.State.Wander = false; pet.State.ReducedMotion = false; pet.EndPreview();
         }
-        File.WriteAllLines(Path.Combine(output, "floor-walk-check.txt"), checks.Append($"{checks.Count} unchecked floor-walk checks passed across 48 appearances."));
+        File.WriteAllLines(Path.Combine(output, "floor-walk-check.txt"), checks.Append($"{checks.Count} unchecked floor-walk checks passed across {pet.Catalog.Characters.Count*Catalog.BuiltInOutfits.Length} appearances."));
     }
 }

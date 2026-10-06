@@ -37,20 +37,3 @@ public sealed class EdgeHide
     private static double Lerp(double from, double to, double progress)
     { double eased = progress * progress * (3 - 2 * progress); return from + (to - from) * eased; }
 }
-
-/// <summary>Timing for the sixteen-count skeletal dance.</summary>
-public sealed class PetDance
-{
-    public const double BeatMs = 500;
-    public const int BeatCount = 16;
-    public const double DurationMs = BeatMs * BeatCount;
-    public int Hits { get; private set; }
-    private int lastTappedBeat = -1;
-    public static int BeatAt(double elapsed) => Math.Clamp((int)(elapsed / BeatMs), 0, BeatCount - 1);
-    public bool Tap(double elapsed)
-    {
-        int beat = (int)Math.Round(elapsed / BeatMs);
-        if (elapsed < 0 || elapsed >= DurationMs || beat >= BeatCount || beat == lastTappedBeat || Math.Abs(elapsed - beat * BeatMs) > 145) return false;
-        lastTappedBeat = beat; Hits++; return true;
-    }
-}

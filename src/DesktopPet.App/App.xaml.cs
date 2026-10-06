@@ -56,25 +56,38 @@ public partial class App : Application
         if (e.Args.Contains("--ui-test")) pet.ShowInTaskbar = true;
         MainWindow = pet;
         pet.Show();
+        if(e.Args.Contains("--verify-walk-interrupt"))
+        {
+            try{await WalkInterruptVerification.Run(pet,DataRoot);Shutdown(0);}
+            catch(Exception ex){Directory.CreateDirectory(DataRoot);File.WriteAllText(Path.Combine(DataRoot,"walk-interrupt-error.txt"),ex.ToString());Shutdown(1);}
+            return;
+        }
         if (e.Args.Contains("--settings")) pet.OpenSettings();
+        if(e.Args.Contains("--verify-five"))
+        {
+            try{await FiveVerification.Run(pet,DataRoot,e.Args.Contains("--five-available"));Shutdown(0);}
+            catch(Exception ex){Directory.CreateDirectory(DataRoot);File.WriteAllText(Path.Combine(DataRoot,"five-error.txt"),ex.ToString());Shutdown(1);}
+            return;
+        }
         if (e.Args.Contains("--export-demo"))
         {
             try { await DemoExporter.Run(pet, DataRoot); Shutdown(0); }
             catch (Exception ex) { Directory.CreateDirectory(DataRoot); File.WriteAllText(Path.Combine(DataRoot,"demo-error.txt"),ex.ToString()); Shutdown(1); }
             return;
         }
-        if (e.Args.Contains("--verify-club") || e.Args.Contains("--verify-ui") || e.Args.Contains("--verify-interface") || e.Args.Contains("--verify-interactions") || e.Args.Contains("--verify-details") || e.Args.Contains("--verify-contacts") || e.Args.Contains("--verify-poses") || e.Args.Contains("--verify-placement") || e.Args.Contains("--verify-polish") || e.Args.Contains("--verify-chibi") || e.Args.Contains("--verify-shake") || e.Args.Contains("--verify-walk") || e.Args.Contains("--verify-dance") || e.Args.Contains("--verify-floor-contact") || e.Args.Contains("--verify-scale") || e.Args.Contains("--verify-care") || e.Args.Contains("--verify-membership"))
+        if (e.Args.Contains("--verify-sports") || e.Args.Contains("--verify-club") || e.Args.Contains("--verify-ui") || e.Args.Contains("--verify-interface") || e.Args.Contains("--verify-interactions") || e.Args.Contains("--verify-details") || e.Args.Contains("--verify-contacts") || e.Args.Contains("--verify-poses") || e.Args.Contains("--verify-placement") || e.Args.Contains("--verify-polish") || e.Args.Contains("--verify-chibi") || e.Args.Contains("--verify-shake") || e.Args.Contains("--verify-walk") || e.Args.Contains("--verify-floor-contact") || e.Args.Contains("--verify-scale") || e.Args.Contains("--verify-care") || e.Args.Contains("--verify-membership"))
         {
             try
             {
-                if (e.Args.Contains("--verify-ui") || e.Args.Contains("--verify-membership")) await MembershipVerification.Run(pet, DataRoot);
-                if (e.Args.Contains("--verify-club")) await ClubVerification.Run(pet, DataRoot, e.Args.Contains("--club-pilot"));
-                if (e.Args.Contains("--verify-scale")) await ScaleVerification.Run(pet, DataRoot,e.Args.Contains("--scale-baseline"));
-                if (e.Args.Contains("--verify-ui") || e.Args.Contains("--verify-care")) await CareVerification.Run(pet, DataRoot);
-                if (e.Args.Contains("--verify-floor-contact")) await TaskbarContactVerification.Run(pet, DataRoot);
                 int appearanceIndex = Array.IndexOf(e.Args, "--appearance");
                 string? appearance = appearanceIndex < 0 ? null : appearanceIndex + 1 < e.Args.Length
                     ? e.Args[appearanceIndex + 1] : throw new ArgumentException("--appearance 需要指定角色与服装。");
+                if (e.Args.Contains("--verify-ui") || e.Args.Contains("--verify-membership")) await MembershipVerification.Run(pet, DataRoot);
+                if (e.Args.Contains("--verify-sports")) await SportsVerification.Run(pet,DataRoot,e.Args.Contains("--sports-sampling-only"),appearance);
+                if (e.Args.Contains("--verify-club")) await ClubVerification.Run(pet, DataRoot, e.Args.Contains("--club-pilot"),appearance);
+                if (e.Args.Contains("--verify-scale")) await ScaleVerification.Run(pet, DataRoot,e.Args.Contains("--scale-baseline"));
+                if (e.Args.Contains("--verify-ui") || e.Args.Contains("--verify-care")) await CareVerification.Run(pet, DataRoot);
+                if (e.Args.Contains("--verify-floor-contact")) await TaskbarContactVerification.Run(pet, DataRoot);
                 if (e.Args.Contains("--verify-ui") || e.Args.Contains("--verify-interface")) await UiVerification.Run(pet, DataRoot);
                 if (e.Args.Contains("--verify-ui") || e.Args.Contains("--verify-interactions")) await InteractionVerification.Run(pet, DataRoot);
                 if (e.Args.Contains("--verify-ui") || e.Args.Contains("--verify-details")) await DetailVerification.Run(pet, DataRoot);
@@ -85,7 +98,6 @@ public partial class App : Application
                 if (e.Args.Contains("--verify-ui") || e.Args.Contains("--verify-chibi")) await ChibiVerification.Run(pet, DataRoot, appearance);
                 if (e.Args.Contains("--verify-ui") || e.Args.Contains("--verify-shake")) await ShakeVerification.Run(pet, DataRoot);
                 if (e.Args.Contains("--verify-ui") || e.Args.Contains("--verify-walk")) await WalkVerification.Run(pet, DataRoot);
-                if (e.Args.Contains("--verify-ui") || e.Args.Contains("--verify-dance")) await DanceVerification.Run(pet, DataRoot, appearance);
                 Shutdown(0);
             }
             catch (Exception ex) { File.WriteAllText(Path.Combine(DataRoot, "ui-check.txt"), ex.ToString()); Shutdown(1); }

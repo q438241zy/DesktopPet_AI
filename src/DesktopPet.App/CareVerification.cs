@@ -15,7 +15,7 @@ internal static class CareVerification
         pet.State.CheckIns.Clear(); pet.ApplySettings(); pet.BeginPreview();
         double time = 0;
         foreach (var c in pet.Catalog.Characters)
-        foreach (string outfit in new[] {"original", "swim", "wedding"})
+        foreach (string outfit in Catalog.BuiltInOutfits)
         {
             pet.SelectCharacter(c.Id); pet.State.Outfits[c.Id] = outfit; pet.ApplySettings();
             string label = c.Id + "/" + outfit;
@@ -44,6 +44,16 @@ internal static class CareVerification
                     Require(pet.CurrentAction == step.Motion && pet.State.Outfit == outfit, label+"/"+routine.Key+": keeps clothes in "+step.Motion);
                     var art = c.Resolve(outfit,step.Motion,step.Duration/2d);
                     var expected = pet.Art.Frame(c,art.Sprite,art.Frame);
+                    if (pet.ActiveAuthoredVisual is { } authored)
+                    {
+                        var clip = c.MotionFor(outfit,step.Motion)!;
+                        var blend = Motion.Blend(clip,step.Duration/2d);
+                        Require(authored.Appearance == c.Id+"/"+outfit && authored.SheetFile == clip.File && authored.Current == blend,
+                            label+"/"+routine.Key+": care uses the current outfit and continuous pose clock in "+step.Motion);
+                        // The continuous mesh switches its source texture at the
+                        // blend midpoint, rather than the legacy frame boundary.
+                        expected = pet.Art.Frame(c,clip,blend.Amount < .5 ? blend.A : blend.B);
+                    }
                     var sprite = ((Canvas)pet.Content).Children.OfType<Image>().Single();
                     Require(ReferenceEquals(sprite.Source,expected) && (pet.ActiveMotion is null || ReferenceEquals(pet.ActiveMotion.Texture,expected)), label+"/"+routine.Key+": actually renders the selected outfit in "+step.Motion);
                     elapsed += step.Duration;

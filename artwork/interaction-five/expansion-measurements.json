@@ -1,0 +1,1234 @@
+[
+  {
+    "key": "deepseek-adult-swim-highfive",
+    "ok": true,
+    "ref": 873.0,
+    "bounds": {
+      "high-prep": [
+        106,
+        4,
+        320,
+        875
+      ],
+      "high-ready": [
+        530,
+        7,
+        323,
+        872
+      ],
+      "high-contact": [
+        960,
+        5,
+        303,
+        873
+      ],
+      "high-recoil": [
+        1378,
+        5,
+        312,
+        873
+      ]
+    }
+  },
+  {
+    "key": "deepseek-adult-swim-rps",
+    "ok": true,
+    "ref": 1004.0,
+    "bounds": {
+      "fist-up": [
+        73,
+        5,
+        329,
+        1004
+      ],
+      "fist-mid": [
+        457,
+        5,
+        332,
+        1004
+      ],
+      "fist-down": [
+        835,
+        4,
+        333,
+        1004
+      ],
+      "reveal-rock": [
+        1203,
+        5,
+        330,
+        1004
+      ]
+    }
+  },
+  {
+    "key": "deepseek-adult-swim-handoff",
+    "ok": true,
+    "ref": 996.0,
+    "bounds": {
+      "reveal-scissors": [
+        55,
+        8,
+        335,
+        996
+      ],
+      "reveal-paper": [
+        440,
+        8,
+        333,
+        996
+      ],
+      "receive": [
+        812,
+        6,
+        335,
+        997
+      ],
+      "gift": [
+        1188,
+        8,
+        333,
+        996
+      ]
+    }
+  },
+  {
+    "key": "deepseek-adult-swim-book",
+    "ok": true,
+    "ref": 1000.0,
+    "bounds": {
+      "gift-empty": [
+        60,
+        8,
+        364,
+        1002
+      ],
+      "read": [
+        449,
+        13,
+        345,
+        997
+      ],
+      "page": [
+        801,
+        13,
+        337,
+        998
+      ],
+      "read-finish": [
+        1156,
+        7,
+        354,
+        1004
+      ]
+    }
+  },
+  {
+    "key": "deepseek-adult-swim-photo",
+    "ok": true,
+    "ref": 1006.5,
+    "bounds": {
+      "neutral": [
+        63,
+        8,
+        338,
+        1004
+      ],
+      "lift": [
+        427,
+        6,
+        336,
+        1006
+      ],
+      "photo": [
+        786,
+        6,
+        338,
+        1007
+      ],
+      "happy": [
+        1165,
+        5,
+        335,
+        1007
+      ]
+    }
+  },
+  {
+    "key": "deepseek-adult-sports-highfive",
+    "ok": true,
+    "ref": 702.5,
+    "bounds": {
+      "high-prep": [
+        329,
+        3,
+        299,
+        707
+      ],
+      "high-ready": [
+        760,
+        6,
+        285,
+        702
+      ],
+      "high-contact": [
+        1169,
+        10,
+        264,
+        697
+      ],
+      "high-recoil": [
+        1577,
+        7,
+        282,
+        703
+      ]
+    }
+  },
+  {
+    "key": "deepseek-adult-sports-rps",
+    "ok": true,
+    "ref": 856.5,
+    "bounds": {
+      "fist-up": [
+        105,
+        6,
+        308,
+        858
+      ],
+      "fist-mid": [
+        530,
+        8,
+        309,
+        857
+      ],
+      "fist-down": [
+        974,
+        9,
+        300,
+        856
+      ],
+      "reveal-rock": [
+        1396,
+        9,
+        305,
+        856
+      ]
+    }
+  },
+  {
+    "key": "deepseek-adult-sports-handoff",
+    "ok": true,
+    "ref": 951.5,
+    "bounds": {
+      "reveal-scissors": [
+        66,
+        10,
+        325,
+        952
+      ],
+      "reveal-paper": [
+        454,
+        10,
+        322,
+        952
+      ],
+      "receive": [
+        809,
+        11,
+        331,
+        951
+      ],
+      "gift": [
+        1191,
+        11,
+        320,
+        951
+      ]
+    }
+  },
+  {
+    "key": "deepseek-adult-sports-book",
+    "ok": true,
+    "ref": 939.0,
+    "bounds": {
+      "gift-empty": [
+        69,
+        14,
+        368,
+        939
+      ],
+      "read": [
+        472,
+        14,
+        332,
+        939
+      ],
+      "page": [
+        826,
+        14,
+        342,
+        939
+      ],
+      "read-finish": [
+        1177,
+        16,
+        339,
+        937
+      ]
+    }
+  },
+  {
+    "key": "deepseek-adult-sports-photo",
+    "ok": true,
+    "ref": 959.5,
+    "bounds": {
+      "neutral": [
+        61,
+        1,
+        329,
+        961
+      ],
+      "lift": [
+        440,
+        2,
+        337,
+        960
+      ],
+      "photo": [
+        818,
+        3,
+        335,
+        959
+      ],
+      "happy": [
+        1192,
+        3,
+        331,
+        959
+      ]
+    }
+  },
+  {
+    "key": "deepseek-adult-wedding-highfive",
+    "ok": true,
+    "ref": 807.0,
+    "bounds": {
+      "high-prep": [
+        11,
+        8,
+        480,
+        807
+      ],
+      "high-ready": [
+        500,
+        8,
+        446,
+        807
+      ],
+      "high-contact": [
+        953,
+        8,
+        464,
+        807
+      ],
+      "high-recoil": [
+        1427,
+        9,
+        479,
+        806
+      ]
+    }
+  },
+  {
+    "key": "deepseek-adult-wedding-rps",
+    "ok": false,
+    "error": "(WindowsPath('D:/VibeCoding/Character/artwork/interaction-five/deepseek-adult-wedding-rps-v2.png'), 'body count', 1, 4)"
+  },
+  {
+    "key": "deepseek-adult-wedding-handoff",
+    "ok": false,
+    "error": "(WindowsPath('D:/VibeCoding/Character/artwork/interaction-five/deepseek-adult-wedding-handoff-v2.png'), 'body count', 1, 4)"
+  },
+  {
+    "key": "deepseek-adult-wedding-book",
+    "ok": false,
+    "error": "(WindowsPath('D:/VibeCoding/Character/artwork/interaction-five/deepseek-adult-wedding-book-v2.png'), 'body count', 1, 4)"
+  },
+  {
+    "key": "deepseek-adult-wedding-photo",
+    "ok": false,
+    "error": "(WindowsPath('D:/VibeCoding/Character/artwork/interaction-five/deepseek-adult-wedding-photo-v2.png'), 'body count', 1, 4)"
+  },
+  {
+    "key": "gpt-adult-original-highfive",
+    "ok": false,
+    "error": "(WindowsPath('D:/VibeCoding/Character/artwork/interaction-five/gpt-adult-original-highfive-v1.png'), 'body count', 2, 4)"
+  },
+  {
+    "key": "gpt-adult-original-rps",
+    "ok": true,
+    "ref": 858.0,
+    "bounds": {
+      "fist-up": [
+        37,
+        8,
+        437,
+        857
+      ],
+      "fist-mid": [
+        487,
+        7,
+        421,
+        858
+      ],
+      "fist-down": [
+        918,
+        7,
+        425,
+        858
+      ],
+      "reveal-rock": [
+        1359,
+        7,
+        415,
+        858
+      ]
+    }
+  },
+  {
+    "key": "gpt-adult-original-handoff",
+    "ok": false,
+    "error": "(WindowsPath('D:/VibeCoding/Character/artwork/interaction-five/gpt-adult-original-handoff-v1.png'), 'body count', 1, 4)"
+  },
+  {
+    "key": "gpt-adult-original-book",
+    "ok": true,
+    "ref": 866.0,
+    "bounds": {
+      "gift-empty": [
+        63,
+        6,
+        456,
+        866
+      ],
+      "read": [
+        530,
+        6,
+        404,
+        871
+      ],
+      "page": [
+        919,
+        5,
+        418,
+        866
+      ],
+      "read-finish": [
+        1331,
+        7,
+        422,
+        863
+      ]
+    }
+  },
+  {
+    "key": "gpt-adult-original-photo",
+    "ok": true,
+    "ref": 864.5,
+    "bounds": {
+      "neutral": [
+        38,
+        7,
+        446,
+        865
+      ],
+      "lift": [
+        479,
+        8,
+        434,
+        864
+      ],
+      "photo": [
+        917,
+        8,
+        406,
+        864
+      ],
+      "happy": [
+        1335,
+        7,
+        421,
+        865
+      ]
+    }
+  },
+  {
+    "key": "gpt-adult-swim-rps",
+    "ok": false,
+    "error": "(WindowsPath('D:/VibeCoding/Character/artwork/interaction-five/gpt-adult-swim-rps-v1.png'), 'body count', 2, 4)"
+  },
+  {
+    "key": "gpt-adult-swim-handoff",
+    "ok": false,
+    "error": "(WindowsPath('D:/VibeCoding/Character/artwork/interaction-five/gpt-adult-swim-handoff-v1.png'), 'body count', 1, 4)"
+  },
+  {
+    "key": "gpt-adult-swim-book",
+    "ok": true,
+    "ref": 988.0,
+    "bounds": {
+      "gift-empty": [
+        13,
+        8,
+        408,
+        992
+      ],
+      "read": [
+        425,
+        13,
+        355,
+        987
+      ],
+      "page": [
+        782,
+        13,
+        364,
+        987
+      ],
+      "read-finish": [
+        1145,
+        10,
+        383,
+        989
+      ]
+    }
+  },
+  {
+    "key": "gpt-adult-swim-photo",
+    "ok": true,
+    "ref": 877.5,
+    "bounds": {
+      "neutral": [
+        56,
+        5,
+        437,
+        877
+      ],
+      "lift": [
+        500,
+        4,
+        414,
+        878
+      ],
+      "photo": [
+        910,
+        6,
+        418,
+        876
+      ],
+      "happy": [
+        1324,
+        2,
+        409,
+        880
+      ]
+    }
+  },
+  {
+    "key": "gpt-adult-wedding-highfive",
+    "ok": true,
+    "ref": 737.0,
+    "bounds": {
+      "high-prep": [
+        34,
+        7,
+        489,
+        737
+      ],
+      "high-ready": [
+        552,
+        8,
+        483,
+        737
+      ],
+      "high-contact": [
+        1062,
+        7,
+        478,
+        737
+      ],
+      "high-recoil": [
+        1558,
+        7,
+        480,
+        737
+      ]
+    }
+  },
+  {
+    "key": "gpt-adult-wedding-rps",
+    "ok": false,
+    "error": "(WindowsPath('D:/VibeCoding/Character/artwork/interaction-five/gpt-adult-wedding-rps-v1.png'), 'body count', 1, 4)"
+  },
+  {
+    "key": "gpt-adult-wedding-handoff",
+    "ok": true,
+    "ref": 984.0,
+    "bounds": {
+      "reveal-scissors": [
+        4,
+        17,
+        418,
+        980
+      ],
+      "reveal-paper": [
+        428,
+        16,
+        359,
+        983
+      ],
+      "receive": [
+        796,
+        17,
+        363,
+        985
+      ],
+      "gift": [
+        1168,
+        16,
+        365,
+        986
+      ]
+    }
+  },
+  {
+    "key": "gpt-adult-wedding-book",
+    "ok": false,
+    "error": "(WindowsPath('D:/VibeCoding/Character/artwork/interaction-five/gpt-adult-wedding-book-v1.png'), 'body count', 2, 4)"
+  },
+  {
+    "key": "gpt-adult-wedding-photo",
+    "ok": true,
+    "ref": 748.0,
+    "bounds": {
+      "neutral": [
+        41,
+        5,
+        475,
+        748
+      ],
+      "lift": [
+        544,
+        5,
+        481,
+        747
+      ],
+      "photo": [
+        1040,
+        5,
+        480,
+        748
+      ],
+      "happy": [
+        1544,
+        5,
+        475,
+        748
+      ]
+    }
+  },
+  {
+    "key": "gpt-adult-sports-highfive",
+    "ok": true,
+    "ref": 848.0,
+    "bounds": {
+      "high-prep": [
+        135,
+        8,
+        361,
+        848
+      ],
+      "high-ready": [
+        532,
+        8,
+        355,
+        849
+      ],
+      "high-contact": [
+        947,
+        9,
+        358,
+        847
+      ],
+      "high-recoil": [
+        1366,
+        8,
+        350,
+        848
+      ]
+    }
+  },
+  {
+    "key": "gpt-adult-sports-rps",
+    "ok": true,
+    "ref": 805.5,
+    "bounds": {
+      "fist-up": [
+        73,
+        12,
+        384,
+        804
+      ],
+      "fist-mid": [
+        528,
+        4,
+        381,
+        812
+      ],
+      "fist-down": [
+        978,
+        9,
+        381,
+        807
+      ],
+      "reveal-rock": [
+        1437,
+        12,
+        371,
+        804
+      ]
+    }
+  },
+  {
+    "key": "gpt-adult-sports-handoff",
+    "ok": false,
+    "error": "(WindowsPath('D:/VibeCoding/Character/artwork/interaction-five/gpt-adult-sports-handoff-v1.png'), 'body count', 2, 4)"
+  },
+  {
+    "key": "gpt-adult-sports-book",
+    "ok": true,
+    "ref": 774.0,
+    "bounds": {
+      "gift-empty": [
+        147,
+        7,
+        370,
+        776
+      ],
+      "read": [
+        586,
+        11,
+        366,
+        771
+      ],
+      "page": [
+        1015,
+        11,
+        363,
+        772
+      ],
+      "read-finish": [
+        1467,
+        6,
+        360,
+        776
+      ]
+    }
+  },
+  {
+    "key": "gpt-adult-sports-photo",
+    "ok": true,
+    "ref": 858.5,
+    "bounds": {
+      "neutral": [
+        49,
+        9,
+        405,
+        863
+      ],
+      "lift": [
+        483,
+        14,
+        402,
+        858
+      ],
+      "photo": [
+        923,
+        15,
+        403,
+        856
+      ],
+      "happy": [
+        1356,
+        13,
+        405,
+        859
+      ]
+    }
+  },
+  {
+    "key": "claude-adult-original-highfive",
+    "ok": true,
+    "ref": 823.0,
+    "bounds": {
+      "high-prep": [
+        67,
+        3,
+        397,
+        822
+      ],
+      "high-ready": [
+        522,
+        3,
+        393,
+        823
+      ],
+      "high-contact": [
+        988,
+        3,
+        397,
+        823
+      ],
+      "high-recoil": [
+        1465,
+        3,
+        369,
+        823
+      ]
+    }
+  },
+  {
+    "key": "claude-adult-original-rps",
+    "ok": true,
+    "ref": 996.0,
+    "bounds": {
+      "fist-up": [
+        18,
+        10,
+        385,
+        997
+      ],
+      "fist-mid": [
+        397,
+        10,
+        383,
+        995
+      ],
+      "fist-down": [
+        767,
+        11,
+        381,
+        997
+      ],
+      "reveal-rock": [
+        1136,
+        11,
+        384,
+        995
+      ]
+    }
+  },
+  {
+    "key": "claude-adult-original-handoff",
+    "ok": true,
+    "ref": 992.0,
+    "bounds": {
+      "reveal-scissors": [
+        10,
+        5,
+        398,
+        993
+      ],
+      "reveal-paper": [
+        399,
+        5,
+        381,
+        992
+      ],
+      "receive": [
+        783,
+        6,
+        389,
+        991
+      ],
+      "gift": [
+        1159,
+        5,
+        374,
+        992
+      ]
+    }
+  },
+  {
+    "key": "claude-adult-original-book",
+    "ok": true,
+    "ref": 875.0,
+    "bounds": {
+      "gift-empty": [
+        71,
+        6,
+        395,
+        875
+      ],
+      "read": [
+        496,
+        7,
+        390,
+        875
+      ],
+      "page": [
+        907,
+        6,
+        398,
+        875
+      ],
+      "read-finish": [
+        1350,
+        5,
+        390,
+        876
+      ]
+    }
+  },
+  {
+    "key": "claude-adult-original-photo",
+    "ok": true,
+    "ref": 983.0,
+    "bounds": {
+      "neutral": [
+        12,
+        7,
+        397,
+        984
+      ],
+      "lift": [
+        385,
+        8,
+        401,
+        983
+      ],
+      "photo": [
+        769,
+        8,
+        397,
+        983
+      ],
+      "happy": [
+        1164,
+        8,
+        370,
+        983
+      ]
+    }
+  },
+  {
+    "key": "claude-adult-swim-highfive",
+    "ok": true,
+    "ref": 823.5,
+    "bounds": {
+      "high-prep": [
+        130,
+        6,
+        366,
+        822
+      ],
+      "high-ready": [
+        580,
+        4,
+        353,
+        824
+      ],
+      "high-contact": [
+        1013,
+        3,
+        341,
+        825
+      ],
+      "high-recoil": [
+        1458,
+        5,
+        346,
+        823
+      ]
+    }
+  },
+  {
+    "key": "claude-adult-swim-rps",
+    "ok": true,
+    "ref": 925.0,
+    "bounds": {
+      "fist-up": [
+        64,
+        5,
+        387,
+        925
+      ],
+      "fist-mid": [
+        457,
+        5,
+        383,
+        925
+      ],
+      "fist-down": [
+        835,
+        5,
+        384,
+        925
+      ],
+      "reveal-rock": [
+        1223,
+        4,
+        387,
+        926
+      ]
+    }
+  },
+  {
+    "key": "claude-adult-swim-handoff",
+    "ok": true,
+    "ref": 984.0,
+    "bounds": {
+      "reveal-scissors": [
+        15,
+        11,
+        382,
+        984
+      ],
+      "reveal-paper": [
+        396,
+        11,
+        366,
+        984
+      ],
+      "receive": [
+        761,
+        10,
+        381,
+        984
+      ],
+      "gift": [
+        1146,
+        10,
+        380,
+        984
+      ]
+    }
+  },
+  {
+    "key": "claude-adult-swim-book",
+    "ok": true,
+    "ref": 866.0,
+    "bounds": {
+      "gift-empty": [
+        113,
+        8,
+        384,
+        865
+      ],
+      "read": [
+        526,
+        7,
+        374,
+        866
+      ],
+      "page": [
+        928,
+        7,
+        381,
+        866
+      ],
+      "read-finish": [
+        1338,
+        5,
+        371,
+        868
+      ]
+    }
+  },
+  {
+    "key": "claude-adult-swim-photo",
+    "ok": true,
+    "ref": 868.0,
+    "bounds": {
+      "neutral": [
+        119,
+        7,
+        363,
+        868
+      ],
+      "lift": [
+        516,
+        7,
+        356,
+        868
+      ],
+      "photo": [
+        902,
+        7,
+        363,
+        868
+      ],
+      "happy": [
+        1301,
+        7,
+        370,
+        868
+      ]
+    }
+  },
+  {
+    "key": "claude-adult-wedding-highfive",
+    "ok": false,
+    "error": "(WindowsPath('D:/VibeCoding/Character/artwork/interaction-five/claude-adult-wedding-highfive-v1.png'), 'body count', 1, 4)"
+  },
+  {
+    "key": "claude-adult-wedding-rps",
+    "ok": false,
+    "error": "(WindowsPath('D:/VibeCoding/Character/artwork/interaction-five/claude-adult-wedding-rps-v1.png'), 'body count', 1, 4)"
+  },
+  {
+    "key": "claude-adult-wedding-handoff",
+    "ok": false,
+    "error": "(WindowsPath('D:/VibeCoding/Character/artwork/interaction-five/claude-adult-wedding-handoff-v1.png'), 'missing alpha')"
+  },
+  {
+    "key": "claude-adult-wedding-book",
+    "ok": false,
+    "error": "(WindowsPath('D:/VibeCoding/Character/artwork/interaction-five/claude-adult-wedding-book-v1.png'), 'body count', 1, 4)"
+  },
+  {
+    "key": "claude-adult-wedding-photo",
+    "ok": false,
+    "error": "(WindowsPath('D:/VibeCoding/Character/artwork/interaction-five/claude-adult-wedding-photo-v1.png'), 'body count', 1, 4)"
+  },
+  {
+    "key": "claude-adult-sports-highfive",
+    "ok": true,
+    "ref": 947.0,
+    "bounds": {
+      "high-prep": [
+        28,
+        12,
+        377,
+        946
+      ],
+      "high-ready": [
+        413,
+        9,
+        372,
+        948
+      ],
+      "high-contact": [
+        790,
+        12,
+        367,
+        946
+      ],
+      "high-recoil": [
+        1157,
+        11,
+        367,
+        948
+      ]
+    }
+  },
+  {
+    "key": "claude-adult-sports-rps",
+    "ok": true,
+    "ref": 968.5,
+    "bounds": {
+      "fist-up": [
+        32,
+        10,
+        370,
+        970
+      ],
+      "fist-mid": [
+        402,
+        12,
+        371,
+        966
+      ],
+      "fist-down": [
+        773,
+        12,
+        374,
+        968
+      ],
+      "reveal-rock": [
+        1160,
+        10,
+        369,
+        969
+      ]
+    }
+  },
+  {
+    "key": "claude-adult-sports-handoff",
+    "ok": true,
+    "ref": 964.0,
+    "bounds": {
+      "reveal-scissors": [
+        52,
+        7,
+        369,
+        965
+      ],
+      "reveal-paper": [
+        422,
+        7,
+        369,
+        963
+      ],
+      "receive": [
+        789,
+        7,
+        356,
+        964
+      ],
+      "gift": [
+        1146,
+        7,
+        359,
+        964
+      ]
+    }
+  },
+  {
+    "key": "claude-adult-sports-book",
+    "ok": true,
+    "ref": 927.0,
+    "bounds": {
+      "gift-empty": [
+        53,
+        9,
+        384,
+        927
+      ],
+      "read": [
+        445,
+        10,
+        370,
+        926
+      ],
+      "page": [
+        830,
+        9,
+        377,
+        927
+      ],
+      "read-finish": [
+        1222,
+        9,
+        377,
+        927
+      ]
+    }
+  },
+  {
+    "key": "claude-adult-sports-photo",
+    "ok": false,
+    "error": "(WindowsPath('D:/VibeCoding/Character/artwork/interaction-five/claude-adult-sports-photo-v1.png'), 'body count', 3, 4)"
+  }
+]

@@ -69,43 +69,52 @@ public sealed partial class PetWindow
     private bool RenderClubPose()
     {
         string key=clubAction ?? action;
-        if(!ClubMotion.HasPoses(key) || Character.MotionFor(State.Outfit,key) is not { } sheet
-            || !sheet.File.StartsWith("motions/cloud-club-",StringComparison.Ordinal)
-            || !File.Exists(Path.ChangeExtension(Character.SafeFile(Character.Root,sheet.File),".json")))
+        var sheet=Character.MotionFor(State.Outfit,key);
+        if(!ClubMotion.HasPoses(key,sheet) || !ClubPoseVisual.Supports(Character,sheet))
         {
             if(clubVisual is not null) { surface.Children.Remove(clubVisual);clubVisual=null; }
             return false;
         }
-        if(clubVisual?.Appearance!=Character.Id+"/"+State.Outfit)
+        if(clubVisual?.Appearance!=Character.Id+"/"+State.Outfit || clubVisual.SheetFile!=sheet!.File)
         {
             if(clubVisual is not null)surface.Children.Remove(clubVisual);
-            clubVisual=new ClubPoseVisual(Character,State.Outfit,sheet,Art);
+            clubVisual=new ClubPoseVisual(Character,State.Outfit,sheet!,Art);
             surface.Children.Insert(surface.Children.IndexOf(sprite)+1,clubVisual);
         }
-        if(danceVisual is not null) { surface.Children.Remove(danceVisual);danceVisual=null; }
+        if(motionVisual is not null) { surface.Children.Remove(motionVisual);motionVisual=null; }
+        ClearAuthoredVisual();
         var idle=Character.Resolve(State.Outfit,"idle",0);
         var neutral=Art.Frame(Character,idle.Sprite,idle.Frame);
         double height=State.Size*Art.VisibleHeight(neutral),plane=height/.7;
         double elapsed=Now-(clubAction is null?actionStarted:clubStarted);
-        var pose=ClubMotion.Sample(key,State.ReducedMotion?(key=="stretch"?2700:key=="bubbles"?1800:4300):elapsed);
+        double sampleTime=State.ReducedMotion?(key=="stretch"?2700:key=="bubbles"?1800:key is "comb" or "wipe"?1650:4300):elapsed;
+        var pose=key is "comb" or "wipe"?Motion.Blend(sheet!,sampleTime):ClubMotion.Sample(key,sampleTime,sheet!);
         clubVisual.Width=clubVisual.Height=plane;clubVisual.Opacity=State.Opacity;
         Canvas.SetLeft(clubVisual,CenterX-plane/2);Canvas.SetTop(clubVisual,FloorY-plane*.92);clubVisual.Update(pose);
-        // Retain the normal transparent sprite surface for drag and right-click input.
-        sprite.Source=neutral;sprite.Width=sprite.Height=State.Size;sprite.Opacity=0;
-        groundLine=Art.GroundLine(neutral);Canvas.SetLeft(sprite,CenterX-State.Size/2);Canvas.SetTop(sprite,PetTop);
-        sprite.RenderTransform=facing;facing.ScaleX=1;
-        UsingDrawnAction=true;DrawnFrame=pose.Amount<.5?pose.A:pose.B;bakedProps=key=="bubbles";AirborneOffset=0;
+        AirborneOffset=0;UpdateAuthoredProxy(clubVisual,sheet!,pose,plane);
+        UsingDrawnAction=true;bakedProps=sheet!.BakedProps;
         effects.Clear();RenderClubFeedback(key,elapsed,height);LayoutChat();UpdateWalkClock();return true;
     }
     private void RenderClubFeedback(string key,double elapsed,double height)
     {
         bool chibi=Character.Category==CharacterStyles.Chibi;
         if(State.ReducedMotion) elapsed=key=="stretch"?2700:key=="bubbles"?1800:key=="stars"?4300:2000;
-        var mouth=new Point(CenterX,FloorY-height*(chibi?.43:.80));
+        var mouth=AuthoredEffectAnchor("mouth")??new Point(CenterX,FloorY-height*(chibi?.43:.80));
         var palm=HandTarget ?? new Point(CenterX-height*.18,FloorY-height*.55);
+        Func<double,Point>? bubbleSource=null;
+        var bubbleClip=Character.MotionFor(State.Outfit,key);
+        if(key=="bubbles" && clubVisual is { } visual && bubbleClip?.BubbleSources is { } sources)
+        {
+            bubbleSource=birth=>
+            {
+                var anchor=visual.Anchor(sources,ClubMotion.Sample("bubbles",birth,bubbleClip!));
+                return anchor is { } p?new Point(Canvas.GetLeft(visual)+p.X*visual.Width,Canvas.GetTop(visual)+p.Y*visual.Height)
+                    :new Point(mouth.X-height*(chibi?.17:.055),mouth.Y);
+            };
+        }
         double remaining=Math.Abs(butterflyTarget-(Left+walkOffset.X+CenterX));
         clubFeedback.Update(key,elapsed,height,new Point(CenterX,FloorY),mouth,palm,chibi,State.ReducedMotion,
-            remaining>2?new Point(butterflyTarget-Left-walkOffset.X,mouth.Y-24):palm,remaining<=2 && Now-butterflyStarted>1200);
+            remaining>2?new Point(butterflyTarget-Left-walkOffset.X,mouth.Y-24):palm,remaining<=2 && Now-butterflyStarted>1200,bakedProps,bubbleSource);
         clubFeedback.Opacity=State.Opacity;
         if(key=="stars") clubScore=ClubMotion.Sample("stars",elapsed).Count;
     }

@@ -13,7 +13,14 @@ internal static class UiVerification
     public static async Task Run(PetWindow pet, string output)
     {
         var checks = new List<string>();
+        var walkObservations = new List<object>();
         void Require(bool pass, string name) { if (!pass) throw new InvalidOperationException(name); checks.Add("PASS " + name); }
+        void ResumeRealtimeContinuations()
+        {
+            // Layout may yield at Background priority, but subsequent live-motion
+            // awaits must not inherit that priority and wait behind every render.
+            System.Threading.SynchronizationContext.SetSynchronizationContext(new System.Windows.Threading.DispatcherSynchronizationContext(pet.Dispatcher,System.Windows.Threading.DispatcherPriority.Normal));
+        }
         IEnumerable<T> Find<T>(DependencyObject root) where T : DependencyObject
         {
             for (int i = 0; i < VisualTreeHelper.GetChildrenCount(root); i++)
@@ -51,11 +58,13 @@ internal static class UiVerification
         foreach (var c in pet.Catalog.Characters.ToArray())
         {
             await System.Windows.Threading.Dispatcher.Yield(System.Windows.Threading.DispatcherPriority.Background);
+            ResumeRealtimeContinuations();
             Click("分类 " + CloudTheme.CategoryName(c.Category)); Click("选择角色 " + c.Name); Require(pet.State.Character == c.Id, "select " + c.Id);
             if (c.Category == "chibi") continue;
-            foreach (var (outfit, label) in new[] { ("original", "原装"), ("swim", "泳装"), ("wedding", "婚纱") })
+            foreach (var (outfit, label) in Catalog.BuiltInWardrobe)
             {
                 await System.Windows.Threading.Dispatcher.Yield(System.Windows.Threading.DispatcherPriority.Background);
+                ResumeRealtimeContinuations();
                 Click("选择服装 " + label);
                 foreach (string action in new[] { "chat", "headpat" })
                 {
@@ -83,7 +92,7 @@ internal static class UiVerification
 
         string[] interactions = ["idle", "listen", "chat", "meal", "eat", "headpat", "poke", "tickle", "pickup", "shaken", "shaken-strong", "dizzy", "faint", "happy", "sad", "sleep", "pounce", "jump", "land", "kick", "think", "ball-ready", "anticipate", "ball-hit", "ball-miss", "build", "bonk", "peek", "curl", "farewell"];
         foreach (var c in pet.Catalog.Characters)
-            foreach (string outfit in new[] { "original", "swim", "wedding" })
+            foreach (string outfit in Catalog.BuiltInOutfits)
             {
                 pet.SelectCharacter(c.Id); pet.State.Outfits[c.Id] = outfit; pet.ApplySettings();
                 var ownSprites = outfit == "original"
@@ -102,16 +111,17 @@ internal static class UiVerification
             }
 
         foreach (var c in pet.Catalog.Characters)
-            foreach (string outfit in new[] { "original", "swim", "wedding" })
+            foreach (string outfit in Catalog.BuiltInOutfits)
                 foreach (int direction in new[] { -1, 1 })
                 {
                     pet.SelectCharacter(c.Id); pet.State.Outfits[c.Id] = outfit; pet.ApplySettings();
                     pet.Left = pet.WorkArea.Left + pet.WorkArea.Width / 2 - 280; double start = pet.Left;
+                    var walkProbe = System.Diagnostics.Stopwatch.StartNew();
                     pet.StartWalk(false, direction); await Until(() => pet.CurrentAction == "walk" && (pet.Left - start) * direction > .5, $"{c.Id}/{outfit}, direction={direction}, start={start}");
                     var sprite = Find<Image>(pet).Single();
                     double scale = ((ScaleTransform)sprite.RenderTransform).ScaleX;
-                    Require(scale == direction, $"{c.Id}/{outfit}: travel and facing agree ({direction})");
                     var walk = outfit == "original" ? c.Motions["walk"] : c.Outfits[outfit].Motions["walk"];
+                    Require(scale == DesktopWalk.ScaleX(direction,walk.Facing), $"{c.Id}/{outfit}: travel and facing agree (requested={direction}, scale={scale}, action={pet.CurrentAction}, actual={pet.State.Character}/{pet.State.Outfit}, left={pet.Left}, start={start}, phase={pet.WalkPhaseMilliseconds}, frame={pet.DrawnFrame}, sourceFacing={walk.Facing}, waitedMs={walkProbe.Elapsed.TotalMilliseconds})");
                     Require(ReferenceEquals(sprite.Source, pet.Art.Frame(c, walk, pet.DrawnFrame)), $"{c.Id}/{outfit}: walk uses this exact style and clothing; action={pet.CurrentAction}, frame={pet.DrawnFrame}, appearance={pet.State.Character}/{pet.State.Outfit}");
                     if (c.Category != "chibi")
                     {
@@ -123,10 +133,59 @@ internal static class UiVerification
                     if (direction == 1)
                     {
                         int first = pet.DrawnFrame;
-                        await Until(() => pet.CurrentAction == "walk" && pet.DrawnFrame != first, $"{c.Id}/{outfit}: walking frame advances");
+                        double firstPhase = pet.WalkPhaseMilliseconds;
+                        var observed = new HashSet<int> { first };
+                        var nextFrame = new TaskCompletionSource<(int Frame, ImageSource? Source, double Phase, double ObservedMs)>(TaskCreationOptions.RunContinuationsAsynchronously);
+                        var presentations = new Queue<object>();
+                        void ObserveFrame(object? sender, EventArgs e)
+                        {
+                            if(e is RenderingEventArgs)
+                            {
+                                presentations.Enqueue(new { ms=walkProbe.Elapsed.TotalMilliseconds, action=pet.CurrentAction, character=pet.State.Character, outfit=pet.State.Outfit, frame=pet.DrawnFrame, phase=pet.WalkPhaseMilliseconds, left=pet.Left, scale=((ScaleTransform)sprite.RenderTransform).ScaleX });
+                                if(presentations.Count>32)presentations.Dequeue();
+                            }
+                            if (e is not RenderingEventArgs || pet.CurrentAction != "walk" || pet.State.Character != c.Id || pet.State.Outfit != outfit) return;
+                            observed.Add(pet.DrawnFrame);
+                            if (pet.DrawnFrame != first)
+                                nextFrame.TrySetResult((pet.DrawnFrame, sprite.Source, pet.WalkPhaseMilliseconds,walkProbe.Elapsed.TotalMilliseconds));
+                        }
+                        // Observe the frames presented by the live compositor. A delayed
+                        // Task.Delay continuation can sample the same cell after a whole
+                        // gait cycle, missing the intervening frames that were displayed.
+                        CompositionTarget.Rendering += ObserveFrame;
+                        (int Frame, ImageSource? Source, double Phase, double ObservedMs) presented;
+                        try
+                        {
+                            if (await Task.WhenAny(nextFrame.Task, Task.Delay(TimeSpan.FromSeconds(4))) != nextFrame.Task)
+                                throw new TimeoutException($"No different walking frame was presented: {c.Id}/{outfit}; frames={string.Join(',', observed)}; phase={firstPhase}->{pet.WalkPhaseMilliseconds}; left={pet.Left}; action={pet.CurrentAction}; compositor={pet.WalkUsesRendering}");
+                            presented = await nextFrame.Task;
+                        }
+                        finally { CompositionTarget.Rendering -= ObserveFrame; }
+                        Require(presented.Phase > firstPhase, $"{c.Id}/{outfit}: live walking clock advances with the presented pose");
+                        Require(ReferenceEquals(presented.Source, pet.Art.Frame(c, walk, presented.Frame)), $"{c.Id}/{outfit}: observed walking frame keeps the same appearance");
                         // The bounded image cache can replace bitmap instances. Compare
                         // the currently drawn cell, rather than retaining stale references.
-                        Require(ReferenceEquals(sprite.Source, pet.Art.Frame(c, walk, pet.DrawnFrame)), $"{c.Id}/{outfit}: next walking frame keeps the same appearance");
+                        var currentSource=(BitmapSource)sprite.Source;
+                        int currentFrame=pet.DrawnFrame;
+                        string currentAction=pet.CurrentAction;
+                        var expectedSource=pet.Art.Frame(c,walk,currentFrame);
+                        bool exactSource=ReferenceEquals(currentSource,expectedSource);
+                        if(!exactSource || currentAction!="walk")
+                        {
+                            object Fingerprint(BitmapSource bitmap)
+                            {
+                                int stride=(bitmap.PixelWidth*bitmap.Format.BitsPerPixel+7)/8;
+                                byte[] pixels=new byte[stride*bitmap.PixelHeight];bitmap.CopyPixels(pixels,stride,0);
+                                return new { bitmap.PixelWidth,bitmap.PixelHeight,bitmap.DpiX,bitmap.DpiY,format=bitmap.Format.ToString(),hash=Convert.ToHexString(System.Security.Cryptography.SHA256.HashData(pixels)) };
+                            }
+                            var context=System.Threading.SynchronizationContext.Current;
+                            var priorities=context?.GetType().GetFields(System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.NonPublic)
+                                .Where(field=>field.Name.Contains("priority",StringComparison.OrdinalIgnoreCase)).ToDictionary(field=>field.Name,field=>field.GetValue(context)?.ToString());
+                            var diagnostic=new { requested=c.Id+"/"+outfit, actual=pet.State.Character+"/"+pet.State.Outfit, currentAction, currentFrame, phase=pet.WalkPhaseMilliseconds, left=pet.Left, elapsedMs=walkProbe.Elapsed.TotalMilliseconds, presentedFrame=presented.Frame,presentedPhase=presented.Phase,presented.ObservedMs, exactSource, synchronizationContext=context?.GetType().FullName, priorities, source=Fingerprint(currentSource),expected=Fingerprint(expectedSource),presentations };
+                            File.WriteAllText(Path.Combine(output,"walk-frame-mismatch.json"),System.Text.Json.JsonSerializer.Serialize(diagnostic,Json.Options));
+                        }
+                        Require(exactSource && currentAction=="walk", $"{c.Id}/{outfit}: next walking frame keeps the same appearance (action={currentAction}, actual={pet.State.Character}/{pet.State.Outfit}, frame={currentFrame}, phase={pet.WalkPhaseMilliseconds}, presentedMs={presented.ObservedMs}, resumedMs={walkProbe.Elapsed.TotalMilliseconds}, exactSource={exactSource})");
+                        walkObservations.Add(new { appearance=c.Id+"/"+outfit, firstFrame=first, presentedFrame=presented.Frame, currentFrame, currentAction, presentedMs=presented.ObservedMs, resumedMs=walkProbe.Elapsed.TotalMilliseconds, presentedPhase=presented.Phase, currentPhase=pet.WalkPhaseMilliseconds, exactSource });
                     }
                     double foot = pet.Top + Canvas.GetTop(sprite) + sprite.Height * pet.Art.GroundLine((BitmapSource)sprite.Source);
                     Require(Math.Abs(foot - pet.WorkArea.Bottom) < .1, $"{c.Id}/{outfit}: visible feet stay on desktop floor ({direction})");
@@ -139,6 +198,7 @@ internal static class UiVerification
                     }
                     pet.Play("idle");
                 }
+        File.WriteAllText(Path.Combine(output,"ui-walk-observations.json"),System.Text.Json.JsonSerializer.Serialize(walkObservations,Json.Options));
         pet.SelectCharacter("whale"); pet.State.Outfits["whale"] = "original"; pet.ApplySettings();
         pet.Left = pet.WorkArea.Right - pet.State.Size * .46 - 280; double edge = pet.Left;
         pet.StartWalk(false, 1); await Until(() => pet.Left < edge - .5, "screen edge reversal");
@@ -164,12 +224,13 @@ internal static class UiVerification
         pet.Catalog.Characters.Remove(imported); pet.Catalog.Characters.Remove(portrait);
         pet.SelectCharacter("whale"); pet.State.Outfits["whale"] = "original"; pet.ApplySettings(); Click("我的伙伴"); Click("分类 Q版"); await Capture("pet-home");
         foreach (string family in Catalog.BuiltInFamilies)
-            foreach (string outfit in new[] { "original", "swim", "wedding" })
+            foreach (string outfit in Catalog.BuiltInOutfits)
             {
                 pet.SelectCharacter(family); pet.State.Outfits[family] = outfit; pet.ApplySettings();
                 foreach (string style in new[] { CharacterStyles.Realistic, CharacterStyles.Chibi })
                 {
                     await System.Windows.Threading.Dispatcher.Yield(System.Windows.Threading.DispatcherPriority.Background);
+                    ResumeRealtimeContinuations();
                     Click("分类 " + CloudTheme.CategoryName(style));
                     Require(pet.Character.FamilyId == family && pet.Character.Category == style && pet.State.Outfit == outfit, $"category selection applies {family}/{style}/{outfit} to live pet");
                 }
@@ -191,7 +252,7 @@ internal static class UiVerification
         foreach (string family in Catalog.BuiltInFamilies)
         {
             Click("对照角色 " + pet.Catalog.Find(family).Name);
-            foreach (var (outfit, label) in new[] { ("original", "原装"), ("swim", "泳装"), ("wedding", "婚纱") })
+            foreach (var (outfit, label) in Catalog.BuiltInWardrobe)
             {
                 Click("对照服装 " + label);
                 foreach (string style in CharacterStyles.All)

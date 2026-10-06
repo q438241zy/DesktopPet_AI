@@ -1,0 +1,230 @@
+{
+  "character": "deepseek-adult",
+  "manifest": "adult-deepseek-prompts.json",
+  "points": {
+    "swim": {
+      "size": [
+        1536,
+        1024
+      ],
+      "high": [
+        [
+          143,
+          181
+        ],
+        [
+          603,
+          126
+        ],
+        [
+          1018,
+          157
+        ],
+        [
+          1407,
+          190
+        ]
+      ],
+      "receive": [
+        985,
+        381
+      ],
+      "gift": [
+        1354,
+        362
+      ],
+      "slot": [
+        298,
+        339
+      ],
+      "front": 356,
+      "box": 90,
+      "book": [
+        615,
+        317
+      ],
+      "page": [
+        971,
+        331
+      ],
+      "sizes": {
+        "highfive": [
+          1764,
+          882
+        ]
+      }
+    },
+    "sports": {
+      "size": [
+        1536,
+        1024
+      ],
+      "high": [
+        [
+          338,
+          148
+        ],
+        [
+          778,
+          89
+        ],
+        [
+          1147,
+          117
+        ],
+        [
+          1503,
+          157
+        ]
+      ],
+      "receive": [
+        985,
+        360
+      ],
+      "gift": [
+        1358,
+        349
+      ],
+      "slot": [
+        270,
+        335
+      ],
+      "front": 350,
+      "box": 86,
+      "book": [
+        650,
+        309
+      ],
+      "page": [
+        992,
+        328
+      ],
+      "sizes": {
+        "highfive": [
+          2048,
+          683
+        ]
+      }
+    },
+    "wedding": {
+      "size": [
+        1254,
+        1254
+      ],
+      "high": [
+        [
+          173,
+          181
+        ],
+        [
+          643,
+          127
+        ],
+        [
+          1118,
+          159
+        ],
+        [
+          1553,
+          183
+        ]
+      ],
+      "receive": [
+        389,
+        855
+      ],
+      "gift": [
+        895,
+        842
+      ],
+      "slot": [
+        417,
+        195
+      ],
+      "front": 210,
+      "box": 63,
+      "book": [
+        902,
+        190
+      ],
+      "page": [
+        378,
+        819
+      ],
+      "sizes": {
+        "highfive": [
+          1916,
+          821
+        ]
+      }
+    }
+  },
+  "sources": {
+    "swim": {
+      "highfive": {
+        "file": "deepseek-adult-swim-highfive-v2.png",
+        "rows": 1
+      },
+      "rps": {
+        "file": "deepseek-adult-swim-rps-v2.png",
+        "rows": 1
+      },
+      "handoff": {
+        "file": "deepseek-adult-swim-handoff-v2.png",
+        "rows": 1
+      },
+      "book": {
+        "file": "deepseek-adult-swim-book-v2.png",
+        "rows": 1
+      },
+      "photo": {
+        "file": "deepseek-adult-swim-photo-v2.png",
+        "rows": 1
+      }
+    },
+    "sports": {
+      "highfive": {
+        "file": "deepseek-adult-sports-highfive-v2.png",
+        "rows": 1
+      },
+      "rps": {
+        "file": "deepseek-adult-sports-rps-v2.png",
+        "rows": 1
+      },
+      "handoff": {
+        "file": "deepseek-adult-sports-handoff-v2.png",
+        "rows": 1
+      },
+      "book": {
+        "file": "deepseek-adult-sports-book-v2.png",
+        "rows": 1
+      },
+      "photo": {
+        "file": "deepseek-adult-sports-photo-v2.png",
+        "rows": 1
+      }
+    },
+    "wedding": {
+      "highfive": {
+        "file": "deepseek-adult-wedding-highfive-v2.png",
+        "rows": 1
+      },
+      "rps": {
+        "file": "deepseek-adult-wedding-rps-v3.png",
+        "rows": 2
+      },
+      "handoff": {
+        "file": "deepseek-adult-wedding-handoff-v3.png",
+        "rows": 2
+      },
+      "book": {
+        "file": "deepseek-adult-wedding-book-v3.png",
+        "rows": 2
+      },
+      "photo": {
+        "file": "deepseek-adult-wedding-photo-v3.png",
+        "rows": 2
+      }
+    }
+  }
+}

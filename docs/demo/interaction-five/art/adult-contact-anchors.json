@@ -1,0 +1,12 @@
+{
+  "high-prep": {"anchors": {"hand": [0.13, 0.20]}},
+  "high-ready": {"anchors": {"hand": [0.255, 0.145]}},
+  "high-contact": {"anchors": {"hand": [0.27, 0.185]}},
+  "high-recoil": {"anchors": {"hand": [0.17, 0.22]}},
+  "receive": {"anchors": {"receive": [0.51, 0.38]}},
+  "gift": {"anchors": {"gift": [0.51, 0.35]}},
+  "gift-empty": {"anchors": {"giftSlot": [0.533, 0.314]}, "frontY": 0.324, "boxWidth": 0.25},
+  "read": {"anchors": {"book": [0.51, 0.30]}},
+  "page": {"anchors": {"book": [0.54, 0.30]}},
+  "read-finish": {"anchors": {"book": [0.50, 0.315]}}
+}

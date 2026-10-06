@@ -1,0 +1,22 @@
+[
+  {
+    "key": "QFive-gpt-original-v2",
+    "path": "D:/VibeCoding/Character/artwork/interaction-five/gpt-original-v1.png",
+    "prompt": "Edit this sprite sheet without changing its character, clothes, poses or props. Make a production TRANSPARENT RGBA sprite sheet: remove ALL flat and gradient background pixels completely, leave actual transparent alpha, keep every original hair/cloth/skin color. Re-layout exactly 20 full sprites in 4 columns by 5 rows in original row-major order. Put at least 14 transparent pixels between ANY two sprites; no hair, veil or shoe may overlap adjacent sprites. Entire sprite including hair/horns/veil/shoes must have generous transparent margins on all sides. Keep identical HEAD and BODY scale across all twenty, including bottom row, feet aligned row-wise. Keep the same already drawn distinct gestures and the same proportions; do not redraw into a different character. Gift box empty with grey interior, reading finished with closed blue book. No background, gradient, grid, checkerboard, frames, captions, floor/shadow or labels."
+  },
+  {
+    "key": "QFive-gpt-swim-v2",
+    "path": "D:/VibeCoding/Character/artwork/interaction-five/gpt-swim-v1.png",
+    "prompt": "Edit this sprite sheet without changing its character, clothes, poses or props. Make a production TRANSPARENT RGBA sprite sheet: remove ALL flat and gradient background pixels completely, leave actual transparent alpha, keep every original hair/cloth/skin color. Re-layout exactly 20 full sprites in 4 columns by 5 rows in original row-major order. Put at least 14 transparent pixels between ANY two sprites; no hair, veil or shoe may overlap adjacent sprites. Entire sprite including hair/horns/veil/shoes must have generous transparent margins on all sides. Keep identical HEAD and BODY scale across all twenty, including bottom row, feet aligned row-wise. Keep the same already drawn distinct gestures and the same proportions; do not redraw into a different character. Gift box empty with grey interior, reading finished with closed blue book. No background, gradient, grid, checkerboard, frames, captions, floor/shadow or labels."
+  },
+  {
+    "key": "QFive-gpt-wedding-v2",
+    "path": "D:/VibeCoding/Character/artwork/interaction-five/gpt-wedding-v1.png",
+    "prompt": "Edit this sprite sheet without changing its character, clothes, poses or props. Make a production TRANSPARENT RGBA sprite sheet: remove ALL flat and gradient background pixels completely, leave actual transparent alpha, keep every original hair/cloth/skin color. Re-layout exactly 20 full sprites in 4 columns by 5 rows in original row-major order. Put at least 14 transparent pixels between ANY two sprites; no hair, veil or shoe may overlap adjacent sprites. Entire sprite including hair/horns/veil/shoes must have generous transparent margins on all sides. Keep identical HEAD and BODY scale across all twenty, including bottom row, feet aligned row-wise. Keep the same already drawn distinct gestures and the same proportions; do not redraw into a different character. Gift box empty with grey interior, reading finished with closed blue book. No background, gradient, grid, checkerboard, frames, captions, floor/shadow or labels."
+  },
+  {
+    "key": "QFive-gpt-sports-v2",
+    "path": "D:/VibeCoding/Character/artwork/interaction-five/gpt-sports-v1.png",
+    "prompt": "Edit this sprite sheet without changing its character, clothes, poses or props. Make a production TRANSPARENT RGBA sprite sheet: remove ALL flat and gradient background pixels completely, leave actual transparent alpha, keep every original hair/cloth/skin color. Re-layout exactly 20 full sprites in 4 columns by 5 rows in original row-major order. Put at least 14 transparent pixels between ANY two sprites; no hair, veil or shoe may overlap adjacent sprites. Entire sprite including hair/horns/veil/shoes must have generous transparent margins on all sides. Keep identical HEAD and BODY scale across all twenty, including bottom row, feet aligned row-wise. Keep the same already drawn distinct gestures and the same proportions; do not redraw into a different character. Gift box empty with grey interior, reading finished with closed blue book. No background, gradient, grid, checkerboard, frames, captions, floor/shadow or labels."
+  }
+]

@@ -1,0 +1,1889 @@
+{
+  "version": 3,
+  "styles": {
+    "chibi": {
+      "file": "art/deepseek-chibi-v1.png",
+      "dimensions": [
+        1086,
+        1448
+      ],
+      "referenceHeight": 346,
+      "poses": {
+        "neutral": {
+          "rect": [
+            53,
+            10,
+            305,
+            350
+          ],
+          "foot": [
+            186.0,
+            358
+          ],
+          "bounds": [
+            55,
+            12,
+            301,
+            346
+          ],
+          "area": 64093
+        },
+        "lift": {
+          "rect": [
+            390,
+            9,
+            307,
+            351
+          ],
+          "foot": [
+            524.0,
+            358
+          ],
+          "bounds": [
+            392,
+            11,
+            303,
+            347
+          ],
+          "area": 64646
+        },
+        "highfive": {
+          "rect": [
+            738,
+            9,
+            305,
+            351
+          ],
+          "foot": [
+            875.0,
+            358
+          ],
+          "bounds": [
+            740,
+            11,
+            301,
+            347
+          ],
+          "area": 65695
+        },
+        "rock": {
+          "rect": [
+            53,
+            368,
+            315,
+            350
+          ],
+          "foot": [
+            204.0,
+            716
+          ],
+          "bounds": [
+            55,
+            370,
+            311,
+            346
+          ],
+          "area": 66338
+        },
+        "scissors": {
+          "rect": [
+            396,
+            368,
+            310,
+            350
+          ],
+          "foot": [
+            549.0,
+            716
+          ],
+          "bounds": [
+            398,
+            370,
+            306,
+            346
+          ],
+          "area": 66019
+        },
+        "paper": {
+          "rect": [
+            756,
+            368,
+            300,
+            350
+          ],
+          "foot": [
+            893.0,
+            716
+          ],
+          "bounds": [
+            758,
+            370,
+            296,
+            346
+          ],
+          "area": 64938
+        },
+        "receive": {
+          "rect": [
+            55,
+            722,
+            301,
+            353
+          ],
+          "foot": [
+            202.0,
+            1073
+          ],
+          "bounds": [
+            57,
+            724,
+            297,
+            349
+          ],
+          "area": 65741
+        },
+        "gift": {
+          "rect": [
+            397,
+            722,
+            315,
+            353
+          ],
+          "foot": [
+            541.0,
+            1073
+          ],
+          "bounds": [
+            399,
+            724,
+            311,
+            349
+          ],
+          "area": 68030
+        },
+        "open": {
+          "rect": [
+            755,
+            720,
+            316,
+            355
+          ],
+          "foot": [
+            892.5,
+            1073
+          ],
+          "bounds": [
+            757,
+            722,
+            312,
+            351
+          ],
+          "area": 69305
+        },
+        "read": {
+          "rect": [
+            52,
+            1079,
+            314,
+            356
+          ],
+          "foot": [
+            206.0,
+            1433
+          ],
+          "bounds": [
+            54,
+            1081,
+            310,
+            352
+          ],
+          "area": 69028
+        },
+        "page": {
+          "rect": [
+            399,
+            1077,
+            322,
+            358
+          ],
+          "foot": [
+            538.5,
+            1433
+          ],
+          "bounds": [
+            401,
+            1079,
+            318,
+            354
+          ],
+          "area": 70443
+        },
+        "photo": {
+          "rect": [
+            764,
+            1078,
+            303,
+            357
+          ],
+          "foot": [
+            899.0,
+            1433
+          ],
+          "bounds": [
+            766,
+            1080,
+            299,
+            353
+          ],
+          "area": 67981
+        },
+        "high-prep": {
+          "rect": [
+            47,
+            38,
+            288,
+            321
+          ],
+          "foot": [
+            178.0,
+            357
+          ],
+          "bounds": [
+            49,
+            40,
+            284,
+            317
+          ],
+          "area": 56769,
+          "atlas": "chibi-interaction",
+          "unit": 1.0914826498422714,
+          "anchors": {}
+        },
+        "high-ready": {
+          "rect": [
+            412,
+            38,
+            288,
+            321
+          ],
+          "foot": [
+            555.0,
+            357
+          ],
+          "bounds": [
+            414,
+            40,
+            284,
+            317
+          ],
+          "area": 56834,
+          "atlas": "chibi-interaction",
+          "unit": 1.0914826498422714,
+          "anchors": {
+            "hand": [
+              -87.04,
+              -209.22
+            ]
+          }
+        },
+        "high-contact": {
+          "rect": [
+            770,
+            38,
+            291,
+            321
+          ],
+          "foot": [
+            915.0,
+            357
+          ],
+          "bounds": [
+            772,
+            40,
+            287,
+            317
+          ],
+          "area": 57848,
+          "atlas": "chibi-interaction",
+          "unit": 1.0914826498422714,
+          "anchors": {
+            "hand": [
+              -91.34,
+              -190.2
+            ]
+          }
+        },
+        "high-recoil": {
+          "rect": [
+            1137,
+            40,
+            290,
+            319
+          ],
+          "foot": [
+            1281.0,
+            357
+          ],
+          "bounds": [
+            1139,
+            42,
+            286,
+            315
+          ],
+          "area": 56495,
+          "atlas": "chibi-interaction",
+          "unit": 1.0914826498422714,
+          "anchors": {
+            "hand": [
+              -73.36,
+              -141.75
+            ]
+          }
+        },
+        "fist-up": {
+          "rect": [
+            45,
+            393,
+            292,
+            319
+          ],
+          "foot": [
+            180.0,
+            710
+          ],
+          "bounds": [
+            47,
+            395,
+            288,
+            315
+          ],
+          "area": 57582,
+          "atlas": "chibi-interaction",
+          "unit": 1.0914826498422714,
+          "anchors": {}
+        },
+        "fist-mid": {
+          "rect": [
+            407,
+            393,
+            294,
+            319
+          ],
+          "foot": [
+            554.0,
+            710
+          ],
+          "bounds": [
+            409,
+            395,
+            290,
+            315
+          ],
+          "area": 58100,
+          "atlas": "chibi-interaction",
+          "unit": 1.0914826498422714,
+          "anchors": {}
+        },
+        "fist-down": {
+          "rect": [
+            769,
+            393,
+            292,
+            319
+          ],
+          "foot": [
+            916.0,
+            710
+          ],
+          "bounds": [
+            771,
+            395,
+            288,
+            315
+          ],
+          "area": 57251,
+          "atlas": "chibi-interaction",
+          "unit": 1.0914826498422714,
+          "anchors": {}
+        },
+        "reveal-rock": {
+          "rect": [
+            1136,
+            388,
+            291,
+            325
+          ],
+          "foot": [
+            1283.5,
+            711
+          ],
+          "bounds": [
+            1138,
+            390,
+            287,
+            321
+          ],
+          "area": 58266,
+          "atlas": "chibi-interaction",
+          "unit": 1.0914826498422714,
+          "anchors": {}
+        },
+        "reveal-scissors": {
+          "rect": [
+            45,
+            733,
+            294,
+            325
+          ],
+          "foot": [
+            188.0,
+            1056
+          ],
+          "bounds": [
+            47,
+            735,
+            290,
+            321
+          ],
+          "area": 58874,
+          "atlas": "chibi-interaction",
+          "unit": 1.0914826498422714,
+          "anchors": {}
+        },
+        "reveal-paper": {
+          "rect": [
+            407,
+            732,
+            294,
+            326
+          ],
+          "foot": [
+            545.0,
+            1056
+          ],
+          "bounds": [
+            409,
+            734,
+            290,
+            322
+          ],
+          "area": 59176,
+          "atlas": "chibi-interaction",
+          "unit": 1.0914826498422714,
+          "anchors": {}
+        },
+        "gift-empty": {
+          "rect": [
+            767,
+            732,
+            297,
+            326
+          ],
+          "foot": [
+            915.5,
+            1056
+          ],
+          "bounds": [
+            769,
+            734,
+            293,
+            322
+          ],
+          "area": 60068,
+          "atlas": "chibi-interaction",
+          "unit": 1.0914826498422714,
+          "anchors": {
+            "giftSlot": [
+              0.0,
+              -125.58
+            ]
+          },
+          "frontY": -113.99,
+          "boxWidth": 90.83
+        },
+        "read-finish": {
+          "rect": [
+            1135,
+            733,
+            292,
+            325
+          ],
+          "foot": [
+            1282.0,
+            1056
+          ],
+          "bounds": [
+            1137,
+            735,
+            288,
+            321
+          ],
+          "area": 58299,
+          "atlas": "chibi-interaction",
+          "unit": 1.0914826498422714,
+          "anchors": {}
+        }
+      },
+      "sha256": "5aa3cf89f60fc840a6a34c1b860fc99ccf55f913e59b5d347c0c2310b2d8f590"
+    },
+    "realistic": {
+      "file": "art/real-adult-photo-final.png",
+      "dimensions": [
+        1774,
+        887
+      ],
+      "referenceHeight": 872.0,
+      "poses": {
+        "high-prep": {
+          "rect": [
+            108,
+            5,
+            351,
+            874
+          ],
+          "bounds": [
+            110,
+            7,
+            347,
+            870
+          ],
+          "foot": [
+            302.0,
+            877
+          ],
+          "area": 157329,
+          "atlas": "realistic-highfive",
+          "anchors": {
+            "hand": [
+              -146.89,
+              -696.0
+            ]
+          },
+          "unit": 1.0057670126874279
+        },
+        "high-ready": {
+          "rect": [
+            494,
+            7,
+            357,
+            871
+          ],
+          "bounds": [
+            496,
+            9,
+            353,
+            867
+          ],
+          "foot": [
+            688.0,
+            876
+          ],
+          "area": 159622,
+          "atlas": "realistic-highfive",
+          "anchors": {
+            "hand": [
+              -101.99,
+              -741.29
+            ]
+          },
+          "unit": 1.0057670126874279
+        },
+        "high-contact": {
+          "rect": [
+            891,
+            8,
+            360,
+            871
+          ],
+          "bounds": [
+            893,
+            10,
+            356,
+            867
+          ],
+          "foot": [
+            1092.0,
+            877
+          ],
+          "area": 155337,
+          "atlas": "realistic-highfive",
+          "anchors": {
+            "hand": [
+              -102.88,
+              -706.61
+            ]
+          },
+          "unit": 1.0057670126874279
+        },
+        "high-recoil": {
+          "rect": [
+            1336,
+            7,
+            356,
+            871
+          ],
+          "bounds": [
+            1338,
+            9,
+            352,
+            867
+          ],
+          "foot": [
+            1531.0,
+            876
+          ],
+          "area": 155778,
+          "atlas": "realistic-highfive",
+          "anchors": {
+            "hand": [
+              -133.16,
+              -676.26
+            ]
+          },
+          "unit": 1.0057670126874279
+        },
+        "fist-up": {
+          "rect": [
+            120,
+            0,
+            343,
+            806
+          ],
+          "bounds": [
+            122,
+            1,
+            339,
+            803
+          ],
+          "foot": [
+            312.0,
+            804
+          ],
+          "area": 139517,
+          "atlas": "realistic-rps",
+          "anchors": {},
+          "unit": 1.0866043613707166
+        },
+        "fist-mid": {
+          "rect": [
+            564,
+            1,
+            341,
+            806
+          ],
+          "bounds": [
+            566,
+            3,
+            337,
+            802
+          ],
+          "foot": [
+            752.0,
+            805
+          ],
+          "area": 138806,
+          "atlas": "realistic-rps",
+          "anchors": {},
+          "unit": 1.0866043613707166
+        },
+        "fist-down": {
+          "rect": [
+            1045,
+            0,
+            340,
+            807
+          ],
+          "bounds": [
+            1047,
+            2,
+            336,
+            803
+          ],
+          "foot": [
+            1232.0,
+            805
+          ],
+          "area": 139471,
+          "atlas": "realistic-rps",
+          "anchors": {},
+          "unit": 1.0866043613707166
+        },
+        "reveal-rock": {
+          "rect": [
+            1484,
+            1,
+            336,
+            805
+          ],
+          "bounds": [
+            1486,
+            3,
+            332,
+            801
+          ],
+          "foot": [
+            1671.0,
+            804
+          ],
+          "area": 137300,
+          "atlas": "realistic-rps",
+          "anchors": {},
+          "unit": 1.0866043613707166
+        },
+        "reveal-scissors": {
+          "rect": [
+            45,
+            0,
+            380,
+            879
+          ],
+          "bounds": [
+            47,
+            2,
+            376,
+            875
+          ],
+          "foot": [
+            234.0,
+            877
+          ],
+          "area": 168911,
+          "atlas": "realistic-handoff",
+          "anchors": {},
+          "unit": 0.9971412235563178
+        },
+        "reveal-paper": {
+          "rect": [
+            477,
+            1,
+            376,
+            878
+          ],
+          "bounds": [
+            479,
+            3,
+            372,
+            874
+          ],
+          "foot": [
+            663.0,
+            877
+          ],
+          "area": 166203,
+          "atlas": "realistic-handoff",
+          "anchors": {},
+          "unit": 0.9971412235563178
+        },
+        "receive": {
+          "rect": [
+            919,
+            1,
+            393,
+            878
+          ],
+          "bounds": [
+            921,
+            3,
+            389,
+            874
+          ],
+          "foot": [
+            1104.0,
+            877
+          ],
+          "area": 166572,
+          "atlas": "realistic-handoff",
+          "anchors": {
+            "receive": [
+              15.39,
+              -541.88
+            ]
+          },
+          "unit": 0.9971412235563178
+        },
+        "gift": {
+          "rect": [
+            1362,
+            0,
+            391,
+            879
+          ],
+          "bounds": [
+            1364,
+            2,
+            387,
+            875
+          ],
+          "foot": [
+            1548.0,
+            877
+          ],
+          "area": 165520,
+          "atlas": "realistic-handoff",
+          "anchors": {
+            "gift": [
+              13.37,
+              -568.75
+            ]
+          },
+          "unit": 0.9971412235563178
+        },
+        "gift-empty": {
+          "rect": [
+            115,
+            3,
+            366,
+            873
+          ],
+          "bounds": [
+            117,
+            5,
+            362,
+            869
+          ],
+          "foot": [
+            298.0,
+            874
+          ],
+          "area": 166381,
+          "atlas": "realistic-book",
+          "anchors": {
+            "giftSlot": [
+              11.95,
+              -596.13
+            ]
+          },
+          "unit": 1.0051873198847263,
+          "frontY": -587.44,
+          "boxWidth": 90.5
+        },
+        "read": {
+          "rect": [
+            537,
+            3,
+            367,
+            872
+          ],
+          "bounds": [
+            539,
+            5,
+            363,
+            868
+          ],
+          "foot": [
+            731.0,
+            873
+          ],
+          "area": 159880,
+          "atlas": "realistic-book",
+          "anchors": {
+            "book": [
+              -6.87,
+              -607.6
+            ]
+          },
+          "unit": 1.0051873198847263
+        },
+        "page": {
+          "rect": [
+            962,
+            4,
+            357,
+            871
+          ],
+          "bounds": [
+            964,
+            6,
+            353,
+            867
+          ],
+          "foot": [
+            1147.0,
+            873
+          ],
+          "area": 160180,
+          "atlas": "realistic-book",
+          "anchors": {
+            "book": [
+              7.62,
+              -606.9
+            ]
+          },
+          "unit": 1.0051873198847263
+        },
+        "read-finish": {
+          "rect": [
+            1364,
+            5,
+            355,
+            870
+          ],
+          "bounds": [
+            1366,
+            7,
+            351,
+            866
+          ],
+          "foot": [
+            1547.0,
+            873
+          ],
+          "area": 156720,
+          "atlas": "realistic-book",
+          "anchors": {
+            "book": [
+              -5.5,
+              -593.21
+            ]
+          },
+          "unit": 1.0051873198847263
+        },
+        "neutral": {
+          "rect": [
+            57,
+            2,
+            365,
+            877
+          ],
+          "bounds": [
+            59,
+            4,
+            361,
+            873
+          ],
+          "foot": [
+            235.0,
+            877
+          ],
+          "area": 163290,
+          "atlas": "realistic-photo",
+          "anchors": {},
+          "unit": 1.0
+        },
+        "lift": {
+          "rect": [
+            481,
+            4,
+            363,
+            875
+          ],
+          "bounds": [
+            483,
+            6,
+            359,
+            871
+          ],
+          "foot": [
+            664.0,
+            877
+          ],
+          "area": 157393,
+          "atlas": "realistic-photo",
+          "anchors": {},
+          "unit": 1.0
+        },
+        "photo": {
+          "rect": [
+            909,
+            3,
+            366,
+            876
+          ],
+          "bounds": [
+            911,
+            5,
+            362,
+            872
+          ],
+          "foot": [
+            1088.0,
+            877
+          ],
+          "area": 163057,
+          "atlas": "realistic-photo",
+          "anchors": {},
+          "unit": 1.0
+        },
+        "happy": {
+          "rect": [
+            1356,
+            3,
+            364,
+            876
+          ],
+          "bounds": [
+            1358,
+            5,
+            360,
+            872
+          ],
+          "foot": [
+            1532.0,
+            877
+          ],
+          "area": 161575,
+          "atlas": "realistic-photo",
+          "anchors": {},
+          "unit": 1.0
+        }
+      },
+      "sha256": "70990a6d11f93e06924ea3cc5b59911c710c0195875b16e231af9a5aef6b29ec"
+    }
+  },
+  "supplements": {
+    "chibi-interaction": {
+      "file": "art/interaction-chibi-v2.png",
+      "dimensions": [
+        1448,
+        1086
+      ],
+      "referenceHeight": 317,
+      "unit": 1.0914826498422714,
+      "poses": {
+        "high-prep": {
+          "rect": [
+            47,
+            38,
+            288,
+            321
+          ],
+          "foot": [
+            178.0,
+            357
+          ],
+          "bounds": [
+            49,
+            40,
+            284,
+            317
+          ],
+          "area": 56769,
+          "atlas": "chibi-interaction",
+          "unit": 1.0914826498422714,
+          "anchors": {}
+        },
+        "high-ready": {
+          "rect": [
+            412,
+            38,
+            288,
+            321
+          ],
+          "foot": [
+            555.0,
+            357
+          ],
+          "bounds": [
+            414,
+            40,
+            284,
+            317
+          ],
+          "area": 56834,
+          "atlas": "chibi-interaction",
+          "unit": 1.0914826498422714,
+          "anchors": {
+            "hand": [
+              -87.04,
+              -209.22
+            ]
+          }
+        },
+        "high-contact": {
+          "rect": [
+            770,
+            38,
+            291,
+            321
+          ],
+          "foot": [
+            915.0,
+            357
+          ],
+          "bounds": [
+            772,
+            40,
+            287,
+            317
+          ],
+          "area": 57848,
+          "atlas": "chibi-interaction",
+          "unit": 1.0914826498422714,
+          "anchors": {
+            "hand": [
+              -91.34,
+              -190.2
+            ]
+          }
+        },
+        "high-recoil": {
+          "rect": [
+            1137,
+            40,
+            290,
+            319
+          ],
+          "foot": [
+            1281.0,
+            357
+          ],
+          "bounds": [
+            1139,
+            42,
+            286,
+            315
+          ],
+          "area": 56495,
+          "atlas": "chibi-interaction",
+          "unit": 1.0914826498422714,
+          "anchors": {
+            "hand": [
+              -73.36,
+              -141.75
+            ]
+          }
+        },
+        "fist-up": {
+          "rect": [
+            45,
+            393,
+            292,
+            319
+          ],
+          "foot": [
+            180.0,
+            710
+          ],
+          "bounds": [
+            47,
+            395,
+            288,
+            315
+          ],
+          "area": 57582,
+          "atlas": "chibi-interaction",
+          "unit": 1.0914826498422714,
+          "anchors": {}
+        },
+        "fist-mid": {
+          "rect": [
+            407,
+            393,
+            294,
+            319
+          ],
+          "foot": [
+            554.0,
+            710
+          ],
+          "bounds": [
+            409,
+            395,
+            290,
+            315
+          ],
+          "area": 58100,
+          "atlas": "chibi-interaction",
+          "unit": 1.0914826498422714,
+          "anchors": {}
+        },
+        "fist-down": {
+          "rect": [
+            769,
+            393,
+            292,
+            319
+          ],
+          "foot": [
+            916.0,
+            710
+          ],
+          "bounds": [
+            771,
+            395,
+            288,
+            315
+          ],
+          "area": 57251,
+          "atlas": "chibi-interaction",
+          "unit": 1.0914826498422714,
+          "anchors": {}
+        },
+        "reveal-rock": {
+          "rect": [
+            1136,
+            388,
+            291,
+            325
+          ],
+          "foot": [
+            1283.5,
+            711
+          ],
+          "bounds": [
+            1138,
+            390,
+            287,
+            321
+          ],
+          "area": 58266,
+          "atlas": "chibi-interaction",
+          "unit": 1.0914826498422714,
+          "anchors": {}
+        },
+        "reveal-scissors": {
+          "rect": [
+            45,
+            733,
+            294,
+            325
+          ],
+          "foot": [
+            188.0,
+            1056
+          ],
+          "bounds": [
+            47,
+            735,
+            290,
+            321
+          ],
+          "area": 58874,
+          "atlas": "chibi-interaction",
+          "unit": 1.0914826498422714,
+          "anchors": {}
+        },
+        "reveal-paper": {
+          "rect": [
+            407,
+            732,
+            294,
+            326
+          ],
+          "foot": [
+            545.0,
+            1056
+          ],
+          "bounds": [
+            409,
+            734,
+            290,
+            322
+          ],
+          "area": 59176,
+          "atlas": "chibi-interaction",
+          "unit": 1.0914826498422714,
+          "anchors": {}
+        },
+        "gift-empty": {
+          "rect": [
+            767,
+            732,
+            297,
+            326
+          ],
+          "foot": [
+            915.5,
+            1056
+          ],
+          "bounds": [
+            769,
+            734,
+            293,
+            322
+          ],
+          "area": 60068,
+          "atlas": "chibi-interaction",
+          "unit": 1.0914826498422714,
+          "anchors": {
+            "giftSlot": [
+              0.0,
+              -125.58
+            ]
+          },
+          "frontY": -113.99,
+          "boxWidth": 90.83
+        },
+        "read-finish": {
+          "rect": [
+            1135,
+            733,
+            292,
+            325
+          ],
+          "foot": [
+            1282.0,
+            1056
+          ],
+          "bounds": [
+            1137,
+            735,
+            288,
+            321
+          ],
+          "area": 58299,
+          "atlas": "chibi-interaction",
+          "unit": 1.0914826498422714,
+          "anchors": {}
+        }
+      },
+      "sha256": "37f8d038111c792ed81dec69297a6c96bfe84561ae68672f4f75f52186bb267e"
+    },
+    "realistic-highfive": {
+      "file": "art/real-adult-highfive-final.png",
+      "dimensions": [
+        1774,
+        887
+      ],
+      "referenceHeight": 867.0,
+      "poses": {
+        "high-prep": {
+          "rect": [
+            108,
+            5,
+            351,
+            874
+          ],
+          "bounds": [
+            110,
+            7,
+            347,
+            870
+          ],
+          "foot": [
+            302.0,
+            877
+          ],
+          "area": 157329,
+          "atlas": "realistic-highfive",
+          "anchors": {
+            "hand": [
+              -146.89,
+              -696.0
+            ]
+          },
+          "unit": 1.0057670126874279
+        },
+        "high-ready": {
+          "rect": [
+            494,
+            7,
+            357,
+            871
+          ],
+          "bounds": [
+            496,
+            9,
+            353,
+            867
+          ],
+          "foot": [
+            688.0,
+            876
+          ],
+          "area": 159622,
+          "atlas": "realistic-highfive",
+          "anchors": {
+            "hand": [
+              -101.99,
+              -741.29
+            ]
+          },
+          "unit": 1.0057670126874279
+        },
+        "high-contact": {
+          "rect": [
+            891,
+            8,
+            360,
+            871
+          ],
+          "bounds": [
+            893,
+            10,
+            356,
+            867
+          ],
+          "foot": [
+            1092.0,
+            877
+          ],
+          "area": 155337,
+          "atlas": "realistic-highfive",
+          "anchors": {
+            "hand": [
+              -102.88,
+              -706.61
+            ]
+          },
+          "unit": 1.0057670126874279
+        },
+        "high-recoil": {
+          "rect": [
+            1336,
+            7,
+            356,
+            871
+          ],
+          "bounds": [
+            1338,
+            9,
+            352,
+            867
+          ],
+          "foot": [
+            1531.0,
+            876
+          ],
+          "area": 155778,
+          "atlas": "realistic-highfive",
+          "anchors": {
+            "hand": [
+              -133.16,
+              -676.26
+            ]
+          },
+          "unit": 1.0057670126874279
+        }
+      },
+      "sha256": "1a1159fcd753915bf9172fe27f9d476b86f38c20f92cab7538b9ca88d0ffcc59",
+      "unit": 1.0057670126874279
+    },
+    "realistic-rps": {
+      "file": "art/real-adult-rps-final.png",
+      "dimensions": [
+        1942,
+        809
+      ],
+      "referenceHeight": 802.5,
+      "poses": {
+        "fist-up": {
+          "rect": [
+            120,
+            0,
+            343,
+            806
+          ],
+          "bounds": [
+            122,
+            1,
+            339,
+            803
+          ],
+          "foot": [
+            312.0,
+            804
+          ],
+          "area": 139517,
+          "atlas": "realistic-rps",
+          "anchors": {},
+          "unit": 1.0866043613707166
+        },
+        "fist-mid": {
+          "rect": [
+            564,
+            1,
+            341,
+            806
+          ],
+          "bounds": [
+            566,
+            3,
+            337,
+            802
+          ],
+          "foot": [
+            752.0,
+            805
+          ],
+          "area": 138806,
+          "atlas": "realistic-rps",
+          "anchors": {},
+          "unit": 1.0866043613707166
+        },
+        "fist-down": {
+          "rect": [
+            1045,
+            0,
+            340,
+            807
+          ],
+          "bounds": [
+            1047,
+            2,
+            336,
+            803
+          ],
+          "foot": [
+            1232.0,
+            805
+          ],
+          "area": 139471,
+          "atlas": "realistic-rps",
+          "anchors": {},
+          "unit": 1.0866043613707166
+        },
+        "reveal-rock": {
+          "rect": [
+            1484,
+            1,
+            336,
+            805
+          ],
+          "bounds": [
+            1486,
+            3,
+            332,
+            801
+          ],
+          "foot": [
+            1671.0,
+            804
+          ],
+          "area": 137300,
+          "atlas": "realistic-rps",
+          "anchors": {},
+          "unit": 1.0866043613707166
+        }
+      },
+      "sha256": "937e84764766bd05cb7fac4218dc4e511d341f45e7a1db34331970bb2cdbdce2",
+      "unit": 1.0866043613707166
+    },
+    "realistic-handoff": {
+      "file": "art/real-adult-handoff-final.png",
+      "dimensions": [
+        1774,
+        887
+      ],
+      "referenceHeight": 874.5,
+      "poses": {
+        "reveal-scissors": {
+          "rect": [
+            45,
+            0,
+            380,
+            879
+          ],
+          "bounds": [
+            47,
+            2,
+            376,
+            875
+          ],
+          "foot": [
+            234.0,
+            877
+          ],
+          "area": 168911,
+          "atlas": "realistic-handoff",
+          "anchors": {},
+          "unit": 0.9971412235563178
+        },
+        "reveal-paper": {
+          "rect": [
+            477,
+            1,
+            376,
+            878
+          ],
+          "bounds": [
+            479,
+            3,
+            372,
+            874
+          ],
+          "foot": [
+            663.0,
+            877
+          ],
+          "area": 166203,
+          "atlas": "realistic-handoff",
+          "anchors": {},
+          "unit": 0.9971412235563178
+        },
+        "receive": {
+          "rect": [
+            919,
+            1,
+            393,
+            878
+          ],
+          "bounds": [
+            921,
+            3,
+            389,
+            874
+          ],
+          "foot": [
+            1104.0,
+            877
+          ],
+          "area": 166572,
+          "atlas": "realistic-handoff",
+          "anchors": {
+            "receive": [
+              15.39,
+              -541.88
+            ]
+          },
+          "unit": 0.9971412235563178
+        },
+        "gift": {
+          "rect": [
+            1362,
+            0,
+            391,
+            879
+          ],
+          "bounds": [
+            1364,
+            2,
+            387,
+            875
+          ],
+          "foot": [
+            1548.0,
+            877
+          ],
+          "area": 165520,
+          "atlas": "realistic-handoff",
+          "anchors": {
+            "gift": [
+              13.37,
+              -568.75
+            ]
+          },
+          "unit": 0.9971412235563178
+        }
+      },
+      "sha256": "3cd98f02659e44b17e05fa7199acd9068151343e4bfe6d37c466be0d88bbe027",
+      "unit": 0.9971412235563178
+    },
+    "realistic-book": {
+      "file": "art/real-adult-book-final.png",
+      "dimensions": [
+        1774,
+        887
+      ],
+      "referenceHeight": 867.5,
+      "poses": {
+        "gift-empty": {
+          "rect": [
+            115,
+            3,
+            366,
+            873
+          ],
+          "bounds": [
+            117,
+            5,
+            362,
+            869
+          ],
+          "foot": [
+            298.0,
+            874
+          ],
+          "area": 166381,
+          "atlas": "realistic-book",
+          "anchors": {
+            "giftSlot": [
+              11.95,
+              -596.13
+            ]
+          },
+          "unit": 1.0051873198847263,
+          "frontY": -587.44,
+          "boxWidth": 90.5
+        },
+        "read": {
+          "rect": [
+            537,
+            3,
+            367,
+            872
+          ],
+          "bounds": [
+            539,
+            5,
+            363,
+            868
+          ],
+          "foot": [
+            731.0,
+            873
+          ],
+          "area": 159880,
+          "atlas": "realistic-book",
+          "anchors": {
+            "book": [
+              -6.87,
+              -607.6
+            ]
+          },
+          "unit": 1.0051873198847263
+        },
+        "page": {
+          "rect": [
+            962,
+            4,
+            357,
+            871
+          ],
+          "bounds": [
+            964,
+            6,
+            353,
+            867
+          ],
+          "foot": [
+            1147.0,
+            873
+          ],
+          "area": 160180,
+          "atlas": "realistic-book",
+          "anchors": {
+            "book": [
+              7.62,
+              -606.9
+            ]
+          },
+          "unit": 1.0051873198847263
+        },
+        "read-finish": {
+          "rect": [
+            1364,
+            5,
+            355,
+            870
+          ],
+          "bounds": [
+            1366,
+            7,
+            351,
+            866
+          ],
+          "foot": [
+            1547.0,
+            873
+          ],
+          "area": 156720,
+          "atlas": "realistic-book",
+          "anchors": {
+            "book": [
+              -5.5,
+              -593.21
+            ]
+          },
+          "unit": 1.0051873198847263
+        }
+      },
+      "sha256": "f39219306219e6c5f1df128cb4718827869b25897e1aba137c7294ab425ae03d",
+      "unit": 1.0051873198847263
+    },
+    "realistic-photo": {
+      "file": "art/real-adult-photo-final.png",
+      "dimensions": [
+        1774,
+        887
+      ],
+      "referenceHeight": 872.0,
+      "poses": {
+        "neutral": {
+          "rect": [
+            57,
+            2,
+            365,
+            877
+          ],
+          "bounds": [
+            59,
+            4,
+            361,
+            873
+          ],
+          "foot": [
+            235.0,
+            877
+          ],
+          "area": 163290,
+          "atlas": "realistic-photo",
+          "anchors": {},
+          "unit": 1.0
+        },
+        "lift": {
+          "rect": [
+            481,
+            4,
+            363,
+            875
+          ],
+          "bounds": [
+            483,
+            6,
+            359,
+            871
+          ],
+          "foot": [
+            664.0,
+            877
+          ],
+          "area": 157393,
+          "atlas": "realistic-photo",
+          "anchors": {},
+          "unit": 1.0
+        },
+        "photo": {
+          "rect": [
+            909,
+            3,
+            366,
+            876
+          ],
+          "bounds": [
+            911,
+            5,
+            362,
+            872
+          ],
+          "foot": [
+            1088.0,
+            877
+          ],
+          "area": 163057,
+          "atlas": "realistic-photo",
+          "anchors": {},
+          "unit": 1.0
+        },
+        "happy": {
+          "rect": [
+            1356,
+            3,
+            364,
+            876
+          ],
+          "bounds": [
+            1358,
+            5,
+            360,
+            872
+          ],
+          "foot": [
+            1532.0,
+            877
+          ],
+          "area": 161575,
+          "atlas": "realistic-photo",
+          "anchors": {},
+          "unit": 1.0
+        }
+      },
+      "sha256": "70990a6d11f93e06924ea3cc5b59911c710c0195875b16e231af9a5aef6b29ec",
+      "unit": 1.0
+    }
+  },
+  "adultReference": {
+    "file": "art/deepseek-original-reference.png",
+    "sha256": "723d4f55f87c0ad1a4e77d5b889c905317c044c4a47e3ed32988925804acf613"
+  }
+}

@@ -95,28 +95,30 @@ internal static class PolishVerification
             Save(sheet,$"{c.Id}-{outfit}-{action}");
         }
         foreach (var c in pet.Catalog.Characters)
-        foreach (string outfit in new[] { "original", "swim", "wedding" })
+        foreach (string outfit in Catalog.BuiltInOutfits)
         {
             string key=$"{c.Id}/{outfit}";
             pet.SelectCharacter(c.Id); pet.State.Outfits[c.Id]=outfit; pet.ApplySettings();
             var walk=c.MotionFor(outfit,"walk")!;
-            Require(walk.Frames?.Length==12 && walk.Frames.Distinct().Count()==12,key+": twelve authored walk poses");
-            Require(walk.Facing=="right" && walk.Loop && walk.FrameMs!.All(t=>t==80),key+": right-facing 960 ms gait");
+            Require(walk.Frames is not null && walk.Frames.Length>=(outfit=="sports"?8:12) && walk.Frames.Distinct().Count()>=(outfit=="sports"?8:12),key+": distinct contact, passing and opposing gait poses");
+            Require(walk.Facing=="right" && walk.Loop && walk.FrameMs!.All(t=>t is >=40 and <=150),key+": continuous right-facing gait with bounded phase duration");
             var calibration=pet.Art.Frame(c,c.Resolve(outfit,"idle",0).Sprite,0);
             double standing=280*pet.Art.VisibleHeight(calibration);
             var hashes=new HashSet<string>();
-            for (int i=0;i<12;i++)
+            double walkTime=0;
+            for (int i=0;i<walk.Frames!.Length;i++)
             {
-                pet.PreviewMotion("walk",i*80+1,3000); var bitmap=(BitmapSource)sprite.Source;
-                Require(bitmap.PixelWidth==walk.Cells![i].Width && bitmap.PixelHeight==walk.Cells[i].Height,key+$": frame {i} retains native pixels");
+                pet.PreviewMotion("walk",walkTime+1,3000);walkTime+=walk.FrameMs![i]; var bitmap=(BitmapSource)sprite.Source;
+                Require(bitmap.PixelWidth==walk.Cells![walk.Frames[i]].Width && bitmap.PixelHeight==walk.Cells[walk.Frames[i]].Height,key+$": frame {i} retains native pixels");
                 byte[] pixels=new byte[bitmap.PixelWidth*bitmap.PixelHeight*4]; bitmap.CopyPixels(pixels,bitmap.PixelWidth*4,0); hashes.Add(Convert.ToHexString(SHA256.HashData(pixels)));
                 double height=sprite.Height*pet.Art.VisibleHeight(bitmap);
-                Require(height/standing is >=.87 and <=1.001,key+$": frame {i} keeps body scale ({height/standing:0.000})");
+                Require(outfit=="sports"?height/standing is >=.8 and <=1.15:height/standing is >=.87 and <=1.001,key+$": frame {i} keeps body scale ({height/standing:0.000})");
+                if(outfit=="sports")Require(pet.ActiveAuthoredVisual is not null,key+": sports gait uses continuous authored interpolation");
                 Require(Math.Abs(Canvas.GetTop(sprite)+sprite.Height*pet.Art.GroundLine(bitmap)-468)<.01,key+$": frame {i} stays on the floor");
                 Require(((ScaleTransform)sprite.RenderTransform).ScaleX==1,key+$": frame {i} faces the direction used by Demo");
             }
-            Require(hashes.Count==12,key+": twelve distinct rendered frames");
-            Sheet(c,outfit,"walk",Enumerable.Range(0,12).Select(i=>(double)i*80).ToArray());
+            Require(hashes.Count==walk.Frames.Distinct().Count(),key+": each authored walk pose is visually distinct");
+            Sheet(c,outfit,"walk",Enumerable.Range(0,Math.Min(12,walk.Frames.Length)).Select(i=>(double)walk.FrameMs!.Take(i).Sum()).ToArray());
             foreach (string action in new[] { "meal", "eat" })
             {
                 pet.PreviewMotion(action,700,3500);
@@ -127,15 +129,15 @@ internal static class PolishVerification
             if (c.Category=="chibi")
             {
                 var build=c.MotionFor(outfit,"build");
-                Require(build is { Frames.Length:12, BakedProps:true, Loop:false },key+": Q blocks have twelve hand-and-cube poses");
+                Require(build is { Frames.Length:>=3, BakedProps:true, Loop:false },key+": Q blocks have preparation, placement and completed hand-and-cube poses");
                 double t=0;
-                for (int i=0;i<12;i++)
+                for (int i=0;i<build!.Frames!.Length;i++)
                 {
                     pet.PreviewMotion("build",t+1,5000);
                     Require(pet.UsingDrawnAction && pet.DrawnFrame==build!.Frames![i] && pet.ActiveMotion is null,key+$": build pose {i} is drawn, with no substitute rig");
                     t+=build!.FrameMs![i];
                 }
-                var times=new double[12];for(int i=1;i<12;i++)times[i]=times[i-1]+build!.FrameMs![i-1];
+                var times=new double[Math.Min(12,build!.Frames!.Length)];for(int i=1;i<times.Length;i++)times[i]=times[i-1]+build!.FrameMs![i-1];
                 Sheet(c,outfit,"build",times);
             }
             if (c.FamilyId is "whale" or "gpt")

@@ -54,7 +54,7 @@
   function frameSelection() {
     let clip = M.actions[s.action].clip, time = s.elapsed;
     if(walking()){clip='walk';time=s.phase%(D.clips[look()].walk.cycleMs || 960);}
-    else if(['comb','wipe','stretch','bubbles','stars','butterfly'].includes(s.action)||s.action==='peek'){clip='listen';time=0;}
+    else if(['stretch','bubbles','stars','butterfly'].includes(s.action)||s.action==='peek'){clip='listen';time=0;}
     else if(s.action==='chat') {clip=talk.phase==='thinking'?'thinking':talk.phase==='reply'?'chat':'listen';time=s.age-talk.started;}
     const animation=D.clips[look()][clip] || D.clips[look()].listen;
     const index=Math.min(animation.frames.length-1,Math.floor(Math.max(0,time)/D.sampleMs));
@@ -86,24 +86,6 @@
   }
   function twinkle(x,y,r=4,color='#cbb082'){line([[x-r,y],[x+r,y]],color,1.1);line([[x,y-r],[x,y+r]],color,1.1);}
   function textAt(message,x,y,color='#ac91a4'){ctx.fillStyle=color;ctx.font='11px "Segoe UI","Microsoft YaHei",sans-serif';ctx.textAlign='center';ctx.fillText(message,x,y);}
-  function combEffect() {
-    const h=anchor('hair'),t=s.elapsed,cycle=t%1650;
-    const stroke=ease(clamp((cycle-200)/1000,0,1)),side=Math.floor(t/1650)%2?-1:1;
-    const fade=Math.min(ease(t/500),1-ease((t-6100)/700));
-    const x=h.x+side*(20+8*stroke)*scale,y=h.y+(3+36*stroke)*scale;
-    ctx.save();ctx.globalAlpha=fade;ctx.translate(x,y);ctx.rotate(side*-.2);ctx.lineWidth=1.2;
-    roundedRect(-12,-5,26,9,4,'#e7bfad','#c69d8a');roundedRect(11,-4,6,27,3,'#efd1bf','#c69d8a');
-    for(let i=-9;i<=9;i+=4)roundedRect(i,2,2.5,9,1,'#d7a994');ctx.restore();
-    if(cycle>1100){ctx.save();ctx.globalAlpha=fade*(1-(cycle-1100)/550);twinkle(x+side*16,y-8,3,'#d9b2c6');ctx.restore();}
-  }
-  function wipeEffect() {
-    const f=anchor('face'),t=s.elapsed,side=t<2900?-1:1;
-    const travel=Math.sin(t/260),fade=Math.min(ease(t/450),1-ease((t-5200)/600));
-    const x=f.x+side*(s.style==='chibi'?21:9)*scale+travel*2,y=f.y+8*scale+Math.cos(t/310)*3;
-    ctx.save();ctx.globalAlpha=fade;ctx.translate(x,y);ctx.rotate(Math.sin(t/420)*.16);ctx.lineWidth=1;
-    roundedRect(-10,-9,20,19,5,'#fcf5ec','#dccbbb');line([[-6,-4],[6,-4]],'#e9d8d8');line([[-6,4],[6,4]],'#e9d8d8');ctx.restore();
-    if(t>1400) {ctx.save();ctx.globalAlpha=.6*fade;twinkle(f.x-side*24*scale,f.y+8,3,'#d6b9c8');ctx.restore();}
-  }
   function bubblePosition(b) { const age=(s.elapsed-b.born)/1000;return {x:b.x+Math.sin(age*1.5+b.seed)*7+age*b.drift,y:b.y-age*(21+b.seed*3),r:b.r}; }
   function bubbleSource(){const height=(s.style==='chibi'?185:237)*scale;return {x:s.x-height*(s.style==='chibi'?.17:.055),y:feet()-height*(s.style==='chibi'?.43:.80)};}
   function drawBubbles() {
@@ -147,7 +129,8 @@
   function seedStars(){fx.stars=Array.from({length:5},(_,i)=>({dx:[-118,-68,-8,68,118][i],dy:[57,95,111,95,57][i],seed:i}));}
   function resetFx(){fx={bubbles:[],stars:[],pops:[],nextBubble:0,catchGlow:0,landAt:0};if(s.action==='stars')seedStars();if(s.action==='butterfly')s.target=clamp(s.x+W*.22,edge(),W-edge());}
   function drawFx(){
-    if(s.action==='comb')combEffect();if(s.action==='wipe')wipeEffect();if(s.action==='bubbles')drawBubbles();if(s.action==='stars')drawStars();if(s.action==='butterfly')drawButterfly();
+    // Care frames include the actor's hand and tool from the native renderer.
+    if(s.action==='bubbles')drawBubbles();if(s.action==='stars')drawStars();if(s.action==='butterfly')drawButterfly();
     for(const p of fx.pops){let t=(s.elapsed-p.born)/500;ctx.save();ctx.globalAlpha=1-t;for(let i=0;i<6;i++){let a=i*Math.PI/3;dot(p.x+Math.cos(a)*t*28,p.y+Math.sin(a)*t*28,2,'#bda3c8');}ctx.restore();}
   }
   function renderTiers(){
@@ -204,7 +187,7 @@
   }
   function changeLook(){
     s.style=$('.style-options .selected').dataset.style;outfit=$('.outfit-options .selected').dataset.outfit;
-    lastFrame=null;lastLook='';if(s.action==='dance'&&s.style==='chibi')setAction('idle');
+    lastFrame=null;lastLook='';
     // A style/outfit switch selects the same action in its own clip set.
     fx.bubbles=[];fx.nextBubble=s.elapsed;if(s.action==='stars')seedStars();
     renderActions();renderMenu();

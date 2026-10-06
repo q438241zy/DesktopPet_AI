@@ -27,7 +27,7 @@ internal static class ShakeVerification
         byte[] Pixels(BitmapSource bmp) { var bytes = new byte[560 * 680 * 4]; bmp.CopyPixels(bytes, 560 * 4, 0); return bytes; }
         string Hash(BitmapSource bmp) => Convert.ToHexString(SHA256.HashData(Pixels(bmp)));
         foreach (var c in pet.Catalog.Characters)
-        foreach (string outfit in new[] { "original", "swim", "wedding" })
+        foreach (string outfit in Catalog.BuiltInOutfits)
         {
             string label = c.Id + "/" + outfit;
             pet.BeginPreview(); pet.State.ReducedMotion = false;
@@ -48,7 +48,7 @@ internal static class ShakeVerification
                 label + ": deliberate repeated shaking adds stars to the current lifted pose");
             var heldSource = (BitmapSource)sprite.Source;
             var expectedLift = c.Resolve(outfit, "pickup", 500).Sprite;
-            Require(ReferenceEquals(heldSource, pet.Art.Frame(c, expectedLift, Motion.Frame(expectedLift, 500))), label + ": lifted clothing and character do not change");
+            Require(ReferenceEquals(heldSource, pet.Art.Frame(c, expectedLift, pet.DrawnFrame)), label + ": lifted clothing and character do not change");
             var haloA = Capture(effects);
             Require(Pixels(haloA).Where((_, i) => i % 4 == 3).Count(alpha => alpha > 40) > 90, label + ": stars and orbit produce visible rendered pixels");
             pet.AdvancePreview(2700);
@@ -58,8 +58,8 @@ internal static class ShakeVerification
             Require(pet.CurrentAction == "dizzy" && pet.HasDizzyStars && !pet.IsDropping && Math.Abs(pet.Top - placedTop) < .1,
                 label + ": released dizziness preserves the user placement");
             var expected = c.Resolve(outfit, "dizzy", 400);
-            Require(ReferenceEquals(sprite.Source, pet.Art.Frame(c, expected.Sprite, expected.Frame)), label + ": recovery keeps the current appearance and outfit");
-            if (c.Category != "chibi") Require(pet.ActiveMotion is not null, label + ": portrait has the gentle recovery motion");
+            Require(ReferenceEquals(sprite.Source, pet.Art.Frame(c, expected.Sprite, pet.DrawnFrame)), label + ": recovery keeps the current appearance and outfit");
+            if (c.Category != "chibi") Require(pet.ActiveMotion is not null || pet.ActiveAuthoredVisual is not null, label + ": portrait has its own recovery gesture");
             if (c.FamilyId == "gpt" && c.Category != "chibi")
                 proofs.Add(($"GPT · 3D真人 · {outfit}", Capture(canvas)));
             pet.AdvancePreview(5501);
@@ -95,6 +95,6 @@ internal static class ShakeVerification
         var proof = new RenderTargetBitmap(960, 820, 96, 96, PixelFormats.Pbgra32); proof.Render(board);
         var png = new PngBitmapEncoder(); png.Frames.Add(BitmapFrame.Create(proof));
         using (var stream = File.Create(Path.Combine(output, "gpt-dizzy-proof.png"))) png.Save(stream);
-        File.WriteAllLines(Path.Combine(output, "shake-check.txt"), checks.Append($"{checks.Count} shake and recovery checks passed across 48 appearances."));
+        File.WriteAllLines(Path.Combine(output, "shake-check.txt"), checks.Append($"{checks.Count} shake and recovery checks passed across {pet.Catalog.Characters.Count*Catalog.BuiltInOutfits.Length} appearances."));
     }
 }

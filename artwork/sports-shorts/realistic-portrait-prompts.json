@@ -1,0 +1,122 @@
+[
+  {
+    "key": "deepseek-adult-shorts-portrait",
+    "id": "deepseek-adult",
+    "family": "whale",
+    "style": "realistic",
+    "kind": "portrait",
+    "columns": 3,
+    "rows": 4,
+    "refs": [
+      "D:/VibeCoding/Character/artwork/sports/superseded-long-pants/deepseek-adult/sports/portrait.png",
+      "D:/VibeCoding/Character/docs/demo/cloud-club/art/school-shorts-realistic.png"
+    ],
+    "prompt": "Use case: identity-preserve. Edit the FIRST reference atlas: replace the full-length pants in EVERY one of its TWELVE poses with loose athletic SHORTS hemmed at MID-THIGH, following the SECOND reference's approved sporty shorts fit. Keep EXACTLY twelve complete adult 3D woman figures in 3 columns × 4 rows and preserve all identities, face, hair, accessories, poses, proportions, row ordering, mallet props and white shoes. Keep SHORT SLEEVES ending on upper arm, clearly above elbow. Every figure has bare forearms and BARE LEGS from mid thigh to ankle socks. Same ivory zip-front athletic top, side panel colors and thin white stripes. No pants, leggings, stockings, dresses, long sleeves or cropped figures. Keep all 12 identical-size bodies inside cells with 15% margins and clear gutters; do not add figures. Real transparent alpha, no backdrop, no aura, no ground or text. The second reference supplies clothing cut ONLY, never copy her face/hair or whale logo. For this character top panels and shorts are navy blue, chest emblem small blue whale.",
+    "dest": "src/DesktopPet.App/Assets/Characters/deepseek-adult/outfits/sports/portrait.png"
+  },
+  {
+    "key": "gpt-adult-shorts-portrait",
+    "id": "gpt-adult",
+    "family": "gpt",
+    "style": "realistic",
+    "kind": "portrait",
+    "columns": 3,
+    "rows": 4,
+    "refs": [
+      "D:/VibeCoding/Character/artwork/sports/superseded-long-pants/gpt-adult/sports/portrait.png",
+      "D:/VibeCoding/Character/docs/demo/cloud-club/art/school-shorts-realistic.png"
+    ],
+    "prompt": "Use case: identity-preserve. Edit the FIRST reference atlas: replace the full-length pants in EVERY one of its TWELVE poses with loose athletic SHORTS hemmed at MID-THIGH, following the SECOND reference's approved sporty shorts fit. Keep EXACTLY twelve complete adult 3D woman figures in 3 columns × 4 rows and preserve all identities, face, hair, accessories, poses, proportions, row ordering, mallet props and white shoes. Keep SHORT SLEEVES ending on upper arm, clearly above elbow. Every figure has bare forearms and BARE LEGS from mid thigh to ankle socks. Same ivory zip-front athletic top, side panel colors and thin white stripes. No pants, leggings, stockings, dresses, long sleeves or cropped figures. Keep all 12 identical-size bodies inside cells with 15% margins and clear gutters; do not add figures. Real transparent alpha, no backdrop, no aura, no ground or text. The second reference supplies clothing cut ONLY, never copy her face/hair or whale logo. For this character top panels and shorts are deep emerald, chest emblem small pale interlocking knot.",
+    "dest": "src/DesktopPet.App/Assets/Characters/gpt-adult/outfits/sports/portrait.png"
+  },
+  {
+    "key": "claude-adult-shorts-portrait",
+    "id": "claude-adult",
+    "family": "claude",
+    "style": "realistic",
+    "kind": "portrait",
+    "columns": 3,
+    "rows": 4,
+    "refs": [
+      "D:/VibeCoding/Character/artwork/sports/superseded-long-pants/claude-adult/sports/portrait.png",
+      "D:/VibeCoding/Character/docs/demo/cloud-club/art/school-shorts-realistic.png"
+    ],
+    "prompt": "Use case: identity-preserve. Edit the FIRST reference atlas: replace the full-length pants in EVERY one of its TWELVE poses with loose athletic SHORTS hemmed at MID-THIGH, following the SECOND reference's approved sporty shorts fit. Keep EXACTLY twelve complete adult 3D woman figures in 3 columns × 4 rows and preserve all identities, face, hair, accessories, poses, proportions, row ordering, mallet props and white shoes. Keep SHORT SLEEVES ending on upper arm, clearly above elbow. Every figure has bare forearms and BARE LEGS from mid thigh to ankle socks. Same ivory zip-front athletic top, side panel colors and thin white stripes. No pants, leggings, stockings, dresses, long sleeves or cropped figures. Keep all 12 identical-size bodies inside cells with 15% margins and clear gutters; do not add figures. Real transparent alpha, no backdrop, no aura, no ground or text. The second reference supplies clothing cut ONLY, never copy her face/hair or whale logo. For this character top panels and shorts are cocoa brown, chest emblem small orange sunburst.",
+    "dest": "src/DesktopPet.App/Assets/Characters/claude-adult/outfits/sports/portrait.png"
+  },
+  {
+    "key": "gemini-adult-shorts-portrait",
+    "id": "gemini-adult",
+    "family": "gemini",
+    "style": "realistic",
+    "kind": "portrait",
+    "columns": 3,
+    "rows": 4,
+    "refs": [
+      "D:/VibeCoding/Character/artwork/sports/superseded-long-pants/gemini-adult/sports/portrait.png",
+      "D:/VibeCoding/Character/docs/demo/cloud-club/art/school-shorts-realistic.png"
+    ],
+    "prompt": "Use case: identity-preserve. Edit the FIRST reference atlas: replace the full-length pants in EVERY one of its TWELVE poses with loose athletic SHORTS hemmed at MID-THIGH, following the SECOND reference's approved sporty shorts fit. Keep EXACTLY twelve complete adult 3D woman figures in 3 columns × 4 rows and preserve all identities, face, hair, accessories, poses, proportions, row ordering, mallet props and white shoes. Keep SHORT SLEEVES ending on upper arm, clearly above elbow. Every figure has bare forearms and BARE LEGS from mid thigh to ankle socks. Same ivory zip-front athletic top, side panel colors and thin white stripes. No pants, leggings, stockings, dresses, long sleeves or cropped figures. Keep all 12 identical-size bodies inside cells with 15% margins and clear gutters; do not add figures. Real transparent alpha, no backdrop, no aura, no ground or text. The second reference supplies clothing cut ONLY, never copy her face/hair or whale logo. For this character top panels and shorts are deep indigo, chest emblem small lilac twin-star.",
+    "dest": "src/DesktopPet.App/Assets/Characters/gemini-adult/outfits/sports/portrait.png"
+  },
+  {
+    "key": "grok-adult-shorts-portrait",
+    "id": "grok-adult",
+    "family": "grok",
+    "style": "realistic",
+    "kind": "portrait",
+    "columns": 3,
+    "rows": 4,
+    "refs": [
+      "D:/VibeCoding/Character/artwork/sports/superseded-long-pants/grok-adult/sports/portrait.png",
+      "D:/VibeCoding/Character/docs/demo/cloud-club/art/school-shorts-realistic.png"
+    ],
+    "prompt": "Use case: identity-preserve. Edit the FIRST reference atlas: replace the full-length pants in EVERY one of its TWELVE poses with loose athletic SHORTS hemmed at MID-THIGH, following the SECOND reference's approved sporty shorts fit. Keep EXACTLY twelve complete adult 3D woman figures in 3 columns × 4 rows and preserve all identities, face, hair, accessories, poses, proportions, row ordering, mallet props and white shoes. Keep SHORT SLEEVES ending on upper arm, clearly above elbow. Every figure has bare forearms and BARE LEGS from mid thigh to ankle socks. Same ivory zip-front athletic top, side panel colors and thin white stripes. No pants, leggings, stockings, dresses, long sleeves or cropped figures. Keep all 12 identical-size bodies inside cells with 15% margins and clear gutters; do not add figures. Real transparent alpha, no backdrop, no aura, no ground or text. The second reference supplies clothing cut ONLY, never copy her face/hair or whale logo. For this character top panels and shorts are charcoal black, chest emblem small grey swoosh.",
+    "dest": "src/DesktopPet.App/Assets/Characters/grok-adult/outfits/sports/portrait.png"
+  },
+  {
+    "key": "qwen-adult-shorts-portrait",
+    "id": "qwen-adult",
+    "family": "qwen",
+    "style": "realistic",
+    "kind": "portrait",
+    "columns": 3,
+    "rows": 4,
+    "refs": [
+      "D:/VibeCoding/Character/artwork/sports/superseded-long-pants/qwen-adult/sports/portrait.png",
+      "D:/VibeCoding/Character/docs/demo/cloud-club/art/school-shorts-realistic.png"
+    ],
+    "prompt": "Use case: identity-preserve. Edit the FIRST reference atlas: replace the full-length pants in EVERY one of its TWELVE poses with loose athletic SHORTS hemmed at MID-THIGH, following the SECOND reference's approved sporty shorts fit. Keep EXACTLY twelve complete adult 3D woman figures in 3 columns × 4 rows and preserve all identities, face, hair, accessories, poses, proportions, row ordering, mallet props and white shoes. Keep SHORT SLEEVES ending on upper arm, clearly above elbow. Every figure has bare forearms and BARE LEGS from mid thigh to ankle socks. Same ivory zip-front athletic top, side panel colors and thin white stripes. No pants, leggings, stockings, dresses, long sleeves or cropped figures. Keep all 12 identical-size bodies inside cells with 15% margins and clear gutters; do not add figures. Real transparent alpha, no backdrop, no aura, no ground or text. The second reference supplies clothing cut ONLY, never copy her face/hair or whale logo. For this character top panels and shorts are indigo blue, chest emblem small blue floral star.",
+    "dest": "src/DesktopPet.App/Assets/Characters/qwen-adult/outfits/sports/portrait.png"
+  },
+  {
+    "key": "zhipu-adult-shorts-portrait",
+    "id": "zhipu-adult",
+    "family": "zhipu",
+    "style": "realistic",
+    "kind": "portrait",
+    "columns": 3,
+    "rows": 4,
+    "refs": [
+      "D:/VibeCoding/Character/artwork/sports/superseded-long-pants/zhipu-adult/sports/portrait.png",
+      "D:/VibeCoding/Character/docs/demo/cloud-club/art/school-shorts-realistic.png"
+    ],
+    "prompt": "Use case: identity-preserve. Edit the FIRST reference atlas: replace the full-length pants in EVERY one of its TWELVE poses with loose athletic SHORTS hemmed at MID-THIGH, following the SECOND reference's approved sporty shorts fit. Keep EXACTLY twelve complete adult 3D woman figures in 3 columns × 4 rows and preserve all identities, face, hair, accessories, poses, proportions, row ordering, mallet props and white shoes. Keep SHORT SLEEVES ending on upper arm, clearly above elbow. Every figure has bare forearms and BARE LEGS from mid thigh to ankle socks. Same ivory zip-front athletic top, side panel colors and thin white stripes. No pants, leggings, stockings, dresses, long sleeves or cropped figures. Keep all 12 identical-size bodies inside cells with 15% margins and clear gutters; do not add figures. Real transparent alpha, no backdrop, no aura, no ground or text. The second reference supplies clothing cut ONLY, never copy her face/hair or whale logo. For this character top panels and shorts are charcoal blue, chest emblem small grey linked circle.",
+    "dest": "src/DesktopPet.App/Assets/Characters/zhipu-adult/outfits/sports/portrait.png"
+  },
+  {
+    "key": "kimi-adult-shorts-portrait",
+    "id": "kimi-adult",
+    "family": "kimi",
+    "style": "realistic",
+    "kind": "portrait",
+    "columns": 3,
+    "rows": 4,
+    "refs": [
+      "D:/VibeCoding/Character/artwork/sports/superseded-long-pants/kimi-adult/sports/portrait.png",
+      "D:/VibeCoding/Character/docs/demo/cloud-club/art/school-shorts-realistic.png"
+    ],
+    "prompt": "Use case: identity-preserve. Edit the FIRST reference atlas: replace the full-length pants in EVERY one of its TWELVE poses with loose athletic SHORTS hemmed at MID-THIGH, following the SECOND reference's approved sporty shorts fit. Keep EXACTLY twelve complete adult 3D woman figures in 3 columns × 4 rows and preserve all identities, face, hair, accessories, poses, proportions, row ordering, mallet props and white shoes. Keep SHORT SLEEVES ending on upper arm, clearly above elbow. Every figure has bare forearms and BARE LEGS from mid thigh to ankle socks. Same ivory zip-front athletic top, side panel colors and thin white stripes. No pants, leggings, stockings, dresses, long sleeves or cropped figures. Keep all 12 identical-size bodies inside cells with 15% margins and clear gutters; do not add figures. Real transparent alpha, no backdrop, no aura, no ground or text. The second reference supplies clothing cut ONLY, never copy her face/hair or whale logo. For this character top panels and shorts are midnight blue, chest emblem small silver crescent moon.",
+    "dest": "src/DesktopPet.App/Assets/Characters/kimi-adult/outfits/sports/portrait.png"
+  }
+]

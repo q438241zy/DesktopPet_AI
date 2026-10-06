@@ -11,16 +11,17 @@ internal sealed class ClubFeedback : FrameworkElement
     private string key="";
     private double elapsed,height;
     private Point feet,mouth,palm,butterfly;
-    private bool chibi,reduced,landed;
+    private bool chibi,reduced,landed,bakedProps;
+    private Func<double,Point>? bubbleSource;
     private readonly HashSet<int> popped=[];
     private readonly List<(int Id,Point At,double Radius)> targets=[];
     internal event Action<string,Point>? Selected;
     internal int VisibleBubbles => key=="bubbles"?targets.Count:0;
     internal bool ButterflyLanded => key=="butterfly" && landed;
     internal Point? FirstTarget => targets.Count>0?targets[0].At:null;
-    internal void Reset() { key="";popped.Clear();targets.Clear();InvalidateVisual(); }
-    internal void Update(string key,double elapsed,double height,Point feet,Point mouth,Point palm,bool chibi,bool reduced,Point butterfly,bool landed)
-    { this.key=key;this.elapsed=elapsed;this.height=height;this.feet=feet;this.mouth=mouth;this.palm=palm;this.chibi=chibi;this.reduced=reduced;this.butterfly=butterfly;this.landed=landed;InvalidateVisual(); }
+    internal void Reset() { key="";bubbleSource=null;popped.Clear();targets.Clear();InvalidateVisual(); }
+    internal void Update(string key,double elapsed,double height,Point feet,Point mouth,Point palm,bool chibi,bool reduced,Point butterfly,bool landed,bool bakedProps=false,Func<double,Point>? bubbleSource=null)
+    { this.key=key;this.elapsed=elapsed;this.height=height;this.feet=feet;this.mouth=mouth;this.palm=palm;this.chibi=chibi;this.reduced=reduced;this.butterfly=butterfly;this.landed=landed;this.bakedProps=bakedProps;this.bubbleSource=bubbleSource;InvalidateVisual(); }
     protected override HitTestResult? HitTestCore(PointHitTestParameters input)
     {
         var p=input.HitPoint;
@@ -64,11 +65,14 @@ internal sealed class ClubFeedback : FrameworkElement
         {
             // The ring and bottle are in the authored poses. Emit only at that ring
             // during the blowing interval, never while the arm is being lifted.
-            var origin=new Point(mouth.X-height*(chibi?.17:.055),mouth.Y);
+            var legacyOrigin=new Point(mouth.X-height*(chibi?.17:.055),mouth.Y);
             for(int cycle=0;cycle<4;cycle++)for(int n=0;n<5;n++)
             {
                 int id=cycle*5+n;double birth=cycle*3600+1120+n*270,age=(elapsed-birth)/1000;
                 if(age<0 || age>3.3 || popped.Contains(id))continue;
+                // Each bubble keeps the ring position at its own birth. Lowering
+                // the hand must not drag already airborne bubbles back to the body.
+                var origin=bubbleSource?.Invoke(birth)??legacyOrigin;
                 double r=(7+n%3*2)*unit;
                 var p=new Point(origin.X-age*(27+n*3)*unit+Math.Sin(age*2+n)*4*unit,origin.Y-age*(21+n*3)*unit);
                 dc.PushOpacity(reduced?.75:Math.Clamp((3.3-age)/.5,0,1));
@@ -77,7 +81,7 @@ internal sealed class ClubFeedback : FrameworkElement
                 targets.Add((id,p,r));
             }
         }
-        else if(key is "comb" or "wipe")
+        else if(key is "comb" or "wipe" && !bakedProps)
         {
             double phase=(t%(key=="comb"?1.6:1.4))/(key=="comb"?1.6:1.4),side=(int)(t/(key=="comb"?1.6:1.4))%2==0?-1:1;
             double envelope=Math.Min(1,Math.Min(elapsed/350,(ClubMotion.Duration(key)-elapsed)/400));

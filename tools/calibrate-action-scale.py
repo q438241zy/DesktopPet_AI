@@ -8,6 +8,7 @@ pixel scale so sitting, bending and lying are physical poses, not resizing.
 import argparse
 import hashlib
 import json
+import re
 from pathlib import Path
 
 import cv2
@@ -82,7 +83,7 @@ for manifest in sorted(assets.glob('*/pet.json')):
     if data.get('category') == '3d' or data['id'].endswith('-3d'):
         continue
     category = data.get('category', 'chibi')
-    for outfit in ['original', 'swim', 'wedding']:
+    for outfit in ['original', *data.get('outfits', {})]:
         appearance = data if outfit == 'original' else data['outfits'][outfit]
         idle = appearance['atlas' if outfit == 'original' else 'idle']
         idle_frame = frames(manifest.parent, idle)[0]
@@ -95,7 +96,9 @@ for manifest in sorted(assets.glob('*/pet.json')):
         for action, sprite in sheets.items():
             # Club poses carry a measured per-sequence body plane and optical-flow
             # coordinates. Their fixed references are installed with the sidecar.
-            if sprite['file'].startswith('motions/cloud-club-'):
+            if sprite['file'].startswith(('motions/cloud-club-', 'motions/cloud-care-', 'outfits/sports/')) and (manifest.parent / sprite['file']).with_suffix('.json').is_file():
+                if outfit == 'sports':
+                    reports.append(dict(character=data['id'],outfit=outfit,action=action,file=sprite['file'],method='authored fixed body plane and flow; preserve installer calibration',referenceHeightPixels=sprite.get('referenceHeightPixels')))
                 continue
             key = (sprite['file'], tuple(sprite.get('frames', [])))
             if key in measured:
@@ -114,7 +117,7 @@ for manifest in sorted(assets.glob('*/pet.json')):
             elif category == 'realistic' and action != 'idle' and action != 'walk':
                 # Interaction frame 0 is the neutral standing figure, even when
                 # a particular clip plays only its seated or lying cells.
-                neutral = orders[0] if sprite.get('danceRig') else 0
+                neutral = 0
                 values = [height(p) for p in pixels] if 'contact' in sprite['file'] else [height(pixels[neutral])]
                 authored['referenceHeightPixels'] = float(np.median(values))
                 detail['method'] = 'fixed neutral body pixels; posture and props do not rescale frames'
@@ -151,7 +154,11 @@ for manifest in sorted(assets.glob('*/pet.json')):
             measured[key] = authored
         print(data['id'] + '/' + outfit, flush=True)
     if args.install:
-        manifest.write_text(json.dumps(data, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+        encoded=json.dumps(data, ensure_ascii=False, indent=2)
+        if 'sports' in data.get('outfits',{}):
+            encoded=re.sub(r'\{\s+"x": (\d+),\s+"y": (\d+),\s+"width": (\d+),\s+"height": (\d+)\s+\}',lambda m:'{"x": '+m[1]+', "y": '+m[2]+', "width": '+m[3]+', "height": '+m[4]+'}',encoded)
+        if len(encoded.encode('utf-8'))>262144:raise ValueError(f'{manifest}: calibration manifest exceeds 256 KiB')
+        manifest.write_text(encoded + '\n', encoding='utf-8')
 
 (output / 'calibration.json').write_text(json.dumps(reports, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
 print(f'{len(reports)} measured sprite definitions; installed={args.install}', flush=True)

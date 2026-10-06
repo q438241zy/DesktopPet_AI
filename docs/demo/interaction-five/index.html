@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>云朵俱乐部 · 五个新互动</title>
+  <link rel="stylesheet" href="style.css?v=3">
+  <link rel="stylesheet" href="review.css?v=3">
+  <script src="art.js?v=3" defer></script>
+  <script src="roster.js?v=4" defer></script>
+  <script src="model.js?v=3" defer></script>
+  <script src="items.js?v=3" defer></script>
+  <script src="app.js?v=3" defer></script>
+</head>
+<body>
+  <main>
+    <header>
+      <a class="brand" href="../CloudClub/index.html" aria-label="返回云朵俱乐部"><span data-icon="cloud" class="brand-icon"></span><span>云朵俱乐部<small>DeepSeek 的新互动</small></span></a>
+      <span class="review-pill"><i></i>五个小日常</span>
+    </header>
+    <div class="page-intro"><div><p class="eyebrow">LITTLE MOMENTS, TOGETHER</p><h1>一起，才有回应。</h1><p>你递出一点心意，她接住一点快乐。</p></div><a class="back-link" href="../CloudClub/index.html">回常态 Demo <span aria-hidden="true">↗</span></a></div>
+    <div class="workspace">
+      <section class="pet-panel" aria-label="DeepSeek 互动舞台">
+        <div class="toolbar"><span class="pet-name"><i></i><span id="pet-family-name">DeepSeek</span><small id="pet-outfit-name">原装</small></span><div class="segmented" aria-label="角色风格"><button data-style="chibi" class="selected" aria-pressed="true">Q版</button><button data-style="realistic" aria-pressed="false">3D真人</button></div></div>
+        <div class="appearance-picker"><label>伙伴<select id="family-select" aria-label="选择角色"></select></label><label>衣橱<select id="outfit-select" aria-label="选择服装"></select></label><span id="appearance-status" role="status"></span></div>
+        <div id="stage" class="stage" tabindex="0" aria-label="互动区域，右键打开圆盘菜单">
+          <div class="stage-cloud cloud-one"></div><div class="stage-cloud cloud-two"></div>
+          <div class="stage-top"><span class="live-label"><i></i><span id="action-status">击掌</span></span><span id="mini-count"></span></div>
+          <div class="floor-shadow"></div>
+          <canvas id="actor" aria-label="DeepSeek 互动动画"></canvas>
+          <div id="speech" class="speech" role="status" aria-live="polite">等我举起手…</div>
+          <button id="hand-hit" class="contact-hit" aria-label="邀请双方击掌" hidden><span class="halo"></span><span class="contact-label">碰手心</span></button>
+          <button id="player-hand" class="player-hand" aria-label="拖动你的手去击掌，或按回车" hidden><span class="hand-art"></span><span class="hand-cuff"></span><span class="hand-caption">你的手</span></button>
+          <span id="opponent-label" class="opponent-label" hidden>DeepSeek</span>
+          <button id="gift-hit" class="contact-hit gift-hit" aria-label="打开她手里的礼物" hidden><span class="halo"></span><span class="contact-label">拆开</span></button>
+          <button id="book-hit" class="contact-hit book-hit" aria-label="开始共读或读下一句" hidden><span class="book-glint"></span><span class="contact-label">一起读</span></button>
+          <div id="gift-zone" class="gift-zone" hidden><span>递到这里</span></div>
+          <div id="gift-tray" class="gift-tray" hidden><button id="gift-token" class="gift-token" aria-label="拖动礼物到角色双手，或按回车递礼物"><span data-icon="gift-color"></span></button><span>拖给她</span></div>
+          <div id="radial-menu" class="radial-menu" role="group" aria-label="五个新互动圆盘" hidden></div>
+          <div id="flash" class="flash" hidden></div>
+          <div id="load-error" class="load-error" role="alert" hidden></div>
+          <span class="stage-floor">一点点陪伴，刚刚好</span>
+        </div>
+        <div class="playback"><button id="menu-button" class="soft-button"><span data-icon="cloud"></span>互动</button><p id="action-hint">点一下举起的手心。</p><button id="restart" class="icon-button" aria-label="重新开始当前互动"><span data-icon="restart"></span></button></div>
+        <div id="action-controls" class="action-controls">
+          <div id="rps-controls" hidden><div class="hand-choices"><button data-choice="rock"><span data-icon="rock"></span>石头</button><button data-choice="scissors"><span data-icon="scissors"></span>剪刀</button><button data-choice="paper"><span data-icon="hand"></span>布</button></div><p id="rps-result" class="detail-message" aria-live="polite">等你选好，一起出拳。</p><button id="rps-again" class="text-button" hidden>再来一局 <span aria-hidden="true">↻</span></button></div>
+          <div id="gift-controls" hidden><p id="gift-message" class="detail-message">把礼物拖到手心；也可以选中礼物，按回车递给她。</p><button id="gift-again" class="text-button" hidden>再送一份 <span aria-hidden="true">↻</span></button><div class="collection-head"><strong>我们的收藏袋</strong><span id="collection-count">0 / 20</span></div><div id="gift-collection" class="gift-collection" aria-label="礼物收藏"></div><p id="collection-save-note" class="collection-save-note">收藏保存在这个 Demo，重开也保留。</p></div>
+          <div id="read-controls" hidden><div class="story-picker"><label for="story-select">今天读哪一篇？</label><select id="story-select" aria-label="选择短故事"></select></div><div class="story-card"><span class="page-number" id="read-progress">7句小故事</span><h2 id="story-title">云朵邮差</h2><ol id="story-lines" class="story-lines"></ol><div class="reading-progress" aria-label="故事阅读进度"><span id="read-progress-bar"></span></div><div class="story-nav"><button id="story-play" class="primary-button">一起读</button><button id="next-sentence" class="text-button" disabled>下一句 →</button><span id="story-finished" class="story-finished" hidden>读完啦 ✓</span></div></div></div>
+          <div id="photo-controls" hidden><div class="photo-toolbar"><div class="frame-options" aria-label="合照相框"><button data-frame="cloud" aria-pressed="true" class="selected">云朵</button><button data-frame="peach" aria-pressed="false">桃粉</button><button data-frame="mint" aria-pressed="false">浅玉</button></div><button id="shutter" class="primary-button"><span data-icon="camera"></span>一起合照</button></div><label class="photo-name" for="photo-nickname">云朵头像的昵称<input id="photo-nickname" value="你" placeholder="你" maxlength="12" autocomplete="off"></label><div id="photo-result" class="photo-result" hidden><img id="photo-image" alt="DeepSeek 与你的云朵头像一起留下的纪念照"><div><strong>今天的小回忆</strong><p id="photo-date"></p><a id="save-photo" class="text-button" download="DeepSeek-云朵纪念照.png">保存纪念照 <span aria-hidden="true">↓</span></a></div></div></div>
+        </div>
+      </section>
+      <aside class="actions-panel" aria-label="选择新互动"><p class="eyebrow">TRY A LITTLE HELLO</p><h2>五个小日常</h2><div id="actions" class="action-list"></div><div class="progress-card"><span data-icon="cloud"></span><div><strong id="progress">已体验 0 / 5</strong><p>每一项，都等你参与。</p></div></div><p class="quiet-note">右键只开关圆盘，当前互动继续。</p></aside>
+    </div>
+    <section id="identity-review" class="identity-review" hidden aria-label="3D真人原角色与当前互动同高对照"><div class="comparison-heading"><div><p class="eyebrow">SAME COMPANION</p><h2>还是熟悉的她</h2></div><span>同高对照</span></div><div class="identity-grid"><figure><canvas id="identity-reference" width="1024" height="1536" aria-label="项目原角色当前服装的完整立绘"></canvas><figcaption>原角色立绘</figcaption></figure><figure><canvas id="identity-current" width="1024" height="1536" aria-label="当前互动姿势，保持成年身形和原有服装"></canvas><figcaption id="identity-caption">当前互动</figcaption></figure></div></section>
+    <section class="story-library" aria-label="故事收藏"><div class="collection-head"><strong>我们的故事书架</strong><span id="story-shelf-count">0 / 3</span></div><div id="story-shelf" class="story-shelf"></div><p class="collection-save-note">读完收录，重开保留。点一本书就能重读。</p></section>
+    <footer><span>Q版 · 3D真人 · 故事收藏</span><a href="../DeepSeek-demo.html">现行完整动作 ↗</a></footer>
+  </main>
+</body>
+</html>

@@ -8,7 +8,7 @@ namespace DesktopPet.App;
 
 internal sealed record FeedbackFrame(string Action, double Elapsed, double Duration, double Size, Point Head, Point Mouth,
     Point Hand, Point Body, Point Feet, Rect WorkBounds, bool Reduced, string? Prop, double PropElapsed,
-    Collectible Food, Collectible? Prize, bool BakedProps = false, int? DanceBeat = null, bool OnBeat = false,
+    Collectible Food, Collectible? Prize, bool BakedProps = false,
     double JumpHeight = 0, bool LiftedFromTaskbar = false, bool DrawnPose = false, double DizzyElapsed = -1, double DizzyRemaining = 0);
 
 /// <summary>Action-specific, code-drawn feedback. Anchors follow the same animated skeleton as the portrait.</summary>
@@ -175,8 +175,6 @@ internal sealed class InteractionFeedback : FrameworkElement
             }
             dc.Pop();
         }
-        if (f.DanceBeat is { } beat)
-            for (int i = 0; i < 4; i++) dc.DrawEllipse(i == beat % 4 ? ItemArt.Brush(f.OnBeat ? "#66B28B" : "#7CADD6") : ItemArt.Brush("#C4D4E3"), null, new Point(f.Head.X - 21 + i * 14, f.Head.Y - 18), i == beat % 4 ? 3.5 : 2, i == beat % 4 ? 3.5 : 2);
         double propTime = f.Reduced ? .75 : f.PropElapsed / 1000;
         if (f.Prop == "blocks" && !f.BakedProps)
         {

@@ -1,0 +1,1272 @@
+[
+  {
+    "key": "deepseek-adult-wedding-rps",
+    "ok": true,
+    "reference": 615.0,
+    "variation": 1.0065,
+    "poses": {
+      "fist-up": {
+        "rect": [
+          95,
+          5,
+          471,
+          617
+        ],
+        "bounds": [
+          97,
+          7,
+          467,
+          613
+        ],
+        "foot": [
+          348.0,
+          620
+        ],
+        "anchors": {}
+      },
+      "fist-mid": {
+        "rect": [
+          695,
+          5,
+          467,
+          618
+        ],
+        "bounds": [
+          697,
+          7,
+          463,
+          614
+        ],
+        "foot": [
+          946.0,
+          621
+        ],
+        "anchors": {}
+      },
+      "fist-down": {
+        "rect": [
+          95,
+          629,
+          475,
+          620
+        ],
+        "bounds": [
+          97,
+          631,
+          471,
+          616
+        ],
+        "foot": [
+          348.0,
+          1247
+        ],
+        "anchors": {}
+      },
+      "reveal-rock": {
+        "rect": [
+          692,
+          628,
+          477,
+          621
+        ],
+        "bounds": [
+          694,
+          630,
+          473,
+          617
+        ],
+        "foot": [
+          946.0,
+          1247
+        ],
+        "anchors": {}
+      }
+    }
+  },
+  {
+    "key": "deepseek-adult-wedding-handoff",
+    "ok": true,
+    "reference": 628.0,
+    "variation": 1.0161,
+    "poses": {
+      "reveal-scissors": {
+        "rect": [
+          152,
+          1,
+          449,
+          637
+        ],
+        "bounds": [
+          154,
+          3,
+          445,
+          633
+        ],
+        "foot": [
+          393.0,
+          636
+        ],
+        "anchors": {}
+      },
+      "reveal-paper": {
+        "rect": [
+          657,
+          1,
+          440,
+          637
+        ],
+        "bounds": [
+          659,
+          3,
+          436,
+          633
+        ],
+        "foot": [
+          891.0,
+          636
+        ],
+        "anchors": {}
+      },
+      "receive": {
+        "rect": [
+          153,
+          628,
+          449,
+          626
+        ],
+        "bounds": [
+          155,
+          630,
+          445,
+          623
+        ],
+        "foot": [
+          393.0,
+          1253
+        ],
+        "anchors": {}
+      },
+      "gift": {
+        "rect": [
+          657,
+          628,
+          443,
+          626
+        ],
+        "bounds": [
+          659,
+          630,
+          439,
+          623
+        ],
+        "foot": [
+          892.0,
+          1253
+        ],
+        "anchors": {}
+      }
+    }
+  },
+  {
+    "key": "deepseek-adult-wedding-book",
+    "ok": true,
+    "reference": 614.5,
+    "variation": 1.0148,
+    "poses": {
+      "gift-empty": {
+        "rect": [
+          156,
+          5,
+          447,
+          622
+        ],
+        "bounds": [
+          158,
+          7,
+          443,
+          618
+        ],
+        "foot": [
+          370.0,
+          625
+        ],
+        "anchors": {}
+      },
+      "read": {
+        "rect": [
+          688,
+          4,
+          448,
+          623
+        ],
+        "bounds": [
+          690,
+          6,
+          444,
+          619
+        ],
+        "foot": [
+          900.0,
+          625
+        ],
+        "anchors": {}
+      },
+      "page": {
+        "rect": [
+          153,
+          628,
+          454,
+          615
+        ],
+        "bounds": [
+          155,
+          630,
+          450,
+          611
+        ],
+        "foot": [
+          363.0,
+          1241
+        ],
+        "anchors": {}
+      },
+      "read-finish": {
+        "rect": [
+          688,
+          630,
+          453,
+          614
+        ],
+        "bounds": [
+          690,
+          632,
+          449,
+          610
+        ],
+        "foot": [
+          901.0,
+          1242
+        ],
+        "anchors": {}
+      }
+    }
+  },
+  {
+    "key": "deepseek-adult-wedding-photo",
+    "ok": true,
+    "reference": 611.5,
+    "variation": 1.0033,
+    "poses": {
+      "neutral": {
+        "rect": [
+          124,
+          3,
+          430,
+          616
+        ],
+        "bounds": [
+          126,
+          5,
+          426,
+          612
+        ],
+        "foot": [
+          342.0,
+          617
+        ],
+        "anchors": {}
+      },
+      "lift": {
+        "rect": [
+          710,
+          3,
+          430,
+          616
+        ],
+        "bounds": [
+          712,
+          5,
+          426,
+          612
+        ],
+        "foot": [
+          928.0,
+          617
+        ],
+        "anchors": {}
+      },
+      "photo": {
+        "rect": [
+          124,
+          628,
+          433,
+          614
+        ],
+        "bounds": [
+          126,
+          630,
+          429,
+          610
+        ],
+        "foot": [
+          343.0,
+          1240
+        ],
+        "anchors": {}
+      },
+      "happy": {
+        "rect": [
+          706,
+          628,
+          436,
+          615
+        ],
+        "bounds": [
+          708,
+          630,
+          432,
+          611
+        ],
+        "foot": [
+          927.0,
+          1241
+        ],
+        "anchors": {}
+      }
+    }
+  },
+  {
+    "key": "gpt-adult-original-highfive",
+    "ok": true,
+    "reference": 709.5,
+    "variation": 1.0014,
+    "poses": {
+      "high-prep": {
+        "rect": [
+          114,
+          2,
+          388,
+          714
+        ],
+        "bounds": [
+          116,
+          4,
+          384,
+          710
+        ],
+        "foot": [
+          321.0,
+          714
+        ],
+        "anchors": {}
+      },
+      "high-ready": {
+        "rect": [
+          635,
+          2,
+          386,
+          714
+        ],
+        "bounds": [
+          637,
+          4,
+          382,
+          710
+        ],
+        "foot": [
+          840.0,
+          714
+        ],
+        "anchors": {}
+      },
+      "high-contact": {
+        "rect": [
+          1147,
+          3,
+          388,
+          713
+        ],
+        "bounds": [
+          1149,
+          5,
+          384,
+          709
+        ],
+        "foot": [
+          1354.0,
+          714
+        ],
+        "anchors": {}
+      },
+      "high-recoil": {
+        "rect": [
+          1679,
+          3,
+          382,
+          713
+        ],
+        "bounds": [
+          1681,
+          5,
+          378,
+          709
+        ],
+        "foot": [
+          1881.0,
+          714
+        ],
+        "anchors": {}
+      }
+    }
+  },
+  {
+    "key": "gpt-adult-original-handoff",
+    "ok": true,
+    "reference": 702.0,
+    "variation": 1.0,
+    "poses": {
+      "reveal-scissors": {
+        "rect": [
+          155,
+          7,
+          390,
+          706
+        ],
+        "bounds": [
+          157,
+          9,
+          386,
+          702
+        ],
+        "foot": [
+          368.0,
+          711
+        ],
+        "anchors": {}
+      },
+      "reveal-paper": {
+        "rect": [
+          648,
+          7,
+          389,
+          706
+        ],
+        "bounds": [
+          650,
+          9,
+          385,
+          702
+        ],
+        "foot": [
+          860.0,
+          711
+        ],
+        "anchors": {}
+      },
+      "receive": {
+        "rect": [
+          1146,
+          7,
+          387,
+          706
+        ],
+        "bounds": [
+          1148,
+          9,
+          383,
+          702
+        ],
+        "foot": [
+          1358.0,
+          711
+        ],
+        "anchors": {}
+      },
+      "gift": {
+        "rect": [
+          1641,
+          7,
+          388,
+          706
+        ],
+        "bounds": [
+          1643,
+          9,
+          384,
+          702
+        ],
+        "foot": [
+          1854.0,
+          711
+        ],
+        "anchors": {}
+      }
+    }
+  },
+  {
+    "key": "gpt-adult-swim-highfive",
+    "ok": true,
+    "reference": 709.0,
+    "variation": 1.0014,
+    "poses": {
+      "high-prep": {
+        "rect": [
+          162,
+          5,
+          381,
+          713
+        ],
+        "bounds": [
+          164,
+          7,
+          377,
+          709
+        ],
+        "foot": [
+          358.0,
+          716
+        ],
+        "anchors": {}
+      },
+      "high-ready": {
+        "rect": [
+          659,
+          6,
+          380,
+          712
+        ],
+        "bounds": [
+          661,
+          8,
+          376,
+          708
+        ],
+        "foot": [
+          854.0,
+          716
+        ],
+        "anchors": {}
+      },
+      "high-contact": {
+        "rect": [
+          1155,
+          5,
+          381,
+          713
+        ],
+        "bounds": [
+          1157,
+          7,
+          377,
+          709
+        ],
+        "foot": [
+          1351.0,
+          716
+        ],
+        "anchors": {}
+      },
+      "high-recoil": {
+        "rect": [
+          1654,
+          5,
+          381,
+          713
+        ],
+        "bounds": [
+          1656,
+          7,
+          377,
+          709
+        ],
+        "foot": [
+          1851.0,
+          716
+        ],
+        "anchors": {}
+      }
+    }
+  },
+  {
+    "key": "gpt-adult-swim-rps",
+    "ok": true,
+    "reference": 703.0,
+    "variation": 1.0,
+    "poses": {
+      "fist-up": {
+        "rect": [
+          208,
+          6,
+          382,
+          707
+        ],
+        "bounds": [
+          210,
+          8,
+          378,
+          703
+        ],
+        "foot": [
+          411.0,
+          711
+        ],
+        "anchors": {}
+      },
+      "fist-mid": {
+        "rect": [
+          682,
+          6,
+          378,
+          707
+        ],
+        "bounds": [
+          684,
+          8,
+          374,
+          703
+        ],
+        "foot": [
+          883.0,
+          711
+        ],
+        "anchors": {}
+      },
+      "fist-down": {
+        "rect": [
+          1150,
+          6,
+          377,
+          707
+        ],
+        "bounds": [
+          1152,
+          8,
+          373,
+          703
+        ],
+        "foot": [
+          1349.0,
+          711
+        ],
+        "anchors": {}
+      },
+      "reveal-rock": {
+        "rect": [
+          1627,
+          6,
+          375,
+          707
+        ],
+        "bounds": [
+          1629,
+          8,
+          371,
+          703
+        ],
+        "foot": [
+          1827.0,
+          711
+        ],
+        "anchors": {}
+      }
+    }
+  },
+  {
+    "key": "gpt-adult-swim-handoff",
+    "ok": true,
+    "reference": 703.0,
+    "variation": 1.0,
+    "poses": {
+      "reveal-scissors": {
+        "rect": [
+          246,
+          6,
+          373,
+          707
+        ],
+        "bounds": [
+          248,
+          8,
+          369,
+          703
+        ],
+        "foot": [
+          440.0,
+          711
+        ],
+        "anchors": {}
+      },
+      "reveal-paper": {
+        "rect": [
+          688,
+          6,
+          375,
+          707
+        ],
+        "bounds": [
+          690,
+          8,
+          371,
+          703
+        ],
+        "foot": [
+          883.0,
+          711
+        ],
+        "anchors": {}
+      },
+      "receive": {
+        "rect": [
+          1134,
+          6,
+          371,
+          707
+        ],
+        "bounds": [
+          1136,
+          8,
+          367,
+          703
+        ],
+        "foot": [
+          1328.0,
+          711
+        ],
+        "anchors": {}
+      },
+      "gift": {
+        "rect": [
+          1585,
+          6,
+          371,
+          707
+        ],
+        "bounds": [
+          1587,
+          8,
+          367,
+          703
+        ],
+        "foot": [
+          1779.0,
+          711
+        ],
+        "anchors": {}
+      }
+    }
+  },
+  {
+    "key": "gpt-adult-wedding-rps",
+    "ok": true,
+    "reference": 613.0,
+    "variation": 1.0082,
+    "poses": {
+      "fist-up": {
+        "rect": [
+          144,
+          6,
+          420,
+          615
+        ],
+        "bounds": [
+          146,
+          8,
+          416,
+          611
+        ],
+        "foot": [
+          360.0,
+          619
+        ],
+        "anchors": {}
+      },
+      "fist-mid": {
+        "rect": [
+          730,
+          6,
+          420,
+          615
+        ],
+        "bounds": [
+          732,
+          8,
+          416,
+          611
+        ],
+        "foot": [
+          944.0,
+          619
+        ],
+        "anchors": {}
+      },
+      "fist-down": {
+        "rect": [
+          145,
+          626,
+          421,
+          620
+        ],
+        "bounds": [
+          147,
+          628,
+          417,
+          616
+        ],
+        "foot": [
+          360.0,
+          1244
+        ],
+        "anchors": {}
+      },
+      "reveal-rock": {
+        "rect": [
+          731,
+          626,
+          425,
+          619
+        ],
+        "bounds": [
+          733,
+          628,
+          421,
+          615
+        ],
+        "foot": [
+          945.0,
+          1243
+        ],
+        "anchors": {}
+      }
+    }
+  },
+  {
+    "key": "gpt-adult-wedding-book",
+    "ok": false,
+    "error": "(WindowsPath('D:/VibeCoding/Character/artwork/interaction-five/gpt-adult-wedding-book-v3.png'), 'body count', 3, 4)"
+  },
+  {
+    "key": "gpt-adult-sports-handoff",
+    "ok": true,
+    "reference": 676.0,
+    "variation": 1.0074,
+    "poses": {
+      "reveal-scissors": {
+        "rect": [
+          265,
+          12,
+          310,
+          678
+        ],
+        "bounds": [
+          267,
+          14,
+          306,
+          674
+        ],
+        "foot": [
+          417.0,
+          688
+        ],
+        "anchors": {}
+      },
+      "reveal-paper": {
+        "rect": [
+          707,
+          12,
+          313,
+          679
+        ],
+        "bounds": [
+          709,
+          14,
+          309,
+          675
+        ],
+        "foot": [
+          856.0,
+          689
+        ],
+        "anchors": {}
+      },
+      "receive": {
+        "rect": [
+          1168,
+          10,
+          308,
+          681
+        ],
+        "bounds": [
+          1170,
+          12,
+          304,
+          677
+        ],
+        "foot": [
+          1317.0,
+          689
+        ],
+        "anchors": {}
+      },
+      "gift": {
+        "rect": [
+          1623,
+          10,
+          310,
+          683
+        ],
+        "bounds": [
+          1625,
+          12,
+          306,
+          679
+        ],
+        "foot": [
+          1780.0,
+          691
+        ],
+        "anchors": {}
+      }
+    }
+  },
+  {
+    "key": "claude-adult-wedding-highfive",
+    "ok": true,
+    "reference": 624.5,
+    "variation": 1.0064,
+    "poses": {
+      "high-prep": {
+        "rect": [
+          152,
+          3,
+          434,
+          629
+        ],
+        "bounds": [
+          154,
+          5,
+          430,
+          625
+        ],
+        "foot": [
+          386.0,
+          630
+        ],
+        "anchors": {}
+      },
+      "high-ready": {
+        "rect": [
+          676,
+          2,
+          434,
+          631
+        ],
+        "bounds": [
+          678,
+          4,
+          430,
+          627
+        ],
+        "foot": [
+          907.0,
+          631
+        ],
+        "anchors": {}
+      },
+      "high-contact": {
+        "rect": [
+          155,
+          625,
+          448,
+          628
+        ],
+        "bounds": [
+          157,
+          627,
+          444,
+          624
+        ],
+        "foot": [
+          387.0,
+          1251
+        ],
+        "anchors": {}
+      },
+      "high-recoil": {
+        "rect": [
+          679,
+          627,
+          434,
+          627
+        ],
+        "bounds": [
+          681,
+          629,
+          430,
+          623
+        ],
+        "foot": [
+          907.0,
+          1252
+        ],
+        "anchors": {}
+      }
+    }
+  },
+  {
+    "key": "claude-adult-wedding-rps",
+    "ok": true,
+    "reference": 613.5,
+    "variation": 1.0131,
+    "poses": {
+      "fist-up": {
+        "rect": [
+          166,
+          7,
+          420,
+          615
+        ],
+        "bounds": [
+          168,
+          9,
+          416,
+          611
+        ],
+        "foot": [
+          376.0,
+          620
+        ],
+        "anchors": {}
+      },
+      "fist-mid": {
+        "rect": [
+          687,
+          7,
+          411,
+          613
+        ],
+        "bounds": [
+          689,
+          9,
+          407,
+          609
+        ],
+        "foot": [
+          898.0,
+          618
+        ],
+        "anchors": {}
+      },
+      "fist-down": {
+        "rect": [
+          159,
+          629,
+          430,
+          620
+        ],
+        "bounds": [
+          161,
+          631,
+          426,
+          616
+        ],
+        "foot": [
+          376.0,
+          1247
+        ],
+        "anchors": {}
+      },
+      "reveal-rock": {
+        "rect": [
+          680,
+          628,
+          432,
+          621
+        ],
+        "bounds": [
+          682,
+          630,
+          428,
+          617
+        ],
+        "foot": [
+          899.0,
+          1247
+        ],
+        "anchors": {}
+      }
+    }
+  },
+  {
+    "key": "claude-adult-wedding-book",
+    "ok": true,
+    "reference": 620.0,
+    "variation": 1.0016,
+    "poses": {
+      "gift-empty": {
+        "rect": [
+          187,
+          3,
+          430,
+          624
+        ],
+        "bounds": [
+          189,
+          5,
+          426,
+          620
+        ],
+        "foot": [
+          395.0,
+          625
+        ],
+        "anchors": {}
+      },
+      "read": {
+        "rect": [
+          637,
+          3,
+          430,
+          624
+        ],
+        "bounds": [
+          639,
+          5,
+          426,
+          620
+        ],
+        "foot": [
+          845.0,
+          625
+        ],
+        "anchors": {}
+      },
+      "page": {
+        "rect": [
+          187,
+          626,
+          430,
+          623
+        ],
+        "bounds": [
+          189,
+          628,
+          426,
+          619
+        ],
+        "foot": [
+          395.0,
+          1247
+        ],
+        "anchors": {}
+      },
+      "read-finish": {
+        "rect": [
+          637,
+          625,
+          430,
+          624
+        ],
+        "bounds": [
+          639,
+          627,
+          426,
+          620
+        ],
+        "foot": [
+          844.0,
+          1247
+        ],
+        "anchors": {}
+      }
+    }
+  },
+  {
+    "key": "claude-adult-wedding-photo",
+    "ok": false,
+    "error": "(WindowsPath('D:/VibeCoding/Character/artwork/interaction-five/claude-adult-wedding-photo-v3.png'), 'body count', 3, 4)"
+  },
+  {
+    "key": "claude-adult-sports-photo",
+    "ok": true,
+    "reference": 680.5,
+    "variation": 1.0044,
+    "poses": {
+      "neutral": {
+        "rect": [
+          142,
+          5,
+          293,
+          687
+        ],
+        "bounds": [
+          144,
+          7,
+          289,
+          683
+        ],
+        "foot": [
+          307.0,
+          690
+        ],
+        "anchors": {}
+      },
+      "lift": {
+        "rect": [
+          681,
+          8,
+          291,
+          684
+        ],
+        "bounds": [
+          683,
+          10,
+          287,
+          680
+        ],
+        "foot": [
+          849.0,
+          690
+        ],
+        "anchors": {}
+      },
+      "photo": {
+        "rect": [
+          1222,
+          7,
+          294,
+          685
+        ],
+        "bounds": [
+          1224,
+          9,
+          290,
+          681
+        ],
+        "foot": [
+          1354.0,
+          690
+        ],
+        "anchors": {}
+      },
+      "happy": {
+        "rect": [
+          1765,
+          8,
+          291,
+          684
+        ],
+        "bounds": [
+          1767,
+          10,
+          287,
+          680
+        ],
+        "foot": [
+          1896.0,
+          690
+        ],
+        "anchors": {}
+      }
+    }
+  }
+]

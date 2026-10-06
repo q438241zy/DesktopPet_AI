@@ -18,6 +18,36 @@ internal static class TaskbarContactVerification
         var canvas = (Canvas)pet.Content;
         var sprite = canvas.Children.OfType<Image>().Single();
         double VisualX() => pet.Left + canvas.RenderTransform.Value.OffsetX;
+        async Task AwaitWalk(string label)
+        {
+            var clock=Stopwatch.StartNew();
+            while(pet.CurrentAction!="walk" || !pet.WalkUsesRendering)
+            {
+                if(clock.ElapsedMilliseconds>1500) break;
+                await Task.Delay(20);
+            }
+            Require(pet.CurrentAction=="walk" && pet.WalkUsesRendering,
+                label+$" (elapsed={clock.ElapsedMilliseconds} ms, action={pet.CurrentAction})");
+        }
+        async Task ObserveWalk(string label)
+        {
+            double startX=VisualX(); var startFrame=sprite.Source;
+            var moved=new TaskCompletionSource(TaskCreationOptions.RunContinuationsAsynchronously);
+            void Presented(object? sender,EventArgs args)
+            {
+                if(args is RenderingEventArgs && pet.CurrentAction=="walk"
+                    && Math.Abs(VisualX()-startX)>2 && !ReferenceEquals(startFrame,sprite.Source)) moved.TrySetResult();
+            }
+            CompositionTarget.Rendering+=Presented;
+            try
+            {
+                // Two fixed-delay samples can land on the same cyclic pose.
+                // Require a genuinely presented, displaced, different pose.
+                Require(await Task.WhenAny(moved.Task,Task.Delay(2500))==moved.Task,label);
+                await moved.Task;
+            }
+            finally { CompositionTarget.Rendering-=Presented; }
+        }
         object Snapshot() => new { pet.IsLoaded, pet.IsVisible, windowState = pet.WindowState.ToString(), action = pet.CurrentAction,
             pet.State.Wander, pet.State.ReducedMotion, pet.State.LastSeen, pet.Left, pet.Top, floor = pet.WorkArea.Bottom - 468,
             pet.WalkUsesRendering, pet.IsDropping, pet.IsResting, dataRoot = output };
@@ -28,8 +58,7 @@ internal static class TaskbarContactVerification
         if (pet.State.Wander && !pet.State.ReducedMotion && Math.Abs(pet.Top + 468 - pet.WorkArea.Bottom) < 1)
         {
             Require(pet.CurrentAction == "walk" && pet.WalkUsesRendering, "startup at the taskbar uses the real walking compositor");
-            double x = VisualX(); var frame = sprite.Source; await Task.Delay(700);
-            Require(Math.Abs(VisualX() - x) > 2 && !ReferenceEquals(frame, sprite.Source), "startup walking actually changes position and rendered pose");
+            await ObserveWalk("startup walking actually changes position and rendered pose");
         }
         pet.IsHitTestVisible = false; pet.StopInteraction();
         var savedCheckIns = pet.State.CheckIns.ToArray();
@@ -37,7 +66,7 @@ internal static class TaskbarContactVerification
         try
         {
             foreach (var character in pet.Catalog.Characters)
-            foreach (string outfit in new[] { "original", "swim", "wedding" })
+            foreach (string outfit in Catalog.BuiltInOutfits)
             {
                 pet.SelectCharacter(character.Id); pet.State.Outfits[character.Id] = outfit;
                 pet.State.Wander = true; pet.State.ReducedMotion = false; pet.ApplySettings(); pet.StopInteraction();
@@ -47,16 +76,14 @@ internal static class TaskbarContactVerification
                 pet.BeginPointerGesture(new Point(x + 280, floor + 230));
                 pet.MovePointerGesture(new Point(x + 280, floor + 348)); pet.EndPointerGesture(false);
                 Require(pet.CurrentAction == "land", character.Id + "/" + outfit + ": real-time floor placement starts the landing buffer");
-                await Task.Delay(550);
-                Require(pet.CurrentAction == "walk" && pet.WalkUsesRendering, character.Id + "/" + outfit + ": real dispatcher completes landing and starts walking");
-                double startX = VisualX(); var startFrame = sprite.Source; await Task.Delay(230);
-                Require(Math.Abs(VisualX() - startX) > 2 && !ReferenceEquals(startFrame, sprite.Source), character.Id + "/" + outfit + ": automatic walk actually moves and animates");
+                await AwaitWalk(character.Id + "/" + outfit + ": real dispatcher completes landing and starts walking");
+                await ObserveWalk(character.Id + "/" + outfit + ": automatic walk actually moves and animates");
                 pet.StopInteraction();
                 pet.Left = x; pet.Top = floor - 130;
                 pet.BeginPointerGesture(new Point(x + 280, floor + 230));
                 pet.MovePointerGesture(new Point(x + 280, floor + 360));
-                pet.CancelInput(true); await Task.Delay(550);
-                Require(pet.CurrentAction == "walk", character.Id + "/" + outfit + ": taskbar capture interruption still starts floor walking");
+                pet.CancelInput(true);
+                await AwaitWalk(character.Id + "/" + outfit + ": taskbar capture interruption still starts floor walking");
                 pet.StopInteraction();
                 if (character.FamilyId == "whale")
                 {
@@ -67,8 +94,7 @@ internal static class TaskbarContactVerification
                     var deadline = Stopwatch.StartNew();
                     while (pet.IsDropping) { if (deadline.ElapsedMilliseconds > 3000) throw new InvalidOperationException("Shift fall timed out"); await Task.Delay(16); }
                     Require(pet.CurrentAction == "land", character.Id + "/" + outfit + ": real Shift fall has a distinct landing buffer");
-                    await Task.Delay(550);
-                    Require(pet.CurrentAction == "walk" && pet.WalkUsesRendering, character.Id + "/" + outfit + ": shared Shift-release path walks after landing");
+                    await AwaitWalk(character.Id + "/" + outfit + ": shared Shift-release path walks after landing");
                     pet.StopInteraction(); pet.Left = x; pet.Top = floor;
                     pet.BeginPointerGesture(new Point(x + 280, floor + 360));
                     pet.MovePointerGesture(new Point(x + 280, floor + 230)); pet.CancelInput(true); await Task.Delay(550);

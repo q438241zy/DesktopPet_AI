@@ -5,7 +5,7 @@
   const controller = new window.TaskbarLift.LiftController();
   const stage = $('stage'), pet = $('pet'), grip = $('grip'), sprite = $('sprite');
   const styles = [['chibi', 'Q版'], ['realistic', '3D真人']];
-  const outfits = [['original', '原装'], ['swim', '泳装'], ['wedding', '婚纱']];
+  const outfits = [['original', '原装'], ['swim', '泳装'], ['wedding', '婚纱'], ['sports', '短袖运动服']].filter(([key])=>styles.every(([style])=>data.appearances[style+'-'+key]));
   let style = 'realistic', outfit = 'original', demo = null, lastImage = '', latestStatus = '', shiftHeld = false;
   const appearance = () => data.appearances[style + '-' + outfit];
   function button(label, active, onClick) {

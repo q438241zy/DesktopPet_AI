@@ -5,6 +5,8 @@ namespace DesktopPet.App;
 
 public sealed class Catalog
 {
+    public static readonly (string Id, string Name)[] BuiltInWardrobe = [("original", "原装"), ("swim", "泳装"), ("wedding", "婚纱"), ("sports", "短袖运动服")];
+    public static readonly string[] BuiltInOutfits = BuiltInWardrobe.Select(x => x.Id).ToArray();
     public static readonly string[] BuiltInFamilies = ["whale", "gpt", "claude", "gemini", "grok", "qwen", "zhipu", "kimi"];
     // Keep established realistic IDs so existing saves, art records and custom references stay valid.
     public static string VariantId(string family, string category) => CharacterStyles.Normalize(category) == CharacterStyles.Chibi

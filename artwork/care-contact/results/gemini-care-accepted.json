@@ -1,0 +1,142 @@
+{
+  "key": "gemini-care-wardrobe",
+  "id": "gemini",
+  "family": "gemini",
+  "style": "chibi",
+  "kind": "care",
+  "outfits": [
+    "original",
+    "swim",
+    "wedding"
+  ],
+  "columns": 4,
+  "rows": 6,
+  "dest": "src/DesktopPet.App/Assets/Characters/gemini/motions/cloud-care-wardrobe.png",
+  "refs": [
+    "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/gemini/atlas.png",
+    "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/gemini/outfits/swim.webp",
+    "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/gemini/outfits/wedding.webp"
+  ],
+  "prompt": "Make exactly 24 FULL-BODY poses of the SAME Gemini character in THREE outfits from the three reference images. blue-violet long wavy hair with a side bun, cat ears and violet tail, one pink eye and one gold eye, twin-star hairpin; preserve each outfit's accessories and existing costume exactly. Cute big-headed chibi, seated as in the refs, 4 columns x 6 rows portrait. First TWO rows use image1 original clothing; next TWO rows use image2 swim clothing; final TWO rows use image3 wedding gown. For EACH outfit repeat the following eight-pose sequence exactly once. Eight ordered poses: 0 holding a small wooden comb down at waist; 1 raise right hand so comb teeth touch hair beside the temple, tilt head gently toward it; 2 draw comb down the SAME lock of hair to shoulder while other hand lightly holds that lock; 3 lower comb back to waist with a relaxed smile. 4 holding a soft ivory face towel at chest; 5 lift towel with fingers and press to LEFT cheek, close that eye; 6 move towel to RIGHT cheek, tilt head gently opposite; 7 lower towel to chest, content expression. Props firmly gripped by fingers in every pose, no floating tool or extra hand. Feet/body stay stable, arms and head actually move. No text, labels, numbers, background or effect sprites. Each figure fully isolated by at least 24 transparent pixels. Keep each pose's anatomical pixel scale identical; ample empty margins on all sides; truly transparent alpha.",
+  "source": "D:\\VibeCoding\\Character\\artwork\\care-contact\\gemini-care-accepted.png",
+  "tool": "image_gen.imagegen",
+  "selected": true,
+  "originalSource": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-2e6dba7b-d786-47a1-b6ee-7afa9e95fbac.png",
+  "clips": {
+    "0:comb": [
+      [
+        0,
+        1,
+        2,
+        1,
+        2,
+        3
+      ],
+      [
+        450,
+        750,
+        900,
+        750,
+        1100,
+        850
+      ],
+      false
+    ],
+    "0:wipe": [
+      [
+        7,
+        5,
+        6,
+        5,
+        6,
+        7
+      ],
+      [
+        400,
+        600,
+        850,
+        600,
+        1050,
+        700
+      ],
+      false
+    ],
+    "1:comb": [
+      [
+        8,
+        9,
+        10,
+        9,
+        10,
+        11
+      ],
+      [
+        450,
+        750,
+        900,
+        750,
+        1100,
+        850
+      ],
+      false
+    ],
+    "1:wipe": [
+      [
+        15,
+        13,
+        14,
+        13,
+        14,
+        15
+      ],
+      [
+        400,
+        600,
+        850,
+        600,
+        1050,
+        700
+      ],
+      false
+    ],
+    "2:comb": [
+      [
+        16,
+        17,
+        18,
+        17,
+        18,
+        19
+      ],
+      [
+        450,
+        750,
+        900,
+        750,
+        1100,
+        850
+      ],
+      false
+    ],
+    "2:wipe": [
+      [
+        23,
+        21,
+        22,
+        21,
+        22,
+        23
+      ],
+      [
+        400,
+        600,
+        850,
+        600,
+        1050,
+        700
+      ],
+      false
+    ]
+  },
+  "review": "Reviewed all 24: outfits preserved; towel clip starts and ends at actual towel pose 7, excluding wrong comb at pose4."
+}

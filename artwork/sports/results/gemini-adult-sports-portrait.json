@@ -1,0 +1,19 @@
+{
+  "key": "gemini-adult-sports-portrait",
+  "id": "gemini-adult",
+  "family": "gemini",
+  "style": "realistic",
+  "kind": "portrait",
+  "columns": 3,
+  "rows": 4,
+  "refs": [
+    "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/gemini-adult/portrait.png",
+    "D:/VibeCoding/Character/docs/demo/cloud-club/art/school-realistic.png"
+  ],
+  "dest": "src/DesktopPet.App/Assets/Characters/gemini-adult/outfits/sports/portrait.png",
+  "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-afab9ae3-6108-488f-a391-bef2b6c58d39.png",
+  "tool": "built-in image_gen",
+  "selected": false,
+  "status": "superseded-long-pants",
+  "reason": "User requires short sleeves AND shorts above knees in both styles; do not install or publish this batch."
+}

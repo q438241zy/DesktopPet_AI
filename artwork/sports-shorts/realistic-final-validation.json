@@ -1,0 +1,76 @@
+{
+  "selectedImages": 64,
+  "kinds": {
+    "body": 8,
+    "bonk": 8,
+    "care": 8,
+    "catch": 8,
+    "club": 8,
+    "portrait": 8,
+    "walk": 8
+  },
+  "allSourcePathsOnD": true,
+  "alphaAndIsolatedFigureInspection": "PASS 64 of 64",
+  "manifestValidation": "PASS 16 appearances 0 missing requirements",
+  "nativeSports": "8 adult appearances 544 checks each; DS/GPT/Claude rerun after dedicated bonk; other five will receive final coordinator full-matrix pass",
+  "nativeVisualInspection": "source images all short sleeves/shorts checked; DS/GPT full action snapshots; other6 meal/bubbles, source contact and rig inspected. Dedicated bonk 3 figures retains standing-leg proportions. No bitmap pixel edits.",
+  "characters": [
+    {
+      "id": "claude-adult",
+      "motions": 32,
+      "walkStride": 0.95984,
+      "manifestBytes": 164050,
+      "bonk": "outfits/sports/bonk.png"
+    },
+    {
+      "id": "deepseek-adult",
+      "motions": 32,
+      "walkStride": 0.89738,
+      "manifestBytes": 163864,
+      "bonk": "outfits/sports/bonk.png"
+    },
+    {
+      "id": "gemini-adult",
+      "motions": 32,
+      "walkStride": 0.92525,
+      "manifestBytes": 170231,
+      "bonk": "outfits/sports/bonk.png"
+    },
+    {
+      "id": "gpt-adult",
+      "motions": 32,
+      "walkStride": 0.97374,
+      "manifestBytes": 157800,
+      "bonk": "outfits/sports/bonk.png"
+    },
+    {
+      "id": "grok-adult",
+      "motions": 32,
+      "walkStride": 1.0,
+      "manifestBytes": 170235,
+      "bonk": "outfits/sports/bonk.png"
+    },
+    {
+      "id": "kimi-adult",
+      "motions": 32,
+      "walkStride": 1.01235,
+      "manifestBytes": 164181,
+      "bonk": "outfits/sports/bonk.png"
+    },
+    {
+      "id": "qwen-adult",
+      "motions": 32,
+      "walkStride": 0.97541,
+      "manifestBytes": 163887,
+      "bonk": "outfits/sports/bonk.png"
+    },
+    {
+      "id": "zhipu-adult",
+      "motions": 32,
+      "walkStride": 0.91667,
+      "manifestBytes": 164188,
+      "bonk": "outfits/sports/bonk.png"
+    }
+  ],
+  "nativeContact": "DS/GPT sports each 17 live drawn-contact checks passed. Snack/spoon physically advance; impact flinches and ball reverses, distant miss separate. Native contact snapshots inspected."
+}

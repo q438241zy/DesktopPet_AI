@@ -1,0 +1,23 @@
+{
+  "key": "whale-shorts-walk",
+  "id": "whale",
+  "family": "whale",
+  "style": "chibi",
+  "kind": "walk",
+  "columns": 3,
+  "rows": 4,
+  "refs": [
+    "D:/VibeCoding/Character/docs/demo/cloud-club/art/school-shorts-chibi.png"
+  ],
+  "prompt": "Use case: identity-preserve. Production 12-frame full-body SIDE-VIEW walking animation sheet, exactly 3 columns by 4 rows. The reference is the precise character identity and approved short-sleeve + SHORTS outfit. Keep blue hair, fin ears, whale tail, big chibi head and tiny torso, loose navy shorts ABOVE KNEES, bare knees/lower legs, short ankle socks and white sneakers. Sleeves end above elbows. Every pose faces RIGHT. Hair and tail remain behind toward LEFT. Draw ONE complete two-step gait cycle with both legs exchanging support, NOT twelve copies of one leg raised. Near leg vs far leg stays identifiable: near shin lighter/brighter, far shin slightly shaded; visible natural bare knees throughout. Row-major phases: 0 near leg straight forward, far leg backward, near heel about to touch; 1 load near foot and bend near knee gently; 2 far heel rises and swings forward while near foot planted; 3 far knee passes planted near shin, feet close under hips; 4 far leg extends forward, near heel begins lifting; 5 far heel contacts in front, near toes behind; 6 far leg forward bearing weight and near leg behind; 7 load far foot, near knee bends; 8 near heel lifts and swings forward while far foot planted; 9 near knee passes planted far shin, feet close under hips; 10 near leg extends forward, far heel rises; 11 near heel approaches floor with far toes behind ready to wrap to phase 0. Opposite arms swing gently. Small casual strides, no running, level torso and shoulders. Same head size and anatomy in every frame; keep hands and shoes intact, exactly two legs per figure, no disconnected joints. Full figures fit central 70% of each cell with ample transparent gutters and outer margins. Transparent alpha, no scenery, floor, effects, text or numbers. Exact 3x4 grid and 12 clearly distinct walk phases.",
+  "dest": "src/DesktopPet.App/Assets/Characters/whale/outfits/sports/walk.png",
+  "source": "D:\\VibeCoding\\Character\\src\\DesktopPet.App\\Assets\\Characters\\whale\\outfits\\sports\\walk.png",
+  "selected": true,
+  "tool": "built-in image_gen",
+  "status": "visually-reviewed-short-sleeves-and-shorts",
+  "referenceHeightPixels": 365,
+  "visualReview": "Every pose checked for short upper-arm sleeves, above-knee shorts, bare knees/calves, complete figure, correct tools/contact. Original PNG copied without bitmap edits; crop/flow metadata only. Cross-kind scale uses same face-width ruler; no per-frame silhouette resizing.",
+  "walkStride": 0.48,
+  "walkStrideReview": "12 distinct complete two-step poses,95ms each (1140ms loop). Feet pass under hips at phases3/9; opposite near-arm swing phases5-10. Estimated two-step advance about0.48 State.Size from shoe-separation versus common standing-height. Runtime pilot verifies feet vs translation.",
+  "originalSource": "C:\\Users\\99000256\\.codex\\generated_images\\01a0fd46-2194-7b12-8882-479fedfd5c1e\\exec-54630b1b-c941-4eeb-b9da-b78a1b550c86.png"
+}

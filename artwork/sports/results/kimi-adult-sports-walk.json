@@ -1,0 +1,19 @@
+{
+  "key": "kimi-adult-sports-walk",
+  "id": "kimi-adult",
+  "family": "kimi",
+  "style": "realistic",
+  "kind": "walk",
+  "columns": 3,
+  "rows": 4,
+  "refs": [
+    "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-7dfe1ca9-ddf4-44df-bb2f-de3c2b893d31.png"
+  ],
+  "prompt": "Use the FIRST pose of the reference as identity and SHORT-SLEEVE sports costume reference, keep outfit unchanged. Draw EXACTLY 12 distinct FULL-BODY animation poses in a regular 3 columns by 4 rows atlas, portrait. Natural SIDE-VIEW walk facing RIGHT in ALL 12 cells, same character size, camera and clothing. 12 evenly-spaced phases of ONE complete walking cycle: right-foot forward heel contact; lowering and loading right foot; left foot begins passing under hips; left foot passes right shin; left foot swings forward with knee naturally bent; left heel approaches ground; left-foot forward heel contact; lowering and loading left foot; right foot lifts and begins passing; right foot passes left shin; right foot swings forward; right heel approaches ground ready to wrap to first pose. Each white sneaker fully intact and each pant leg continuous from hip to shoe. Only two legs, no disconnected shins, no twisted ankles, no sliding skis. Opposite arm and leg counter-swing gently. Small smooth stride, level hips, quiet shoulders, looking toward right. Hair and any tail trail behind toward LEFT, gently delayed sway, no flipping tail between frames. All shoes touch the same baseline in each cell except lifted foot. Same head and body pixel scale throughout. Large transparent gutters, each sprite inside central 72% of its cell with full hair and feet. No background, text, floor, motion lines or frame numbers. Sharp clean game sprite art, actual transparent alpha. Preserve the clearly adult realistic 3D rendering and mature proportions. Do not turn into chibi. Replace any borrowed blue whale emblem with this character's own tiny crescent emblem.",
+  "dest": "src/DesktopPet.App/Assets/Characters/kimi-adult/outfits/sports/walk.png",
+  "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-33364ec9-7a01-4698-bfee-0da871a688fc.png",
+  "tool": "image_gen.imagegen",
+  "selected": false,
+  "status": "superseded-long-pants",
+  "reason": "User requires short sleeves AND shorts above knees in both styles; do not install or publish this batch."
+}

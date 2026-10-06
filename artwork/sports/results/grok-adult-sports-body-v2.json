@@ -1,0 +1,19 @@
+{
+  "key": "grok-adult-sports-body-v2",
+  "id": "grok-adult",
+  "family": "grok",
+  "style": "realistic",
+  "kind": "body",
+  "columns": 4,
+  "rows": 4,
+  "refs": [
+    "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-641cabe1-587a-431c-b933-983d7998e867.png"
+  ],
+  "prompt": "Repair this 16-pose sprite atlas. Preserve exact character identity, SHORT-SLEEVE track uniform, mature adult 3D style, actions and 4x4 ordering. Scale every complete figure uniformly 18% smaller within its own cell. Restore the tiny hair tips clipped at the left edge of the lying-down pose. At least 20 pixels completely transparent margin from canvas edge, and 25 pixels transparent gutter between all neighbours. All figures fully visible, same head/body pixel scale. No new poses, no other costume, no text. Keep transparent alpha.",
+  "dest": "src/DesktopPet.App/Assets/Characters/grok-adult/outfits/sports/body.png",
+  "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-4921d706-96c8-4e94-809a-f1d617a76ad4.png",
+  "tool": "image_gen.imagegen",
+  "selected": false,
+  "status": "superseded-long-pants",
+  "reason": "User requires short sleeves AND shorts above knees in both styles; do not install or publish this batch."
+}

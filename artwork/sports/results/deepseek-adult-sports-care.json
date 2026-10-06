@@ -1,0 +1,22 @@
+{
+  "key": "deepseek-adult-sports-care",
+  "id": "deepseek-adult",
+  "family": "whale",
+  "style": "realistic",
+  "kind": "care",
+  "outfits": [
+    "sports"
+  ],
+  "columns": 4,
+  "rows": 2,
+  "dest": "src/DesktopPet.App/Assets/Characters/deepseek-adult/outfits/sports/care.png",
+  "refs": [
+    "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-eb53f706-fc78-4905-8c82-dc585e656b3d.png"
+  ],
+  "prompt": "Use the FIRST pose of reference as the adult DeepSeek identity and clothing: cobalt-to-cyan long wavy hair, loop ahoge, blue eyes, white fin ears, cyan bow and blue whale tail. Short-sleeve ivory zipfront track top above elbows, long track pants, white sneakers, navy blue panels and track pants, cobalt piping, small whale emblem. Draw EXACTLY 8 FULL-BODY poses, four columns x two rows landscape. Keep entire hair and both shoes in every cell, large transparent gutters, no cropping. Eight ordered poses: 0 holding a small wooden comb down at waist; 1 raise right hand so comb teeth touch hair beside the temple, tilt head gently toward it; 2 draw comb down the SAME lock of hair to shoulder while other hand lightly holds that lock; 3 lower comb back to waist with a relaxed smile. 4 holding a soft ivory face towel at chest; 5 lift towel with fingers and press to LEFT cheek, close that eye; 6 move towel to RIGHT cheek, tilt head gently opposite; 7 lower towel to chest, content expression. Props firmly gripped by fingers in every pose, no floating tool or extra hand. Feet/body stay stable, arms and head actually move. No text, labels, numbers, background or effect sprites. Each figure fully isolated by at least 24 transparent pixels. Keep each pose's anatomical pixel scale identical; ample empty margins on all sides; truly transparent alpha.",
+  "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-3ca3cea8-ddd5-4f6c-8efa-5ca9764eb88a.png",
+  "tool": "image_gen.imagegen",
+  "selected": false,
+  "status": "superseded-long-pants",
+  "reason": "User requires short sleeves AND shorts above knees in both styles; do not install or publish this batch."
+}

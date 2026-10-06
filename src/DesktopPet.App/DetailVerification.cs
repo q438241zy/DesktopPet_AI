@@ -48,15 +48,23 @@ internal static class DetailVerification
         pet.IsHitTestVisible = false; pet.State.Wander = false; pet.State.ReducedMotion = false; pet.State.Size = 240;
         pet.State.CheckIn(DateOnly.FromDateTime(DateTime.Now)); pet.ApplySettings();
         foreach (var character in pet.Catalog.Characters.Where(c => c.Category != "chibi"))
-        foreach (string outfit in new[] { "original", "swim", "wedding" })
+        foreach (string outfit in Catalog.BuiltInOutfits)
         {
             pet.SelectCharacter(character.Id); pet.State.Outfits[character.Id] = outfit; pet.ApplySettings();
             var expected = character.Resolve(outfit, "idle", 0); var texture = pet.Art.Frame(character, expected.Sprite, 0);
             pet.RunInteraction("headpat"); await Task.Delay(90);
-            Require(pet.ActiveMotion is { ActionName: "headpat" } rig && ReferenceEquals(rig.Texture, texture), $"{character.Id}/{outfit}: head pat uses selected portrait mesh");
-            Require(pet.ActiveMotion!.Pose.Bones.Zip(pet.ActiveMotion.Rig.Rest).Any(p => (p.First.B - p.Second.B).Length > .000001), $"{character.Id}/{outfit}: head pat articulates joints");
+            if(character.MotionFor(outfit,"headpat") is { } pat)
+                Require(pet.UsingDrawnAction && pet.ActiveMotion is null && ReferenceEquals(Find<Image>(pet).Single().Source,pet.Art.Frame(character,pat,pet.DrawnFrame)), $"{character.Id}/{outfit}: head pat uses its authored outfit gesture");
+            else
+            {
+                Require(pet.ActiveMotion is { ActionName: "headpat" } rig && ReferenceEquals(rig.Texture, texture), $"{character.Id}/{outfit}: head pat uses selected portrait mesh");
+                Require(pet.ActiveMotion!.Pose.Bones.Zip(pet.ActiveMotion.Rig.Rest).Any(p => (p.First.B - p.Second.B).Length > .000001), $"{character.Id}/{outfit}: head pat articulates joints");
+            }
             pet.RunInteraction("tickle"); await Task.Delay(90);
-            Require(!pet.UsingDrawnAction && pet.ActiveMotion is { ActionName: "tickle" } tickle && ReferenceEquals(tickle.Texture, texture), $"{character.Id}/{outfit}: tickling keeps its own gesture instead of borrowing jump poses");
+            if(character.MotionFor(outfit,"tickle") is { } tickleClip)
+                Require(pet.UsingDrawnAction && pet.ActiveMotion is null && ReferenceEquals(Find<Image>(pet).Single().Source,pet.Art.Frame(character,tickleClip,pet.DrawnFrame)), $"{character.Id}/{outfit}: tickle uses its distinct authored gesture");
+            else
+                Require(!pet.UsingDrawnAction && pet.ActiveMotion is { ActionName: "tickle" } tickle && ReferenceEquals(tickle.Texture, texture), $"{character.Id}/{outfit}: tickling keeps its own gesture instead of borrowing jump poses");
             pet.RunInteraction("snack"); await Task.Delay(80);
             var food = character.MotionFor(outfit, "eat");
             Require(pet.CurrentAction == "eat" && pet.EffectKey == "eat" && pet.UsingDrawnAction && pet.ActiveMotion is null
@@ -105,7 +113,7 @@ internal static class DetailVerification
         var randomToys = new HashSet<string>(); for (int i = 0; i < 20; i++) { pet.RunInteraction("ball"); randomToys.Add(pet.ActiveToy.Id); }
         Require(randomToys.Count == 10, "random play reaches all ten toys within two bag rounds");
         pet.RunInteraction("nudge");
-        Require(pet.CurrentAction == "ball-ready" && !PetActions.Menu("play", true).Any(entry => entry.Key == "nudge"), "legacy nudge shares ball play without a duplicate menu entry");
+        Require(pet.CurrentAction == "ball-ready" && !PetActions.Menu("play").Any(entry => entry.Key == "nudge"), "legacy nudge shares ball play without a duplicate menu entry");
         int treasures = pet.State.Treasures.Count;
         pet.RunInteraction("walk"); await Task.Delay(6600);
         Require(pet.IsExploring, "exploration survives the former six-second visual-effect timeout");

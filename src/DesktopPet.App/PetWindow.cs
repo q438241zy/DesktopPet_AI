@@ -22,6 +22,10 @@ public sealed partial class PetWindow : Window
     private readonly StateStore store;
     private readonly Canvas surface = new();
     private readonly Image sprite = new() { Stretch = Stretch.Uniform, Cursor = Cursors.Hand, Focusable = true };
+    // Animation may hide or replace the rendered image. Keep pointer ownership on
+    // a stable, visible-to-hit-testing layer above every character renderer.
+    private readonly Border petInput = new() { Background = Brushes.Transparent, Cursor = Cursors.Hand, Focusable = true };
+    internal FrameworkElement InputSurface => petInput;
     private readonly InteractionFeedback effects = new() { Width = 560, Height = 680, IsHitTestVisible = false };
     private readonly Canvas menu = new();
     private readonly TextBlock speech = new() { TextWrapping = TextWrapping.Wrap, FontSize = 13, Foreground = new SolidColorBrush(Color.FromRgb(66, 56, 52)) };
@@ -35,7 +39,7 @@ public sealed partial class PetWindow : Window
     internal Collectible? LatestFind => activePrize;
     internal bool IsResting => resting;
     internal bool IsExploring => exploring;
-    internal RigVisual? ActiveMotion => danceVisual;
+    internal RigVisual? ActiveMotion => motionVisual;
     internal string EffectKey => effects.EffectKey;
     internal bool DrawsExtraFood => effects.DrawsFood;
     internal bool DrawsExtraHammer => effects.DrawsHammer;
@@ -65,18 +69,13 @@ public sealed partial class PetWindow : Window
     private readonly ShakeTracker shake = new();
     private bool liftActive;
     private double dizzyStarted, dizzyUntil, observedReversal = double.NegativeInfinity;
-    private RigVisual? danceVisual;
+    private RigVisual? motionVisual;
     private EdgeHide? hideJourney;
     private Rect hideArea;
     private double hideStarted;
     private double? foundStarted;
     private double foundCenter, foundDuration;
-    private PetDance? dance;
-    private int? danceFeedbackBeat;
     internal HidePhase? HideStage => foundStarted is not null ? HidePhase.Return : hideJourney?.At((Now - hideStarted) / 1000).Phase;
-    internal bool IsDancing => dance is not null;
-    internal RigVisual? ActiveDance => dance is null ? null : danceVisual;
-    internal bool CanDance => PortraitRig.SupportsDance(Character.Category, Character.FamilyId) && Character.MotionFor(State.Outfit,"dance")?.DanceRig is not null;
     internal string CurrentAction => action;
     internal bool IsMenuOpen => menu.Children.Count > 0;
     private DesktopHost? desktop;
@@ -114,6 +113,7 @@ public sealed partial class PetWindow : Window
     internal void AdvancePreview(double elapsed) { previewClock = elapsed; Tick(); }
     internal void PreviewMotion(string motion, double elapsed, int duration)
     {
+        if(clubAction is not null)ClearClub();
         previewClock = elapsed; action = motion == "pickup-dizzy" ? "pickup" : motion; actionStarted = 0; actionUntil = duration;
         dizzyStarted = 0; dizzyUntil = motion == "pickup-dizzy" ? duration : 0;
         direction = 1;
@@ -127,8 +127,6 @@ public sealed partial class PetWindow : Window
         if (ball.Visibility == Visibility.Visible) { ball.Item = activeToy; ball.Width = ball.Height = BallSize; ballX=CenterX-State.Size*.45-BallSize/2; ballY=FloorY-BallSize; PlaceBall(); }
         Render();
     }
-    internal void PreviewDance(double elapsed)
-    { previewClock=elapsed; dance ??= new PetDance(); action="dance"; actionStarted=0; actionUntil=PetDance.DurationMs; Render(); }
     internal void PreviewCare(CareRoutine routine, double elapsed)
     {
         var pose = routine.At(elapsed);
@@ -150,16 +148,17 @@ public sealed partial class PetWindow : Window
         surface.RenderTransform = walkOffset;
         sprite.RenderTransform = facing;
         ball.RenderTransform = ballSpin;
-        surface.Children.Add(sprite); surface.Children.Add(effects); surface.Children.Add(menu);
+        surface.Children.Add(sprite); surface.Children.Add(petInput); surface.Children.Add(effects); surface.Children.Add(menu);
         bubble = new Border { Background = CloudTheme.Cream, BorderBrush = CloudTheme.Line, BorderThickness = new Thickness(1), CornerRadius = new CornerRadius(20), Padding = new Thickness(15, 10, 15, 10), Width = 238, Child = speech, IsHitTestVisible = false, Visibility = Visibility.Collapsed };
         surface.Children.Add(bubble); surface.Children.Add(ball);
-        InitializeClub();
+        InitializeClub(); InitializeFive();
         ball.Visibility = Visibility.Collapsed;
         AutomationProperties.SetName(sprite, "桌面宠物：点击轮换摸头、揉脸、挠痒，拖动抱起，松手放置，按住 Shift 松手下落，来回摇晃会头晕，右键聊天与互动");
-        sprite.MouseLeftButtonDown += PetDown; sprite.MouseMove += PetMove; sprite.MouseLeftButtonUp += PetUp;
-        sprite.MouseRightButtonUp += (_, e) => { HandleRightClick(); e.Handled = true; };
-        sprite.LostMouseCapture += (_, _) => { if (pressed) CancelInput(true); };
-        sprite.KeyDown += (_, e) => { if (e.Key is Key.Enter or Key.Space) { if (dance is not null) TapDance(); else Touch(.3); e.Handled = true; } else if (e.Key == Key.F10 && Keyboard.Modifiers.HasFlag(ModifierKeys.Shift)) { ShowMenu("root", true); e.Handled = true; } };
+        AutomationProperties.SetName(petInput, AutomationProperties.GetName(sprite));
+        petInput.MouseLeftButtonDown += PetDown; petInput.MouseMove += PetMove; petInput.MouseLeftButtonUp += PetUp;
+        petInput.MouseRightButtonUp += (_, e) => { HandleRightClick(); e.Handled = true; };
+        petInput.LostMouseCapture += (_, _) => { if (pressed) CancelInput(true); };
+        petInput.KeyDown += (_, e) => { if (e.Key is Key.Enter or Key.Space) { Touch(.3); e.Handled = true; } else if (e.Key == Key.F10 && Keyboard.Modifiers.HasFlag(ModifierKeys.Shift)) { ShowMenu("root", true); e.Handled = true; } };
         KeyDown += (_, e) => { if (e.Key == Key.Escape) { StopInteraction(); e.Handled = true; } };
         ball.MouseLeftButtonDown += (_, e) =>
         {
@@ -175,7 +174,14 @@ public sealed partial class PetWindow : Window
         Loaded += (_, _) => Welcome();
         RenderOptions.SetBitmapScalingMode(sprite, BitmapScalingMode.HighQuality);
         timer = new DispatcherTimer(DispatcherPriority.Render) { Interval = TimeSpan.FromMilliseconds(16) };
-        timer.Tick += (_, _) => Tick(); timer.Start();
+        timer.Tick += (_, _) =>
+        {
+            // A layered desktop window can stop receiving compositor callbacks
+            // temporarily. Keep the action clock alive without double-stepping
+            // normal frames; the shared lastTick accounts for either source.
+            if (!renderingWalk || Now - lastTick >= 50) Tick();
+        };
+        timer.Start();
         Closed += (_, _) => { closing = true; UpdateWalkClock(); timer.Stop(); CancelInput(); CancelChoreography(); chatWindow?.Dispose(); settings?.Close(); desktop?.Dispose(); Save(); };
         day = DateOnly.FromDateTime(DateTime.Now);
         ApplySettings(false);
@@ -299,10 +305,10 @@ public sealed partial class PetWindow : Window
     { action = next; actionStarted = Now; actionUntil = duration > 0 ? Now + duration : 0; onMotionEnd = completed; if (next == "walk") walkPlayback.Reset(); timer.Interval = TimeSpan.FromMilliseconds(16); }
     private void UpdateWalkClock()
     {
-        bool useRendering = !closing && previewClock is null && IsVisible && (roaming || hideJourney is not null || dance is not null || clubAction is not null);
+        bool useRendering = !closing && previewClock is null && IsVisible && (five is not null || roaming || hideJourney is not null || clubAction is not null || authoredVisual is not null && actionUntil>0 && !State.ReducedMotion);
         if (useRendering == renderingWalk) return;
         renderingWalk = useRendering; lastTick = Now; lastPresentation = TimeSpan.MinValue;
-        if (useRendering) { timer.Stop(); CompositionTarget.Rendering += RenderWalk; }
+        if (useRendering) { timer.Start(); CompositionTarget.Rendering += RenderWalk; }
         else
         {
             CompositionTarget.Rendering -= RenderWalk;
@@ -345,6 +351,7 @@ public sealed partial class PetWindow : Window
     }
     internal void Touch(double fraction)
     {
+        if(five is not null)return;
         if (resting) { RestorePet(); return; }
         if (FindHiddenPet()) return;
         string motion = PetActions.Touches[nextTouch].Key;
@@ -370,13 +377,16 @@ public sealed partial class PetWindow : Window
     }
     private Point ScreenPoint(MouseEventArgs e)
     {
-        var p = PointToScreen(e.GetPosition(this));
+        // Read screen coordinates before the moving HWND or the pose changes;
+        // window-relative mouse positions can be stale after a walking frame.
+        var cursor = System.Windows.Forms.Cursor.Position;
+        var p = new Point(cursor.X, cursor.Y);
         return PresentationSource.FromVisual(this)?.CompositionTarget?.TransformFromDevice.Transform(p) ?? p;
     }
     private void PetDown(object sender, MouseButtonEventArgs e)
     {
         if (e.ChangedButton != MouseButton.Left) return;
-        if (BeginPointerGesture(ScreenPoint(e))) sprite.CaptureMouse();
+        if (BeginPointerGesture(ScreenPoint(e))) petInput.CaptureMouse();
         e.Handled = true;
     }
     internal bool BeginPointerGesture(Point screen)
@@ -384,16 +394,16 @@ public sealed partial class PetWindow : Window
         if (resting) { RestorePet(); return false; }
         if (FindHiddenPet()) return false;
         if (dropping) { CancelChoreography(); Render(); Save(); }
-        if (roaming) { roaming = false; SetAction("idle"); Render(); }
+        if (roaming) { roaming = exploring = false; onMotionEnd = null; SetAction("idle"); Render(); }
         lastInteraction = Now;
-        menu.Children.Clear(); sprite.Focus(); pressed = true; dragging = false;
+        menu.Children.Clear(); petInput.Focus(); pressed = true; dragging = false;
         downScreen = screen; downWindow = new Point(Left + walkOffset.X, Top);
         TraceMotion("pointer-down");
         return true;
     }
     private void PetMove(object sender, MouseEventArgs e)
     {
-        if (!pressed) return;
+        if (!pressed || e.LeftButton != MouseButtonState.Pressed) return;
         if (MovePointerGesture(ScreenPoint(e))) e.Handled = true;
     }
     internal bool MovePointerGesture(Point screen)
@@ -424,18 +434,17 @@ public sealed partial class PetWindow : Window
     private void PetUp(object sender, MouseButtonEventArgs e)
     {
         if (!pressed) return;
-        if (EndPointerGesture(Keyboard.Modifiers.HasFlag(ModifierKeys.Shift), e.GetPosition(sprite).Y / sprite.Height)) e.Handled = true;
+        if (EndPointerGesture(Keyboard.Modifiers.HasFlag(ModifierKeys.Shift), e.GetPosition(petInput).Y / petInput.Height)) e.Handled = true;
     }
     internal bool EndPointerGesture(bool dropOnRelease, double touchFraction = .3)
     {
         if (!pressed) return false;
         bool wasDrag = dragging;
-        pressed = dragging = false; sprite.ReleaseMouseCapture();
+        pressed = dragging = false; petInput.ReleaseMouseCapture();
         if (wasDrag)
         {
             ReleaseLift(dropOnRelease);
         }
-        else if (dance is not null) TapDance();
         else Touch(touchFraction);
         return true;
     }
@@ -489,7 +498,7 @@ public sealed partial class PetWindow : Window
         bool hadDrag = dragging || liftActive;
         ResetShake();
         pressed = dragging = holdingBall = false;
-        if (sprite.IsMouseCaptured) sprite.ReleaseMouseCapture();
+        if (petInput.IsMouseCaptured) petInput.ReleaseMouseCapture();
         if (ball.IsMouseCaptured) ball.ReleaseMouseCapture();
         if (hadDrag)
         {
@@ -507,7 +516,8 @@ public sealed partial class PetWindow : Window
 
     private void CancelChoreography()
     {
-        ClearClub();
+        ClearFive(); ClearClub(); ClearAuthoredVisual();
+        HandTarget = null; handSpan = 0;
         foundStarted=null;
         dropping = false; afterDrop = null;
         if (hideJourney is not null)
@@ -517,8 +527,7 @@ public sealed partial class PetWindow : Window
             Top = hideArea.Bottom - FloorY;
             hideJourney = null; surface.Clip = null;
         }
-        dance = null; danceFeedbackBeat = null;
-        if (danceVisual is not null) { surface.Children.Remove(danceVisual); danceVisual = null; }
+        if (motionVisual is not null) { surface.Children.Remove(motionVisual); motionVisual = null; }
         sprite.Opacity = State.Opacity; sprite.RenderTransform = facing;
     }
 
@@ -527,7 +536,7 @@ public sealed partial class PetWindow : Window
         // Opening/navigating the menu is presentation only. Keep action clocks,
         // movement, chat, toys and edge-hide choreography running unchanged.
         menu.Children.Clear();
-        var entries = PetActions.Menu(group, CanDance);
+        var entries = PetActions.Menu(group);
         var area = WorkArea;
         var positions = RadialMenu.Place(entries.Length, new MenuPoint(CenterX, PetTop + State.Size * .5), State.Size,
             new MenuBounds(Math.Max(0, area.Left - Left), Math.Max(0, area.Top - Top), Math.Min(Width, area.Right - Left), Math.Min(Height, area.Bottom - Top)));
@@ -543,7 +552,7 @@ public sealed partial class PetWindow : Window
             button.Click += (_, _) =>
             {
                 if (entry.Key.StartsWith("group:")) ShowMenu(entry.Key[6..], keyboard || (button.IsKeyboardFocused && !button.IsMouseOver));
-                else if (entry.Key == "close") { menu.Children.Clear(); sprite.Focus(); }
+                else if (entry.Key == "close") { menu.Children.Clear(); petInput.Focus(); }
                 else if (entry.Key == "settings") { menu.Children.Clear(); OpenSettings(); }
                 else RunInteraction(entry.Key);
             };
@@ -572,6 +581,7 @@ public sealed partial class PetWindow : Window
         CancelInput(); ClearTransient();
         switch (key)
         {
+            case "highfive":case "rps":case "gift":case "read":case "photo":StartFive(key);break;
             case "checkin": CheckIn(); break;
             case "snack": Snack(); break;
             case "headpat": case "poke": case "tickle": RunTouch(key); break;
@@ -595,7 +605,6 @@ public sealed partial class PetWindow : Window
             case "peek": Peek(); break;
             case "peek-left": Peek(-1); break;
             case "peek-right": Peek(1); break;
-            case "dance": StartDance(); break;
             case "nudge": TakeBall(); break;
             case "letter": Celebrate($"相伴 {State.CheckIns.Count} 天"); break;
             default: Play(key, duration: PortraitMotion.Duration(key)); break;
@@ -639,18 +648,6 @@ public sealed partial class PetWindow : Window
         hideJourney = new EdgeHide(Left + walkOffset.X + CenterX, hideArea.Left, hideArea.Right, State.Size, DesktopWalk.Speed(State.Size, clip) * 1.7, side);
         hideStarted = Now; direction = hideJourney.Side; SetAction("walk"); lastInteraction = Now;
         Say("我要去边边藏好，等你来找。", 2200); Render();
-    }
-    private void StartDance()
-    {
-        ClearTransient(); SetAction("idle");
-        if (!CanDance || State.ReducedMotion) { Render(); return; }
-        dance = new PetDance(); lastInteraction = Now;
-        SetAction("dance", PetDance.DurationMs, CancelChoreography);
-        if (IsHitTestVisible) Activate(); sprite.Focus(); Render();
-    }
-    internal void TapDance()
-    {
-        if (dance is not null && dance.Tap(Now - actionStarted)) danceFeedbackBeat = PetDance.BeatAt(Now - actionStarted);
     }
     private void Rest()
     {
@@ -725,6 +722,7 @@ public sealed partial class PetWindow : Window
         if (day != today) { day = today; State.LastSeen = day.ToString("yyyy-MM-dd"); Save(); }
         UpdateCare(now);
         TickClub(walkDt);
+        TickFive(walkDt*1000);
         LayoutMenu();
         if (actionUntil > 0 && now >= actionUntil)
         {
@@ -794,7 +792,7 @@ public sealed partial class PetWindow : Window
         }
         Render();
         if (App.MotionLog is not null && now - lastMotionTrace >= 1000) { lastMotionTrace = now; TraceMotion("tick"); }
-        bool moving = dragging || liftActive || dropping || holdingBall || flyingBall || roaming || hideJourney is not null || prop is not null || actionUntil > 0 || danceVisual is not null || action == "thinking";
+        bool moving = five is not null || dragging || liftActive || dropping || holdingBall || flyingBall || roaming || hideJourney is not null || prop is not null || actionUntil > 0 || motionVisual is not null || action == "thinking";
         timer.Interval = TimeSpan.FromMilliseconds(action == "sleep" ? 80 : moving ? 16 : 200);
     }
     private void TraceMotion(string eventName)
@@ -804,7 +802,7 @@ public sealed partial class PetWindow : Window
         {
             Directory.CreateDirectory(Path.GetDirectoryName(path)!);
             string line = JsonSerializer.Serialize(new { eventName, time = DateTimeOffset.Now, ms = Now, App.DataRoot,
-                IsLoaded, IsVisible, action, State.Wander, State.ReducedMotion, State.LastSeen,
+                IsLoaded, IsVisible, action, direction, facing = facing.ScaleX, State.Character, State.Outfit, State.Wander, State.ReducedMotion, State.LastSeen,
                 left = double.IsFinite(Left) ? (double?)Left : null, top = double.IsFinite(Top) ? (double?)Top : null,
                 floor = WorkArea.Bottom - FloorY, pressed, dragging, liftActive, dropping, resting, roaming,
                 conversationActive, menuCount = menu.Children.Count, renderingWalk, timerRunning = timer.IsEnabled, DrawnFrame }) + Environment.NewLine;
@@ -815,21 +813,17 @@ public sealed partial class PetWindow : Window
     }
     private void Render()
     {
-        if (RenderClubPose()) return;
+        if(RenderFivePose()) { UpdatePetInput();return; }
+        if (RenderClubPose()) { UpdatePetInput();return; }
         double elapsed = roaming ? walkPlayback.Milliseconds : (Now - actionStarted) * (hideJourney is not null && foundStarted is null && action == "walk" ? 1.7 : 1);
-        string renderAction=clubAction is "comb" or "wipe" ? "idle" : clubAction=="butterfly" ? Math.Abs(butterflyTarget-(Left+walkOffset.X+CenterX))>2 && !State.ReducedMotion ? "walk" : "ball-ready" : dance is null ? action : "dance";
+        string renderAction=clubAction=="butterfly" ? Math.Abs(butterflyTarget-(Left+walkOffset.X+CenterX))>2 && !State.ReducedMotion ? "walk" : "ball-ready" : action;
         if (clubAction=="butterfly" && renderAction=="walk") elapsed=walkPlayback.Milliseconds;
         var art = Character.Resolve(State.Outfit, renderAction, elapsed, State.ReducedMotion);
         var frame = Art.Frame(Character, art.Sprite, art.Frame);
         sprite.Source = frame;
-        UsingDrawnAction = dance is null && renderAction != "walk" && Character.MotionFor(State.Outfit, renderAction) is not null;
+        UsingDrawnAction = renderAction != "walk" && Character.MotionFor(State.Outfit, renderAction) is not null;
         DrawnFrame = art.Frame; bakedProps = art.Sprite.BakedProps;
         double size = State.Size;
-        if(dance is not null && art.Sprite.ReferenceHeightPixels == 0)
-        {
-            var idle=Character.Resolve(State.Outfit,"idle",0);
-            size*=Art.VisibleHeight(Art.Frame(Character,idle.Sprite,idle.Frame))/Art.VisibleHeight(frame);
-        }
         if (art.Sprite.ReferenceHeightPixels > 0 || renderAction == "walk" || UsingDrawnAction && (Character.Category != "chibi" || art.Sprite.HeightRatios is not null))
         {
             // Authored reference pixels keep one anatomical scale for an entire
@@ -866,41 +860,27 @@ public sealed partial class PetWindow : Window
             handSpan = visibleHeight * contact.Span;
         }
         bool animate = !UsingDrawnAction && !State.ReducedMotion && PortraitRig.Supports(Character.Category, Character.FamilyId)
-            && (dance is not null || PortraitMotion.Supports(action));
+            && PortraitMotion.Supports(action);
         if (animate)
         {
-            if (danceVisual is null || !ReferenceEquals(danceVisual.Texture, frame))
+            if (motionVisual is null || !ReferenceEquals(motionVisual.Texture, frame))
             {
-                if (danceVisual is not null) surface.Children.Remove(danceVisual);
-                danceVisual = new RigVisual(frame, Character.FamilyId, State.Outfit, Character.Category, dance is not null?art.Sprite.DanceRig:null);
-                surface.Children.Insert(surface.Children.IndexOf(sprite) + 1, danceVisual);
+                if (motionVisual is not null) surface.Children.Remove(motionVisual);
+                motionVisual = new RigVisual(frame, Character.FamilyId, State.Outfit, Character.Category);
+                surface.Children.Insert(surface.Children.IndexOf(sprite) + 1, motionVisual);
             }
             sprite.Opacity = 0;
-            danceVisual.Width = danceVisual.Height = size; danceVisual.Opacity = State.Opacity;
-            Canvas.SetLeft(danceVisual, CenterX - size*(dance is not null?Art.HorizontalAnchor(frame):.5)); Canvas.SetTop(danceVisual, PetTop);
-            danceVisual.UpdateMotion(action, Now - actionStarted, actionUntil > 0 ? actionUntil - actionStarted : 0);
-            if(dance is not null)
-            {
-                double phase=Now-actionStarted;
-                double fade=Math.Clamp(Math.Min(phase,PetDance.DurationMs-phase)/220,0,1);
-                fade=fade*fade*(3-2*fade);
-                danceVisual.Opacity=State.Opacity*fade;
-                if(fade<1)
-                {
-                    var idle=Character.Resolve(State.Outfit,"idle",0);
-                    var restFrame=Art.Frame(Character,idle.Sprite,idle.Frame);
-                    sprite.Source=restFrame;sprite.Width=sprite.Height=State.Size;
-                    Canvas.SetLeft(sprite,CenterX-State.Size/2);
-                    Canvas.SetTop(sprite,FloorY-State.Size*Art.GroundLine(restFrame));
-                    sprite.Opacity=State.Opacity*(1-fade);
-                }
-            }
+            motionVisual.Width = motionVisual.Height = size; motionVisual.Opacity = State.Opacity;
+            Canvas.SetLeft(motionVisual, CenterX - size*.5); Canvas.SetTop(motionVisual, PetTop);
+            motionVisual.UpdateMotion(action, Now - actionStarted, actionUntil > 0 ? actionUntil - actionStarted : 0);
         }
         else
         {
-            if (danceVisual is not null) { surface.Children.Remove(danceVisual); danceVisual = null; }
+            if (motionVisual is not null) { surface.Children.Remove(motionVisual); motionVisual = null; }
             sprite.Opacity = State.Opacity;
         }
+        RenderAuthoredMotion(art.Sprite,renderAction,elapsed);
+        UpdatePetInput();
         if (caughtBall && HandTarget is { } hands)
         {
             double heldSize = Math.Clamp(handSpan * activeToy.Diameter / 34, 12, BallSize);
@@ -912,6 +892,14 @@ public sealed partial class PetWindow : Window
             if (renderAction=="walk") facing.ScaleX=DesktopWalk.ScaleX(direction,art.Sprite.Facing);
             RenderClubFeedback(club,Now-clubStarted,State.Size*Art.VisibleHeight(Art.Frame(Character,Character.Resolve(State.Outfit,"idle",0).Sprite,0)));
         }
+    }
+    private void UpdatePetInput()
+    {
+        petInput.Width=sprite.Width;petInput.Height=sprite.Height;
+        petInput.Visibility=sprite.Visibility;
+        petInput.RenderTransformOrigin=sprite.RenderTransformOrigin;
+        petInput.RenderTransform=sprite.RenderTransform;
+        Canvas.SetLeft(petInput,Canvas.GetLeft(sprite));Canvas.SetTop(petInput,Canvas.GetTop(sprite));
     }
     private void DrawEffects(double now)
     {
@@ -931,7 +919,7 @@ public sealed partial class PetWindow : Window
             double h = sprite.Height * Art.VisibleHeight(chibi), top = FloorY - h - AirborneOffset;
             head = new(CenterX, top + h * .25); mouth = new(CenterX, top + h * .5); body = new(CenterX, top + h * .77);
         }
-        if (danceVisual is { } visual)
+        if (motionVisual is { } visual)
         {
             Point Map(RigPoint p) => new(Canvas.GetLeft(visual)+(.5+p.X)*visual.Width,Canvas.GetTop(visual)+(.5+p.Y)*visual.Height);
             head = Map(visual.Rig.Anchor(visual.Pose, 1, visual.Rig.Rest[1].B + new RigPoint(0, -.07)));
@@ -939,6 +927,9 @@ public sealed partial class PetWindow : Window
             hand = Map(visual.Pose.Bones[3].B + (visual.Pose.Bones[3].B - visual.Pose.Bones[3].A) * .35);
             body = Map(visual.Pose.Bones[0].A + new RigPoint(0, -.07));
         }
+        head=AuthoredEffectAnchor("head")??head;
+        mouth=AuthoredEffectAnchor("mouth")??mouth;
+        body=AuthoredEffectAnchor("body")??body;
         effects.Opacity = State.Opacity;
         if (action == "bonk" && !bakedProps && effects.Hammer is null)
             effects.Hammer = Art.Frame(Catalog.Find("whale"), new Sprite("motions/bonk.webp", 1, 1, Cells: [new SpriteCell(65, 26, 107, 113)]), 0);
@@ -947,7 +938,7 @@ public sealed partial class PetWindow : Window
             new Point(Math.Min(Width, area.Right - Left), Math.Min(Height, area.Bottom - Top)));
         effects.Update(new FeedbackFrame(action, now - actionStarted, actionUntil > 0 ? actionUntil - actionStarted : 0, State.Size,
             head, mouth, HandTarget ?? hand, body, new Point(CenterX, FloorY), bounds, State.ReducedMotion, prop, now - propStart, activeFood, activePrize, bakedProps,
-            dance is not null ? PetDance.BeatAt(now - actionStarted) : null, danceFeedbackBeat == PetDance.BeatAt(now - actionStarted), AirborneOffset, liftedFromTaskbar, UsingDrawnAction,
+            AirborneOffset, liftedFromTaskbar, UsingDrawnAction,
             now < dizzyUntil ? now - dizzyStarted : -1, Math.Max(0, dizzyUntil - now)));
         if (prop == "letter") bubble.Visibility = Visibility.Collapsed;
     }

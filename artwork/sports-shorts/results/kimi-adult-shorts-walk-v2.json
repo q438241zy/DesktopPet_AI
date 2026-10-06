@@ -1,0 +1,57 @@
+{
+  "key": "kimi-adult-shorts-walk-v2",
+  "id": "kimi-adult",
+  "family": "kimi",
+  "style": "realistic",
+  "kind": "walk",
+  "columns": 4,
+  "rows": 2,
+  "refs": [
+    "C:\\Users\\99000256\\.codex\\generated_images\\01a0fd54-807b-7df2-88b5-c9f04a7bcefe\\exec-a1a6d244-f390-4869-85f6-fdda852ece01.png",
+    "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/kimi-adult/outfits/sports/portrait.png"
+  ],
+  "prompt": "Use case: identity-preserve sprite action retarget. FIRST image provides the EXACT EIGHT full-body walking poses and 4-COLUMN x 2-ROW layout; SECOND image provides the adult character identity, face, hair, accessories, SHORT-SLEEVE zip top + MID-THIGH SHORTS colors and ankle socks/trainers. Redraw all eight template poses using ONLY SECOND character. Keep the exact leg phases in first image, including bent-knee passing poses in columns 2 and 3 of BOTH rows. DO NOT replace the passing poses by wide straight-leg stances. First row near leg forward → bent far leg passing → far knee moving forward. Second row opposite leg and arm forward → opposite passing, completes gait cycle. Noses ALL face screen right, hair/tails trail left. Preserve mature realistic 3D render of second. All sleeves at upper arm, shorts above knees and bare legs. No long trousers or dresses. Same pixel body scale in all cells, complete silhouettes with clear 20-pixel gutters and margins. No text, background, auras or floor. Real transparent alpha.",
+  "dest": "src/DesktopPet.App/Assets/Characters/kimi-adult/outfits/sports/walk.png",
+  "source": "D:\\VibeCoding\\Character\\src\\DesktopPet.App\\Assets\\Characters\\kimi-adult\\outfits\\sports\\walk.png",
+  "clips": {
+    "walk": [
+      [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      [
+        145,
+        145,
+        145,
+        145,
+        145,
+        145,
+        145,
+        145
+      ],
+      true
+    ]
+  },
+  "selected": true,
+  "tool": "builtin imagegen",
+  "originalSource": "C:\\Users\\99000256\\.codex\\generated_images\\01a0fd54-807b-7df2-88b5-c9f04a7bcefe\\exec-94dd5923-5e39-43e6-940f-44042bea0712.png",
+  "review": "Full-body poses visually checked: short sleeves above elbows, shorts above knees, bare lower legs, preserved identity; actual ordered action poses reviewed.",
+  "walkStride": 1.01235,
+  "facing": "right",
+  "measurement": {
+    "heelPixels": [
+      94,
+      340
+    ],
+    "standingHeightPixels": 486,
+    "cycleMs": 1160,
+    "formula": "2 * (frontHeelX - rearHeelX) / visible standing height",
+    "basis": "manual contact-heel visual estimate at native atlas resolution"
+  }
+}

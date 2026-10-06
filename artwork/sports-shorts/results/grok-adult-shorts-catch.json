@@ -1,0 +1,199 @@
+{
+  "key": "grok-adult-shorts-catch",
+  "id": "grok-adult",
+  "family": "grok",
+  "style": "realistic",
+  "kind": "catch",
+  "columns": 4,
+  "rows": 3,
+  "refs": [
+    "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/grok-adult/outfits/sports/portrait.png"
+  ],
+  "prompt": "Create game animation sprite atlas of the SAME clearly adult 23+ realistic 3D woman as the FIRST NEUTRAL figure in reference. Preserve face, hair, ornaments, palette and SHORT-SLEEVE zip sports top + loose MID-THIGH SHORTS + ankle socks + white trainers in EVERY pose. Bare forearms and legs. No long sleeves, trousers, leggings, dresses or tall socks. Full bodies all completely visible with 18% empty margins inside every cell; same head and body scale, no overlapping figures. True transparent alpha, no backdrop, no text, no ground shadows or auras. Exactly TWELVE figures, FOUR COLUMNS THREE ROWS, wide enough gutters. Each row is ONE four-pose action from left to right. ROW1 snack: biscuit held at chest; biscuit halfway toward mouth; biscuit touches lips taking bite; bitten biscuit lowered while chewing. ROW2 meal: LEFT hand keeps same small rice bowl at waist in all four; RIGHT hand spoon in bowl; right spoon lifted halfway with rice; spoon touches LIPS taking bite; spoon lowered to bowl after swallowing. Elbows lower than hands, proper spoon at mouth, no floating food or duplicate utensils. ROW3 catch: two EMPTY palms held cupped upward close together at upper belly ready to receive ball; palms forward slightly apart; palms cup together receiving; both EMPTY cupped palms steady at stomach holding imaginary ball. No ball painted; game code will place ball at palms. Hands never hidden behind elbows, clearly visible ten fingers. Feet planted same spot throughout.",
+  "dest": "src/DesktopPet.App/Assets/Characters/grok-adult/outfits/sports/catch.png",
+  "source": "D:\\VibeCoding\\Character\\src\\DesktopPet.App\\Assets\\Characters\\grok-adult\\outfits\\sports\\catch.png",
+  "selected": true,
+  "tool": "builtin imagegen",
+  "originalSource": "C:\\Users\\99000256\\.codex\\generated_images\\01a0fd54-807b-7df2-88b5-c9f04a7bcefe\\exec-e98ba077-cc5e-4b30-967b-619c84a2802d.png",
+  "review": "Full-body poses visually checked: short sleeves above elbows, shorts above knees, bare lower legs, preserved identity; actual ordered action poses reviewed.",
+  "hands": {
+    "ball-ready": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      {
+        "height": 0.3950617283950617,
+        "offset": 0.003000980624260536,
+        "span": 0.0823045267489712
+      },
+      {
+        "height": 0.4012345679012346,
+        "offset": 0.01167204314115463,
+        "span": 0.24691358024691357
+      },
+      {
+        "height": 0.37938144329896906,
+        "offset": 0.004946444933075655,
+        "span": 0.08247422680412371
+      },
+      {
+        "height": 0.4188911704312115,
+        "offset": 0.0014994642257771175,
+        "span": 0.08213552361396304
+      }
+    ],
+    "anticipate": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      {
+        "height": 0.3950617283950617,
+        "offset": 0.003000980624260536,
+        "span": 0.0823045267489712
+      },
+      {
+        "height": 0.4012345679012346,
+        "offset": 0.01167204314115463,
+        "span": 0.24691358024691357
+      },
+      {
+        "height": 0.37938144329896906,
+        "offset": 0.004946444933075655,
+        "span": 0.08247422680412371
+      },
+      {
+        "height": 0.4188911704312115,
+        "offset": 0.0014994642257771175,
+        "span": 0.08213552361396304
+      }
+    ],
+    "ball-hold": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      {
+        "height": 0.3950617283950617,
+        "offset": 0.003000980624260536,
+        "span": 0.0823045267489712
+      },
+      {
+        "height": 0.4012345679012346,
+        "offset": 0.01167204314115463,
+        "span": 0.24691358024691357
+      },
+      {
+        "height": 0.37938144329896906,
+        "offset": 0.004946444933075655,
+        "span": 0.08247422680412371
+      },
+      {
+        "height": 0.4188911704312115,
+        "offset": 0.0014994642257771175,
+        "span": 0.08213552361396304
+      }
+    ]
+  },
+  "measurement": {
+    "palms": [
+      [
+        170,
+        1196,
+        40
+      ],
+      [
+        410,
+        1199,
+        120
+      ],
+      [
+        636,
+        1190,
+        40
+      ],
+      [
+        871,
+        1208,
+        40
+      ]
+    ],
+    "basis": "source pixels: centre x/y, outer palm span; normalized to per-figure visible height and measured top-quarter head anchor"
+  },
+  "clips": {
+    "eat": [
+      [
+        0,
+        1,
+        2,
+        3,
+        0
+      ],
+      [
+        400,
+        600,
+        700,
+        900,
+        400
+      ],
+      false
+    ],
+    "meal": [
+      [
+        4,
+        5,
+        6,
+        7,
+        4
+      ],
+      [
+        600,
+        850,
+        1100,
+        1150,
+        500
+      ],
+      false
+    ],
+    "ball-ready": [
+      [
+        8
+      ],
+      [
+        5000
+      ],
+      false
+    ],
+    "anticipate": [
+      [
+        8
+      ],
+      [
+        5000
+      ],
+      false
+    ],
+    "ball-hold": [
+      [
+        11
+      ],
+      [
+        5000
+      ],
+      false
+    ]
+  }
+}

@@ -87,7 +87,7 @@ internal static class MembershipVerification
             Click("陪伴日常"); var daily = Find<Button>(window).Single(b => AutomationProperties.GetName(b) == "聊天");
             Require(Find<MemberLock>(daily).Any() == !allowed, tier + ": daily chat has the same lock and access rule");
             foreach (string id in new[] { "whale", "deepseek-adult" })
-            foreach (string outfit in new[] { "original", "swim", "wedding" })
+            foreach (string outfit in Catalog.BuiltInOutfits)
             {
                 pet.SelectCharacter(id); pet.State.Outfits[id] = outfit; pet.ApplySettings();
                 Click("陪伴日常");

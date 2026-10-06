@@ -81,7 +81,7 @@ OUT.parent.mkdir(parents=True,exist_ok=True)
 OUT.write_text('globalThis.CLUB_POSES='+json.dumps(payload,separators=(',',':'))+';\n',encoding='utf-8')
 concepts=[]
 for style in ['chibi','realistic']:
-    source=ART/f'school-{style}.png'
+    source=ART/f'school-shorts-{style}.png'
     concepts.append({'style':style,'file':source.name,'dimensions':list(Image.open(source).size),'sha256':hashlib.sha256(source.read_bytes()).hexdigest()})
 (ART/'pose-manifest.json').write_text(json.dumps({'sources':report,'concepts':concepts,'poses':poses},indent=2)+'\n',encoding='utf-8')
 print('Wrote',OUT,'bytes',OUT.stat().st_size)

@@ -1,0 +1,22 @@
+{
+  "key": "gemini-adult-original-care-v7",
+  "id": "gemini-adult",
+  "family": "gemini",
+  "style": "realistic",
+  "kind": "care",
+  "outfits": [
+    "original"
+  ],
+  "columns": 2,
+  "rows": 4,
+  "dest": "src/DesktopPet.App/Assets/Characters/gemini-adult/motions/cloud-care-original.png",
+  "refs": [
+    "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/gemini-adult/portrait.png"
+  ],
+  "prompt": "Create a PORTRAIT transparent game sprite atlas of exactly EIGHT full-body copies of the adult woman from the reference. TWO COLUMNS x FOUR ROWS. Each row has TWO standing adults, equal small size with wide empty space. Preserve exact original dress, purple tights and BOTH purple boots with white cuff in every frame. Preserve original realistic adult 7-head anatomy, slender long legs and small head. Full figure should occupy only 70% height of each cell; there MUST be at least 50px empty transparent gap between feet and next row hair and at bottom of the sheet. Do not crop feet. No backdrop/glow/shadow. Use only two hands per character, moving her existing arms. Reading left-to-right top-to-bottom: 0 hold small comb at waist; 1 raise comb teeth touching temple hair; 2 draw comb down side lock at shoulder with left hand holding lock; 3 lower comb. 4 hold folded white towel at chest; 5 towel held to right cheek; 6 towel at left cheek; 7 lower towel. Consistent legs, torso, head size, hairclip side and standing baseline between all poses. Actual hand contact, original sleeves unchanged. Transparent background; exactly eight isolated adults.",
+  "source": "D:\\VibeCoding\\Character\\artwork\\care-contact\\gemini-adult-original-care-v7.png",
+  "selected": true,
+  "originalSource": "C:\\Users\\99000256\\.codex\\generated_images\\01a0fd46-6e3f-7261-9d81-b01e63f96f10\\exec-c229725e-f684-454d-aeea-846edd26d6d2.png",
+  "alphaThreshold": 120,
+  "review": "Selected after visual review: preserves standing adult proportions, exact outfit and shoes, eight actual comb/towel poses with two hands; alpha isolation checked. Native comparison required after install."
+}

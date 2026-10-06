@@ -1,0 +1,117 @@
+{
+  "key": "kimi-shorts-contact-v2",
+  "id": "kimi",
+  "family": "kimi",
+  "style": "chibi",
+  "kind": "contact",
+  "columns": 4,
+  "rows": 6,
+  "refs": [
+    "C:\\Users\\99000256\\.codex\\generated_images\\01a0fd46-2194-7b12-8882-479fedfd5c1e\\exec-22ee1e6f-4c8b-4da2-9ef0-82886494ad8b.png",
+    "C:\\Users\\99000256\\.codex\\generated_images\\01a0fd46-2194-7b12-8882-479fedfd5c1e\\exec-2a6588fc-944b-4a1a-935b-999ce5320cbb.png"
+  ],
+  "dest": "src/DesktopPet.App/Assets/Characters/kimi/outfits/sports/contact.png",
+  "prompt": "Use case: identity-preserve. Produce exactly TWENTY FOUR separate full-body sprites in FOUR columns and SIX rows, NOT five rows. Image1 is the exact 24-pose target layout, Image2 Kimi is identity/costume reference. Replace blue whale girl in every Image1 cell with Kimi silver-lavender wavy hair, moon/music-note navy ribbon, violet eyes, no tail/animal ears; ivory/navy short-sleeve zip top and navy SHORTS above knees, bare knees/calves, ankle socks and white sneakers. Preserve all pose positions and connected props from Image1 exactly. Same tiny chibi body and large head as Image2. 4x6 grid, row-major explicit: row1 four biscuit poses (waist, raise, lips, bite); row2 first two bitten-biscuit at waist then two rice bowl/spoon poses; row3 four rice bowl/spoon poses; row4 four seated block-building poses, last holds blue cube in raised hand above red/green stack; row5 first one seated full 3-cube stack with hands touching top, remaining3 standing combing-hair poses; row6 four face-cloth poses: hold low, cheek1, cheek2, lower. Exactly SIX rows and24 figures. No gaps replacing cells, no combining poses. Seated knees and calves bare from short sports shorts. Every prop actually held by fingers; 2hands2arms; maintain generous empty gutters and outer margins, make each figure smaller if necessary. No labels/text/effects, transparent alpha.",
+  "source": "D:\\VibeCoding\\Character\\src\\DesktopPet.App\\Assets\\Characters\\kimi\\outfits\\sports\\contact.png",
+  "selected": true,
+  "tool": "built-in image_gen",
+  "status": "visually-reviewed-short-sleeves-and-shorts",
+  "clips": {
+    "eat": [
+      [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      [
+        300,
+        450,
+        450,
+        650,
+        650,
+        500
+      ],
+      false
+    ],
+    "meal": [
+      [
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      [
+        400,
+        600,
+        650,
+        800,
+        950,
+        800
+      ],
+      false
+    ],
+    "build": [
+      [
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      [
+        450,
+        700,
+        850,
+        1000,
+        1400
+      ],
+      false
+    ],
+    "comb": [
+      [
+        17,
+        18,
+        19,
+        18,
+        19,
+        17
+      ],
+      [
+        450,
+        750,
+        900,
+        750,
+        1100,
+        850
+      ],
+      false
+    ],
+    "wipe": [
+      [
+        20,
+        21,
+        22,
+        21,
+        22,
+        23
+      ],
+      [
+        400,
+        600,
+        850,
+        600,
+        1050,
+        700
+      ],
+      false
+    ]
+  },
+  "referenceHeightPixels": 222.129,
+  "originalSource": "C:\\Users\\99000256\\.codex\\generated_images\\01a0fd46-2194-7b12-8882-479fedfd5c1e\\exec-8b4426af-34f4-4059-98ae-65545e936fcc.png",
+  "visualReview": "Every pose checked for short upper-arm sleeves, above-knee shorts, bare knees/calves, complete figure, correct tools/contact. Original PNG copied without bitmap edits; crop/flow metadata only. Cross-kind scale uses same face-width ruler; no per-frame silhouette resizing."
+}

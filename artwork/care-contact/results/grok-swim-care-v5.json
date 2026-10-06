@@ -1,0 +1,34 @@
+{
+  "key": "grok-swim-care-v5",
+  "id": "grok",
+  "family": "grok",
+  "style": "chibi",
+  "kind": "care",
+  "outfits": [
+    "swim"
+  ],
+  "columns": 2,
+  "rows": 4,
+  "dest": "src/DesktopPet.App/Assets/Characters/grok/motions/cloud-care-swim.png",
+  "refs": [
+    "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/grok/outfits/swim.webp"
+  ],
+  "prompt": "Create a PORTRAIT 1024x1536 transparent animation sheet with exactly TWO columns and FOUR rows, eight SMALL isolated seated cartoon mascots total. Each mascot must be at most250px tall and250px wide inside a512x384 slot; preserve at least60px clear space around every silhouette and at least80px at left/right outer edges. Do not fill the slots; the large empty space is mandatory. Use the one cute seated mascot in the reference, in its exact same modest black one-piece outfit, same blonde pigtails, black bows, hair ornament and blue eyes. Same proportions and fixed seated feet. Reading order, one pose in each cell: row1left hold wooden comb in lap; row1right comb teeth physically touch side hair with bent elbow; row2left draw comb down the same hair lock; row2right lower comb to lap. Row3left hold small white face cloth in lap; row3right press cloth to one cheek; row4left press cloth to other cheek; row4right lower cloth in lap. Only these eight figures, full hair to feet visible in each cell, actual contact with hair/face, cheerful gentle personal care, transparent clean background no glow no grid no text.",
+  "source": "D:\\VibeCoding\\Character\\artwork\\care-contact\\grok-swim-care-v5.png",
+  "selected": true,
+  "review": "Reviewed eight complete isolated figures, clothing and right-side ornament fixed; real hand/comb hair contact and towel cheek contact.",
+  "originalSource": "C:\\Users\\99000256\\.codex\\generated_images\\01a0fd46-6e3f-7261-9d81-b01e63f96f10\\exec-3dc67ddd-af54-4832-8252-bb56d8a94061.png",
+  "alphaReview": {
+    "threshold": 80,
+    "heights": [
+      349,
+      347,
+      350,
+      349,
+      354,
+      352,
+      356,
+      352
+    ]
+  }
+}

@@ -11,11 +11,14 @@ Get-Content -LiteralPath "$verifyRoot/asset-check.txt"
 if ($process.ExitCode -ne 0) { throw 'Asset validation failed' }
 $uiRoot = Join-Path $projectRoot ('artifacts/ui-smoke-' + [Guid]::NewGuid().ToString('N'))
 $uiRoot | Set-Content -LiteralPath (Join-Path $projectRoot 'artifacts/current-ui-check.txt')
-$process = Start-Process -FilePath $exe -ArgumentList @('--verify-ui','--verify-scale','--verify-club','--data-dir',('"' + $uiRoot + '"')) -PassThru -Wait -WindowStyle Hidden
+# Live presentation checks need a visible window; Windows throttles hidden WPF rendering.
+$process = Start-Process -FilePath $exe -ArgumentList @('--ui-test','--verify-ui','--verify-scale','--verify-club','--verify-sports','--verify-floor-contact','--data-dir',('"' + $uiRoot + '"')) -PassThru -Wait
 if ($process.ExitCode -ne 0) { Get-Content -LiteralPath "$uiRoot/ui-check.txt"; throw 'WPF integration checks failed' }
 Get-Content -LiteralPath "$uiRoot/ui-check.txt" -Tail 1
 Get-Content -LiteralPath "$uiRoot/scale-check.txt" -Tail 1
 Get-Content -LiteralPath "$uiRoot/club-check.txt" -Tail 1
+Get-Content -LiteralPath "$uiRoot/sports-check.txt" -Tail 1
+Get-Content -LiteralPath "$uiRoot/taskbar-contact-check.txt" -Tail 1
 Get-Content -LiteralPath "$uiRoot/interaction-check.txt" -Tail 1
 Get-Content -LiteralPath "$uiRoot/care-check.txt" -Tail 1
 Get-Content -LiteralPath "$uiRoot/membership-check.txt" -Tail 1
@@ -27,5 +30,4 @@ Get-Content -LiteralPath "$uiRoot/polish-check.txt" -Tail 1
 Get-Content -LiteralPath "$uiRoot/chibi-check.txt" -Tail 1
 Get-Content -LiteralPath "$uiRoot/shake-check.txt" -Tail 1
 Get-Content -LiteralPath "$uiRoot/walk-check.txt" -Tail 1
-Get-Content -LiteralPath "$uiRoot/dance-check.txt" -Tail 1
 Write-Output "UI verification artifacts: $uiRoot"

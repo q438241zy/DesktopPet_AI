@@ -1,0 +1,178 @@
+{
+  "key": "claude-shorts-club",
+  "id": "claude",
+  "family": "claude",
+  "style": "chibi",
+  "kind": "club",
+  "columns": 4,
+  "rows": 6,
+  "refs": [
+    "C:\\Users\\99000256\\.codex\\generated_images\\01a0fd46-2194-7b12-8882-479fedfd5c1e\\exec-419cdc1e-548d-46a0-b44f-d496e362cd03.png",
+    "C:\\Users\\99000256\\.codex\\generated_images\\01a0fd46-2194-7b12-8882-479fedfd5c1e\\exec-26707f0e-b800-4fab-9af7-8ad97bc6636c.png"
+  ],
+  "dest": "src/DesktopPet.App/Assets/Characters/claude/outfits/sports/club.png",
+  "prompt": "Use case: identity-preserve. Image 1 is the precise 24-frame 4-column by 6-row animation template, Image 2 is the character identity and SHORT-SLEEVE + SHORTS costume reference. Replace Image1's character with Image2's orange long wavy hair, thin round glasses, orange flower/ribbon accessory and amber eyes; ivory top with cocoa/orange trim and cocoa-brown sports shorts. Keep Image2 face, head/body proportions, ornament, palette and emblem, and do NOT carry over the blue whale girl's identity/tail. ALL sleeves end on upper arms. ALL shorts end above knees; knees and lower legs bare, ankle socks and white sneakers. No long sleeves, pants, leggings, skirts or tall socks, including seated, bent-knee and lying poses. Exact same physical gesture sequence and row-major order as Image1, only the identity/costume changes. Same head/anatomical scale in EVERY cell. Ample true transparent gutters and outer margins: each figure fits central 70% cell; no part touches neighbor or canvas edge, no shadows/glow/scenery, no labels/text. Preserve 8 counting-star finger/eye-follow poses, then8 blowing-bubbles hand-and-mouth poses holding small round wand and bottle, then8 overhead-stretch/return poses. Character stays seated, wearing SHORTS with bare knees/calves. Preserve Image1's exact hands, ring/bottle positions. The bubble ring reaches lips only during middle blowing frames. No actual stars/bubbles painted. Do not enlarge seated character relative to standing reference; use same head size.",
+  "source": "D:\\VibeCoding\\Character\\artwork\\sports-shorts\\superseded-glasses\\claude\\club.png",
+  "selected": false,
+  "tool": "built-in image_gen",
+  "status": "visually-reviewed-short-sleeves-and-shorts",
+  "referenceHeightPixels": 262.184,
+  "bubbleSources": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    {
+      "x": 0.21834,
+      "y": 0.69167
+    },
+    {
+      "x": 0.18142,
+      "y": 0.51667
+    },
+    {
+      "x": 0.39556,
+      "y": 0.56432
+    },
+    {
+      "x": 0.38393,
+      "y": 0.56067
+    },
+    {
+      "x": 0.36607,
+      "y": 0.55042
+    },
+    {
+      "x": 0.17778,
+      "y": 0.52282
+    },
+    {
+      "x": 0.37118,
+      "y": 0.55882
+    },
+    {
+      "x": 0.38222,
+      "y": 0.55882
+    },
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ],
+  "bubbleReviewPixels": {
+    "8": [
+      78,
+      690
+    ],
+    "9": [
+      325,
+      647
+    ],
+    "10": [
+      616,
+      661
+    ],
+    "11": [
+      866,
+      661
+    ],
+    "12": [
+      112,
+      905
+    ],
+    "13": [
+      324,
+      897
+    ],
+    "14": [
+      610,
+      908
+    ],
+    "15": [
+      865,
+      908
+    ]
+  },
+  "clips": {
+    "stars": [
+      [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      [
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        500
+      ],
+      false
+    ],
+    "bubbles": [
+      [
+        8,
+        9,
+        10,
+        11,
+        12,
+        10,
+        9,
+        8
+      ],
+      [
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        500
+      ],
+      true
+    ],
+    "stretch": [
+      [
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      [
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        500
+      ],
+      false
+    ]
+  },
+  "originalSource": "C:\\Users\\99000256\\.codex\\generated_images\\01a0fd46-2194-7b12-8882-479fedfd5c1e\\exec-51aed493-8284-4e96-8ac1-0c0125acc44e.png",
+  "visualReview": "Every pose checked for short upper-arm sleeves, above-knee shorts, bare knees/calves, complete figure, correct tools/contact. Original PNG copied without bitmap edits; crop/flow metadata only. Cross-kind scale uses same face-width ruler; no per-frame silhouette resizing.",
+  "supersededBy": "claude-shorts-club-glasses"
+}

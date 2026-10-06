@@ -1,0 +1,168 @@
+{
+  "key": "gpt-care-swim-barefoot-v3",
+  "id": "gpt",
+  "family": "gpt",
+  "style": "chibi",
+  "kind": "care",
+  "outfits": [
+    "original",
+    "swim",
+    "wedding"
+  ],
+  "columns": 4,
+  "rows": 6,
+  "dest": "src/DesktopPet.App/Assets/Characters/gpt/motions/cloud-care-wardrobe.png",
+  "refs": [
+    "D:\\VibeCoding\\Character\\artwork\\care-contact\\gpt-care-accepted.png",
+    "D:\\VibeCoding\\Character\\src\\DesktopPet.App\\Assets\\Characters\\gpt\\outfits\\swim.webp"
+  ],
+  "prompt": "Edit ONLY FOUR footwear regions in the FOURTH HORIZONTAL ROW of image1. Exact target is the24-pose,4columns x6rows GPT sheet at1024x1536. Row3 already correctly has bare feet. Row4 STILL WRONGLY HAS FOUR PAIRS OF WHITE/PURPLE SHOES. Remove those four shoe pairs: near pixel centers (128,1006),(384,1006),(640,1006),(896,1006). Replace each with two natural pale bare knees and small BARE FEET with visible little toes, exactly matching the bare feet in row3 immediately above and image2 swimsuit. No shoes, no socks, no stockings anywhere on row4. The FOUR figures in row4 are the swimming-costume towel actions (zero-based12,13,14,15); preserve their current faces, hands, cloth props, hair, outfit tops, pose positions, size and silhouette placement. Keep all OTHER20 figures completely unchanged, including row3's already correct bare feet and original/wedding row1,2,5,6 shoes. True transparent alpha, clean antialiasing and no colored backdrop. Do not add text/labels/guide lines. Surgical local four-footwear edit, not a redraw of the atlas.",
+  "source": "D:\\VibeCoding\\Character\\artwork\\care-contact\\gpt-care-swim-barefoot-v3.png",
+  "tool": "image_gen.imagegen",
+  "selected": true,
+  "originalSource": "C:\\Users\\99000256\\.codex\\generated_images\\01a0fd46-2194-7b12-8882-479fedfd5c1e\\exec-302a3eaf-6dac-4524-9369-ec23357bb4d2.png",
+  "clips": {
+    "0:comb": [
+      [
+        0,
+        1,
+        2,
+        1,
+        2,
+        3
+      ],
+      [
+        450,
+        750,
+        900,
+        750,
+        1100,
+        850
+      ],
+      false
+    ],
+    "0:wipe": [
+      [
+        7,
+        5,
+        6,
+        5,
+        6,
+        7
+      ],
+      [
+        400,
+        600,
+        850,
+        600,
+        1050,
+        700
+      ],
+      false
+    ],
+    "1:comb": [
+      [
+        8,
+        9,
+        10,
+        9,
+        10,
+        11
+      ],
+      [
+        450,
+        750,
+        900,
+        750,
+        1100,
+        850
+      ],
+      false
+    ],
+    "1:wipe": [
+      [
+        15,
+        13,
+        14,
+        13,
+        14,
+        15
+      ],
+      [
+        400,
+        600,
+        850,
+        600,
+        1050,
+        700
+      ],
+      false
+    ],
+    "2:comb": [
+      [
+        16,
+        17,
+        18,
+        17,
+        18,
+        19
+      ],
+      [
+        450,
+        750,
+        900,
+        750,
+        1100,
+        850
+      ],
+      false
+    ],
+    "2:wipe": [
+      [
+        23,
+        21,
+        22,
+        21,
+        22,
+        23
+      ],
+      [
+        400,
+        600,
+        850,
+        600,
+        1050,
+        700
+      ],
+      false
+    ]
+  },
+  "review": "Final local edit visually checked all 24 cells: only swim 8..15 remove shoes/socks, all eight have bare knees and feet; original/wedding footwear preserved. Exactly two hands per pose, comb touches temple then shoulder lock; towel touches either cheek. Native action scale to be checked after installation.",
+  "referenceGroups": [
+    0,
+    0,
+    0,
+    0,
+    4,
+    4,
+    4,
+    4,
+    8,
+    8,
+    8,
+    8,
+    12,
+    12,
+    12,
+    12,
+    16,
+    16,
+    16,
+    16,
+    20,
+    20,
+    20,
+    20
+  ],
+  "replaces": "gpt-care-wardrobe"
+}

@@ -15,7 +15,9 @@ public static class DesktopWalk
     public static double ScaleX(int direction, string sourceFacing) => direction * (sourceFacing == "left" ? -1 : 1);
 
     public static double CycleMilliseconds(Sprite clip) => clip.FrameMs?.Sum() ?? (clip.Frames?.Length ?? clip.Columns * clip.Rows) * 240;
-    public static double Speed(double size, Sprite clip) => size * .22 / (CycleMilliseconds(clip) / 1000d);
+    // The measured stride is travel per complete gait cycle in units of the
+    // user's pet size. Zero preserves the established .22 stride of older art.
+    public static double Speed(double size, Sprite clip) => size * (clip.WalkStride == 0 ? .22 : clip.WalkStride) / (CycleMilliseconds(clip) / 1000d);
 }
 
 /// <summary>The feet advance only with travelled distance. A boundary turn holds the arriving pose.</summary>

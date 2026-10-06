@@ -1,0 +1,9 @@
+{
+  "key": "gpt-adult-swim-highfive",
+  "filename": "gpt-adult-swim-highfive-v1.png",
+  "prompt": "Edit this production sprite atlas of our clearly ADULT 25+ fantasy character. Keep the existing silver-haired horned adult woman's identity, modest lavender one-piece swimming outfit, mature face, proportions, full height and footwear exactly. Family-friendly neutral game interaction. Replace ONLY the four arm gestures with four high-five keyframes, left to right: preparing open right hand at shoulder, ready open right palm beside temple, gentle high-five open palm forward, then relaxed open-palm recoil. Keep body and legs unchanged in ALL FOUR cells. Her left arm stays down. 2 columns x 2 rows square atlas, ordered top-left, top-right, bottom-left, bottom-right with true transparent background. Leave broad empty gaps between silhouettes; place voluminous hair behind each figure within her own column so adjacent hair never touches. Full head and feet visible, no body cropping or shortening. No text, no shadows, no extra props. Accurate five fingers and connected wrists.",
+  "refs": [
+    "D:/VibeCoding/Character/artwork/interaction-five/gpt-adult-swim-rps-v1.png"
+  ],
+  "layoutRows": 2
+}

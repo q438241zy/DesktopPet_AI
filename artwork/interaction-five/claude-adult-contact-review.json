@@ -1,0 +1,307 @@
+{
+  "character": "claude-adult",
+  "manifest": "adult-gpt-claude-prompts.json",
+  "points": {
+    "original": {
+      "size": [
+        1536,
+        1024
+      ],
+      "high": [
+        [
+          123,
+          166
+        ],
+        [
+          626,
+          116
+        ],
+        [
+          1092,
+          124
+        ],
+        [
+          1532,
+          158
+        ]
+      ],
+      "receive": [
+        997,
+        340
+      ],
+      "gift": [
+        1375,
+        337
+      ],
+      "slot": [
+        321,
+        282
+      ],
+      "front": 300,
+      "box": 79,
+      "book": [
+        688,
+        249
+      ],
+      "page": [
+        1111,
+        273
+      ],
+      "sizes": {
+        "highfive": [
+          1881,
+          836
+        ],
+        "book": [
+          1774,
+          887
+        ]
+      }
+    },
+    "swim": {
+      "size": [
+        1536,
+        1024
+      ],
+      "high": [
+        [
+          162,
+          166
+        ],
+        [
+          650,
+          129
+        ],
+        [
+          1079,
+          151
+        ],
+        [
+          1496,
+          162
+        ]
+      ],
+      "receive": [
+        964,
+        365
+      ],
+      "gift": [
+        1353,
+        359
+      ],
+      "slot": [
+        343,
+        295
+      ],
+      "front": 312,
+      "box": 91,
+      "book": [
+        703,
+        268
+      ],
+      "page": [
+        1135,
+        278
+      ],
+      "sizes": {
+        "highfive": [
+          1886,
+          834
+        ],
+        "book": [
+          1774,
+          887
+        ]
+      }
+    },
+    "wedding": {
+      "size": [
+        1254,
+        1254
+      ],
+      "high": [
+        [
+          254,
+          157
+        ],
+        [
+          834,
+          122
+        ],
+        [
+          280,
+          759
+        ],
+        [
+          829,
+          770
+        ]
+      ],
+      "receive": [
+        407,
+        813
+      ],
+      "gift": [
+        886,
+        811
+      ],
+      "slot": [
+        391,
+        192
+      ],
+      "front": 206,
+      "box": 56,
+      "book": [
+        859,
+        172
+      ],
+      "page": [
+        420,
+        806
+      ],
+      "sizes": {}
+    },
+    "sports": {
+      "size": [
+        1536,
+        1024
+      ],
+      "high": [
+        [
+          69,
+          211
+        ],
+        [
+          476,
+          169
+        ],
+        [
+          873,
+          191
+        ],
+        [
+          1243,
+          217
+        ]
+      ],
+      "receive": [
+        965,
+        351
+      ],
+      "gift": [
+        1328,
+        364
+      ],
+      "slot": [
+        255,
+        306
+      ],
+      "front": 319,
+      "box": 77,
+      "book": [
+        632,
+        289
+      ],
+      "page": [
+        1031,
+        305
+      ],
+      "sizes": {
+        "book": [
+          1619,
+          971
+        ]
+      }
+    }
+  },
+  "sources": {
+    "original": {
+      "highfive": {
+        "file": "claude-adult-original-highfive-v1.png",
+        "rows": 1
+      },
+      "rps": {
+        "file": "claude-adult-original-rps-v1.png",
+        "rows": 1
+      },
+      "handoff": {
+        "file": "claude-adult-original-handoff-v1.png",
+        "rows": 1
+      },
+      "book": {
+        "file": "claude-adult-original-book-v1.png",
+        "rows": 1
+      },
+      "photo": {
+        "file": "claude-adult-original-photo-v1.png",
+        "rows": 1
+      }
+    },
+    "swim": {
+      "highfive": {
+        "file": "claude-adult-swim-highfive-v1.png",
+        "rows": 1
+      },
+      "rps": {
+        "file": "claude-adult-swim-rps-v1.png",
+        "rows": 1
+      },
+      "handoff": {
+        "file": "claude-adult-swim-handoff-v1.png",
+        "rows": 1
+      },
+      "book": {
+        "file": "claude-adult-swim-book-v1.png",
+        "rows": 1
+      },
+      "photo": {
+        "file": "claude-adult-swim-photo-v1.png",
+        "rows": 1
+      }
+    },
+    "wedding": {
+      "highfive": {
+        "file": "claude-adult-wedding-highfive-v4.png",
+        "rows": 2
+      },
+      "rps": {
+        "file": "claude-adult-wedding-rps-v3.png",
+        "rows": 2
+      },
+      "handoff": {
+        "file": "claude-adult-wedding-handoff-v2.png",
+        "rows": 2
+      },
+      "book": {
+        "file": "claude-adult-wedding-book-v3.png",
+        "rows": 2
+      },
+      "photo": {
+        "file": "claude-adult-wedding-photo-v4.png",
+        "rows": 2
+      }
+    },
+    "sports": {
+      "highfive": {
+        "file": "claude-adult-sports-highfive-v1.png",
+        "rows": 1
+      },
+      "rps": {
+        "file": "claude-adult-sports-rps-v1.png",
+        "rows": 1
+      },
+      "handoff": {
+        "file": "claude-adult-sports-handoff-v1.png",
+        "rows": 1
+      },
+      "book": {
+        "file": "claude-adult-sports-book-v1.png",
+        "rows": 1
+      },
+      "photo": {
+        "file": "claude-adult-sports-photo-v3.png",
+        "rows": 1
+      }
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "key": "grok-adult-care-wardrobe",
+  "id": "grok-adult",
+  "family": "grok",
+  "style": "realistic",
+  "kind": "care",
+  "outfits": [
+    "original",
+    "swim",
+    "wedding"
+  ],
+  "columns": 8,
+  "rows": 3,
+  "dest": "src/DesktopPet.App/Assets/Characters/grok-adult/motions/cloud-care-wardrobe.png",
+  "refs": [
+    "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/grok-adult/portrait.png",
+    "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/grok-adult/outfits/swim.png",
+    "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/grok-adult/outfits/wedding.png"
+  ],
+  "prompt": "Make exactly 24 FULL-BODY poses of the SAME Grok character in THREE outfits from the three reference images. golden blonde twin tails, blue eyes, black ribbon hair ties and silver orbit hairclip; preserve each outfit's accessories and existing costume exactly. Realistic 3D woman aged23+, mature adult anatomy, 8 columns x 3 rows LANDSCAPE. Row1 uses image1 original outfit; row2 uses image2 swimdress; row3 uses image3 wedding gown. Keep skirts/dress/feet completely visible and figure small enough for clear gutters. For EACH outfit repeat the following eight-pose sequence exactly once. Eight ordered poses: 0 holding a small wooden comb down at waist; 1 raise right hand so comb teeth touch hair beside the temple, tilt head gently toward it; 2 draw comb down the SAME lock of hair to shoulder while other hand lightly holds that lock; 3 lower comb back to waist with a relaxed smile. 4 holding a soft ivory face towel at chest; 5 lift towel with fingers and press to LEFT cheek, close that eye; 6 move towel to RIGHT cheek, tilt head gently opposite; 7 lower towel to chest, content expression. Props firmly gripped by fingers in every pose, no floating tool or extra hand. Feet/body stay stable, arms and head actually move. No text, labels, numbers, background or effect sprites. Each figure fully isolated by at least 24 transparent pixels. Keep each pose's anatomical pixel scale identical; ample empty margins on all sides; truly transparent alpha.",
+  "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-bb8499bb-4a23-4217-941a-dc904abf6c6f.png",
+  "tool": "image_gen.imagegen",
+  "selected": false
+}

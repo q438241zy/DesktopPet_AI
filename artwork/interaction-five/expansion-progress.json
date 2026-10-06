@@ -1,0 +1,3569 @@
+{
+  "adultGroups": 155,
+  "generatedGroups": 155,
+  "geometryPassedGroups": 155,
+  "missing": [],
+  "needsRepair": [],
+  "reviewedExpansionAppearances": 62,
+  "note": "Geometry candidates still require visual identity, anatomy and contact review; this is not a completion report.",
+  "groups": [
+    {
+      "key": "deepseek-adult-swim-highfive",
+      "character": "deepseek-adult",
+      "outfit": "swim",
+      "candidates": [
+        {
+          "file": "deepseek-adult-swim-highfive-v2.png",
+          "ok": true,
+          "rows": 1,
+          "referenceHeight": 873.0,
+          "heightVariation": 0.00344,
+          "heights": [
+            875,
+            872,
+            873,
+            873
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "deepseek-adult-swim-highfive-v2.png"
+    },
+    {
+      "key": "deepseek-adult-swim-rps",
+      "character": "deepseek-adult",
+      "outfit": "swim",
+      "candidates": [
+        {
+          "file": "deepseek-adult-swim-rps-v2.png",
+          "ok": true,
+          "rows": 1,
+          "referenceHeight": 1004.0,
+          "heightVariation": 0.0,
+          "heights": [
+            1004,
+            1004,
+            1004,
+            1004
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "deepseek-adult-swim-rps-v2.png"
+    },
+    {
+      "key": "deepseek-adult-swim-handoff",
+      "character": "deepseek-adult",
+      "outfit": "swim",
+      "candidates": [
+        {
+          "file": "deepseek-adult-swim-handoff-v2.png",
+          "ok": true,
+          "rows": 1,
+          "referenceHeight": 996.0,
+          "heightVariation": 0.001,
+          "heights": [
+            996,
+            996,
+            997,
+            996
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "deepseek-adult-swim-handoff-v2.png"
+    },
+    {
+      "key": "deepseek-adult-swim-book",
+      "character": "deepseek-adult",
+      "outfit": "swim",
+      "candidates": [
+        {
+          "file": "deepseek-adult-swim-book-v2.png",
+          "ok": true,
+          "rows": 1,
+          "referenceHeight": 1000.0,
+          "heightVariation": 0.00702,
+          "heights": [
+            1002,
+            997,
+            998,
+            1004
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "deepseek-adult-swim-book-v2.png"
+    },
+    {
+      "key": "deepseek-adult-swim-photo",
+      "character": "deepseek-adult",
+      "outfit": "swim",
+      "candidates": [
+        {
+          "file": "deepseek-adult-swim-photo-v2.png",
+          "ok": true,
+          "rows": 1,
+          "referenceHeight": 1006.5,
+          "heightVariation": 0.00299,
+          "heights": [
+            1004,
+            1006,
+            1007,
+            1007
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "deepseek-adult-swim-photo-v2.png"
+    },
+    {
+      "key": "deepseek-adult-sports-highfive",
+      "character": "deepseek-adult",
+      "outfit": "sports",
+      "candidates": [
+        {
+          "file": "deepseek-adult-sports-highfive-v2.png",
+          "ok": true,
+          "rows": 1,
+          "referenceHeight": 702.5,
+          "heightVariation": 0.01435,
+          "heights": [
+            707,
+            702,
+            697,
+            703
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "deepseek-adult-sports-highfive-v2.png"
+    },
+    {
+      "key": "deepseek-adult-sports-rps",
+      "character": "deepseek-adult",
+      "outfit": "sports",
+      "candidates": [
+        {
+          "file": "deepseek-adult-sports-rps-v2.png",
+          "ok": true,
+          "rows": 1,
+          "referenceHeight": 856.5,
+          "heightVariation": 0.00234,
+          "heights": [
+            858,
+            857,
+            856,
+            856
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "deepseek-adult-sports-rps-v2.png"
+    },
+    {
+      "key": "deepseek-adult-sports-handoff",
+      "character": "deepseek-adult",
+      "outfit": "sports",
+      "candidates": [
+        {
+          "file": "deepseek-adult-sports-handoff-v2.png",
+          "ok": true,
+          "rows": 1,
+          "referenceHeight": 951.5,
+          "heightVariation": 0.00105,
+          "heights": [
+            952,
+            952,
+            951,
+            951
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "deepseek-adult-sports-handoff-v2.png"
+    },
+    {
+      "key": "deepseek-adult-sports-book",
+      "character": "deepseek-adult",
+      "outfit": "sports",
+      "candidates": [
+        {
+          "file": "deepseek-adult-sports-book-v2.png",
+          "ok": true,
+          "rows": 1,
+          "referenceHeight": 939.0,
+          "heightVariation": 0.00213,
+          "heights": [
+            939,
+            939,
+            939,
+            937
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "deepseek-adult-sports-book-v2.png"
+    },
+    {
+      "key": "deepseek-adult-sports-photo",
+      "character": "deepseek-adult",
+      "outfit": "sports",
+      "candidates": [
+        {
+          "file": "deepseek-adult-sports-photo-v2.png",
+          "ok": true,
+          "rows": 1,
+          "referenceHeight": 959.5,
+          "heightVariation": 0.00209,
+          "heights": [
+            961,
+            960,
+            959,
+            959
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "deepseek-adult-sports-photo-v2.png"
+    },
+    {
+      "key": "deepseek-adult-wedding-highfive",
+      "character": "deepseek-adult",
+      "outfit": "wedding",
+      "candidates": [
+        {
+          "file": "deepseek-adult-wedding-highfive-v2.png",
+          "ok": true,
+          "rows": 1,
+          "referenceHeight": 807.0,
+          "heightVariation": 0.00124,
+          "heights": [
+            807,
+            807,
+            807,
+            806
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "deepseek-adult-wedding-highfive-v2.png"
+    },
+    {
+      "key": "deepseek-adult-wedding-rps",
+      "character": "deepseek-adult",
+      "outfit": "wedding",
+      "candidates": [
+        {
+          "file": "deepseek-adult-wedding-rps-v3.png",
+          "ok": true,
+          "rows": 2,
+          "referenceHeight": 615.0,
+          "heightVariation": 0.00653,
+          "heights": [
+            613,
+            614,
+            616,
+            617
+          ],
+          "issue": ""
+        },
+        {
+          "file": "deepseek-adult-wedding-rps-v2.png",
+          "ok": false,
+          "rows": 1,
+          "issue": "(WindowsPath('D:/VibeCoding/Character/artwork/interaction-five/deepseek-adult-wedding-rps-v2.png'), 'body count', 1, 4)"
+        }
+      ],
+      "geometryCandidate": "deepseek-adult-wedding-rps-v3.png"
+    },
+    {
+      "key": "deepseek-adult-wedding-handoff",
+      "character": "deepseek-adult",
+      "outfit": "wedding",
+      "candidates": [
+        {
+          "file": "deepseek-adult-wedding-handoff-v3.png",
+          "ok": true,
+          "rows": 2,
+          "referenceHeight": 628.0,
+          "heightVariation": 0.01605,
+          "heights": [
+            633,
+            633,
+            623,
+            623
+          ],
+          "issue": ""
+        },
+        {
+          "file": "deepseek-adult-wedding-handoff-v2.png",
+          "ok": false,
+          "rows": 1,
+          "issue": "(WindowsPath('D:/VibeCoding/Character/artwork/interaction-five/deepseek-adult-wedding-handoff-v2.png'), 'body count', 1, 4)"
+        }
+      ],
+      "geometryCandidate": "deepseek-adult-wedding-handoff-v3.png"
+    },
+    {
+      "key": "deepseek-adult-wedding-book",
+      "character": "deepseek-adult",
+      "outfit": "wedding",
+      "candidates": [
+        {
+          "file": "deepseek-adult-wedding-book-v3.png",
+          "ok": true,
+          "rows": 2,
+          "referenceHeight": 614.5,
+          "heightVariation": 0.01475,
+          "heights": [
+            618,
+            619,
+            611,
+            610
+          ],
+          "issue": ""
+        },
+        {
+          "file": "deepseek-adult-wedding-book-v2.png",
+          "ok": false,
+          "rows": 1,
+          "issue": "(WindowsPath('D:/VibeCoding/Character/artwork/interaction-five/deepseek-adult-wedding-book-v2.png'), 'body count', 1, 4)"
+        }
+      ],
+      "geometryCandidate": "deepseek-adult-wedding-book-v3.png"
+    },
+    {
+      "key": "deepseek-adult-wedding-photo",
+      "character": "deepseek-adult",
+      "outfit": "wedding",
+      "candidates": [
+        {
+          "file": "deepseek-adult-wedding-photo-v3.png",
+          "ok": true,
+          "rows": 2,
+          "referenceHeight": 611.5,
+          "heightVariation": 0.00328,
+          "heights": [
+            612,
+            612,
+            610,
+            611
+          ],
+          "issue": ""
+        },
+        {
+          "file": "deepseek-adult-wedding-photo-v2.png",
+          "ok": false,
+          "rows": 1,
+          "issue": "(WindowsPath('D:/VibeCoding/Character/artwork/interaction-five/deepseek-adult-wedding-photo-v2.png'), 'body count', 1, 4)"
+        }
+      ],
+      "geometryCandidate": "deepseek-adult-wedding-photo-v3.png"
+    },
+    {
+      "key": "gpt-adult-original-highfive",
+      "character": "gpt-adult",
+      "outfit": "original",
+      "candidates": [
+        {
+          "file": "gpt-adult-original-highfive-v3.png",
+          "ok": true,
+          "rows": 1,
+          "referenceHeight": 709.5,
+          "heightVariation": 0.00141,
+          "heights": [
+            710,
+            710,
+            709,
+            709
+          ],
+          "issue": ""
+        },
+        {
+          "file": "gpt-adult-original-highfive-v1.png",
+          "ok": false,
+          "rows": 1,
+          "issue": "(WindowsPath('D:/VibeCoding/Character/artwork/interaction-five/gpt-adult-original-highfive-v1.png'), 'body count', 2, 4)"
+        }
+      ],
+      "geometryCandidate": "gpt-adult-original-highfive-v3.png"
+    },
+    {
+      "key": "gpt-adult-original-rps",
+      "character": "gpt-adult",
+      "outfit": "original",
+      "candidates": [
+        {
+          "file": "gpt-adult-original-rps-v1.png",
+          "ok": true,
+          "rows": 1,
+          "referenceHeight": 858.0,
+          "heightVariation": 0.00117,
+          "heights": [
+            857,
+            858,
+            858,
+            858
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "gpt-adult-original-rps-v1.png"
+    },
+    {
+      "key": "gpt-adult-original-handoff",
+      "character": "gpt-adult",
+      "outfit": "original",
+      "candidates": [
+        {
+          "file": "gpt-adult-original-handoff-v3.png",
+          "ok": true,
+          "rows": 1,
+          "referenceHeight": 702.0,
+          "heightVariation": 0.0,
+          "heights": [
+            702,
+            702,
+            702,
+            702
+          ],
+          "issue": ""
+        },
+        {
+          "file": "gpt-adult-original-handoff-v1.png",
+          "ok": false,
+          "rows": 1,
+          "issue": "(WindowsPath('D:/VibeCoding/Character/artwork/interaction-five/gpt-adult-original-handoff-v1.png'), 'body count', 1, 4)"
+        }
+      ],
+      "geometryCandidate": "gpt-adult-original-handoff-v3.png"
+    },
+    {
+      "key": "gpt-adult-original-book",
+      "character": "gpt-adult",
+      "outfit": "original",
+      "candidates": [
+        {
+          "file": "gpt-adult-original-book-v1.png",
+          "ok": true,
+          "rows": 1,
+          "referenceHeight": 866.0,
+          "heightVariation": 0.00927,
+          "heights": [
+            866,
+            871,
+            866,
+            863
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "gpt-adult-original-book-v1.png"
+    },
+    {
+      "key": "gpt-adult-original-photo",
+      "character": "gpt-adult",
+      "outfit": "original",
+      "candidates": [
+        {
+          "file": "gpt-adult-original-photo-v1.png",
+          "ok": true,
+          "rows": 1,
+          "referenceHeight": 864.5,
+          "heightVariation": 0.00116,
+          "heights": [
+            865,
+            864,
+            864,
+            865
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "gpt-adult-original-photo-v1.png"
+    },
+    {
+      "key": "gpt-adult-swim-highfive",
+      "character": "gpt-adult",
+      "outfit": "swim",
+      "candidates": [
+        {
+          "file": "gpt-adult-swim-highfive-v3.png",
+          "ok": true,
+          "rows": 1,
+          "referenceHeight": 709.0,
+          "heightVariation": 0.00141,
+          "heights": [
+            709,
+            708,
+            709,
+            709
+          ],
+          "issue": ""
+        },
+        {
+          "file": "gpt-adult-swim-highfive-v2.png",
+          "ok": false,
+          "rows": 2,
+          "referenceHeight": 612.5,
+          "heightVariation": 0.06577,
+          "heights": [
+            632,
+            632,
+            593,
+            593
+          ],
+          "issue": "standing height variation above 3.5%"
+        },
+        {
+          "file": "gpt-adult-swim-highfive-v1.png",
+          "ok": false,
+          "rows": 1,
+          "issue": "(WindowsPath('D:/VibeCoding/Character/artwork/interaction-five/gpt-adult-swim-highfive-v1.png'), 'body count', 0, 4)"
+        }
+      ],
+      "geometryCandidate": "gpt-adult-swim-highfive-v3.png"
+    },
+    {
+      "key": "gpt-adult-swim-rps",
+      "character": "gpt-adult",
+      "outfit": "swim",
+      "candidates": [
+        {
+          "file": "gpt-adult-swim-rps-v3.png",
+          "ok": true,
+          "rows": 1,
+          "referenceHeight": 703.0,
+          "heightVariation": 0.0,
+          "heights": [
+            703,
+            703,
+            703,
+            703
+          ],
+          "issue": ""
+        },
+        {
+          "file": "gpt-adult-swim-rps-v1.png",
+          "ok": false,
+          "rows": 1,
+          "issue": "(WindowsPath('D:/VibeCoding/Character/artwork/interaction-five/gpt-adult-swim-rps-v1.png'), 'body count', 2, 4)"
+        }
+      ],
+      "geometryCandidate": "gpt-adult-swim-rps-v3.png"
+    },
+    {
+      "key": "gpt-adult-swim-handoff",
+      "character": "gpt-adult",
+      "outfit": "swim",
+      "candidates": [
+        {
+          "file": "gpt-adult-swim-handoff-v3.png",
+          "ok": true,
+          "rows": 1,
+          "referenceHeight": 703.0,
+          "heightVariation": 0.0,
+          "heights": [
+            703,
+            703,
+            703,
+            703
+          ],
+          "issue": ""
+        },
+        {
+          "file": "gpt-adult-swim-handoff-v1.png",
+          "ok": false,
+          "rows": 1,
+          "issue": "(WindowsPath('D:/VibeCoding/Character/artwork/interaction-five/gpt-adult-swim-handoff-v1.png'), 'body count', 1, 4)"
+        }
+      ],
+      "geometryCandidate": "gpt-adult-swim-handoff-v3.png"
+    },
+    {
+      "key": "gpt-adult-swim-book",
+      "character": "gpt-adult",
+      "outfit": "swim",
+      "candidates": [
+        {
+          "file": "gpt-adult-swim-book-v1.png",
+          "ok": true,
+          "rows": 1,
+          "referenceHeight": 988.0,
+          "heightVariation": 0.00507,
+          "heights": [
+            992,
+            987,
+            987,
+            989
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "gpt-adult-swim-book-v1.png"
+    },
+    {
+      "key": "gpt-adult-swim-photo",
+      "character": "gpt-adult",
+      "outfit": "swim",
+      "candidates": [
+        {
+          "file": "gpt-adult-swim-photo-v1.png",
+          "ok": true,
+          "rows": 1,
+          "referenceHeight": 877.5,
+          "heightVariation": 0.00457,
+          "heights": [
+            877,
+            878,
+            876,
+            880
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "gpt-adult-swim-photo-v1.png"
+    },
+    {
+      "key": "gpt-adult-wedding-highfive",
+      "character": "gpt-adult",
+      "outfit": "wedding",
+      "candidates": [
+        {
+          "file": "gpt-adult-wedding-highfive-v1.png",
+          "ok": true,
+          "rows": 1,
+          "referenceHeight": 737.0,
+          "heightVariation": 0.0,
+          "heights": [
+            737,
+            737,
+            737,
+            737
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "gpt-adult-wedding-highfive-v1.png"
+    },
+    {
+      "key": "gpt-adult-wedding-rps",
+      "character": "gpt-adult",
+      "outfit": "wedding",
+      "candidates": [
+        {
+          "file": "gpt-adult-wedding-rps-v3.png",
+          "ok": true,
+          "rows": 2,
+          "referenceHeight": 613.0,
+          "heightVariation": 0.00818,
+          "heights": [
+            611,
+            611,
+            616,
+            615
+          ],
+          "issue": ""
+        },
+        {
+          "file": "gpt-adult-wedding-rps-v1.png",
+          "ok": false,
+          "rows": 1,
+          "issue": "(WindowsPath('D:/VibeCoding/Character/artwork/interaction-five/gpt-adult-wedding-rps-v1.png'), 'body count', 1, 4)"
+        }
+      ],
+      "geometryCandidate": "gpt-adult-wedding-rps-v3.png"
+    },
+    {
+      "key": "gpt-adult-wedding-handoff",
+      "character": "gpt-adult",
+      "outfit": "wedding",
+      "candidates": [
+        {
+          "file": "gpt-adult-wedding-handoff-v1.png",
+          "ok": true,
+          "rows": 1,
+          "referenceHeight": 984.0,
+          "heightVariation": 0.00612,
+          "heights": [
+            980,
+            983,
+            985,
+            986
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "gpt-adult-wedding-handoff-v1.png"
+    },
+    {
+      "key": "gpt-adult-wedding-book",
+      "character": "gpt-adult",
+      "outfit": "wedding",
+      "candidates": [
+        {
+          "file": "gpt-adult-wedding-book-v4.png",
+          "ok": true,
+          "rows": 2,
+          "referenceHeight": 641.0,
+          "heightVariation": 0.00784,
+          "heights": [
+            640,
+            638,
+            643,
+            642
+          ],
+          "issue": ""
+        },
+        {
+          "file": "gpt-adult-wedding-book-v3.png",
+          "ok": false,
+          "rows": 2,
+          "issue": "(WindowsPath('D:/VibeCoding/Character/artwork/interaction-five/gpt-adult-wedding-book-v3.png'), 'body count', 3, 4)"
+        },
+        {
+          "file": "gpt-adult-wedding-book-v1.png",
+          "ok": false,
+          "rows": 1,
+          "issue": "(WindowsPath('D:/VibeCoding/Character/artwork/interaction-five/gpt-adult-wedding-book-v1.png'), 'body count', 2, 4)"
+        }
+      ],
+      "geometryCandidate": "gpt-adult-wedding-book-v4.png"
+    },
+    {
+      "key": "gpt-adult-wedding-photo",
+      "character": "gpt-adult",
+      "outfit": "wedding",
+      "candidates": [
+        {
+          "file": "gpt-adult-wedding-photo-v1.png",
+          "ok": true,
+          "rows": 1,
+          "referenceHeight": 748.0,
+          "heightVariation": 0.00134,
+          "heights": [
+            748,
+            747,
+            748,
+            748
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "gpt-adult-wedding-photo-v1.png"
+    },
+    {
+      "key": "gpt-adult-sports-highfive",
+      "character": "gpt-adult",
+      "outfit": "sports",
+      "candidates": [
+        {
+          "file": "gpt-adult-sports-highfive-v1.png",
+          "ok": true,
+          "rows": 1,
+          "referenceHeight": 848.0,
+          "heightVariation": 0.00236,
+          "heights": [
+            848,
+            849,
+            847,
+            848
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "gpt-adult-sports-highfive-v1.png"
+    },
+    {
+      "key": "gpt-adult-sports-rps",
+      "character": "gpt-adult",
+      "outfit": "sports",
+      "candidates": [
+        {
+          "file": "gpt-adult-sports-rps-v1.png",
+          "ok": true,
+          "rows": 1,
+          "referenceHeight": 805.5,
+          "heightVariation": 0.00995,
+          "heights": [
+            804,
+            812,
+            807,
+            804
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "gpt-adult-sports-rps-v1.png"
+    },
+    {
+      "key": "gpt-adult-sports-handoff",
+      "character": "gpt-adult",
+      "outfit": "sports",
+      "candidates": [
+        {
+          "file": "gpt-adult-sports-handoff-v3.png",
+          "ok": true,
+          "rows": 1,
+          "referenceHeight": 676.0,
+          "heightVariation": 0.00742,
+          "heights": [
+            674,
+            675,
+            677,
+            679
+          ],
+          "issue": ""
+        },
+        {
+          "file": "gpt-adult-sports-handoff-v1.png",
+          "ok": false,
+          "rows": 1,
+          "issue": "(WindowsPath('D:/VibeCoding/Character/artwork/interaction-five/gpt-adult-sports-handoff-v1.png'), 'body count', 2, 4)"
+        }
+      ],
+      "geometryCandidate": "gpt-adult-sports-handoff-v3.png"
+    },
+    {
+      "key": "gpt-adult-sports-book",
+      "character": "gpt-adult",
+      "outfit": "sports",
+      "candidates": [
+        {
+          "file": "gpt-adult-sports-book-v1.png",
+          "ok": true,
+          "rows": 1,
+          "referenceHeight": 774.0,
+          "heightVariation": 0.00649,
+          "heights": [
+            776,
+            771,
+            772,
+            776
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "gpt-adult-sports-book-v1.png"
+    },
+    {
+      "key": "gpt-adult-sports-photo",
+      "character": "gpt-adult",
+      "outfit": "sports",
+      "candidates": [
+        {
+          "file": "gpt-adult-sports-photo-v1.png",
+          "ok": true,
+          "rows": 1,
+          "referenceHeight": 858.5,
+          "heightVariation": 0.00818,
+          "heights": [
+            863,
+            858,
+            856,
+            859
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "gpt-adult-sports-photo-v1.png"
+    },
+    {
+      "key": "claude-adult-original-highfive",
+      "character": "claude-adult",
+      "outfit": "original",
+      "candidates": [
+        {
+          "file": "claude-adult-original-highfive-v1.png",
+          "ok": true,
+          "rows": 1,
+          "referenceHeight": 823.0,
+          "heightVariation": 0.00122,
+          "heights": [
+            822,
+            823,
+            823,
+            823
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "claude-adult-original-highfive-v1.png"
+    },
+    {
+      "key": "claude-adult-original-rps",
+      "character": "claude-adult",
+      "outfit": "original",
+      "candidates": [
+        {
+          "file": "claude-adult-original-rps-v1.png",
+          "ok": true,
+          "rows": 1,
+          "referenceHeight": 996.0,
+          "heightVariation": 0.00201,
+          "heights": [
+            997,
+            995,
+            997,
+            995
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "claude-adult-original-rps-v1.png"
+    },
+    {
+      "key": "claude-adult-original-handoff",
+      "character": "claude-adult",
+      "outfit": "original",
+      "candidates": [
+        {
+          "file": "claude-adult-original-handoff-v1.png",
+          "ok": true,
+          "rows": 1,
+          "referenceHeight": 992.0,
+          "heightVariation": 0.00202,
+          "heights": [
+            993,
+            992,
+            991,
+            992
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "claude-adult-original-handoff-v1.png"
+    },
+    {
+      "key": "claude-adult-original-book",
+      "character": "claude-adult",
+      "outfit": "original",
+      "candidates": [
+        {
+          "file": "claude-adult-original-book-v1.png",
+          "ok": true,
+          "rows": 1,
+          "referenceHeight": 875.0,
+          "heightVariation": 0.00114,
+          "heights": [
+            875,
+            875,
+            875,
+            876
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "claude-adult-original-book-v1.png"
+    },
+    {
+      "key": "claude-adult-original-photo",
+      "character": "claude-adult",
+      "outfit": "original",
+      "candidates": [
+        {
+          "file": "claude-adult-original-photo-v1.png",
+          "ok": true,
+          "rows": 1,
+          "referenceHeight": 983.0,
+          "heightVariation": 0.00102,
+          "heights": [
+            984,
+            983,
+            983,
+            983
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "claude-adult-original-photo-v1.png"
+    },
+    {
+      "key": "claude-adult-swim-highfive",
+      "character": "claude-adult",
+      "outfit": "swim",
+      "candidates": [
+        {
+          "file": "claude-adult-swim-highfive-v1.png",
+          "ok": true,
+          "rows": 1,
+          "referenceHeight": 823.5,
+          "heightVariation": 0.00365,
+          "heights": [
+            822,
+            824,
+            825,
+            823
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "claude-adult-swim-highfive-v1.png"
+    },
+    {
+      "key": "claude-adult-swim-rps",
+      "character": "claude-adult",
+      "outfit": "swim",
+      "candidates": [
+        {
+          "file": "claude-adult-swim-rps-v1.png",
+          "ok": true,
+          "rows": 1,
+          "referenceHeight": 925.0,
+          "heightVariation": 0.00108,
+          "heights": [
+            925,
+            925,
+            925,
+            926
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "claude-adult-swim-rps-v1.png"
+    },
+    {
+      "key": "claude-adult-swim-handoff",
+      "character": "claude-adult",
+      "outfit": "swim",
+      "candidates": [
+        {
+          "file": "claude-adult-swim-handoff-v1.png",
+          "ok": true,
+          "rows": 1,
+          "referenceHeight": 984.0,
+          "heightVariation": 0.0,
+          "heights": [
+            984,
+            984,
+            984,
+            984
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "claude-adult-swim-handoff-v1.png"
+    },
+    {
+      "key": "claude-adult-swim-book",
+      "character": "claude-adult",
+      "outfit": "swim",
+      "candidates": [
+        {
+          "file": "claude-adult-swim-book-v1.png",
+          "ok": true,
+          "rows": 1,
+          "referenceHeight": 866.0,
+          "heightVariation": 0.00347,
+          "heights": [
+            865,
+            866,
+            866,
+            868
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "claude-adult-swim-book-v1.png"
+    },
+    {
+      "key": "claude-adult-swim-photo",
+      "character": "claude-adult",
+      "outfit": "swim",
+      "candidates": [
+        {
+          "file": "claude-adult-swim-photo-v1.png",
+          "ok": true,
+          "rows": 1,
+          "referenceHeight": 868.0,
+          "heightVariation": 0.0,
+          "heights": [
+            868,
+            868,
+            868,
+            868
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "claude-adult-swim-photo-v1.png"
+    },
+    {
+      "key": "claude-adult-wedding-highfive",
+      "character": "claude-adult",
+      "outfit": "wedding",
+      "candidates": [
+        {
+          "file": "claude-adult-wedding-highfive-v4.png",
+          "ok": true,
+          "rows": 2,
+          "referenceHeight": 582.5,
+          "heightVariation": 0.00172,
+          "heights": [
+            583,
+            583,
+            582,
+            582
+          ],
+          "issue": ""
+        },
+        {
+          "file": "claude-adult-wedding-highfive-v3.png",
+          "ok": true,
+          "rows": 2,
+          "referenceHeight": 624.5,
+          "heightVariation": 0.00642,
+          "heights": [
+            625,
+            627,
+            624,
+            623
+          ],
+          "issue": ""
+        },
+        {
+          "file": "claude-adult-wedding-highfive-v1.png",
+          "ok": false,
+          "rows": 1,
+          "issue": "(WindowsPath('D:/VibeCoding/Character/artwork/interaction-five/claude-adult-wedding-highfive-v1.png'), 'body count', 1, 4)"
+        }
+      ],
+      "geometryCandidate": "claude-adult-wedding-highfive-v4.png"
+    },
+    {
+      "key": "claude-adult-wedding-rps",
+      "character": "claude-adult",
+      "outfit": "wedding",
+      "candidates": [
+        {
+          "file": "claude-adult-wedding-rps-v3.png",
+          "ok": true,
+          "rows": 2,
+          "referenceHeight": 613.5,
+          "heightVariation": 0.01314,
+          "heights": [
+            611,
+            609,
+            616,
+            617
+          ],
+          "issue": ""
+        },
+        {
+          "file": "claude-adult-wedding-rps-v1.png",
+          "ok": false,
+          "rows": 1,
+          "issue": "(WindowsPath('D:/VibeCoding/Character/artwork/interaction-five/claude-adult-wedding-rps-v1.png'), 'body count', 1, 4)"
+        }
+      ],
+      "geometryCandidate": "claude-adult-wedding-rps-v3.png"
+    },
+    {
+      "key": "claude-adult-wedding-handoff",
+      "character": "claude-adult",
+      "outfit": "wedding",
+      "candidates": [
+        {
+          "file": "claude-adult-wedding-handoff-v2.png",
+          "ok": true,
+          "rows": 2,
+          "referenceHeight": 596.0,
+          "heightVariation": 0.00672,
+          "heights": [
+            595,
+            599,
+            596,
+            596
+          ],
+          "issue": ""
+        },
+        {
+          "file": "claude-adult-wedding-handoff-v1.png",
+          "ok": false,
+          "rows": 1,
+          "issue": "(WindowsPath('D:/VibeCoding/Character/artwork/interaction-five/claude-adult-wedding-handoff-v1.png'), 'missing alpha')"
+        }
+      ],
+      "geometryCandidate": "claude-adult-wedding-handoff-v2.png"
+    },
+    {
+      "key": "claude-adult-wedding-book",
+      "character": "claude-adult",
+      "outfit": "wedding",
+      "candidates": [
+        {
+          "file": "claude-adult-wedding-book-v3.png",
+          "ok": true,
+          "rows": 2,
+          "referenceHeight": 620.0,
+          "heightVariation": 0.00162,
+          "heights": [
+            620,
+            620,
+            619,
+            620
+          ],
+          "issue": ""
+        },
+        {
+          "file": "claude-adult-wedding-book-v1.png",
+          "ok": false,
+          "rows": 1,
+          "issue": "(WindowsPath('D:/VibeCoding/Character/artwork/interaction-five/claude-adult-wedding-book-v1.png'), 'body count', 1, 4)"
+        }
+      ],
+      "geometryCandidate": "claude-adult-wedding-book-v3.png"
+    },
+    {
+      "key": "claude-adult-wedding-photo",
+      "character": "claude-adult",
+      "outfit": "wedding",
+      "candidates": [
+        {
+          "file": "claude-adult-wedding-photo-v4.png",
+          "ok": true,
+          "rows": 2,
+          "referenceHeight": 639.5,
+          "heightVariation": 0.00785,
+          "heights": [
+            637,
+            638,
+            641,
+            642
+          ],
+          "issue": ""
+        },
+        {
+          "file": "claude-adult-wedding-photo-v3.png",
+          "ok": false,
+          "rows": 2,
+          "issue": "(WindowsPath('D:/VibeCoding/Character/artwork/interaction-five/claude-adult-wedding-photo-v3.png'), 'body count', 3, 4)"
+        },
+        {
+          "file": "claude-adult-wedding-photo-v1.png",
+          "ok": false,
+          "rows": 1,
+          "issue": "(WindowsPath('D:/VibeCoding/Character/artwork/interaction-five/claude-adult-wedding-photo-v1.png'), 'body count', 1, 4)"
+        }
+      ],
+      "geometryCandidate": "claude-adult-wedding-photo-v4.png"
+    },
+    {
+      "key": "claude-adult-sports-highfive",
+      "character": "claude-adult",
+      "outfit": "sports",
+      "candidates": [
+        {
+          "file": "claude-adult-sports-highfive-v1.png",
+          "ok": true,
+          "rows": 1,
+          "referenceHeight": 947.0,
+          "heightVariation": 0.00211,
+          "heights": [
+            946,
+            948,
+            946,
+            948
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "claude-adult-sports-highfive-v1.png"
+    },
+    {
+      "key": "claude-adult-sports-rps",
+      "character": "claude-adult",
+      "outfit": "sports",
+      "candidates": [
+        {
+          "file": "claude-adult-sports-rps-v1.png",
+          "ok": true,
+          "rows": 1,
+          "referenceHeight": 968.5,
+          "heightVariation": 0.00414,
+          "heights": [
+            970,
+            966,
+            968,
+            969
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "claude-adult-sports-rps-v1.png"
+    },
+    {
+      "key": "claude-adult-sports-handoff",
+      "character": "claude-adult",
+      "outfit": "sports",
+      "candidates": [
+        {
+          "file": "claude-adult-sports-handoff-v1.png",
+          "ok": true,
+          "rows": 1,
+          "referenceHeight": 964.0,
+          "heightVariation": 0.00208,
+          "heights": [
+            965,
+            963,
+            964,
+            964
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "claude-adult-sports-handoff-v1.png"
+    },
+    {
+      "key": "claude-adult-sports-book",
+      "character": "claude-adult",
+      "outfit": "sports",
+      "candidates": [
+        {
+          "file": "claude-adult-sports-book-v1.png",
+          "ok": true,
+          "rows": 1,
+          "referenceHeight": 927.0,
+          "heightVariation": 0.00108,
+          "heights": [
+            927,
+            926,
+            927,
+            927
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "claude-adult-sports-book-v1.png"
+    },
+    {
+      "key": "claude-adult-sports-photo",
+      "character": "claude-adult",
+      "outfit": "sports",
+      "candidates": [
+        {
+          "file": "claude-adult-sports-photo-v3.png",
+          "ok": true,
+          "rows": 1,
+          "referenceHeight": 680.5,
+          "heightVariation": 0.00441,
+          "heights": [
+            683,
+            680,
+            681,
+            680
+          ],
+          "issue": ""
+        },
+        {
+          "file": "claude-adult-sports-photo-v1.png",
+          "ok": false,
+          "rows": 1,
+          "issue": "(WindowsPath('D:/VibeCoding/Character/artwork/interaction-five/claude-adult-sports-photo-v1.png'), 'body count', 3, 4)"
+        }
+      ],
+      "geometryCandidate": "claude-adult-sports-photo-v3.png"
+    },
+    {
+      "key": "gemini-adult-original-highfive",
+      "character": "gemini-adult",
+      "outfit": "original",
+      "candidates": [
+        {
+          "file": "gemini-adult-original-highfive-v1.png",
+          "ok": true,
+          "rows": 1,
+          "referenceHeight": 708.0,
+          "heightVariation": 0.0,
+          "heights": [
+            708,
+            708,
+            708,
+            708
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "gemini-adult-original-highfive-v1.png"
+    },
+    {
+      "key": "gemini-adult-original-rps",
+      "character": "gemini-adult",
+      "outfit": "original",
+      "candidates": [
+        {
+          "file": "gemini-adult-original-rps-v1.png",
+          "ok": true,
+          "rows": 1,
+          "referenceHeight": 707.0,
+          "heightVariation": 0.0,
+          "heights": [
+            707,
+            707,
+            707,
+            707
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "gemini-adult-original-rps-v1.png"
+    },
+    {
+      "key": "gemini-adult-original-handoff",
+      "character": "gemini-adult",
+      "outfit": "original",
+      "candidates": [
+        {
+          "file": "gemini-adult-original-handoff-v1.png",
+          "ok": true,
+          "rows": 1,
+          "referenceHeight": 705.0,
+          "heightVariation": 0.00142,
+          "heights": [
+            704,
+            705,
+            705,
+            705
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "gemini-adult-original-handoff-v1.png"
+    },
+    {
+      "key": "gemini-adult-original-book",
+      "character": "gemini-adult",
+      "outfit": "original",
+      "candidates": [
+        {
+          "file": "gemini-adult-original-book-v1.png",
+          "ok": true,
+          "rows": 1,
+          "referenceHeight": 713.5,
+          "heightVariation": 0.0014,
+          "heights": [
+            714,
+            713,
+            713,
+            714
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "gemini-adult-original-book-v1.png"
+    },
+    {
+      "key": "gemini-adult-original-photo",
+      "character": "gemini-adult",
+      "outfit": "original",
+      "candidates": [
+        {
+          "file": "gemini-adult-original-photo-v1.png",
+          "ok": true,
+          "rows": 1,
+          "referenceHeight": 708.0,
+          "heightVariation": 0.0,
+          "heights": [
+            708,
+            708,
+            708,
+            708
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "gemini-adult-original-photo-v1.png"
+    },
+    {
+      "key": "gemini-adult-swim-highfive",
+      "character": "gemini-adult",
+      "outfit": "swim",
+      "candidates": [
+        {
+          "file": "gemini-adult-swim-highfive-v1.png",
+          "ok": true,
+          "rows": 1,
+          "referenceHeight": 711.0,
+          "heightVariation": 0.00141,
+          "heights": [
+            710,
+            711,
+            711,
+            711
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "gemini-adult-swim-highfive-v1.png"
+    },
+    {
+      "key": "gemini-adult-swim-rps",
+      "character": "gemini-adult",
+      "outfit": "swim",
+      "candidates": [
+        {
+          "file": "gemini-adult-swim-rps-v1.png",
+          "ok": true,
+          "rows": 1,
+          "referenceHeight": 699.0,
+          "heightVariation": 0.00575,
+          "heights": [
+            699,
+            700,
+            699,
+            696
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "gemini-adult-swim-rps-v1.png"
+    },
+    {
+      "key": "gemini-adult-swim-handoff",
+      "character": "gemini-adult",
+      "outfit": "swim",
+      "candidates": [
+        {
+          "file": "gemini-adult-swim-handoff-v1.png",
+          "ok": true,
+          "rows": 1,
+          "referenceHeight": 711.0,
+          "heightVariation": 0.00141,
+          "heights": [
+            711,
+            712,
+            711,
+            711
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "gemini-adult-swim-handoff-v1.png"
+    },
+    {
+      "key": "gemini-adult-swim-book",
+      "character": "gemini-adult",
+      "outfit": "swim",
+      "candidates": [
+        {
+          "file": "gemini-adult-swim-book-v1.png",
+          "ok": true,
+          "rows": 1,
+          "referenceHeight": 707.0,
+          "heightVariation": 0.00283,
+          "heights": [
+            706,
+            708,
+            706,
+            708
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "gemini-adult-swim-book-v1.png"
+    },
+    {
+      "key": "gemini-adult-swim-photo",
+      "character": "gemini-adult",
+      "outfit": "swim",
+      "candidates": [
+        {
+          "file": "gemini-adult-swim-photo-v1.png",
+          "ok": true,
+          "rows": 1,
+          "referenceHeight": 714.0,
+          "heightVariation": 0.0014,
+          "heights": [
+            714,
+            714,
+            713,
+            714
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "gemini-adult-swim-photo-v1.png"
+    },
+    {
+      "key": "gemini-adult-wedding-highfive",
+      "character": "gemini-adult",
+      "outfit": "wedding",
+      "candidates": [
+        {
+          "file": "gemini-adult-wedding-highfive-v1.png",
+          "ok": true,
+          "rows": 2,
+          "referenceHeight": 617.5,
+          "heightVariation": 0.00324,
+          "heights": [
+            619,
+            618,
+            617,
+            617
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "gemini-adult-wedding-highfive-v1.png"
+    },
+    {
+      "key": "gemini-adult-wedding-rps",
+      "character": "gemini-adult",
+      "outfit": "wedding",
+      "candidates": [
+        {
+          "file": "gemini-adult-wedding-rps-v1.png",
+          "ok": true,
+          "rows": 2,
+          "referenceHeight": 625.0,
+          "heightVariation": 0.00803,
+          "heights": [
+            627,
+            628,
+            623,
+            623
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "gemini-adult-wedding-rps-v1.png"
+    },
+    {
+      "key": "gemini-adult-wedding-handoff",
+      "character": "gemini-adult",
+      "outfit": "wedding",
+      "candidates": [
+        {
+          "file": "gemini-adult-wedding-handoff-v1.png",
+          "ok": true,
+          "rows": 2,
+          "referenceHeight": 619.0,
+          "heightVariation": 0.00485,
+          "heights": [
+            618,
+            618,
+            621,
+            620
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "gemini-adult-wedding-handoff-v1.png"
+    },
+    {
+      "key": "gemini-adult-wedding-book",
+      "character": "gemini-adult",
+      "outfit": "wedding",
+      "candidates": [
+        {
+          "file": "gemini-adult-wedding-book-v1.png",
+          "ok": true,
+          "rows": 2,
+          "referenceHeight": 624.5,
+          "heightVariation": 0.0016,
+          "heights": [
+            625,
+            624,
+            624,
+            625
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "gemini-adult-wedding-book-v1.png"
+    },
+    {
+      "key": "gemini-adult-wedding-photo",
+      "character": "gemini-adult",
+      "outfit": "wedding",
+      "candidates": [
+        {
+          "file": "gemini-adult-wedding-photo-v1.png",
+          "ok": true,
+          "rows": 2,
+          "referenceHeight": 615.5,
+          "heightVariation": 0.00163,
+          "heights": [
+            615,
+            615,
+            616,
+            616
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "gemini-adult-wedding-photo-v1.png"
+    },
+    {
+      "key": "gemini-adult-sports-highfive",
+      "character": "gemini-adult",
+      "outfit": "sports",
+      "candidates": [
+        {
+          "file": "gemini-adult-sports-highfive-v1.png",
+          "ok": true,
+          "rows": 1,
+          "referenceHeight": 689.0,
+          "heightVariation": 0.00291,
+          "heights": [
+            688,
+            690,
+            689,
+            689
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "gemini-adult-sports-highfive-v1.png"
+    },
+    {
+      "key": "gemini-adult-sports-rps",
+      "character": "gemini-adult",
+      "outfit": "sports",
+      "candidates": [
+        {
+          "file": "gemini-adult-sports-rps-v1.png",
+          "ok": true,
+          "rows": 1,
+          "referenceHeight": 686.0,
+          "heightVariation": 0.0,
+          "heights": [
+            686,
+            686,
+            686,
+            686
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "gemini-adult-sports-rps-v1.png"
+    },
+    {
+      "key": "gemini-adult-sports-handoff",
+      "character": "gemini-adult",
+      "outfit": "sports",
+      "candidates": [
+        {
+          "file": "gemini-adult-sports-handoff-v1.png",
+          "ok": true,
+          "rows": 1,
+          "referenceHeight": 685.5,
+          "heightVariation": 0.01026,
+          "heights": [
+            689,
+            689,
+            682,
+            682
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "gemini-adult-sports-handoff-v1.png"
+    },
+    {
+      "key": "gemini-adult-sports-book",
+      "character": "gemini-adult",
+      "outfit": "sports",
+      "candidates": [
+        {
+          "file": "gemini-adult-sports-book-v1.png",
+          "ok": true,
+          "rows": 1,
+          "referenceHeight": 674.5,
+          "heightVariation": 0.00297,
+          "heights": [
+            674,
+            675,
+            674,
+            676
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "gemini-adult-sports-book-v1.png"
+    },
+    {
+      "key": "gemini-adult-sports-photo",
+      "character": "gemini-adult",
+      "outfit": "sports",
+      "candidates": [
+        {
+          "file": "gemini-adult-sports-photo-v1.png",
+          "ok": true,
+          "rows": 1,
+          "referenceHeight": 699.5,
+          "heightVariation": 0.0043,
+          "heights": [
+            700,
+            701,
+            699,
+            698
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "gemini-adult-sports-photo-v1.png"
+    },
+    {
+      "key": "grok-adult-original-highfive",
+      "character": "grok-adult",
+      "outfit": "original",
+      "candidates": [
+        {
+          "file": "grok-adult-original-highfive-v1.png",
+          "ok": true,
+          "rows": 1,
+          "referenceHeight": 710.0,
+          "heightVariation": 0.00141,
+          "heights": [
+            709,
+            710,
+            710,
+            710
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "grok-adult-original-highfive-v1.png"
+    },
+    {
+      "key": "grok-adult-original-rps",
+      "character": "grok-adult",
+      "outfit": "original",
+      "candidates": [
+        {
+          "file": "grok-adult-original-rps-v1.png",
+          "ok": true,
+          "rows": 1,
+          "referenceHeight": 714.0,
+          "heightVariation": 0.0,
+          "heights": [
+            714,
+            714,
+            714,
+            714
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "grok-adult-original-rps-v1.png"
+    },
+    {
+      "key": "grok-adult-original-handoff",
+      "character": "grok-adult",
+      "outfit": "original",
+      "candidates": [
+        {
+          "file": "grok-adult-original-handoff-v1.png",
+          "ok": true,
+          "rows": 1,
+          "referenceHeight": 708.0,
+          "heightVariation": 0.00141,
+          "heights": [
+            707,
+            708,
+            708,
+            708
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "grok-adult-original-handoff-v1.png"
+    },
+    {
+      "key": "grok-adult-original-book",
+      "character": "grok-adult",
+      "outfit": "original",
+      "candidates": [
+        {
+          "file": "grok-adult-original-book-v1.png",
+          "ok": true,
+          "rows": 1,
+          "referenceHeight": 706.0,
+          "heightVariation": 0.0,
+          "heights": [
+            706,
+            706,
+            706,
+            706
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "grok-adult-original-book-v1.png"
+    },
+    {
+      "key": "grok-adult-original-photo",
+      "character": "grok-adult",
+      "outfit": "original",
+      "candidates": [
+        {
+          "file": "grok-adult-original-photo-v1.png",
+          "ok": true,
+          "rows": 1,
+          "referenceHeight": 701.5,
+          "heightVariation": 0.00429,
+          "heights": [
+            702,
+            700,
+            701,
+            703
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "grok-adult-original-photo-v1.png"
+    },
+    {
+      "key": "grok-adult-swim-highfive",
+      "character": "grok-adult",
+      "outfit": "swim",
+      "candidates": [
+        {
+          "file": "grok-adult-swim-highfive-v1.png",
+          "ok": true,
+          "rows": 1,
+          "referenceHeight": 713.0,
+          "heightVariation": 0.00281,
+          "heights": [
+            713,
+            713,
+            712,
+            714
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "grok-adult-swim-highfive-v1.png"
+    },
+    {
+      "key": "grok-adult-swim-rps",
+      "character": "grok-adult",
+      "outfit": "swim",
+      "candidates": [
+        {
+          "file": "grok-adult-swim-rps-v1.png",
+          "ok": true,
+          "rows": 1,
+          "referenceHeight": 705.5,
+          "heightVariation": 0.00142,
+          "heights": [
+            705,
+            706,
+            706,
+            705
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "grok-adult-swim-rps-v1.png"
+    },
+    {
+      "key": "grok-adult-swim-handoff",
+      "character": "grok-adult",
+      "outfit": "swim",
+      "candidates": [
+        {
+          "file": "grok-adult-swim-handoff-v1.png",
+          "ok": true,
+          "rows": 1,
+          "referenceHeight": 709.0,
+          "heightVariation": 0.00141,
+          "heights": [
+            709,
+            709,
+            708,
+            709
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "grok-adult-swim-handoff-v1.png"
+    },
+    {
+      "key": "grok-adult-swim-book",
+      "character": "grok-adult",
+      "outfit": "swim",
+      "candidates": [
+        {
+          "file": "grok-adult-swim-book-v1.png",
+          "ok": true,
+          "rows": 1,
+          "referenceHeight": 716.0,
+          "heightVariation": 0.0014,
+          "heights": [
+            715,
+            716,
+            716,
+            716
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "grok-adult-swim-book-v1.png"
+    },
+    {
+      "key": "grok-adult-swim-photo",
+      "character": "grok-adult",
+      "outfit": "swim",
+      "candidates": [
+        {
+          "file": "grok-adult-swim-photo-v1.png",
+          "ok": true,
+          "rows": 1,
+          "referenceHeight": 707.0,
+          "heightVariation": 0.00283,
+          "heights": [
+            707,
+            707,
+            707,
+            709
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "grok-adult-swim-photo-v1.png"
+    },
+    {
+      "key": "grok-adult-wedding-highfive",
+      "character": "grok-adult",
+      "outfit": "wedding",
+      "candidates": [
+        {
+          "file": "grok-adult-wedding-highfive-v1.png",
+          "ok": true,
+          "rows": 2,
+          "referenceHeight": 629.5,
+          "heightVariation": 0.01118,
+          "heights": [
+            633,
+            633,
+            626,
+            626
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "grok-adult-wedding-highfive-v1.png"
+    },
+    {
+      "key": "grok-adult-wedding-rps",
+      "character": "grok-adult",
+      "outfit": "wedding",
+      "candidates": [
+        {
+          "file": "grok-adult-wedding-rps-v1.png",
+          "ok": true,
+          "rows": 2,
+          "referenceHeight": 621.5,
+          "heightVariation": 0.00161,
+          "heights": [
+            622,
+            622,
+            621,
+            621
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "grok-adult-wedding-rps-v1.png"
+    },
+    {
+      "key": "grok-adult-wedding-handoff",
+      "character": "grok-adult",
+      "outfit": "wedding",
+      "candidates": [
+        {
+          "file": "grok-adult-wedding-handoff-v1.png",
+          "ok": true,
+          "rows": 2,
+          "referenceHeight": 620.0,
+          "heightVariation": 0.00323,
+          "heights": [
+            619,
+            619,
+            621,
+            621
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "grok-adult-wedding-handoff-v1.png"
+    },
+    {
+      "key": "grok-adult-wedding-book",
+      "character": "grok-adult",
+      "outfit": "wedding",
+      "candidates": [
+        {
+          "file": "grok-adult-wedding-book-v1.png",
+          "ok": true,
+          "rows": 2,
+          "referenceHeight": 626.5,
+          "heightVariation": 0.01449,
+          "heights": [
+            630,
+            629,
+            621,
+            624
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "grok-adult-wedding-book-v1.png"
+    },
+    {
+      "key": "grok-adult-wedding-photo",
+      "character": "grok-adult",
+      "outfit": "wedding",
+      "candidates": [
+        {
+          "file": "grok-adult-wedding-photo-v1.png",
+          "ok": true,
+          "rows": 2,
+          "referenceHeight": 623.5,
+          "heightVariation": 0.00161,
+          "heights": [
+            624,
+            623,
+            624,
+            623
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "grok-adult-wedding-photo-v1.png"
+    },
+    {
+      "key": "grok-adult-sports-highfive",
+      "character": "grok-adult",
+      "outfit": "sports",
+      "candidates": [
+        {
+          "file": "grok-adult-sports-highfive-v1.png",
+          "ok": true,
+          "rows": 1,
+          "referenceHeight": 694.5,
+          "heightVariation": 0.00144,
+          "heights": [
+            694,
+            695,
+            695,
+            694
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "grok-adult-sports-highfive-v1.png"
+    },
+    {
+      "key": "grok-adult-sports-rps",
+      "character": "grok-adult",
+      "outfit": "sports",
+      "candidates": [
+        {
+          "file": "grok-adult-sports-rps-v1.png",
+          "ok": true,
+          "rows": 1,
+          "referenceHeight": 686.0,
+          "heightVariation": 0.0,
+          "heights": [
+            686,
+            686,
+            686,
+            686
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "grok-adult-sports-rps-v1.png"
+    },
+    {
+      "key": "grok-adult-sports-handoff",
+      "character": "grok-adult",
+      "outfit": "sports",
+      "candidates": [
+        {
+          "file": "grok-adult-sports-handoff-v1.png",
+          "ok": true,
+          "rows": 1,
+          "referenceHeight": 686.0,
+          "heightVariation": 0.00292,
+          "heights": [
+            686,
+            686,
+            684,
+            686
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "grok-adult-sports-handoff-v1.png"
+    },
+    {
+      "key": "grok-adult-sports-book",
+      "character": "grok-adult",
+      "outfit": "sports",
+      "candidates": [
+        {
+          "file": "grok-adult-sports-book-v1.png",
+          "ok": true,
+          "rows": 1,
+          "referenceHeight": 688.5,
+          "heightVariation": 0.00437,
+          "heights": [
+            687,
+            690,
+            688,
+            689
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "grok-adult-sports-book-v1.png"
+    },
+    {
+      "key": "grok-adult-sports-photo",
+      "character": "grok-adult",
+      "outfit": "sports",
+      "candidates": [
+        {
+          "file": "grok-adult-sports-photo-v1.png",
+          "ok": true,
+          "rows": 1,
+          "referenceHeight": 675.5,
+          "heightVariation": 0.00148,
+          "heights": [
+            676,
+            675,
+            675,
+            676
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "grok-adult-sports-photo-v1.png"
+    },
+    {
+      "key": "kimi-adult-original-highfive",
+      "character": "kimi-adult",
+      "outfit": "original",
+      "candidates": [
+        {
+          "file": "kimi-adult-original-highfive-v1.png",
+          "ok": true,
+          "rows": 1,
+          "referenceHeight": 710.5,
+          "heightVariation": 0.00141,
+          "heights": [
+            710,
+            711,
+            710,
+            711
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "kimi-adult-original-highfive-v1.png"
+    },
+    {
+      "key": "kimi-adult-original-rps",
+      "character": "kimi-adult",
+      "outfit": "original",
+      "candidates": [
+        {
+          "file": "kimi-adult-original-rps-v1.png",
+          "ok": true,
+          "rows": 1,
+          "referenceHeight": 708.0,
+          "heightVariation": 0.0,
+          "heights": [
+            708,
+            708,
+            708,
+            708
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "kimi-adult-original-rps-v1.png"
+    },
+    {
+      "key": "kimi-adult-original-handoff",
+      "character": "kimi-adult",
+      "outfit": "original",
+      "candidates": [
+        {
+          "file": "kimi-adult-original-handoff-v1.png",
+          "ok": true,
+          "rows": 1,
+          "referenceHeight": 707.0,
+          "heightVariation": 0.0,
+          "heights": [
+            707,
+            707,
+            707,
+            707
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "kimi-adult-original-handoff-v1.png"
+    },
+    {
+      "key": "kimi-adult-original-book",
+      "character": "kimi-adult",
+      "outfit": "original",
+      "candidates": [
+        {
+          "file": "kimi-adult-original-book-v1.png",
+          "ok": true,
+          "rows": 1,
+          "referenceHeight": 703.0,
+          "heightVariation": 0.00428,
+          "heights": [
+            704,
+            701,
+            702,
+            704
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "kimi-adult-original-book-v1.png"
+    },
+    {
+      "key": "kimi-adult-original-photo",
+      "character": "kimi-adult",
+      "outfit": "original",
+      "candidates": [
+        {
+          "file": "kimi-adult-original-photo-v1.png",
+          "ok": true,
+          "rows": 1,
+          "referenceHeight": 701.0,
+          "heightVariation": 0.00286,
+          "heights": [
+            702,
+            700,
+            701,
+            701
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "kimi-adult-original-photo-v1.png"
+    },
+    {
+      "key": "kimi-adult-swim-highfive",
+      "character": "kimi-adult",
+      "outfit": "swim",
+      "candidates": [
+        {
+          "file": "kimi-adult-swim-highfive-v1.png",
+          "ok": true,
+          "rows": 1,
+          "referenceHeight": 699.5,
+          "heightVariation": 0.00287,
+          "heights": [
+            698,
+            700,
+            700,
+            699
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "kimi-adult-swim-highfive-v1.png"
+    },
+    {
+      "key": "kimi-adult-swim-rps",
+      "character": "kimi-adult",
+      "outfit": "swim",
+      "candidates": [
+        {
+          "file": "kimi-adult-swim-rps-v1.png",
+          "ok": true,
+          "rows": 1,
+          "referenceHeight": 707.0,
+          "heightVariation": 0.0,
+          "heights": [
+            707,
+            707,
+            707,
+            707
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "kimi-adult-swim-rps-v1.png"
+    },
+    {
+      "key": "kimi-adult-swim-handoff",
+      "character": "kimi-adult",
+      "outfit": "swim",
+      "candidates": [
+        {
+          "file": "kimi-adult-swim-handoff-v1.png",
+          "ok": true,
+          "rows": 1,
+          "referenceHeight": 706.5,
+          "heightVariation": 0.00142,
+          "heights": [
+            707,
+            707,
+            706,
+            706
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "kimi-adult-swim-handoff-v1.png"
+    },
+    {
+      "key": "kimi-adult-swim-book",
+      "character": "kimi-adult",
+      "outfit": "swim",
+      "candidates": [
+        {
+          "file": "kimi-adult-swim-book-v1.png",
+          "ok": true,
+          "rows": 1,
+          "referenceHeight": 706.0,
+          "heightVariation": 0.00284,
+          "heights": [
+            706,
+            706,
+            705,
+            707
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "kimi-adult-swim-book-v1.png"
+    },
+    {
+      "key": "kimi-adult-swim-photo",
+      "character": "kimi-adult",
+      "outfit": "swim",
+      "candidates": [
+        {
+          "file": "kimi-adult-swim-photo-v1.png",
+          "ok": true,
+          "rows": 1,
+          "referenceHeight": 690.0,
+          "heightVariation": 0.00145,
+          "heights": [
+            690,
+            689,
+            690,
+            690
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "kimi-adult-swim-photo-v1.png"
+    },
+    {
+      "key": "kimi-adult-wedding-highfive",
+      "character": "kimi-adult",
+      "outfit": "wedding",
+      "candidates": [
+        {
+          "file": "kimi-adult-wedding-highfive-v1.png",
+          "ok": true,
+          "rows": 2,
+          "referenceHeight": 617.0,
+          "heightVariation": 0.0,
+          "heights": [
+            617,
+            617,
+            617,
+            617
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "kimi-adult-wedding-highfive-v1.png"
+    },
+    {
+      "key": "kimi-adult-wedding-rps",
+      "character": "kimi-adult",
+      "outfit": "wedding",
+      "candidates": [
+        {
+          "file": "kimi-adult-wedding-rps-v1.png",
+          "ok": true,
+          "rows": 2,
+          "referenceHeight": 617.5,
+          "heightVariation": 0.00162,
+          "heights": [
+            618,
+            617,
+            618,
+            617
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "kimi-adult-wedding-rps-v1.png"
+    },
+    {
+      "key": "kimi-adult-wedding-handoff",
+      "character": "kimi-adult",
+      "outfit": "wedding",
+      "candidates": [
+        {
+          "file": "kimi-adult-wedding-handoff-v1.png",
+          "ok": true,
+          "rows": 2,
+          "referenceHeight": 615.0,
+          "heightVariation": 0.00653,
+          "heights": [
+            617,
+            617,
+            613,
+            613
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "kimi-adult-wedding-handoff-v1.png"
+    },
+    {
+      "key": "kimi-adult-wedding-book",
+      "character": "kimi-adult",
+      "outfit": "wedding",
+      "candidates": [
+        {
+          "file": "kimi-adult-wedding-book-v1.png",
+          "ok": true,
+          "rows": 2,
+          "referenceHeight": 614.0,
+          "heightVariation": 0.00654,
+          "heights": [
+            613,
+            612,
+            615,
+            616
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "kimi-adult-wedding-book-v1.png"
+    },
+    {
+      "key": "kimi-adult-wedding-photo",
+      "character": "kimi-adult",
+      "outfit": "wedding",
+      "candidates": [
+        {
+          "file": "kimi-adult-wedding-photo-v1.png",
+          "ok": true,
+          "rows": 2,
+          "referenceHeight": 611.0,
+          "heightVariation": 0.00493,
+          "heights": [
+            612,
+            609,
+            610,
+            612
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "kimi-adult-wedding-photo-v1.png"
+    },
+    {
+      "key": "kimi-adult-sports-highfive",
+      "character": "kimi-adult",
+      "outfit": "sports",
+      "candidates": [
+        {
+          "file": "kimi-adult-sports-highfive-v1.png",
+          "ok": true,
+          "rows": 1,
+          "referenceHeight": 672.0,
+          "heightVariation": 0.00149,
+          "heights": [
+            672,
+            673,
+            672,
+            672
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "kimi-adult-sports-highfive-v1.png"
+    },
+    {
+      "key": "kimi-adult-sports-rps",
+      "character": "kimi-adult",
+      "outfit": "sports",
+      "candidates": [
+        {
+          "file": "kimi-adult-sports-rps-v1.png",
+          "ok": true,
+          "rows": 1,
+          "referenceHeight": 699.5,
+          "heightVariation": 0.00286,
+          "heights": [
+            701,
+            699,
+            700,
+            699
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "kimi-adult-sports-rps-v1.png"
+    },
+    {
+      "key": "kimi-adult-sports-handoff",
+      "character": "kimi-adult",
+      "outfit": "sports",
+      "candidates": [
+        {
+          "file": "kimi-adult-sports-handoff-v1.png",
+          "ok": true,
+          "rows": 1,
+          "referenceHeight": 686.0,
+          "heightVariation": 0.00292,
+          "heights": [
+            686,
+            687,
+            686,
+            685
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "kimi-adult-sports-handoff-v1.png"
+    },
+    {
+      "key": "kimi-adult-sports-book",
+      "character": "kimi-adult",
+      "outfit": "sports",
+      "candidates": [
+        {
+          "file": "kimi-adult-sports-book-v1.png",
+          "ok": true,
+          "rows": 1,
+          "referenceHeight": 669.5,
+          "heightVariation": 0.00449,
+          "heights": [
+            669,
+            670,
+            668,
+            671
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "kimi-adult-sports-book-v1.png"
+    },
+    {
+      "key": "kimi-adult-sports-photo",
+      "character": "kimi-adult",
+      "outfit": "sports",
+      "candidates": [
+        {
+          "file": "kimi-adult-sports-photo-v1.png",
+          "ok": true,
+          "rows": 1,
+          "referenceHeight": 659.0,
+          "heightVariation": 0.00456,
+          "heights": [
+            658,
+            659,
+            661,
+            659
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "kimi-adult-sports-photo-v1.png"
+    },
+    {
+      "key": "qwen-adult-original-highfive",
+      "character": "qwen-adult",
+      "outfit": "original",
+      "candidates": [
+        {
+          "file": "qwen-adult-original-highfive-v1.png",
+          "ok": true,
+          "rows": 1,
+          "referenceHeight": 711.0,
+          "heightVariation": 0.0,
+          "heights": [
+            711,
+            711,
+            711,
+            711
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "qwen-adult-original-highfive-v1.png"
+    },
+    {
+      "key": "qwen-adult-original-rps",
+      "character": "qwen-adult",
+      "outfit": "original",
+      "candidates": [
+        {
+          "file": "qwen-adult-original-rps-v1.png",
+          "ok": true,
+          "rows": 1,
+          "referenceHeight": 714.0,
+          "heightVariation": 0.0014,
+          "heights": [
+            715,
+            714,
+            714,
+            714
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "qwen-adult-original-rps-v1.png"
+    },
+    {
+      "key": "qwen-adult-original-handoff",
+      "character": "qwen-adult",
+      "outfit": "original",
+      "candidates": [
+        {
+          "file": "qwen-adult-original-handoff-v1.png",
+          "ok": true,
+          "rows": 1,
+          "referenceHeight": 711.0,
+          "heightVariation": 0.00282,
+          "heights": [
+            709,
+            711,
+            711,
+            711
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "qwen-adult-original-handoff-v1.png"
+    },
+    {
+      "key": "qwen-adult-original-book",
+      "character": "qwen-adult",
+      "outfit": "original",
+      "candidates": [
+        {
+          "file": "qwen-adult-original-book-v1.png",
+          "ok": true,
+          "rows": 1,
+          "referenceHeight": 713.0,
+          "heightVariation": 0.0014,
+          "heights": [
+            713,
+            713,
+            712,
+            713
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "qwen-adult-original-book-v1.png"
+    },
+    {
+      "key": "qwen-adult-original-photo",
+      "character": "qwen-adult",
+      "outfit": "original",
+      "candidates": [
+        {
+          "file": "qwen-adult-original-photo-v1.png",
+          "ok": true,
+          "rows": 1,
+          "referenceHeight": 716.0,
+          "heightVariation": 0.0,
+          "heights": [
+            716,
+            716,
+            716,
+            716
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "qwen-adult-original-photo-v1.png"
+    },
+    {
+      "key": "qwen-adult-swim-highfive",
+      "character": "qwen-adult",
+      "outfit": "swim",
+      "candidates": [
+        {
+          "file": "qwen-adult-swim-highfive-v1.png",
+          "ok": true,
+          "rows": 1,
+          "referenceHeight": 703.0,
+          "heightVariation": 0.0,
+          "heights": [
+            703,
+            703,
+            703,
+            703
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "qwen-adult-swim-highfive-v1.png"
+    },
+    {
+      "key": "qwen-adult-swim-rps",
+      "character": "qwen-adult",
+      "outfit": "swim",
+      "candidates": [
+        {
+          "file": "qwen-adult-swim-rps-v1.png",
+          "ok": true,
+          "rows": 1,
+          "referenceHeight": 705.0,
+          "heightVariation": 0.00142,
+          "heights": [
+            705,
+            706,
+            705,
+            705
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "qwen-adult-swim-rps-v1.png"
+    },
+    {
+      "key": "qwen-adult-swim-handoff",
+      "character": "qwen-adult",
+      "outfit": "swim",
+      "candidates": [
+        {
+          "file": "qwen-adult-swim-handoff-v1.png",
+          "ok": true,
+          "rows": 1,
+          "referenceHeight": 715.5,
+          "heightVariation": 0.00421,
+          "heights": [
+            713,
+            715,
+            716,
+            716
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "qwen-adult-swim-handoff-v1.png"
+    },
+    {
+      "key": "qwen-adult-swim-book",
+      "character": "qwen-adult",
+      "outfit": "swim",
+      "candidates": [
+        {
+          "file": "qwen-adult-swim-book-v1.png",
+          "ok": true,
+          "rows": 1,
+          "referenceHeight": 703.5,
+          "heightVariation": 0.00142,
+          "heights": [
+            703,
+            704,
+            704,
+            703
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "qwen-adult-swim-book-v1.png"
+    },
+    {
+      "key": "qwen-adult-swim-photo",
+      "character": "qwen-adult",
+      "outfit": "swim",
+      "candidates": [
+        {
+          "file": "qwen-adult-swim-photo-v1.png",
+          "ok": true,
+          "rows": 1,
+          "referenceHeight": 698.0,
+          "heightVariation": 0.0,
+          "heights": [
+            698,
+            698,
+            698,
+            698
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "qwen-adult-swim-photo-v1.png"
+    },
+    {
+      "key": "qwen-adult-wedding-highfive",
+      "character": "qwen-adult",
+      "outfit": "wedding",
+      "candidates": [
+        {
+          "file": "qwen-adult-wedding-highfive-v1.png",
+          "ok": true,
+          "rows": 2,
+          "referenceHeight": 624.0,
+          "heightVariation": 0.00322,
+          "heights": [
+            624,
+            624,
+            624,
+            622
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "qwen-adult-wedding-highfive-v1.png"
+    },
+    {
+      "key": "qwen-adult-wedding-rps",
+      "character": "qwen-adult",
+      "outfit": "wedding",
+      "candidates": [
+        {
+          "file": "qwen-adult-wedding-rps-v1.png",
+          "ok": true,
+          "rows": 2,
+          "referenceHeight": 615.5,
+          "heightVariation": 0.00326,
+          "heights": [
+            615,
+            614,
+            616,
+            616
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "qwen-adult-wedding-rps-v1.png"
+    },
+    {
+      "key": "qwen-adult-wedding-handoff",
+      "character": "qwen-adult",
+      "outfit": "wedding",
+      "candidates": [
+        {
+          "file": "qwen-adult-wedding-handoff-v1.png",
+          "ok": true,
+          "rows": 2,
+          "referenceHeight": 623.0,
+          "heightVariation": 0.00644,
+          "heights": [
+            624,
+            625,
+            621,
+            622
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "qwen-adult-wedding-handoff-v1.png"
+    },
+    {
+      "key": "qwen-adult-wedding-book",
+      "character": "qwen-adult",
+      "outfit": "wedding",
+      "candidates": [
+        {
+          "file": "qwen-adult-wedding-book-v1.png",
+          "ok": true,
+          "rows": 2,
+          "referenceHeight": 610.5,
+          "heightVariation": 0.00328,
+          "heights": [
+            612,
+            610,
+            610,
+            611
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "qwen-adult-wedding-book-v1.png"
+    },
+    {
+      "key": "qwen-adult-wedding-photo",
+      "character": "qwen-adult",
+      "outfit": "wedding",
+      "candidates": [
+        {
+          "file": "qwen-adult-wedding-photo-v1.png",
+          "ok": true,
+          "rows": 2,
+          "referenceHeight": 608.5,
+          "heightVariation": 0.00661,
+          "heights": [
+            608,
+            605,
+            609,
+            609
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "qwen-adult-wedding-photo-v1.png"
+    },
+    {
+      "key": "qwen-adult-sports-highfive",
+      "character": "qwen-adult",
+      "outfit": "sports",
+      "candidates": [
+        {
+          "file": "qwen-adult-sports-highfive-v1.png",
+          "ok": true,
+          "rows": 1,
+          "referenceHeight": 691.0,
+          "heightVariation": 0.00145,
+          "heights": [
+            691,
+            691,
+            691,
+            692
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "qwen-adult-sports-highfive-v1.png"
+    },
+    {
+      "key": "qwen-adult-sports-rps",
+      "character": "qwen-adult",
+      "outfit": "sports",
+      "candidates": [
+        {
+          "file": "qwen-adult-sports-rps-v1.png",
+          "ok": true,
+          "rows": 1,
+          "referenceHeight": 684.0,
+          "heightVariation": 0.0,
+          "heights": [
+            684,
+            684,
+            684,
+            684
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "qwen-adult-sports-rps-v1.png"
+    },
+    {
+      "key": "qwen-adult-sports-handoff",
+      "character": "qwen-adult",
+      "outfit": "sports",
+      "candidates": [
+        {
+          "file": "qwen-adult-sports-handoff-v1.png",
+          "ok": true,
+          "rows": 1,
+          "referenceHeight": 685.0,
+          "heightVariation": 0.0,
+          "heights": [
+            685,
+            685,
+            685,
+            685
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "qwen-adult-sports-handoff-v1.png"
+    },
+    {
+      "key": "qwen-adult-sports-book",
+      "character": "qwen-adult",
+      "outfit": "sports",
+      "candidates": [
+        {
+          "file": "qwen-adult-sports-book-v1.png",
+          "ok": true,
+          "rows": 1,
+          "referenceHeight": 703.0,
+          "heightVariation": 0.00428,
+          "heights": [
+            703,
+            704,
+            701,
+            703
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "qwen-adult-sports-book-v1.png"
+    },
+    {
+      "key": "qwen-adult-sports-photo",
+      "character": "qwen-adult",
+      "outfit": "sports",
+      "candidates": [
+        {
+          "file": "qwen-adult-sports-photo-v1.png",
+          "ok": true,
+          "rows": 1,
+          "referenceHeight": 676.5,
+          "heightVariation": 0.00296,
+          "heights": [
+            678,
+            676,
+            677,
+            676
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "qwen-adult-sports-photo-v1.png"
+    },
+    {
+      "key": "zhipu-adult-original-highfive",
+      "character": "zhipu-adult",
+      "outfit": "original",
+      "candidates": [
+        {
+          "file": "zhipu-adult-original-highfive-v1.png",
+          "ok": true,
+          "rows": 1,
+          "referenceHeight": 717.0,
+          "heightVariation": 0.00279,
+          "heights": [
+            718,
+            718,
+            716,
+            716
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "zhipu-adult-original-highfive-v1.png"
+    },
+    {
+      "key": "zhipu-adult-original-rps",
+      "character": "zhipu-adult",
+      "outfit": "original",
+      "candidates": [
+        {
+          "file": "zhipu-adult-original-rps-v1.png",
+          "ok": true,
+          "rows": 1,
+          "referenceHeight": 715.0,
+          "heightVariation": 0.0014,
+          "heights": [
+            715,
+            715,
+            714,
+            715
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "zhipu-adult-original-rps-v1.png"
+    },
+    {
+      "key": "zhipu-adult-original-handoff",
+      "character": "zhipu-adult",
+      "outfit": "original",
+      "candidates": [
+        {
+          "file": "zhipu-adult-original-handoff-v1.png",
+          "ok": true,
+          "rows": 1,
+          "referenceHeight": 720.0,
+          "heightVariation": 0.00139,
+          "heights": [
+            720,
+            720,
+            721,
+            720
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "zhipu-adult-original-handoff-v1.png"
+    },
+    {
+      "key": "zhipu-adult-original-book",
+      "character": "zhipu-adult",
+      "outfit": "original",
+      "candidates": [
+        {
+          "file": "zhipu-adult-original-book-v1.png",
+          "ok": true,
+          "rows": 1,
+          "referenceHeight": 714.0,
+          "heightVariation": 0.0014,
+          "heights": [
+            714,
+            714,
+            714,
+            713
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "zhipu-adult-original-book-v1.png"
+    },
+    {
+      "key": "zhipu-adult-original-photo",
+      "character": "zhipu-adult",
+      "outfit": "original",
+      "candidates": [
+        {
+          "file": "zhipu-adult-original-photo-v1.png",
+          "ok": true,
+          "rows": 1,
+          "referenceHeight": 714.5,
+          "heightVariation": 0.0014,
+          "heights": [
+            715,
+            714,
+            715,
+            714
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "zhipu-adult-original-photo-v1.png"
+    },
+    {
+      "key": "zhipu-adult-swim-highfive",
+      "character": "zhipu-adult",
+      "outfit": "swim",
+      "candidates": [
+        {
+          "file": "zhipu-adult-swim-highfive-v1.png",
+          "ok": true,
+          "rows": 1,
+          "referenceHeight": 705.0,
+          "heightVariation": 0.00142,
+          "heights": [
+            705,
+            705,
+            704,
+            705
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "zhipu-adult-swim-highfive-v1.png"
+    },
+    {
+      "key": "zhipu-adult-swim-rps",
+      "character": "zhipu-adult",
+      "outfit": "swim",
+      "candidates": [
+        {
+          "file": "zhipu-adult-swim-rps-v1.png",
+          "ok": true,
+          "rows": 1,
+          "referenceHeight": 713.5,
+          "heightVariation": 0.0014,
+          "heights": [
+            713,
+            714,
+            713,
+            714
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "zhipu-adult-swim-rps-v1.png"
+    },
+    {
+      "key": "zhipu-adult-swim-handoff",
+      "character": "zhipu-adult",
+      "outfit": "swim",
+      "candidates": [
+        {
+          "file": "zhipu-adult-swim-handoff-v1.png",
+          "ok": true,
+          "rows": 1,
+          "referenceHeight": 711.0,
+          "heightVariation": 0.0,
+          "heights": [
+            711,
+            711,
+            711,
+            711
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "zhipu-adult-swim-handoff-v1.png"
+    },
+    {
+      "key": "zhipu-adult-swim-book",
+      "character": "zhipu-adult",
+      "outfit": "swim",
+      "candidates": [
+        {
+          "file": "zhipu-adult-swim-book-v1.png",
+          "ok": true,
+          "rows": 1,
+          "referenceHeight": 717.0,
+          "heightVariation": 0.00559,
+          "heights": [
+            719,
+            716,
+            715,
+            718
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "zhipu-adult-swim-book-v1.png"
+    },
+    {
+      "key": "zhipu-adult-swim-photo",
+      "character": "zhipu-adult",
+      "outfit": "swim",
+      "candidates": [
+        {
+          "file": "zhipu-adult-swim-photo-v1.png",
+          "ok": true,
+          "rows": 1,
+          "referenceHeight": 712.0,
+          "heightVariation": 0.0014,
+          "heights": [
+            712,
+            713,
+            712,
+            712
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "zhipu-adult-swim-photo-v1.png"
+    },
+    {
+      "key": "zhipu-adult-wedding-highfive",
+      "character": "zhipu-adult",
+      "outfit": "wedding",
+      "candidates": [
+        {
+          "file": "zhipu-adult-wedding-highfive-v1.png",
+          "ok": true,
+          "rows": 2,
+          "referenceHeight": 618.0,
+          "heightVariation": 0.02627,
+          "heights": [
+            625,
+            625,
+            609,
+            611
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "zhipu-adult-wedding-highfive-v1.png"
+    },
+    {
+      "key": "zhipu-adult-wedding-rps",
+      "character": "zhipu-adult",
+      "outfit": "wedding",
+      "candidates": [
+        {
+          "file": "zhipu-adult-wedding-rps-v1.png",
+          "ok": true,
+          "rows": 2,
+          "referenceHeight": 612.5,
+          "heightVariation": 0.00655,
+          "heights": [
+            614,
+            615,
+            611,
+            611
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "zhipu-adult-wedding-rps-v1.png"
+    },
+    {
+      "key": "zhipu-adult-wedding-handoff",
+      "character": "zhipu-adult",
+      "outfit": "wedding",
+      "candidates": [
+        {
+          "file": "zhipu-adult-wedding-handoff-v1.png",
+          "ok": true,
+          "rows": 2,
+          "referenceHeight": 617.0,
+          "heightVariation": 0.0065,
+          "heights": [
+            618,
+            619,
+            616,
+            615
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "zhipu-adult-wedding-handoff-v1.png"
+    },
+    {
+      "key": "zhipu-adult-wedding-book",
+      "character": "zhipu-adult",
+      "outfit": "wedding",
+      "candidates": [
+        {
+          "file": "zhipu-adult-wedding-book-v1.png",
+          "ok": true,
+          "rows": 2,
+          "referenceHeight": 621.5,
+          "heightVariation": 0.01951,
+          "heights": [
+            626,
+            627,
+            615,
+            617
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "zhipu-adult-wedding-book-v1.png"
+    },
+    {
+      "key": "zhipu-adult-wedding-photo",
+      "character": "zhipu-adult",
+      "outfit": "wedding",
+      "candidates": [
+        {
+          "file": "zhipu-adult-wedding-photo-v1.png",
+          "ok": true,
+          "rows": 2,
+          "referenceHeight": 620.5,
+          "heightVariation": 0.00485,
+          "heights": [
+            618,
+            621,
+            621,
+            620
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "zhipu-adult-wedding-photo-v1.png"
+    },
+    {
+      "key": "zhipu-adult-sports-highfive",
+      "character": "zhipu-adult",
+      "outfit": "sports",
+      "candidates": [
+        {
+          "file": "zhipu-adult-sports-highfive-v1.png",
+          "ok": true,
+          "rows": 1,
+          "referenceHeight": 687.0,
+          "heightVariation": 0.01022,
+          "heights": [
+            686,
+            692,
+            685,
+            688
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "zhipu-adult-sports-highfive-v1.png"
+    },
+    {
+      "key": "zhipu-adult-sports-rps",
+      "character": "zhipu-adult",
+      "outfit": "sports",
+      "candidates": [
+        {
+          "file": "zhipu-adult-sports-rps-v1.png",
+          "ok": true,
+          "rows": 1,
+          "referenceHeight": 689.5,
+          "heightVariation": 0.00583,
+          "heights": [
+            690,
+            689,
+            686,
+            690
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "zhipu-adult-sports-rps-v1.png"
+    },
+    {
+      "key": "zhipu-adult-sports-handoff",
+      "character": "zhipu-adult",
+      "outfit": "sports",
+      "candidates": [
+        {
+          "file": "zhipu-adult-sports-handoff-v1.png",
+          "ok": true,
+          "rows": 1,
+          "referenceHeight": 673.0,
+          "heightVariation": 0.00746,
+          "heights": [
+            674,
+            675,
+            670,
+            672
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "zhipu-adult-sports-handoff-v1.png"
+    },
+    {
+      "key": "zhipu-adult-sports-book",
+      "character": "zhipu-adult",
+      "outfit": "sports",
+      "candidates": [
+        {
+          "file": "zhipu-adult-sports-book-v1.png",
+          "ok": true,
+          "rows": 1,
+          "referenceHeight": 701.5,
+          "heightVariation": 0.01879,
+          "heights": [
+            705,
+            699,
+            692,
+            704
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "zhipu-adult-sports-book-v1.png"
+    },
+    {
+      "key": "zhipu-adult-sports-photo",
+      "character": "zhipu-adult",
+      "outfit": "sports",
+      "candidates": [
+        {
+          "file": "zhipu-adult-sports-photo-v1.png",
+          "ok": true,
+          "rows": 1,
+          "referenceHeight": 696.0,
+          "heightVariation": 0.00868,
+          "heights": [
+            691,
+            697,
+            695,
+            697
+          ],
+          "issue": ""
+        }
+      ],
+      "geometryCandidate": "zhipu-adult-sports-photo-v1.png"
+    }
+  ]
+}

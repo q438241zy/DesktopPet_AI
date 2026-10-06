@@ -1,0 +1,21 @@
+{
+  "key": "zhipu-care-wedding-v3",
+  "id": "zhipu",
+  "family": "zhipu",
+  "style": "chibi",
+  "kind": "care",
+  "outfits": [
+    "wedding"
+  ],
+  "columns": 4,
+  "rows": 2,
+  "dest": "src/DesktopPet.App/Assets/Characters/zhipu/motions/cloud-care-wedding.png",
+  "refs": [
+    "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/zhipu/outfits/wedding.webp"
+  ],
+  "prompt": "Create a family-friendly cute mascot care sprite sheet using the reference character and exact costume. Eight complete seated full-body poses in 4 columns by 2 rows: comb held, comb to hair, comb down lock, comb lowered; white towel held, towel to cheek, gentle head tilt wiping, towel lowered. Preserve hair ornaments on the same side, all anatomy and clothes, full figures with ample transparent gaps and outer borders. True transparent alpha; no background, text or additional effects.",
+  "selected": true,
+  "source": "D:\\VibeCoding\\Character\\artwork\\care-contact\\zhipu-care-wedding-v3.png",
+  "originalSource": "C:/Users/99000256/.codex/generated_images/01a0e159-1c2b-7643-8517-9ec7beebfed3/exec-8f573f2a-9c54-45b0-beef-9b06efb046ab.png",
+  "visualReview": "Approved full eight isolated poses; identity, outfit, actual comb/towel hand contact and transparent boundary inspected."
+}

@@ -1,0 +1,73 @@
+[
+  {
+    "key": "gemini-adult-shorts-portrait-v2",
+    "id": "gemini-adult",
+    "family": "gemini",
+    "style": "realistic",
+    "kind": "portrait",
+    "columns": 3,
+    "rows": 4,
+    "refs": [
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/gemini-adult/outfits/sports/portrait.png"
+    ],
+    "prompt": "Repair layout ONLY of this TWELVE-POSE adult 3D sports sprite atlas. Keep the exact face, hair, short-sleeve sports top, mid-thigh shorts, white ankle socks and trainers, all 12 actions and 3x4 order. Shrink each complete figure uniformly by 18% around the centre of its own cell, so every limb, shoe, head, hair curl, ears and tail are completely separated from neighboring cells by at least 25 pixels of fully transparent gutter. All 12 figures same pixel scale, including tilted poses. Restore any clipped hair tips. Exactly three columns, four rows, complete adult full bodies, no extra poses. Do not change shorts into long trousers. Actual transparent alpha, no background/glow/shadow/text.",
+    "dest": "src/DesktopPet.App/Assets/Characters/gemini-adult/outfits/sports/portrait.png"
+  },
+  {
+    "key": "qwen-adult-shorts-portrait-v2",
+    "id": "qwen-adult",
+    "family": "qwen",
+    "style": "realistic",
+    "kind": "portrait",
+    "columns": 3,
+    "rows": 4,
+    "refs": [
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/qwen-adult/outfits/sports/portrait.png"
+    ],
+    "prompt": "Repair layout ONLY of this TWELVE-POSE adult 3D sports sprite atlas. Keep the exact face, hair, short-sleeve sports top, mid-thigh shorts, white ankle socks and trainers, all 12 actions and 3x4 order. Shrink each complete figure uniformly by 18% around the centre of its own cell, so every limb, shoe, head, hair curl, ears and tail are completely separated from neighboring cells by at least 25 pixels of fully transparent gutter. All 12 figures same pixel scale, including tilted poses. Restore any clipped hair tips. Exactly three columns, four rows, complete adult full bodies, no extra poses. Do not change shorts into long trousers. Actual transparent alpha, no background/glow/shadow/text.",
+    "dest": "src/DesktopPet.App/Assets/Characters/qwen-adult/outfits/sports/portrait.png"
+  },
+  {
+    "key": "zhipu-adult-shorts-portrait-v2",
+    "id": "zhipu-adult",
+    "family": "zhipu",
+    "style": "realistic",
+    "kind": "portrait",
+    "columns": 3,
+    "rows": 4,
+    "refs": [
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/zhipu-adult/outfits/sports/portrait.png"
+    ],
+    "prompt": "Repair layout ONLY of this TWELVE-POSE adult 3D sports sprite atlas. Keep the exact face, hair, short-sleeve sports top, mid-thigh shorts, white ankle socks and trainers, all 12 actions and 3x4 order. Shrink each complete figure uniformly by 18% around the centre of its own cell, so every limb, shoe, head, hair curl, ears and tail are completely separated from neighboring cells by at least 25 pixels of fully transparent gutter. All 12 figures same pixel scale, including tilted poses. Restore any clipped hair tips. Exactly three columns, four rows, complete adult full bodies, no extra poses. Do not change shorts into long trousers. Actual transparent alpha, no background/glow/shadow/text.",
+    "dest": "src/DesktopPet.App/Assets/Characters/zhipu-adult/outfits/sports/portrait.png"
+  },
+  {
+    "key": "kimi-adult-shorts-portrait-v2",
+    "id": "kimi-adult",
+    "family": "kimi",
+    "style": "realistic",
+    "kind": "portrait",
+    "columns": 3,
+    "rows": 4,
+    "refs": [
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/kimi-adult/outfits/sports/portrait.png"
+    ],
+    "prompt": "Repair layout ONLY of this TWELVE-POSE adult 3D sports sprite atlas. Keep the exact face, hair, short-sleeve sports top, mid-thigh shorts, white ankle socks and trainers, all 12 actions and 3x4 order. Shrink each complete figure uniformly by 18% around the centre of its own cell, so every limb, shoe, head, hair curl, ears and tail are completely separated from neighboring cells by at least 25 pixels of fully transparent gutter. All 12 figures same pixel scale, including tilted poses. Restore any clipped hair tips. Exactly three columns, four rows, complete adult full bodies, no extra poses. Do not change shorts into long trousers. Actual transparent alpha, no background/glow/shadow/text.",
+    "dest": "src/DesktopPet.App/Assets/Characters/kimi-adult/outfits/sports/portrait.png"
+  },
+  {
+    "key": "grok-adult-shorts-body-v2",
+    "id": "grok-adult",
+    "family": "grok",
+    "style": "realistic",
+    "kind": "body",
+    "columns": 4,
+    "rows": 4,
+    "refs": [
+      "C:\\Users\\99000256\\.codex\\generated_images\\01a0fd54-807b-7df2-88b5-c9f04a7bcefe\\exec-32fa4253-1491-4bc1-8a04-28700ca748b6.png",
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/grok-adult/outfits/sports/portrait.png"
+    ],
+    "prompt": "Repair FIRST image atlas of adult blonde Grok. Keep exactly 16 full-body poses in exact 4x4 order, hair/face/actions unchanged. Match SECOND image clothing palette: ivory short-sleeve zip top with CHARCOAL BLACK sleeve/side panels and golden piping, CHARCOAL BLACK loose shorts ending mid thigh, white ankle socks and trainers. No navy blue panels. Shrink ALL figures uniformly 20% within cells and restore complete lying pose hair tips and shoes, at least 20 pixels empty margin at canvas edges. Full 16 sprites, no crop. No long pants or sleeves. True transparent alpha, no background or aura/text.",
+    "dest": "src/DesktopPet.App/Assets/Characters/grok-adult/outfits/sports/body.png"
+  }
+]

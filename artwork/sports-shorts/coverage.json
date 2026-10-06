@@ -1,0 +1,190 @@
+{
+  "appearances": 16,
+  "rows": [
+    {
+      "character": "whale",
+      "motions": 31,
+      "files": [
+        "outfits/sports/club.png",
+        "outfits/sports/contact.png",
+        "outfits/sports/core.png",
+        "outfits/sports/walk.png"
+      ]
+    },
+    {
+      "character": "gpt",
+      "motions": 31,
+      "files": [
+        "outfits/sports/club.png",
+        "outfits/sports/contact.png",
+        "outfits/sports/core.png",
+        "outfits/sports/walk.png"
+      ]
+    },
+    {
+      "character": "claude",
+      "motions": 31,
+      "files": [
+        "outfits/sports/club.png",
+        "outfits/sports/contact.png",
+        "outfits/sports/core.png",
+        "outfits/sports/walk.png"
+      ]
+    },
+    {
+      "character": "gemini",
+      "motions": 31,
+      "files": [
+        "outfits/sports/club.png",
+        "outfits/sports/contact.png",
+        "outfits/sports/core.png",
+        "outfits/sports/walk.png"
+      ]
+    },
+    {
+      "character": "grok",
+      "motions": 31,
+      "files": [
+        "outfits/sports/club.png",
+        "outfits/sports/contact.png",
+        "outfits/sports/core.png",
+        "outfits/sports/walk.png"
+      ]
+    },
+    {
+      "character": "qwen",
+      "motions": 31,
+      "files": [
+        "outfits/sports/club.png",
+        "outfits/sports/contact.png",
+        "outfits/sports/core.png",
+        "outfits/sports/walk.png"
+      ]
+    },
+    {
+      "character": "zhipu",
+      "motions": 31,
+      "files": [
+        "outfits/sports/club.png",
+        "outfits/sports/contact.png",
+        "outfits/sports/core.png",
+        "outfits/sports/walk.png"
+      ]
+    },
+    {
+      "character": "kimi",
+      "motions": 31,
+      "files": [
+        "outfits/sports/club.png",
+        "outfits/sports/contact.png",
+        "outfits/sports/core.png",
+        "outfits/sports/walk.png"
+      ]
+    },
+    {
+      "character": "deepseek-adult",
+      "motions": 31,
+      "files": [
+        "outfits/sports/body.png",
+        "outfits/sports/bonk.png",
+        "outfits/sports/care.png",
+        "outfits/sports/catch.png",
+        "outfits/sports/club.png",
+        "outfits/sports/portrait.png",
+        "outfits/sports/walk.png"
+      ]
+    },
+    {
+      "character": "gpt-adult",
+      "motions": 31,
+      "files": [
+        "outfits/sports/body.png",
+        "outfits/sports/bonk.png",
+        "outfits/sports/care.png",
+        "outfits/sports/catch.png",
+        "outfits/sports/club.png",
+        "outfits/sports/portrait.png",
+        "outfits/sports/walk.png"
+      ]
+    },
+    {
+      "character": "claude-adult",
+      "motions": 31,
+      "files": [
+        "outfits/sports/body.png",
+        "outfits/sports/bonk.png",
+        "outfits/sports/care.png",
+        "outfits/sports/catch.png",
+        "outfits/sports/club.png",
+        "outfits/sports/portrait.png",
+        "outfits/sports/walk.png"
+      ]
+    },
+    {
+      "character": "gemini-adult",
+      "motions": 31,
+      "files": [
+        "outfits/sports/body.png",
+        "outfits/sports/bonk.png",
+        "outfits/sports/care.png",
+        "outfits/sports/catch.png",
+        "outfits/sports/club.png",
+        "outfits/sports/portrait.png",
+        "outfits/sports/walk.png"
+      ]
+    },
+    {
+      "character": "grok-adult",
+      "motions": 31,
+      "files": [
+        "outfits/sports/body.png",
+        "outfits/sports/bonk.png",
+        "outfits/sports/care.png",
+        "outfits/sports/catch.png",
+        "outfits/sports/club.png",
+        "outfits/sports/portrait.png",
+        "outfits/sports/walk.png"
+      ]
+    },
+    {
+      "character": "qwen-adult",
+      "motions": 31,
+      "files": [
+        "outfits/sports/body.png",
+        "outfits/sports/bonk.png",
+        "outfits/sports/care.png",
+        "outfits/sports/catch.png",
+        "outfits/sports/club.png",
+        "outfits/sports/portrait.png",
+        "outfits/sports/walk.png"
+      ]
+    },
+    {
+      "character": "zhipu-adult",
+      "motions": 31,
+      "files": [
+        "outfits/sports/body.png",
+        "outfits/sports/bonk.png",
+        "outfits/sports/care.png",
+        "outfits/sports/catch.png",
+        "outfits/sports/club.png",
+        "outfits/sports/portrait.png",
+        "outfits/sports/walk.png"
+      ]
+    },
+    {
+      "character": "kimi-adult",
+      "motions": 31,
+      "files": [
+        "outfits/sports/body.png",
+        "outfits/sports/bonk.png",
+        "outfits/sports/care.png",
+        "outfits/sports/catch.png",
+        "outfits/sports/club.png",
+        "outfits/sports/portrait.png",
+        "outfits/sports/walk.png"
+      ]
+    }
+  ],
+  "errors": []
+}

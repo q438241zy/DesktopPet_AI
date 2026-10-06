@@ -1,0 +1,114 @@
+{
+  "key": "whale-sports-contact",
+  "id": "whale",
+  "family": "whale",
+  "style": "chibi",
+  "kind": "contact",
+  "columns": 4,
+  "rows": 6,
+  "refs": [
+    "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-545f5ce5-cea7-406b-b77f-4201ea27f026.png"
+  ],
+  "prompt": "Create a sprite atlas of exactly 24 isolated full-body poses, 4 columns by 6 rows, portrait canvas. Use the SAME chibi identity, head size, short legs, hair, and SHORT-SLEEVE sports outfit as the input's first pose. Completely transparent background. Full shoes, sleeves above elbows, no cropping. All figures fit in central 72% of each cell. Same body/head scale across all 24 even when seated, no bigger heads on seated frames. Numbering below describes row-major order; no numbers/text in output.\nFirst 6 poses (0-5): holds round biscuit at waist in fingers; raises biscuit to chest; biscuit arrives at LIPS; takes bite at lips; lowers visibly bitten biscuit while chewing eyes closed; smiles with biscuit at waist. All standing with planted feet. No magic wand!\nNext 6 (6-11): holds small bowl of rice in left hand and SPOON in right hand by bowl; scoops rice; raises spoon halfway; spoon tip with rice reaches LIPS (not elbow); swallows spoon withdrawing; spoon lowered into bowl, smile. Same planted standing body, actual hands holding utensils, no flying extra rice.\nNext 6 (12-17): sitting cross-legged next to three colored small wooden cubes; bends slightly to grasp red cube; carries red cube toward green cube; places red cube directly on green cube; raises blue cube; gently places blue cube atop stack with fingertips touching top block and pleased face. No free-floating cubes.\nFinal 6 (18-23): standing, comb in right hand at chest; right arm bends comb touches side hair near ear while left hand lightly gathers hair; right hand moves comb DOWN along hair to shoulder. Then standing, small cream soft face cloth at chest in hand; cloth pressed lightly against left cheek with closed eyes; cloth pressed lightly against right cheek, head turns naturally. Every comb/cloth is held by fingers and contacts actual hair/cheek. No external human hands. No floating tools.\nClean cute high quality anime game art, not a scene. Do NOT borrow original maid clothes.",
+  "dest": "src/DesktopPet.App/Assets/Characters/whale/outfits/sports/contact.png",
+  "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-1b57fd00-482c-4caa-b8f0-cf2baef3beb7.png",
+  "tool": "built-in image_gen",
+  "selected": false,
+  "clips": {
+    "eat": [
+      [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      [
+        300,
+        450,
+        450,
+        650,
+        650,
+        500
+      ],
+      false
+    ],
+    "meal": [
+      [
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      [
+        400,
+        600,
+        650,
+        800,
+        950,
+        800
+      ],
+      false
+    ],
+    "build": [
+      [
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      [
+        450,
+        700,
+        850,
+        1000,
+        1400
+      ],
+      false
+    ],
+    "comb": [
+      [
+        17,
+        18,
+        19,
+        18,
+        19,
+        17
+      ],
+      [
+        450,
+        750,
+        900,
+        750,
+        1100,
+        850
+      ],
+      false
+    ],
+    "wipe": [
+      [
+        20,
+        21,
+        22,
+        21,
+        22,
+        23
+      ],
+      [
+        400,
+        600,
+        850,
+        600,
+        1050,
+        700
+      ],
+      false
+    ]
+  },
+  "status": "superseded-long-pants",
+  "reason": "User requires short sleeves AND shorts above knees in both styles; do not install or publish this batch."
+}

@@ -26,7 +26,7 @@ internal static class PlacementVerification
         }
         pet.IsHitTestVisible=false; pet.State.Size=200; pet.State.Wander=pet.State.ReducedMotion=false; pet.State.CheckIn(DateOnly.FromDateTime(DateTime.Now));
         foreach(var c in pet.Catalog.Characters)
-        foreach(string outfit in new[]{"original","swim","wedding"})
+        foreach(string outfit in Catalog.BuiltInOutfits)
         {
             pet.SelectCharacter(c.Id); pet.State.Outfits[c.Id]=outfit; pet.ApplySettings();
             pet.Left=pet.WorkArea.Left+pet.WorkArea.Width/2-280; pet.Top=pet.WorkArea.Bottom-468;
@@ -83,7 +83,7 @@ internal static class PlacementVerification
         }
         // Preserve the already lifted pose instead of rewinding its first frame on release.
         foreach(string id in new[]{"whale","deepseek-adult"})
-        foreach(string outfit in new[]{"original","swim","wedding"})
+        foreach(string outfit in Catalog.BuiltInOutfits)
         {
             pet.BeginPreview(); pet.SelectCharacter(id); pet.State.Outfits[id]=outfit; pet.ApplySettings();
             pet.Top=pet.WorkArea.Bottom-468; pet.BeginLift(); pet.AdvancePreview(900); pet.MoveLift(pet.Left,pet.Top-130);

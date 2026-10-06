@@ -29,10 +29,12 @@ foreach ($id in $activeIds) {
     Confirm-ManagedPath $pack
     $manifest = Get-Content -LiteralPath (Join-Path $pack 'pet.json') -Raw -Encoding UTF8 | ConvertFrom-Json
     $sprites = @($manifest.atlas)
+    if ($manifest.interactionFive) { $sprites += @($manifest.interactionFive.atlases.PSObject.Properties | ForEach-Object { $_.Value }) }
     if ($manifest.dizzy) { $sprites += $manifest.dizzy }
     $sprites += @($manifest.motions.PSObject.Properties | ForEach-Object { $_.Value })
     foreach ($outfit in $manifest.outfits.PSObject.Properties) {
         if ($outfit.Value.idle) { $sprites += $outfit.Value.idle }
+        if ($outfit.Value.interactionFive) { $sprites += @($outfit.Value.interactionFive.atlases.PSObject.Properties | ForEach-Object { $_.Value }) }
         $sprites += @($outfit.Value.motions.PSObject.Properties | ForEach-Object { $_.Value })
     }
     $referenced = [Collections.Generic.HashSet[string]]::new([StringComparer]::OrdinalIgnoreCase)
@@ -48,7 +50,7 @@ foreach ($id in $activeIds) {
         Remove-Item -LiteralPath $_.FullName -Force
     }
 }
-# This is a duplicate of Demo/MotionStudy; source assets remain in the project.
+# This is a duplicate of Demo/review; source assets remain in the project.
 $duplicate = [IO.Path]::GetFullPath((Join-Path $runtime 'docs/demo'))
 if (Test-Path -LiteralPath $duplicate) { Confirm-ManagedPath $duplicate; Remove-Item -LiteralPath $duplicate -Recurse -Force }
 if ($DemoSource) {

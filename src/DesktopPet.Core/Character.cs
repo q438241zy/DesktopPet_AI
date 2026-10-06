@@ -6,15 +6,19 @@ namespace DesktopPet.Core;
 /// <summary>Palm center relative to the visible silhouette; span controls the held toy size.</summary>
 public sealed record HandContact(double Height, double Offset = 0, double Span = .11);
 public sealed record SpriteCell(int X, int Y, int Width, int Height);
+/// <summary>A measured point inside a source crop, normalized independently to its width and height.</summary>
+public sealed record SpriteAnchor(double X, double Y);
+public sealed record SpriteEffectAnchors(SpriteAnchor? Head = null, SpriteAnchor? Mouth = null, SpriteAnchor? Body = null);
 /// <summary>A sheet with optional authored crop regions, frame order and contact points.</summary>
 public sealed record Sprite(string File, int Columns = 3, int Rows = 2, int[]? FrameMs = null, string Facing = "right",
     int[]? Frames = null, bool Loop = true, bool BakedProps = false, HandContact?[]? Hands = null, SpriteCell[]? Cells = null,
-    double[]? HeightRatios = null, bool IsolateCells = false, int SeparationAlpha = 48, double ReferenceHeightPixels = 0, DanceRig? DanceRig = null,
-    double[]? FrameScaleFactors = null);
+    double[]? HeightRatios = null, bool IsolateCells = false, int SeparationAlpha = 48, double ReferenceHeightPixels = 0,
+    double[]? FrameScaleFactors = null, SpriteAnchor?[]? BubbleSources = null, SpriteEffectAnchors?[]? EffectAnchors = null, double WalkStride = 0);
 
 /// <summary>A self-contained appearance. Missing motions never borrow another outfit's art.</summary>
 public sealed class Outfit
 {
+    public FiveArtwork? InteractionFive { get; set; }
     public string Name { get; set; } = "";
     public Sprite? Idle { get; set; }
     public Dictionary<string, Sprite> Motions { get; set; } = [];
@@ -23,6 +27,8 @@ public sealed class Outfit
 /// <summary>Portable, declarative character pack. It never contains executable code.</summary>
 public sealed class Character
 {
+    public FiveArtwork? InteractionFive { get; set; }
+    public FiveArtwork? FiveFor(string outfit) => outfit == "original" ? InteractionFive : Outfits.GetValueOrDefault(outfit)?.InteractionFive;
     public int Version { get; set; } = 1;
     public string Id { get; set; } = "";
     public string Name { get; set; } = "";
@@ -40,7 +46,8 @@ public sealed class Character
 
     public IEnumerable<Sprite> Sprites() => new[] { Atlas }.Concat(Dizzy is null ? [] : new[] { Dizzy })
         .Concat(Motions.Values).Concat(Outfits.Values.SelectMany(o =>
-            (o.Idle is null ? Enumerable.Empty<Sprite>() : new[] { o.Idle }).Concat(o.Motions.Values)));
+            (o.Idle is null ? Enumerable.Empty<Sprite>() : new[] { o.Idle }).Concat(o.Motions.Values)))
+        .Concat((InteractionFive?.Atlases.Values.AsEnumerable() ?? []).Concat(Outfits.Values.SelectMany(o=>o.InteractionFive?.Atlases.Values.AsEnumerable() ?? [])));
 
     public static Character Load(string folder)
     {
@@ -60,18 +67,25 @@ public sealed class Character
         if (c.Outfits.Values.Any(o => o is null || o.Motions is null || string.IsNullOrWhiteSpace(o.Name)
             || (o.Idle is null && o.Motions.Count == 0)))
             throw new InvalidDataException("服装清单无效。");
+        c.InteractionFive?.Validate();
+        foreach(var o in c.Outfits.Values)o.InteractionFive?.Validate();
         foreach (var s in c.Sprites())
         {
             if (s is null || string.IsNullOrWhiteSpace(s.File) || s.Columns < 1 || s.Rows < 1
                 || s.Columns > 6 || s.Rows > 6 || s.Columns * s.Rows > 24 || s.Facing is not ("left" or "right")
                 || s.SeparationAlpha is < 16 or > 240 || !double.IsFinite(s.ReferenceHeightPixels) || s.ReferenceHeightPixels is < 0 or > 6144
-                || (s.DanceRig is not null && !s.DanceRig.IsValid)
+                || !double.IsFinite(s.WalkStride) || (s.WalkStride != 0 && s.WalkStride is < .1 or > 1.2)
                 || (s.Frames is { } order && (order.Length is < 1 or > 48 || order.Any(i => i < 0 || i >= s.Columns * s.Rows)))
                 || (s.Cells is { } cells && (cells.Length != s.Columns * s.Rows || cells.Any(c => c is null || c.X < 0 || c.Y < 0
                     || c.Width < 1 || c.Height < 1 || (long)c.X + c.Width > 6144 || (long)c.Y + c.Height > 6144)))
                 || (s.FrameMs is { } ms && (ms.Length != (s.Frames?.Length ?? s.Columns * s.Rows) || ms.Any(t => t < 40 || t > 5000)))
                 || (s.HeightRatios is { } ratios && (ratios.Length != s.Columns * s.Rows || ratios.Any(r => !double.IsFinite(r) || r is < .15 or > 1.5)))
                 || (s.FrameScaleFactors is { } scales && (scales.Length != s.Columns * s.Rows || scales.Any(r => !double.IsFinite(r) || r is < .25 or > 4)))
+                || (s.BubbleSources is { } sources && (sources.Length != s.Columns*s.Rows || sources.Any(p=>p is not null
+                    && (!double.IsFinite(p.X) || !double.IsFinite(p.Y) || p.X is <0 or >1 || p.Y is <0 or >1))))
+                || (s.EffectAnchors is { } anchors && (anchors.Length != s.Columns*s.Rows || anchors.Where(a=>a is not null)
+                    .SelectMany(a=>new[]{a!.Head,a.Mouth,a.Body}).Any(p=>p is not null
+                    && (!double.IsFinite(p.X) || !double.IsFinite(p.Y) || p.X is <0 or >1 || p.Y is <0 or >1))))
                 || (s.Hands is { } hands && (hands.Length != s.Columns * s.Rows || hands.Any(h => h is not null
                     && (!double.IsFinite(h.Height) || !double.IsFinite(h.Offset) || !double.IsFinite(h.Span)
                         || h.Height is < 0 or > 1 || h.Offset is < -.5 or > .5 || h.Span is < .02 or > .4)))))
@@ -141,6 +155,28 @@ public static class Json
 
 public static class Motion
 {
+    /// <summary>Sample the interval between two authored drawings, including the loop seam.</summary>
+    public static ClubPose Blend(Sprite sprite, double elapsed)
+    {
+        int count=sprite.Frames?.Length ?? sprite.Columns*sprite.Rows;
+        var times=sprite.FrameMs ?? Enumerable.Repeat(240,count).ToArray();
+        int Cell(int i)=>sprite.Frames?[i] ?? i;
+        double t=Math.Max(0,elapsed),total=times.Sum();
+        if(!sprite.Loop && t>=total)return new(Cell(count-1),Cell(count-1),0,0,false);
+        t%=total;
+        for(int i=0;i<count;i++)
+        {
+            if(t<times[i])
+            {
+                int next=i+1<count?i+1:sprite.Loop?0:i;
+                double fraction=t/times[i];
+                // Linear gait phases avoid slowing to a stop at every foot pose.
+                return new(Cell(i),Cell(next),fraction,0,false);
+            }
+            t-=times[i];
+        }
+        return new(Cell(count-1),Cell(count-1),0,0,false);
+    }
     public static int Frame(Sprite sprite, double elapsed)
     {
         int count = sprite.Frames?.Length ?? sprite.Columns * sprite.Rows;

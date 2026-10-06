@@ -1,0 +1,27 @@
+{
+  "date": "2026-10-02",
+  "status": "long-pants-batch-withdrawn",
+  "requiredOutfit": "short-sleeve top and above-knee athletic shorts, both chibi and realistic",
+  "next": "Review DeepSeek shorts concepts in CloudClub Demo before expansion",
+  "nativeExpansionComplete": false,
+  "actionContinuityAuditComplete": false,
+  "restoredCharacterManifests": [
+    "claude",
+    "claude-adult",
+    "deepseek-adult",
+    "gemini",
+    "gemini-adult",
+    "gpt",
+    "gpt-adult",
+    "grok",
+    "grok-adult",
+    "kimi",
+    "kimi-adult",
+    "qwen",
+    "qwen-adult",
+    "whale",
+    "zhipu",
+    "zhipu-adult"
+  ],
+  "rejectedRecords": 94
+}

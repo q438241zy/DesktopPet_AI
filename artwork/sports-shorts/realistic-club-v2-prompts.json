@@ -1,0 +1,765 @@
+[
+  {
+    "key": "gpt-adult-shorts-club-v2",
+    "id": "gpt-adult",
+    "family": "gpt",
+    "style": "realistic",
+    "kind": "club",
+    "columns": 4,
+    "rows": 5,
+    "refs": [
+      "C:\\Users\\99000256\\.codex\\generated_images\\01a0fd54-807b-7df2-88b5-c9f04a7bcefe\\exec-804f1c8d-012a-47e8-ba6f-5e199e46b111.png",
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/gpt-adult/outfits/sports/portrait.png"
+    ],
+    "prompt": "Use case: identity-preserve animation retarget. FIRST image is EXACT TWENTY-FIGURE 4-column by 5-row action layout. SECOND image is adult character identity and SHORT SLEEVES + MID-THIGH SHORTS costume/colors. Replace FIRST character by SECOND while keeping ALL TWENTY complete full-body poses, their prop positions and exact layout. Do NOT add extra figures, rows or actions. Preserve first image's complete shoes and bare lower legs in EVERY cell. Same face, hairstyle/accessories from SECOND in all 20. Body scale constant. First 8 count stars: looking up, pointing, counting fingers. Next bubble figures hold bottle + circular bubble wand at mouth; preserve circular ring centre and hand contact, no bubbles painted. Final poses stretch joined hands left/right and lower. Do not crop to torso; feet MUST be visible. Shrink entire figures uniformly by 12% inside their cells leaving transparent gutters. Sleeves end on upper arms; shorts clearly above knees, ankle socks and trainers, no long pants/skirts. Actual transparent alpha no background/aura/floor/text. Use SECOND identity chest emblem, never copy DeepSeek blue whale except if second is DeepSeek.",
+    "dest": "src/DesktopPet.App/Assets/Characters/gpt-adult/outfits/sports/club.png",
+    "source": "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/gpt-adult/outfits/sports/portrait.png",
+    "clips": {
+      "stars": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        [
+          500,
+          500,
+          500,
+          500,
+          500,
+          500,
+          500,
+          500
+        ],
+        false
+      ],
+      "bubbles": [
+        [
+          8,
+          9,
+          10,
+          11,
+          12,
+          11,
+          10,
+          15
+        ],
+        [
+          500,
+          500,
+          500,
+          500,
+          500,
+          500,
+          500,
+          500
+        ],
+        true
+      ],
+      "stretch": [
+        [
+          13,
+          14,
+          16,
+          16,
+          17,
+          17,
+          18,
+          19
+        ],
+        [
+          500,
+          500,
+          500,
+          500,
+          500,
+          500,
+          500,
+          500
+        ],
+        false
+      ]
+    },
+    "referenceGroups": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "key": "claude-adult-shorts-club-v2",
+    "id": "claude-adult",
+    "family": "claude",
+    "style": "realistic",
+    "kind": "club",
+    "columns": 4,
+    "rows": 5,
+    "refs": [
+      "C:\\Users\\99000256\\.codex\\generated_images\\01a0fd54-807b-7df2-88b5-c9f04a7bcefe\\exec-804f1c8d-012a-47e8-ba6f-5e199e46b111.png",
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/claude-adult/outfits/sports/portrait.png"
+    ],
+    "prompt": "Use case: identity-preserve animation retarget. FIRST image is EXACT TWENTY-FIGURE 4-column by 5-row action layout. SECOND image is adult character identity and SHORT SLEEVES + MID-THIGH SHORTS costume/colors. Replace FIRST character by SECOND while keeping ALL TWENTY complete full-body poses, their prop positions and exact layout. Do NOT add extra figures, rows or actions. Preserve first image's complete shoes and bare lower legs in EVERY cell. Same face, hairstyle/accessories from SECOND in all 20. Body scale constant. First 8 count stars: looking up, pointing, counting fingers. Next bubble figures hold bottle + circular bubble wand at mouth; preserve circular ring centre and hand contact, no bubbles painted. Final poses stretch joined hands left/right and lower. Do not crop to torso; feet MUST be visible. Shrink entire figures uniformly by 12% inside their cells leaving transparent gutters. Sleeves end on upper arms; shorts clearly above knees, ankle socks and trainers, no long pants/skirts. Actual transparent alpha no background/aura/floor/text. Use SECOND identity chest emblem, never copy DeepSeek blue whale except if second is DeepSeek.",
+    "dest": "src/DesktopPet.App/Assets/Characters/claude-adult/outfits/sports/club.png",
+    "source": "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/claude-adult/outfits/sports/portrait.png",
+    "clips": {
+      "stars": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        [
+          500,
+          500,
+          500,
+          500,
+          500,
+          500,
+          500,
+          500
+        ],
+        false
+      ],
+      "bubbles": [
+        [
+          8,
+          9,
+          10,
+          11,
+          12,
+          11,
+          10,
+          15
+        ],
+        [
+          500,
+          500,
+          500,
+          500,
+          500,
+          500,
+          500,
+          500
+        ],
+        true
+      ],
+      "stretch": [
+        [
+          13,
+          14,
+          16,
+          16,
+          17,
+          17,
+          18,
+          19
+        ],
+        [
+          500,
+          500,
+          500,
+          500,
+          500,
+          500,
+          500,
+          500
+        ],
+        false
+      ]
+    },
+    "referenceGroups": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "key": "gemini-adult-shorts-club-v2",
+    "id": "gemini-adult",
+    "family": "gemini",
+    "style": "realistic",
+    "kind": "club",
+    "columns": 4,
+    "rows": 5,
+    "refs": [
+      "C:\\Users\\99000256\\.codex\\generated_images\\01a0fd54-807b-7df2-88b5-c9f04a7bcefe\\exec-804f1c8d-012a-47e8-ba6f-5e199e46b111.png",
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/gemini-adult/outfits/sports/portrait.png"
+    ],
+    "prompt": "Use case: identity-preserve animation retarget. FIRST image is EXACT TWENTY-FIGURE 4-column by 5-row action layout. SECOND image is adult character identity and SHORT SLEEVES + MID-THIGH SHORTS costume/colors. Replace FIRST character by SECOND while keeping ALL TWENTY complete full-body poses, their prop positions and exact layout. Do NOT add extra figures, rows or actions. Preserve first image's complete shoes and bare lower legs in EVERY cell. Same face, hairstyle/accessories from SECOND in all 20. Body scale constant. First 8 count stars: looking up, pointing, counting fingers. Next bubble figures hold bottle + circular bubble wand at mouth; preserve circular ring centre and hand contact, no bubbles painted. Final poses stretch joined hands left/right and lower. Do not crop to torso; feet MUST be visible. Shrink entire figures uniformly by 12% inside their cells leaving transparent gutters. Sleeves end on upper arms; shorts clearly above knees, ankle socks and trainers, no long pants/skirts. Actual transparent alpha no background/aura/floor/text. Use SECOND identity chest emblem, never copy DeepSeek blue whale except if second is DeepSeek.",
+    "dest": "src/DesktopPet.App/Assets/Characters/gemini-adult/outfits/sports/club.png",
+    "source": "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/gemini-adult/outfits/sports/portrait.png",
+    "clips": {
+      "stars": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        [
+          500,
+          500,
+          500,
+          500,
+          500,
+          500,
+          500,
+          500
+        ],
+        false
+      ],
+      "bubbles": [
+        [
+          8,
+          9,
+          10,
+          11,
+          12,
+          11,
+          10,
+          15
+        ],
+        [
+          500,
+          500,
+          500,
+          500,
+          500,
+          500,
+          500,
+          500
+        ],
+        true
+      ],
+      "stretch": [
+        [
+          13,
+          14,
+          16,
+          16,
+          17,
+          17,
+          18,
+          19
+        ],
+        [
+          500,
+          500,
+          500,
+          500,
+          500,
+          500,
+          500,
+          500
+        ],
+        false
+      ]
+    },
+    "referenceGroups": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "key": "grok-adult-shorts-club-v2",
+    "id": "grok-adult",
+    "family": "grok",
+    "style": "realistic",
+    "kind": "club",
+    "columns": 4,
+    "rows": 5,
+    "refs": [
+      "C:\\Users\\99000256\\.codex\\generated_images\\01a0fd54-807b-7df2-88b5-c9f04a7bcefe\\exec-804f1c8d-012a-47e8-ba6f-5e199e46b111.png",
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/grok-adult/outfits/sports/portrait.png"
+    ],
+    "prompt": "Use case: identity-preserve animation retarget. FIRST image is EXACT TWENTY-FIGURE 4-column by 5-row action layout. SECOND image is adult character identity and SHORT SLEEVES + MID-THIGH SHORTS costume/colors. Replace FIRST character by SECOND while keeping ALL TWENTY complete full-body poses, their prop positions and exact layout. Do NOT add extra figures, rows or actions. Preserve first image's complete shoes and bare lower legs in EVERY cell. Same face, hairstyle/accessories from SECOND in all 20. Body scale constant. First 8 count stars: looking up, pointing, counting fingers. Next bubble figures hold bottle + circular bubble wand at mouth; preserve circular ring centre and hand contact, no bubbles painted. Final poses stretch joined hands left/right and lower. Do not crop to torso; feet MUST be visible. Shrink entire figures uniformly by 12% inside their cells leaving transparent gutters. Sleeves end on upper arms; shorts clearly above knees, ankle socks and trainers, no long pants/skirts. Actual transparent alpha no background/aura/floor/text. Use SECOND identity chest emblem, never copy DeepSeek blue whale except if second is DeepSeek.",
+    "dest": "src/DesktopPet.App/Assets/Characters/grok-adult/outfits/sports/club.png",
+    "source": "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/grok-adult/outfits/sports/portrait.png",
+    "clips": {
+      "stars": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        [
+          500,
+          500,
+          500,
+          500,
+          500,
+          500,
+          500,
+          500
+        ],
+        false
+      ],
+      "bubbles": [
+        [
+          8,
+          9,
+          10,
+          11,
+          12,
+          11,
+          10,
+          15
+        ],
+        [
+          500,
+          500,
+          500,
+          500,
+          500,
+          500,
+          500,
+          500
+        ],
+        true
+      ],
+      "stretch": [
+        [
+          13,
+          14,
+          16,
+          16,
+          17,
+          17,
+          18,
+          19
+        ],
+        [
+          500,
+          500,
+          500,
+          500,
+          500,
+          500,
+          500,
+          500
+        ],
+        false
+      ]
+    },
+    "referenceGroups": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "key": "qwen-adult-shorts-club-v2",
+    "id": "qwen-adult",
+    "family": "qwen",
+    "style": "realistic",
+    "kind": "club",
+    "columns": 4,
+    "rows": 5,
+    "refs": [
+      "C:\\Users\\99000256\\.codex\\generated_images\\01a0fd54-807b-7df2-88b5-c9f04a7bcefe\\exec-804f1c8d-012a-47e8-ba6f-5e199e46b111.png",
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/qwen-adult/outfits/sports/portrait.png"
+    ],
+    "prompt": "Use case: identity-preserve animation retarget. FIRST image is EXACT TWENTY-FIGURE 4-column by 5-row action layout. SECOND image is adult character identity and SHORT SLEEVES + MID-THIGH SHORTS costume/colors. Replace FIRST character by SECOND while keeping ALL TWENTY complete full-body poses, their prop positions and exact layout. Do NOT add extra figures, rows or actions. Preserve first image's complete shoes and bare lower legs in EVERY cell. Same face, hairstyle/accessories from SECOND in all 20. Body scale constant. First 8 count stars: looking up, pointing, counting fingers. Next bubble figures hold bottle + circular bubble wand at mouth; preserve circular ring centre and hand contact, no bubbles painted. Final poses stretch joined hands left/right and lower. Do not crop to torso; feet MUST be visible. Shrink entire figures uniformly by 12% inside their cells leaving transparent gutters. Sleeves end on upper arms; shorts clearly above knees, ankle socks and trainers, no long pants/skirts. Actual transparent alpha no background/aura/floor/text. Use SECOND identity chest emblem, never copy DeepSeek blue whale except if second is DeepSeek.",
+    "dest": "src/DesktopPet.App/Assets/Characters/qwen-adult/outfits/sports/club.png",
+    "source": "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/qwen-adult/outfits/sports/portrait.png",
+    "clips": {
+      "stars": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        [
+          500,
+          500,
+          500,
+          500,
+          500,
+          500,
+          500,
+          500
+        ],
+        false
+      ],
+      "bubbles": [
+        [
+          8,
+          9,
+          10,
+          11,
+          12,
+          11,
+          10,
+          15
+        ],
+        [
+          500,
+          500,
+          500,
+          500,
+          500,
+          500,
+          500,
+          500
+        ],
+        true
+      ],
+      "stretch": [
+        [
+          13,
+          14,
+          16,
+          16,
+          17,
+          17,
+          18,
+          19
+        ],
+        [
+          500,
+          500,
+          500,
+          500,
+          500,
+          500,
+          500,
+          500
+        ],
+        false
+      ]
+    },
+    "referenceGroups": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "key": "zhipu-adult-shorts-club-v2",
+    "id": "zhipu-adult",
+    "family": "zhipu",
+    "style": "realistic",
+    "kind": "club",
+    "columns": 4,
+    "rows": 5,
+    "refs": [
+      "C:\\Users\\99000256\\.codex\\generated_images\\01a0fd54-807b-7df2-88b5-c9f04a7bcefe\\exec-804f1c8d-012a-47e8-ba6f-5e199e46b111.png",
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/zhipu-adult/outfits/sports/portrait.png"
+    ],
+    "prompt": "Use case: identity-preserve animation retarget. FIRST image is EXACT TWENTY-FIGURE 4-column by 5-row action layout. SECOND image is adult character identity and SHORT SLEEVES + MID-THIGH SHORTS costume/colors. Replace FIRST character by SECOND while keeping ALL TWENTY complete full-body poses, their prop positions and exact layout. Do NOT add extra figures, rows or actions. Preserve first image's complete shoes and bare lower legs in EVERY cell. Same face, hairstyle/accessories from SECOND in all 20. Body scale constant. First 8 count stars: looking up, pointing, counting fingers. Next bubble figures hold bottle + circular bubble wand at mouth; preserve circular ring centre and hand contact, no bubbles painted. Final poses stretch joined hands left/right and lower. Do not crop to torso; feet MUST be visible. Shrink entire figures uniformly by 12% inside their cells leaving transparent gutters. Sleeves end on upper arms; shorts clearly above knees, ankle socks and trainers, no long pants/skirts. Actual transparent alpha no background/aura/floor/text. Use SECOND identity chest emblem, never copy DeepSeek blue whale except if second is DeepSeek.",
+    "dest": "src/DesktopPet.App/Assets/Characters/zhipu-adult/outfits/sports/club.png",
+    "source": "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/zhipu-adult/outfits/sports/portrait.png",
+    "clips": {
+      "stars": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        [
+          500,
+          500,
+          500,
+          500,
+          500,
+          500,
+          500,
+          500
+        ],
+        false
+      ],
+      "bubbles": [
+        [
+          8,
+          9,
+          10,
+          11,
+          12,
+          11,
+          10,
+          15
+        ],
+        [
+          500,
+          500,
+          500,
+          500,
+          500,
+          500,
+          500,
+          500
+        ],
+        true
+      ],
+      "stretch": [
+        [
+          13,
+          14,
+          16,
+          16,
+          17,
+          17,
+          18,
+          19
+        ],
+        [
+          500,
+          500,
+          500,
+          500,
+          500,
+          500,
+          500,
+          500
+        ],
+        false
+      ]
+    },
+    "referenceGroups": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "key": "kimi-adult-shorts-club-v2",
+    "id": "kimi-adult",
+    "family": "kimi",
+    "style": "realistic",
+    "kind": "club",
+    "columns": 4,
+    "rows": 5,
+    "refs": [
+      "C:\\Users\\99000256\\.codex\\generated_images\\01a0fd54-807b-7df2-88b5-c9f04a7bcefe\\exec-804f1c8d-012a-47e8-ba6f-5e199e46b111.png",
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/kimi-adult/outfits/sports/portrait.png"
+    ],
+    "prompt": "Use case: identity-preserve animation retarget. FIRST image is EXACT TWENTY-FIGURE 4-column by 5-row action layout. SECOND image is adult character identity and SHORT SLEEVES + MID-THIGH SHORTS costume/colors. Replace FIRST character by SECOND while keeping ALL TWENTY complete full-body poses, their prop positions and exact layout. Do NOT add extra figures, rows or actions. Preserve first image's complete shoes and bare lower legs in EVERY cell. Same face, hairstyle/accessories from SECOND in all 20. Body scale constant. First 8 count stars: looking up, pointing, counting fingers. Next bubble figures hold bottle + circular bubble wand at mouth; preserve circular ring centre and hand contact, no bubbles painted. Final poses stretch joined hands left/right and lower. Do not crop to torso; feet MUST be visible. Shrink entire figures uniformly by 12% inside their cells leaving transparent gutters. Sleeves end on upper arms; shorts clearly above knees, ankle socks and trainers, no long pants/skirts. Actual transparent alpha no background/aura/floor/text. Use SECOND identity chest emblem, never copy DeepSeek blue whale except if second is DeepSeek.",
+    "dest": "src/DesktopPet.App/Assets/Characters/kimi-adult/outfits/sports/club.png",
+    "source": "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/kimi-adult/outfits/sports/portrait.png",
+    "clips": {
+      "stars": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        [
+          500,
+          500,
+          500,
+          500,
+          500,
+          500,
+          500,
+          500
+        ],
+        false
+      ],
+      "bubbles": [
+        [
+          8,
+          9,
+          10,
+          11,
+          12,
+          11,
+          10,
+          15
+        ],
+        [
+          500,
+          500,
+          500,
+          500,
+          500,
+          500,
+          500,
+          500
+        ],
+        true
+      ],
+      "stretch": [
+        [
+          13,
+          14,
+          16,
+          16,
+          17,
+          17,
+          18,
+          19
+        ],
+        [
+          500,
+          500,
+          500,
+          500,
+          500,
+          500,
+          500,
+          500
+        ],
+        false
+      ]
+    },
+    "referenceGroups": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+]

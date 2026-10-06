@@ -3,16 +3,18 @@
 <head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
   <title>云朵俱乐部 · DeepSeek 互动 Demo</title>
-  <link rel="stylesheet" href="style.css?v=2">
-  <script src="assets.js" defer></script><script src="poses.js" defer></script><script src="pose-motion.js?v=2" defer></script><script src="pose-renderer.js?v=2" defer></script><script src="model.js?v=2" defer></script><script src="icons.js?v=2" defer></script><script src="app.js?v=2" defer></script>
+  <link rel="stylesheet" href="style.css?v=23">
+  <script src="sports-roster.js?v=23" defer></script><script src="sports-gallery.js?v=23" defer></script>
+  <script src="assets.js?v=23" defer></script><script src="poses.js?v=23" defer></script><script src="pose-motion.js?v=23" defer></script><script src="pose-renderer.js?v=23" defer></script><script src="model.js?v=23" defer></script><script src="icons.js?v=23" defer></script><script src="app.js?v=23" defer></script>
 </head>
 <body>
   <main class="shell">
     <header class="page-head">
       <div class="brand"><span class="brand-mark" data-icon="cloud"></span><div><span class="eyebrow">CLOUD COMPANIONS</span><h1>云朵俱乐部</h1></div></div>
-      <div class="head-status"><span class="tag open-tag"><i></i>测试全部开放</span><span class="tag">已接入 Preview 21</span></div>
+      <div class="head-status"><span class="tag open-tag"><i></i>测试全部开放</span><span class="tag">Preview 24</span></div>
     </header>
 
+    <a class="new-interactions-link" href="../InteractionFive/index.html?review=I3&amp;style=realistic"><span><strong>3D真人互动 · 比例修订</strong><small>击掌、猜拳、拆礼物、翻书共读、合照</small></span><span class="tag">查看 Demo ↗</span></a>
     <section class="membership" aria-labelledby="membership-title">
       <div class="section-head"><div><h2 id="membership-title">每一份陪伴，都有自己的光泽</h2><p>挑一个喜欢的质感。测试期间，所有等级都能聊天、体验全部互动。</p></div>
         <span class="jade-approved">白金 · 浅玉绿已选定</span>
@@ -26,7 +28,7 @@
         <div class="preview-toolbar"><div class="pet-name"><span class="pet-dot"></span><strong>DeepSeek</strong><span>今天也陪着你</span></div>
           <div class="segmented style-options" aria-label="角色风格"><button data-style="chibi" aria-pressed="false">Q版</button><button data-style="realistic" class="selected" aria-pressed="true">3D真人</button></div>
         </div>
-        <div class="outfit-bar"><div class="outfit-options" aria-label="服装"><button data-outfit="original" class="selected" aria-pressed="true">原装</button><button data-outfit="swim" aria-pressed="false">泳装</button><button data-outfit="wedding" aria-pressed="false">婚纱</button></div><span id="look-state">固定尺寸 · 保持服装</span></div>
+        <div class="outfit-bar"><div class="outfit-options" aria-label="服装"><button data-outfit="original" class="selected" aria-pressed="true">原装</button><button data-outfit="swim" aria-pressed="false">泳装</button><button data-outfit="wedding" aria-pressed="false">婚纱</button><a href="../DeepSeek-demo.html?outfit=sports">运动服 ↗</a></div><span id="look-state">固定尺寸 · 保持服装</span></div>
         <div id="stage" class="stage" tabindex="0" aria-label="宠物互动区域。右键打开菜单，动作继续；躲藏时左键找到。">
           <div class="stage-cloud cloud-one"></div><div class="stage-cloud cloud-two"></div>
           <div class="stage-caption"><span class="live-dot"></span><span id="action-status" aria-live="polite">待机</span></div>
@@ -52,15 +54,15 @@
     </div>
 
     <section class="wardrobe-study" id="school-study" aria-labelledby="school-title">
-      <div class="section-head"><div><span class="eyebrow">AFTER SCHOOL, WITH YOU</span><h2 id="school-title">放学后，穿得软软的</h2><p>学校运动衫 · DeepSeek 两种风格的服装样稿</p></div><span class="tag">已改短袖</span></div>
+      <div class="section-head"><div><span class="eyebrow">A LIGHTER LITTLE DAY</span><h2 id="school-title">短袖、短裤，轻轻松松</h2><p>八位伙伴 · Q版与3D真人的运动服</p></div><a class="tag" href="../DeepSeek-demo.html?outfit=sports">查看运动服动作 ↗</a></div>
       <div class="school-cards">
-        <article class="school-card"><div class="school-art"><img src="art/school-chibi.png" alt="DeepSeek Q版学校运动衫：奶白深蓝拼色短袖上衣、长运动裤、白色运动鞋和蓝色鲸尾" loading="lazy"></div><div class="school-caption"><div><h3>DeepSeek · Q版</h3><p>短袖运动衫，圆头运动鞋，保留小鲸尾。</p></div><a href="art/school-chibi.png" target="_blank">查看原图 ↗</a></div></article>
-        <article class="school-card"><div class="school-art"><img src="art/school-realistic.png" alt="DeepSeek 3D真人学校运动衫：奶白深蓝拼色短袖拉链上衣、深蓝长运动裤、白色运动鞋" loading="lazy"></div><div class="school-caption"><div><h3>DeepSeek · 3D真人</h3><p>立领拉链短袖、柔软面料与自然褶皱。</p></div><a href="art/school-realistic.png" target="_blank">查看原图 ↗</a></div></article>
-      </div><p class="wardrobe-note"><span class="swatch ivory"></span>奶白上衣 <span class="swatch navy"></span>深蓝拼色 <span class="swatch cyan"></span>浅蓝滚边 · 同款鲸鱼标识。款式已确认并改为短袖；此处为服装样稿，尚未加入全套动作。</p>
+        <article class="school-card"><div class="school-art"><img src="art/school-shorts-chibi.png?revision=5" alt="DeepSeek Q版运动服：上臂短袖上衣、膝盖以上的深蓝运动短裤、白色运动鞋和蓝色鲸尾" loading="lazy"></div><div class="school-caption"><div><h3>DeepSeek · Q版</h3><p>短袖上衣、膝上短裤，保留小鲸尾。</p></div><a href="art/school-shorts-chibi.png?revision=5" target="_blank">查看原图 ↗</a></div></article>
+        <article class="school-card"><div class="school-art"><img src="art/school-shorts-realistic.png?revision=5" alt="DeepSeek 3D真人运动服：上臂短袖拉链上衣、膝盖以上的深蓝运动短裤、白色运动鞋" loading="lazy"></div><div class="school-caption"><div><h3>DeepSeek · 3D真人</h3><p>同款短袖与短裤，宽松剪裁、自然褶皱。</p></div><a href="art/school-shorts-realistic.png?revision=5" target="_blank">查看原图 ↗</a></div></article>
+      </div><p class="wardrobe-note">全部角色均为上臂短袖、膝上短裤，保留各自的配色与标识。桌面程序可直接换装；完整动作页并排展示 DeepSeek 两种风格。</p>
     </section>
     <section class="review-strip" aria-label="本轮变化"><div><span>01</span><strong>一颗、两颗、三颗</strong><p>抬头指星星，计数跟着手势走。</p></div><div><span>02</span><strong>轻轻吹一口气</strong><p>举棒、送到嘴边、吹气，再收手。</p></div><div><span>03</span><strong>伸个懒腰吧</strong><p>抬手向上伸展，慢慢放松下来。</p></div></section>
-    <details class="review-notes"><summary>本轮 Demo 范围与配色参考</summary><p>本轮已确认并接入 Preview 21 桌面程序，互动扩展至全部八位角色、两种风格与三套现有服装。数星星、吹泡泡与伸懒腰新增专用角色姿势，并用连续位移过渡衔接；Q版与3D真人的原装、泳装、婚纱均有对应画稿。运动衫已按确认的款式改成短袖，目前展示 DeepSeek 两版服装样稿。</p><p>配色参考 <a href="https://www.revolut.com/cards/" target="_blank" rel="noreferrer">Revolut 的金属卡颜色</a>与 <a href="https://support.n26.com/en-de/memberships-and-account-types/premium-accounts/how-to-upgrade-to-metal" target="_blank" rel="noreferrer">N26 Metal 的低饱和金属质感</a>。白金已按你的选择固定为浅玉金属绿。</p></details>
-    <footer><span>云朵俱乐部 · 互动更新 03</span><nav><a href="../MotionStudy/index.html">舞蹈与待机 Demo ↗</a><a href="../DeepSeek-demo.html">现行完整动作 Demo ↗</a></nav></footer>
+    <details class="review-notes"><summary>本轮 Demo 范围与配色参考</summary><p>已确认的运动服扩展至八位角色的Q版与3D真人，均为短袖＋短裤。衣橱展示实际角色包的待机帧；完整动作页使用桌面程序导出的 DeepSeek 画面，并提供全部角色的动作清单。原装、泳装、婚纱继续保留。</p><p>配色参考 <a href="https://www.revolut.com/cards/" target="_blank" rel="noreferrer">Revolut 的金属卡颜色</a>与 <a href="https://support.n26.com/en-de/memberships-and-account-types/premium-accounts/how-to-upgrade-to-metal" target="_blank" rel="noreferrer">N26 Metal 的低饱和金属质感</a>。白金已按你的选择固定为浅玉金属绿。</p></details>
+    <footer><span>云朵俱乐部 · 全角色运动服</span><nav><a href="../DeepSeek-demo.html">现行完整动作 Demo ↗</a></nav></footer>
   </main>
 </body>
 </html>

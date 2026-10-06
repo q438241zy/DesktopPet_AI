@@ -1,0 +1,19 @@
+{
+  "key": "deepseek-adult-care-v2",
+  "id": "deepseek-adult",
+  "style": "realistic",
+  "target": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-994331f7-6617-45e3-b991-4c83662c5c5f.png",
+  "prompt": "Use case: identity-preserve. Rebuild this DeepSeek adult realistic 3D care sprite atlas into a VERTICAL 4 COLUMNS x6 ROWS exact24 figures. Keep exact adult woman's identity and three outfits. CRITICAL full body head to complete shoes in EVERY cell, make figures occupy at most75% cell height, at least20 transparent pixels between neighboring silhouettes and30 outer margin; no chopped shins, no overlap. Rows1-2 ALL wear original navy-and-white maid dress with apron, sleeves, black stockings and shoes (do not put swimsuit in these rows). Rows3-4 ALL wear navy swimdress and matching sandals. Rows5-6 ALL wear white wedding gown and veil. Each two-row outfit group same8 action poses:0 hold wooden comb at waist;1 fingers gripping comb touching hair beside temple;2 draw comb down same hair lock to shoulder, opposite hand holding lock;3 lower comb smiling;4 hold ivory face towel chest;5 press towel against one cheek;6 press towel opposite cheek with opposite gentle head tilt;7 lower towel content. Hands and forearms actually change pose, comb teeth touch hair, towel touches skin, not floating tools. Identical anatomy and head size each frame. Transparent alpha no colored glow, no scene, labels, extra props or ground shadows.",
+  "kind": "care",
+  "outfits": [
+    "original",
+    "swim",
+    "wedding"
+  ],
+  "columns": 4,
+  "rows": 6,
+  "dest": "src/DesktopPet.App/Assets/Characters/deepseek-adult/motions/cloud-care-wardrobe.png",
+  "selected": false,
+  "originalSource": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-e1dc7f5a-d66f-42a9-801f-6bf19fcc7c87.png",
+  "source": "D:/VibeCoding/Character/artwork/care-contact/deepseek-adult-care-v2.png"
+}

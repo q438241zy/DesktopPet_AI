@@ -1,0 +1,22 @@
+{
+  "key": "kimi-care-wedding-v5",
+  "id": "kimi",
+  "family": "kimi",
+  "style": "chibi",
+  "kind": "care",
+  "outfits": [
+    "wedding"
+  ],
+  "columns": 4,
+  "rows": 2,
+  "dest": "src/DesktopPet.App/Assets/Characters/kimi/motions/cloud-care-wedding.png",
+  "refs": [
+    "D:/VibeCoding/Character/artwork/care-contact/kimi-care-wedding-v4.png",
+    "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/kimi/outfits/wedding.webp"
+  ],
+  "prompt": "Use case: identity-preserve. Image1 is an eight-pose cartoon grooming atlas to edit. Image2 is the exact approved costume reference. Keep ALL eight poses, hands, comb and towel contacts, identity, hair accessories on the viewer's right, seated scale and transparent spacing from image1. Keep the long skirt draped closed over the knees and legs as in image1. Correct the costume details in ALL eight figures to match image2: the white-and-navy floral shoulder trim and short lace cap sleeves, original small navy chest bow, navy ribbon shapes and tiny star motifs around the same white skirt, and the delicate veil. The high collar and long opaque sleeves in image1 were an accidental redesign; restore the ordinary modest upper costume from image2. Do not alter poses or proportions; keep the skirt covering the knees/legs in the seated pose. Exact4columns×2rows, eight complete characters, same pixel scale. All figures are fully clothed in the referenced formal outfit; this is a neutral everyday combing-hair/face-towel animation. Transparent alpha, no scene, words or new accessories.",
+  "selected": true,
+  "originalSource": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-1bd06292-8267-47cb-9203-f0ec0d59d782.png",
+  "source": "D:/VibeCoding/Character/artwork/care-contact/kimi-care-wedding-v5.png",
+  "visualReview": "Approved full eight isolated poses; identity, outfit, actual comb/towel hand contact and transparent boundary inspected."
+}

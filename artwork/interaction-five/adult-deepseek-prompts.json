@@ -1,0 +1,272 @@
+[
+  {
+    "key": "deepseek-adult-swim-highfive",
+    "character": "deepseek-adult",
+    "outfit": "swim",
+    "group": "highfive",
+    "poses": [
+      "high-prep",
+      "high-ready",
+      "high-contact",
+      "high-recoil"
+    ],
+    "filename": "deepseek-adult-swim-highfive-v2.png",
+    "references": [
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/deepseek-adult/outfits/swim.png",
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/deepseek-adult/portrait.png"
+    ],
+    "prompt": "Create ONE horizontal row of FOUR complete full-length adult DeepSeek figures for a transparent production sprite sheet. Reference 1 defines the exact outfit and identity to preserve. Reference 2 defines ADULT body proportions only; do not copy reference 2's maid dress. Same DeepSeek mature face, vivid cobalt/cyan long wavy hair, whale ear ornaments, small adult head, approx 7.5-8 head lengths tall. Photorealistic 3D digital adult woman, detailed lifelike skin, hair and cloth. Exact navy/lightblue halter swimdress, white piping, whale pendant, navy slippers from reference 1.\nFORMAT 4 columns x 1 row. FOUR HEAD-TO-SHOE full bodies only, wide landscape. True RGBA fully transparent background. Each full silhouette including feet is isolated, wide empty gutters, same camera distance and same scale in all four. Feet share a horizontal baseline. Keep slim natural adult stature, long thighs and shins. NO chibi, doll head, short squat legs, bust crop, contact sheet of torsos. All stand straight with natural knees; only arms change. No floor, backdrop, shadows, text or grid. Every finger connects to the hand, wrist and arm. Prop contact drawn into original art. Four poses LEFT TO RIGHT: 1) High-five preparation: her RIGHT hand (viewer LEFT) rises to shoulder height, relaxed open palm. 2) High-five ready: the same connected arm, open palm facing viewer beside her temple, NOT above head; five natural fingers. 3) High-five contact: the same palm gently presses forward toward viewer at shoulder/temple level; a small happy smile; natural elbow and wrist, no separate floating arm. 4) High-five recoil: hand withdraws slightly back beside shoulder, open relaxed fingers, pleased smile. Left arm rests by side throughout."
+  },
+  {
+    "key": "deepseek-adult-swim-rps",
+    "character": "deepseek-adult",
+    "outfit": "swim",
+    "group": "rps",
+    "poses": [
+      "fist-up",
+      "fist-mid",
+      "fist-down",
+      "reveal-rock"
+    ],
+    "filename": "deepseek-adult-swim-rps-v2.png",
+    "references": [
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/deepseek-adult/outfits/swim.png",
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/deepseek-adult/portrait.png"
+    ],
+    "prompt": "Create ONE horizontal row of FOUR complete full-length adult DeepSeek figures for a transparent production sprite sheet. Reference 1 defines the exact outfit and identity to preserve. Reference 2 defines ADULT body proportions only; do not copy reference 2's maid dress. Same DeepSeek mature face, vivid cobalt/cyan long wavy hair, whale ear ornaments, small adult head, approx 7.5-8 head lengths tall. Photorealistic 3D digital adult woman, detailed lifelike skin, hair and cloth. Exact navy/lightblue halter swimdress, white piping, whale pendant, navy slippers from reference 1.\nFORMAT 4 columns x 1 row. FOUR HEAD-TO-SHOE full bodies only, wide landscape. True RGBA fully transparent background. Each full silhouette including feet is isolated, wide empty gutters, same camera distance and same scale in all four. Feet share a horizontal baseline. Keep slim natural adult stature, long thighs and shins. NO chibi, doll head, short squat legs, bust crop, contact sheet of torsos. All stand straight with natural knees; only arms change. No floor, backdrop, shadows, text or grid. Every finger connects to the hand, wrist and arm. Prop contact drawn into original art. Four poses LEFT TO RIGHT: 1) Guessing-game fist HIGH beside chin, right hand (viewer LEFT) CLOSED fist, elbow natural. 2) Same closed fist MID beside upper chest. 3) Same closed fist LOW beside waist. 4) ROCK reveal: same right closed fist extends gently forward at chest height, knuckles toward viewer. Left arm rests by side. Four clear distinct positions of the same anatomically connected arm."
+  },
+  {
+    "key": "deepseek-adult-swim-handoff",
+    "character": "deepseek-adult",
+    "outfit": "swim",
+    "group": "handoff",
+    "poses": [
+      "reveal-scissors",
+      "reveal-paper",
+      "receive",
+      "gift"
+    ],
+    "filename": "deepseek-adult-swim-handoff-v2.png",
+    "references": [
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/deepseek-adult/outfits/swim.png",
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/deepseek-adult/portrait.png"
+    ],
+    "prompt": "Create ONE horizontal row of FOUR complete full-length adult DeepSeek figures for a transparent production sprite sheet. Reference 1 defines the exact outfit and identity to preserve. Reference 2 defines ADULT body proportions only; do not copy reference 2's maid dress. Same DeepSeek mature face, vivid cobalt/cyan long wavy hair, whale ear ornaments, small adult head, approx 7.5-8 head lengths tall. Photorealistic 3D digital adult woman, detailed lifelike skin, hair and cloth. Exact navy/lightblue halter swimdress, white piping, whale pendant, navy slippers from reference 1.\nFORMAT 4 columns x 1 row. FOUR HEAD-TO-SHOE full bodies only, wide landscape. True RGBA fully transparent background. Each full silhouette including feet is isolated, wide empty gutters, same camera distance and same scale in all four. Feet share a horizontal baseline. Keep slim natural adult stature, long thighs and shins. NO chibi, doll head, short squat legs, bust crop, contact sheet of torsos. All stand straight with natural knees; only arms change. No floor, backdrop, shadows, text or grid. Every finger connects to the hand, wrist and arm. Prop contact drawn into original art. Four poses LEFT TO RIGHT: 1) SCISSORS reveal: her right hand (viewer LEFT) extends at chest level showing only index and middle finger V, other fingers folded, natural wrist. 2) PAPER reveal: same hand/forearm position shows open five-finger palm toward viewer. 3) Receive gift: BOTH empty hands cupped together at natural waist, palms up, looking gently toward viewer. 4) Holds small WHITE gift box with PINK ribbon/bow, both hands physically support the closed box at waist; no floating props. Box no wider than torso."
+  },
+  {
+    "key": "deepseek-adult-swim-book",
+    "character": "deepseek-adult",
+    "outfit": "swim",
+    "group": "book",
+    "poses": [
+      "gift-empty",
+      "read",
+      "page",
+      "read-finish"
+    ],
+    "filename": "deepseek-adult-swim-book-v2.png",
+    "references": [
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/deepseek-adult/outfits/swim.png",
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/deepseek-adult/portrait.png"
+    ],
+    "prompt": "Create ONE horizontal row of FOUR complete full-length adult DeepSeek figures for a transparent production sprite sheet. Reference 1 defines the exact outfit and identity to preserve. Reference 2 defines ADULT body proportions only; do not copy reference 2's maid dress. Same DeepSeek mature face, vivid cobalt/cyan long wavy hair, whale ear ornaments, small adult head, approx 7.5-8 head lengths tall. Photorealistic 3D digital adult woman, detailed lifelike skin, hair and cloth. Exact navy/lightblue halter swimdress, white piping, whale pendant, navy slippers from reference 1.\nFORMAT 4 columns x 1 row. FOUR HEAD-TO-SHOE full bodies only, wide landscape. True RGBA fully transparent background. Each full silhouette including feet is isolated, wide empty gutters, same camera distance and same scale in all four. Feet share a horizontal baseline. Keep slim natural adult stature, long thighs and shins. NO chibi, doll head, short squat legs, bust crop, contact sheet of torsos. All stand straight with natural knees; only arms change. No floor, backdrop, shadows, text or grid. Every finger connects to the hand, wrist and arm. Prop contact drawn into original art. Four poses LEFT TO RIGHT: 1) Open EMPTY gift box: left hand physically supports small white/pink box at waist, right hand holds the matching detached lid beside her shoulder. The open box has an EMPTY GREY cavity clearly above its front wall, no toy/object inside, no confetti. 2) Read: both hands physically hold an OPEN BLUE hardcover storybook at waist-to-chest, eyes look down at pages, lips relaxed closed. 3) Turn page: left hand supports the same book at exactly same position, right fingertip physically touches a single curling page, eyes on book. 4) Reading finished: both hands hold the CLOSED same blue book against waist, warm smile looking at viewer. All four figures stand TALL with same straight legs as reference, do not crouch to read."
+  },
+  {
+    "key": "deepseek-adult-swim-photo",
+    "character": "deepseek-adult",
+    "outfit": "swim",
+    "group": "photo",
+    "poses": [
+      "neutral",
+      "lift",
+      "photo",
+      "happy"
+    ],
+    "filename": "deepseek-adult-swim-photo-v2.png",
+    "references": [
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/deepseek-adult/outfits/swim.png",
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/deepseek-adult/portrait.png"
+    ],
+    "prompt": "Create ONE horizontal row of FOUR complete full-length adult DeepSeek figures for a transparent production sprite sheet. Reference 1 defines the exact outfit and identity to preserve. Reference 2 defines ADULT body proportions only; do not copy reference 2's maid dress. Same DeepSeek mature face, vivid cobalt/cyan long wavy hair, whale ear ornaments, small adult head, approx 7.5-8 head lengths tall. Photorealistic 3D digital adult woman, detailed lifelike skin, hair and cloth. Exact navy/lightblue halter swimdress, white piping, whale pendant, navy slippers from reference 1.\nFORMAT 4 columns x 1 row. FOUR HEAD-TO-SHOE full bodies only, wide landscape. True RGBA fully transparent background. Each full silhouette including feet is isolated, wide empty gutters, same camera distance and same scale in all four. Feet share a horizontal baseline. Keep slim natural adult stature, long thighs and shins. NO chibi, doll head, short squat legs, bust crop, contact sheet of torsos. All stand straight with natural knees; only arms change. No floor, backdrop, shadows, text or grid. Every finger connects to the hand, wrist and arm. Prop contact drawn into original art. Four poses LEFT TO RIGHT: 1) Neutral full-body standing, both arms relaxed beside dress, calm smile. 2) Photo preparation: right hand moves up toward cheek, relaxed fingers, left arm rests by side. 3) Photo: natural right-hand two-finger V gesture beside cheek, gentle smile toward viewer, left arm down. 4) Happy relaxed full-body standing, friendly closed-mouth smile, both arms by sides. All four same straight standing legs and same adult face/body."
+  },
+  {
+    "key": "deepseek-adult-sports-highfive",
+    "character": "deepseek-adult",
+    "outfit": "sports",
+    "group": "highfive",
+    "poses": [
+      "high-prep",
+      "high-ready",
+      "high-contact",
+      "high-recoil"
+    ],
+    "filename": "deepseek-adult-sports-highfive-v2.png",
+    "references": [
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/deepseek-adult/outfits/sports/portrait.png",
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/deepseek-adult/portrait.png"
+    ],
+    "prompt": "Create ONE horizontal row of FOUR complete full-length adult DeepSeek figures for a transparent production sprite sheet. Reference 1 defines the exact outfit and identity to preserve. Reference 2 defines ADULT body proportions only; do not copy reference 2's maid dress. Same DeepSeek mature face, vivid cobalt/cyan long wavy hair, whale ear ornaments, small adult head, approx 7.5-8 head lengths tall. Photorealistic 3D digital adult woman, detailed lifelike skin, hair and cloth. Exact white and navy SHORT-SLEEVE zip sports shirt, NAVY ABOVE-KNEE SHORTS, socks and sneakers. Keep thighs, knees and calves visible. NO long pants, no long sleeves.\nFORMAT 4 columns x 1 row. FOUR HEAD-TO-SHOE full bodies only, wide landscape. True RGBA fully transparent background. Each full silhouette including feet is isolated, wide empty gutters, same camera distance and same scale in all four. Feet share a horizontal baseline. Keep slim natural adult stature, long thighs and shins. NO chibi, doll head, short squat legs, bust crop, contact sheet of torsos. All stand straight with natural knees; only arms change. No floor, backdrop, shadows, text or grid. Every finger connects to the hand, wrist and arm. Prop contact drawn into original art. Four poses LEFT TO RIGHT: 1) High-five preparation: her RIGHT hand (viewer LEFT) rises to shoulder height, relaxed open palm. 2) High-five ready: the same connected arm, open palm facing viewer beside her temple, NOT above head; five natural fingers. 3) High-five contact: the same palm gently presses forward toward viewer at shoulder/temple level; a small happy smile; natural elbow and wrist, no separate floating arm. 4) High-five recoil: hand withdraws slightly back beside shoulder, open relaxed fingers, pleased smile. Left arm rests by side throughout."
+  },
+  {
+    "key": "deepseek-adult-sports-rps",
+    "character": "deepseek-adult",
+    "outfit": "sports",
+    "group": "rps",
+    "poses": [
+      "fist-up",
+      "fist-mid",
+      "fist-down",
+      "reveal-rock"
+    ],
+    "filename": "deepseek-adult-sports-rps-v2.png",
+    "references": [
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/deepseek-adult/outfits/sports/portrait.png",
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/deepseek-adult/portrait.png"
+    ],
+    "prompt": "Create ONE horizontal row of FOUR complete full-length adult DeepSeek figures for a transparent production sprite sheet. Reference 1 defines the exact outfit and identity to preserve. Reference 2 defines ADULT body proportions only; do not copy reference 2's maid dress. Same DeepSeek mature face, vivid cobalt/cyan long wavy hair, whale ear ornaments, small adult head, approx 7.5-8 head lengths tall. Photorealistic 3D digital adult woman, detailed lifelike skin, hair and cloth. Exact white and navy SHORT-SLEEVE zip sports shirt, NAVY ABOVE-KNEE SHORTS, socks and sneakers. Keep thighs, knees and calves visible. NO long pants, no long sleeves.\nFORMAT 4 columns x 1 row. FOUR HEAD-TO-SHOE full bodies only, wide landscape. True RGBA fully transparent background. Each full silhouette including feet is isolated, wide empty gutters, same camera distance and same scale in all four. Feet share a horizontal baseline. Keep slim natural adult stature, long thighs and shins. NO chibi, doll head, short squat legs, bust crop, contact sheet of torsos. All stand straight with natural knees; only arms change. No floor, backdrop, shadows, text or grid. Every finger connects to the hand, wrist and arm. Prop contact drawn into original art. Four poses LEFT TO RIGHT: 1) Guessing-game fist HIGH beside chin, right hand (viewer LEFT) CLOSED fist, elbow natural. 2) Same closed fist MID beside upper chest. 3) Same closed fist LOW beside waist. 4) ROCK reveal: same right closed fist extends gently forward at chest height, knuckles toward viewer. Left arm rests by side. Four clear distinct positions of the same anatomically connected arm."
+  },
+  {
+    "key": "deepseek-adult-sports-handoff",
+    "character": "deepseek-adult",
+    "outfit": "sports",
+    "group": "handoff",
+    "poses": [
+      "reveal-scissors",
+      "reveal-paper",
+      "receive",
+      "gift"
+    ],
+    "filename": "deepseek-adult-sports-handoff-v2.png",
+    "references": [
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/deepseek-adult/outfits/sports/portrait.png",
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/deepseek-adult/portrait.png"
+    ],
+    "prompt": "Create ONE horizontal row of FOUR complete full-length adult DeepSeek figures for a transparent production sprite sheet. Reference 1 defines the exact outfit and identity to preserve. Reference 2 defines ADULT body proportions only; do not copy reference 2's maid dress. Same DeepSeek mature face, vivid cobalt/cyan long wavy hair, whale ear ornaments, small adult head, approx 7.5-8 head lengths tall. Photorealistic 3D digital adult woman, detailed lifelike skin, hair and cloth. Exact white and navy SHORT-SLEEVE zip sports shirt, NAVY ABOVE-KNEE SHORTS, socks and sneakers. Keep thighs, knees and calves visible. NO long pants, no long sleeves.\nFORMAT 4 columns x 1 row. FOUR HEAD-TO-SHOE full bodies only, wide landscape. True RGBA fully transparent background. Each full silhouette including feet is isolated, wide empty gutters, same camera distance and same scale in all four. Feet share a horizontal baseline. Keep slim natural adult stature, long thighs and shins. NO chibi, doll head, short squat legs, bust crop, contact sheet of torsos. All stand straight with natural knees; only arms change. No floor, backdrop, shadows, text or grid. Every finger connects to the hand, wrist and arm. Prop contact drawn into original art. Four poses LEFT TO RIGHT: 1) SCISSORS reveal: her right hand (viewer LEFT) extends at chest level showing only index and middle finger V, other fingers folded, natural wrist. 2) PAPER reveal: same hand/forearm position shows open five-finger palm toward viewer. 3) Receive gift: BOTH empty hands cupped together at natural waist, palms up, looking gently toward viewer. 4) Holds small WHITE gift box with PINK ribbon/bow, both hands physically support the closed box at waist; no floating props. Box no wider than torso."
+  },
+  {
+    "key": "deepseek-adult-sports-book",
+    "character": "deepseek-adult",
+    "outfit": "sports",
+    "group": "book",
+    "poses": [
+      "gift-empty",
+      "read",
+      "page",
+      "read-finish"
+    ],
+    "filename": "deepseek-adult-sports-book-v2.png",
+    "references": [
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/deepseek-adult/outfits/sports/portrait.png",
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/deepseek-adult/portrait.png"
+    ],
+    "prompt": "Create ONE horizontal row of FOUR complete full-length adult DeepSeek figures for a transparent production sprite sheet. Reference 1 defines the exact outfit and identity to preserve. Reference 2 defines ADULT body proportions only; do not copy reference 2's maid dress. Same DeepSeek mature face, vivid cobalt/cyan long wavy hair, whale ear ornaments, small adult head, approx 7.5-8 head lengths tall. Photorealistic 3D digital adult woman, detailed lifelike skin, hair and cloth. Exact white and navy SHORT-SLEEVE zip sports shirt, NAVY ABOVE-KNEE SHORTS, socks and sneakers. Keep thighs, knees and calves visible. NO long pants, no long sleeves.\nFORMAT 4 columns x 1 row. FOUR HEAD-TO-SHOE full bodies only, wide landscape. True RGBA fully transparent background. Each full silhouette including feet is isolated, wide empty gutters, same camera distance and same scale in all four. Feet share a horizontal baseline. Keep slim natural adult stature, long thighs and shins. NO chibi, doll head, short squat legs, bust crop, contact sheet of torsos. All stand straight with natural knees; only arms change. No floor, backdrop, shadows, text or grid. Every finger connects to the hand, wrist and arm. Prop contact drawn into original art. Four poses LEFT TO RIGHT: 1) Open EMPTY gift box: left hand physically supports small white/pink box at waist, right hand holds the matching detached lid beside her shoulder. The open box has an EMPTY GREY cavity clearly above its front wall, no toy/object inside, no confetti. 2) Read: both hands physically hold an OPEN BLUE hardcover storybook at waist-to-chest, eyes look down at pages, lips relaxed closed. 3) Turn page: left hand supports the same book at exactly same position, right fingertip physically touches a single curling page, eyes on book. 4) Reading finished: both hands hold the CLOSED same blue book against waist, warm smile looking at viewer. All four figures stand TALL with same straight legs as reference, do not crouch to read."
+  },
+  {
+    "key": "deepseek-adult-sports-photo",
+    "character": "deepseek-adult",
+    "outfit": "sports",
+    "group": "photo",
+    "poses": [
+      "neutral",
+      "lift",
+      "photo",
+      "happy"
+    ],
+    "filename": "deepseek-adult-sports-photo-v2.png",
+    "references": [
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/deepseek-adult/outfits/sports/portrait.png",
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/deepseek-adult/portrait.png"
+    ],
+    "prompt": "Create ONE horizontal row of FOUR complete full-length adult DeepSeek figures for a transparent production sprite sheet. Reference 1 defines the exact outfit and identity to preserve. Reference 2 defines ADULT body proportions only; do not copy reference 2's maid dress. Same DeepSeek mature face, vivid cobalt/cyan long wavy hair, whale ear ornaments, small adult head, approx 7.5-8 head lengths tall. Photorealistic 3D digital adult woman, detailed lifelike skin, hair and cloth. Exact white and navy SHORT-SLEEVE zip sports shirt, NAVY ABOVE-KNEE SHORTS, socks and sneakers. Keep thighs, knees and calves visible. NO long pants, no long sleeves.\nFORMAT 4 columns x 1 row. FOUR HEAD-TO-SHOE full bodies only, wide landscape. True RGBA fully transparent background. Each full silhouette including feet is isolated, wide empty gutters, same camera distance and same scale in all four. Feet share a horizontal baseline. Keep slim natural adult stature, long thighs and shins. NO chibi, doll head, short squat legs, bust crop, contact sheet of torsos. All stand straight with natural knees; only arms change. No floor, backdrop, shadows, text or grid. Every finger connects to the hand, wrist and arm. Prop contact drawn into original art. Four poses LEFT TO RIGHT: 1) Neutral full-body standing, both arms relaxed beside dress, calm smile. 2) Photo preparation: right hand moves up toward cheek, relaxed fingers, left arm rests by side. 3) Photo: natural right-hand two-finger V gesture beside cheek, gentle smile toward viewer, left arm down. 4) Happy relaxed full-body standing, friendly closed-mouth smile, both arms by sides. All four same straight standing legs and same adult face/body."
+  },
+  {
+    "key": "deepseek-adult-wedding-highfive",
+    "character": "deepseek-adult",
+    "outfit": "wedding",
+    "group": "highfive",
+    "poses": [
+      "high-prep",
+      "high-ready",
+      "high-contact",
+      "high-recoil"
+    ],
+    "filename": "deepseek-adult-wedding-highfive-v2.png",
+    "references": [
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/deepseek-adult/outfits/wedding.png",
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/deepseek-adult/portrait.png"
+    ],
+    "prompt": "Create ONE horizontal row of FOUR complete full-length adult DeepSeek figures for a transparent production sprite sheet. Reference 1 defines the exact outfit and identity to preserve. Reference 2 defines ADULT body proportions only; do not copy reference 2's maid dress. Same DeepSeek mature face, vivid cobalt/cyan long wavy hair, whale ear ornaments, small adult head, approx 7.5-8 head lengths tall. Photorealistic 3D digital adult woman, detailed lifelike skin, hair and cloth. Exact white lace bridal gown, lace veil, blue waist ribbon, whale pendant and white bridal shoes from reference 1. No original maid apron.\nFORMAT 4 columns x 1 row. FOUR HEAD-TO-SHOE full bodies only, wide landscape. True RGBA fully transparent background. Each full silhouette including feet is isolated, wide empty gutters, same camera distance and same scale in all four. Feet share a horizontal baseline. Keep slim natural adult stature, long thighs and shins. NO chibi, doll head, short squat legs, bust crop, contact sheet of torsos. All stand straight with natural knees; only arms change. No floor, backdrop, shadows, text or grid. Every finger connects to the hand, wrist and arm. Prop contact drawn into original art. Four poses LEFT TO RIGHT: 1) High-five preparation: her RIGHT hand (viewer LEFT) rises to shoulder height, relaxed open palm. 2) High-five ready: the same connected arm, open palm facing viewer beside her temple, NOT above head; five natural fingers. 3) High-five contact: the same palm gently presses forward toward viewer at shoulder/temple level; a small happy smile; natural elbow and wrist, no separate floating arm. 4) High-five recoil: hand withdraws slightly back beside shoulder, open relaxed fingers, pleased smile. Left arm rests by side throughout."
+  },
+  {
+    "key": "deepseek-adult-wedding-rps",
+    "character": "deepseek-adult",
+    "outfit": "wedding",
+    "group": "rps",
+    "poses": [
+      "fist-up",
+      "fist-mid",
+      "fist-down",
+      "reveal-rock"
+    ],
+    "filename": "deepseek-adult-wedding-rps-v2.png",
+    "references": [
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/deepseek-adult/outfits/wedding.png",
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/deepseek-adult/portrait.png"
+    ],
+    "prompt": "Create ONE horizontal row of FOUR complete full-length adult DeepSeek figures for a transparent production sprite sheet. Reference 1 defines the exact outfit and identity to preserve. Reference 2 defines ADULT body proportions only; do not copy reference 2's maid dress. Same DeepSeek mature face, vivid cobalt/cyan long wavy hair, whale ear ornaments, small adult head, approx 7.5-8 head lengths tall. Photorealistic 3D digital adult woman, detailed lifelike skin, hair and cloth. Exact white lace bridal gown, lace veil, blue waist ribbon, whale pendant and white bridal shoes from reference 1. No original maid apron.\nFORMAT 4 columns x 1 row. FOUR HEAD-TO-SHOE full bodies only, wide landscape. True RGBA fully transparent background. Each full silhouette including feet is isolated, wide empty gutters, same camera distance and same scale in all four. Feet share a horizontal baseline. Keep slim natural adult stature, long thighs and shins. NO chibi, doll head, short squat legs, bust crop, contact sheet of torsos. All stand straight with natural knees; only arms change. No floor, backdrop, shadows, text or grid. Every finger connects to the hand, wrist and arm. Prop contact drawn into original art. Four poses LEFT TO RIGHT: 1) Guessing-game fist HIGH beside chin, right hand (viewer LEFT) CLOSED fist, elbow natural. 2) Same closed fist MID beside upper chest. 3) Same closed fist LOW beside waist. 4) ROCK reveal: same right closed fist extends gently forward at chest height, knuckles toward viewer. Left arm rests by side. Four clear distinct positions of the same anatomically connected arm."
+  },
+  {
+    "key": "deepseek-adult-wedding-handoff",
+    "character": "deepseek-adult",
+    "outfit": "wedding",
+    "group": "handoff",
+    "poses": [
+      "reveal-scissors",
+      "reveal-paper",
+      "receive",
+      "gift"
+    ],
+    "filename": "deepseek-adult-wedding-handoff-v2.png",
+    "references": [
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/deepseek-adult/outfits/wedding.png",
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/deepseek-adult/portrait.png"
+    ],
+    "prompt": "Create ONE horizontal row of FOUR complete full-length adult DeepSeek figures for a transparent production sprite sheet. Reference 1 defines the exact outfit and identity to preserve. Reference 2 defines ADULT body proportions only; do not copy reference 2's maid dress. Same DeepSeek mature face, vivid cobalt/cyan long wavy hair, whale ear ornaments, small adult head, approx 7.5-8 head lengths tall. Photorealistic 3D digital adult woman, detailed lifelike skin, hair and cloth. Exact white lace bridal gown, lace veil, blue waist ribbon, whale pendant and white bridal shoes from reference 1. No original maid apron.\nFORMAT 4 columns x 1 row. FOUR HEAD-TO-SHOE full bodies only, wide landscape. True RGBA fully transparent background. Each full silhouette including feet is isolated, wide empty gutters, same camera distance and same scale in all four. Feet share a horizontal baseline. Keep slim natural adult stature, long thighs and shins. NO chibi, doll head, short squat legs, bust crop, contact sheet of torsos. All stand straight with natural knees; only arms change. No floor, backdrop, shadows, text or grid. Every finger connects to the hand, wrist and arm. Prop contact drawn into original art. Four poses LEFT TO RIGHT: 1) SCISSORS reveal: her right hand (viewer LEFT) extends at chest level showing only index and middle finger V, other fingers folded, natural wrist. 2) PAPER reveal: same hand/forearm position shows open five-finger palm toward viewer. 3) Receive gift: BOTH empty hands cupped together at natural waist, palms up, looking gently toward viewer. 4) Holds small WHITE gift box with PINK ribbon/bow, both hands physically support the closed box at waist; no floating props. Box no wider than torso."
+  },
+  {
+    "key": "deepseek-adult-wedding-book",
+    "character": "deepseek-adult",
+    "outfit": "wedding",
+    "group": "book",
+    "poses": [
+      "gift-empty",
+      "read",
+      "page",
+      "read-finish"
+    ],
+    "filename": "deepseek-adult-wedding-book-v2.png",
+    "references": [
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/deepseek-adult/outfits/wedding.png",
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/deepseek-adult/portrait.png"
+    ],
+    "prompt": "Create ONE horizontal row of FOUR complete full-length adult DeepSeek figures for a transparent production sprite sheet. Reference 1 defines the exact outfit and identity to preserve. Reference 2 defines ADULT body proportions only; do not copy reference 2's maid dress. Same DeepSeek mature face, vivid cobalt/cyan long wavy hair, whale ear ornaments, small adult head, approx 7.5-8 head lengths tall. Photorealistic 3D digital adult woman, detailed lifelike skin, hair and cloth. Exact white lace bridal gown, lace veil, blue waist ribbon, whale pendant and white bridal shoes from reference 1. No original maid apron.\nFORMAT 4 columns x 1 row. FOUR HEAD-TO-SHOE full bodies only, wide landscape. True RGBA fully transparent background. Each full silhouette including feet is isolated, wide empty gutters, same camera distance and same scale in all four. Feet share a horizontal baseline. Keep slim natural adult stature, long thighs and shins. NO chibi, doll head, short squat legs, bust crop, contact sheet of torsos. All stand straight with natural knees; only arms change. No floor, backdrop, shadows, text or grid. Every finger connects to the hand, wrist and arm. Prop contact drawn into original art. Four poses LEFT TO RIGHT: 1) Open EMPTY gift box: left hand physically supports small white/pink box at waist, right hand holds the matching detached lid beside her shoulder. The open box has an EMPTY GREY cavity clearly above its front wall, no toy/object inside, no confetti. 2) Read: both hands physically hold an OPEN BLUE hardcover storybook at waist-to-chest, eyes look down at pages, lips relaxed closed. 3) Turn page: left hand supports the same book at exactly same position, right fingertip physically touches a single curling page, eyes on book. 4) Reading finished: both hands hold the CLOSED same blue book against waist, warm smile looking at viewer. All four figures stand TALL with same straight legs as reference, do not crouch to read."
+  },
+  {
+    "key": "deepseek-adult-wedding-photo",
+    "character": "deepseek-adult",
+    "outfit": "wedding",
+    "group": "photo",
+    "poses": [
+      "neutral",
+      "lift",
+      "photo",
+      "happy"
+    ],
+    "filename": "deepseek-adult-wedding-photo-v2.png",
+    "references": [
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/deepseek-adult/outfits/wedding.png",
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/deepseek-adult/portrait.png"
+    ],
+    "prompt": "Create ONE horizontal row of FOUR complete full-length adult DeepSeek figures for a transparent production sprite sheet. Reference 1 defines the exact outfit and identity to preserve. Reference 2 defines ADULT body proportions only; do not copy reference 2's maid dress. Same DeepSeek mature face, vivid cobalt/cyan long wavy hair, whale ear ornaments, small adult head, approx 7.5-8 head lengths tall. Photorealistic 3D digital adult woman, detailed lifelike skin, hair and cloth. Exact white lace bridal gown, lace veil, blue waist ribbon, whale pendant and white bridal shoes from reference 1. No original maid apron.\nFORMAT 4 columns x 1 row. FOUR HEAD-TO-SHOE full bodies only, wide landscape. True RGBA fully transparent background. Each full silhouette including feet is isolated, wide empty gutters, same camera distance and same scale in all four. Feet share a horizontal baseline. Keep slim natural adult stature, long thighs and shins. NO chibi, doll head, short squat legs, bust crop, contact sheet of torsos. All stand straight with natural knees; only arms change. No floor, backdrop, shadows, text or grid. Every finger connects to the hand, wrist and arm. Prop contact drawn into original art. Four poses LEFT TO RIGHT: 1) Neutral full-body standing, both arms relaxed beside dress, calm smile. 2) Photo preparation: right hand moves up toward cheek, relaxed fingers, left arm rests by side. 3) Photo: natural right-hand two-finger V gesture beside cheek, gentle smile toward viewer, left arm down. 4) Happy relaxed full-body standing, friendly closed-mouth smile, both arms by sides. All four same straight standing legs and same adult face/body."
+  }
+]

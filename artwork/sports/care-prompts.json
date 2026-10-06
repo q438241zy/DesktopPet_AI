@@ -1,0 +1,474 @@
+[
+  {
+    "key": "whale-care-wardrobe",
+    "id": "whale",
+    "family": "whale",
+    "style": "chibi",
+    "kind": "care",
+    "outfits": [
+      "original",
+      "swim",
+      "wedding"
+    ],
+    "columns": 4,
+    "rows": 6,
+    "dest": "src/DesktopPet.App/Assets/Characters/whale/motions/cloud-care-wardrobe.png",
+    "refs": [
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/whale/atlas.png",
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/whale/outfits/swim.webp",
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/whale/outfits/wedding.webp"
+    ],
+    "prompt": "Make exactly 24 FULL-BODY poses of the SAME DeepSeek character in THREE outfits from the three reference images. cobalt-to-cyan long wavy hair, loop ahoge, blue eyes, white fin ears, cyan bow and blue whale tail; preserve each outfit's accessories and existing costume exactly. Cute big-headed chibi, seated as in the refs, 4 columns x 6 rows portrait. First TWO rows use image1 original clothing; next TWO rows use image2 swim clothing; final TWO rows use image3 wedding gown. For EACH outfit repeat the following eight-pose sequence exactly once. Eight ordered poses: 0 holding a small wooden comb down at waist; 1 raise right hand so comb teeth touch hair beside the temple, tilt head gently toward it; 2 draw comb down the SAME lock of hair to shoulder while other hand lightly holds that lock; 3 lower comb back to waist with a relaxed smile. 4 holding a soft ivory face towel at chest; 5 lift towel with fingers and press to LEFT cheek, close that eye; 6 move towel to RIGHT cheek, tilt head gently opposite; 7 lower towel to chest, content expression. Props firmly gripped by fingers in every pose, no floating tool or extra hand. Feet/body stay stable, arms and head actually move. No text, labels, numbers, background or effect sprites. Each figure fully isolated by at least 24 transparent pixels. Keep each pose's anatomical pixel scale identical; ample empty margins on all sides; truly transparent alpha."
+  },
+  {
+    "key": "deepseek-adult-care-wardrobe",
+    "id": "deepseek-adult",
+    "family": "whale",
+    "style": "realistic",
+    "kind": "care",
+    "outfits": [
+      "original",
+      "swim",
+      "wedding"
+    ],
+    "columns": 8,
+    "rows": 3,
+    "dest": "src/DesktopPet.App/Assets/Characters/deepseek-adult/motions/cloud-care-wardrobe.png",
+    "refs": [
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/deepseek-adult/portrait.png",
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/deepseek-adult/outfits/swim.png",
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/deepseek-adult/outfits/wedding.png"
+    ],
+    "prompt": "Make exactly 24 FULL-BODY poses of the SAME DeepSeek character in THREE outfits from the three reference images. cobalt-to-cyan long wavy hair, loop ahoge, blue eyes, white fin ears, cyan bow and blue whale tail; preserve each outfit's accessories and existing costume exactly. Realistic 3D woman aged23+, mature adult anatomy, 8 columns x 3 rows LANDSCAPE. Row1 uses image1 original outfit; row2 uses image2 swimdress; row3 uses image3 wedding gown. Keep skirts/dress/feet completely visible and figure small enough for clear gutters. For EACH outfit repeat the following eight-pose sequence exactly once. Eight ordered poses: 0 holding a small wooden comb down at waist; 1 raise right hand so comb teeth touch hair beside the temple, tilt head gently toward it; 2 draw comb down the SAME lock of hair to shoulder while other hand lightly holds that lock; 3 lower comb back to waist with a relaxed smile. 4 holding a soft ivory face towel at chest; 5 lift towel with fingers and press to LEFT cheek, close that eye; 6 move towel to RIGHT cheek, tilt head gently opposite; 7 lower towel to chest, content expression. Props firmly gripped by fingers in every pose, no floating tool or extra hand. Feet/body stay stable, arms and head actually move. No text, labels, numbers, background or effect sprites. Each figure fully isolated by at least 24 transparent pixels. Keep each pose's anatomical pixel scale identical; ample empty margins on all sides; truly transparent alpha."
+  },
+  {
+    "key": "deepseek-adult-sports-care",
+    "id": "deepseek-adult",
+    "family": "whale",
+    "style": "realistic",
+    "kind": "care",
+    "outfits": [
+      "sports"
+    ],
+    "columns": 4,
+    "rows": 2,
+    "dest": "src/DesktopPet.App/Assets/Characters/deepseek-adult/outfits/sports/care.png",
+    "refs": [
+      "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-eb53f706-fc78-4905-8c82-dc585e656b3d.png"
+    ],
+    "prompt": "Use the FIRST pose of reference as the adult DeepSeek identity and clothing: cobalt-to-cyan long wavy hair, loop ahoge, blue eyes, white fin ears, cyan bow and blue whale tail. Short-sleeve ivory zipfront track top above elbows, long track pants, white sneakers, navy blue panels and track pants, cobalt piping, small whale emblem. Draw EXACTLY 8 FULL-BODY poses, four columns x two rows landscape. Keep entire hair and both shoes in every cell, large transparent gutters, no cropping. Eight ordered poses: 0 holding a small wooden comb down at waist; 1 raise right hand so comb teeth touch hair beside the temple, tilt head gently toward it; 2 draw comb down the SAME lock of hair to shoulder while other hand lightly holds that lock; 3 lower comb back to waist with a relaxed smile. 4 holding a soft ivory face towel at chest; 5 lift towel with fingers and press to LEFT cheek, close that eye; 6 move towel to RIGHT cheek, tilt head gently opposite; 7 lower towel to chest, content expression. Props firmly gripped by fingers in every pose, no floating tool or extra hand. Feet/body stay stable, arms and head actually move. No text, labels, numbers, background or effect sprites. Each figure fully isolated by at least 24 transparent pixels. Keep each pose's anatomical pixel scale identical; ample empty margins on all sides; truly transparent alpha."
+  },
+  {
+    "key": "gpt-care-wardrobe",
+    "id": "gpt",
+    "family": "gpt",
+    "style": "chibi",
+    "kind": "care",
+    "outfits": [
+      "original",
+      "swim",
+      "wedding"
+    ],
+    "columns": 4,
+    "rows": 6,
+    "dest": "src/DesktopPet.App/Assets/Characters/gpt/motions/cloud-care-wardrobe.png",
+    "refs": [
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/gpt/atlas.png",
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/gpt/outfits/swim.webp",
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/gpt/outfits/wedding.webp"
+    ],
+    "prompt": "Make exactly 24 FULL-BODY poses of the SAME GPT character in THREE outfits from the three reference images. silver-lavender long wavy hair, pale little horns, pointed elf ears, lavender eyes, silver knot hairpin; preserve each outfit's accessories and existing costume exactly. Cute big-headed chibi, seated as in the refs, 4 columns x 6 rows portrait. First TWO rows use image1 original clothing; next TWO rows use image2 swim clothing; final TWO rows use image3 wedding gown. For EACH outfit repeat the following eight-pose sequence exactly once. Eight ordered poses: 0 holding a small wooden comb down at waist; 1 raise right hand so comb teeth touch hair beside the temple, tilt head gently toward it; 2 draw comb down the SAME lock of hair to shoulder while other hand lightly holds that lock; 3 lower comb back to waist with a relaxed smile. 4 holding a soft ivory face towel at chest; 5 lift towel with fingers and press to LEFT cheek, close that eye; 6 move towel to RIGHT cheek, tilt head gently opposite; 7 lower towel to chest, content expression. Props firmly gripped by fingers in every pose, no floating tool or extra hand. Feet/body stay stable, arms and head actually move. No text, labels, numbers, background or effect sprites. Each figure fully isolated by at least 24 transparent pixels. Keep each pose's anatomical pixel scale identical; ample empty margins on all sides; truly transparent alpha."
+  },
+  {
+    "key": "gpt-adult-care-wardrobe",
+    "id": "gpt-adult",
+    "family": "gpt",
+    "style": "realistic",
+    "kind": "care",
+    "outfits": [
+      "original",
+      "swim",
+      "wedding"
+    ],
+    "columns": 8,
+    "rows": 3,
+    "dest": "src/DesktopPet.App/Assets/Characters/gpt-adult/motions/cloud-care-wardrobe.png",
+    "refs": [
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/gpt-adult/portrait.png",
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/gpt-adult/outfits/swim.png",
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/gpt-adult/outfits/wedding.png"
+    ],
+    "prompt": "Make exactly 24 FULL-BODY poses of the SAME GPT character in THREE outfits from the three reference images. silver-lavender long wavy hair, pale little horns, pointed elf ears, lavender eyes, silver knot hairpin; preserve each outfit's accessories and existing costume exactly. Realistic 3D woman aged23+, mature adult anatomy, 8 columns x 3 rows LANDSCAPE. Row1 uses image1 original outfit; row2 uses image2 swimdress; row3 uses image3 wedding gown. Keep skirts/dress/feet completely visible and figure small enough for clear gutters. For EACH outfit repeat the following eight-pose sequence exactly once. Eight ordered poses: 0 holding a small wooden comb down at waist; 1 raise right hand so comb teeth touch hair beside the temple, tilt head gently toward it; 2 draw comb down the SAME lock of hair to shoulder while other hand lightly holds that lock; 3 lower comb back to waist with a relaxed smile. 4 holding a soft ivory face towel at chest; 5 lift towel with fingers and press to LEFT cheek, close that eye; 6 move towel to RIGHT cheek, tilt head gently opposite; 7 lower towel to chest, content expression. Props firmly gripped by fingers in every pose, no floating tool or extra hand. Feet/body stay stable, arms and head actually move. No text, labels, numbers, background or effect sprites. Each figure fully isolated by at least 24 transparent pixels. Keep each pose's anatomical pixel scale identical; ample empty margins on all sides; truly transparent alpha."
+  },
+  {
+    "key": "gpt-adult-sports-care",
+    "id": "gpt-adult",
+    "family": "gpt",
+    "style": "realistic",
+    "kind": "care",
+    "outfits": [
+      "sports"
+    ],
+    "columns": 4,
+    "rows": 2,
+    "dest": "src/DesktopPet.App/Assets/Characters/gpt-adult/outfits/sports/care.png",
+    "refs": [
+      "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-d374a323-8c8d-457d-a711-19b8036ee5db.png"
+    ],
+    "prompt": "Use the FIRST pose of reference as the adult GPT identity and clothing: silver-lavender long wavy hair, pale little horns, pointed elf ears, lavender eyes, silver knot hairpin. Short-sleeve ivory zipfront track top above elbows, long track pants, white sneakers, deep emerald panels and track pants, pale mint piping, tiny white interlocking-knot emblem. Draw EXACTLY 8 FULL-BODY poses, four columns x two rows landscape. Keep entire hair and both shoes in every cell, large transparent gutters, no cropping. Eight ordered poses: 0 holding a small wooden comb down at waist; 1 raise right hand so comb teeth touch hair beside the temple, tilt head gently toward it; 2 draw comb down the SAME lock of hair to shoulder while other hand lightly holds that lock; 3 lower comb back to waist with a relaxed smile. 4 holding a soft ivory face towel at chest; 5 lift towel with fingers and press to LEFT cheek, close that eye; 6 move towel to RIGHT cheek, tilt head gently opposite; 7 lower towel to chest, content expression. Props firmly gripped by fingers in every pose, no floating tool or extra hand. Feet/body stay stable, arms and head actually move. No text, labels, numbers, background or effect sprites. Each figure fully isolated by at least 24 transparent pixels. Keep each pose's anatomical pixel scale identical; ample empty margins on all sides; truly transparent alpha."
+  },
+  {
+    "key": "claude-care-wardrobe",
+    "id": "claude",
+    "family": "claude",
+    "style": "chibi",
+    "kind": "care",
+    "outfits": [
+      "original",
+      "swim",
+      "wedding"
+    ],
+    "columns": 4,
+    "rows": 6,
+    "dest": "src/DesktopPet.App/Assets/Characters/claude/motions/cloud-care-wardrobe.png",
+    "refs": [
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/claude/atlas.png",
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/claude/outfits/swim.webp",
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/claude/outfits/wedding.webp"
+    ],
+    "prompt": "Make exactly 24 FULL-BODY poses of the SAME Claude character in THREE outfits from the three reference images. copper-orange long wavy hair, brown eyes, round wire-frame glasses and orange daisy hair ornament; preserve each outfit's accessories and existing costume exactly. Cute big-headed chibi, seated as in the refs, 4 columns x 6 rows portrait. First TWO rows use image1 original clothing; next TWO rows use image2 swim clothing; final TWO rows use image3 wedding gown. For EACH outfit repeat the following eight-pose sequence exactly once. Eight ordered poses: 0 holding a small wooden comb down at waist; 1 raise right hand so comb teeth touch hair beside the temple, tilt head gently toward it; 2 draw comb down the SAME lock of hair to shoulder while other hand lightly holds that lock; 3 lower comb back to waist with a relaxed smile. 4 holding a soft ivory face towel at chest; 5 lift towel with fingers and press to LEFT cheek, close that eye; 6 move towel to RIGHT cheek, tilt head gently opposite; 7 lower towel to chest, content expression. Props firmly gripped by fingers in every pose, no floating tool or extra hand. Feet/body stay stable, arms and head actually move. No text, labels, numbers, background or effect sprites. Each figure fully isolated by at least 24 transparent pixels. Keep each pose's anatomical pixel scale identical; ample empty margins on all sides; truly transparent alpha."
+  },
+  {
+    "key": "claude-adult-care-wardrobe",
+    "id": "claude-adult",
+    "family": "claude",
+    "style": "realistic",
+    "kind": "care",
+    "outfits": [
+      "original",
+      "swim",
+      "wedding"
+    ],
+    "columns": 8,
+    "rows": 3,
+    "dest": "src/DesktopPet.App/Assets/Characters/claude-adult/motions/cloud-care-wardrobe.png",
+    "refs": [
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/claude-adult/portrait.png",
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/claude-adult/outfits/swim.png",
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/claude-adult/outfits/wedding.png"
+    ],
+    "prompt": "Make exactly 24 FULL-BODY poses of the SAME Claude character in THREE outfits from the three reference images. copper-orange long wavy hair, brown eyes, round wire-frame glasses and orange daisy hair ornament; preserve each outfit's accessories and existing costume exactly. Realistic 3D woman aged23+, mature adult anatomy, 8 columns x 3 rows LANDSCAPE. Row1 uses image1 original outfit; row2 uses image2 swimdress; row3 uses image3 wedding gown. Keep skirts/dress/feet completely visible and figure small enough for clear gutters. For EACH outfit repeat the following eight-pose sequence exactly once. Eight ordered poses: 0 holding a small wooden comb down at waist; 1 raise right hand so comb teeth touch hair beside the temple, tilt head gently toward it; 2 draw comb down the SAME lock of hair to shoulder while other hand lightly holds that lock; 3 lower comb back to waist with a relaxed smile. 4 holding a soft ivory face towel at chest; 5 lift towel with fingers and press to LEFT cheek, close that eye; 6 move towel to RIGHT cheek, tilt head gently opposite; 7 lower towel to chest, content expression. Props firmly gripped by fingers in every pose, no floating tool or extra hand. Feet/body stay stable, arms and head actually move. No text, labels, numbers, background or effect sprites. Each figure fully isolated by at least 24 transparent pixels. Keep each pose's anatomical pixel scale identical; ample empty margins on all sides; truly transparent alpha."
+  },
+  {
+    "key": "claude-adult-sports-care",
+    "id": "claude-adult",
+    "family": "claude",
+    "style": "realistic",
+    "kind": "care",
+    "outfits": [
+      "sports"
+    ],
+    "columns": 4,
+    "rows": 2,
+    "dest": "src/DesktopPet.App/Assets/Characters/claude-adult/outfits/sports/care.png",
+    "refs": [
+      "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-173777f4-4b5b-480d-b06e-62e42817b139.png"
+    ],
+    "prompt": "Use the FIRST pose of reference as the adult Claude identity and clothing: copper-orange long wavy hair, brown eyes, round wire-frame glasses and orange daisy hair ornament. Short-sleeve ivory zipfront track top above elbows, long track pants, white sneakers, warm cocoa-brown panels and track pants, terracotta-orange piping, tiny orange sunburst emblem. Draw EXACTLY 8 FULL-BODY poses, four columns x two rows landscape. Keep entire hair and both shoes in every cell, large transparent gutters, no cropping. Eight ordered poses: 0 holding a small wooden comb down at waist; 1 raise right hand so comb teeth touch hair beside the temple, tilt head gently toward it; 2 draw comb down the SAME lock of hair to shoulder while other hand lightly holds that lock; 3 lower comb back to waist with a relaxed smile. 4 holding a soft ivory face towel at chest; 5 lift towel with fingers and press to LEFT cheek, close that eye; 6 move towel to RIGHT cheek, tilt head gently opposite; 7 lower towel to chest, content expression. Props firmly gripped by fingers in every pose, no floating tool or extra hand. Feet/body stay stable, arms and head actually move. No text, labels, numbers, background or effect sprites. Each figure fully isolated by at least 24 transparent pixels. Keep each pose's anatomical pixel scale identical; ample empty margins on all sides; truly transparent alpha."
+  },
+  {
+    "key": "gemini-care-wardrobe",
+    "id": "gemini",
+    "family": "gemini",
+    "style": "chibi",
+    "kind": "care",
+    "outfits": [
+      "original",
+      "swim",
+      "wedding"
+    ],
+    "columns": 4,
+    "rows": 6,
+    "dest": "src/DesktopPet.App/Assets/Characters/gemini/motions/cloud-care-wardrobe.png",
+    "refs": [
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/gemini/atlas.png",
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/gemini/outfits/swim.webp",
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/gemini/outfits/wedding.webp"
+    ],
+    "prompt": "Make exactly 24 FULL-BODY poses of the SAME Gemini character in THREE outfits from the three reference images. blue-violet long wavy hair with a side bun, cat ears and violet tail, one pink eye and one gold eye, twin-star hairpin; preserve each outfit's accessories and existing costume exactly. Cute big-headed chibi, seated as in the refs, 4 columns x 6 rows portrait. First TWO rows use image1 original clothing; next TWO rows use image2 swim clothing; final TWO rows use image3 wedding gown. For EACH outfit repeat the following eight-pose sequence exactly once. Eight ordered poses: 0 holding a small wooden comb down at waist; 1 raise right hand so comb teeth touch hair beside the temple, tilt head gently toward it; 2 draw comb down the SAME lock of hair to shoulder while other hand lightly holds that lock; 3 lower comb back to waist with a relaxed smile. 4 holding a soft ivory face towel at chest; 5 lift towel with fingers and press to LEFT cheek, close that eye; 6 move towel to RIGHT cheek, tilt head gently opposite; 7 lower towel to chest, content expression. Props firmly gripped by fingers in every pose, no floating tool or extra hand. Feet/body stay stable, arms and head actually move. No text, labels, numbers, background or effect sprites. Each figure fully isolated by at least 24 transparent pixels. Keep each pose's anatomical pixel scale identical; ample empty margins on all sides; truly transparent alpha."
+  },
+  {
+    "key": "gemini-adult-care-wardrobe",
+    "id": "gemini-adult",
+    "family": "gemini",
+    "style": "realistic",
+    "kind": "care",
+    "outfits": [
+      "original",
+      "swim",
+      "wedding"
+    ],
+    "columns": 8,
+    "rows": 3,
+    "dest": "src/DesktopPet.App/Assets/Characters/gemini-adult/motions/cloud-care-wardrobe.png",
+    "refs": [
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/gemini-adult/portrait.png",
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/gemini-adult/outfits/swim.png",
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/gemini-adult/outfits/wedding.png"
+    ],
+    "prompt": "Make exactly 24 FULL-BODY poses of the SAME Gemini character in THREE outfits from the three reference images. blue-violet long wavy hair with a side bun, cat ears and violet tail, one pink eye and one gold eye, twin-star hairpin; preserve each outfit's accessories and existing costume exactly. Realistic 3D woman aged23+, mature adult anatomy, 8 columns x 3 rows LANDSCAPE. Row1 uses image1 original outfit; row2 uses image2 swimdress; row3 uses image3 wedding gown. Keep skirts/dress/feet completely visible and figure small enough for clear gutters. For EACH outfit repeat the following eight-pose sequence exactly once. Eight ordered poses: 0 holding a small wooden comb down at waist; 1 raise right hand so comb teeth touch hair beside the temple, tilt head gently toward it; 2 draw comb down the SAME lock of hair to shoulder while other hand lightly holds that lock; 3 lower comb back to waist with a relaxed smile. 4 holding a soft ivory face towel at chest; 5 lift towel with fingers and press to LEFT cheek, close that eye; 6 move towel to RIGHT cheek, tilt head gently opposite; 7 lower towel to chest, content expression. Props firmly gripped by fingers in every pose, no floating tool or extra hand. Feet/body stay stable, arms and head actually move. No text, labels, numbers, background or effect sprites. Each figure fully isolated by at least 24 transparent pixels. Keep each pose's anatomical pixel scale identical; ample empty margins on all sides; truly transparent alpha."
+  },
+  {
+    "key": "gemini-adult-sports-care",
+    "id": "gemini-adult",
+    "family": "gemini",
+    "style": "realistic",
+    "kind": "care",
+    "outfits": [
+      "sports"
+    ],
+    "columns": 4,
+    "rows": 2,
+    "dest": "src/DesktopPet.App/Assets/Characters/gemini-adult/outfits/sports/care.png",
+    "refs": [
+      "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-afab9ae3-6108-488f-a391-bef2b6c58d39.png"
+    ],
+    "prompt": "Use the FIRST pose of reference as the adult Gemini identity and clothing: blue-violet long wavy hair with a side bun, cat ears and violet tail, one pink eye and one gold eye, twin-star hairpin. Short-sleeve ivory zipfront track top above elbows, long track pants, white sneakers, deep indigo panels and track pants, lilac piping, tiny twin four-pointed stars emblem. Draw EXACTLY 8 FULL-BODY poses, four columns x two rows landscape. Keep entire hair and both shoes in every cell, large transparent gutters, no cropping. Eight ordered poses: 0 holding a small wooden comb down at waist; 1 raise right hand so comb teeth touch hair beside the temple, tilt head gently toward it; 2 draw comb down the SAME lock of hair to shoulder while other hand lightly holds that lock; 3 lower comb back to waist with a relaxed smile. 4 holding a soft ivory face towel at chest; 5 lift towel with fingers and press to LEFT cheek, close that eye; 6 move towel to RIGHT cheek, tilt head gently opposite; 7 lower towel to chest, content expression. Props firmly gripped by fingers in every pose, no floating tool or extra hand. Feet/body stay stable, arms and head actually move. No text, labels, numbers, background or effect sprites. Each figure fully isolated by at least 24 transparent pixels. Keep each pose's anatomical pixel scale identical; ample empty margins on all sides; truly transparent alpha."
+  },
+  {
+    "key": "grok-care-wardrobe",
+    "id": "grok",
+    "family": "grok",
+    "style": "chibi",
+    "kind": "care",
+    "outfits": [
+      "original",
+      "swim",
+      "wedding"
+    ],
+    "columns": 4,
+    "rows": 6,
+    "dest": "src/DesktopPet.App/Assets/Characters/grok/motions/cloud-care-wardrobe.png",
+    "refs": [
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/grok/atlas.png",
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/grok/outfits/swim.webp",
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/grok/outfits/wedding.webp"
+    ],
+    "prompt": "Make exactly 24 FULL-BODY poses of the SAME Grok character in THREE outfits from the three reference images. golden blonde twin tails, blue eyes, black ribbon hair ties and silver orbit hairclip; preserve each outfit's accessories and existing costume exactly. Cute big-headed chibi, seated as in the refs, 4 columns x 6 rows portrait. First TWO rows use image1 original clothing; next TWO rows use image2 swim clothing; final TWO rows use image3 wedding gown. For EACH outfit repeat the following eight-pose sequence exactly once. Eight ordered poses: 0 holding a small wooden comb down at waist; 1 raise right hand so comb teeth touch hair beside the temple, tilt head gently toward it; 2 draw comb down the SAME lock of hair to shoulder while other hand lightly holds that lock; 3 lower comb back to waist with a relaxed smile. 4 holding a soft ivory face towel at chest; 5 lift towel with fingers and press to LEFT cheek, close that eye; 6 move towel to RIGHT cheek, tilt head gently opposite; 7 lower towel to chest, content expression. Props firmly gripped by fingers in every pose, no floating tool or extra hand. Feet/body stay stable, arms and head actually move. No text, labels, numbers, background or effect sprites. Each figure fully isolated by at least 24 transparent pixels. Keep each pose's anatomical pixel scale identical; ample empty margins on all sides; truly transparent alpha."
+  },
+  {
+    "key": "grok-adult-care-wardrobe",
+    "id": "grok-adult",
+    "family": "grok",
+    "style": "realistic",
+    "kind": "care",
+    "outfits": [
+      "original",
+      "swim",
+      "wedding"
+    ],
+    "columns": 8,
+    "rows": 3,
+    "dest": "src/DesktopPet.App/Assets/Characters/grok-adult/motions/cloud-care-wardrobe.png",
+    "refs": [
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/grok-adult/portrait.png",
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/grok-adult/outfits/swim.png",
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/grok-adult/outfits/wedding.png"
+    ],
+    "prompt": "Make exactly 24 FULL-BODY poses of the SAME Grok character in THREE outfits from the three reference images. golden blonde twin tails, blue eyes, black ribbon hair ties and silver orbit hairclip; preserve each outfit's accessories and existing costume exactly. Realistic 3D woman aged23+, mature adult anatomy, 8 columns x 3 rows LANDSCAPE. Row1 uses image1 original outfit; row2 uses image2 swimdress; row3 uses image3 wedding gown. Keep skirts/dress/feet completely visible and figure small enough for clear gutters. For EACH outfit repeat the following eight-pose sequence exactly once. Eight ordered poses: 0 holding a small wooden comb down at waist; 1 raise right hand so comb teeth touch hair beside the temple, tilt head gently toward it; 2 draw comb down the SAME lock of hair to shoulder while other hand lightly holds that lock; 3 lower comb back to waist with a relaxed smile. 4 holding a soft ivory face towel at chest; 5 lift towel with fingers and press to LEFT cheek, close that eye; 6 move towel to RIGHT cheek, tilt head gently opposite; 7 lower towel to chest, content expression. Props firmly gripped by fingers in every pose, no floating tool or extra hand. Feet/body stay stable, arms and head actually move. No text, labels, numbers, background or effect sprites. Each figure fully isolated by at least 24 transparent pixels. Keep each pose's anatomical pixel scale identical; ample empty margins on all sides; truly transparent alpha."
+  },
+  {
+    "key": "grok-adult-sports-care",
+    "id": "grok-adult",
+    "family": "grok",
+    "style": "realistic",
+    "kind": "care",
+    "outfits": [
+      "sports"
+    ],
+    "columns": 4,
+    "rows": 2,
+    "dest": "src/DesktopPet.App/Assets/Characters/grok-adult/outfits/sports/care.png",
+    "refs": [
+      "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-a2828f25-73d1-48a3-a66b-dd98944e8fad.png"
+    ],
+    "prompt": "Use the FIRST pose of reference as the adult Grok identity and clothing: golden blonde twin tails, blue eyes, black ribbon hair ties and silver orbit hairclip. Short-sleeve ivory zipfront track top above elbows, long track pants, white sneakers, charcoal black panels and track pants, warm gold piping, tiny silver orbit emblem. Draw EXACTLY 8 FULL-BODY poses, four columns x two rows landscape. Keep entire hair and both shoes in every cell, large transparent gutters, no cropping. Eight ordered poses: 0 holding a small wooden comb down at waist; 1 raise right hand so comb teeth touch hair beside the temple, tilt head gently toward it; 2 draw comb down the SAME lock of hair to shoulder while other hand lightly holds that lock; 3 lower comb back to waist with a relaxed smile. 4 holding a soft ivory face towel at chest; 5 lift towel with fingers and press to LEFT cheek, close that eye; 6 move towel to RIGHT cheek, tilt head gently opposite; 7 lower towel to chest, content expression. Props firmly gripped by fingers in every pose, no floating tool or extra hand. Feet/body stay stable, arms and head actually move. No text, labels, numbers, background or effect sprites. Each figure fully isolated by at least 24 transparent pixels. Keep each pose's anatomical pixel scale identical; ample empty margins on all sides; truly transparent alpha."
+  },
+  {
+    "key": "qwen-care-wardrobe",
+    "id": "qwen",
+    "family": "qwen",
+    "style": "chibi",
+    "kind": "care",
+    "outfits": [
+      "original",
+      "swim",
+      "wedding"
+    ],
+    "columns": 4,
+    "rows": 6,
+    "dest": "src/DesktopPet.App/Assets/Characters/qwen/motions/cloud-care-wardrobe.png",
+    "refs": [
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/qwen/atlas.png",
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/qwen/outfits/swim.webp",
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/qwen/outfits/wedding.webp"
+    ],
+    "prompt": "Make exactly 24 FULL-BODY poses of the SAME Qwen character in THREE outfits from the three reference images. periwinkle blue hair in two loose braids, purple eyes, small blue-and-gold tilted scholar hat; preserve each outfit's accessories and existing costume exactly. Cute big-headed chibi, seated as in the refs, 4 columns x 6 rows portrait. First TWO rows use image1 original clothing; next TWO rows use image2 swim clothing; final TWO rows use image3 wedding gown. For EACH outfit repeat the following eight-pose sequence exactly once. Eight ordered poses: 0 holding a small wooden comb down at waist; 1 raise right hand so comb teeth touch hair beside the temple, tilt head gently toward it; 2 draw comb down the SAME lock of hair to shoulder while other hand lightly holds that lock; 3 lower comb back to waist with a relaxed smile. 4 holding a soft ivory face towel at chest; 5 lift towel with fingers and press to LEFT cheek, close that eye; 6 move towel to RIGHT cheek, tilt head gently opposite; 7 lower towel to chest, content expression. Props firmly gripped by fingers in every pose, no floating tool or extra hand. Feet/body stay stable, arms and head actually move. No text, labels, numbers, background or effect sprites. Each figure fully isolated by at least 24 transparent pixels. Keep each pose's anatomical pixel scale identical; ample empty margins on all sides; truly transparent alpha."
+  },
+  {
+    "key": "qwen-adult-care-wardrobe",
+    "id": "qwen-adult",
+    "family": "qwen",
+    "style": "realistic",
+    "kind": "care",
+    "outfits": [
+      "original",
+      "swim",
+      "wedding"
+    ],
+    "columns": 8,
+    "rows": 3,
+    "dest": "src/DesktopPet.App/Assets/Characters/qwen-adult/motions/cloud-care-wardrobe.png",
+    "refs": [
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/qwen-adult/portrait.png",
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/qwen-adult/outfits/swim.png",
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/qwen-adult/outfits/wedding.png"
+    ],
+    "prompt": "Make exactly 24 FULL-BODY poses of the SAME Qwen character in THREE outfits from the three reference images. periwinkle blue hair in two loose braids, purple eyes, small blue-and-gold tilted scholar hat; preserve each outfit's accessories and existing costume exactly. Realistic 3D woman aged23+, mature adult anatomy, 8 columns x 3 rows LANDSCAPE. Row1 uses image1 original outfit; row2 uses image2 swimdress; row3 uses image3 wedding gown. Keep skirts/dress/feet completely visible and figure small enough for clear gutters. For EACH outfit repeat the following eight-pose sequence exactly once. Eight ordered poses: 0 holding a small wooden comb down at waist; 1 raise right hand so comb teeth touch hair beside the temple, tilt head gently toward it; 2 draw comb down the SAME lock of hair to shoulder while other hand lightly holds that lock; 3 lower comb back to waist with a relaxed smile. 4 holding a soft ivory face towel at chest; 5 lift towel with fingers and press to LEFT cheek, close that eye; 6 move towel to RIGHT cheek, tilt head gently opposite; 7 lower towel to chest, content expression. Props firmly gripped by fingers in every pose, no floating tool or extra hand. Feet/body stay stable, arms and head actually move. No text, labels, numbers, background or effect sprites. Each figure fully isolated by at least 24 transparent pixels. Keep each pose's anatomical pixel scale identical; ample empty margins on all sides; truly transparent alpha."
+  },
+  {
+    "key": "qwen-adult-sports-care",
+    "id": "qwen-adult",
+    "family": "qwen",
+    "style": "realistic",
+    "kind": "care",
+    "outfits": [
+      "sports"
+    ],
+    "columns": 4,
+    "rows": 2,
+    "dest": "src/DesktopPet.App/Assets/Characters/qwen-adult/outfits/sports/care.png",
+    "refs": [
+      "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-75905907-1e1c-457b-904e-23a308dd38c2.png"
+    ],
+    "prompt": "Use the FIRST pose of reference as the adult Qwen identity and clothing: periwinkle blue hair in two loose braids, purple eyes, small blue-and-gold tilted scholar hat. Short-sleeve ivory zipfront track top above elbows, long track pants, white sneakers, deep blue-purple panels and track pants, pale gold piping, tiny white trefoil emblem. Draw EXACTLY 8 FULL-BODY poses, four columns x two rows landscape. Keep entire hair and both shoes in every cell, large transparent gutters, no cropping. Eight ordered poses: 0 holding a small wooden comb down at waist; 1 raise right hand so comb teeth touch hair beside the temple, tilt head gently toward it; 2 draw comb down the SAME lock of hair to shoulder while other hand lightly holds that lock; 3 lower comb back to waist with a relaxed smile. 4 holding a soft ivory face towel at chest; 5 lift towel with fingers and press to LEFT cheek, close that eye; 6 move towel to RIGHT cheek, tilt head gently opposite; 7 lower towel to chest, content expression. Props firmly gripped by fingers in every pose, no floating tool or extra hand. Feet/body stay stable, arms and head actually move. No text, labels, numbers, background or effect sprites. Each figure fully isolated by at least 24 transparent pixels. Keep each pose's anatomical pixel scale identical; ample empty margins on all sides; truly transparent alpha."
+  },
+  {
+    "key": "zhipu-care-wardrobe",
+    "id": "zhipu",
+    "family": "zhipu",
+    "style": "chibi",
+    "kind": "care",
+    "outfits": [
+      "original",
+      "swim",
+      "wedding"
+    ],
+    "columns": 4,
+    "rows": 6,
+    "dest": "src/DesktopPet.App/Assets/Characters/zhipu/motions/cloud-care-wardrobe.png",
+    "refs": [
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/zhipu/atlas.png",
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/zhipu/outfits/swim.webp",
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/zhipu/outfits/wedding.webp"
+    ],
+    "prompt": "Make exactly 24 FULL-BODY poses of the SAME GLM character in THREE outfits from the three reference images. long charcoal-black hair, gray-blue eyes, black cat ears and tail, small blue tassel hairclip; remove maid cap and forehead sleeping mask; preserve each outfit's accessories and existing costume exactly. Cute big-headed chibi, seated as in the refs, 4 columns x 6 rows portrait. First TWO rows use image1 original clothing; next TWO rows use image2 swim clothing; final TWO rows use image3 wedding gown. For EACH outfit repeat the following eight-pose sequence exactly once. Eight ordered poses: 0 holding a small wooden comb down at waist; 1 raise right hand so comb teeth touch hair beside the temple, tilt head gently toward it; 2 draw comb down the SAME lock of hair to shoulder while other hand lightly holds that lock; 3 lower comb back to waist with a relaxed smile. 4 holding a soft ivory face towel at chest; 5 lift towel with fingers and press to LEFT cheek, close that eye; 6 move towel to RIGHT cheek, tilt head gently opposite; 7 lower towel to chest, content expression. Props firmly gripped by fingers in every pose, no floating tool or extra hand. Feet/body stay stable, arms and head actually move. No text, labels, numbers, background or effect sprites. Each figure fully isolated by at least 24 transparent pixels. Keep each pose's anatomical pixel scale identical; ample empty margins on all sides; truly transparent alpha."
+  },
+  {
+    "key": "zhipu-adult-care-wardrobe",
+    "id": "zhipu-adult",
+    "family": "zhipu",
+    "style": "realistic",
+    "kind": "care",
+    "outfits": [
+      "original",
+      "swim",
+      "wedding"
+    ],
+    "columns": 8,
+    "rows": 3,
+    "dest": "src/DesktopPet.App/Assets/Characters/zhipu-adult/motions/cloud-care-wardrobe.png",
+    "refs": [
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/zhipu-adult/portrait.png",
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/zhipu-adult/outfits/swim.png",
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/zhipu-adult/outfits/wedding.png"
+    ],
+    "prompt": "Make exactly 24 FULL-BODY poses of the SAME GLM character in THREE outfits from the three reference images. long charcoal-black hair, gray-blue eyes, black cat ears and tail, small blue tassel hairclip; remove maid cap and forehead sleeping mask; preserve each outfit's accessories and existing costume exactly. Realistic 3D woman aged23+, mature adult anatomy, 8 columns x 3 rows LANDSCAPE. Row1 uses image1 original outfit; row2 uses image2 swimdress; row3 uses image3 wedding gown. Keep skirts/dress/feet completely visible and figure small enough for clear gutters. For EACH outfit repeat the following eight-pose sequence exactly once. Eight ordered poses: 0 holding a small wooden comb down at waist; 1 raise right hand so comb teeth touch hair beside the temple, tilt head gently toward it; 2 draw comb down the SAME lock of hair to shoulder while other hand lightly holds that lock; 3 lower comb back to waist with a relaxed smile. 4 holding a soft ivory face towel at chest; 5 lift towel with fingers and press to LEFT cheek, close that eye; 6 move towel to RIGHT cheek, tilt head gently opposite; 7 lower towel to chest, content expression. Props firmly gripped by fingers in every pose, no floating tool or extra hand. Feet/body stay stable, arms and head actually move. No text, labels, numbers, background or effect sprites. Each figure fully isolated by at least 24 transparent pixels. Keep each pose's anatomical pixel scale identical; ample empty margins on all sides; truly transparent alpha."
+  },
+  {
+    "key": "zhipu-adult-sports-care",
+    "id": "zhipu-adult",
+    "family": "zhipu",
+    "style": "realistic",
+    "kind": "care",
+    "outfits": [
+      "sports"
+    ],
+    "columns": 4,
+    "rows": 2,
+    "dest": "src/DesktopPet.App/Assets/Characters/zhipu-adult/outfits/sports/care.png",
+    "refs": [
+      "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-af7ea19d-7c93-4f34-991d-bb00cda4ac90.png"
+    ],
+    "prompt": "Use the FIRST pose of reference as the adult GLM identity and clothing: long charcoal-black hair, gray-blue eyes, black cat ears and tail, small blue tassel hairclip; remove maid cap and forehead sleeping mask. Short-sleeve ivory zipfront track top above elbows, long track pants, white sneakers, graphite panels and track pants, soft ice-blue piping, tiny geometric Z emblem. Draw EXACTLY 8 FULL-BODY poses, four columns x two rows landscape. Keep entire hair and both shoes in every cell, large transparent gutters, no cropping. Eight ordered poses: 0 holding a small wooden comb down at waist; 1 raise right hand so comb teeth touch hair beside the temple, tilt head gently toward it; 2 draw comb down the SAME lock of hair to shoulder while other hand lightly holds that lock; 3 lower comb back to waist with a relaxed smile. 4 holding a soft ivory face towel at chest; 5 lift towel with fingers and press to LEFT cheek, close that eye; 6 move towel to RIGHT cheek, tilt head gently opposite; 7 lower towel to chest, content expression. Props firmly gripped by fingers in every pose, no floating tool or extra hand. Feet/body stay stable, arms and head actually move. No text, labels, numbers, background or effect sprites. Each figure fully isolated by at least 24 transparent pixels. Keep each pose's anatomical pixel scale identical; ample empty margins on all sides; truly transparent alpha."
+  },
+  {
+    "key": "kimi-care-wardrobe",
+    "id": "kimi",
+    "family": "kimi",
+    "style": "chibi",
+    "kind": "care",
+    "outfits": [
+      "original",
+      "swim",
+      "wedding"
+    ],
+    "columns": 4,
+    "rows": 6,
+    "dest": "src/DesktopPet.App/Assets/Characters/kimi/motions/cloud-care-wardrobe.png",
+    "refs": [
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/kimi/atlas.png",
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/kimi/outfits/swim.webp",
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/kimi/outfits/wedding.webp"
+    ],
+    "prompt": "Make exactly 24 FULL-BODY poses of the SAME Kimi character in THREE outfits from the three reference images. silver-lilac long wavy hair, violet eyes, navy ribbons and silver crescent moon music hairpin; remove maid cap; preserve each outfit's accessories and existing costume exactly. Cute big-headed chibi, seated as in the refs, 4 columns x 6 rows portrait. First TWO rows use image1 original clothing; next TWO rows use image2 swim clothing; final TWO rows use image3 wedding gown. For EACH outfit repeat the following eight-pose sequence exactly once. Eight ordered poses: 0 holding a small wooden comb down at waist; 1 raise right hand so comb teeth touch hair beside the temple, tilt head gently toward it; 2 draw comb down the SAME lock of hair to shoulder while other hand lightly holds that lock; 3 lower comb back to waist with a relaxed smile. 4 holding a soft ivory face towel at chest; 5 lift towel with fingers and press to LEFT cheek, close that eye; 6 move towel to RIGHT cheek, tilt head gently opposite; 7 lower towel to chest, content expression. Props firmly gripped by fingers in every pose, no floating tool or extra hand. Feet/body stay stable, arms and head actually move. No text, labels, numbers, background or effect sprites. Each figure fully isolated by at least 24 transparent pixels. Keep each pose's anatomical pixel scale identical; ample empty margins on all sides; truly transparent alpha."
+  },
+  {
+    "key": "kimi-adult-care-wardrobe",
+    "id": "kimi-adult",
+    "family": "kimi",
+    "style": "realistic",
+    "kind": "care",
+    "outfits": [
+      "original",
+      "swim",
+      "wedding"
+    ],
+    "columns": 8,
+    "rows": 3,
+    "dest": "src/DesktopPet.App/Assets/Characters/kimi-adult/motions/cloud-care-wardrobe.png",
+    "refs": [
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/kimi-adult/portrait.png",
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/kimi-adult/outfits/swim.png",
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/kimi-adult/outfits/wedding.png"
+    ],
+    "prompt": "Make exactly 24 FULL-BODY poses of the SAME Kimi character in THREE outfits from the three reference images. silver-lilac long wavy hair, violet eyes, navy ribbons and silver crescent moon music hairpin; remove maid cap; preserve each outfit's accessories and existing costume exactly. Realistic 3D woman aged23+, mature adult anatomy, 8 columns x 3 rows LANDSCAPE. Row1 uses image1 original outfit; row2 uses image2 swimdress; row3 uses image3 wedding gown. Keep skirts/dress/feet completely visible and figure small enough for clear gutters. For EACH outfit repeat the following eight-pose sequence exactly once. Eight ordered poses: 0 holding a small wooden comb down at waist; 1 raise right hand so comb teeth touch hair beside the temple, tilt head gently toward it; 2 draw comb down the SAME lock of hair to shoulder while other hand lightly holds that lock; 3 lower comb back to waist with a relaxed smile. 4 holding a soft ivory face towel at chest; 5 lift towel with fingers and press to LEFT cheek, close that eye; 6 move towel to RIGHT cheek, tilt head gently opposite; 7 lower towel to chest, content expression. Props firmly gripped by fingers in every pose, no floating tool or extra hand. Feet/body stay stable, arms and head actually move. No text, labels, numbers, background or effect sprites. Each figure fully isolated by at least 24 transparent pixels. Keep each pose's anatomical pixel scale identical; ample empty margins on all sides; truly transparent alpha."
+  },
+  {
+    "key": "kimi-adult-sports-care",
+    "id": "kimi-adult",
+    "family": "kimi",
+    "style": "realistic",
+    "kind": "care",
+    "outfits": [
+      "sports"
+    ],
+    "columns": 4,
+    "rows": 2,
+    "dest": "src/DesktopPet.App/Assets/Characters/kimi-adult/outfits/sports/care.png",
+    "refs": [
+      "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-7dfe1ca9-ddf4-44df-bb2f-de3c2b893d31.png"
+    ],
+    "prompt": "Use the FIRST pose of reference as the adult Kimi identity and clothing: silver-lilac long wavy hair, violet eyes, navy ribbons and silver crescent moon music hairpin; remove maid cap. Short-sleeve ivory zipfront track top above elbows, long track pants, white sneakers, midnight indigo panels and track pants, pale lavender piping, tiny crescent moon emblem. Draw EXACTLY 8 FULL-BODY poses, four columns x two rows landscape. Keep entire hair and both shoes in every cell, large transparent gutters, no cropping. Eight ordered poses: 0 holding a small wooden comb down at waist; 1 raise right hand so comb teeth touch hair beside the temple, tilt head gently toward it; 2 draw comb down the SAME lock of hair to shoulder while other hand lightly holds that lock; 3 lower comb back to waist with a relaxed smile. 4 holding a soft ivory face towel at chest; 5 lift towel with fingers and press to LEFT cheek, close that eye; 6 move towel to RIGHT cheek, tilt head gently opposite; 7 lower towel to chest, content expression. Props firmly gripped by fingers in every pose, no floating tool or extra hand. Feet/body stay stable, arms and head actually move. No text, labels, numbers, background or effect sprites. Each figure fully isolated by at least 24 transparent pixels. Keep each pose's anatomical pixel scale identical; ample empty margins on all sides; truly transparent alpha."
+  }
+]

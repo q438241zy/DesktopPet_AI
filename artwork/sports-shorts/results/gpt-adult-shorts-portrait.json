@@ -1,0 +1,133 @@
+{
+  "key": "gpt-adult-shorts-portrait",
+  "id": "gpt-adult",
+  "family": "gpt",
+  "style": "realistic",
+  "kind": "portrait",
+  "columns": 3,
+  "rows": 4,
+  "refs": [
+    "D:/VibeCoding/Character/artwork/sports/superseded-long-pants/gpt-adult/sports/portrait.png",
+    "D:/VibeCoding/Character/docs/demo/cloud-club/art/school-shorts-realistic.png"
+  ],
+  "prompt": "Use case: identity-preserve. Edit the FIRST reference atlas: replace the full-length pants in EVERY one of its TWELVE poses with loose athletic SHORTS hemmed at MID-THIGH, following the SECOND reference's approved sporty shorts fit. Keep EXACTLY twelve complete adult 3D woman figures in 3 columns × 4 rows and preserve all identities, face, hair, accessories, poses, proportions, row ordering, mallet props and white shoes. Keep SHORT SLEEVES ending on upper arm, clearly above elbow. Every figure has bare forearms and BARE LEGS from mid thigh to ankle socks. Same ivory zip-front athletic top, side panel colors and thin white stripes. No pants, leggings, stockings, dresses, long sleeves or cropped figures. Keep all 12 identical-size bodies inside cells with 15% margins and clear gutters; do not add figures. Real transparent alpha, no backdrop, no aura, no ground or text. The second reference supplies clothing cut ONLY, never copy her face/hair or whale logo. For this character top panels and shorts are deep emerald, chest emblem small pale interlocking knot.",
+  "dest": "src/DesktopPet.App/Assets/Characters/gpt-adult/outfits/sports/portrait.png",
+  "source": "D:\\VibeCoding\\Character\\src\\DesktopPet.App\\Assets\\Characters\\gpt-adult\\outfits\\sports\\portrait.png",
+  "selected": true,
+  "tool": "builtin imagegen",
+  "originalSource": "C:\\Users\\99000256\\.codex\\generated_images\\01a0fd54-807b-7df2-88b5-c9f04a7bcefe\\exec-c67862ba-75fc-442a-b905-9ae2fe58c7f1.png",
+  "review": "Full-body poses visually checked: short sleeves above elbows, shorts above knees, bare lower legs, preserved identity; actual ordered action poses reviewed.",
+  "clips": {
+    "idle": [
+      [
+        0
+      ],
+      [
+        5000
+      ],
+      false
+    ],
+    "listen": [
+      [
+        0
+      ],
+      [
+        5000
+      ],
+      false
+    ],
+    "headpat": [
+      [
+        0,
+        1,
+        2,
+        1,
+        0
+      ],
+      [
+        200,
+        450,
+        900,
+        550,
+        500
+      ],
+      false
+    ],
+    "poke": [
+      [
+        0,
+        3,
+        4,
+        3,
+        0
+      ],
+      [
+        250,
+        500,
+        700,
+        500,
+        550
+      ],
+      false
+    ],
+    "tickle": [
+      [
+        0,
+        5,
+        6,
+        5,
+        6,
+        0
+      ],
+      [
+        180,
+        300,
+        500,
+        300,
+        620,
+        300
+      ],
+      false
+    ],
+    "happy": [
+      [
+        0,
+        7,
+        0
+      ],
+      [
+        350,
+        1200,
+        350
+      ],
+      false
+    ],
+    "sad": [
+      [
+        0,
+        8,
+        0
+      ],
+      [
+        350,
+        1200,
+        350
+      ],
+      false
+    ],
+    "dizzy": [
+      [
+        0,
+        9,
+        0
+      ],
+      [
+        600,
+        800,
+        600
+      ],
+      true
+    ]
+  },
+  "note": "Bonk uses dedicated 3-frame atlas with uncompressed standing-leg proportions."
+}

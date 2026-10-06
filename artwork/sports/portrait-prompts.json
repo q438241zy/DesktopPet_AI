@@ -1,0 +1,114 @@
+[
+  {
+    "key": "deepseek-adult-sports-portrait",
+    "id": "deepseek-adult",
+    "family": "whale",
+    "style": "realistic",
+    "kind": "portrait",
+    "columns": 3,
+    "rows": 4,
+    "refs": [
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/deepseek-adult/portrait.png",
+      "D:/VibeCoding/Character/docs/demo/cloud-club/art/school-realistic.png"
+    ],
+    "dest": "src/DesktopPet.App/Assets/Characters/deepseek-adult/outfits/sports/portrait.png"
+  },
+  {
+    "key": "gpt-adult-sports-portrait",
+    "id": "gpt-adult",
+    "family": "gpt",
+    "style": "realistic",
+    "kind": "portrait",
+    "columns": 3,
+    "rows": 4,
+    "refs": [
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/gpt-adult/portrait.png",
+      "D:/VibeCoding/Character/docs/demo/cloud-club/art/school-realistic.png"
+    ],
+    "dest": "src/DesktopPet.App/Assets/Characters/gpt-adult/outfits/sports/portrait.png"
+  },
+  {
+    "key": "claude-adult-sports-portrait",
+    "id": "claude-adult",
+    "family": "claude",
+    "style": "realistic",
+    "kind": "portrait",
+    "columns": 3,
+    "rows": 4,
+    "refs": [
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/claude-adult/portrait.png",
+      "D:/VibeCoding/Character/docs/demo/cloud-club/art/school-realistic.png"
+    ],
+    "dest": "src/DesktopPet.App/Assets/Characters/claude-adult/outfits/sports/portrait.png"
+  },
+  {
+    "key": "gemini-adult-sports-portrait",
+    "id": "gemini-adult",
+    "family": "gemini",
+    "style": "realistic",
+    "kind": "portrait",
+    "columns": 3,
+    "rows": 4,
+    "refs": [
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/gemini-adult/portrait.png",
+      "D:/VibeCoding/Character/docs/demo/cloud-club/art/school-realistic.png"
+    ],
+    "dest": "src/DesktopPet.App/Assets/Characters/gemini-adult/outfits/sports/portrait.png"
+  },
+  {
+    "key": "grok-adult-sports-portrait",
+    "id": "grok-adult",
+    "family": "grok",
+    "style": "realistic",
+    "kind": "portrait",
+    "columns": 3,
+    "rows": 4,
+    "refs": [
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/grok-adult/portrait.png",
+      "D:/VibeCoding/Character/docs/demo/cloud-club/art/school-realistic.png"
+    ],
+    "dest": "src/DesktopPet.App/Assets/Characters/grok-adult/outfits/sports/portrait.png"
+  },
+  {
+    "key": "qwen-adult-sports-portrait",
+    "id": "qwen-adult",
+    "family": "qwen",
+    "style": "realistic",
+    "kind": "portrait",
+    "columns": 3,
+    "rows": 4,
+    "refs": [
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/qwen-adult/portrait.png",
+      "D:/VibeCoding/Character/docs/demo/cloud-club/art/school-realistic.png"
+    ],
+    "dest": "src/DesktopPet.App/Assets/Characters/qwen-adult/outfits/sports/portrait.png"
+  },
+  {
+    "key": "zhipu-adult-sports-portrait",
+    "id": "zhipu-adult",
+    "family": "zhipu",
+    "style": "realistic",
+    "kind": "portrait",
+    "columns": 3,
+    "rows": 4,
+    "refs": [
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/zhipu-adult/portrait.png",
+      "D:/VibeCoding/Character/docs/demo/cloud-club/art/school-realistic.png"
+    ],
+    "dest": "src/DesktopPet.App/Assets/Characters/zhipu-adult/outfits/sports/portrait.png"
+  },
+  {
+    "key": "kimi-adult-sports-portrait",
+    "id": "kimi-adult",
+    "family": "kimi",
+    "style": "realistic",
+    "kind": "portrait",
+    "columns": 3,
+    "rows": 4,
+    "refs": [
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/kimi-adult/portrait.png",
+      "D:/VibeCoding/Character/docs/demo/cloud-club/art/school-realistic.png"
+    ],
+    "dest": "src/DesktopPet.App/Assets/Characters/kimi-adult/outfits/sports/portrait.png"
+  }
+]

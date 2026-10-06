@@ -6,11 +6,27 @@ public readonly record struct ClubPose(int A, int B, double Amount, int Count, b
 public static class ClubMotion
 {
     public static readonly string[] Actions = ["comb", "wipe", "stretch", "bubbles", "stars", "butterfly"];
-    public static bool HasPoses(string action) => action is "stars" or "bubbles" or "stretch";
+    public static bool HasPoses(string action) => action is "stars" or "bubbles" or "stretch" or "comb" or "wipe";
+    public static bool HasPoses(string action, Sprite? sheet) => HasPoses(action) && sheet is not null;
     public static int Duration(string action) => action switch
     { "comb" => 4800, "wipe" => 4200, "stretch" => 5200, "bubbles" => 14400, "stars" => 9600, "butterfly" => 11500, _ => 2600 };
     public static string Title(string action) => action switch
     { "comb" => "梳头", "wipe" => "擦脸", "stretch" => "伸懒腰", "bubbles" => "吹泡泡", "stars" => "数星星", "butterfly" => "捉蝴蝶", _ => action };
+    /// <summary>Keep the approved gesture clock while selecting this sheet's actual cells.</summary>
+    public static ClubPose Sample(string action, double elapsed, Sprite sheet)
+    {
+        var pose=Sample(action,elapsed);
+        int offset=action=="bubbles"?8:action=="stretch"?16:0;
+        if(sheet.Frames is not { } order)
+        {
+            if(pose.A>=sheet.Columns*sheet.Rows || pose.B>=sheet.Columns*sheet.Rows)
+                throw new InvalidDataException("八阶段动作需要有效的图片帧映射。");
+            return pose;
+        }
+        if(order.Length!=8)throw new InvalidDataException("星星、泡泡和伸懒腰动作须映射八个动作阶段。");
+        return pose with { A=order[pose.A-offset],B=order[pose.B-offset] };
+    }
+
     public static ClubPose Sample(string action, double elapsed)
     {
         double[] times = action switch

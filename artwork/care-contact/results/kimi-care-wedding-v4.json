@@ -1,0 +1,20 @@
+{
+  "key": "kimi-care-wedding-v4",
+  "id": "kimi",
+  "family": "kimi",
+  "style": "chibi",
+  "kind": "care",
+  "outfits": [
+    "wedding"
+  ],
+  "columns": 4,
+  "rows": 2,
+  "dest": "src/DesktopPet.App/Assets/Characters/kimi/motions/cloud-care-wedding.png",
+  "refs": [
+    "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/kimi/atlas.png"
+  ],
+  "prompt": "Create a wholesome cartoon mascot care animation sheet of the exact silver-lilac-haired Kimi character in the reference, keeping the moon-and-K bow on the VIEWER'S RIGHT in all frames. She wears a fully covering white formal gown with a high lace neckline, long opaque sleeves, navy ribbon trim, small white flower decorations, a soft white veil, and a long opaque skirt draped CLOSED over her seated knees and legs. White shoes only just peek from the skirt hem. No exposed knees, midriff or torso. Eight complete seated full-body cartoon figures, FOUR columns by TWO rows, same head and body size. Top row: hold a small ivory comb in lap; raise comb against hair at the right temple; draw comb down that lock to shoulder while opposite hand holds the hair; lower comb with gentle smile. Bottom row: hold a white face towel at chest; press towel to cheek; slightly tilt head while gently wiping that same cheek; lower towel with content smile. Hands and implements physically touch hair/face. DO NOT mirror entire figures or change ornament sides. Complete gown, hair, veil and feet have 40px padding from all cell boundaries, wide transparent gutters. True transparent alpha, no background, no words, no effects. Quiet everyday grooming, all costumes fully covering, charming clean illustration.",
+  "selected": false,
+  "originalSource": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-4add079c-4550-45fb-af9e-d0a383540584.png",
+  "source": "D:/VibeCoding/Character/artwork/care-contact/kimi-care-wedding-v4.png"
+}

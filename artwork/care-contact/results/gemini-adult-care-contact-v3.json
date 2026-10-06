@@ -1,0 +1,25 @@
+{
+  "key": "gemini-adult-care-contact-v3",
+  "id": "gemini-adult",
+  "family": "gemini",
+  "style": "realistic",
+  "kind": "care",
+  "outfits": [
+    "original",
+    "swim",
+    "wedding"
+  ],
+  "columns": 4,
+  "rows": 6,
+  "dest": "src/DesktopPet.App/Assets/Characters/gemini-adult/motions/cloud-care-wardrobe.png",
+  "refs": [
+    "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/gemini-adult/portrait.png",
+    "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/gemini-adult/outfits/swim.png",
+    "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/gemini-adult/outfits/wedding.png"
+  ],
+  "prompt": "Create a transparent sprite sheet of the SAME mature adult woman shown in the three provided full-body references, in their exact realistic 3D art style. Portrait canvas, EXACTLY FOUR COLUMNS by SIX ROWS, 24 individual complete figures, never 8 columns. EACH CELL contains one small full-body figure with entire shoes, head, hair and skirt visible, at most 72% of cell height, separated by 30 pixel clear transparent gutters on all sides. No cropping or overlapping neighbors. Keep identical body proportions, head size, feet baseline and camera in each cell. This is a gentle hair-combing and face-wiping animation asset. IMPORTANT wardrobe row mapping: row 1 and row 2 both wear ONLY reference 1's original outfit including its sleeves and shoes; row 3 and row 4 both wear ONLY reference 2's swim outfit with its same footwear; row 5 and row 6 both wear ONLY reference 3's bridal gown and veil. NEVER change outfits within a two-row pair. Do not use sportswear. Pose order left to right: Rows 1, 3, 5 are COMB: (1) hand holds a small wooden comb at waist, (2) comb teeth visibly touch temple hair, elbow bends and hand grips comb, (3) draw comb downward through same side lock to shoulder, other hand can hold lock, (4) lower comb to waist. Rows 2, 4, 6 are TOWEL ONLY with NO comb: (1) both hands hold a folded white cloth at chest, (2) right hand presses cloth onto right cheek, head inclines toward cloth, (3) hand and cloth move across to left cheek, head tilts, (4) hands lower white cloth at chest. Hands actually touch props, comb teeth actually touch hair and cloth actually presses cheek. Motion must be readable and coherent, no extra arms, no floating tools. Exactly six rows of four separate complete figures. Preserve all character facial/hair accessories. Soft even lighting, clean crisp outline, transparent background with no shadows/glow/grid/labels/text.",
+  "source": "D:\\VibeCoding\\Character\\artwork\\care-contact\\gemini-adult-care-contact-v3.png",
+  "selected": false,
+  "review": "Superseded: native idle-to-care comparison showed enlarged head and shortened legs; replaced by dedicated eight-pose sheets for each outfit.",
+  "originalSource": "C:\\Users\\99000256\\.codex\\generated_images\\01a0fd46-6e3f-7261-9d81-b01e63f96f10\\exec-d4970b87-e2cd-424f-8f34-46e358695c1e.png"
+}

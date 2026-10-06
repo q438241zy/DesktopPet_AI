@@ -1,0 +1,226 @@
+[
+  {
+    "key": "deepseek-adult-sports-walk",
+    "id": "deepseek-adult",
+    "family": "whale",
+    "style": "realistic",
+    "kind": "walk",
+    "columns": 3,
+    "rows": 4,
+    "refs": [
+      "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-eb53f706-fc78-4905-8c82-dc585e656b3d.png"
+    ],
+    "prompt": "Use the FIRST pose of the reference as identity and SHORT-SLEEVE sports costume reference, keep outfit unchanged. Draw EXACTLY 12 distinct FULL-BODY animation poses in a regular 3 columns by 4 rows atlas, portrait. Natural SIDE-VIEW walk facing RIGHT in ALL 12 cells, same character size, camera and clothing. 12 evenly-spaced phases of ONE complete walking cycle: right-foot forward heel contact; lowering and loading right foot; left foot begins passing under hips; left foot passes right shin; left foot swings forward with knee naturally bent; left heel approaches ground; left-foot forward heel contact; lowering and loading left foot; right foot lifts and begins passing; right foot passes left shin; right foot swings forward; right heel approaches ground ready to wrap to first pose. Each white sneaker fully intact and each pant leg continuous from hip to shoe. Only two legs, no disconnected shins, no twisted ankles, no sliding skis. Opposite arm and leg counter-swing gently. Small smooth stride, level hips, quiet shoulders, looking toward right. Hair and any tail trail behind toward LEFT, gently delayed sway, no flipping tail between frames. All shoes touch the same baseline in each cell except lifted foot. Same head and body pixel scale throughout. Large transparent gutters, each sprite inside central 72% of its cell with full hair and feet. No background, text, floor, motion lines or frame numbers. Sharp clean game sprite art, actual transparent alpha. Preserve the clearly adult realistic 3D rendering and mature proportions. Do not turn into chibi.",
+    "dest": "src/DesktopPet.App/Assets/Characters/deepseek-adult/outfits/sports/walk.png"
+  },
+  {
+    "key": "deepseek-adult-sports-catch",
+    "id": "deepseek-adult",
+    "family": "whale",
+    "style": "realistic",
+    "kind": "catch",
+    "columns": 3,
+    "rows": 4,
+    "refs": [
+      "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-eb53f706-fc78-4905-8c82-dc585e656b3d.png"
+    ],
+    "prompt": "Use the first full-body figure in the reference for identity and exact short-sleeve sports outfit. Clearly adult realistic 3D woman. Create exactly 12 FULL-BODY sprites, regular 3 columns by 4 rows, portrait canvas, generous transparent gutters. Same figure scale and face across all poses. Both full pant legs and white sneakers visible in EVERY cell. No cropping, labels, FX or background.\nPoses in row-major order:\n0 holds round biscuit at chest; 1 biscuit lifting halfway toward lips; 2 biscuit at LIPS taking a small bite; 3 bitten biscuit lowered chewing with small smile.\n4 left hand cradles small rice bowl at waist, right hand holds SPOON in bowl; 5 spoon carrying rice lifted halfway; 6 spoon tip at LIPS eating, wrist flexed with elbow down; 7 spoon lowered back to bowl smiling. No detached flying rice or duplicate utensils.\n8 preparing to catch: both forearms point forward, empty CUPPED PALMS close together at lower chest; 9 palms forward slightly apart expecting ball; 10 catch recoil: cupped palms together at upper stomach, elbows gently bent; 11 holding imaginary ball in BOTH empty palms close together at stomach. NO ball painted, code supplies it. Proper palms, do not present elbows to catch.\nAll feet planted in the same place, identical shortsleeves and long pants in all 12. Keep alpha entirely transparent outside figures, no halo or ground shadow. Keep original identity, hair and accessories; no maid outfit.",
+    "dest": "src/DesktopPet.App/Assets/Characters/deepseek-adult/outfits/sports/catch.png"
+  },
+  {
+    "key": "gpt-adult-sports-walk",
+    "id": "gpt-adult",
+    "family": "gpt",
+    "style": "realistic",
+    "kind": "walk",
+    "columns": 3,
+    "rows": 4,
+    "refs": [
+      "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-d374a323-8c8d-457d-a711-19b8036ee5db.png"
+    ],
+    "prompt": "Use the FIRST pose of the reference as identity and SHORT-SLEEVE sports costume reference, keep outfit unchanged. Draw EXACTLY 12 distinct FULL-BODY animation poses in a regular 3 columns by 4 rows atlas, portrait. Natural SIDE-VIEW walk facing RIGHT in ALL 12 cells, same character size, camera and clothing. 12 evenly-spaced phases of ONE complete walking cycle: right-foot forward heel contact; lowering and loading right foot; left foot begins passing under hips; left foot passes right shin; left foot swings forward with knee naturally bent; left heel approaches ground; left-foot forward heel contact; lowering and loading left foot; right foot lifts and begins passing; right foot passes left shin; right foot swings forward; right heel approaches ground ready to wrap to first pose. Each white sneaker fully intact and each pant leg continuous from hip to shoe. Only two legs, no disconnected shins, no twisted ankles, no sliding skis. Opposite arm and leg counter-swing gently. Small smooth stride, level hips, quiet shoulders, looking toward right. Hair and any tail trail behind toward LEFT, gently delayed sway, no flipping tail between frames. All shoes touch the same baseline in each cell except lifted foot. Same head and body pixel scale throughout. Large transparent gutters, each sprite inside central 72% of its cell with full hair and feet. No background, text, floor, motion lines or frame numbers. Sharp clean game sprite art, actual transparent alpha. Preserve the clearly adult realistic 3D rendering and mature proportions. Do not turn into chibi.",
+    "dest": "src/DesktopPet.App/Assets/Characters/gpt-adult/outfits/sports/walk.png"
+  },
+  {
+    "key": "gpt-adult-sports-catch",
+    "id": "gpt-adult",
+    "family": "gpt",
+    "style": "realistic",
+    "kind": "catch",
+    "columns": 3,
+    "rows": 4,
+    "refs": [
+      "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-d374a323-8c8d-457d-a711-19b8036ee5db.png"
+    ],
+    "prompt": "Use the first full-body figure in the reference for identity and exact short-sleeve sports outfit. Clearly adult realistic 3D woman. Create exactly 12 FULL-BODY sprites, regular 3 columns by 4 rows, portrait canvas, generous transparent gutters. Same figure scale and face across all poses. Both full pant legs and white sneakers visible in EVERY cell. No cropping, labels, FX or background.\nPoses in row-major order:\n0 holds round biscuit at chest; 1 biscuit lifting halfway toward lips; 2 biscuit at LIPS taking a small bite; 3 bitten biscuit lowered chewing with small smile.\n4 left hand cradles small rice bowl at waist, right hand holds SPOON in bowl; 5 spoon carrying rice lifted halfway; 6 spoon tip at LIPS eating, wrist flexed with elbow down; 7 spoon lowered back to bowl smiling. No detached flying rice or duplicate utensils.\n8 preparing to catch: both forearms point forward, empty CUPPED PALMS close together at lower chest; 9 palms forward slightly apart expecting ball; 10 catch recoil: cupped palms together at upper stomach, elbows gently bent; 11 holding imaginary ball in BOTH empty palms close together at stomach. NO ball painted, code supplies it. Proper palms, do not present elbows to catch.\nAll feet planted in the same place, identical shortsleeves and long pants in all 12. Keep alpha entirely transparent outside figures, no halo or ground shadow. Keep original identity, hair and accessories; no maid outfit.",
+    "dest": "src/DesktopPet.App/Assets/Characters/gpt-adult/outfits/sports/catch.png"
+  },
+  {
+    "key": "claude-adult-sports-walk",
+    "id": "claude-adult",
+    "family": "claude",
+    "style": "realistic",
+    "kind": "walk",
+    "columns": 3,
+    "rows": 4,
+    "refs": [
+      "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-173777f4-4b5b-480d-b06e-62e42817b139.png"
+    ],
+    "prompt": "Use the FIRST pose of the reference as identity and SHORT-SLEEVE sports costume reference, keep outfit unchanged. Draw EXACTLY 12 distinct FULL-BODY animation poses in a regular 3 columns by 4 rows atlas, portrait. Natural SIDE-VIEW walk facing RIGHT in ALL 12 cells, same character size, camera and clothing. 12 evenly-spaced phases of ONE complete walking cycle: right-foot forward heel contact; lowering and loading right foot; left foot begins passing under hips; left foot passes right shin; left foot swings forward with knee naturally bent; left heel approaches ground; left-foot forward heel contact; lowering and loading left foot; right foot lifts and begins passing; right foot passes left shin; right foot swings forward; right heel approaches ground ready to wrap to first pose. Each white sneaker fully intact and each pant leg continuous from hip to shoe. Only two legs, no disconnected shins, no twisted ankles, no sliding skis. Opposite arm and leg counter-swing gently. Small smooth stride, level hips, quiet shoulders, looking toward right. Hair and any tail trail behind toward LEFT, gently delayed sway, no flipping tail between frames. All shoes touch the same baseline in each cell except lifted foot. Same head and body pixel scale throughout. Large transparent gutters, each sprite inside central 72% of its cell with full hair and feet. No background, text, floor, motion lines or frame numbers. Sharp clean game sprite art, actual transparent alpha. Preserve the clearly adult realistic 3D rendering and mature proportions. Do not turn into chibi.",
+    "dest": "src/DesktopPet.App/Assets/Characters/claude-adult/outfits/sports/walk.png"
+  },
+  {
+    "key": "claude-adult-sports-catch",
+    "id": "claude-adult",
+    "family": "claude",
+    "style": "realistic",
+    "kind": "catch",
+    "columns": 3,
+    "rows": 4,
+    "refs": [
+      "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-173777f4-4b5b-480d-b06e-62e42817b139.png"
+    ],
+    "prompt": "Use the first full-body figure in the reference for identity and exact short-sleeve sports outfit. Clearly adult realistic 3D woman. Create exactly 12 FULL-BODY sprites, regular 3 columns by 4 rows, portrait canvas, generous transparent gutters. Same figure scale and face across all poses. Both full pant legs and white sneakers visible in EVERY cell. No cropping, labels, FX or background.\nPoses in row-major order:\n0 holds round biscuit at chest; 1 biscuit lifting halfway toward lips; 2 biscuit at LIPS taking a small bite; 3 bitten biscuit lowered chewing with small smile.\n4 left hand cradles small rice bowl at waist, right hand holds SPOON in bowl; 5 spoon carrying rice lifted halfway; 6 spoon tip at LIPS eating, wrist flexed with elbow down; 7 spoon lowered back to bowl smiling. No detached flying rice or duplicate utensils.\n8 preparing to catch: both forearms point forward, empty CUPPED PALMS close together at lower chest; 9 palms forward slightly apart expecting ball; 10 catch recoil: cupped palms together at upper stomach, elbows gently bent; 11 holding imaginary ball in BOTH empty palms close together at stomach. NO ball painted, code supplies it. Proper palms, do not present elbows to catch.\nAll feet planted in the same place, identical shortsleeves and long pants in all 12. Keep alpha entirely transparent outside figures, no halo or ground shadow. Keep original identity, hair and accessories; no maid outfit.",
+    "dest": "src/DesktopPet.App/Assets/Characters/claude-adult/outfits/sports/catch.png"
+  },
+  {
+    "key": "gemini-adult-sports-walk",
+    "id": "gemini-adult",
+    "family": "gemini",
+    "style": "realistic",
+    "kind": "walk",
+    "columns": 3,
+    "rows": 4,
+    "refs": [
+      "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-afab9ae3-6108-488f-a391-bef2b6c58d39.png"
+    ],
+    "prompt": "Use the FIRST pose of the reference as identity and SHORT-SLEEVE sports costume reference, keep outfit unchanged. Draw EXACTLY 12 distinct FULL-BODY animation poses in a regular 3 columns by 4 rows atlas, portrait. Natural SIDE-VIEW walk facing RIGHT in ALL 12 cells, same character size, camera and clothing. 12 evenly-spaced phases of ONE complete walking cycle: right-foot forward heel contact; lowering and loading right foot; left foot begins passing under hips; left foot passes right shin; left foot swings forward with knee naturally bent; left heel approaches ground; left-foot forward heel contact; lowering and loading left foot; right foot lifts and begins passing; right foot passes left shin; right foot swings forward; right heel approaches ground ready to wrap to first pose. Each white sneaker fully intact and each pant leg continuous from hip to shoe. Only two legs, no disconnected shins, no twisted ankles, no sliding skis. Opposite arm and leg counter-swing gently. Small smooth stride, level hips, quiet shoulders, looking toward right. Hair and any tail trail behind toward LEFT, gently delayed sway, no flipping tail between frames. All shoes touch the same baseline in each cell except lifted foot. Same head and body pixel scale throughout. Large transparent gutters, each sprite inside central 72% of its cell with full hair and feet. No background, text, floor, motion lines or frame numbers. Sharp clean game sprite art, actual transparent alpha. Preserve the clearly adult realistic 3D rendering and mature proportions. Do not turn into chibi.",
+    "dest": "src/DesktopPet.App/Assets/Characters/gemini-adult/outfits/sports/walk.png"
+  },
+  {
+    "key": "gemini-adult-sports-catch",
+    "id": "gemini-adult",
+    "family": "gemini",
+    "style": "realistic",
+    "kind": "catch",
+    "columns": 3,
+    "rows": 4,
+    "refs": [
+      "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-afab9ae3-6108-488f-a391-bef2b6c58d39.png"
+    ],
+    "prompt": "Use the first full-body figure in the reference for identity and exact short-sleeve sports outfit. Clearly adult realistic 3D woman. Create exactly 12 FULL-BODY sprites, regular 3 columns by 4 rows, portrait canvas, generous transparent gutters. Same figure scale and face across all poses. Both full pant legs and white sneakers visible in EVERY cell. No cropping, labels, FX or background.\nPoses in row-major order:\n0 holds round biscuit at chest; 1 biscuit lifting halfway toward lips; 2 biscuit at LIPS taking a small bite; 3 bitten biscuit lowered chewing with small smile.\n4 left hand cradles small rice bowl at waist, right hand holds SPOON in bowl; 5 spoon carrying rice lifted halfway; 6 spoon tip at LIPS eating, wrist flexed with elbow down; 7 spoon lowered back to bowl smiling. No detached flying rice or duplicate utensils.\n8 preparing to catch: both forearms point forward, empty CUPPED PALMS close together at lower chest; 9 palms forward slightly apart expecting ball; 10 catch recoil: cupped palms together at upper stomach, elbows gently bent; 11 holding imaginary ball in BOTH empty palms close together at stomach. NO ball painted, code supplies it. Proper palms, do not present elbows to catch.\nAll feet planted in the same place, identical shortsleeves and long pants in all 12. Keep alpha entirely transparent outside figures, no halo or ground shadow. Keep original identity, hair and accessories; no maid outfit.",
+    "dest": "src/DesktopPet.App/Assets/Characters/gemini-adult/outfits/sports/catch.png"
+  },
+  {
+    "key": "grok-adult-sports-walk",
+    "id": "grok-adult",
+    "family": "grok",
+    "style": "realistic",
+    "kind": "walk",
+    "columns": 3,
+    "rows": 4,
+    "refs": [
+      "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-a2828f25-73d1-48a3-a66b-dd98944e8fad.png"
+    ],
+    "prompt": "Use the FIRST pose of the reference as identity and SHORT-SLEEVE sports costume reference, keep outfit unchanged. Draw EXACTLY 12 distinct FULL-BODY animation poses in a regular 3 columns by 4 rows atlas, portrait. Natural SIDE-VIEW walk facing RIGHT in ALL 12 cells, same character size, camera and clothing. 12 evenly-spaced phases of ONE complete walking cycle: right-foot forward heel contact; lowering and loading right foot; left foot begins passing under hips; left foot passes right shin; left foot swings forward with knee naturally bent; left heel approaches ground; left-foot forward heel contact; lowering and loading left foot; right foot lifts and begins passing; right foot passes left shin; right foot swings forward; right heel approaches ground ready to wrap to first pose. Each white sneaker fully intact and each pant leg continuous from hip to shoe. Only two legs, no disconnected shins, no twisted ankles, no sliding skis. Opposite arm and leg counter-swing gently. Small smooth stride, level hips, quiet shoulders, looking toward right. Hair and any tail trail behind toward LEFT, gently delayed sway, no flipping tail between frames. All shoes touch the same baseline in each cell except lifted foot. Same head and body pixel scale throughout. Large transparent gutters, each sprite inside central 72% of its cell with full hair and feet. No background, text, floor, motion lines or frame numbers. Sharp clean game sprite art, actual transparent alpha. Preserve the clearly adult realistic 3D rendering and mature proportions. Do not turn into chibi.",
+    "dest": "src/DesktopPet.App/Assets/Characters/grok-adult/outfits/sports/walk.png"
+  },
+  {
+    "key": "grok-adult-sports-catch",
+    "id": "grok-adult",
+    "family": "grok",
+    "style": "realistic",
+    "kind": "catch",
+    "columns": 3,
+    "rows": 4,
+    "refs": [
+      "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-a2828f25-73d1-48a3-a66b-dd98944e8fad.png"
+    ],
+    "prompt": "Use the first full-body figure in the reference for identity and exact short-sleeve sports outfit. Clearly adult realistic 3D woman. Create exactly 12 FULL-BODY sprites, regular 3 columns by 4 rows, portrait canvas, generous transparent gutters. Same figure scale and face across all poses. Both full pant legs and white sneakers visible in EVERY cell. No cropping, labels, FX or background.\nPoses in row-major order:\n0 holds round biscuit at chest; 1 biscuit lifting halfway toward lips; 2 biscuit at LIPS taking a small bite; 3 bitten biscuit lowered chewing with small smile.\n4 left hand cradles small rice bowl at waist, right hand holds SPOON in bowl; 5 spoon carrying rice lifted halfway; 6 spoon tip at LIPS eating, wrist flexed with elbow down; 7 spoon lowered back to bowl smiling. No detached flying rice or duplicate utensils.\n8 preparing to catch: both forearms point forward, empty CUPPED PALMS close together at lower chest; 9 palms forward slightly apart expecting ball; 10 catch recoil: cupped palms together at upper stomach, elbows gently bent; 11 holding imaginary ball in BOTH empty palms close together at stomach. NO ball painted, code supplies it. Proper palms, do not present elbows to catch.\nAll feet planted in the same place, identical shortsleeves and long pants in all 12. Keep alpha entirely transparent outside figures, no halo or ground shadow. Keep original identity, hair and accessories; no maid outfit.",
+    "dest": "src/DesktopPet.App/Assets/Characters/grok-adult/outfits/sports/catch.png"
+  },
+  {
+    "key": "qwen-adult-sports-walk",
+    "id": "qwen-adult",
+    "family": "qwen",
+    "style": "realistic",
+    "kind": "walk",
+    "columns": 3,
+    "rows": 4,
+    "refs": [
+      "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-75905907-1e1c-457b-904e-23a308dd38c2.png"
+    ],
+    "prompt": "Use the FIRST pose of the reference as identity and SHORT-SLEEVE sports costume reference, keep outfit unchanged. Draw EXACTLY 12 distinct FULL-BODY animation poses in a regular 3 columns by 4 rows atlas, portrait. Natural SIDE-VIEW walk facing RIGHT in ALL 12 cells, same character size, camera and clothing. 12 evenly-spaced phases of ONE complete walking cycle: right-foot forward heel contact; lowering and loading right foot; left foot begins passing under hips; left foot passes right shin; left foot swings forward with knee naturally bent; left heel approaches ground; left-foot forward heel contact; lowering and loading left foot; right foot lifts and begins passing; right foot passes left shin; right foot swings forward; right heel approaches ground ready to wrap to first pose. Each white sneaker fully intact and each pant leg continuous from hip to shoe. Only two legs, no disconnected shins, no twisted ankles, no sliding skis. Opposite arm and leg counter-swing gently. Small smooth stride, level hips, quiet shoulders, looking toward right. Hair and any tail trail behind toward LEFT, gently delayed sway, no flipping tail between frames. All shoes touch the same baseline in each cell except lifted foot. Same head and body pixel scale throughout. Large transparent gutters, each sprite inside central 72% of its cell with full hair and feet. No background, text, floor, motion lines or frame numbers. Sharp clean game sprite art, actual transparent alpha. Preserve the clearly adult realistic 3D rendering and mature proportions. Do not turn into chibi.",
+    "dest": "src/DesktopPet.App/Assets/Characters/qwen-adult/outfits/sports/walk.png"
+  },
+  {
+    "key": "qwen-adult-sports-catch",
+    "id": "qwen-adult",
+    "family": "qwen",
+    "style": "realistic",
+    "kind": "catch",
+    "columns": 3,
+    "rows": 4,
+    "refs": [
+      "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-75905907-1e1c-457b-904e-23a308dd38c2.png"
+    ],
+    "prompt": "Use the first full-body figure in the reference for identity and exact short-sleeve sports outfit. Clearly adult realistic 3D woman. Create exactly 12 FULL-BODY sprites, regular 3 columns by 4 rows, portrait canvas, generous transparent gutters. Same figure scale and face across all poses. Both full pant legs and white sneakers visible in EVERY cell. No cropping, labels, FX or background.\nPoses in row-major order:\n0 holds round biscuit at chest; 1 biscuit lifting halfway toward lips; 2 biscuit at LIPS taking a small bite; 3 bitten biscuit lowered chewing with small smile.\n4 left hand cradles small rice bowl at waist, right hand holds SPOON in bowl; 5 spoon carrying rice lifted halfway; 6 spoon tip at LIPS eating, wrist flexed with elbow down; 7 spoon lowered back to bowl smiling. No detached flying rice or duplicate utensils.\n8 preparing to catch: both forearms point forward, empty CUPPED PALMS close together at lower chest; 9 palms forward slightly apart expecting ball; 10 catch recoil: cupped palms together at upper stomach, elbows gently bent; 11 holding imaginary ball in BOTH empty palms close together at stomach. NO ball painted, code supplies it. Proper palms, do not present elbows to catch.\nAll feet planted in the same place, identical shortsleeves and long pants in all 12. Keep alpha entirely transparent outside figures, no halo or ground shadow. Keep original identity, hair and accessories; no maid outfit.",
+    "dest": "src/DesktopPet.App/Assets/Characters/qwen-adult/outfits/sports/catch.png"
+  },
+  {
+    "key": "zhipu-adult-sports-walk",
+    "id": "zhipu-adult",
+    "family": "zhipu",
+    "style": "realistic",
+    "kind": "walk",
+    "columns": 3,
+    "rows": 4,
+    "refs": [
+      "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-af7ea19d-7c93-4f34-991d-bb00cda4ac90.png"
+    ],
+    "prompt": "Use the FIRST pose of the reference as identity and SHORT-SLEEVE sports costume reference, keep outfit unchanged. Draw EXACTLY 12 distinct FULL-BODY animation poses in a regular 3 columns by 4 rows atlas, portrait. Natural SIDE-VIEW walk facing RIGHT in ALL 12 cells, same character size, camera and clothing. 12 evenly-spaced phases of ONE complete walking cycle: right-foot forward heel contact; lowering and loading right foot; left foot begins passing under hips; left foot passes right shin; left foot swings forward with knee naturally bent; left heel approaches ground; left-foot forward heel contact; lowering and loading left foot; right foot lifts and begins passing; right foot passes left shin; right foot swings forward; right heel approaches ground ready to wrap to first pose. Each white sneaker fully intact and each pant leg continuous from hip to shoe. Only two legs, no disconnected shins, no twisted ankles, no sliding skis. Opposite arm and leg counter-swing gently. Small smooth stride, level hips, quiet shoulders, looking toward right. Hair and any tail trail behind toward LEFT, gently delayed sway, no flipping tail between frames. All shoes touch the same baseline in each cell except lifted foot. Same head and body pixel scale throughout. Large transparent gutters, each sprite inside central 72% of its cell with full hair and feet. No background, text, floor, motion lines or frame numbers. Sharp clean game sprite art, actual transparent alpha. Preserve the clearly adult realistic 3D rendering and mature proportions. Do not turn into chibi.",
+    "dest": "src/DesktopPet.App/Assets/Characters/zhipu-adult/outfits/sports/walk.png"
+  },
+  {
+    "key": "zhipu-adult-sports-catch",
+    "id": "zhipu-adult",
+    "family": "zhipu",
+    "style": "realistic",
+    "kind": "catch",
+    "columns": 3,
+    "rows": 4,
+    "refs": [
+      "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-af7ea19d-7c93-4f34-991d-bb00cda4ac90.png"
+    ],
+    "prompt": "Use the first full-body figure in the reference for identity and exact short-sleeve sports outfit. Clearly adult realistic 3D woman. Create exactly 12 FULL-BODY sprites, regular 3 columns by 4 rows, portrait canvas, generous transparent gutters. Same figure scale and face across all poses. Both full pant legs and white sneakers visible in EVERY cell. No cropping, labels, FX or background.\nPoses in row-major order:\n0 holds round biscuit at chest; 1 biscuit lifting halfway toward lips; 2 biscuit at LIPS taking a small bite; 3 bitten biscuit lowered chewing with small smile.\n4 left hand cradles small rice bowl at waist, right hand holds SPOON in bowl; 5 spoon carrying rice lifted halfway; 6 spoon tip at LIPS eating, wrist flexed with elbow down; 7 spoon lowered back to bowl smiling. No detached flying rice or duplicate utensils.\n8 preparing to catch: both forearms point forward, empty CUPPED PALMS close together at lower chest; 9 palms forward slightly apart expecting ball; 10 catch recoil: cupped palms together at upper stomach, elbows gently bent; 11 holding imaginary ball in BOTH empty palms close together at stomach. NO ball painted, code supplies it. Proper palms, do not present elbows to catch.\nAll feet planted in the same place, identical shortsleeves and long pants in all 12. Keep alpha entirely transparent outside figures, no halo or ground shadow. Keep original identity, hair and accessories; no maid outfit.",
+    "dest": "src/DesktopPet.App/Assets/Characters/zhipu-adult/outfits/sports/catch.png"
+  },
+  {
+    "key": "kimi-adult-sports-walk",
+    "id": "kimi-adult",
+    "family": "kimi",
+    "style": "realistic",
+    "kind": "walk",
+    "columns": 3,
+    "rows": 4,
+    "refs": [
+      "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-7dfe1ca9-ddf4-44df-bb2f-de3c2b893d31.png"
+    ],
+    "prompt": "Use the FIRST pose of the reference as identity and SHORT-SLEEVE sports costume reference, keep outfit unchanged. Draw EXACTLY 12 distinct FULL-BODY animation poses in a regular 3 columns by 4 rows atlas, portrait. Natural SIDE-VIEW walk facing RIGHT in ALL 12 cells, same character size, camera and clothing. 12 evenly-spaced phases of ONE complete walking cycle: right-foot forward heel contact; lowering and loading right foot; left foot begins passing under hips; left foot passes right shin; left foot swings forward with knee naturally bent; left heel approaches ground; left-foot forward heel contact; lowering and loading left foot; right foot lifts and begins passing; right foot passes left shin; right foot swings forward; right heel approaches ground ready to wrap to first pose. Each white sneaker fully intact and each pant leg continuous from hip to shoe. Only two legs, no disconnected shins, no twisted ankles, no sliding skis. Opposite arm and leg counter-swing gently. Small smooth stride, level hips, quiet shoulders, looking toward right. Hair and any tail trail behind toward LEFT, gently delayed sway, no flipping tail between frames. All shoes touch the same baseline in each cell except lifted foot. Same head and body pixel scale throughout. Large transparent gutters, each sprite inside central 72% of its cell with full hair and feet. No background, text, floor, motion lines or frame numbers. Sharp clean game sprite art, actual transparent alpha. Preserve the clearly adult realistic 3D rendering and mature proportions. Do not turn into chibi.",
+    "dest": "src/DesktopPet.App/Assets/Characters/kimi-adult/outfits/sports/walk.png"
+  },
+  {
+    "key": "kimi-adult-sports-catch",
+    "id": "kimi-adult",
+    "family": "kimi",
+    "style": "realistic",
+    "kind": "catch",
+    "columns": 3,
+    "rows": 4,
+    "refs": [
+      "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-7dfe1ca9-ddf4-44df-bb2f-de3c2b893d31.png"
+    ],
+    "prompt": "Use the first full-body figure in the reference for identity and exact short-sleeve sports outfit. Clearly adult realistic 3D woman. Create exactly 12 FULL-BODY sprites, regular 3 columns by 4 rows, portrait canvas, generous transparent gutters. Same figure scale and face across all poses. Both full pant legs and white sneakers visible in EVERY cell. No cropping, labels, FX or background.\nPoses in row-major order:\n0 holds round biscuit at chest; 1 biscuit lifting halfway toward lips; 2 biscuit at LIPS taking a small bite; 3 bitten biscuit lowered chewing with small smile.\n4 left hand cradles small rice bowl at waist, right hand holds SPOON in bowl; 5 spoon carrying rice lifted halfway; 6 spoon tip at LIPS eating, wrist flexed with elbow down; 7 spoon lowered back to bowl smiling. No detached flying rice or duplicate utensils.\n8 preparing to catch: both forearms point forward, empty CUPPED PALMS close together at lower chest; 9 palms forward slightly apart expecting ball; 10 catch recoil: cupped palms together at upper stomach, elbows gently bent; 11 holding imaginary ball in BOTH empty palms close together at stomach. NO ball painted, code supplies it. Proper palms, do not present elbows to catch.\nAll feet planted in the same place, identical shortsleeves and long pants in all 12. Keep alpha entirely transparent outside figures, no halo or ground shadow. Keep original identity, hair and accessories; no maid outfit.",
+    "dest": "src/DesktopPet.App/Assets/Characters/kimi-adult/outfits/sports/catch.png"
+  }
+]

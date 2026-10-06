@@ -9,6 +9,7 @@ internal sealed record CoverageRow(string Character, string Family, string Categ
 internal static class ActionCoverage
 {
     internal static readonly DemoAction[] Actions = [
+        .. PetActions.Five.Select(a=>new DemoAction(a.Key,a.Title,a.Key,4000)),
         new("idle","待机","idle"), new("listen","聆听","listen"), new("thinking","思考 1 秒","thinking",1200),
         new("chat","聊天","chat"), new("checkin","早餐","meal",4200), new("snack","零食","eat",3000),
         new("headpat","摸头","headpat"), new("poke","揉脸","poke"), new("tickle","挠痒","tickle",2200),
@@ -21,10 +22,22 @@ internal static class ActionCoverage
         new("found","找到啦","happy",2000),
         new("pickup","提起","pickup",1800), new("place","手动放置","idle",1200), new("drop","自然落下","pickup",1800),
         new("shake","摇晃提起","pickup-dizzy",3000), new("dizzy","头晕恢复","dizzy",3000),
-        new("bonk","轻敲","bonk",1900), new("dance","互动舞蹈","dance",(int)PetDance.DurationMs)
+        new("bonk","轻敲","bonk",1900)
     ];
     internal static CoverageRow Assess(Character c, string outfit, DemoAction action)
     {
+        if(FiveInteraction.Keys.Contains(action.Key))
+        {
+            var five=c.FiveFor(outfit);
+            string fiveDetail=action.Key switch {
+                "highfive"=>"递出或拖动手掌，与角色掌心接触才计数",
+                "rps"=>"双方三轮摇拳，同时亮出石头、剪刀或布",
+                "gift"=>"递到双手、打开实体礼盒；20种随机物品，完成拆开才收藏",
+                "read"=>"三篇7—8句故事、实际翻页、暂停与结束；读完收藏并可重读",
+                _=>"角色举手准备与合照姿势，昵称云朵头像，可保存PNG"};
+            return new(c.Id,c.FamilyId,c.Category,outfit,action.Key,action.Title,five is null?"缺少动作":"专用互动",fiveDetail,
+                five is null?"":string.Join(";",five.Atlases.Values.Select(x=>x.File)),five?.Poses.Count??0);
+        }
         string motion = action.Motion == "pickup-dizzy" ? "pickup" : action.Motion;
         var clip = c.MotionFor(outfit, motion);
         var art = c.Resolve(outfit, motion, 0);
@@ -32,8 +45,14 @@ internal static class ActionCoverage
         string status, detail;
         if (ClubMotion.Actions.Contains(action.Key))
         {
-            status=ClubMotion.HasPoses(action.Key)?clip is null?"缺少动作":"连续姿势":"程序动作";
-            detail=action.Key switch { "stars"=>"8 张指星与抬头姿势连续衔接，按手势数到 5；点星星重新数", "bubbles"=>"8 张举棒、送嘴、吹气与收手姿势连续衔接；只在吹气时出泡泡，点击可戳破", "stretch"=>"8 张准备、举手、上伸和放松姿势，身体与脚底比例固定", "comb"=>"梳子沿两侧头发轻梳，保持当前外观", "wipe"=>"软布轮流擦两侧脸颊，保持当前外观", _=>"走向点击处的蝴蝶，停下后蝴蝶落在手心" };
+            status=ClubMotion.HasPoses(action.Key,clip)?"连续姿势":action.Key is "comb" or "wipe" or "butterfly"?"程序动作":"缺少动作";
+            detail=action.Key switch {
+                "stars"=>$"{count} 张独立指星与抬头姿势，连续衔接八个阶段并数到 5；点星星重新数",
+                "bubbles"=>$"{count} 张独立举棒、送嘴、吹气与收手姿势，连续衔接八个阶段；泡泡从棒环出生，点击可戳破",
+                "stretch"=>$"{count} 张独立准备、举手、上伸与放松姿势，身体与脚底比例固定",
+                "comb"=>clip?.BakedProps==true?$"{count} 张握梳、贴发、向下梳理与收手姿势，手和梳子画在同一帧":"梳头道具编排，尚未接入专用手部画稿",
+                "wipe"=>clip?.BakedProps==true?$"{count} 张拿毛巾、贴脸擦拭与放下姿势，手和毛巾画在同一帧":"擦脸道具编排，尚未接入专用手部画稿",
+                _=>"走向点击处的蝴蝶，停下后蝴蝶落在手心" };
         }
         else if (CareRoutine.Find(action.Key) is { } routine)
         {
@@ -42,8 +61,6 @@ internal static class ActionCoverage
             status = available ? "组合动作" : "缺少动作";
             detail = routine.Key switch { "praise" => "聆听、开心回应与摸头鼓励", "comfort" => "安静倾听、摸头安抚，再回到放松姿势", _ => "安静下来、蜷起、呼吸入睡；保持休息直到唤醒" };
         }
-        else if (action.Key == "dance")
-        { status = !PortraitRig.SupportsDance(c.Category,c.FamilyId)?"不适用":clip?.DanceRig is not null?"程序动作":"缺少动作"; detail = status == "不适用" ? "按设计仅3D真人提供舞蹈" : "专用舞蹈底图与独立关节；16 拍侧步、点地、展臂和收势，支撑脚固定，长裙保持连贯"; }
         else if (action.Key == "found")
         { status = "组合动作"; detail = "左键找到后走回桌面并开心回应；右键仅开关菜单，躲藏继续"; }
         else if (action.Key is "idle" or "listen" or "place")
@@ -71,5 +88,5 @@ internal static class ActionCoverage
     }
     internal static CoverageRow[] All(Catalog catalog) =>
         (from c in catalog.Characters where Catalog.BuiltInFamilies.Contains(c.FamilyId)
-         from outfit in new[] { "original","swim","wedding" } from action in Actions select Assess(c,outfit,action)).ToArray();
+         from outfit in Catalog.BuiltInOutfits from action in Actions select Assess(c,outfit,action)).ToArray();
 }

@@ -1,0 +1,22 @@
+{
+  "key": "grok-swim-care-v4",
+  "id": "grok",
+  "family": "grok",
+  "style": "chibi",
+  "kind": "care",
+  "outfits": [
+    "swim"
+  ],
+  "columns": 4,
+  "rows": 2,
+  "dest": "src/DesktopPet.App/Assets/Characters/grok/motions/cloud-care-swim.png",
+  "refs": [
+    "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/grok/outfits/swim.webp"
+  ],
+  "prompt": "Create a family-friendly animation sprite sheet of this cute seated cartoon mascot in the exact same modest black one-piece outfit and hair ribbons. Eight full figures in 4 columns and 2 rows with generous empty transparent gutters and at least40 pixels canvas border. Top row: hold a little wooden hair comb in lap; comb touching side hair; comb drawn downward through the hair lock; lower comb. Bottom row: hold white facecloth in lap; softly press cloth on one cheek; move cloth to the other cheek; lower cloth. Gentle everyday personal-care movements, all figures seated fully visible from hair tip to feet. Same outfit, face, head size and body proportions in all eight frames. No backdrop, glow or text.",
+  "source": "D:\\VibeCoding\\Character\\artwork\\care-contact\\grok-swim-care-v4.png",
+  "selected": false,
+  "review": "Reviewed exact outfit and actual comb/cloth contact; transparent boundary inspection.",
+  "originalSource": "C:\\Users\\99000256\\.codex\\generated_images\\01a0fd46-6e3f-7261-9d81-b01e63f96f10\\exec-de1e733b-7abd-4619-a399-38a496888a49.png",
+  "alphaError": "Expected 8 isolated figures, found 5"
+}

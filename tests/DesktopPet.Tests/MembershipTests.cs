@@ -21,7 +21,7 @@ internal static class MembershipTests
         test("unannounced pose grades do not remove existing actions", () =>
         {
             foreach (MembershipTier? tier in Membership.Tiers.Select(t => (MembershipTier?)t).Append(null))
-            foreach (string action in new[] { "headpat", "poke", "tickle", "snack", "walk", "dance", "praise", "comfort", "lullaby", "jump", "rest", "pickup" })
+            foreach (string action in new[] { "headpat", "poke", "tickle", "snack", "walk", "praise", "comfort", "lullaby", "jump", "rest", "pickup" })
                 Check(Membership.Access(action, tier).Allowed);
         });
         test("registration defaults to brass and persists a salted hash without passwords", () => InStore((root, service) =>

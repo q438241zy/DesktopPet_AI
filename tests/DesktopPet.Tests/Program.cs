@@ -10,6 +10,7 @@ void Test(string name, Action run)
 void Equal<T>(T expected, T actual) { if (!EqualityComparer<T>.Default.Equals(expected, actual)) throw new Exception($"Expected {expected}; got {actual}"); }
 void Reject(Action run) { try { run(); } catch (InvalidDataException) { return; } throw new Exception("Invalid input was accepted"); }
 MembershipTests.Run(Test);
+FiveTests.Run(Test);
 
 Test("care tolerates a delayed frame and sleep belongs only to lullaby", () =>
 {
@@ -64,6 +65,35 @@ Test("walk distance and stride do not depend on refresh rate or delayed frames",
     Equal(true,Math.Abs(delayed.Milliseconds-1000)<1e-7);
 });
 
+Test("measured walk stride controls full-cycle distance while legacy art keeps its speed", () =>
+{
+    var legacy = new Sprite("walk.png", 3, 4, Enumerable.Repeat(100,12).ToArray());
+    var measured = legacy with { WalkStride=.48 };
+    Equal(true,Math.Abs(DesktopWalk.Speed(200,legacy)-200*.22/1.2)<1e-9);
+    Equal(80d,DesktopWalk.Speed(200,measured));
+    var gait=new WalkPlayback();
+    var step=gait.Advance(0,1,1.2,200,measured,-10000,10000);
+    Equal(96d,step.Center);Equal(1200d,gait.Milliseconds);
+});
+Test("measured walk strides keep distance and pose time across refresh rates and delayed frames", () =>
+{
+    foreach(double stride in new[]{.1,.48,1.2})
+    {
+        var clip=new Sprite("walk.png",3,4,Enumerable.Repeat(100,12).ToArray(),WalkStride:stride);
+        foreach(int hz in new[]{30,60,144})foreach(int direction in new[]{-1,1})
+        {
+            var gait=new WalkPlayback();double center=0;
+            for(int i=0;i<hz;i++)center=gait.Advance(center,direction,1d/hz,200,clip,-10000,10000).Center;
+            Equal(true,Math.Abs(center-direction*DesktopWalk.Speed(200,clip))<1e-7);
+            Equal(true,Math.Abs(gait.Milliseconds-1000)<1e-7);
+        }
+        var delayed=new WalkPlayback();double x=0;
+        foreach(double dt in new[]{.008,.017,.09,.12,.015,.25,.01,.24,.25})x=delayed.Advance(x,1,dt,200,clip,-10000,10000).Center;
+        Equal(true,Math.Abs(x-DesktopWalk.Speed(200,clip))<1e-7);
+        Equal(true,Math.Abs(delayed.Milliseconds-1000)<1e-7);
+    }
+});
+
 Test("edge turns consume leftover time and preserve the arriving stride", () =>
 {
     var clip = new Sprite("walk.png",3,4,Enumerable.Repeat(80,12).ToArray());
@@ -101,7 +131,7 @@ Test("missing outfit animations stay dressed through every interaction", () =>
         Outfits = new() { ["wedding"] = new() { Idle = new("dress.webp", 1, 1), Motions = new() { ["walk"] = new("dress-walk.webp") } } } };
     Equal("dress.webp", pet.Resolve("wedding", "idle", 0).Sprite.File);
     Equal("dress-walk.webp", pet.Resolve("wedding", "walk", 0).Sprite.File);
-    foreach (string action in new[] { "meal", "eat", "chat", "pounce", "headpat", "poke", "tickle", "kick", "jump", "sleep", "dizzy", "faint", "sad", "happy", "pickup", "shaken", "shaken-strong", "farewell", "ball-hit", "ball-miss", "bonk", "peek", "curl", "think", "dance" })
+    foreach (string action in new[] { "meal", "eat", "chat", "pounce", "headpat", "poke", "tickle", "kick", "jump", "sleep", "dizzy", "faint", "sad", "happy", "pickup", "shaken", "shaken-strong", "farewell", "ball-hit", "ball-miss", "bonk", "peek", "curl", "think" })
         foreach (bool reduced in new[] { false, true })
             Equal((new Sprite("dress.webp", 1, 1), 0), pet.Resolve("wedding", action, 700, reduced));
     Equal(0, pet.Resolve("wedding", "walk", 700, true).Frame);
@@ -217,75 +247,6 @@ Test("hide-and-seek reaches the nearest edge before disappearing and returns inw
     Equal(1, new EdgeHide(100, 0, 1920, 200, 80, 1).Side);
     var atEdge = new EdgeHide(92, 0, 1920, 200, 80, -1); Equal(0d, atEdge.ApproachSeconds); Equal(HidePhase.Hide, atEdge.At(0).Phase);
 });
-Test("silhouette binding does not reach across a transparent gap", () =>
-{
-    const int columns=24,rows=24,stride=25;
-    var vertices=Enumerable.Range(0,stride*stride).Select(i=>new RigPoint(i%stride/24d,i/stride/24d)).ToArray();
-    var opaque=Enumerable.Range(0,vertices.Length).Select(i=>
-    {
-        int x=i%stride,y=i/stride;
-        return y>=3&&y<=22&&((x>=4&&x<=7)||(x>=11&&x<=14)||(y<=5&&x>=4&&x<=14));
-    }).ToArray();
-    RigBone[] bones=[new(new(6/24d,4/24d),new(6/24d,8/24d)),new(new(12/24d,18/24d),new(12/24d,22/24d))];
-    var weights=SilhouetteSkinning.Bind(vertices,bones,opaque,columns,rows);
-    Equal(true,weights[20*stride+6][0]>.9); // The nearby arm is separated by transparent space.
-    Equal(true,weights[20*stride+12][1]>.99);
-    Equal(true,weights[20*stride+8][0]>.9); // Antialiased edge keeps the same ownership.
-    Equal(true,weights.All(w=>w.All(double.IsFinite)&&Math.Abs(w.Sum()-1)<1e-8));
-});
-Test("measured dance has planted support, continuous joints and a neutral finish", () =>
-{
-    var profile=new DanceRig([
-        new(.5,.47),new(.5,.18),new(.5,.10),
-        new(.35,.22),new(.24,.35),new(.11,.48),
-        new(.65,.22),new(.76,.35),new(.89,.48),
-        new(.42,.48),new(.40,.70),new(.38,.93),
-        new(.58,.48),new(.60,.70),new(.62,.93),
-        new(.38,.99),new(.62,.99)],.36,.64,.46);
-    Equal(true,profile.IsValid);
-    Equal(false,(profile with { Joints=profile.Joints[..16] }).IsValid);
-    Equal(false,(profile with { Joints=Enumerable.Repeat(new RigPoint(.5,.5),17).ToArray() }).IsValid);
-    Equal(false,(profile with { ClothWidths=[.2,.3,double.NaN,.4,.45] }).IsValid);
-    Equal(false,(profile with { FrontHem=.2 }).IsValid);
-    var unsupported=new PortraitRig("gpt","original");
-    Equal(true,unsupported.Pose(750).Bones.SequenceEqual(unsupported.Rest));
-    foreach (string family in new[] { "whale", "gpt", "claude", "gemini", "grok", "qwen", "zhipu", "kimi" })
-    {
-        Equal(true,PortraitRig.SupportsDance(CharacterStyles.Realistic,family));
-        Equal(true,PortraitRig.SupportsDance("adult",family)); Equal(true,PortraitRig.SupportsDance("3d",family));
-        Equal(false,PortraitRig.SupportsDance("chibi",family));
-        var rig=new PortraitRig(family,"original",.5,danceRig:profile);
-        foreach (double t in new[] { 0d, PetDance.DurationMs })
-            Equal(true,rig.Skin(rig.Pose(t)).Zip(rig.Vertices).All(p=>(p.First-p.Second).Length<1e-8));
-        for (double t=0;t<=PetDance.DurationMs;t+=37)
-        {
-            var pose=rig.Pose(t);var next=rig.Pose(t+16);
-            Equal(true,rig.Pose(t,true).Bones.SequenceEqual(rig.Rest));
-            Equal(true,pose.Bones.Zip(next.Bones).All(p=>(p.First.A-p.Second.A).Length<.006&&(p.First.B-p.Second.B).Length<.006));
-            foreach(int bone in new[]{0,1,2,3,4,5,8,11})
-                Equal(true,Math.Abs((pose.Bones[bone].B-pose.Bones[bone].A).Length-(rig.Rest[bone].B-rig.Rest[bone].A).Length)<1e-8);
-            foreach(int bone in new[]{6,7,9,10})
-            {
-                double projected=(pose.Bones[bone].B-pose.Bones[bone].A).Length/(rig.Rest[bone].B-rig.Rest[bone].A).Length;
-                Equal(true,projected is >=.9 and <=1.01);
-            }
-            // At least one sole is on the floor and stationary. The moving foot
-            // lifts before stepping, never slides both soles with the body.
-            Equal(true,Math.Abs(pose.Bones[8].B.Y-rig.Rest[8].B.Y)<1e-8||Math.Abs(pose.Bones[11].B.Y-rig.Rest[11].B.Y)<1e-8);
-            if((int)(t/PetDance.BeatMs)==(int)((t+16)/PetDance.BeatMs))
-                Equal(true,(pose.Bones[8].B-next.Bones[8].B).Length<1e-8||(pose.Bones[11].B-next.Bones[11].B).Length<1e-8);
-            Equal(true,pose.Bones[8].B.Y<=rig.Rest[8].B.Y+1e-8&&pose.Bones[11].B.Y<=rig.Rest[11].B.Y+1e-8);
-            Equal(true,pose.Bones[8].A.X<pose.Bones[11].A.X);
-        }
-        var moving=rig.Pose(750);
-        Equal(true,(moving.Bones[3].B-rig.Rest[3].B).Length>.01);
-        Equal(true,(moving.Bones[5].B-rig.Rest[5].B).Length>.01);
-        Equal(true,(moving.Bones[8].A-rig.Rest[8].A).Length>.001);
-        var dress=new PortraitRig(family,"wedding",.5,danceRig:profile with { Hem=.97 });
-        Equal(true,Math.Abs(dress.Pose(500).Bones[8].A.X-dress.Rest[8].A.X)<Math.Abs(rig.Pose(500).Bones[8].A.X-rig.Rest[8].A.X));
-        Equal(true,dress.Skin(dress.Pose(750)).All(v=>double.IsFinite(v.X)&&double.IsFinite(v.Y)));
-    }
-});
 Test("radial menus fit corners and negative monitors without overlapping buttons", () =>
 {
     foreach (double origin in new[] { -1920d, 0, 2560 })
@@ -301,6 +262,31 @@ Test("radial menus fit corners and negative monitors without overlapping buttons
             Equal(true, Math.Sqrt(Math.Pow(menu[i].X - menu[j].X, 2) + Math.Pow(menu[i].Y - menu[j].Y, 2)) > 48);
     }
 });
+Test("club stages map nonsequential and repeated cells in a twenty-cell sheet", () =>
+{
+    foreach(var (key,offset,order) in new (string,int,int[])[]{
+        ("stars",0,[0,1,2,3,4,5,6,7]),
+        ("bubbles",8,[8,9,10,11,12,11,10,15]),
+        ("stretch",16,[13,14,16,16,17,17,18,19])})
+    {
+        var clip=new Sprite("club.png",4,5,Frames:order);
+        var legacy=new Sprite("legacy.png",4,6,Frames:Enumerable.Range(offset,8).ToArray());
+        for(int t=0;t<=ClubMotion.Duration(key);t+=17)
+        {
+            var clock=ClubMotion.Sample(key,t);var mapped=ClubMotion.Sample(key,t,clip);
+            Equal(order[clock.A-offset],mapped.A);Equal(order[clock.B-offset],mapped.B);
+            Equal(true,mapped.A<20 && mapped.B<20);
+            Equal(clock.Amount,mapped.Amount);Equal(clock.Count,mapped.Count);Equal(clock.Blowing,mapped.Blowing);
+            Equal(clock,ClubMotion.Sample(key,t,legacy));
+        }
+    }
+    var stretch=new Sprite("club.png",4,5,Frames:[13,14,16,16,17,17,18,19]);
+    Equal(16,ClubMotion.Sample("stretch",1250,stretch).A);
+    Equal(16,ClubMotion.Sample("stretch",1250,stretch).B);
+    Reject(()=>ClubMotion.Sample("stretch",5100,new Sprite("club.png",4,5)));
+    Reject(()=>ClubMotion.Sample("bubbles",1500,new Sprite("club.png",4,5,Frames:[8,9,10])));
+});
+
 Test("club poses count five before lowering and bubbles only blow after lifting", () =>
 {
     foreach(double time in new[]{0d,400,800,1100}) Equal(false,ClubMotion.Sample("bubbles",time).Blowing);
@@ -321,12 +307,6 @@ Test("hidden pet menus fit the visible strip without button overlap", () =>
         foreach(var p in points)Equal(true,p.X>=bounds.Left+22&&p.X<=bounds.Right-22&&p.Y>=22&&p.Y<=446);
         for(int i=0;i<count;i++)for(int j=i+1;j<count;j++)Equal(true,Math.Sqrt(Math.Pow(points[i].X-points[j].X,2)+Math.Pow(points[i].Y-points[j].Y,2))>48);
     }
-});
-Test("dance taps score once per beat inside the timing window", () =>
-{
-    var dance = new PetDance(); Equal(true, dance.Tap(20)); Equal(false, dance.Tap(90));
-    Equal(false, dance.Tap(250)); Equal(true, dance.Tap(410)); Equal(false, dance.Tap(515));
-    Equal(true, dance.Tap(1000)); Equal(false, dance.Tap(-1)); Equal(false, dance.Tap(8000)); Equal(3, dance.Hits);
 });
 Test("all portrait gestures move independently, remain finite and ease back in both styles", () =>
 {
@@ -497,6 +477,10 @@ try
         Equal(200, Character.Load(root).Atlas.SeparationAlpha); Equal(280d, Character.Load(root).Atlas.ReferenceHeightPixels);
         c.Atlas = c.Atlas with { SeparationAlpha=255 }; Write(); Reject(() => Character.Load(root));
         c.Atlas = c.Atlas with { SeparationAlpha=48, ReferenceHeightPixels=-1 }; Write(); Reject(() => Character.Load(root));
+        foreach(double stride in new[]{0d,.1,.48,1.2})
+        { c.Atlas=new Sprite("atlas.png",1,1,WalkStride:stride);Write();Equal(stride,Character.Load(root).Atlas.WalkStride); }
+        foreach(double stride in new[]{-.1,.09,1.21})
+        { c.Atlas=new Sprite("atlas.png",1,1,WalkStride:stride);Write();Reject(()=>Character.Load(root)); }
         c.Atlas = new Sprite("atlas.png", 1, 1); c.Category = "unknown"; Write(); Reject(() => Character.Load(root));
         foreach (string category in new[] { "3d", "adult", CharacterStyles.Realistic })
         { c.Category = category; Write(); Equal(CharacterStyles.Realistic, Character.Load(root).Category); }

@@ -1,0 +1,153 @@
+{
+  "key": "qwen-adult-shorts-body",
+  "id": "qwen-adult",
+  "family": "qwen",
+  "style": "realistic",
+  "kind": "body",
+  "columns": 4,
+  "rows": 4,
+  "refs": [
+    "D:/VibeCoding/Character/artwork/sports/superseded-long-pants/qwen-adult/sports/body.png",
+    "D:/VibeCoding/Character/docs/demo/cloud-club/art/school-shorts-realistic.png"
+  ],
+  "prompt": "Use case: identity-preserve. Edit ONLY the outfit of every figure in FIRST reference, following SECOND reference garment cut. Exactly 16 adult realistic 3D woman sprites, 4 columns by 4 rows. Replace ALL long track pants by loose athletic SHORTS ENDING MID THIGH, above knees, keep ankle socks and white trainers. Both arms have short sleeves ending mid upper arm. Bare legs below shorts, no leggings or long socks. Maintain FIRST character face, hair, identity, palette, proportions, action poses and exact ordering; SECOND clothing cut only, never copy her identity or whale logo. Preserve prop interaction and same pixel scale across upright, jumping, sitting, sleeping and lifted poses. Entire figure inside every cell, 20% transparent margins, especially lying pose hair tips and feet. No clipping. Row1 listen, speak, quietly think, jump crouch; row2 airborne knees bent, landing, seated hugging knees, curled head resting on knees; row3 lying asleep on side, seated holding cube, hand actually stacking a cube, seated proud of tower; row4 dangling lifted straight, lifted bent knees, collision startled recoil, missed ball open hands. No background/text/FX or aura; real transparent alpha.",
+  "dest": "src/DesktopPet.App/Assets/Characters/qwen-adult/outfits/sports/body.png",
+  "source": "D:\\VibeCoding\\Character\\src\\DesktopPet.App\\Assets\\Characters\\qwen-adult\\outfits\\sports\\body.png",
+  "selected": true,
+  "tool": "builtin imagegen",
+  "originalSource": "C:\\Users\\99000256\\.codex\\generated_images\\01a0fd54-807b-7df2-88b5-c9f04a7bcefe\\exec-cd4ff78e-3d04-40e1-a2ef-766723c96585.png",
+  "review": "Full-body poses visually checked: short sleeves above elbows, shorts above knees, bare lower legs, preserved identity; actual ordered action poses reviewed.",
+  "clips": {
+    "chat": [
+      [
+        0,
+        1,
+        0,
+        1,
+        0
+      ],
+      [
+        240,
+        400,
+        400,
+        420,
+        320
+      ],
+      true
+    ],
+    "think": [
+      [
+        2
+      ],
+      [
+        5000
+      ],
+      false
+    ],
+    "jump": [
+      [
+        3,
+        4,
+        5,
+        0
+      ],
+      [
+        240,
+        640,
+        240,
+        200
+      ],
+      false
+    ],
+    "land": [
+      [
+        5,
+        0
+      ],
+      [
+        250,
+        160
+      ],
+      false
+    ],
+    "curl": [
+      [
+        6,
+        7
+      ],
+      [
+        600,
+        5000
+      ],
+      false
+    ],
+    "sleep": [
+      [
+        8
+      ],
+      [
+        5000
+      ],
+      false
+    ],
+    "build": [
+      [
+        9,
+        10,
+        11
+      ],
+      [
+        1000,
+        1500,
+        1900
+      ],
+      false
+    ],
+    "pickup": [
+      [
+        12,
+        13
+      ],
+      [
+        220,
+        5000
+      ],
+      false
+    ],
+    "ball-miss": [
+      [
+        15,
+        0
+      ],
+      [
+        1200,
+        600
+      ],
+      false
+    ],
+    "ball-hit": [
+      [
+        14,
+        0
+      ],
+      [
+        900,
+        600
+      ],
+      false
+    ],
+    "farewell": [
+      [
+        0,
+        1,
+        0
+      ],
+      [
+        300,
+        1400,
+        400
+      ],
+      false
+    ]
+  }
+}

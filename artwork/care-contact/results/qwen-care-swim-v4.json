@@ -1,0 +1,21 @@
+{
+  "key": "qwen-care-swim-v4",
+  "id": "qwen",
+  "family": "qwen",
+  "style": "chibi",
+  "kind": "care",
+  "outfits": [
+    "swim"
+  ],
+  "columns": 4,
+  "rows": 2,
+  "dest": "src/DesktopPet.App/Assets/Characters/qwen/motions/cloud-care-swim.png",
+  "refs": [
+    "D:/VibeCoding/Character/artwork/care-contact/qwen-care-swim-v3.png"
+  ],
+  "prompt": "Use case: precise-object-edit. Keep this EXACT eight-pose Qwen chibi swim-outfit care sprite sheet and every pose/outfit/face detail, but make the whole set of eight characters uniformly smaller so every complete braid, hand, hair bow and foot has spacious transparent padding. Current rightmost hair is cut off at the canvas edge: restore those small tips. Exactly4columns×2rows. Each complete character occupies <=75% of its cell width and height, centered on its own cell; at least30px transparent gap between each silhouette and the cell border and50px outer canvas margin. Do not alter clothes, proportions, ornaments, poses or sequence. NO BACKGROUND. True transparent alpha. Keep wooden comb poses top row and white face towel poses bottom row. Preserve single character identity and blue/lilac color.",
+  "selected": true,
+  "originalSource": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-59ec311e-2005-4d0f-bc91-78c6d7e276ea.png",
+  "source": "D:/VibeCoding/Character/artwork/care-contact/qwen-care-swim-v4.png",
+  "visualReview": "Approved full eight isolated poses; identity, outfit, actual comb/towel hand contact and transparent boundary inspected."
+}

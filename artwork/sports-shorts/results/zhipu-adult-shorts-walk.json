@@ -1,0 +1,17 @@
+{
+  "key": "zhipu-adult-shorts-walk",
+  "id": "zhipu-adult",
+  "family": "zhipu",
+  "style": "realistic",
+  "kind": "walk",
+  "columns": 3,
+  "rows": 4,
+  "refs": [
+    "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/zhipu-adult/outfits/sports/portrait.png"
+  ],
+  "prompt": "Create game animation sprite atlas of the SAME clearly adult 23+ realistic 3D woman as the FIRST NEUTRAL figure in reference. Preserve face, hair, ornaments, palette and SHORT-SLEEVE zip sports top + loose MID-THIGH SHORTS + ankle socks + white trainers in EVERY pose. Bare forearms and legs. No long sleeves, trousers, leggings, dresses or tall socks. Full bodies all completely visible with 18% empty margins inside every cell; same head and body scale, no overlapping figures. True transparent alpha, no backdrop, no text, no ground shadows or auras. Exactly TWELVE figures in THREE COLUMNS and FOUR ROWS, portrait canvas. Natural side-view right-facing walk, full rightward cycle in twelve even phases. ROW1: right heel in front contacts ground; right foot rolls flat while left heel lifts behind; LEFT knee passes under hips with LEFT heel raised. ROW2: LEFT knee advances ahead of planted right leg; LEFT leg extends forward heel; LEFT heel lands in front. ROW3: LEFT foot rolls flat while RIGHT heel lifts behind; RIGHT knee passes under hips, RIGHT heel raised; RIGHT knee advances ahead of planted LEFT leg. ROW4: RIGHT shin extends forward; RIGHT heel almost lands in front; relaxed right heel contact closes cycle. Feet only lift small natural heights, opposing arms swing gently, level hips; avoid marching/high knees/crossed ankles. ALL noses face screen RIGHT. Hair and tail trail LEFT in every frame. Both legs anatomically intact and continuous from shorts to sneakers.",
+  "dest": "src/DesktopPet.App/Assets/Characters/zhipu-adult/outfits/sports/walk.png",
+  "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0fd54-807b-7df2-88b5-c9f04a7bcefe\\exec-bf18f9b8-bbf5-4bc7-a810-eaf33b1adc81.png",
+  "selected": false,
+  "tool": "builtin imagegen"
+}

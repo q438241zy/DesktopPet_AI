@@ -1,0 +1,47 @@
+{
+  "created": "2026-10-04",
+  "status": "Demo only, awaiting explicit user approval",
+  "method": "built-in image_gen.imagegen",
+  "character": "DeepSeek",
+  "outfit": "original",
+  "review": "I2",
+  "posesPerStyle": 24,
+  "sources": [
+    {
+      "style": "chibi",
+      "selected": "deepseek-chibi-v1.png",
+      "reference": "docs/demo/cloud-club/art/actions-chibi-original-v2.png",
+      "generated": "C:/Users/99000256/.codex/generated_images/01a0e159-1c2b-7643-8517-9ec7beebfed3/exec-cb98c795-095d-4421-bd3e-f71203d3b715.png",
+      "prompt": "chibi-prompt.txt"
+    },
+    {
+      "style": "realistic",
+      "selected": "deepseek-realistic-v2.png",
+      "reference": "docs/demo/cloud-club/art/actions-realistic-original.png",
+      "generated": "C:/Users/99000256/.codex/generated_images/01a0e159-1c2b-7643-8517-9ec7beebfed3/exec-7aa27ba8-d0c4-45b2-9a33-523511e93d99.png",
+      "prompt": "realistic-prompt.txt",
+      "repairPrompt": "realistic-framing-repair.txt"
+    }
+  ],
+  "supplements": [
+    {
+      "style": "chibi",
+      "selected": "interaction-chibi-v2.png",
+      "reference": "deepseek-chibi-v1.png",
+      "generated": "C:/Users/99000256/.codex/generated_images/01a0e159-1c2b-7643-8517-9ec7beebfed3/exec-f7856621-062c-479f-9a51-6f356f4b35dc.png",
+      "prompt": "interaction-chibi-prompt.txt",
+      "repairPrompt": "interaction-chibi-framing.txt",
+      "poses": "high-prep, high-ready, high-contact, high-recoil, fist-up, fist-mid, fist-down, reveal-rock, reveal-scissors, reveal-paper, gift-empty, read-finish"
+    },
+    {
+      "style": "realistic",
+      "selected": "interaction-realistic-v2.png",
+      "reference": "deepseek-realistic-v2.png",
+      "generated": "C:/Users/99000256/.codex/generated_images/01a0e159-1c2b-7643-8517-9ec7beebfed3/exec-b2b30fab-9fba-4ba6-bb67-92c20e8e3ca7.png",
+      "prompt": "interaction-realistic-prompt.txt",
+      "repairPrompt": "interaction-realistic-framing.txt",
+      "poses": "high-prep, high-ready, high-contact, high-recoil, fist-up, fist-mid, fist-down, reveal-rock, reveal-scissors, reveal-paper, gift-empty, read-finish"
+    }
+  ],
+  "rendering": "Untouched alpha PNGs, measured foot and contact positions only. One fixed pixel scale per source atlas, normalized to the style's original standing height; no per-pose fitting, optical-flow warping or raster edits. Random gifts are deterministic SVGs placed inside the empty box with original front-wall/hand occlusion."
+}

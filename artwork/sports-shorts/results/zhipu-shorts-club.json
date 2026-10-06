@@ -1,0 +1,99 @@
+{
+  "key": "zhipu-shorts-club",
+  "id": "zhipu",
+  "family": "zhipu",
+  "style": "chibi",
+  "kind": "club",
+  "columns": 4,
+  "rows": 6,
+  "refs": [
+    "C:\\Users\\99000256\\.codex\\generated_images\\01a0fd46-2194-7b12-8882-479fedfd5c1e\\exec-419cdc1e-548d-46a0-b44f-d496e362cd03.png",
+    "C:\\Users\\99000256\\.codex\\generated_images\\01a0fd46-2194-7b12-8882-479fedfd5c1e\\exec-fc732096-ec21-4ae9-b832-65e54bb4fe78.png"
+  ],
+  "dest": "src/DesktopPet.App/Assets/Characters/zhipu/outfits/sports/club.png",
+  "prompt": "Use case: identity-preserve. Image 1 is the precise 24-frame 4-column by 6-row animation template, Image 2 is the character identity and SHORT-SLEEVE + SHORTS costume reference. Replace Image1's character with Image2's black wavy long hair, black cat ears with pale inner fur, blue tassel side ornament and steel-blue eyes, black cat tail; ivory/navy top and navy shorts. Keep Image2 face, head/body proportions, ornament, palette and emblem, and do NOT carry over the blue whale girl's identity/tail. ALL sleeves end on upper arms. ALL shorts end above knees; knees and lower legs bare, ankle socks and white sneakers. No long sleeves, pants, leggings, skirts or tall socks, including seated, bent-knee and lying poses. Exact same physical gesture sequence and row-major order as Image1, only the identity/costume changes. Same head/anatomical scale in EVERY cell. Ample true transparent gutters and outer margins: each figure fits central 70% cell; no part touches neighbor or canvas edge, no shadows/glow/scenery, no labels/text. Preserve 8 counting-star finger/eye-follow poses, then8 blowing-bubbles hand-and-mouth poses holding small round wand and bottle, then8 overhead-stretch/return poses. Character stays seated, wearing SHORTS with bare knees/calves. Preserve Image1's exact hands, ring/bottle positions. The bubble ring reaches lips only during middle blowing frames. No actual stars/bubbles painted. Do not enlarge seated character relative to standing reference; use same head size.",
+  "source": "D:\\VibeCoding\\Character\\src\\DesktopPet.App\\Assets\\Characters\\zhipu\\outfits\\sports\\club.png",
+  "selected": true,
+  "tool": "built-in image_gen",
+  "status": "visually-reviewed-short-sleeves-and-shorts",
+  "referenceHeightPixels": 251.811,
+  "bubbleSources": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    {
+      "x": 0.19214,
+      "y": 0.65948
+    },
+    {
+      "x": 0.17904,
+      "y": 0.50644
+    },
+    {
+      "x": 0.37826,
+      "y": 0.54701
+    },
+    {
+      "x": 0.37333,
+      "y": 0.54274
+    },
+    {
+      "x": 0.34199,
+      "y": 0.53478
+    },
+    {
+      "x": 0.17241,
+      "y": 0.51515
+    },
+    {
+      "x": 0.20779,
+      "y": 0.63913
+    },
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ],
+  "bubbleReviewPixels": {
+    "8": [
+      81,
+      687
+    ],
+    "9": [
+      330,
+      652
+    ],
+    "10": [
+      622,
+      663
+    ],
+    "11": [
+      873,
+      663
+    ],
+    "12": [
+      114,
+      909
+    ],
+    "13": [
+      326,
+      905
+    ],
+    "14": [
+      584,
+      936
+    ]
+  },
+  "originalSource": "C:\\Users\\99000256\\.codex\\generated_images\\01a0fd46-2194-7b12-8882-479fedfd5c1e\\exec-acf683d0-06ca-41e3-bd28-a73e5e1fa82d.png",
+  "visualReview": "Every pose checked for short upper-arm sleeves, above-knee shorts, bare knees/calves, complete figure, correct tools/contact. Original PNG copied without bitmap edits; crop/flow metadata only. Cross-kind scale uses same face-width ruler; no per-frame silhouette resizing."
+}

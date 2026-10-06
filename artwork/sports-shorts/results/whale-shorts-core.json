@@ -1,0 +1,455 @@
+{
+  "key": "whale-shorts-core",
+  "id": "whale",
+  "family": "whale",
+  "style": "chibi",
+  "kind": "core",
+  "columns": 4,
+  "rows": 6,
+  "refs": [
+    "D:/VibeCoding/Character/artwork/sports/superseded-long-pants/whale/sports/core.png",
+    "D:/VibeCoding/Character/docs/demo/cloud-club/art/school-shorts-chibi.png"
+  ],
+  "prompt": "Use case: identity-preserve. Image 1 is a 24-pose game sprite atlas, exactly 4 columns by 6 rows. Image 2 is the APPROVED short-sleeve AND SHORTS sports outfit for this character. Edit image 1: replace EVERY pair of long trousers with loose navy athletic SHORTS ending clearly above knees. Both knees, lower legs and elbows bare, ankle socks, same white sneakers. Every sleeve ends on upper arm above elbows. Match image 2 garment lengths and covered waist. Keep ALL 24 action poses, their exact row-major order, face, chibi proportions, head sizes, scale, expression, hands, tail, props and colours from image 1 unchanged. Important: lying and tucked-leg poses also wear shorts with exposed lower legs. Do not draw long sleeves, leggings, long trousers or tall socks. Fully transparent background, no glow or backdrop, all figures remain isolated with generous empty gutters and margin around outer edges; complete heads, hair, hands and shoes. Exact 4x6 grid, 24 figures; no labels or text. The only design changes are shortening the trousers to shorts and ensuring upper-arm sleeves in every frame.",
+  "dest": "src/DesktopPet.App/Assets/Characters/whale/outfits/sports/core.png",
+  "source": "D:\\VibeCoding\\Character\\src\\DesktopPet.App\\Assets\\Characters\\whale\\outfits\\sports\\core.png",
+  "selected": true,
+  "tool": "built-in image_gen",
+  "status": "visually-reviewed-short-sleeves-and-shorts",
+  "clips": {
+    "idle": [
+      [
+        0
+      ],
+      [
+        5000
+      ],
+      false
+    ],
+    "listen": [
+      [
+        0
+      ],
+      [
+        5000
+      ],
+      false
+    ],
+    "chat": [
+      [
+        0,
+        1,
+        0,
+        1,
+        0
+      ],
+      [
+        260,
+        420,
+        360,
+        520,
+        300
+      ],
+      true
+    ],
+    "think": [
+      [
+        0,
+        2,
+        2,
+        0
+      ],
+      [
+        300,
+        450,
+        1700,
+        350
+      ],
+      false
+    ],
+    "headpat": [
+      [
+        0,
+        3,
+        4,
+        3,
+        0
+      ],
+      [
+        180,
+        480,
+        820,
+        420,
+        360
+      ],
+      false
+    ],
+    "poke": [
+      [
+        0,
+        5,
+        6,
+        5,
+        0
+      ],
+      [
+        250,
+        550,
+        650,
+        500,
+        350
+      ],
+      false
+    ],
+    "tickle": [
+      [
+        0,
+        7,
+        8,
+        7,
+        8,
+        0
+      ],
+      [
+        180,
+        300,
+        420,
+        300,
+        650,
+        350
+      ],
+      false
+    ],
+    "happy": [
+      [
+        0,
+        8,
+        0
+      ],
+      [
+        350,
+        800,
+        350
+      ],
+      false
+    ],
+    "sad": [
+      [
+        0,
+        21,
+        0
+      ],
+      [
+        350,
+        1000,
+        350
+      ],
+      false
+    ],
+    "jump": [
+      [
+        0,
+        9,
+        10,
+        11,
+        0
+      ],
+      [
+        120,
+        220,
+        620,
+        260,
+        100
+      ],
+      false
+    ],
+    "land": [
+      [
+        11,
+        0
+      ],
+      [
+        260,
+        200
+      ],
+      false
+    ],
+    "curl": [
+      [
+        0,
+        12,
+        13
+      ],
+      [
+        400,
+        650,
+        4450
+      ],
+      false
+    ],
+    "sleep": [
+      [
+        14,
+        15
+      ],
+      [
+        700,
+        5000
+      ],
+      false
+    ],
+    "pickup": [
+      [
+        16,
+        17
+      ],
+      [
+        250,
+        5000
+      ],
+      false
+    ],
+    "ball-ready": [
+      [
+        18
+      ],
+      [
+        5000
+      ],
+      false
+    ],
+    "anticipate": [
+      [
+        18
+      ],
+      [
+        5000
+      ],
+      false
+    ],
+    "ball-hit": [
+      [
+        7,
+        8,
+        0
+      ],
+      [
+        160,
+        480,
+        400
+      ],
+      false
+    ],
+    "ball-hold": [
+      [
+        20
+      ],
+      [
+        5000
+      ],
+      false
+    ],
+    "ball-miss": [
+      [
+        18,
+        21,
+        0
+      ],
+      [
+        350,
+        900,
+        550
+      ],
+      false
+    ],
+    "bonk": [
+      [
+        22,
+        23,
+        22,
+        0
+      ],
+      [
+        480,
+        600,
+        350,
+        470
+      ],
+      false
+    ],
+    "dizzy": [
+      [
+        16,
+        17,
+        16
+      ],
+      [
+        500,
+        700,
+        500
+      ],
+      true
+    ],
+    "farewell": [
+      [
+        0,
+        1,
+        0
+      ],
+      [
+        250,
+        1400,
+        350
+      ],
+      false
+    ]
+  },
+  "handReviewPixels": {
+    "0": [
+      [
+        79,
+        205
+      ],
+      [
+        176,
+        205
+      ]
+    ],
+    "7": [
+      [
+        883,
+        413
+      ],
+      [
+        917,
+        413
+      ]
+    ],
+    "8": [
+      [
+        125,
+        685
+      ],
+      [
+        151,
+        685
+      ]
+    ],
+    "18": [
+      [
+        620,
+        1146
+      ],
+      [
+        648,
+        1146
+      ]
+    ],
+    "20": [
+      [
+        120,
+        1416
+      ],
+      [
+        145,
+        1416
+      ]
+    ]
+  },
+  "hands": {
+    "ball-ready": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      {
+        "height": 0.66532,
+        "offset": 0.00945,
+        "span": 0.1129
+      },
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "anticipate": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      {
+        "height": 0.66532,
+        "offset": 0.00945,
+        "span": 0.1129
+      },
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "ball-hold": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      {
+        "height": 0.6616,
+        "offset": -0.0044,
+        "span": 0.09506
+      },
+      null,
+      null,
+      null
+    ]
+  },
+  "referenceHeightPixels": 250,
+  "visualReview": "Every pose checked for short upper-arm sleeves, above-knee shorts, bare knees/calves, complete figure, correct tools/contact. Original PNG copied without bitmap edits; crop/flow metadata only. Cross-kind scale uses same face-width ruler; no per-frame silhouette resizing.",
+  "originalSource": "C:\\Users\\99000256\\.codex\\generated_images\\01a0fd46-2194-7b12-8882-479fedfd5c1e\\exec-a744f4c6-5998-4542-9ac6-9714a91edd0c.png",
+  "ballHitReview": "Frames 7,8,0 are collision recoil and recovery, not a successful catch. No hand contact metadata; ready/anticipate/hold retain measured palm points."
+}

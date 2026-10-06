@@ -1,0 +1,19 @@
+{
+  "key": "zhipu-adult-sports-portrait",
+  "id": "zhipu-adult",
+  "family": "zhipu",
+  "style": "realistic",
+  "kind": "portrait",
+  "columns": 3,
+  "rows": 4,
+  "refs": [
+    "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/zhipu-adult/portrait.png",
+    "D:/VibeCoding/Character/docs/demo/cloud-club/art/school-realistic.png"
+  ],
+  "dest": "src/DesktopPet.App/Assets/Characters/zhipu-adult/outfits/sports/portrait.png",
+  "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-af7ea19d-7c93-4f34-991d-bb00cda4ac90.png",
+  "tool": "built-in image_gen",
+  "selected": false,
+  "status": "superseded-long-pants",
+  "reason": "User requires short sleeves AND shorts above knees in both styles; do not install or publish this batch."
+}

@@ -1,0 +1,18 @@
+{
+  "key": "grok-adult-shorts-body",
+  "id": "grok-adult",
+  "family": "grok",
+  "style": "realistic",
+  "kind": "body",
+  "columns": 4,
+  "rows": 4,
+  "refs": [
+    "C:/Users/99000256/.codex/generated_images/01a0e159-1c2b-7643-8517-9ec7beebfed3/exec-4921d706-96c8-4e94-809a-f1d617a76ad4.png",
+    "D:/VibeCoding/Character/docs/demo/cloud-club/art/school-shorts-realistic.png"
+  ],
+  "prompt": "Use case: identity-preserve. Edit ONLY the outfit of every figure in FIRST reference, following SECOND reference garment cut. Exactly 16 adult realistic 3D woman sprites, 4 columns by 4 rows. Replace ALL long track pants by loose athletic SHORTS ENDING MID THIGH, above knees, keep ankle socks and white trainers. Both arms have short sleeves ending mid upper arm. Bare legs below shorts, no leggings or long socks. Maintain FIRST character face, hair, identity, palette, proportions, action poses and exact ordering; SECOND clothing cut only, never copy her identity or whale logo. Preserve prop interaction and same pixel scale across upright, jumping, sitting, sleeping and lifted poses. Entire figure inside every cell, 20% transparent margins, especially lying pose hair tips and feet. No clipping. Row1 listen, speak, quietly think, jump crouch; row2 airborne knees bent, landing, seated hugging knees, curled head resting on knees; row3 lying asleep on side, seated holding cube, hand actually stacking a cube, seated proud of tower; row4 dangling lifted straight, lifted bent knees, collision startled recoil, missed ball open hands. No background/text/FX or aura; real transparent alpha.",
+  "dest": "src/DesktopPet.App/Assets/Characters/grok-adult/outfits/sports/body.png",
+  "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0fd54-807b-7df2-88b5-c9f04a7bcefe\\exec-32fa4253-1491-4bc1-8a04-28700ca748b6.png",
+  "selected": false,
+  "tool": "builtin imagegen"
+}

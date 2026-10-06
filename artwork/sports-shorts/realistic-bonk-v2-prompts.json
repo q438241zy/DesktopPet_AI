@@ -1,0 +1,266 @@
+[
+  {
+    "key": "deepseek-adult-shorts-bonk-v2",
+    "id": "deepseek-adult",
+    "family": "deepseek",
+    "style": "realistic",
+    "kind": "bonk",
+    "columns": 3,
+    "rows": 1,
+    "refs": [
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/deepseek-adult/outfits/sports/portrait.png"
+    ],
+    "dest": "src/DesktopPet.App/Assets/Characters/deepseek-adult/outfits/sports/bonk.png",
+    "clips": {
+      "bonk": [
+        [
+          0,
+          1,
+          2,
+          1,
+          0
+        ],
+        [
+          250,
+          550,
+          650,
+          350,
+          350
+        ],
+        false
+      ]
+    },
+    "prompt": "Use case: identity-preserve. Create a polished game sprite atlas, EXACT THREE complete full-body figures in ONE HORIZONTAL ROW on a wide transparent canvas (1536 x 1024 preferred). Reference image FIRST TOP LEFT figure is the adult woman's exact identity, face, proportions and SHORT-SLEEVE zip sports top, loose MID-THIGH SHORTS, ankle socks and white trainers. Use ONLY this first figure's body proportions. Do NOT inherit the smaller last-row bodies. All three stand straight on the SAME baseline with EXACT same head crown height, hip height, knees and shoe size. Long realistic adult legs identical across all 3. Leave ample empty space ABOVE heads so a raised toy mallet never forces the woman smaller. Frame0 neutral standing arms down. Frame1 same straight standing woman holding ONE small cute soft pastel toy mallet above her own head in right hand, left hand relaxed down, smiling. Frame2 same standing woman lightly taps her crown with that mallet and closes eyes cute flinch, right elbow bends; keep LEGS STRAIGHT same length and grounded, NO squat, no knees bending or crossing. Actual right fingers grip the handle. Keep the SAME character's head ornaments/hair/face and own colored outfit in all3, SHORT SLEEVES and clearly ABOVE-KNEE SHORTS. Full hair/tail/shoes and mallet not cropped. One clean separated figure per third; transparent gutters and generous outer margin. Preserve 3D realistic adult rendering. True transparent alpha, no backdrop, no floor/glow/text or extra effects."
+  },
+  {
+    "key": "gpt-adult-shorts-bonk-v2",
+    "id": "gpt-adult",
+    "family": "gpt",
+    "style": "realistic",
+    "kind": "bonk",
+    "columns": 3,
+    "rows": 1,
+    "refs": [
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/gpt-adult/outfits/sports/portrait.png"
+    ],
+    "dest": "src/DesktopPet.App/Assets/Characters/gpt-adult/outfits/sports/bonk.png",
+    "clips": {
+      "bonk": [
+        [
+          0,
+          1,
+          2,
+          1,
+          0
+        ],
+        [
+          250,
+          550,
+          650,
+          350,
+          350
+        ],
+        false
+      ]
+    },
+    "prompt": "Use case: identity-preserve. Create a polished game sprite atlas, EXACT THREE complete full-body figures in ONE HORIZONTAL ROW on a wide transparent canvas (1536 x 1024 preferred). Reference image FIRST TOP LEFT figure is the adult woman's exact identity, face, proportions and SHORT-SLEEVE zip sports top, loose MID-THIGH SHORTS, ankle socks and white trainers. Use ONLY this first figure's body proportions. Do NOT inherit the smaller last-row bodies. All three stand straight on the SAME baseline with EXACT same head crown height, hip height, knees and shoe size. Long realistic adult legs identical across all 3. Leave ample empty space ABOVE heads so a raised toy mallet never forces the woman smaller. Frame0 neutral standing arms down. Frame1 same straight standing woman holding ONE small cute soft pastel toy mallet above her own head in right hand, left hand relaxed down, smiling. Frame2 same standing woman lightly taps her crown with that mallet and closes eyes cute flinch, right elbow bends; keep LEGS STRAIGHT same length and grounded, NO squat, no knees bending or crossing. Actual right fingers grip the handle. Keep the SAME character's head ornaments/hair/face and own colored outfit in all3, SHORT SLEEVES and clearly ABOVE-KNEE SHORTS. Full hair/tail/shoes and mallet not cropped. One clean separated figure per third; transparent gutters and generous outer margin. Preserve 3D realistic adult rendering. True transparent alpha, no backdrop, no floor/glow/text or extra effects."
+  },
+  {
+    "key": "claude-adult-shorts-bonk-v2",
+    "id": "claude-adult",
+    "family": "claude",
+    "style": "realistic",
+    "kind": "bonk",
+    "columns": 3,
+    "rows": 1,
+    "refs": [
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/claude-adult/outfits/sports/portrait.png"
+    ],
+    "dest": "src/DesktopPet.App/Assets/Characters/claude-adult/outfits/sports/bonk.png",
+    "clips": {
+      "bonk": [
+        [
+          0,
+          1,
+          2,
+          1,
+          0
+        ],
+        [
+          250,
+          550,
+          650,
+          350,
+          350
+        ],
+        false
+      ]
+    },
+    "prompt": "Use case: identity-preserve. Create a polished game sprite atlas, EXACT THREE complete full-body figures in ONE HORIZONTAL ROW on a wide transparent canvas (1536 x 1024 preferred). Reference image FIRST TOP LEFT figure is the adult woman's exact identity, face, proportions and SHORT-SLEEVE zip sports top, loose MID-THIGH SHORTS, ankle socks and white trainers. Use ONLY this first figure's body proportions. Do NOT inherit the smaller last-row bodies. All three stand straight on the SAME baseline with EXACT same head crown height, hip height, knees and shoe size. Long realistic adult legs identical across all 3. Leave ample empty space ABOVE heads so a raised toy mallet never forces the woman smaller. Frame0 neutral standing arms down. Frame1 same straight standing woman holding ONE small cute soft pastel toy mallet above her own head in right hand, left hand relaxed down, smiling. Frame2 same standing woman lightly taps her crown with that mallet and closes eyes cute flinch, right elbow bends; keep LEGS STRAIGHT same length and grounded, NO squat, no knees bending or crossing. Actual right fingers grip the handle. Keep the SAME character's head ornaments/hair/face and own colored outfit in all3, SHORT SLEEVES and clearly ABOVE-KNEE SHORTS. Full hair/tail/shoes and mallet not cropped. One clean separated figure per third; transparent gutters and generous outer margin. Preserve 3D realistic adult rendering. True transparent alpha, no backdrop, no floor/glow/text or extra effects."
+  },
+  {
+    "key": "gemini-adult-shorts-bonk-v2",
+    "id": "gemini-adult",
+    "family": "gemini",
+    "style": "realistic",
+    "kind": "bonk",
+    "columns": 3,
+    "rows": 1,
+    "refs": [
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/gemini-adult/outfits/sports/portrait.png"
+    ],
+    "dest": "src/DesktopPet.App/Assets/Characters/gemini-adult/outfits/sports/bonk.png",
+    "clips": {
+      "bonk": [
+        [
+          0,
+          1,
+          2,
+          1,
+          0
+        ],
+        [
+          250,
+          550,
+          650,
+          350,
+          350
+        ],
+        false
+      ]
+    },
+    "prompt": "Use case: identity-preserve. Create a polished game sprite atlas, EXACT THREE complete full-body figures in ONE HORIZONTAL ROW on a wide transparent canvas (1536 x 1024 preferred). Reference image FIRST TOP LEFT figure is the adult woman's exact identity, face, proportions and SHORT-SLEEVE zip sports top, loose MID-THIGH SHORTS, ankle socks and white trainers. Use ONLY this first figure's body proportions. Do NOT inherit the smaller last-row bodies. All three stand straight on the SAME baseline with EXACT same head crown height, hip height, knees and shoe size. Long realistic adult legs identical across all 3. Leave ample empty space ABOVE heads so a raised toy mallet never forces the woman smaller. Frame0 neutral standing arms down. Frame1 same straight standing woman holding ONE small cute soft pastel toy mallet above her own head in right hand, left hand relaxed down, smiling. Frame2 same standing woman lightly taps her crown with that mallet and closes eyes cute flinch, right elbow bends; keep LEGS STRAIGHT same length and grounded, NO squat, no knees bending or crossing. Actual right fingers grip the handle. Keep the SAME character's head ornaments/hair/face and own colored outfit in all3, SHORT SLEEVES and clearly ABOVE-KNEE SHORTS. Full hair/tail/shoes and mallet not cropped. One clean separated figure per third; transparent gutters and generous outer margin. Preserve 3D realistic adult rendering. True transparent alpha, no backdrop, no floor/glow/text or extra effects."
+  },
+  {
+    "key": "grok-adult-shorts-bonk-v2",
+    "id": "grok-adult",
+    "family": "grok",
+    "style": "realistic",
+    "kind": "bonk",
+    "columns": 3,
+    "rows": 1,
+    "refs": [
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/grok-adult/outfits/sports/portrait.png"
+    ],
+    "dest": "src/DesktopPet.App/Assets/Characters/grok-adult/outfits/sports/bonk.png",
+    "clips": {
+      "bonk": [
+        [
+          0,
+          1,
+          2,
+          1,
+          0
+        ],
+        [
+          250,
+          550,
+          650,
+          350,
+          350
+        ],
+        false
+      ]
+    },
+    "prompt": "Use case: identity-preserve. Create a polished game sprite atlas, EXACT THREE complete full-body figures in ONE HORIZONTAL ROW on a wide transparent canvas (1536 x 1024 preferred). Reference image FIRST TOP LEFT figure is the adult woman's exact identity, face, proportions and SHORT-SLEEVE zip sports top, loose MID-THIGH SHORTS, ankle socks and white trainers. Use ONLY this first figure's body proportions. Do NOT inherit the smaller last-row bodies. All three stand straight on the SAME baseline with EXACT same head crown height, hip height, knees and shoe size. Long realistic adult legs identical across all 3. Leave ample empty space ABOVE heads so a raised toy mallet never forces the woman smaller. Frame0 neutral standing arms down. Frame1 same straight standing woman holding ONE small cute soft pastel toy mallet above her own head in right hand, left hand relaxed down, smiling. Frame2 same standing woman lightly taps her crown with that mallet and closes eyes cute flinch, right elbow bends; keep LEGS STRAIGHT same length and grounded, NO squat, no knees bending or crossing. Actual right fingers grip the handle. Keep the SAME character's head ornaments/hair/face and own colored outfit in all3, SHORT SLEEVES and clearly ABOVE-KNEE SHORTS. Full hair/tail/shoes and mallet not cropped. One clean separated figure per third; transparent gutters and generous outer margin. Preserve 3D realistic adult rendering. True transparent alpha, no backdrop, no floor/glow/text or extra effects."
+  },
+  {
+    "key": "qwen-adult-shorts-bonk-v2",
+    "id": "qwen-adult",
+    "family": "qwen",
+    "style": "realistic",
+    "kind": "bonk",
+    "columns": 3,
+    "rows": 1,
+    "refs": [
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/qwen-adult/outfits/sports/portrait.png"
+    ],
+    "dest": "src/DesktopPet.App/Assets/Characters/qwen-adult/outfits/sports/bonk.png",
+    "clips": {
+      "bonk": [
+        [
+          0,
+          1,
+          2,
+          1,
+          0
+        ],
+        [
+          250,
+          550,
+          650,
+          350,
+          350
+        ],
+        false
+      ]
+    },
+    "prompt": "Use case: identity-preserve. Create a polished game sprite atlas, EXACT THREE complete full-body figures in ONE HORIZONTAL ROW on a wide transparent canvas (1536 x 1024 preferred). Reference image FIRST TOP LEFT figure is the adult woman's exact identity, face, proportions and SHORT-SLEEVE zip sports top, loose MID-THIGH SHORTS, ankle socks and white trainers. Use ONLY this first figure's body proportions. Do NOT inherit the smaller last-row bodies. All three stand straight on the SAME baseline with EXACT same head crown height, hip height, knees and shoe size. Long realistic adult legs identical across all 3. Leave ample empty space ABOVE heads so a raised toy mallet never forces the woman smaller. Frame0 neutral standing arms down. Frame1 same straight standing woman holding ONE small cute soft pastel toy mallet above her own head in right hand, left hand relaxed down, smiling. Frame2 same standing woman lightly taps her crown with that mallet and closes eyes cute flinch, right elbow bends; keep LEGS STRAIGHT same length and grounded, NO squat, no knees bending or crossing. Actual right fingers grip the handle. Keep the SAME character's head ornaments/hair/face and own colored outfit in all3, SHORT SLEEVES and clearly ABOVE-KNEE SHORTS. Full hair/tail/shoes and mallet not cropped. One clean separated figure per third; transparent gutters and generous outer margin. Preserve 3D realistic adult rendering. True transparent alpha, no backdrop, no floor/glow/text or extra effects."
+  },
+  {
+    "key": "zhipu-adult-shorts-bonk-v2",
+    "id": "zhipu-adult",
+    "family": "zhipu",
+    "style": "realistic",
+    "kind": "bonk",
+    "columns": 3,
+    "rows": 1,
+    "refs": [
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/zhipu-adult/outfits/sports/portrait.png"
+    ],
+    "dest": "src/DesktopPet.App/Assets/Characters/zhipu-adult/outfits/sports/bonk.png",
+    "clips": {
+      "bonk": [
+        [
+          0,
+          1,
+          2,
+          1,
+          0
+        ],
+        [
+          250,
+          550,
+          650,
+          350,
+          350
+        ],
+        false
+      ]
+    },
+    "prompt": "Use case: identity-preserve. Create a polished game sprite atlas, EXACT THREE complete full-body figures in ONE HORIZONTAL ROW on a wide transparent canvas (1536 x 1024 preferred). Reference image FIRST TOP LEFT figure is the adult woman's exact identity, face, proportions and SHORT-SLEEVE zip sports top, loose MID-THIGH SHORTS, ankle socks and white trainers. Use ONLY this first figure's body proportions. Do NOT inherit the smaller last-row bodies. All three stand straight on the SAME baseline with EXACT same head crown height, hip height, knees and shoe size. Long realistic adult legs identical across all 3. Leave ample empty space ABOVE heads so a raised toy mallet never forces the woman smaller. Frame0 neutral standing arms down. Frame1 same straight standing woman holding ONE small cute soft pastel toy mallet above her own head in right hand, left hand relaxed down, smiling. Frame2 same standing woman lightly taps her crown with that mallet and closes eyes cute flinch, right elbow bends; keep LEGS STRAIGHT same length and grounded, NO squat, no knees bending or crossing. Actual right fingers grip the handle. Keep the SAME character's head ornaments/hair/face and own colored outfit in all3, SHORT SLEEVES and clearly ABOVE-KNEE SHORTS. Full hair/tail/shoes and mallet not cropped. One clean separated figure per third; transparent gutters and generous outer margin. Preserve 3D realistic adult rendering. True transparent alpha, no backdrop, no floor/glow/text or extra effects."
+  },
+  {
+    "key": "kimi-adult-shorts-bonk-v2",
+    "id": "kimi-adult",
+    "family": "kimi",
+    "style": "realistic",
+    "kind": "bonk",
+    "columns": 3,
+    "rows": 1,
+    "refs": [
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/kimi-adult/outfits/sports/portrait.png"
+    ],
+    "dest": "src/DesktopPet.App/Assets/Characters/kimi-adult/outfits/sports/bonk.png",
+    "clips": {
+      "bonk": [
+        [
+          0,
+          1,
+          2,
+          1,
+          0
+        ],
+        [
+          250,
+          550,
+          650,
+          350,
+          350
+        ],
+        false
+      ]
+    },
+    "prompt": "Use case: identity-preserve. Create a polished game sprite atlas, EXACT THREE complete full-body figures in ONE HORIZONTAL ROW on a wide transparent canvas (1536 x 1024 preferred). Reference image FIRST TOP LEFT figure is the adult woman's exact identity, face, proportions and SHORT-SLEEVE zip sports top, loose MID-THIGH SHORTS, ankle socks and white trainers. Use ONLY this first figure's body proportions. Do NOT inherit the smaller last-row bodies. All three stand straight on the SAME baseline with EXACT same head crown height, hip height, knees and shoe size. Long realistic adult legs identical across all 3. Leave ample empty space ABOVE heads so a raised toy mallet never forces the woman smaller. Frame0 neutral standing arms down. Frame1 same straight standing woman holding ONE small cute soft pastel toy mallet above her own head in right hand, left hand relaxed down, smiling. Frame2 same standing woman lightly taps her crown with that mallet and closes eyes cute flinch, right elbow bends; keep LEGS STRAIGHT same length and grounded, NO squat, no knees bending or crossing. Actual right fingers grip the handle. Keep the SAME character's head ornaments/hair/face and own colored outfit in all3, SHORT SLEEVES and clearly ABOVE-KNEE SHORTS. Full hair/tail/shoes and mallet not cropped. One clean separated figure per third; transparent gutters and generous outer margin. Preserve 3D realistic adult rendering. True transparent alpha, no backdrop, no floor/glow/text or extra effects."
+  }
+]

@@ -1,0 +1,18 @@
+Use case: stylized-concept
+Asset type: production transparent character sprite atlas for an interactive desktop-pet HTML prototype.
+Reference image 1 is an IDENTITY AND OUTFIT reference only, not the atlas layout. Create new poses of exactly this DeepSeek chibi girl: vivid long cobalt-blue hair with cyan ends and curved blue ahoge, bright blue eyes, little whale-inspired side fins/ears and curled blue tail, white maid frill headband with cyan bow, navy maid dress with white bib and frilled white apron, small blue whale on apron, dark tights and navy shoes. Keep her recognizable, cute and consistent.
+Composition: portrait atlas, EXACTLY 3 columns by 4 rows = 12 equally sized square cells, ideally 1536x2048. Fully transparent alpha background, NO backdrop, NO checkerboard drawn into image, NO grid lines, no numbers/text. Every cell contains ONE complete standing full-body character, 3-head chibi proportions. Same straight-on camera, same head size, same body scale, centered pelvis, feet on the same baseline in each cell (88% cell height); no cropping, generous margins. Hands distinct and anatomically correct, no extra digits. Upper-body gestures change while legs remain comfortably planted.
+READING ORDER, left to right, top to bottom:
+1 calm neutral, arms loosely down, warm smile.
+2 preparing a high-five, right elbow bent, right hand at shoulder height on viewer's left.
+3 awaiting a high-five, right arm lifted, OPEN PALM facing viewer, five fingers clearly visible above shoulder on viewer's left, bright cheerful smile.
+4 rock-paper-scissors ROCK: right closed fist extended at chest height on viewer's left, left arm down.
+5 rock-paper-scissors SCISSORS: same right forearm position but clear V of exactly index and middle finger extended, other fingers closed.
+6 rock-paper-scissors PAPER: same right forearm position but open five-finger palm facing viewer.
+7 waiting to receive a gift, both arms extended forward at waist level, palms cupped UP and close together, EMPTY HANDS.
+8 receiving gift: both hands visibly supporting a SMALL WHITE SQUARE GIFT BOX with PINK RIBBON at waist, pleased expression. Box physically rests in palms.
+9 unwrapping gift: same box in hands, lid visibly OPEN with a small plush cloud peeking out, genuinely delighted expression; left hand supports box, right hand touches raised lid.
+10 reading together: holding a SMALL OPEN BLUE BOOK at waist with both hands, eyes looking down at printed pages. Fingers actually grip book edges.
+11 turning page: same blue open book, left hand supports spine, right fingertips visibly turning ONE curved page across book, eyes focused on it.
+12 photo pose: face toward viewer, smiling, making one friendly V-sign near right cheek, other arm at side.
+Quality: crisp polished anime rendering, clear small-scale silhouettes and facial expressions, clean alpha contours. Each requested gesture must be visibly different. Preserve identity, clothes, head and leg sizes across all 12 poses. No dancing, no food, no detached tools, no floating limbs, no dramatic jumps.

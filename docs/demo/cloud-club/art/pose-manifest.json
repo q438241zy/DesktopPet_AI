@@ -94,21 +94,21 @@
   "concepts": [
     {
       "style": "chibi",
-      "file": "school-chibi.png",
+      "file": "school-shorts-chibi.png",
       "dimensions": [
         1024,
         1536
       ],
-      "sha256": "5d92a341bc9d2b8286a4892570c820ad92b71e1fd20132ae699a3ac45f6423f6"
+      "sha256": "e53fef37e209cc1b3946fe39920272d8933d57a66f94f8630efa3e320e3ffeeb"
     },
     {
       "style": "realistic",
-      "file": "school-realistic.png",
+      "file": "school-shorts-realistic.png",
       "dimensions": [
         1024,
         1536
       ],
-      "sha256": "947a454f2cabb5167fec451f4a8fa1c0a91a0ec1a7bbe816cdbf2f6bf65345f7"
+      "sha256": "8d4dc98939950eab0cbfbf4f37a082151b744d52ace8781fd5fcf68feeb1dc9a"
     }
   ],
   "poses": {

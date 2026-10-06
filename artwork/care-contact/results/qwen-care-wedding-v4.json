@@ -1,0 +1,20 @@
+{
+  "key": "qwen-care-wedding-v4",
+  "id": "qwen",
+  "family": "qwen",
+  "style": "chibi",
+  "kind": "care",
+  "outfits": [
+    "wedding"
+  ],
+  "columns": 4,
+  "rows": 2,
+  "dest": "src/DesktopPet.App/Assets/Characters/qwen/motions/cloud-care-wedding.png",
+  "refs": [
+    "D:/VibeCoding/Character/artwork/care-contact/qwen-care-wedding-v3.png"
+  ],
+  "prompt": "Use case: precise-object-edit. Correct ONE continuity mistake in this eight-pose Qwen chibi wedding care sprite sheet: in the bottom row THIRD character (physical frame6), her little navy hat and gold knot insignia have incorrectly flipped to the viewer's RIGHT. Put that same hat/insignia/white ribbon back on the viewer's LEFT side of her head, matching all other seven frames. Keep the towel pressed to her cheek and head tilt natural; do not mirror the whole body. Preserve all other poses and the exact white/lilac/gold wedding outfit, blue hair, seated proportions, hands and accessories. Exactly4columns×2rows, eight complete figures with generous transparent outer border/gaps. Actual alpha transparency, no background or added effects. This is only an ornament continuity correction; do not redesign the character or outfit.",
+  "selected": false,
+  "originalSource": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-df014502-2783-4cb4-a229-499c16c174c9.png",
+  "source": "D:/VibeCoding/Character/artwork/care-contact/qwen-care-wedding-v4.png"
+}

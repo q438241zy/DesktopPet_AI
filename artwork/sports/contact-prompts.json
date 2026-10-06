@@ -1,0 +1,114 @@
+[
+  {
+    "key": "whale-sports-contact",
+    "id": "whale",
+    "family": "whale",
+    "style": "chibi",
+    "kind": "contact",
+    "columns": 4,
+    "rows": 6,
+    "refs": [
+      "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-545f5ce5-cea7-406b-b77f-4201ea27f026.png"
+    ],
+    "prompt": "Create a sprite atlas of exactly 24 isolated full-body poses, 4 columns by 6 rows, portrait canvas. Use the SAME chibi identity, head size, short legs, hair, and SHORT-SLEEVE sports outfit as the input's first pose. Completely transparent background. Full shoes, sleeves above elbows, no cropping. All figures fit in central 72% of each cell. Same body/head scale across all 24 even when seated, no bigger heads on seated frames. Numbering below describes row-major order; no numbers/text in output.\nFirst 6 poses (0-5): holds round biscuit at waist in fingers; raises biscuit to chest; biscuit arrives at LIPS; takes bite at lips; lowers visibly bitten biscuit while chewing eyes closed; smiles with biscuit at waist. All standing with planted feet. No magic wand!\nNext 6 (6-11): holds small bowl of rice in left hand and SPOON in right hand by bowl; scoops rice; raises spoon halfway; spoon tip with rice reaches LIPS (not elbow); swallows spoon withdrawing; spoon lowered into bowl, smile. Same planted standing body, actual hands holding utensils, no flying extra rice.\nNext 6 (12-17): sitting cross-legged next to three colored small wooden cubes; bends slightly to grasp red cube; carries red cube toward green cube; places red cube directly on green cube; raises blue cube; gently places blue cube atop stack with fingertips touching top block and pleased face. No free-floating cubes.\nFinal 6 (18-23): standing, comb in right hand at chest; right arm bends comb touches side hair near ear while left hand lightly gathers hair; right hand moves comb DOWN along hair to shoulder. Then standing, small cream soft face cloth at chest in hand; cloth pressed lightly against left cheek with closed eyes; cloth pressed lightly against right cheek, head turns naturally. Every comb/cloth is held by fingers and contacts actual hair/cheek. No external human hands. No floating tools.\nClean cute high quality anime game art, not a scene. Do NOT borrow original maid clothes.",
+    "dest": "src/DesktopPet.App/Assets/Characters/whale/outfits/sports/contact.png"
+  },
+  {
+    "key": "gpt-sports-contact",
+    "id": "gpt",
+    "family": "gpt",
+    "style": "chibi",
+    "kind": "contact",
+    "columns": 4,
+    "rows": 6,
+    "refs": [
+      "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-ae09cbdb-c181-454f-8f6d-bf1d1aef80a2.png"
+    ],
+    "prompt": "Create a sprite atlas of exactly 24 isolated full-body poses, 4 columns by 6 rows, portrait canvas. Use the SAME chibi identity, head size, short legs, hair, and SHORT-SLEEVE sports outfit as the input's first pose. Completely transparent background. Full shoes, sleeves above elbows, no cropping. All figures fit in central 72% of each cell. Same body/head scale across all 24 even when seated, no bigger heads on seated frames. Numbering below describes row-major order; no numbers/text in output.\nFirst 6 poses (0-5): holds round biscuit at waist in fingers; raises biscuit to chest; biscuit arrives at LIPS; takes bite at lips; lowers visibly bitten biscuit while chewing eyes closed; smiles with biscuit at waist. All standing with planted feet. No magic wand!\nNext 6 (6-11): holds small bowl of rice in left hand and SPOON in right hand by bowl; scoops rice; raises spoon halfway; spoon tip with rice reaches LIPS (not elbow); swallows spoon withdrawing; spoon lowered into bowl, smile. Same planted standing body, actual hands holding utensils, no flying extra rice.\nNext 6 (12-17): sitting cross-legged next to three colored small wooden cubes; bends slightly to grasp red cube; carries red cube toward green cube; places red cube directly on green cube; raises blue cube; gently places blue cube atop stack with fingertips touching top block and pleased face. No free-floating cubes.\nFinal 6 (18-23): standing, comb in right hand at chest; right arm bends comb touches side hair near ear while left hand lightly gathers hair; right hand moves comb DOWN along hair to shoulder. Then standing, small cream soft face cloth at chest in hand; cloth pressed lightly against left cheek with closed eyes; cloth pressed lightly against right cheek, head turns naturally. Every comb/cloth is held by fingers and contacts actual hair/cheek. No external human hands. No floating tools.\nClean cute high quality anime game art, not a scene. Do NOT borrow original maid clothes.",
+    "dest": "src/DesktopPet.App/Assets/Characters/gpt/outfits/sports/contact.png"
+  },
+  {
+    "key": "claude-sports-contact",
+    "id": "claude",
+    "family": "claude",
+    "style": "chibi",
+    "kind": "contact",
+    "columns": 4,
+    "rows": 6,
+    "refs": [
+      "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-ca87f073-6be2-49ad-9c05-dde554cebf5e.png"
+    ],
+    "prompt": "Create a sprite atlas of exactly 24 isolated full-body poses, 4 columns by 6 rows, portrait canvas. Use the SAME chibi identity, head size, short legs, hair, and SHORT-SLEEVE sports outfit as the input's first pose. Completely transparent background. Full shoes, sleeves above elbows, no cropping. All figures fit in central 72% of each cell. Same body/head scale across all 24 even when seated, no bigger heads on seated frames. Numbering below describes row-major order; no numbers/text in output.\nFirst 6 poses (0-5): holds round biscuit at waist in fingers; raises biscuit to chest; biscuit arrives at LIPS; takes bite at lips; lowers visibly bitten biscuit while chewing eyes closed; smiles with biscuit at waist. All standing with planted feet. No magic wand!\nNext 6 (6-11): holds small bowl of rice in left hand and SPOON in right hand by bowl; scoops rice; raises spoon halfway; spoon tip with rice reaches LIPS (not elbow); swallows spoon withdrawing; spoon lowered into bowl, smile. Same planted standing body, actual hands holding utensils, no flying extra rice.\nNext 6 (12-17): sitting cross-legged next to three colored small wooden cubes; bends slightly to grasp red cube; carries red cube toward green cube; places red cube directly on green cube; raises blue cube; gently places blue cube atop stack with fingertips touching top block and pleased face. No free-floating cubes.\nFinal 6 (18-23): standing, comb in right hand at chest; right arm bends comb touches side hair near ear while left hand lightly gathers hair; right hand moves comb DOWN along hair to shoulder. Then standing, small cream soft face cloth at chest in hand; cloth pressed lightly against left cheek with closed eyes; cloth pressed lightly against right cheek, head turns naturally. Every comb/cloth is held by fingers and contacts actual hair/cheek. No external human hands. No floating tools.\nClean cute high quality anime game art, not a scene. Do NOT borrow original maid clothes.",
+    "dest": "src/DesktopPet.App/Assets/Characters/claude/outfits/sports/contact.png"
+  },
+  {
+    "key": "gemini-sports-contact",
+    "id": "gemini",
+    "family": "gemini",
+    "style": "chibi",
+    "kind": "contact",
+    "columns": 4,
+    "rows": 6,
+    "refs": [
+      "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-1d346a23-2887-4dd9-8607-119bcd1049f8.png"
+    ],
+    "prompt": "Create a sprite atlas of exactly 24 isolated full-body poses, 4 columns by 6 rows, portrait canvas. Use the SAME chibi identity, head size, short legs, hair, and SHORT-SLEEVE sports outfit as the input's first pose. Completely transparent background. Full shoes, sleeves above elbows, no cropping. All figures fit in central 72% of each cell. Same body/head scale across all 24 even when seated, no bigger heads on seated frames. Numbering below describes row-major order; no numbers/text in output.\nFirst 6 poses (0-5): holds round biscuit at waist in fingers; raises biscuit to chest; biscuit arrives at LIPS; takes bite at lips; lowers visibly bitten biscuit while chewing eyes closed; smiles with biscuit at waist. All standing with planted feet. No magic wand!\nNext 6 (6-11): holds small bowl of rice in left hand and SPOON in right hand by bowl; scoops rice; raises spoon halfway; spoon tip with rice reaches LIPS (not elbow); swallows spoon withdrawing; spoon lowered into bowl, smile. Same planted standing body, actual hands holding utensils, no flying extra rice.\nNext 6 (12-17): sitting cross-legged next to three colored small wooden cubes; bends slightly to grasp red cube; carries red cube toward green cube; places red cube directly on green cube; raises blue cube; gently places blue cube atop stack with fingertips touching top block and pleased face. No free-floating cubes.\nFinal 6 (18-23): standing, comb in right hand at chest; right arm bends comb touches side hair near ear while left hand lightly gathers hair; right hand moves comb DOWN along hair to shoulder. Then standing, small cream soft face cloth at chest in hand; cloth pressed lightly against left cheek with closed eyes; cloth pressed lightly against right cheek, head turns naturally. Every comb/cloth is held by fingers and contacts actual hair/cheek. No external human hands. No floating tools.\nClean cute high quality anime game art, not a scene. Do NOT borrow original maid clothes.",
+    "dest": "src/DesktopPet.App/Assets/Characters/gemini/outfits/sports/contact.png"
+  },
+  {
+    "key": "grok-sports-contact",
+    "id": "grok",
+    "family": "grok",
+    "style": "chibi",
+    "kind": "contact",
+    "columns": 4,
+    "rows": 6,
+    "refs": [
+      "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-ce9f7497-6815-4723-9712-924e54f179c6.png"
+    ],
+    "prompt": "Create a sprite atlas of exactly 24 isolated full-body poses, 4 columns by 6 rows, portrait canvas. Use the SAME chibi identity, head size, short legs, hair, and SHORT-SLEEVE sports outfit as the input's first pose. Completely transparent background. Full shoes, sleeves above elbows, no cropping. All figures fit in central 72% of each cell. Same body/head scale across all 24 even when seated, no bigger heads on seated frames. Numbering below describes row-major order; no numbers/text in output.\nFirst 6 poses (0-5): holds round biscuit at waist in fingers; raises biscuit to chest; biscuit arrives at LIPS; takes bite at lips; lowers visibly bitten biscuit while chewing eyes closed; smiles with biscuit at waist. All standing with planted feet. No magic wand!\nNext 6 (6-11): holds small bowl of rice in left hand and SPOON in right hand by bowl; scoops rice; raises spoon halfway; spoon tip with rice reaches LIPS (not elbow); swallows spoon withdrawing; spoon lowered into bowl, smile. Same planted standing body, actual hands holding utensils, no flying extra rice.\nNext 6 (12-17): sitting cross-legged next to three colored small wooden cubes; bends slightly to grasp red cube; carries red cube toward green cube; places red cube directly on green cube; raises blue cube; gently places blue cube atop stack with fingertips touching top block and pleased face. No free-floating cubes.\nFinal 6 (18-23): standing, comb in right hand at chest; right arm bends comb touches side hair near ear while left hand lightly gathers hair; right hand moves comb DOWN along hair to shoulder. Then standing, small cream soft face cloth at chest in hand; cloth pressed lightly against left cheek with closed eyes; cloth pressed lightly against right cheek, head turns naturally. Every comb/cloth is held by fingers and contacts actual hair/cheek. No external human hands. No floating tools.\nClean cute high quality anime game art, not a scene. Do NOT borrow original maid clothes.",
+    "dest": "src/DesktopPet.App/Assets/Characters/grok/outfits/sports/contact.png"
+  },
+  {
+    "key": "qwen-sports-contact",
+    "id": "qwen",
+    "family": "qwen",
+    "style": "chibi",
+    "kind": "contact",
+    "columns": 4,
+    "rows": 6,
+    "refs": [
+      "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-5f0962cd-3de3-4320-9ecd-ece466ee2850.png"
+    ],
+    "prompt": "Create a sprite atlas of exactly 24 isolated full-body poses, 4 columns by 6 rows, portrait canvas. Use the SAME chibi identity, head size, short legs, hair, and SHORT-SLEEVE sports outfit as the input's first pose. Completely transparent background. Full shoes, sleeves above elbows, no cropping. All figures fit in central 72% of each cell. Same body/head scale across all 24 even when seated, no bigger heads on seated frames. Numbering below describes row-major order; no numbers/text in output.\nFirst 6 poses (0-5): holds round biscuit at waist in fingers; raises biscuit to chest; biscuit arrives at LIPS; takes bite at lips; lowers visibly bitten biscuit while chewing eyes closed; smiles with biscuit at waist. All standing with planted feet. No magic wand!\nNext 6 (6-11): holds small bowl of rice in left hand and SPOON in right hand by bowl; scoops rice; raises spoon halfway; spoon tip with rice reaches LIPS (not elbow); swallows spoon withdrawing; spoon lowered into bowl, smile. Same planted standing body, actual hands holding utensils, no flying extra rice.\nNext 6 (12-17): sitting cross-legged next to three colored small wooden cubes; bends slightly to grasp red cube; carries red cube toward green cube; places red cube directly on green cube; raises blue cube; gently places blue cube atop stack with fingertips touching top block and pleased face. No free-floating cubes.\nFinal 6 (18-23): standing, comb in right hand at chest; right arm bends comb touches side hair near ear while left hand lightly gathers hair; right hand moves comb DOWN along hair to shoulder. Then standing, small cream soft face cloth at chest in hand; cloth pressed lightly against left cheek with closed eyes; cloth pressed lightly against right cheek, head turns naturally. Every comb/cloth is held by fingers and contacts actual hair/cheek. No external human hands. No floating tools.\nClean cute high quality anime game art, not a scene. Do NOT borrow original maid clothes.",
+    "dest": "src/DesktopPet.App/Assets/Characters/qwen/outfits/sports/contact.png"
+  },
+  {
+    "key": "zhipu-sports-contact",
+    "id": "zhipu",
+    "family": "zhipu",
+    "style": "chibi",
+    "kind": "contact",
+    "columns": 4,
+    "rows": 6,
+    "refs": [
+      "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-f47ef7d1-9a8a-4aa1-88c0-952b50464e18.png"
+    ],
+    "prompt": "Create a sprite atlas of exactly 24 isolated full-body poses, 4 columns by 6 rows, portrait canvas. Use the SAME chibi identity, head size, short legs, hair, and SHORT-SLEEVE sports outfit as the input's first pose. Completely transparent background. Full shoes, sleeves above elbows, no cropping. All figures fit in central 72% of each cell. Same body/head scale across all 24 even when seated, no bigger heads on seated frames. Numbering below describes row-major order; no numbers/text in output.\nFirst 6 poses (0-5): holds round biscuit at waist in fingers; raises biscuit to chest; biscuit arrives at LIPS; takes bite at lips; lowers visibly bitten biscuit while chewing eyes closed; smiles with biscuit at waist. All standing with planted feet. No magic wand!\nNext 6 (6-11): holds small bowl of rice in left hand and SPOON in right hand by bowl; scoops rice; raises spoon halfway; spoon tip with rice reaches LIPS (not elbow); swallows spoon withdrawing; spoon lowered into bowl, smile. Same planted standing body, actual hands holding utensils, no flying extra rice.\nNext 6 (12-17): sitting cross-legged next to three colored small wooden cubes; bends slightly to grasp red cube; carries red cube toward green cube; places red cube directly on green cube; raises blue cube; gently places blue cube atop stack with fingertips touching top block and pleased face. No free-floating cubes.\nFinal 6 (18-23): standing, comb in right hand at chest; right arm bends comb touches side hair near ear while left hand lightly gathers hair; right hand moves comb DOWN along hair to shoulder. Then standing, small cream soft face cloth at chest in hand; cloth pressed lightly against left cheek with closed eyes; cloth pressed lightly against right cheek, head turns naturally. Every comb/cloth is held by fingers and contacts actual hair/cheek. No external human hands. No floating tools.\nClean cute high quality anime game art, not a scene. Do NOT borrow original maid clothes.",
+    "dest": "src/DesktopPet.App/Assets/Characters/zhipu/outfits/sports/contact.png"
+  },
+  {
+    "key": "kimi-sports-contact",
+    "id": "kimi",
+    "family": "kimi",
+    "style": "chibi",
+    "kind": "contact",
+    "columns": 4,
+    "rows": 6,
+    "refs": [
+      "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-225bbae3-6a91-496d-9125-a54c75e8e934.png"
+    ],
+    "prompt": "Create a sprite atlas of exactly 24 isolated full-body poses, 4 columns by 6 rows, portrait canvas. Use the SAME chibi identity, head size, short legs, hair, and SHORT-SLEEVE sports outfit as the input's first pose. Completely transparent background. Full shoes, sleeves above elbows, no cropping. All figures fit in central 72% of each cell. Same body/head scale across all 24 even when seated, no bigger heads on seated frames. Numbering below describes row-major order; no numbers/text in output.\nFirst 6 poses (0-5): holds round biscuit at waist in fingers; raises biscuit to chest; biscuit arrives at LIPS; takes bite at lips; lowers visibly bitten biscuit while chewing eyes closed; smiles with biscuit at waist. All standing with planted feet. No magic wand!\nNext 6 (6-11): holds small bowl of rice in left hand and SPOON in right hand by bowl; scoops rice; raises spoon halfway; spoon tip with rice reaches LIPS (not elbow); swallows spoon withdrawing; spoon lowered into bowl, smile. Same planted standing body, actual hands holding utensils, no flying extra rice.\nNext 6 (12-17): sitting cross-legged next to three colored small wooden cubes; bends slightly to grasp red cube; carries red cube toward green cube; places red cube directly on green cube; raises blue cube; gently places blue cube atop stack with fingertips touching top block and pleased face. No free-floating cubes.\nFinal 6 (18-23): standing, comb in right hand at chest; right arm bends comb touches side hair near ear while left hand lightly gathers hair; right hand moves comb DOWN along hair to shoulder. Then standing, small cream soft face cloth at chest in hand; cloth pressed lightly against left cheek with closed eyes; cloth pressed lightly against right cheek, head turns naturally. Every comb/cloth is held by fingers and contacts actual hair/cheek. No external human hands. No floating tools.\nClean cute high quality anime game art, not a scene. Do NOT borrow original maid clothes.",
+    "dest": "src/DesktopPet.App/Assets/Characters/kimi/outfits/sports/contact.png"
+  }
+]

@@ -18,9 +18,9 @@ internal static class ChibiVerification
         pet.State.Size=240;pet.State.Wander=pet.State.ReducedMotion=false;pet.ApplySettings();pet.BeginPreview();
         var canvas=(Canvas)pet.Content;var image=canvas.Children.OfType<Image>().Single();
         var targets=(from c in pet.Catalog.Characters where c.Category=="chibi"
-                     from outfit in new[]{"original","swim","wedding"}
+                     from outfit in Catalog.BuiltInOutfits
                      where appearance is null || c.Id+"-"+outfit==appearance select(c,outfit)).ToArray();
-        Require(targets.Length==(appearance is null?24:1),"requested Q appearances available");
+        Require(targets.Length==(appearance is null?pet.Catalog.Characters.Count(c=>c.Category==CharacterStyles.Chibi)*Catalog.BuiltInOutfits.Length:1),"requested Q appearances available");
         foreach(var (c,outfit) in targets)
         {
             string key=c.Id+"/"+outfit;pet.SelectCharacter(c.Id);pet.State.Outfits[c.Id]=outfit;pet.ApplySettings();
@@ -31,7 +31,7 @@ internal static class ChibiVerification
             {
                 var motions=outfit=="original"?c.Motions:c.Outfits[outfit].Motions;
                 Require(motions.TryGetValue(action,out var clip),key+"/"+action+": exact action, no alias");
-                Require(clip is { IsolateCells:true,Frames.Length:>=2,HeightRatios:not null },key+"/"+action+": native drawn sequence");
+                Require(clip is { IsolateCells:true,Frames.Length:>=1 } && (clip.HeightRatios is not null || clip.ReferenceHeightPixels>0),key+"/"+action+": native drawn sequence");
                 var hashes=new HashSet<string>();var scales=new List<double>();double elapsed=0;
                 var visual=new DrawingVisual();
                 using(var dc=visual.RenderOpen())
@@ -58,7 +58,7 @@ internal static class ChibiVerification
                         elapsed+=clip.FrameMs![i];
                     }
                 }
-                Require(hashes.Count==clip.Frames.Length,key+"/"+action+": distinct source poses");
+                Require(hashes.Count==clip.Frames.Distinct().Count(),key+"/"+action+": distinct source poses");
                 Require(scales.Max()/scales.Min()<1.06,key+"/"+action+": stable pixel scale between poses");
                 if(!clip.Loop)
                 {

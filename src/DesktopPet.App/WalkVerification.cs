@@ -63,7 +63,7 @@ internal static class WalkVerification
         double VisualCenter() => pet.Left + canvas.RenderTransform.Value.OffsetX + 280;
         pet.BeginPreview();
         foreach(var c in pet.Catalog.Characters)
-        foreach(string outfit in new[] { "original", "swim", "wedding" })
+        foreach(string outfit in Catalog.BuiltInOutfits)
         {
             pet.SelectCharacter(c.Id); pet.State.Outfits[c.Id] = outfit; pet.ApplySettings();
             var clip = c.MotionFor(outfit,"walk")!;

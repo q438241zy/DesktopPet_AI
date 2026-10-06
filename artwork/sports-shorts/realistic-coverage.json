@@ -1,0 +1,4466 @@
+[
+  {
+    "key": "claude-adult-shorts-portrait",
+    "id": "claude-adult",
+    "kind": "portrait",
+    "file": "src/DesktopPet.App/Assets/Characters/claude-adult/outfits/sports/portrait.png",
+    "sha256": "37789041cf5f57b150b6a77c18454b953d1d961e57b787d19b6ba3e25f80a2e5",
+    "columns": 3,
+    "rows": 4,
+    "cells": [
+      {
+        "x": 108,
+        "y": 12,
+        "width": 193,
+        "height": 385
+      },
+      {
+        "x": 420,
+        "y": 19,
+        "width": 188,
+        "height": 387
+      },
+      {
+        "x": 731,
+        "y": 22,
+        "width": 193,
+        "height": 375
+      },
+      {
+        "x": 105,
+        "y": 393,
+        "width": 198,
+        "height": 389
+      },
+      {
+        "x": 429,
+        "y": 398,
+        "width": 183,
+        "height": 384
+      },
+      {
+        "x": 728,
+        "y": 396,
+        "width": 199,
+        "height": 385
+      },
+      {
+        "x": 107,
+        "y": 786,
+        "width": 200,
+        "height": 372
+      },
+      {
+        "x": 415,
+        "y": 775,
+        "width": 190,
+        "height": 385
+      },
+      {
+        "x": 733,
+        "y": 784,
+        "width": 193,
+        "height": 376
+      },
+      {
+        "x": 71,
+        "y": 1168,
+        "width": 271,
+        "height": 359
+      },
+      {
+        "x": 417,
+        "y": 1142,
+        "width": 209,
+        "height": 389
+      },
+      {
+        "x": 745,
+        "y": 1150,
+        "width": 175,
+        "height": 378
+      }
+    ],
+    "transitions": 21
+  },
+  {
+    "key": "deepseek-adult-shorts-portrait",
+    "id": "deepseek-adult",
+    "kind": "portrait",
+    "file": "src/DesktopPet.App/Assets/Characters/deepseek-adult/outfits/sports/portrait.png",
+    "sha256": "57996e8c1d7b34ec0c5828be49e5c97ae834349d72b6b568590e3f3f728198d7",
+    "columns": 3,
+    "rows": 4,
+    "cells": [
+      {
+        "x": 116,
+        "y": 6,
+        "width": 165,
+        "height": 383
+      },
+      {
+        "x": 438,
+        "y": 9,
+        "width": 154,
+        "height": 380
+      },
+      {
+        "x": 759,
+        "y": 10,
+        "width": 154,
+        "height": 379
+      },
+      {
+        "x": 118,
+        "y": 391,
+        "width": 161,
+        "height": 375
+      },
+      {
+        "x": 429,
+        "y": 387,
+        "width": 155,
+        "height": 379
+      },
+      {
+        "x": 751,
+        "y": 391,
+        "width": 171,
+        "height": 375
+      },
+      {
+        "x": 124,
+        "y": 771,
+        "width": 165,
+        "height": 376
+      },
+      {
+        "x": 439,
+        "y": 767,
+        "width": 154,
+        "height": 381
+      },
+      {
+        "x": 761,
+        "y": 771,
+        "width": 154,
+        "height": 377
+      },
+      {
+        "x": 83,
+        "y": 1158,
+        "width": 239,
+        "height": 371
+      },
+      {
+        "x": 430,
+        "y": 1150,
+        "width": 205,
+        "height": 379
+      },
+      {
+        "x": 748,
+        "y": 1150,
+        "width": 168,
+        "height": 381
+      }
+    ],
+    "transitions": 21
+  },
+  {
+    "key": "gemini-adult-shorts-portrait-v2",
+    "id": "gemini-adult",
+    "kind": "portrait",
+    "file": "src/DesktopPet.App/Assets/Characters/gemini-adult/outfits/sports/portrait.png",
+    "sha256": "813ebfbc62307a56c3152e0bd8f7f4a877dcf71f5f352d7ca307a5e50a53f1ed",
+    "columns": 3,
+    "rows": 4,
+    "cells": [
+      {
+        "x": 119,
+        "y": 9,
+        "width": 176,
+        "height": 372
+      },
+      {
+        "x": 425,
+        "y": 7,
+        "width": 180,
+        "height": 372
+      },
+      {
+        "x": 755,
+        "y": 17,
+        "width": 190,
+        "height": 364
+      },
+      {
+        "x": 118,
+        "y": 386,
+        "width": 179,
+        "height": 375
+      },
+      {
+        "x": 429,
+        "y": 386,
+        "width": 198,
+        "height": 374
+      },
+      {
+        "x": 739,
+        "y": 390,
+        "width": 195,
+        "height": 370
+      },
+      {
+        "x": 119,
+        "y": 772,
+        "width": 183,
+        "height": 355
+      },
+      {
+        "x": 430,
+        "y": 766,
+        "width": 186,
+        "height": 363
+      },
+      {
+        "x": 765,
+        "y": 766,
+        "width": 165,
+        "height": 362
+      },
+      {
+        "x": 79,
+        "y": 1154,
+        "width": 247,
+        "height": 366
+      },
+      {
+        "x": 419,
+        "y": 1124,
+        "width": 230,
+        "height": 397
+      },
+      {
+        "x": 758,
+        "y": 1139,
+        "width": 199,
+        "height": 382
+      }
+    ],
+    "transitions": 21
+  },
+  {
+    "key": "gpt-adult-shorts-portrait",
+    "id": "gpt-adult",
+    "kind": "portrait",
+    "file": "src/DesktopPet.App/Assets/Characters/gpt-adult/outfits/sports/portrait.png",
+    "sha256": "39fb6b96aa2ee22e6f2e8cfead92f9634517325b84abd6cb0e80e2c1745e6d9b",
+    "columns": 3,
+    "rows": 4,
+    "cells": [
+      {
+        "x": 79,
+        "y": 6,
+        "width": 209,
+        "height": 401
+      },
+      {
+        "x": 412,
+        "y": 7,
+        "width": 206,
+        "height": 402
+      },
+      {
+        "x": 742,
+        "y": 17,
+        "width": 207,
+        "height": 392
+      },
+      {
+        "x": 87,
+        "y": 415,
+        "width": 202,
+        "height": 390
+      },
+      {
+        "x": 413,
+        "y": 416,
+        "width": 203,
+        "height": 389
+      },
+      {
+        "x": 752,
+        "y": 420,
+        "width": 199,
+        "height": 387
+      },
+      {
+        "x": 86,
+        "y": 814,
+        "width": 216,
+        "height": 361
+      },
+      {
+        "x": 419,
+        "y": 807,
+        "width": 201,
+        "height": 365
+      },
+      {
+        "x": 743,
+        "y": 806,
+        "width": 195,
+        "height": 369
+      },
+      {
+        "x": 69,
+        "y": 1182,
+        "width": 267,
+        "height": 347
+      },
+      {
+        "x": 417,
+        "y": 1155,
+        "width": 201,
+        "height": 374
+      },
+      {
+        "x": 749,
+        "y": 1173,
+        "width": 212,
+        "height": 355
+      }
+    ],
+    "transitions": 21
+  },
+  {
+    "key": "grok-adult-shorts-portrait",
+    "id": "grok-adult",
+    "kind": "portrait",
+    "file": "src/DesktopPet.App/Assets/Characters/grok-adult/outfits/sports/portrait.png",
+    "sha256": "3c9b92665b4884cbe3c50cea2aad096abb17ea01a21de6dda8f041ddfe7ce26e",
+    "columns": 3,
+    "rows": 4,
+    "cells": [
+      {
+        "x": 134,
+        "y": 8,
+        "width": 171,
+        "height": 378
+      },
+      {
+        "x": 427,
+        "y": 11,
+        "width": 166,
+        "height": 375
+      },
+      {
+        "x": 721,
+        "y": 23,
+        "width": 165,
+        "height": 363
+      },
+      {
+        "x": 134,
+        "y": 389,
+        "width": 169,
+        "height": 383
+      },
+      {
+        "x": 428,
+        "y": 386,
+        "width": 166,
+        "height": 385
+      },
+      {
+        "x": 698,
+        "y": 389,
+        "width": 198,
+        "height": 383
+      },
+      {
+        "x": 124,
+        "y": 777,
+        "width": 185,
+        "height": 373
+      },
+      {
+        "x": 429,
+        "y": 771,
+        "width": 165,
+        "height": 379
+      },
+      {
+        "x": 721,
+        "y": 771,
+        "width": 165,
+        "height": 379
+      },
+      {
+        "x": 96,
+        "y": 1164,
+        "width": 258,
+        "height": 364
+      },
+      {
+        "x": 412,
+        "y": 1147,
+        "width": 198,
+        "height": 379
+      },
+      {
+        "x": 728,
+        "y": 1153,
+        "width": 174,
+        "height": 375
+      }
+    ],
+    "transitions": 21
+  },
+  {
+    "key": "kimi-adult-shorts-portrait-v2",
+    "id": "kimi-adult",
+    "kind": "portrait",
+    "file": "src/DesktopPet.App/Assets/Characters/kimi-adult/outfits/sports/portrait.png",
+    "sha256": "fd0d8549873d2245cac2308c7cf48a79406d5d37f4beff87a45f144d7976ff0a",
+    "columns": 3,
+    "rows": 4,
+    "cells": [
+      {
+        "x": 118,
+        "y": 20,
+        "width": 157,
+        "height": 350
+      },
+      {
+        "x": 439,
+        "y": 26,
+        "width": 153,
+        "height": 339
+      },
+      {
+        "x": 764,
+        "y": 43,
+        "width": 145,
+        "height": 319
+      },
+      {
+        "x": 121,
+        "y": 398,
+        "width": 153,
+        "height": 352
+      },
+      {
+        "x": 444,
+        "y": 398,
+        "width": 155,
+        "height": 351
+      },
+      {
+        "x": 757,
+        "y": 400,
+        "width": 164,
+        "height": 348
+      },
+      {
+        "x": 116,
+        "y": 785,
+        "width": 156,
+        "height": 335
+      },
+      {
+        "x": 446,
+        "y": 778,
+        "width": 149,
+        "height": 343
+      },
+      {
+        "x": 765,
+        "y": 780,
+        "width": 148,
+        "height": 337
+      },
+      {
+        "x": 72,
+        "y": 1150,
+        "width": 252,
+        "height": 354
+      },
+      {
+        "x": 430,
+        "y": 1132,
+        "width": 175,
+        "height": 374
+      },
+      {
+        "x": 759,
+        "y": 1133,
+        "width": 168,
+        "height": 373
+      }
+    ],
+    "transitions": 21
+  },
+  {
+    "key": "qwen-adult-shorts-portrait-v2",
+    "id": "qwen-adult",
+    "kind": "portrait",
+    "file": "src/DesktopPet.App/Assets/Characters/qwen-adult/outfits/sports/portrait.png",
+    "sha256": "6700bc225535b10e3f265524a84da4ec9cb293023e3f62440fca447ddcc29bf1",
+    "columns": 3,
+    "rows": 4,
+    "cells": [
+      {
+        "x": 135,
+        "y": 15,
+        "width": 148,
+        "height": 360
+      },
+      {
+        "x": 440,
+        "y": 20,
+        "width": 149,
+        "height": 354
+      },
+      {
+        "x": 764,
+        "y": 29,
+        "width": 147,
+        "height": 347
+      },
+      {
+        "x": 127,
+        "y": 398,
+        "width": 161,
+        "height": 360
+      },
+      {
+        "x": 448,
+        "y": 399,
+        "width": 162,
+        "height": 358
+      },
+      {
+        "x": 760,
+        "y": 401,
+        "width": 172,
+        "height": 357
+      },
+      {
+        "x": 134,
+        "y": 776,
+        "width": 160,
+        "height": 354
+      },
+      {
+        "x": 446,
+        "y": 773,
+        "width": 164,
+        "height": 358
+      },
+      {
+        "x": 763,
+        "y": 774,
+        "width": 155,
+        "height": 360
+      },
+      {
+        "x": 91,
+        "y": 1158,
+        "width": 240,
+        "height": 358
+      },
+      {
+        "x": 436,
+        "y": 1126,
+        "width": 202,
+        "height": 386
+      },
+      {
+        "x": 756,
+        "y": 1142,
+        "width": 192,
+        "height": 374
+      }
+    ],
+    "transitions": 21
+  },
+  {
+    "key": "zhipu-adult-shorts-portrait-v2",
+    "id": "zhipu-adult",
+    "kind": "portrait",
+    "file": "src/DesktopPet.App/Assets/Characters/zhipu-adult/outfits/sports/portrait.png",
+    "sha256": "124c7d443f75ced52a89377f574862e4f1bd918495078a1ec7d6222621e8b450",
+    "columns": 3,
+    "rows": 4,
+    "cells": [
+      {
+        "x": 127,
+        "y": 10,
+        "width": 180,
+        "height": 372
+      },
+      {
+        "x": 427,
+        "y": 15,
+        "width": 161,
+        "height": 364
+      },
+      {
+        "x": 724,
+        "y": 12,
+        "width": 162,
+        "height": 367
+      },
+      {
+        "x": 127,
+        "y": 383,
+        "width": 188,
+        "height": 389
+      },
+      {
+        "x": 423,
+        "y": 383,
+        "width": 192,
+        "height": 386
+      },
+      {
+        "x": 724,
+        "y": 384,
+        "width": 174,
+        "height": 385
+      },
+      {
+        "x": 137,
+        "y": 776,
+        "width": 179,
+        "height": 374
+      },
+      {
+        "x": 418,
+        "y": 773,
+        "width": 186,
+        "height": 376
+      },
+      {
+        "x": 717,
+        "y": 773,
+        "width": 177,
+        "height": 377
+      },
+      {
+        "x": 117,
+        "y": 1152,
+        "width": 256,
+        "height": 369
+      },
+      {
+        "x": 430,
+        "y": 1150,
+        "width": 180,
+        "height": 371
+      },
+      {
+        "x": 722,
+        "y": 1150,
+        "width": 178,
+        "height": 370
+      }
+    ],
+    "transitions": 21
+  },
+  {
+    "key": "claude-adult-shorts-body",
+    "id": "claude-adult",
+    "kind": "body",
+    "file": "src/DesktopPet.App/Assets/Characters/claude-adult/outfits/sports/body.png",
+    "sha256": "3db8f5f68d9851c099c06d2405ad5cf374264dc2dfd52e5d3317fb888ba49416",
+    "columns": 4,
+    "rows": 4,
+    "cells": [
+      {
+        "x": 53,
+        "y": 7,
+        "width": 183,
+        "height": 428
+      },
+      {
+        "x": 305,
+        "y": 7,
+        "width": 210,
+        "height": 433
+      },
+      {
+        "x": 576,
+        "y": 16,
+        "width": 171,
+        "height": 421
+      },
+      {
+        "x": 816,
+        "y": 95,
+        "width": 203,
+        "height": 319
+      },
+      {
+        "x": 40,
+        "y": 438,
+        "width": 216,
+        "height": 309
+      },
+      {
+        "x": 295,
+        "y": 455,
+        "width": 255,
+        "height": 337
+      },
+      {
+        "x": 575,
+        "y": 532,
+        "width": 196,
+        "height": 271
+      },
+      {
+        "x": 814,
+        "y": 582,
+        "width": 201,
+        "height": 221
+      },
+      {
+        "x": 17,
+        "y": 900,
+        "width": 300,
+        "height": 162
+      },
+      {
+        "x": 325,
+        "y": 803,
+        "width": 202,
+        "height": 267
+      },
+      {
+        "x": 569,
+        "y": 806,
+        "width": 211,
+        "height": 262
+      },
+      {
+        "x": 824,
+        "y": 803,
+        "width": 198,
+        "height": 264
+      },
+      {
+        "x": 57,
+        "y": 1068,
+        "width": 178,
+        "height": 426
+      },
+      {
+        "x": 283,
+        "y": 1073,
+        "width": 275,
+        "height": 312
+      },
+      {
+        "x": 599,
+        "y": 1074,
+        "width": 175,
+        "height": 421
+      },
+      {
+        "x": 797,
+        "y": 1070,
+        "width": 222,
+        "height": 421
+      }
+    ],
+    "transitions": 11
+  },
+  {
+    "key": "deepseek-adult-shorts-body",
+    "id": "deepseek-adult",
+    "kind": "body",
+    "file": "src/DesktopPet.App/Assets/Characters/deepseek-adult/outfits/sports/body.png",
+    "sha256": "e4614e0f69a361dd665c37e7a75dd134fefa6433fdce429af7ab93b07b2b64f0",
+    "columns": 4,
+    "rows": 4,
+    "cells": [
+      {
+        "x": 72,
+        "y": 12,
+        "width": 164,
+        "height": 428
+      },
+      {
+        "x": 303,
+        "y": 16,
+        "width": 196,
+        "height": 422
+      },
+      {
+        "x": 572,
+        "y": 22,
+        "width": 156,
+        "height": 420
+      },
+      {
+        "x": 801,
+        "y": 115,
+        "width": 216,
+        "height": 321
+      },
+      {
+        "x": 31,
+        "y": 442,
+        "width": 211,
+        "height": 311
+      },
+      {
+        "x": 282,
+        "y": 462,
+        "width": 249,
+        "height": 339
+      },
+      {
+        "x": 572,
+        "y": 545,
+        "width": 188,
+        "height": 264
+      },
+      {
+        "x": 804,
+        "y": 593,
+        "width": 196,
+        "height": 217
+      },
+      {
+        "x": 11,
+        "y": 918,
+        "width": 298,
+        "height": 157
+      },
+      {
+        "x": 320,
+        "y": 824,
+        "width": 208,
+        "height": 258
+      },
+      {
+        "x": 571,
+        "y": 824,
+        "width": 209,
+        "height": 255
+      },
+      {
+        "x": 803,
+        "y": 829,
+        "width": 209,
+        "height": 253
+      },
+      {
+        "x": 54,
+        "y": 1081,
+        "width": 176,
+        "height": 425
+      },
+      {
+        "x": 279,
+        "y": 1107,
+        "width": 259,
+        "height": 292
+      },
+      {
+        "x": 586,
+        "y": 1109,
+        "width": 160,
+        "height": 398
+      },
+      {
+        "x": 785,
+        "y": 1102,
+        "width": 230,
+        "height": 405
+      }
+    ],
+    "transitions": 11
+  },
+  {
+    "key": "gemini-adult-shorts-body",
+    "id": "gemini-adult",
+    "kind": "body",
+    "file": "src/DesktopPet.App/Assets/Characters/gemini-adult/outfits/sports/body.png",
+    "sha256": "a0ddbe82c9a2b240b3d09c2532eb38cba06b1175d400882a8fce540d002f5e90",
+    "columns": 4,
+    "rows": 4,
+    "cells": [
+      {
+        "x": 51,
+        "y": 9,
+        "width": 196,
+        "height": 408
+      },
+      {
+        "x": 290,
+        "y": 6,
+        "width": 213,
+        "height": 413
+      },
+      {
+        "x": 563,
+        "y": 15,
+        "width": 185,
+        "height": 404
+      },
+      {
+        "x": 797,
+        "y": 82,
+        "width": 225,
+        "height": 327
+      },
+      {
+        "x": 24,
+        "y": 420,
+        "width": 219,
+        "height": 321
+      },
+      {
+        "x": 273,
+        "y": 438,
+        "width": 268,
+        "height": 327
+      },
+      {
+        "x": 562,
+        "y": 480,
+        "width": 228,
+        "height": 293
+      },
+      {
+        "x": 813,
+        "y": 536,
+        "width": 207,
+        "height": 237
+      },
+      {
+        "x": 1,
+        "y": 895,
+        "width": 303,
+        "height": 164
+      },
+      {
+        "x": 311,
+        "y": 781,
+        "width": 206,
+        "height": 283
+      },
+      {
+        "x": 561,
+        "y": 781,
+        "width": 210,
+        "height": 275
+      },
+      {
+        "x": 806,
+        "y": 785,
+        "width": 213,
+        "height": 277
+      },
+      {
+        "x": 56,
+        "y": 1062,
+        "width": 199,
+        "height": 417
+      },
+      {
+        "x": 279,
+        "y": 1065,
+        "width": 264,
+        "height": 307
+      },
+      {
+        "x": 570,
+        "y": 1061,
+        "width": 189,
+        "height": 424
+      },
+      {
+        "x": 786,
+        "y": 1065,
+        "width": 229,
+        "height": 420
+      }
+    ],
+    "transitions": 11
+  },
+  {
+    "key": "gpt-adult-shorts-body",
+    "id": "gpt-adult",
+    "kind": "body",
+    "file": "src/DesktopPet.App/Assets/Characters/gpt-adult/outfits/sports/body.png",
+    "sha256": "fc0e5bebc295072ac342a4163259f75b5af8e36ae8c85d25b8806e99125cdfde",
+    "columns": 4,
+    "rows": 4,
+    "cells": [
+      {
+        "x": 43,
+        "y": 7,
+        "width": 201,
+        "height": 426
+      },
+      {
+        "x": 303,
+        "y": 7,
+        "width": 216,
+        "height": 427
+      },
+      {
+        "x": 576,
+        "y": 11,
+        "width": 188,
+        "height": 425
+      },
+      {
+        "x": 818,
+        "y": 97,
+        "width": 201,
+        "height": 329
+      },
+      {
+        "x": 35,
+        "y": 432,
+        "width": 230,
+        "height": 329
+      },
+      {
+        "x": 282,
+        "y": 458,
+        "width": 264,
+        "height": 323
+      },
+      {
+        "x": 568,
+        "y": 500,
+        "width": 224,
+        "height": 304
+      },
+      {
+        "x": 814,
+        "y": 544,
+        "width": 210,
+        "height": 263
+      },
+      {
+        "x": 7,
+        "y": 911,
+        "width": 310,
+        "height": 176
+      },
+      {
+        "x": 326,
+        "y": 811,
+        "width": 210,
+        "height": 275
+      },
+      {
+        "x": 578,
+        "y": 812,
+        "width": 216,
+        "height": 269
+      },
+      {
+        "x": 821,
+        "y": 811,
+        "width": 202,
+        "height": 270
+      },
+      {
+        "x": 46,
+        "y": 1075,
+        "width": 199,
+        "height": 429
+      },
+      {
+        "x": 294,
+        "y": 1096,
+        "width": 253,
+        "height": 317
+      },
+      {
+        "x": 584,
+        "y": 1097,
+        "width": 188,
+        "height": 406
+      },
+      {
+        "x": 804,
+        "y": 1088,
+        "width": 218,
+        "height": 420
+      }
+    ],
+    "transitions": 11
+  },
+  {
+    "key": "grok-adult-shorts-body-v2",
+    "id": "grok-adult",
+    "kind": "body",
+    "file": "src/DesktopPet.App/Assets/Characters/grok-adult/outfits/sports/body.png",
+    "sha256": "071ab07aafe58c9341c7362262d7222a66d69df8993350c2dc0e87f857fce145",
+    "columns": 4,
+    "rows": 4,
+    "cells": [
+      {
+        "x": 66,
+        "y": 20,
+        "width": 173,
+        "height": 390
+      },
+      {
+        "x": 307,
+        "y": 15,
+        "width": 208,
+        "height": 400
+      },
+      {
+        "x": 562,
+        "y": 24,
+        "width": 179,
+        "height": 391
+      },
+      {
+        "x": 811,
+        "y": 109,
+        "width": 200,
+        "height": 287
+      },
+      {
+        "x": 44,
+        "y": 442,
+        "width": 221,
+        "height": 300
+      },
+      {
+        "x": 297,
+        "y": 462,
+        "width": 249,
+        "height": 313
+      },
+      {
+        "x": 567,
+        "y": 530,
+        "width": 209,
+        "height": 258
+      },
+      {
+        "x": 813,
+        "y": 575,
+        "width": 197,
+        "height": 215
+      },
+      {
+        "x": 9,
+        "y": 899,
+        "width": 307,
+        "height": 173
+      },
+      {
+        "x": 324,
+        "y": 809,
+        "width": 211,
+        "height": 266
+      },
+      {
+        "x": 562,
+        "y": 815,
+        "width": 218,
+        "height": 255
+      },
+      {
+        "x": 816,
+        "y": 814,
+        "width": 206,
+        "height": 262
+      },
+      {
+        "x": 51,
+        "y": 1078,
+        "width": 192,
+        "height": 410
+      },
+      {
+        "x": 298,
+        "y": 1090,
+        "width": 265,
+        "height": 313
+      },
+      {
+        "x": 592,
+        "y": 1095,
+        "width": 178,
+        "height": 397
+      },
+      {
+        "x": 792,
+        "y": 1098,
+        "width": 232,
+        "height": 392
+      }
+    ],
+    "transitions": 11
+  },
+  {
+    "key": "kimi-adult-shorts-body",
+    "id": "kimi-adult",
+    "kind": "body",
+    "file": "src/DesktopPet.App/Assets/Characters/kimi-adult/outfits/sports/body.png",
+    "sha256": "4a828289e0b68213123cad21576cbf4398ec0715505ae32fa05d9f5503e902c6",
+    "columns": 4,
+    "rows": 4,
+    "cells": [
+      {
+        "x": 64,
+        "y": 9,
+        "width": 180,
+        "height": 427
+      },
+      {
+        "x": 308,
+        "y": 10,
+        "width": 214,
+        "height": 424
+      },
+      {
+        "x": 574,
+        "y": 22,
+        "width": 161,
+        "height": 414
+      },
+      {
+        "x": 809,
+        "y": 107,
+        "width": 208,
+        "height": 309
+      },
+      {
+        "x": 35,
+        "y": 448,
+        "width": 211,
+        "height": 341
+      },
+      {
+        "x": 284,
+        "y": 459,
+        "width": 254,
+        "height": 347
+      },
+      {
+        "x": 570,
+        "y": 551,
+        "width": 197,
+        "height": 262
+      },
+      {
+        "x": 811,
+        "y": 591,
+        "width": 206,
+        "height": 224
+      },
+      {
+        "x": 14,
+        "y": 922,
+        "width": 296,
+        "height": 147
+      },
+      {
+        "x": 325,
+        "y": 820,
+        "width": 210,
+        "height": 262
+      },
+      {
+        "x": 578,
+        "y": 823,
+        "width": 210,
+        "height": 255
+      },
+      {
+        "x": 817,
+        "y": 824,
+        "width": 206,
+        "height": 257
+      },
+      {
+        "x": 49,
+        "y": 1071,
+        "width": 175,
+        "height": 417
+      },
+      {
+        "x": 275,
+        "y": 1091,
+        "width": 285,
+        "height": 328
+      },
+      {
+        "x": 597,
+        "y": 1097,
+        "width": 160,
+        "height": 388
+      },
+      {
+        "x": 795,
+        "y": 1092,
+        "width": 225,
+        "height": 384
+      }
+    ],
+    "transitions": 11
+  },
+  {
+    "key": "qwen-adult-shorts-body",
+    "id": "qwen-adult",
+    "kind": "body",
+    "file": "src/DesktopPet.App/Assets/Characters/qwen-adult/outfits/sports/body.png",
+    "sha256": "cc0d25ab1419c2ffaaadc80d135cd44cce03b8ac8afd7a1c9a0804cdd6a3c1e0",
+    "columns": 4,
+    "rows": 4,
+    "cells": [
+      {
+        "x": 75,
+        "y": 11,
+        "width": 179,
+        "height": 433
+      },
+      {
+        "x": 300,
+        "y": 11,
+        "width": 210,
+        "height": 434
+      },
+      {
+        "x": 579,
+        "y": 8,
+        "width": 180,
+        "height": 434
+      },
+      {
+        "x": 805,
+        "y": 71,
+        "width": 215,
+        "height": 347
+      },
+      {
+        "x": 30,
+        "y": 451,
+        "width": 231,
+        "height": 326
+      },
+      {
+        "x": 286,
+        "y": 473,
+        "width": 264,
+        "height": 315
+      },
+      {
+        "x": 579,
+        "y": 501,
+        "width": 206,
+        "height": 289
+      },
+      {
+        "x": 812,
+        "y": 541,
+        "width": 208,
+        "height": 249
+      },
+      {
+        "x": 10,
+        "y": 908,
+        "width": 304,
+        "height": 158
+      },
+      {
+        "x": 321,
+        "y": 808,
+        "width": 196,
+        "height": 272
+      },
+      {
+        "x": 567,
+        "y": 809,
+        "width": 217,
+        "height": 267
+      },
+      {
+        "x": 805,
+        "y": 807,
+        "width": 215,
+        "height": 272
+      },
+      {
+        "x": 59,
+        "y": 1078,
+        "width": 191,
+        "height": 421
+      },
+      {
+        "x": 280,
+        "y": 1083,
+        "width": 282,
+        "height": 326
+      },
+      {
+        "x": 583,
+        "y": 1084,
+        "width": 185,
+        "height": 416
+      },
+      {
+        "x": 792,
+        "y": 1080,
+        "width": 231,
+        "height": 420
+      }
+    ],
+    "transitions": 11
+  },
+  {
+    "key": "zhipu-adult-shorts-body",
+    "id": "zhipu-adult",
+    "kind": "body",
+    "file": "src/DesktopPet.App/Assets/Characters/zhipu-adult/outfits/sports/body.png",
+    "sha256": "a15717e04dff15d2f017d4467b9910384205659b87235c813774242170ccae29",
+    "columns": 4,
+    "rows": 4,
+    "cells": [
+      {
+        "x": 50,
+        "y": 11,
+        "width": 198,
+        "height": 435
+      },
+      {
+        "x": 301,
+        "y": 9,
+        "width": 210,
+        "height": 440
+      },
+      {
+        "x": 580,
+        "y": 17,
+        "width": 173,
+        "height": 430
+      },
+      {
+        "x": 812,
+        "y": 96,
+        "width": 210,
+        "height": 329
+      },
+      {
+        "x": 31,
+        "y": 446,
+        "width": 233,
+        "height": 336
+      },
+      {
+        "x": 277,
+        "y": 471,
+        "width": 267,
+        "height": 330
+      },
+      {
+        "x": 566,
+        "y": 514,
+        "width": 214,
+        "height": 298
+      },
+      {
+        "x": 813,
+        "y": 564,
+        "width": 211,
+        "height": 253
+      },
+      {
+        "x": 0,
+        "y": 888,
+        "width": 305,
+        "height": 205
+      },
+      {
+        "x": 316,
+        "y": 805,
+        "width": 220,
+        "height": 284
+      },
+      {
+        "x": 564,
+        "y": 803,
+        "width": 221,
+        "height": 280
+      },
+      {
+        "x": 806,
+        "y": 809,
+        "width": 216,
+        "height": 275
+      },
+      {
+        "x": 38,
+        "y": 1078,
+        "width": 196,
+        "height": 423
+      },
+      {
+        "x": 268,
+        "y": 1089,
+        "width": 283,
+        "height": 327
+      },
+      {
+        "x": 582,
+        "y": 1085,
+        "width": 187,
+        "height": 423
+      },
+      {
+        "x": 790,
+        "y": 1086,
+        "width": 232,
+        "height": 420
+      }
+    ],
+    "transitions": 11
+  },
+  {
+    "key": "deepseek-adult-shorts-care",
+    "id": "deepseek-adult",
+    "kind": "care",
+    "file": "src/DesktopPet.App/Assets/Characters/deepseek-adult/outfits/sports/care.png",
+    "sha256": "7ffcceac8e4c83ce34ec5f37249f4dd130f88f35c5db0002afd4b70fd03863d6",
+    "columns": 4,
+    "rows": 2,
+    "cells": [
+      {
+        "x": 123,
+        "y": 2,
+        "width": 198,
+        "height": 515
+      },
+      {
+        "x": 488,
+        "y": 3,
+        "width": 203,
+        "height": 514
+      },
+      {
+        "x": 848,
+        "y": 4,
+        "width": 212,
+        "height": 513
+      },
+      {
+        "x": 1229,
+        "y": 1,
+        "width": 203,
+        "height": 516
+      },
+      {
+        "x": 123,
+        "y": 519,
+        "width": 201,
+        "height": 502
+      },
+      {
+        "x": 489,
+        "y": 518,
+        "width": 207,
+        "height": 502
+      },
+      {
+        "x": 857,
+        "y": 518,
+        "width": 204,
+        "height": 502
+      },
+      {
+        "x": 1233,
+        "y": 517,
+        "width": 202,
+        "height": 503
+      }
+    ],
+    "transitions": 8
+  },
+  {
+    "key": "deepseek-adult-shorts-catch",
+    "id": "deepseek-adult",
+    "kind": "catch",
+    "file": "src/DesktopPet.App/Assets/Characters/deepseek-adult/outfits/sports/catch.png",
+    "sha256": "781ee7c0dc0baeae6b40f776d3df7dd35827438c43958a3237dcadd2531ad615",
+    "columns": 4,
+    "rows": 3,
+    "cells": [
+      {
+        "x": 83,
+        "y": 4,
+        "width": 175,
+        "height": 482
+      },
+      {
+        "x": 316,
+        "y": 2,
+        "width": 177,
+        "height": 484
+      },
+      {
+        "x": 543,
+        "y": 2,
+        "width": 176,
+        "height": 484
+      },
+      {
+        "x": 774,
+        "y": 3,
+        "width": 176,
+        "height": 483
+      },
+      {
+        "x": 78,
+        "y": 506,
+        "width": 187,
+        "height": 491
+      },
+      {
+        "x": 317,
+        "y": 506,
+        "width": 181,
+        "height": 492
+      },
+      {
+        "x": 544,
+        "y": 505,
+        "width": 180,
+        "height": 493
+      },
+      {
+        "x": 773,
+        "y": 507,
+        "width": 183,
+        "height": 491
+      },
+      {
+        "x": 80,
+        "y": 1016,
+        "width": 185,
+        "height": 495
+      },
+      {
+        "x": 314,
+        "y": 1015,
+        "width": 185,
+        "height": 497
+      },
+      {
+        "x": 543,
+        "y": 1017,
+        "width": 181,
+        "height": 495
+      },
+      {
+        "x": 774,
+        "y": 1015,
+        "width": 184,
+        "height": 497
+      }
+    ],
+    "transitions": 8
+  },
+  {
+    "key": "deepseek-adult-shorts-club",
+    "id": "deepseek-adult",
+    "kind": "club",
+    "file": "src/DesktopPet.App/Assets/Characters/deepseek-adult/outfits/sports/club.png",
+    "sha256": "0ae9d31ca334cf761ea1b16b41d3de4d57c898f7c5cff1f79dc35ab96da73bad",
+    "columns": 4,
+    "rows": 5,
+    "cells": [
+      {
+        "x": 128,
+        "y": 4,
+        "width": 125,
+        "height": 294
+      },
+      {
+        "x": 366,
+        "y": 9,
+        "width": 121,
+        "height": 289
+      },
+      {
+        "x": 569,
+        "y": 8,
+        "width": 164,
+        "height": 291
+      },
+      {
+        "x": 798,
+        "y": 5,
+        "width": 111,
+        "height": 294
+      },
+      {
+        "x": 136,
+        "y": 301,
+        "width": 109,
+        "height": 285
+      },
+      {
+        "x": 361,
+        "y": 301,
+        "width": 108,
+        "height": 285
+      },
+      {
+        "x": 576,
+        "y": 294,
+        "width": 105,
+        "height": 291
+      },
+      {
+        "x": 795,
+        "y": 294,
+        "width": 113,
+        "height": 292
+      },
+      {
+        "x": 115,
+        "y": 582,
+        "width": 129,
+        "height": 299
+      },
+      {
+        "x": 356,
+        "y": 581,
+        "width": 119,
+        "height": 300
+      },
+      {
+        "x": 568,
+        "y": 583,
+        "width": 119,
+        "height": 298
+      },
+      {
+        "x": 796,
+        "y": 582,
+        "width": 110,
+        "height": 299
+      },
+      {
+        "x": 137,
+        "y": 880,
+        "width": 108,
+        "height": 294
+      },
+      {
+        "x": 365,
+        "y": 880,
+        "width": 104,
+        "height": 293
+      },
+      {
+        "x": 580,
+        "y": 882,
+        "width": 112,
+        "height": 291
+      },
+      {
+        "x": 798,
+        "y": 882,
+        "width": 116,
+        "height": 291
+      },
+      {
+        "x": 126,
+        "y": 1178,
+        "width": 121,
+        "height": 316
+      },
+      {
+        "x": 362,
+        "y": 1178,
+        "width": 135,
+        "height": 316
+      },
+      {
+        "x": 583,
+        "y": 1183,
+        "width": 107,
+        "height": 312
+      },
+      {
+        "x": 796,
+        "y": 1174,
+        "width": 117,
+        "height": 320
+      }
+    ],
+    "transitions": 20
+  },
+  {
+    "key": "deepseek-adult-shorts-walk-v2",
+    "id": "deepseek-adult",
+    "kind": "walk",
+    "file": "src/DesktopPet.App/Assets/Characters/deepseek-adult/outfits/sports/walk.png",
+    "sha256": "df148373fd9ee1877e54adc654a5ef002a0cce056e953a743a9c97345adc6dfe",
+    "columns": 4,
+    "rows": 2,
+    "cells": [
+      {
+        "x": 101,
+        "y": 6,
+        "width": 311,
+        "height": 503
+      },
+      {
+        "x": 473,
+        "y": 6,
+        "width": 274,
+        "height": 504
+      },
+      {
+        "x": 840,
+        "y": 6,
+        "width": 230,
+        "height": 504
+      },
+      {
+        "x": 1214,
+        "y": 6,
+        "width": 275,
+        "height": 503
+      },
+      {
+        "x": 77,
+        "y": 519,
+        "width": 347,
+        "height": 494
+      },
+      {
+        "x": 482,
+        "y": 518,
+        "width": 265,
+        "height": 496
+      },
+      {
+        "x": 845,
+        "y": 519,
+        "width": 206,
+        "height": 497
+      },
+      {
+        "x": 1220,
+        "y": 519,
+        "width": 282,
+        "height": 494
+      }
+    ],
+    "transitions": 8
+  },
+  {
+    "key": "claude-adult-shorts-care",
+    "id": "claude-adult",
+    "kind": "care",
+    "file": "src/DesktopPet.App/Assets/Characters/claude-adult/outfits/sports/care.png",
+    "sha256": "77138af1085a05847881e901244d7bc88f2575e6e5577748ed91ae3f15d32e2b",
+    "columns": 4,
+    "rows": 2,
+    "cells": [
+      {
+        "x": 120,
+        "y": 3,
+        "width": 227,
+        "height": 508
+      },
+      {
+        "x": 468,
+        "y": 2,
+        "width": 227,
+        "height": 509
+      },
+      {
+        "x": 820,
+        "y": 3,
+        "width": 229,
+        "height": 508
+      },
+      {
+        "x": 1173,
+        "y": 3,
+        "width": 243,
+        "height": 508
+      },
+      {
+        "x": 120,
+        "y": 512,
+        "width": 227,
+        "height": 509
+      },
+      {
+        "x": 473,
+        "y": 512,
+        "width": 226,
+        "height": 509
+      },
+      {
+        "x": 820,
+        "y": 512,
+        "width": 229,
+        "height": 509
+      },
+      {
+        "x": 1178,
+        "y": 511,
+        "width": 235,
+        "height": 511
+      }
+    ],
+    "transitions": 8
+  },
+  {
+    "key": "claude-adult-shorts-catch",
+    "id": "claude-adult",
+    "kind": "catch",
+    "file": "src/DesktopPet.App/Assets/Characters/claude-adult/outfits/sports/catch.png",
+    "sha256": "e611d01df7ea4df18e8c827d9b26f250c77a789acfb37d7051177dcea24bd944",
+    "columns": 4,
+    "rows": 3,
+    "cells": [
+      {
+        "x": 44,
+        "y": 6,
+        "width": 229,
+        "height": 489
+      },
+      {
+        "x": 287,
+        "y": 7,
+        "width": 225,
+        "height": 489
+      },
+      {
+        "x": 521,
+        "y": 6,
+        "width": 226,
+        "height": 489
+      },
+      {
+        "x": 760,
+        "y": 6,
+        "width": 227,
+        "height": 489
+      },
+      {
+        "x": 39,
+        "y": 500,
+        "width": 234,
+        "height": 499
+      },
+      {
+        "x": 284,
+        "y": 500,
+        "width": 228,
+        "height": 499
+      },
+      {
+        "x": 522,
+        "y": 501,
+        "width": 229,
+        "height": 498
+      },
+      {
+        "x": 761,
+        "y": 500,
+        "width": 231,
+        "height": 499
+      },
+      {
+        "x": 42,
+        "y": 1004,
+        "width": 231,
+        "height": 496
+      },
+      {
+        "x": 284,
+        "y": 1004,
+        "width": 227,
+        "height": 496
+      },
+      {
+        "x": 524,
+        "y": 1008,
+        "width": 226,
+        "height": 492
+      },
+      {
+        "x": 761,
+        "y": 1005,
+        "width": 228,
+        "height": 495
+      }
+    ],
+    "transitions": 8
+  },
+  {
+    "key": "claude-adult-shorts-club-v2",
+    "id": "claude-adult",
+    "kind": "club",
+    "file": "src/DesktopPet.App/Assets/Characters/claude-adult/outfits/sports/club.png",
+    "sha256": "5bee87451a9cf844fd51a6db152ba8c941d80626ccf4a8d9dc8dd5b48c89c5ec",
+    "columns": 4,
+    "rows": 5,
+    "cells": [
+      {
+        "x": 112,
+        "y": 9,
+        "width": 142,
+        "height": 303
+      },
+      {
+        "x": 346,
+        "y": 8,
+        "width": 144,
+        "height": 304
+      },
+      {
+        "x": 562,
+        "y": 9,
+        "width": 189,
+        "height": 303
+      },
+      {
+        "x": 792,
+        "y": 8,
+        "width": 141,
+        "height": 304
+      },
+      {
+        "x": 108,
+        "y": 319,
+        "width": 147,
+        "height": 305
+      },
+      {
+        "x": 341,
+        "y": 318,
+        "width": 146,
+        "height": 306
+      },
+      {
+        "x": 562,
+        "y": 316,
+        "width": 149,
+        "height": 308
+      },
+      {
+        "x": 787,
+        "y": 317,
+        "width": 145,
+        "height": 307
+      },
+      {
+        "x": 105,
+        "y": 623,
+        "width": 150,
+        "height": 310
+      },
+      {
+        "x": 339,
+        "y": 622,
+        "width": 152,
+        "height": 310
+      },
+      {
+        "x": 560,
+        "y": 624,
+        "width": 150,
+        "height": 309
+      },
+      {
+        "x": 787,
+        "y": 622,
+        "width": 146,
+        "height": 310
+      },
+      {
+        "x": 108,
+        "y": 934,
+        "width": 148,
+        "height": 303
+      },
+      {
+        "x": 340,
+        "y": 934,
+        "width": 151,
+        "height": 302
+      },
+      {
+        "x": 563,
+        "y": 936,
+        "width": 149,
+        "height": 301
+      },
+      {
+        "x": 789,
+        "y": 934,
+        "width": 150,
+        "height": 303
+      },
+      {
+        "x": 99,
+        "y": 1234,
+        "width": 137,
+        "height": 296
+      },
+      {
+        "x": 357,
+        "y": 1237,
+        "width": 151,
+        "height": 293
+      },
+      {
+        "x": 562,
+        "y": 1239,
+        "width": 144,
+        "height": 291
+      },
+      {
+        "x": 788,
+        "y": 1236,
+        "width": 147,
+        "height": 294
+      }
+    ],
+    "transitions": 20
+  },
+  {
+    "key": "claude-adult-shorts-walk-v2",
+    "id": "claude-adult",
+    "kind": "walk",
+    "file": "src/DesktopPet.App/Assets/Characters/claude-adult/outfits/sports/walk.png",
+    "sha256": "54e5dfb459279c617adb76feb758653f64c9aad8e928ee48ded16ea2fb0a8254",
+    "columns": 4,
+    "rows": 2,
+    "cells": [
+      {
+        "x": 74,
+        "y": 5,
+        "width": 332,
+        "height": 504
+      },
+      {
+        "x": 463,
+        "y": 6,
+        "width": 283,
+        "height": 503
+      },
+      {
+        "x": 826,
+        "y": 6,
+        "width": 249,
+        "height": 505
+      },
+      {
+        "x": 1196,
+        "y": 5,
+        "width": 315,
+        "height": 503
+      },
+      {
+        "x": 69,
+        "y": 516,
+        "width": 363,
+        "height": 497
+      },
+      {
+        "x": 461,
+        "y": 516,
+        "width": 289,
+        "height": 497
+      },
+      {
+        "x": 825,
+        "y": 516,
+        "width": 228,
+        "height": 501
+      },
+      {
+        "x": 1198,
+        "y": 516,
+        "width": 323,
+        "height": 498
+      }
+    ],
+    "transitions": 8
+  },
+  {
+    "key": "gemini-adult-shorts-care",
+    "id": "gemini-adult",
+    "kind": "care",
+    "file": "src/DesktopPet.App/Assets/Characters/gemini-adult/outfits/sports/care.png",
+    "sha256": "15084876e697fd5d12efaec8bc0f93cf1e952f558a8f1dbce53582a694f6d8c6",
+    "columns": 4,
+    "rows": 2,
+    "cells": [
+      {
+        "x": 101,
+        "y": 4,
+        "width": 252,
+        "height": 529
+      },
+      {
+        "x": 443,
+        "y": 4,
+        "width": 250,
+        "height": 529
+      },
+      {
+        "x": 823,
+        "y": 4,
+        "width": 247,
+        "height": 529
+      },
+      {
+        "x": 1185,
+        "y": 6,
+        "width": 254,
+        "height": 527
+      },
+      {
+        "x": 104,
+        "y": 533,
+        "width": 247,
+        "height": 490
+      },
+      {
+        "x": 450,
+        "y": 530,
+        "width": 261,
+        "height": 493
+      },
+      {
+        "x": 820,
+        "y": 529,
+        "width": 256,
+        "height": 494
+      },
+      {
+        "x": 1189,
+        "y": 530,
+        "width": 254,
+        "height": 493
+      }
+    ],
+    "transitions": 8
+  },
+  {
+    "key": "gemini-adult-shorts-catch",
+    "id": "gemini-adult",
+    "kind": "catch",
+    "file": "src/DesktopPet.App/Assets/Characters/gemini-adult/outfits/sports/catch.png",
+    "sha256": "7874e0a136560da1e7fa2902f1db9f0ca5bca5e8286dbb963bdd1b011c01b89f",
+    "columns": 4,
+    "rows": 3,
+    "cells": [
+      {
+        "x": 40,
+        "y": 3,
+        "width": 209,
+        "height": 489
+      },
+      {
+        "x": 284,
+        "y": 3,
+        "width": 210,
+        "height": 489
+      },
+      {
+        "x": 530,
+        "y": 2,
+        "width": 209,
+        "height": 490
+      },
+      {
+        "x": 775,
+        "y": 2,
+        "width": 210,
+        "height": 490
+      },
+      {
+        "x": 36,
+        "y": 498,
+        "width": 218,
+        "height": 506
+      },
+      {
+        "x": 284,
+        "y": 498,
+        "width": 220,
+        "height": 506
+      },
+      {
+        "x": 527,
+        "y": 501,
+        "width": 217,
+        "height": 503
+      },
+      {
+        "x": 773,
+        "y": 498,
+        "width": 216,
+        "height": 506
+      },
+      {
+        "x": 32,
+        "y": 1010,
+        "width": 218,
+        "height": 503
+      },
+      {
+        "x": 279,
+        "y": 1010,
+        "width": 219,
+        "height": 503
+      },
+      {
+        "x": 527,
+        "y": 1010,
+        "width": 218,
+        "height": 503
+      },
+      {
+        "x": 775,
+        "y": 1009,
+        "width": 218,
+        "height": 504
+      }
+    ],
+    "transitions": 8
+  },
+  {
+    "key": "gemini-adult-shorts-club-v2",
+    "id": "gemini-adult",
+    "kind": "club",
+    "file": "src/DesktopPet.App/Assets/Characters/gemini-adult/outfits/sports/club.png",
+    "sha256": "435093db8b119e40570d2e86bcc49ef3fba6068bda1703bd383b7e4931844d25",
+    "columns": 4,
+    "rows": 5,
+    "cells": [
+      {
+        "x": 117,
+        "y": 13,
+        "width": 143,
+        "height": 291
+      },
+      {
+        "x": 350,
+        "y": 13,
+        "width": 143,
+        "height": 291
+      },
+      {
+        "x": 560,
+        "y": 12,
+        "width": 178,
+        "height": 292
+      },
+      {
+        "x": 793,
+        "y": 17,
+        "width": 146,
+        "height": 287
+      },
+      {
+        "x": 115,
+        "y": 309,
+        "width": 150,
+        "height": 288
+      },
+      {
+        "x": 346,
+        "y": 310,
+        "width": 150,
+        "height": 287
+      },
+      {
+        "x": 562,
+        "y": 308,
+        "width": 144,
+        "height": 289
+      },
+      {
+        "x": 793,
+        "y": 309,
+        "width": 146,
+        "height": 288
+      },
+      {
+        "x": 109,
+        "y": 600,
+        "width": 154,
+        "height": 291
+      },
+      {
+        "x": 344,
+        "y": 603,
+        "width": 154,
+        "height": 288
+      },
+      {
+        "x": 559,
+        "y": 602,
+        "width": 152,
+        "height": 289
+      },
+      {
+        "x": 792,
+        "y": 598,
+        "width": 149,
+        "height": 293
+      },
+      {
+        "x": 107,
+        "y": 894,
+        "width": 152,
+        "height": 292
+      },
+      {
+        "x": 345,
+        "y": 893,
+        "width": 147,
+        "height": 293
+      },
+      {
+        "x": 559,
+        "y": 892,
+        "width": 151,
+        "height": 294
+      },
+      {
+        "x": 789,
+        "y": 894,
+        "width": 157,
+        "height": 292
+      },
+      {
+        "x": 104,
+        "y": 1185,
+        "width": 148,
+        "height": 313
+      },
+      {
+        "x": 363,
+        "y": 1188,
+        "width": 147,
+        "height": 310
+      },
+      {
+        "x": 560,
+        "y": 1189,
+        "width": 149,
+        "height": 309
+      },
+      {
+        "x": 792,
+        "y": 1187,
+        "width": 149,
+        "height": 311
+      }
+    ],
+    "transitions": 20
+  },
+  {
+    "key": "gemini-adult-shorts-walk-v2",
+    "id": "gemini-adult",
+    "kind": "walk",
+    "file": "src/DesktopPet.App/Assets/Characters/gemini-adult/outfits/sports/walk.png",
+    "sha256": "8a6e009c1c2fcce7376d79dde04b3f5cd9e6b70202dd71147b9513f74b11fec3",
+    "columns": 4,
+    "rows": 2,
+    "cells": [
+      {
+        "x": 80,
+        "y": 8,
+        "width": 339,
+        "height": 501
+      },
+      {
+        "x": 464,
+        "y": 7,
+        "width": 299,
+        "height": 503
+      },
+      {
+        "x": 824,
+        "y": 7,
+        "width": 261,
+        "height": 503
+      },
+      {
+        "x": 1204,
+        "y": 7,
+        "width": 321,
+        "height": 499
+      },
+      {
+        "x": 79,
+        "y": 519,
+        "width": 360,
+        "height": 495
+      },
+      {
+        "x": 470,
+        "y": 518,
+        "width": 296,
+        "height": 497
+      },
+      {
+        "x": 830,
+        "y": 519,
+        "width": 236,
+        "height": 497
+      },
+      {
+        "x": 1206,
+        "y": 519,
+        "width": 319,
+        "height": 494
+      }
+    ],
+    "transitions": 8
+  },
+  {
+    "key": "gpt-adult-shorts-care",
+    "id": "gpt-adult",
+    "kind": "care",
+    "file": "src/DesktopPet.App/Assets/Characters/gpt-adult/outfits/sports/care.png",
+    "sha256": "4ea3cbe4b34c798d556635436894cd9e6d3390c7a6af36e2b96b03cb3c7313dc",
+    "columns": 4,
+    "rows": 2,
+    "cells": [
+      {
+        "x": 97,
+        "y": 2,
+        "width": 248,
+        "height": 511
+      },
+      {
+        "x": 468,
+        "y": 7,
+        "width": 250,
+        "height": 506
+      },
+      {
+        "x": 848,
+        "y": 7,
+        "width": 244,
+        "height": 506
+      },
+      {
+        "x": 1214,
+        "y": 6,
+        "width": 246,
+        "height": 507
+      },
+      {
+        "x": 95,
+        "y": 512,
+        "width": 253,
+        "height": 501
+      },
+      {
+        "x": 470,
+        "y": 516,
+        "width": 254,
+        "height": 497
+      },
+      {
+        "x": 825,
+        "y": 512,
+        "width": 254,
+        "height": 501
+      },
+      {
+        "x": 1214,
+        "y": 513,
+        "width": 252,
+        "height": 500
+      }
+    ],
+    "transitions": 8
+  },
+  {
+    "key": "gpt-adult-shorts-catch",
+    "id": "gpt-adult",
+    "kind": "catch",
+    "file": "src/DesktopPet.App/Assets/Characters/gpt-adult/outfits/sports/catch.png",
+    "sha256": "5dedfccfca630d45b16dd3364f97557dd0ac5a9e0bbee6743fcd444b3c6bf282",
+    "columns": 4,
+    "rows": 3,
+    "cells": [
+      {
+        "x": 53,
+        "y": 11,
+        "width": 231,
+        "height": 484
+      },
+      {
+        "x": 294,
+        "y": 6,
+        "width": 226,
+        "height": 489
+      },
+      {
+        "x": 527,
+        "y": 10,
+        "width": 228,
+        "height": 485
+      },
+      {
+        "x": 763,
+        "y": 10,
+        "width": 226,
+        "height": 485
+      },
+      {
+        "x": 49,
+        "y": 508,
+        "width": 236,
+        "height": 497
+      },
+      {
+        "x": 290,
+        "y": 508,
+        "width": 234,
+        "height": 497
+      },
+      {
+        "x": 525,
+        "y": 512,
+        "width": 233,
+        "height": 493
+      },
+      {
+        "x": 760,
+        "y": 513,
+        "width": 233,
+        "height": 492
+      },
+      {
+        "x": 51,
+        "y": 1012,
+        "width": 233,
+        "height": 490
+      },
+      {
+        "x": 291,
+        "y": 1008,
+        "width": 235,
+        "height": 496
+      },
+      {
+        "x": 525,
+        "y": 1016,
+        "width": 233,
+        "height": 490
+      },
+      {
+        "x": 762,
+        "y": 1009,
+        "width": 234,
+        "height": 495
+      }
+    ],
+    "transitions": 8
+  },
+  {
+    "key": "gpt-adult-shorts-club-v2",
+    "id": "gpt-adult",
+    "kind": "club",
+    "file": "src/DesktopPet.App/Assets/Characters/gpt-adult/outfits/sports/club.png",
+    "sha256": "c752c7336c6f73edbf0e41ae3732ee2af7b0bb6b5bc431570a0b6ca1ea288546",
+    "columns": 4,
+    "rows": 5,
+    "cells": [
+      {
+        "x": 111,
+        "y": 12,
+        "width": 150,
+        "height": 304
+      },
+      {
+        "x": 359,
+        "y": 19,
+        "width": 150,
+        "height": 297
+      },
+      {
+        "x": 563,
+        "y": 12,
+        "width": 184,
+        "height": 304
+      },
+      {
+        "x": 792,
+        "y": 21,
+        "width": 141,
+        "height": 296
+      },
+      {
+        "x": 112,
+        "y": 322,
+        "width": 149,
+        "height": 302
+      },
+      {
+        "x": 353,
+        "y": 323,
+        "width": 147,
+        "height": 300
+      },
+      {
+        "x": 570,
+        "y": 322,
+        "width": 147,
+        "height": 302
+      },
+      {
+        "x": 789,
+        "y": 320,
+        "width": 142,
+        "height": 304
+      },
+      {
+        "x": 113,
+        "y": 632,
+        "width": 148,
+        "height": 294
+      },
+      {
+        "x": 355,
+        "y": 627,
+        "width": 150,
+        "height": 299
+      },
+      {
+        "x": 572,
+        "y": 625,
+        "width": 145,
+        "height": 301
+      },
+      {
+        "x": 792,
+        "y": 626,
+        "width": 149,
+        "height": 300
+      },
+      {
+        "x": 119,
+        "y": 930,
+        "width": 145,
+        "height": 290
+      },
+      {
+        "x": 354,
+        "y": 928,
+        "width": 146,
+        "height": 292
+      },
+      {
+        "x": 571,
+        "y": 931,
+        "width": 150,
+        "height": 289
+      },
+      {
+        "x": 797,
+        "y": 933,
+        "width": 148,
+        "height": 288
+      },
+      {
+        "x": 103,
+        "y": 1221,
+        "width": 141,
+        "height": 294
+      },
+      {
+        "x": 360,
+        "y": 1222,
+        "width": 151,
+        "height": 292
+      },
+      {
+        "x": 572,
+        "y": 1222,
+        "width": 143,
+        "height": 293
+      },
+      {
+        "x": 792,
+        "y": 1220,
+        "width": 141,
+        "height": 296
+      }
+    ],
+    "transitions": 20
+  },
+  {
+    "key": "gpt-adult-shorts-walk-v2",
+    "id": "gpt-adult",
+    "kind": "walk",
+    "file": "src/DesktopPet.App/Assets/Characters/gpt-adult/outfits/sports/walk.png",
+    "sha256": "82b06cd2e11b67bf59b70a507a85feb75fd3f12f0ad21c5145c3e51bb4b79da1",
+    "columns": 4,
+    "rows": 2,
+    "cells": [
+      {
+        "x": 74,
+        "y": 9,
+        "width": 333,
+        "height": 501
+      },
+      {
+        "x": 477,
+        "y": 10,
+        "width": 275,
+        "height": 501
+      },
+      {
+        "x": 860,
+        "y": 11,
+        "width": 245,
+        "height": 503
+      },
+      {
+        "x": 1225,
+        "y": 9,
+        "width": 310,
+        "height": 500
+      },
+      {
+        "x": 68,
+        "y": 519,
+        "width": 355,
+        "height": 493
+      },
+      {
+        "x": 478,
+        "y": 521,
+        "width": 275,
+        "height": 494
+      },
+      {
+        "x": 859,
+        "y": 523,
+        "width": 224,
+        "height": 495
+      },
+      {
+        "x": 1227,
+        "y": 521,
+        "width": 309,
+        "height": 492
+      }
+    ],
+    "transitions": 8
+  },
+  {
+    "key": "grok-adult-shorts-care",
+    "id": "grok-adult",
+    "kind": "care",
+    "file": "src/DesktopPet.App/Assets/Characters/grok-adult/outfits/sports/care.png",
+    "sha256": "84a2a711fdeb23606d532c11933b3b23ad1021629a4f7e73c6b964316861da78",
+    "columns": 4,
+    "rows": 2,
+    "cells": [
+      {
+        "x": 126,
+        "y": 4,
+        "width": 229,
+        "height": 506
+      },
+      {
+        "x": 475,
+        "y": 6,
+        "width": 223,
+        "height": 504
+      },
+      {
+        "x": 841,
+        "y": 7,
+        "width": 218,
+        "height": 503
+      },
+      {
+        "x": 1203,
+        "y": 4,
+        "width": 222,
+        "height": 506
+      },
+      {
+        "x": 126,
+        "y": 512,
+        "width": 226,
+        "height": 504
+      },
+      {
+        "x": 481,
+        "y": 516,
+        "width": 225,
+        "height": 500
+      },
+      {
+        "x": 840,
+        "y": 512,
+        "width": 220,
+        "height": 504
+      },
+      {
+        "x": 1209,
+        "y": 513,
+        "width": 221,
+        "height": 503
+      }
+    ],
+    "transitions": 8
+  },
+  {
+    "key": "grok-adult-shorts-catch",
+    "id": "grok-adult",
+    "kind": "catch",
+    "file": "src/DesktopPet.App/Assets/Characters/grok-adult/outfits/sports/catch.png",
+    "sha256": "146da854342f48cc8048d0bcbe989b67d39f7ef3bb6d4f192b6c6f145af9f49b",
+    "columns": 4,
+    "rows": 3,
+    "cells": [
+      {
+        "x": 62,
+        "y": 8,
+        "width": 218,
+        "height": 484
+      },
+      {
+        "x": 300,
+        "y": 5,
+        "width": 215,
+        "height": 488
+      },
+      {
+        "x": 526,
+        "y": 7,
+        "width": 218,
+        "height": 486
+      },
+      {
+        "x": 759,
+        "y": 7,
+        "width": 217,
+        "height": 486
+      },
+      {
+        "x": 60,
+        "y": 502,
+        "width": 226,
+        "height": 492
+      },
+      {
+        "x": 300,
+        "y": 501,
+        "width": 219,
+        "height": 493
+      },
+      {
+        "x": 526,
+        "y": 502,
+        "width": 220,
+        "height": 492
+      },
+      {
+        "x": 759,
+        "y": 501,
+        "width": 220,
+        "height": 492
+      },
+      {
+        "x": 57,
+        "y": 1001,
+        "width": 224,
+        "height": 492
+      },
+      {
+        "x": 296,
+        "y": 1001,
+        "width": 221,
+        "height": 492
+      },
+      {
+        "x": 525,
+        "y": 1003,
+        "width": 217,
+        "height": 491
+      },
+      {
+        "x": 761,
+        "y": 1001,
+        "width": 219,
+        "height": 493
+      }
+    ],
+    "transitions": 8
+  },
+  {
+    "key": "grok-adult-shorts-club-v2",
+    "id": "grok-adult",
+    "kind": "club",
+    "file": "src/DesktopPet.App/Assets/Characters/grok-adult/outfits/sports/club.png",
+    "sha256": "1d2e8ca5e95f3b669343e2b0587acf603db8dfdbdc71897751c78a8f76a03e8b",
+    "columns": 4,
+    "rows": 5,
+    "cells": [
+      {
+        "x": 136,
+        "y": 22,
+        "width": 144,
+        "height": 301
+      },
+      {
+        "x": 365,
+        "y": 18,
+        "width": 144,
+        "height": 305
+      },
+      {
+        "x": 583,
+        "y": 19,
+        "width": 182,
+        "height": 304
+      },
+      {
+        "x": 806,
+        "y": 17,
+        "width": 142,
+        "height": 306
+      },
+      {
+        "x": 131,
+        "y": 328,
+        "width": 149,
+        "height": 300
+      },
+      {
+        "x": 357,
+        "y": 328,
+        "width": 144,
+        "height": 300
+      },
+      {
+        "x": 581,
+        "y": 327,
+        "width": 147,
+        "height": 301
+      },
+      {
+        "x": 808,
+        "y": 328,
+        "width": 143,
+        "height": 301
+      },
+      {
+        "x": 128,
+        "y": 634,
+        "width": 145,
+        "height": 304
+      },
+      {
+        "x": 363,
+        "y": 632,
+        "width": 144,
+        "height": 306
+      },
+      {
+        "x": 585,
+        "y": 631,
+        "width": 145,
+        "height": 307
+      },
+      {
+        "x": 813,
+        "y": 631,
+        "width": 137,
+        "height": 307
+      },
+      {
+        "x": 131,
+        "y": 939,
+        "width": 142,
+        "height": 295
+      },
+      {
+        "x": 360,
+        "y": 938,
+        "width": 146,
+        "height": 296
+      },
+      {
+        "x": 586,
+        "y": 940,
+        "width": 145,
+        "height": 294
+      },
+      {
+        "x": 812,
+        "y": 944,
+        "width": 141,
+        "height": 290
+      },
+      {
+        "x": 116,
+        "y": 1232,
+        "width": 139,
+        "height": 291
+      },
+      {
+        "x": 374,
+        "y": 1233,
+        "width": 149,
+        "height": 290
+      },
+      {
+        "x": 589,
+        "y": 1237,
+        "width": 140,
+        "height": 286
+      },
+      {
+        "x": 809,
+        "y": 1236,
+        "width": 142,
+        "height": 287
+      }
+    ],
+    "transitions": 20
+  },
+  {
+    "key": "grok-adult-shorts-walk-v2",
+    "id": "grok-adult",
+    "kind": "walk",
+    "file": "src/DesktopPet.App/Assets/Characters/grok-adult/outfits/sports/walk.png",
+    "sha256": "43c49a900c8b5a9ddc8ced6db2af5b848a953bfe3fcfcc127b8a0a3180043500",
+    "columns": 4,
+    "rows": 2,
+    "cells": [
+      {
+        "x": 67,
+        "y": 6,
+        "width": 361,
+        "height": 504
+      },
+      {
+        "x": 456,
+        "y": 6,
+        "width": 302,
+        "height": 505
+      },
+      {
+        "x": 839,
+        "y": 6,
+        "width": 251,
+        "height": 506
+      },
+      {
+        "x": 1200,
+        "y": 6,
+        "width": 316,
+        "height": 503
+      },
+      {
+        "x": 66,
+        "y": 514,
+        "width": 371,
+        "height": 501
+      },
+      {
+        "x": 458,
+        "y": 514,
+        "width": 299,
+        "height": 503
+      },
+      {
+        "x": 840,
+        "y": 514,
+        "width": 229,
+        "height": 503
+      },
+      {
+        "x": 1198,
+        "y": 515,
+        "width": 327,
+        "height": 497
+      }
+    ],
+    "transitions": 8
+  },
+  {
+    "key": "kimi-adult-shorts-care",
+    "id": "kimi-adult",
+    "kind": "care",
+    "file": "src/DesktopPet.App/Assets/Characters/kimi-adult/outfits/sports/care.png",
+    "sha256": "ccc3f009d452cc23f91879c993691539df242684bfe660406217ee789a56595e",
+    "columns": 4,
+    "rows": 2,
+    "cells": [
+      {
+        "x": 119,
+        "y": 9,
+        "width": 219,
+        "height": 501
+      },
+      {
+        "x": 476,
+        "y": 8,
+        "width": 219,
+        "height": 502
+      },
+      {
+        "x": 832,
+        "y": 9,
+        "width": 223,
+        "height": 501
+      },
+      {
+        "x": 1194,
+        "y": 8,
+        "width": 221,
+        "height": 502
+      },
+      {
+        "x": 120,
+        "y": 518,
+        "width": 219,
+        "height": 498
+      },
+      {
+        "x": 477,
+        "y": 517,
+        "width": 215,
+        "height": 499
+      },
+      {
+        "x": 833,
+        "y": 517,
+        "width": 222,
+        "height": 500
+      },
+      {
+        "x": 1196,
+        "y": 517,
+        "width": 217,
+        "height": 500
+      }
+    ],
+    "transitions": 8
+  },
+  {
+    "key": "kimi-adult-shorts-catch",
+    "id": "kimi-adult",
+    "kind": "catch",
+    "file": "src/DesktopPet.App/Assets/Characters/kimi-adult/outfits/sports/catch.png",
+    "sha256": "521a55f322b99657db9b96c5e564f1ab93e8ae2ababb47b264494b08190c2297",
+    "columns": 4,
+    "rows": 3,
+    "cells": [
+      {
+        "x": 60,
+        "y": 13,
+        "width": 200,
+        "height": 486
+      },
+      {
+        "x": 303,
+        "y": 12,
+        "width": 202,
+        "height": 487
+      },
+      {
+        "x": 542,
+        "y": 13,
+        "width": 198,
+        "height": 486
+      },
+      {
+        "x": 779,
+        "y": 14,
+        "width": 200,
+        "height": 485
+      },
+      {
+        "x": 52,
+        "y": 522,
+        "width": 211,
+        "height": 489
+      },
+      {
+        "x": 296,
+        "y": 520,
+        "width": 209,
+        "height": 491
+      },
+      {
+        "x": 543,
+        "y": 520,
+        "width": 207,
+        "height": 491
+      },
+      {
+        "x": 777,
+        "y": 521,
+        "width": 202,
+        "height": 490
+      },
+      {
+        "x": 57,
+        "y": 1032,
+        "width": 203,
+        "height": 489
+      },
+      {
+        "x": 301,
+        "y": 1030,
+        "width": 210,
+        "height": 491
+      },
+      {
+        "x": 541,
+        "y": 1032,
+        "width": 202,
+        "height": 489
+      },
+      {
+        "x": 780,
+        "y": 1034,
+        "width": 199,
+        "height": 487
+      }
+    ],
+    "transitions": 8
+  },
+  {
+    "key": "kimi-adult-shorts-club-v2",
+    "id": "kimi-adult",
+    "kind": "club",
+    "file": "src/DesktopPet.App/Assets/Characters/kimi-adult/outfits/sports/club.png",
+    "sha256": "067786a584b42e1ade79a603df9b59ec9b64ad1a6c99a7c97d726bb048938e65",
+    "columns": 4,
+    "rows": 5,
+    "cells": [
+      {
+        "x": 123,
+        "y": 19,
+        "width": 147,
+        "height": 304
+      },
+      {
+        "x": 351,
+        "y": 26,
+        "width": 147,
+        "height": 298
+      },
+      {
+        "x": 562,
+        "y": 21,
+        "width": 176,
+        "height": 303
+      },
+      {
+        "x": 797,
+        "y": 25,
+        "width": 139,
+        "height": 298
+      },
+      {
+        "x": 122,
+        "y": 327,
+        "width": 146,
+        "height": 302
+      },
+      {
+        "x": 351,
+        "y": 327,
+        "width": 147,
+        "height": 303
+      },
+      {
+        "x": 567,
+        "y": 332,
+        "width": 145,
+        "height": 298
+      },
+      {
+        "x": 797,
+        "y": 327,
+        "width": 147,
+        "height": 303
+      },
+      {
+        "x": 116,
+        "y": 632,
+        "width": 157,
+        "height": 304
+      },
+      {
+        "x": 350,
+        "y": 633,
+        "width": 152,
+        "height": 303
+      },
+      {
+        "x": 565,
+        "y": 632,
+        "width": 150,
+        "height": 304
+      },
+      {
+        "x": 799,
+        "y": 632,
+        "width": 149,
+        "height": 304
+      },
+      {
+        "x": 120,
+        "y": 937,
+        "width": 146,
+        "height": 296
+      },
+      {
+        "x": 348,
+        "y": 937,
+        "width": 150,
+        "height": 296
+      },
+      {
+        "x": 565,
+        "y": 938,
+        "width": 150,
+        "height": 294
+      },
+      {
+        "x": 795,
+        "y": 938,
+        "width": 152,
+        "height": 294
+      },
+      {
+        "x": 120,
+        "y": 1228,
+        "width": 134,
+        "height": 299
+      },
+      {
+        "x": 363,
+        "y": 1229,
+        "width": 138,
+        "height": 298
+      },
+      {
+        "x": 565,
+        "y": 1236,
+        "width": 150,
+        "height": 294
+      },
+      {
+        "x": 797,
+        "y": 1234,
+        "width": 147,
+        "height": 296
+      }
+    ],
+    "transitions": 20
+  },
+  {
+    "key": "kimi-adult-shorts-walk-v2",
+    "id": "kimi-adult",
+    "kind": "walk",
+    "file": "src/DesktopPet.App/Assets/Characters/kimi-adult/outfits/sports/walk.png",
+    "sha256": "c4c910b9c178feeaf3c84770d219b140526bdd71272c016359849228ca518c82",
+    "columns": 4,
+    "rows": 2,
+    "cells": [
+      {
+        "x": 71,
+        "y": 15,
+        "width": 349,
+        "height": 492
+      },
+      {
+        "x": 453,
+        "y": 15,
+        "width": 300,
+        "height": 494
+      },
+      {
+        "x": 832,
+        "y": 16,
+        "width": 265,
+        "height": 493
+      },
+      {
+        "x": 1194,
+        "y": 16,
+        "width": 324,
+        "height": 492
+      },
+      {
+        "x": 63,
+        "y": 517,
+        "width": 372,
+        "height": 488
+      },
+      {
+        "x": 465,
+        "y": 519,
+        "width": 295,
+        "height": 489
+      },
+      {
+        "x": 827,
+        "y": 517,
+        "width": 239,
+        "height": 492
+      },
+      {
+        "x": 1209,
+        "y": 517,
+        "width": 321,
+        "height": 488
+      }
+    ],
+    "transitions": 8
+  },
+  {
+    "key": "qwen-adult-shorts-care",
+    "id": "qwen-adult",
+    "kind": "care",
+    "file": "src/DesktopPet.App/Assets/Characters/qwen-adult/outfits/sports/care.png",
+    "sha256": "47cc35b460e2212fb897d0ef3de16fd0f56b403b296c27fd1d38b85d0f2370e3",
+    "columns": 4,
+    "rows": 2,
+    "cells": [
+      {
+        "x": 147,
+        "y": 1,
+        "width": 207,
+        "height": 515
+      },
+      {
+        "x": 504,
+        "y": 1,
+        "width": 210,
+        "height": 515
+      },
+      {
+        "x": 857,
+        "y": 2,
+        "width": 209,
+        "height": 514
+      },
+      {
+        "x": 1211,
+        "y": 1,
+        "width": 207,
+        "height": 515
+      },
+      {
+        "x": 146,
+        "y": 512,
+        "width": 211,
+        "height": 512
+      },
+      {
+        "x": 507,
+        "y": 512,
+        "width": 212,
+        "height": 512
+      },
+      {
+        "x": 856,
+        "y": 512,
+        "width": 212,
+        "height": 512
+      },
+      {
+        "x": 1209,
+        "y": 512,
+        "width": 211,
+        "height": 512
+      }
+    ],
+    "transitions": 8
+  },
+  {
+    "key": "qwen-adult-shorts-catch",
+    "id": "qwen-adult",
+    "kind": "catch",
+    "file": "src/DesktopPet.App/Assets/Characters/qwen-adult/outfits/sports/catch.png",
+    "sha256": "25d9aa666b3e4e9cd707fbdd32c39fdd7f1cd7372e54929dc30b009700242a8c",
+    "columns": 4,
+    "rows": 3,
+    "cells": [
+      {
+        "x": 83,
+        "y": 4,
+        "width": 193,
+        "height": 497
+      },
+      {
+        "x": 320,
+        "y": 4,
+        "width": 192,
+        "height": 497
+      },
+      {
+        "x": 553,
+        "y": 4,
+        "width": 193,
+        "height": 497
+      },
+      {
+        "x": 802,
+        "y": 4,
+        "width": 191,
+        "height": 497
+      },
+      {
+        "x": 78,
+        "y": 507,
+        "width": 203,
+        "height": 510
+      },
+      {
+        "x": 316,
+        "y": 507,
+        "width": 202,
+        "height": 511
+      },
+      {
+        "x": 550,
+        "y": 508,
+        "width": 204,
+        "height": 510
+      },
+      {
+        "x": 801,
+        "y": 508,
+        "width": 200,
+        "height": 510
+      },
+      {
+        "x": 81,
+        "y": 1019,
+        "width": 201,
+        "height": 504
+      },
+      {
+        "x": 318,
+        "y": 1019,
+        "width": 201,
+        "height": 503
+      },
+      {
+        "x": 552,
+        "y": 1019,
+        "width": 201,
+        "height": 503
+      },
+      {
+        "x": 798,
+        "y": 1019,
+        "width": 202,
+        "height": 503
+      }
+    ],
+    "transitions": 8
+  },
+  {
+    "key": "qwen-adult-shorts-club-v2",
+    "id": "qwen-adult",
+    "kind": "club",
+    "file": "src/DesktopPet.App/Assets/Characters/qwen-adult/outfits/sports/club.png",
+    "sha256": "e25ea3ff60302270ae3ba4e7ecb2050314cb66da2717ce78e8a535fc6ac4f862",
+    "columns": 4,
+    "rows": 5,
+    "cells": [
+      {
+        "x": 119,
+        "y": 17,
+        "width": 141,
+        "height": 312
+      },
+      {
+        "x": 356,
+        "y": 17,
+        "width": 142,
+        "height": 311
+      },
+      {
+        "x": 570,
+        "y": 10,
+        "width": 181,
+        "height": 319
+      },
+      {
+        "x": 799,
+        "y": 19,
+        "width": 139,
+        "height": 309
+      },
+      {
+        "x": 111,
+        "y": 335,
+        "width": 146,
+        "height": 311
+      },
+      {
+        "x": 353,
+        "y": 334,
+        "width": 142,
+        "height": 312
+      },
+      {
+        "x": 574,
+        "y": 335,
+        "width": 141,
+        "height": 312
+      },
+      {
+        "x": 800,
+        "y": 334,
+        "width": 145,
+        "height": 312
+      },
+      {
+        "x": 98,
+        "y": 648,
+        "width": 167,
+        "height": 317
+      },
+      {
+        "x": 350,
+        "y": 651,
+        "width": 154,
+        "height": 314
+      },
+      {
+        "x": 568,
+        "y": 647,
+        "width": 153,
+        "height": 318
+      },
+      {
+        "x": 798,
+        "y": 648,
+        "width": 154,
+        "height": 317
+      },
+      {
+        "x": 111,
+        "y": 963,
+        "width": 151,
+        "height": 302
+      },
+      {
+        "x": 353,
+        "y": 963,
+        "width": 148,
+        "height": 302
+      },
+      {
+        "x": 570,
+        "y": 963,
+        "width": 151,
+        "height": 303
+      },
+      {
+        "x": 800,
+        "y": 966,
+        "width": 153,
+        "height": 299
+      },
+      {
+        "x": 116,
+        "y": 1263,
+        "width": 128,
+        "height": 271
+      },
+      {
+        "x": 362,
+        "y": 1266,
+        "width": 151,
+        "height": 267
+      },
+      {
+        "x": 576,
+        "y": 1268,
+        "width": 143,
+        "height": 267
+      },
+      {
+        "x": 801,
+        "y": 1267,
+        "width": 136,
+        "height": 268
+      }
+    ],
+    "transitions": 20
+  },
+  {
+    "key": "qwen-adult-shorts-walk-v2",
+    "id": "qwen-adult",
+    "kind": "walk",
+    "file": "src/DesktopPet.App/Assets/Characters/qwen-adult/outfits/sports/walk.png",
+    "sha256": "8f45cedf4d5178cda7eb84966875df2f83aea9b1b8f7fb6cde35fbeb301c3fa2",
+    "columns": 4,
+    "rows": 2,
+    "cells": [
+      {
+        "x": 54,
+        "y": 6,
+        "width": 334,
+        "height": 494
+      },
+      {
+        "x": 456,
+        "y": 6,
+        "width": 268,
+        "height": 494
+      },
+      {
+        "x": 839,
+        "y": 10,
+        "width": 238,
+        "height": 492
+      },
+      {
+        "x": 1208,
+        "y": 6,
+        "width": 305,
+        "height": 493
+      },
+      {
+        "x": 56,
+        "y": 516,
+        "width": 356,
+        "height": 489
+      },
+      {
+        "x": 459,
+        "y": 516,
+        "width": 273,
+        "height": 489
+      },
+      {
+        "x": 839,
+        "y": 520,
+        "width": 212,
+        "height": 486
+      },
+      {
+        "x": 1208,
+        "y": 517,
+        "width": 305,
+        "height": 488
+      }
+    ],
+    "transitions": 8
+  },
+  {
+    "key": "zhipu-adult-shorts-care",
+    "id": "zhipu-adult",
+    "kind": "care",
+    "file": "src/DesktopPet.App/Assets/Characters/zhipu-adult/outfits/sports/care.png",
+    "sha256": "acddf8ebd2fd6a1b4ff0c7b8c0b1523758803c2e95b96ceece9d53b00c55a30b",
+    "columns": 4,
+    "rows": 2,
+    "cells": [
+      {
+        "x": 98,
+        "y": 9,
+        "width": 228,
+        "height": 508
+      },
+      {
+        "x": 458,
+        "y": 12,
+        "width": 222,
+        "height": 505
+      },
+      {
+        "x": 841,
+        "y": 7,
+        "width": 218,
+        "height": 510
+      },
+      {
+        "x": 1227,
+        "y": 9,
+        "width": 214,
+        "height": 508
+      },
+      {
+        "x": 93,
+        "y": 520,
+        "width": 219,
+        "height": 502
+      },
+      {
+        "x": 459,
+        "y": 520,
+        "width": 218,
+        "height": 502
+      },
+      {
+        "x": 838,
+        "y": 520,
+        "width": 221,
+        "height": 502
+      },
+      {
+        "x": 1229,
+        "y": 519,
+        "width": 214,
+        "height": 503
+      }
+    ],
+    "transitions": 8
+  },
+  {
+    "key": "zhipu-adult-shorts-catch-v2",
+    "id": "zhipu-adult",
+    "kind": "catch",
+    "file": "src/DesktopPet.App/Assets/Characters/zhipu-adult/outfits/sports/catch.png",
+    "sha256": "c9c1da449074b1e7bf6da72b9bd0b21bbef5c419ace3e5f7b2558d9532e0564c",
+    "columns": 4,
+    "rows": 3,
+    "cells": [
+      {
+        "x": 60,
+        "y": 15,
+        "width": 205,
+        "height": 493
+      },
+      {
+        "x": 300,
+        "y": 12,
+        "width": 201,
+        "height": 496
+      },
+      {
+        "x": 528,
+        "y": 13,
+        "width": 200,
+        "height": 495
+      },
+      {
+        "x": 763,
+        "y": 9,
+        "width": 202,
+        "height": 500
+      },
+      {
+        "x": 58,
+        "y": 516,
+        "width": 215,
+        "height": 509
+      },
+      {
+        "x": 301,
+        "y": 509,
+        "width": 212,
+        "height": 516
+      },
+      {
+        "x": 532,
+        "y": 510,
+        "width": 220,
+        "height": 515
+      },
+      {
+        "x": 764,
+        "y": 517,
+        "width": 214,
+        "height": 509
+      },
+      {
+        "x": 60,
+        "y": 1028,
+        "width": 207,
+        "height": 499
+      },
+      {
+        "x": 305,
+        "y": 1027,
+        "width": 206,
+        "height": 501
+      },
+      {
+        "x": 534,
+        "y": 1032,
+        "width": 208,
+        "height": 496
+      },
+      {
+        "x": 773,
+        "y": 1028,
+        "width": 206,
+        "height": 500
+      }
+    ],
+    "transitions": 8
+  },
+  {
+    "key": "zhipu-adult-shorts-club-v2",
+    "id": "zhipu-adult",
+    "kind": "club",
+    "file": "src/DesktopPet.App/Assets/Characters/zhipu-adult/outfits/sports/club.png",
+    "sha256": "3ef5b3c5d7e4a937b9e9904bbf4bc954cb352b9408fbf2f49685548e9742ff40",
+    "columns": 4,
+    "rows": 5,
+    "cells": [
+      {
+        "x": 134,
+        "y": 7,
+        "width": 141,
+        "height": 300
+      },
+      {
+        "x": 372,
+        "y": 11,
+        "width": 139,
+        "height": 296
+      },
+      {
+        "x": 585,
+        "y": 11,
+        "width": 165,
+        "height": 296
+      },
+      {
+        "x": 808,
+        "y": 12,
+        "width": 135,
+        "height": 296
+      },
+      {
+        "x": 111,
+        "y": 310,
+        "width": 142,
+        "height": 305
+      },
+      {
+        "x": 351,
+        "y": 308,
+        "width": 139,
+        "height": 307
+      },
+      {
+        "x": 586,
+        "y": 308,
+        "width": 136,
+        "height": 308
+      },
+      {
+        "x": 817,
+        "y": 311,
+        "width": 141,
+        "height": 305
+      },
+      {
+        "x": 113,
+        "y": 612,
+        "width": 153,
+        "height": 308
+      },
+      {
+        "x": 364,
+        "y": 613,
+        "width": 138,
+        "height": 307
+      },
+      {
+        "x": 582,
+        "y": 612,
+        "width": 142,
+        "height": 308
+      },
+      {
+        "x": 814,
+        "y": 617,
+        "width": 146,
+        "height": 306
+      },
+      {
+        "x": 128,
+        "y": 918,
+        "width": 131,
+        "height": 309
+      },
+      {
+        "x": 362,
+        "y": 920,
+        "width": 135,
+        "height": 306
+      },
+      {
+        "x": 584,
+        "y": 920,
+        "width": 139,
+        "height": 306
+      },
+      {
+        "x": 818,
+        "y": 921,
+        "width": 138,
+        "height": 306
+      },
+      {
+        "x": 118,
+        "y": 1229,
+        "width": 129,
+        "height": 295
+      },
+      {
+        "x": 363,
+        "y": 1230,
+        "width": 143,
+        "height": 294
+      },
+      {
+        "x": 583,
+        "y": 1225,
+        "width": 141,
+        "height": 299
+      },
+      {
+        "x": 817,
+        "y": 1222,
+        "width": 142,
+        "height": 302
+      }
+    ],
+    "transitions": 20
+  },
+  {
+    "key": "zhipu-adult-shorts-walk-v2",
+    "id": "zhipu-adult",
+    "kind": "walk",
+    "file": "src/DesktopPet.App/Assets/Characters/zhipu-adult/outfits/sports/walk.png",
+    "sha256": "e57794da4f772fd2b479f5061c270b78978c97bddef2e38b373caace0b3533e0",
+    "columns": 4,
+    "rows": 2,
+    "cells": [
+      {
+        "x": 65,
+        "y": 0,
+        "width": 350,
+        "height": 509
+      },
+      {
+        "x": 453,
+        "y": 0,
+        "width": 298,
+        "height": 507
+      },
+      {
+        "x": 826,
+        "y": 2,
+        "width": 254,
+        "height": 507
+      },
+      {
+        "x": 1178,
+        "y": 0,
+        "width": 320,
+        "height": 507
+      },
+      {
+        "x": 73,
+        "y": 514,
+        "width": 356,
+        "height": 496
+      },
+      {
+        "x": 468,
+        "y": 512,
+        "width": 285,
+        "height": 504
+      },
+      {
+        "x": 828,
+        "y": 515,
+        "width": 229,
+        "height": 501
+      },
+      {
+        "x": 1198,
+        "y": 515,
+        "width": 311,
+        "height": 498
+      }
+    ],
+    "transitions": 8
+  },
+  {
+    "key": "claude-adult-shorts-bonk-v2",
+    "id": "claude-adult",
+    "kind": "bonk",
+    "file": "src/DesktopPet.App/Assets/Characters/claude-adult/outfits/sports/bonk.png",
+    "sha256": "31a78858282061fc743ca260f79d2d5f99f1c2c5633402f629c62424b5881443",
+    "columns": 3,
+    "rows": 1,
+    "cells": [
+      {
+        "x": 87,
+        "y": 58,
+        "width": 385,
+        "height": 890
+      },
+      {
+        "x": 577,
+        "y": 10,
+        "width": 385,
+        "height": 938
+      },
+      {
+        "x": 1067,
+        "y": 75,
+        "width": 403,
+        "height": 873
+      }
+    ],
+    "transitions": 4
+  },
+  {
+    "key": "deepseek-adult-shorts-bonk-v2",
+    "id": "deepseek-adult",
+    "kind": "bonk",
+    "file": "src/DesktopPet.App/Assets/Characters/deepseek-adult/outfits/sports/bonk.png",
+    "sha256": "b3a6b76de31b21d5e164321010bbe83b43d94608a0b346041f0f7470222100f7",
+    "columns": 3,
+    "rows": 1,
+    "cells": [
+      {
+        "x": 117,
+        "y": 56,
+        "width": 327,
+        "height": 923
+      },
+      {
+        "x": 595,
+        "y": 3,
+        "width": 345,
+        "height": 976
+      },
+      {
+        "x": 1107,
+        "y": 99,
+        "width": 350,
+        "height": 879
+      }
+    ],
+    "transitions": 4
+  },
+  {
+    "key": "gemini-adult-shorts-bonk-v2",
+    "id": "gemini-adult",
+    "kind": "bonk",
+    "file": "src/DesktopPet.App/Assets/Characters/gemini-adult/outfits/sports/bonk.png",
+    "sha256": "9ac774dfd180482e11edee36bbc0005437a221355522a2ef015377e6a2df65b5",
+    "columns": 3,
+    "rows": 1,
+    "cells": [
+      {
+        "x": 85,
+        "y": 172,
+        "width": 354,
+        "height": 804
+      },
+      {
+        "x": 590,
+        "y": 21,
+        "width": 358,
+        "height": 954
+      },
+      {
+        "x": 1091,
+        "y": 130,
+        "width": 353,
+        "height": 845
+      }
+    ],
+    "transitions": 4
+  },
+  {
+    "key": "gpt-adult-shorts-bonk-v2",
+    "id": "gpt-adult",
+    "kind": "bonk",
+    "file": "src/DesktopPet.App/Assets/Characters/gpt-adult/outfits/sports/bonk.png",
+    "sha256": "02da8ed84e1bd91e8dbd51255fef16653b19306efa2f0452ef6f26995ab7563f",
+    "columns": 3,
+    "rows": 1,
+    "cells": [
+      {
+        "x": 142,
+        "y": 123,
+        "width": 395,
+        "height": 843
+      },
+      {
+        "x": 583,
+        "y": 6,
+        "width": 397,
+        "height": 960
+      },
+      {
+        "x": 1032,
+        "y": 113,
+        "width": 394,
+        "height": 853
+      }
+    ],
+    "transitions": 4
+  },
+  {
+    "key": "grok-adult-shorts-bonk-v2",
+    "id": "grok-adult",
+    "kind": "bonk",
+    "file": "src/DesktopPet.App/Assets/Characters/grok-adult/outfits/sports/bonk.png",
+    "sha256": "1a3d4cd5353380a708d412fbc89d54209dda6357d36beeb0940dd682f497b6b7",
+    "columns": 3,
+    "rows": 1,
+    "cells": [
+      {
+        "x": 110,
+        "y": 139,
+        "width": 363,
+        "height": 839
+      },
+      {
+        "x": 593,
+        "y": 17,
+        "width": 362,
+        "height": 961
+      },
+      {
+        "x": 1080,
+        "y": 120,
+        "width": 377,
+        "height": 859
+      }
+    ],
+    "transitions": 4
+  },
+  {
+    "key": "kimi-adult-shorts-bonk-v2",
+    "id": "kimi-adult",
+    "kind": "bonk",
+    "file": "src/DesktopPet.App/Assets/Characters/kimi-adult/outfits/sports/bonk.png",
+    "sha256": "e6d3b5afc81accd010d2a656e84bae6336814a244c658b0199edc2a91d8460c4",
+    "columns": 3,
+    "rows": 1,
+    "cells": [
+      {
+        "x": 115,
+        "y": 126,
+        "width": 346,
+        "height": 836
+      },
+      {
+        "x": 611,
+        "y": 22,
+        "width": 341,
+        "height": 939
+      },
+      {
+        "x": 1105,
+        "y": 119,
+        "width": 349,
+        "height": 842
+      }
+    ],
+    "transitions": 4
+  },
+  {
+    "key": "qwen-adult-shorts-bonk-v2",
+    "id": "qwen-adult",
+    "kind": "bonk",
+    "file": "src/DesktopPet.App/Assets/Characters/qwen-adult/outfits/sports/bonk.png",
+    "sha256": "3e3274dacbc2899c36b19c4b79e293c58d30c3958ee0180d9be82e27b5eba0ed",
+    "columns": 3,
+    "rows": 1,
+    "cells": [
+      {
+        "x": 156,
+        "y": 160,
+        "width": 323,
+        "height": 826
+      },
+      {
+        "x": 613,
+        "y": 10,
+        "width": 335,
+        "height": 976
+      },
+      {
+        "x": 1086,
+        "y": 126,
+        "width": 346,
+        "height": 860
+      }
+    ],
+    "transitions": 4
+  },
+  {
+    "key": "zhipu-adult-shorts-bonk-v2",
+    "id": "zhipu-adult",
+    "kind": "bonk",
+    "file": "src/DesktopPet.App/Assets/Characters/zhipu-adult/outfits/sports/bonk.png",
+    "sha256": "765fa1b466ff725a500ac9578152b2cda1000aa8e8481c80e0c0db9bd829fc96",
+    "columns": 3,
+    "rows": 1,
+    "cells": [
+      {
+        "x": 120,
+        "y": 95,
+        "width": 375,
+        "height": 868
+      },
+      {
+        "x": 587,
+        "y": 9,
+        "width": 353,
+        "height": 953
+      },
+      {
+        "x": 1046,
+        "y": 97,
+        "width": 361,
+        "height": 866
+      }
+    ],
+    "transitions": 4
+  }
+]

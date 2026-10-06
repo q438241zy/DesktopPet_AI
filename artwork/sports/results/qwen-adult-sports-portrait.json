@@ -1,0 +1,19 @@
+{
+  "key": "qwen-adult-sports-portrait",
+  "id": "qwen-adult",
+  "family": "qwen",
+  "style": "realistic",
+  "kind": "portrait",
+  "columns": 3,
+  "rows": 4,
+  "refs": [
+    "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/qwen-adult/portrait.png",
+    "D:/VibeCoding/Character/docs/demo/cloud-club/art/school-realistic.png"
+  ],
+  "dest": "src/DesktopPet.App/Assets/Characters/qwen-adult/outfits/sports/portrait.png",
+  "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-75905907-1e1c-457b-904e-23a308dd38c2.png",
+  "tool": "built-in image_gen",
+  "selected": false,
+  "status": "superseded-long-pants",
+  "reason": "User requires short sleeves AND shorts above knees in both styles; do not install or publish this batch."
+}

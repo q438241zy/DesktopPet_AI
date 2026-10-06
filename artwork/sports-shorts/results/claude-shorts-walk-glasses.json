@@ -1,0 +1,27 @@
+{
+  "key": "claude-shorts-walk-glasses",
+  "id": "claude",
+  "family": "claude",
+  "style": "chibi",
+  "kind": "walk",
+  "columns": 3,
+  "rows": 4,
+  "refs": [
+    "C:\\Users\\99000256\\.codex\\generated_images\\01a0fd46-2194-7b12-8882-479fedfd5c1e\\exec-badb0b9c-8c86-4635-b5bf-7bf9d6e3411a.png"
+  ],
+  "dest": "src/DesktopPet.App/Assets/Characters/claude/outfits/sports/walk.png",
+  "prompt": "Precise accessory continuity edit. Image 1 is the exact target sprite sheet; Image 2 is identity reference ONLY. Add Claude's thin wire-rim ROUND GLASSES from image2 to EVERY individual character in image1, with clear transparent lenses, visible delicate gray/brown round rims and nose bridge, naturally following each face tilt. Closed eyes still visibly wear glasses; side view shows the near oval lens and temple arm. Preserve image1 layout, grid, figure sizes, body anatomy, all individual movement poses, expressions, hands, all props, hair, orange flower clip and black ribbons, and keep all feet fully in frame with clear transparent gutters. Image1 has exactly 12 separate full-body walking poses in 3 columns x 4 rows. Maintain the different alternate leg/arm support phases. Do NOT copy image2 poses or layout; image2 only explains the glasses. Keep the existing short-sleeve white/orange sports top and dark brown above-knee SHORTS on every pose, bare thighs/knees/shins, ankle socks and white sneakers. No long sleeves or long pants. Do not remove or duplicate a hand, spoon, biscuit, blocks, comb, cloth or bubble wand. Clean transparent alpha background, no orange backdrop, no grid, no labels, no floating effects. Retain original resolution and all frame placements as closely as possible.",
+  "source": "D:\\VibeCoding\\Character\\src\\DesktopPet.App\\Assets\\Characters\\claude\\outfits\\sports\\walk.png",
+  "selected": true,
+  "tool": "built-in image_gen",
+  "status": "visually-reviewed-short-sleeves-and-shorts",
+  "referenceHeightPixels": 348.14,
+  "walkStride": 0.48,
+  "walkStrideReview": "12 distinct complete two-step poses,95ms each (1140ms loop). Feet pass under hips at phases3/9; opposite near-arm swing phases5-10. Estimated two-step advance about0.48 State.Size from shoe-separation versus common standing-height. Runtime pilot verifies feet vs translation.",
+  "originalSource": "C:\\Users\\99000256\\.codex\\generated_images\\01a0fd46-2194-7b12-8882-479fedfd5c1e\\exec-de3ad960-b3fe-42cc-9adf-a90c1eac4d51.png",
+  "visualReview": "Native QA found missing round wire-frame glasses versus core reference. Built-in imagegen repaired only glasses; visually checked every pose and unchanged above-knee shorts/short sleeves, hand-held props, complete limbs, grid. Crops remeasured, source PNG unmodified.",
+  "referenceImages": [
+    "D:\\VibeCoding\\Character\\artwork\\sports-shorts\\superseded-glasses\\claude\\walk.png",
+    "D:\\VibeCoding\\Character\\src\\DesktopPet.App\\Assets\\Characters\\claude\\outfits\\sports\\core.png"
+  ]
+}

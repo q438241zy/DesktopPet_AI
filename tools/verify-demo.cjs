@@ -27,12 +27,15 @@ state.loading=false;step();assert.ok(state.x<frozen,'gait resumes when decoding 
 const match=html.match(/<script id="data" type="application\/json">([\s\S]*?)<\/script>/);
 if(match && !match[1].includes('__DEMO_DATA__')){
  const exported=JSON.parse(match[1]);assert.equal(exported.sampleMs,40);assert.equal(exported.frameWidth,560);assert.equal(exported.frameHeight,680);
- assert.equal(Object.keys(exported.clips).length,6);
+ assert.equal(Object.keys(exported.clips).length,8,'both styles need all four outfits');
  for(const [key,appearance] of Object.entries(exported.clips)){
-  if(key.startsWith('realistic-')){assert.equal(appearance.dance.duration,8000,'dance must finish all sixteen counts');assert.equal(appearance.dance.frames.length,201);assert.ok(new Set(appearance.dance.frames).size>180,'dance must contain the rendered continuous choreography');}
-  else assert.equal(appearance.dance,undefined,'dance remains exclusive to 3D-realistic appearances');
+  assert.equal(appearance.dance,undefined,'deleted feature must not remain in any appearance');
  }
- for(const appearance of Object.values(exported.clips)){assert.equal(appearance.walk.cycleMs,960);assert.equal(new Set(appearance.walk.frames.slice(0,24)).size,12);assert.ok(new Set(appearance.shake.frames).size>8,'all appearances need moving stars while lifted');assert.ok(new Set(appearance.dizzy.frames).size>8,'all appearances need visible recovery feedback');}
+ for(const [look,appearance] of Object.entries(exported.clips)){
+  if(look.endsWith('-sports')){assert.ok(appearance.walk.cycleMs>=720&&appearance.walk.cycleMs<=1600);assert.ok(new Set(appearance.walk.frames.slice(0,Math.ceil(appearance.walk.cycleMs/exported.sampleMs))).size>=12,'sports gait must contain at least twelve rendered poses');}
+  else{assert.equal(appearance.walk.cycleMs,960);assert.equal(new Set(appearance.walk.frames.slice(0,24)).size,12);}
+  assert.ok(new Set(appearance.shake.frames).size>8,'all appearances need moving stars while lifted');assert.ok(new Set(appearance.dizzy.frames).size>8,'all appearances need visible recovery feedback');
+ }
  assert.ok(fs.statSync(file).size<5_000_000,'HTML must stay small enough to open promptly');
  for(const image of exported.frames){
   assert.match(image,/^frames\/\d{5}\.webp$/,'offline frames must remain relative to the HTML');
@@ -40,7 +43,7 @@ if(match && !match[1].includes('__DEMO_DATA__')){
   assert.equal(bytes.toString('ascii',0,4),'RIFF');assert.equal(bytes.toString('ascii',8,12),'WEBP');
   assert.ok(bytes.includes(Buffer.from('VP8L')),'lossless WebP required');
  }
- console.log('PASS: native dimensions, six appearances, twelve poses per gait, portable relative paths and all lossless WebP files');
+ console.log('PASS: native dimensions, eight appearances, at least twelve poses per gait, portable relative paths and all lossless WebP files');
 }
 console.log('PASS: syntax, continuous gait beyond clip duration, travelled distance, planted turn and pause');
 function travel(dt,count,start=500){Object.assign(state,{x:start,dir:1,turnRemaining:0,walkTime:0});for(let i=0;i<count;i++)step(dt);return {x:state.x,phase:state.walkTime,dir:state.dir};}
@@ -74,6 +77,17 @@ vm.runInContext(script.slice(script.indexOf('function newShake'),script.indexOf(
  script.slice(script.indexOf(" const grip=card.querySelector('.grip');"),script.indexOf(" s.composer.querySelector('form').onsubmit")),pointerContext);
 function down(){grip.onpointerdown({button:0,pointerId:1,clientX:0,clientY:0,preventDefault:()=>{}});}
 function pointerMove(x,y,t){pointerContext.now=t;grip.onpointermove({clientX:x,clientY:y});}
+for(const dir of [-1,1]){
+ Object.assign(pointerState,{action:'walk',dir,x:200,y:300,floorWalkAt:400,next:'walk',nextTouch:0});
+ down();assert.notEqual(pointerState.action,'walk','left press interrupts walking in either direction');
+ assert.equal(pointerState.next,null);assert.equal(pointerState.floorWalkAt,null);
+ grip.onpointerup();assert.equal(pointerState.action,'headpat','release without dragging performs care');
+ Object.assign(pointerState,{action:'walk',dir,y:300});down();pointerMove(30,-100,pointerContext.now+20);
+ assert.equal(pointerState.action,'pickup');grip.onpointerup({shiftKey:false});
+ assert.equal(pointerState.y,200);assert.equal(pointerState.drop,false);assert.equal(pointerState.floorWalkAt,null);
+}
+Object.assign(pointerState,{x:200,y:300,nextTouch:0});
+console.log('PASS: walking can be interrupted for care or lifting in both directions');
 down();pointerMove(70,-100,100);grip.onpointerup();grip.onlostpointercapture();assert.equal(pointerState.action,'place');assert.equal(pointerState.y,200);
 pointerContext.now=1000;down();for(let i=1;i<=5;i++){pointerMove(i%2?80:0,0,1000+i*100);assert.equal(pointerState.action,i<5?'pickup':'shake');}
 assert.equal(pointerState.y,200);grip.onpointerup();grip.onlostpointercapture();assert.equal(pointerState.action,'dizzy','pointer-up must preserve recovery through automatic capture loss');assert.equal(pointerState.drop,false);

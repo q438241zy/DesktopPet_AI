@@ -1,0 +1,117 @@
+{
+  "key": "gpt-shorts-contact-v2",
+  "id": "gpt",
+  "family": "gpt",
+  "style": "chibi",
+  "kind": "contact",
+  "columns": 4,
+  "rows": 6,
+  "refs": [
+    "C:\\Users\\99000256\\.codex\\generated_images\\01a0fd46-2194-7b12-8882-479fedfd5c1e\\exec-eb21f074-a3bc-42be-8a8f-9b397c81c230.png",
+    "C:\\Users\\99000256\\.codex\\generated_images\\01a0fd46-2194-7b12-8882-479fedfd5c1e\\exec-22ee1e6f-4c8b-4da2-9ef0-82886494ad8b.png"
+  ],
+  "dest": "src/DesktopPet.App/Assets/Characters/gpt/outfits/sports/contact.png",
+  "prompt": "Use case: precise-object-edit. Image1 is the target sprite atlas. Keep its character identity, costume, SHORT sleeves and SHORTS, hair, face, every frame position, all24 figures and 4x6 grid unchanged. Image2 is ONLY a prop/action reference. Fix props in Image1: row2 columns1 and2 (overall poses5 and6) must hold a clearly BITTEN round tan biscuit at waist with both fingers, no bowl or spoon in either of these two poses. Row4 column4 (overall pose16) must be seated cross-legged, holding one small BLUE wooden cube in the raised palm, fingers grasping the cube, with a red-on-green stack on floor; exactly TWO arms and TWO hands, no extra limbs. Row5 column1 (overall pose17) must be seated cross-legged, three cubes stacked green bottom/red middle/blue top, both fingertips touching the blue top cube while smiling. Restore any missing cube, do not replace this pose with standing or combing. Match these three building frames from Image2 exactly while preserving Image1 character. All24 figures retain athletic shorts ABOVE KNEES, visible bare knees/lower legs, above-elbow short sleeves, short ankle socks and white sneakers. Do not change any other poses, particularly the existing three comb frames and four face-wipe frames. No actual grid, labels/text, scenery, backdrop or glow, transparent alpha. Maintain generous empty gutters.",
+  "source": "D:\\VibeCoding\\Character\\src\\DesktopPet.App\\Assets\\Characters\\gpt\\outfits\\sports\\contact.png",
+  "selected": true,
+  "tool": "built-in image_gen",
+  "status": "visually-reviewed-short-sleeves-and-shorts",
+  "clips": {
+    "eat": [
+      [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      [
+        300,
+        450,
+        450,
+        650,
+        650,
+        500
+      ],
+      false
+    ],
+    "meal": [
+      [
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      [
+        400,
+        600,
+        650,
+        800,
+        950,
+        800
+      ],
+      false
+    ],
+    "build": [
+      [
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      [
+        450,
+        700,
+        850,
+        1000,
+        1400
+      ],
+      false
+    ],
+    "comb": [
+      [
+        17,
+        18,
+        19,
+        18,
+        19,
+        17
+      ],
+      [
+        450,
+        750,
+        900,
+        750,
+        1100,
+        850
+      ],
+      false
+    ],
+    "wipe": [
+      [
+        20,
+        21,
+        22,
+        21,
+        22,
+        23
+      ],
+      [
+        400,
+        600,
+        850,
+        600,
+        1050,
+        700
+      ],
+      false
+    ]
+  },
+  "referenceHeightPixels": 244.779,
+  "originalSource": "C:\\Users\\99000256\\.codex\\generated_images\\01a0fd46-2194-7b12-8882-479fedfd5c1e\\exec-f87772f2-ffd3-462c-958e-c7c0b226c8a5.png",
+  "visualReview": "Every pose checked for short upper-arm sleeves, above-knee shorts, bare knees/calves, complete figure, correct tools/contact. Original PNG copied without bitmap edits; crop/flow metadata only. Cross-kind scale uses same face-width ruler; no per-frame silhouette resizing."
+}

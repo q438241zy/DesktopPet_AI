@@ -813,6 +813,254 @@
     "referenceHeightPixels": 291.0
   },
   {
+    "character": "claude",
+    "outfit": "sports",
+    "action": "idle",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 246
+  },
+  {
+    "character": "claude",
+    "outfit": "sports",
+    "action": "listen",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 246
+  },
+  {
+    "character": "claude",
+    "outfit": "sports",
+    "action": "chat",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 246
+  },
+  {
+    "character": "claude",
+    "outfit": "sports",
+    "action": "think",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 246
+  },
+  {
+    "character": "claude",
+    "outfit": "sports",
+    "action": "headpat",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 246
+  },
+  {
+    "character": "claude",
+    "outfit": "sports",
+    "action": "poke",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 246
+  },
+  {
+    "character": "claude",
+    "outfit": "sports",
+    "action": "tickle",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 246
+  },
+  {
+    "character": "claude",
+    "outfit": "sports",
+    "action": "happy",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 246
+  },
+  {
+    "character": "claude",
+    "outfit": "sports",
+    "action": "sad",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 246
+  },
+  {
+    "character": "claude",
+    "outfit": "sports",
+    "action": "jump",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 246
+  },
+  {
+    "character": "claude",
+    "outfit": "sports",
+    "action": "land",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 246
+  },
+  {
+    "character": "claude",
+    "outfit": "sports",
+    "action": "curl",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 246
+  },
+  {
+    "character": "claude",
+    "outfit": "sports",
+    "action": "sleep",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 246
+  },
+  {
+    "character": "claude",
+    "outfit": "sports",
+    "action": "pickup",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 246
+  },
+  {
+    "character": "claude",
+    "outfit": "sports",
+    "action": "ball-ready",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 246
+  },
+  {
+    "character": "claude",
+    "outfit": "sports",
+    "action": "anticipate",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 246
+  },
+  {
+    "character": "claude",
+    "outfit": "sports",
+    "action": "ball-hit",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 246
+  },
+  {
+    "character": "claude",
+    "outfit": "sports",
+    "action": "ball-hold",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 246
+  },
+  {
+    "character": "claude",
+    "outfit": "sports",
+    "action": "ball-miss",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 246
+  },
+  {
+    "character": "claude",
+    "outfit": "sports",
+    "action": "bonk",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 246
+  },
+  {
+    "character": "claude",
+    "outfit": "sports",
+    "action": "dizzy",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 246
+  },
+  {
+    "character": "claude",
+    "outfit": "sports",
+    "action": "farewell",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 246
+  },
+  {
+    "character": "claude",
+    "outfit": "sports",
+    "action": "eat",
+    "file": "outfits/sports/contact.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 242.763
+  },
+  {
+    "character": "claude",
+    "outfit": "sports",
+    "action": "meal",
+    "file": "outfits/sports/contact.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 242.763
+  },
+  {
+    "character": "claude",
+    "outfit": "sports",
+    "action": "build",
+    "file": "outfits/sports/contact.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 242.763
+  },
+  {
+    "character": "claude",
+    "outfit": "sports",
+    "action": "comb",
+    "file": "outfits/sports/contact.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 242.763
+  },
+  {
+    "character": "claude",
+    "outfit": "sports",
+    "action": "wipe",
+    "file": "outfits/sports/contact.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 242.763
+  },
+  {
+    "character": "claude",
+    "outfit": "sports",
+    "action": "walk",
+    "file": "outfits/sports/walk.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 348.14
+  },
+  {
+    "character": "claude",
+    "outfit": "sports",
+    "action": "stars",
+    "file": "outfits/sports/club.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 262.184
+  },
+  {
+    "character": "claude",
+    "outfit": "sports",
+    "action": "bubbles",
+    "file": "outfits/sports/club.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 262.184
+  },
+  {
+    "character": "claude",
+    "outfit": "sports",
+    "action": "stretch",
+    "file": "outfits/sports/club.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 262.184
+  },
+  {
     "character": "claude-adult",
     "outfit": "original",
     "action": "eat",
@@ -937,15 +1185,6 @@
     "sha256": "1a744d300b7f0413a23093fa26eccab9bd7615091de950dbee9e7582c9eb1402",
     "method": "fixed neutral body pixels; posture and props do not rescale frames",
     "referenceHeightPixels": 433.0
-  },
-  {
-    "character": "claude-adult",
-    "outfit": "original",
-    "action": "dance",
-    "file": "motions/dance-base-atlas.png",
-    "sha256": "fe8bc20cf616583d442acac5259c0e13cbf959950a800159d5f428742a41122a",
-    "method": "fixed neutral body pixels; posture and props do not rescale frames",
-    "referenceHeightPixels": 955.0
   },
   {
     "character": "claude-adult",
@@ -1075,15 +1314,6 @@
   },
   {
     "character": "claude-adult",
-    "outfit": "swim",
-    "action": "dance",
-    "file": "motions/dance-base-atlas.png",
-    "sha256": "fe8bc20cf616583d442acac5259c0e13cbf959950a800159d5f428742a41122a",
-    "method": "fixed neutral body pixels; posture and props do not rescale frames",
-    "referenceHeightPixels": 956.0
-  },
-  {
-    "character": "claude-adult",
     "outfit": "wedding",
     "action": "eat",
     "file": "outfits/wedding/contact.png",
@@ -1210,12 +1440,251 @@
   },
   {
     "character": "claude-adult",
-    "outfit": "wedding",
-    "action": "dance",
-    "file": "motions/dance-base-atlas.png",
-    "sha256": "fe8bc20cf616583d442acac5259c0e13cbf959950a800159d5f428742a41122a",
-    "method": "fixed neutral body pixels; posture and props do not rescale frames",
-    "referenceHeightPixels": 956.0
+    "outfit": "sports",
+    "action": "idle",
+    "file": "outfits/sports/portrait.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 379
+  },
+  {
+    "character": "claude-adult",
+    "outfit": "sports",
+    "action": "listen",
+    "file": "outfits/sports/portrait.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 379
+  },
+  {
+    "character": "claude-adult",
+    "outfit": "sports",
+    "action": "headpat",
+    "file": "outfits/sports/portrait.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 379
+  },
+  {
+    "character": "claude-adult",
+    "outfit": "sports",
+    "action": "poke",
+    "file": "outfits/sports/portrait.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 379
+  },
+  {
+    "character": "claude-adult",
+    "outfit": "sports",
+    "action": "tickle",
+    "file": "outfits/sports/portrait.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 379
+  },
+  {
+    "character": "claude-adult",
+    "outfit": "sports",
+    "action": "happy",
+    "file": "outfits/sports/portrait.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 379
+  },
+  {
+    "character": "claude-adult",
+    "outfit": "sports",
+    "action": "sad",
+    "file": "outfits/sports/portrait.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 379
+  },
+  {
+    "character": "claude-adult",
+    "outfit": "sports",
+    "action": "dizzy",
+    "file": "outfits/sports/portrait.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 379
+  },
+  {
+    "character": "claude-adult",
+    "outfit": "sports",
+    "action": "bonk",
+    "file": "outfits/sports/bonk.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 884
+  },
+  {
+    "character": "claude-adult",
+    "outfit": "sports",
+    "action": "chat",
+    "file": "outfits/sports/body.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 422
+  },
+  {
+    "character": "claude-adult",
+    "outfit": "sports",
+    "action": "think",
+    "file": "outfits/sports/body.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 422
+  },
+  {
+    "character": "claude-adult",
+    "outfit": "sports",
+    "action": "jump",
+    "file": "outfits/sports/body.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 422
+  },
+  {
+    "character": "claude-adult",
+    "outfit": "sports",
+    "action": "land",
+    "file": "outfits/sports/body.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 422
+  },
+  {
+    "character": "claude-adult",
+    "outfit": "sports",
+    "action": "curl",
+    "file": "outfits/sports/body.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 422
+  },
+  {
+    "character": "claude-adult",
+    "outfit": "sports",
+    "action": "sleep",
+    "file": "outfits/sports/body.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 422
+  },
+  {
+    "character": "claude-adult",
+    "outfit": "sports",
+    "action": "build",
+    "file": "outfits/sports/body.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 422
+  },
+  {
+    "character": "claude-adult",
+    "outfit": "sports",
+    "action": "pickup",
+    "file": "outfits/sports/body.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 422
+  },
+  {
+    "character": "claude-adult",
+    "outfit": "sports",
+    "action": "ball-miss",
+    "file": "outfits/sports/body.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 422
+  },
+  {
+    "character": "claude-adult",
+    "outfit": "sports",
+    "action": "ball-hit",
+    "file": "outfits/sports/body.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 422
+  },
+  {
+    "character": "claude-adult",
+    "outfit": "sports",
+    "action": "farewell",
+    "file": "outfits/sports/body.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 422
+  },
+  {
+    "character": "claude-adult",
+    "outfit": "sports",
+    "action": "comb",
+    "file": "outfits/sports/care.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 502
+  },
+  {
+    "character": "claude-adult",
+    "outfit": "sports",
+    "action": "wipe",
+    "file": "outfits/sports/care.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 502
+  },
+  {
+    "character": "claude-adult",
+    "outfit": "sports",
+    "action": "eat",
+    "file": "outfits/sports/catch.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 483
+  },
+  {
+    "character": "claude-adult",
+    "outfit": "sports",
+    "action": "meal",
+    "file": "outfits/sports/catch.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 483
+  },
+  {
+    "character": "claude-adult",
+    "outfit": "sports",
+    "action": "ball-ready",
+    "file": "outfits/sports/catch.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 483
+  },
+  {
+    "character": "claude-adult",
+    "outfit": "sports",
+    "action": "anticipate",
+    "file": "outfits/sports/catch.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 483
+  },
+  {
+    "character": "claude-adult",
+    "outfit": "sports",
+    "action": "ball-hold",
+    "file": "outfits/sports/catch.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 483
+  },
+  {
+    "character": "claude-adult",
+    "outfit": "sports",
+    "action": "stars",
+    "file": "outfits/sports/club.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 297
+  },
+  {
+    "character": "claude-adult",
+    "outfit": "sports",
+    "action": "bubbles",
+    "file": "outfits/sports/club.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 297
+  },
+  {
+    "character": "claude-adult",
+    "outfit": "sports",
+    "action": "stretch",
+    "file": "outfits/sports/club.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 297
+  },
+  {
+    "character": "claude-adult",
+    "outfit": "sports",
+    "action": "walk",
+    "file": "outfits/sports/walk.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 498
   },
   {
     "character": "deepseek-adult",
@@ -1345,15 +1814,6 @@
   },
   {
     "character": "deepseek-adult",
-    "outfit": "original",
-    "action": "dance",
-    "file": "motions/dance-base-atlas.png",
-    "sha256": "5f277fbaf2823828884dcfff350f800c3d1ebba45f3879c2db9ab73e285c7c45",
-    "method": "fixed neutral body pixels; posture and props do not rescale frames",
-    "referenceHeightPixels": 989.0
-  },
-  {
-    "character": "deepseek-adult",
     "outfit": "swim",
     "action": "eat",
     "file": "outfits/swim/contact.png",
@@ -1477,15 +1937,6 @@
     "sha256": "5436a63783a2f96a56e7485bfe828962577bbe200eba7c7e316febdd3d7fa77d",
     "method": "fixed neutral body pixels; posture and props do not rescale frames",
     "referenceHeightPixels": 452.0
-  },
-  {
-    "character": "deepseek-adult",
-    "outfit": "swim",
-    "action": "dance",
-    "file": "motions/dance-base-atlas.png",
-    "sha256": "5f277fbaf2823828884dcfff350f800c3d1ebba45f3879c2db9ab73e285c7c45",
-    "method": "fixed neutral body pixels; posture and props do not rescale frames",
-    "referenceHeightPixels": 988.0
   },
   {
     "character": "deepseek-adult",
@@ -1615,12 +2066,251 @@
   },
   {
     "character": "deepseek-adult",
-    "outfit": "wedding",
-    "action": "dance",
-    "file": "motions/dance-base-atlas.png",
-    "sha256": "5f277fbaf2823828884dcfff350f800c3d1ebba45f3879c2db9ab73e285c7c45",
-    "method": "fixed neutral body pixels; posture and props do not rescale frames",
-    "referenceHeightPixels": 990.0
+    "outfit": "sports",
+    "action": "idle",
+    "file": "outfits/sports/portrait.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 377
+  },
+  {
+    "character": "deepseek-adult",
+    "outfit": "sports",
+    "action": "listen",
+    "file": "outfits/sports/portrait.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 377
+  },
+  {
+    "character": "deepseek-adult",
+    "outfit": "sports",
+    "action": "headpat",
+    "file": "outfits/sports/portrait.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 377
+  },
+  {
+    "character": "deepseek-adult",
+    "outfit": "sports",
+    "action": "poke",
+    "file": "outfits/sports/portrait.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 377
+  },
+  {
+    "character": "deepseek-adult",
+    "outfit": "sports",
+    "action": "tickle",
+    "file": "outfits/sports/portrait.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 377
+  },
+  {
+    "character": "deepseek-adult",
+    "outfit": "sports",
+    "action": "happy",
+    "file": "outfits/sports/portrait.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 377
+  },
+  {
+    "character": "deepseek-adult",
+    "outfit": "sports",
+    "action": "sad",
+    "file": "outfits/sports/portrait.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 377
+  },
+  {
+    "character": "deepseek-adult",
+    "outfit": "sports",
+    "action": "dizzy",
+    "file": "outfits/sports/portrait.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 377
+  },
+  {
+    "character": "deepseek-adult",
+    "outfit": "sports",
+    "action": "bonk",
+    "file": "outfits/sports/bonk.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 917
+  },
+  {
+    "character": "deepseek-adult",
+    "outfit": "sports",
+    "action": "chat",
+    "file": "outfits/sports/body.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 422
+  },
+  {
+    "character": "deepseek-adult",
+    "outfit": "sports",
+    "action": "think",
+    "file": "outfits/sports/body.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 422
+  },
+  {
+    "character": "deepseek-adult",
+    "outfit": "sports",
+    "action": "jump",
+    "file": "outfits/sports/body.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 422
+  },
+  {
+    "character": "deepseek-adult",
+    "outfit": "sports",
+    "action": "land",
+    "file": "outfits/sports/body.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 422
+  },
+  {
+    "character": "deepseek-adult",
+    "outfit": "sports",
+    "action": "curl",
+    "file": "outfits/sports/body.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 422
+  },
+  {
+    "character": "deepseek-adult",
+    "outfit": "sports",
+    "action": "sleep",
+    "file": "outfits/sports/body.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 422
+  },
+  {
+    "character": "deepseek-adult",
+    "outfit": "sports",
+    "action": "build",
+    "file": "outfits/sports/body.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 422
+  },
+  {
+    "character": "deepseek-adult",
+    "outfit": "sports",
+    "action": "pickup",
+    "file": "outfits/sports/body.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 422
+  },
+  {
+    "character": "deepseek-adult",
+    "outfit": "sports",
+    "action": "ball-miss",
+    "file": "outfits/sports/body.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 422
+  },
+  {
+    "character": "deepseek-adult",
+    "outfit": "sports",
+    "action": "ball-hit",
+    "file": "outfits/sports/body.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 422
+  },
+  {
+    "character": "deepseek-adult",
+    "outfit": "sports",
+    "action": "farewell",
+    "file": "outfits/sports/body.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 422
+  },
+  {
+    "character": "deepseek-adult",
+    "outfit": "sports",
+    "action": "comb",
+    "file": "outfits/sports/care.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 509
+  },
+  {
+    "character": "deepseek-adult",
+    "outfit": "sports",
+    "action": "wipe",
+    "file": "outfits/sports/care.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 509
+  },
+  {
+    "character": "deepseek-adult",
+    "outfit": "sports",
+    "action": "eat",
+    "file": "outfits/sports/catch.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 476
+  },
+  {
+    "character": "deepseek-adult",
+    "outfit": "sports",
+    "action": "meal",
+    "file": "outfits/sports/catch.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 476
+  },
+  {
+    "character": "deepseek-adult",
+    "outfit": "sports",
+    "action": "ball-ready",
+    "file": "outfits/sports/catch.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 476
+  },
+  {
+    "character": "deepseek-adult",
+    "outfit": "sports",
+    "action": "anticipate",
+    "file": "outfits/sports/catch.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 476
+  },
+  {
+    "character": "deepseek-adult",
+    "outfit": "sports",
+    "action": "ball-hold",
+    "file": "outfits/sports/catch.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 476
+  },
+  {
+    "character": "deepseek-adult",
+    "outfit": "sports",
+    "action": "stars",
+    "file": "outfits/sports/club.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 288
+  },
+  {
+    "character": "deepseek-adult",
+    "outfit": "sports",
+    "action": "bubbles",
+    "file": "outfits/sports/club.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 288
+  },
+  {
+    "character": "deepseek-adult",
+    "outfit": "sports",
+    "action": "stretch",
+    "file": "outfits/sports/club.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 288
+  },
+  {
+    "character": "deepseek-adult",
+    "outfit": "sports",
+    "action": "walk",
+    "file": "outfits/sports/walk.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 497
   },
   {
     "character": "gemini",
@@ -2436,6 +3126,254 @@
     "referenceHeightPixels": 337.0
   },
   {
+    "character": "gemini",
+    "outfit": "sports",
+    "action": "idle",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 247
+  },
+  {
+    "character": "gemini",
+    "outfit": "sports",
+    "action": "listen",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 247
+  },
+  {
+    "character": "gemini",
+    "outfit": "sports",
+    "action": "chat",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 247
+  },
+  {
+    "character": "gemini",
+    "outfit": "sports",
+    "action": "think",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 247
+  },
+  {
+    "character": "gemini",
+    "outfit": "sports",
+    "action": "headpat",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 247
+  },
+  {
+    "character": "gemini",
+    "outfit": "sports",
+    "action": "poke",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 247
+  },
+  {
+    "character": "gemini",
+    "outfit": "sports",
+    "action": "tickle",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 247
+  },
+  {
+    "character": "gemini",
+    "outfit": "sports",
+    "action": "happy",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 247
+  },
+  {
+    "character": "gemini",
+    "outfit": "sports",
+    "action": "sad",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 247
+  },
+  {
+    "character": "gemini",
+    "outfit": "sports",
+    "action": "jump",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 247
+  },
+  {
+    "character": "gemini",
+    "outfit": "sports",
+    "action": "land",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 247
+  },
+  {
+    "character": "gemini",
+    "outfit": "sports",
+    "action": "curl",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 247
+  },
+  {
+    "character": "gemini",
+    "outfit": "sports",
+    "action": "sleep",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 247
+  },
+  {
+    "character": "gemini",
+    "outfit": "sports",
+    "action": "pickup",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 247
+  },
+  {
+    "character": "gemini",
+    "outfit": "sports",
+    "action": "ball-ready",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 247
+  },
+  {
+    "character": "gemini",
+    "outfit": "sports",
+    "action": "anticipate",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 247
+  },
+  {
+    "character": "gemini",
+    "outfit": "sports",
+    "action": "ball-hit",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 247
+  },
+  {
+    "character": "gemini",
+    "outfit": "sports",
+    "action": "ball-hold",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 247
+  },
+  {
+    "character": "gemini",
+    "outfit": "sports",
+    "action": "ball-miss",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 247
+  },
+  {
+    "character": "gemini",
+    "outfit": "sports",
+    "action": "bonk",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 247
+  },
+  {
+    "character": "gemini",
+    "outfit": "sports",
+    "action": "dizzy",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 247
+  },
+  {
+    "character": "gemini",
+    "outfit": "sports",
+    "action": "farewell",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 247
+  },
+  {
+    "character": "gemini",
+    "outfit": "sports",
+    "action": "eat",
+    "file": "outfits/sports/contact.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 279.933
+  },
+  {
+    "character": "gemini",
+    "outfit": "sports",
+    "action": "meal",
+    "file": "outfits/sports/contact.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 279.933
+  },
+  {
+    "character": "gemini",
+    "outfit": "sports",
+    "action": "build",
+    "file": "outfits/sports/contact.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 279.933
+  },
+  {
+    "character": "gemini",
+    "outfit": "sports",
+    "action": "comb",
+    "file": "outfits/sports/contact.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 279.933
+  },
+  {
+    "character": "gemini",
+    "outfit": "sports",
+    "action": "wipe",
+    "file": "outfits/sports/contact.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 279.933
+  },
+  {
+    "character": "gemini",
+    "outfit": "sports",
+    "action": "walk",
+    "file": "outfits/sports/walk.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 314.15
+  },
+  {
+    "character": "gemini",
+    "outfit": "sports",
+    "action": "stars",
+    "file": "outfits/sports/club.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 284.05
+  },
+  {
+    "character": "gemini",
+    "outfit": "sports",
+    "action": "bubbles",
+    "file": "outfits/sports/club.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 284.05
+  },
+  {
+    "character": "gemini",
+    "outfit": "sports",
+    "action": "stretch",
+    "file": "outfits/sports/club.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 284.05
+  },
+  {
     "character": "gemini-adult",
     "outfit": "original",
     "action": "eat",
@@ -2560,15 +3498,6 @@
     "sha256": "1de4eafa128e2f07e5cae0ba22e272e7b7180626337988279d36b285156360c7",
     "method": "fixed neutral body pixels; posture and props do not rescale frames",
     "referenceHeightPixels": 380.0
-  },
-  {
-    "character": "gemini-adult",
-    "outfit": "original",
-    "action": "dance",
-    "file": "motions/dance-base-atlas.png",
-    "sha256": "0e1fb3749c46fbe2152592776202e79b41ebab6ad81e9eedbf207fadeb34940b",
-    "method": "fixed neutral body pixels; posture and props do not rescale frames",
-    "referenceHeightPixels": 981.0
   },
   {
     "character": "gemini-adult",
@@ -2698,15 +3627,6 @@
   },
   {
     "character": "gemini-adult",
-    "outfit": "swim",
-    "action": "dance",
-    "file": "motions/dance-base-atlas.png",
-    "sha256": "0e1fb3749c46fbe2152592776202e79b41ebab6ad81e9eedbf207fadeb34940b",
-    "method": "fixed neutral body pixels; posture and props do not rescale frames",
-    "referenceHeightPixels": 983.0
-  },
-  {
-    "character": "gemini-adult",
     "outfit": "wedding",
     "action": "eat",
     "file": "outfits/wedding/contact.png",
@@ -2833,12 +3753,251 @@
   },
   {
     "character": "gemini-adult",
-    "outfit": "wedding",
-    "action": "dance",
-    "file": "motions/dance-base-atlas.png",
-    "sha256": "0e1fb3749c46fbe2152592776202e79b41ebab6ad81e9eedbf207fadeb34940b",
-    "method": "fixed neutral body pixels; posture and props do not rescale frames",
-    "referenceHeightPixels": 982.0
+    "outfit": "sports",
+    "action": "idle",
+    "file": "outfits/sports/portrait.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 366
+  },
+  {
+    "character": "gemini-adult",
+    "outfit": "sports",
+    "action": "listen",
+    "file": "outfits/sports/portrait.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 366
+  },
+  {
+    "character": "gemini-adult",
+    "outfit": "sports",
+    "action": "headpat",
+    "file": "outfits/sports/portrait.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 366
+  },
+  {
+    "character": "gemini-adult",
+    "outfit": "sports",
+    "action": "poke",
+    "file": "outfits/sports/portrait.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 366
+  },
+  {
+    "character": "gemini-adult",
+    "outfit": "sports",
+    "action": "tickle",
+    "file": "outfits/sports/portrait.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 366
+  },
+  {
+    "character": "gemini-adult",
+    "outfit": "sports",
+    "action": "happy",
+    "file": "outfits/sports/portrait.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 366
+  },
+  {
+    "character": "gemini-adult",
+    "outfit": "sports",
+    "action": "sad",
+    "file": "outfits/sports/portrait.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 366
+  },
+  {
+    "character": "gemini-adult",
+    "outfit": "sports",
+    "action": "dizzy",
+    "file": "outfits/sports/portrait.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 366
+  },
+  {
+    "character": "gemini-adult",
+    "outfit": "sports",
+    "action": "bonk",
+    "file": "outfits/sports/bonk.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 798
+  },
+  {
+    "character": "gemini-adult",
+    "outfit": "sports",
+    "action": "chat",
+    "file": "outfits/sports/body.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 402
+  },
+  {
+    "character": "gemini-adult",
+    "outfit": "sports",
+    "action": "think",
+    "file": "outfits/sports/body.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 402
+  },
+  {
+    "character": "gemini-adult",
+    "outfit": "sports",
+    "action": "jump",
+    "file": "outfits/sports/body.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 402
+  },
+  {
+    "character": "gemini-adult",
+    "outfit": "sports",
+    "action": "land",
+    "file": "outfits/sports/body.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 402
+  },
+  {
+    "character": "gemini-adult",
+    "outfit": "sports",
+    "action": "curl",
+    "file": "outfits/sports/body.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 402
+  },
+  {
+    "character": "gemini-adult",
+    "outfit": "sports",
+    "action": "sleep",
+    "file": "outfits/sports/body.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 402
+  },
+  {
+    "character": "gemini-adult",
+    "outfit": "sports",
+    "action": "build",
+    "file": "outfits/sports/body.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 402
+  },
+  {
+    "character": "gemini-adult",
+    "outfit": "sports",
+    "action": "pickup",
+    "file": "outfits/sports/body.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 402
+  },
+  {
+    "character": "gemini-adult",
+    "outfit": "sports",
+    "action": "ball-miss",
+    "file": "outfits/sports/body.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 402
+  },
+  {
+    "character": "gemini-adult",
+    "outfit": "sports",
+    "action": "ball-hit",
+    "file": "outfits/sports/body.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 402
+  },
+  {
+    "character": "gemini-adult",
+    "outfit": "sports",
+    "action": "farewell",
+    "file": "outfits/sports/body.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 402
+  },
+  {
+    "character": "gemini-adult",
+    "outfit": "sports",
+    "action": "comb",
+    "file": "outfits/sports/care.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 523
+  },
+  {
+    "character": "gemini-adult",
+    "outfit": "sports",
+    "action": "wipe",
+    "file": "outfits/sports/care.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 523
+  },
+  {
+    "character": "gemini-adult",
+    "outfit": "sports",
+    "action": "eat",
+    "file": "outfits/sports/catch.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 483
+  },
+  {
+    "character": "gemini-adult",
+    "outfit": "sports",
+    "action": "meal",
+    "file": "outfits/sports/catch.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 483
+  },
+  {
+    "character": "gemini-adult",
+    "outfit": "sports",
+    "action": "ball-ready",
+    "file": "outfits/sports/catch.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 483
+  },
+  {
+    "character": "gemini-adult",
+    "outfit": "sports",
+    "action": "anticipate",
+    "file": "outfits/sports/catch.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 483
+  },
+  {
+    "character": "gemini-adult",
+    "outfit": "sports",
+    "action": "ball-hold",
+    "file": "outfits/sports/catch.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 483
+  },
+  {
+    "character": "gemini-adult",
+    "outfit": "sports",
+    "action": "stars",
+    "file": "outfits/sports/club.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 285
+  },
+  {
+    "character": "gemini-adult",
+    "outfit": "sports",
+    "action": "bubbles",
+    "file": "outfits/sports/club.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 285
+  },
+  {
+    "character": "gemini-adult",
+    "outfit": "sports",
+    "action": "stretch",
+    "file": "outfits/sports/club.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 285
+  },
+  {
+    "character": "gemini-adult",
+    "outfit": "sports",
+    "action": "walk",
+    "file": "outfits/sports/walk.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 495
   },
   {
     "character": "gpt",
@@ -3650,6 +4809,254 @@
     "referenceHeightPixels": 346.5
   },
   {
+    "character": "gpt",
+    "outfit": "sports",
+    "action": "idle",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 248
+  },
+  {
+    "character": "gpt",
+    "outfit": "sports",
+    "action": "listen",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 248
+  },
+  {
+    "character": "gpt",
+    "outfit": "sports",
+    "action": "chat",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 248
+  },
+  {
+    "character": "gpt",
+    "outfit": "sports",
+    "action": "think",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 248
+  },
+  {
+    "character": "gpt",
+    "outfit": "sports",
+    "action": "headpat",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 248
+  },
+  {
+    "character": "gpt",
+    "outfit": "sports",
+    "action": "poke",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 248
+  },
+  {
+    "character": "gpt",
+    "outfit": "sports",
+    "action": "tickle",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 248
+  },
+  {
+    "character": "gpt",
+    "outfit": "sports",
+    "action": "happy",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 248
+  },
+  {
+    "character": "gpt",
+    "outfit": "sports",
+    "action": "sad",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 248
+  },
+  {
+    "character": "gpt",
+    "outfit": "sports",
+    "action": "jump",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 248
+  },
+  {
+    "character": "gpt",
+    "outfit": "sports",
+    "action": "land",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 248
+  },
+  {
+    "character": "gpt",
+    "outfit": "sports",
+    "action": "curl",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 248
+  },
+  {
+    "character": "gpt",
+    "outfit": "sports",
+    "action": "sleep",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 248
+  },
+  {
+    "character": "gpt",
+    "outfit": "sports",
+    "action": "pickup",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 248
+  },
+  {
+    "character": "gpt",
+    "outfit": "sports",
+    "action": "ball-ready",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 248
+  },
+  {
+    "character": "gpt",
+    "outfit": "sports",
+    "action": "anticipate",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 248
+  },
+  {
+    "character": "gpt",
+    "outfit": "sports",
+    "action": "ball-hit",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 248
+  },
+  {
+    "character": "gpt",
+    "outfit": "sports",
+    "action": "ball-hold",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 248
+  },
+  {
+    "character": "gpt",
+    "outfit": "sports",
+    "action": "ball-miss",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 248
+  },
+  {
+    "character": "gpt",
+    "outfit": "sports",
+    "action": "bonk",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 248
+  },
+  {
+    "character": "gpt",
+    "outfit": "sports",
+    "action": "dizzy",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 248
+  },
+  {
+    "character": "gpt",
+    "outfit": "sports",
+    "action": "farewell",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 248
+  },
+  {
+    "character": "gpt",
+    "outfit": "sports",
+    "action": "eat",
+    "file": "outfits/sports/contact.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 244.779
+  },
+  {
+    "character": "gpt",
+    "outfit": "sports",
+    "action": "meal",
+    "file": "outfits/sports/contact.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 244.779
+  },
+  {
+    "character": "gpt",
+    "outfit": "sports",
+    "action": "build",
+    "file": "outfits/sports/contact.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 244.779
+  },
+  {
+    "character": "gpt",
+    "outfit": "sports",
+    "action": "comb",
+    "file": "outfits/sports/contact.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 244.779
+  },
+  {
+    "character": "gpt",
+    "outfit": "sports",
+    "action": "wipe",
+    "file": "outfits/sports/contact.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 244.779
+  },
+  {
+    "character": "gpt",
+    "outfit": "sports",
+    "action": "walk",
+    "file": "outfits/sports/walk.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 332.69
+  },
+  {
+    "character": "gpt",
+    "outfit": "sports",
+    "action": "stars",
+    "file": "outfits/sports/club.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 241.558
+  },
+  {
+    "character": "gpt",
+    "outfit": "sports",
+    "action": "bubbles",
+    "file": "outfits/sports/club.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 241.558
+  },
+  {
+    "character": "gpt",
+    "outfit": "sports",
+    "action": "stretch",
+    "file": "outfits/sports/club.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 241.558
+  },
+  {
     "character": "gpt-adult",
     "outfit": "original",
     "action": "eat",
@@ -3774,15 +5181,6 @@
     "sha256": "13f7c798a2c0b6d88aa9721a290ee140a8031130da44dcedf175beaffdc18e4e",
     "method": "fixed neutral body pixels; posture and props do not rescale frames",
     "referenceHeightPixels": 404.0
-  },
-  {
-    "character": "gpt-adult",
-    "outfit": "original",
-    "action": "dance",
-    "file": "motions/dance-base-atlas.png",
-    "sha256": "7fa950c5effde0e87fef3842c50a1c0fb7acea2acc38981377de25ea29acf67b",
-    "method": "fixed neutral body pixels; posture and props do not rescale frames",
-    "referenceHeightPixels": 957.0
   },
   {
     "character": "gpt-adult",
@@ -3912,15 +5310,6 @@
   },
   {
     "character": "gpt-adult",
-    "outfit": "swim",
-    "action": "dance",
-    "file": "motions/dance-base-atlas.png",
-    "sha256": "7fa950c5effde0e87fef3842c50a1c0fb7acea2acc38981377de25ea29acf67b",
-    "method": "fixed neutral body pixels; posture and props do not rescale frames",
-    "referenceHeightPixels": 958.0
-  },
-  {
-    "character": "gpt-adult",
     "outfit": "wedding",
     "action": "eat",
     "file": "outfits/wedding/contact.png",
@@ -4047,12 +5436,251 @@
   },
   {
     "character": "gpt-adult",
-    "outfit": "wedding",
-    "action": "dance",
-    "file": "motions/dance-base-atlas.png",
-    "sha256": "7fa950c5effde0e87fef3842c50a1c0fb7acea2acc38981377de25ea29acf67b",
-    "method": "fixed neutral body pixels; posture and props do not rescale frames",
-    "referenceHeightPixels": 957.0
+    "outfit": "sports",
+    "action": "idle",
+    "file": "outfits/sports/portrait.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 395
+  },
+  {
+    "character": "gpt-adult",
+    "outfit": "sports",
+    "action": "listen",
+    "file": "outfits/sports/portrait.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 395
+  },
+  {
+    "character": "gpt-adult",
+    "outfit": "sports",
+    "action": "headpat",
+    "file": "outfits/sports/portrait.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 395
+  },
+  {
+    "character": "gpt-adult",
+    "outfit": "sports",
+    "action": "poke",
+    "file": "outfits/sports/portrait.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 395
+  },
+  {
+    "character": "gpt-adult",
+    "outfit": "sports",
+    "action": "tickle",
+    "file": "outfits/sports/portrait.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 395
+  },
+  {
+    "character": "gpt-adult",
+    "outfit": "sports",
+    "action": "happy",
+    "file": "outfits/sports/portrait.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 395
+  },
+  {
+    "character": "gpt-adult",
+    "outfit": "sports",
+    "action": "sad",
+    "file": "outfits/sports/portrait.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 395
+  },
+  {
+    "character": "gpt-adult",
+    "outfit": "sports",
+    "action": "dizzy",
+    "file": "outfits/sports/portrait.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 395
+  },
+  {
+    "character": "gpt-adult",
+    "outfit": "sports",
+    "action": "bonk",
+    "file": "outfits/sports/bonk.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 837
+  },
+  {
+    "character": "gpt-adult",
+    "outfit": "sports",
+    "action": "chat",
+    "file": "outfits/sports/body.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 420
+  },
+  {
+    "character": "gpt-adult",
+    "outfit": "sports",
+    "action": "think",
+    "file": "outfits/sports/body.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 420
+  },
+  {
+    "character": "gpt-adult",
+    "outfit": "sports",
+    "action": "jump",
+    "file": "outfits/sports/body.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 420
+  },
+  {
+    "character": "gpt-adult",
+    "outfit": "sports",
+    "action": "land",
+    "file": "outfits/sports/body.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 420
+  },
+  {
+    "character": "gpt-adult",
+    "outfit": "sports",
+    "action": "curl",
+    "file": "outfits/sports/body.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 420
+  },
+  {
+    "character": "gpt-adult",
+    "outfit": "sports",
+    "action": "sleep",
+    "file": "outfits/sports/body.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 420
+  },
+  {
+    "character": "gpt-adult",
+    "outfit": "sports",
+    "action": "build",
+    "file": "outfits/sports/body.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 420
+  },
+  {
+    "character": "gpt-adult",
+    "outfit": "sports",
+    "action": "pickup",
+    "file": "outfits/sports/body.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 420
+  },
+  {
+    "character": "gpt-adult",
+    "outfit": "sports",
+    "action": "ball-miss",
+    "file": "outfits/sports/body.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 420
+  },
+  {
+    "character": "gpt-adult",
+    "outfit": "sports",
+    "action": "ball-hit",
+    "file": "outfits/sports/body.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 420
+  },
+  {
+    "character": "gpt-adult",
+    "outfit": "sports",
+    "action": "farewell",
+    "file": "outfits/sports/body.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 420
+  },
+  {
+    "character": "gpt-adult",
+    "outfit": "sports",
+    "action": "comb",
+    "file": "outfits/sports/care.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 505
+  },
+  {
+    "character": "gpt-adult",
+    "outfit": "sports",
+    "action": "wipe",
+    "file": "outfits/sports/care.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 505
+  },
+  {
+    "character": "gpt-adult",
+    "outfit": "sports",
+    "action": "eat",
+    "file": "outfits/sports/catch.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 478
+  },
+  {
+    "character": "gpt-adult",
+    "outfit": "sports",
+    "action": "meal",
+    "file": "outfits/sports/catch.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 478
+  },
+  {
+    "character": "gpt-adult",
+    "outfit": "sports",
+    "action": "ball-ready",
+    "file": "outfits/sports/catch.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 478
+  },
+  {
+    "character": "gpt-adult",
+    "outfit": "sports",
+    "action": "anticipate",
+    "file": "outfits/sports/catch.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 478
+  },
+  {
+    "character": "gpt-adult",
+    "outfit": "sports",
+    "action": "ball-hold",
+    "file": "outfits/sports/catch.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 478
+  },
+  {
+    "character": "gpt-adult",
+    "outfit": "sports",
+    "action": "stars",
+    "file": "outfits/sports/club.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 298
+  },
+  {
+    "character": "gpt-adult",
+    "outfit": "sports",
+    "action": "bubbles",
+    "file": "outfits/sports/club.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 298
+  },
+  {
+    "character": "gpt-adult",
+    "outfit": "sports",
+    "action": "stretch",
+    "file": "outfits/sports/club.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 298
+  },
+  {
+    "character": "gpt-adult",
+    "outfit": "sports",
+    "action": "walk",
+    "file": "outfits/sports/walk.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 495
   },
   {
     "character": "grok",
@@ -4868,6 +6496,254 @@
     "referenceHeightPixels": 340.0
   },
   {
+    "character": "grok",
+    "outfit": "sports",
+    "action": "idle",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 243
+  },
+  {
+    "character": "grok",
+    "outfit": "sports",
+    "action": "listen",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 243
+  },
+  {
+    "character": "grok",
+    "outfit": "sports",
+    "action": "chat",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 243
+  },
+  {
+    "character": "grok",
+    "outfit": "sports",
+    "action": "think",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 243
+  },
+  {
+    "character": "grok",
+    "outfit": "sports",
+    "action": "headpat",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 243
+  },
+  {
+    "character": "grok",
+    "outfit": "sports",
+    "action": "poke",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 243
+  },
+  {
+    "character": "grok",
+    "outfit": "sports",
+    "action": "tickle",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 243
+  },
+  {
+    "character": "grok",
+    "outfit": "sports",
+    "action": "happy",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 243
+  },
+  {
+    "character": "grok",
+    "outfit": "sports",
+    "action": "sad",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 243
+  },
+  {
+    "character": "grok",
+    "outfit": "sports",
+    "action": "jump",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 243
+  },
+  {
+    "character": "grok",
+    "outfit": "sports",
+    "action": "land",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 243
+  },
+  {
+    "character": "grok",
+    "outfit": "sports",
+    "action": "curl",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 243
+  },
+  {
+    "character": "grok",
+    "outfit": "sports",
+    "action": "sleep",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 243
+  },
+  {
+    "character": "grok",
+    "outfit": "sports",
+    "action": "pickup",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 243
+  },
+  {
+    "character": "grok",
+    "outfit": "sports",
+    "action": "ball-ready",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 243
+  },
+  {
+    "character": "grok",
+    "outfit": "sports",
+    "action": "anticipate",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 243
+  },
+  {
+    "character": "grok",
+    "outfit": "sports",
+    "action": "ball-hit",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 243
+  },
+  {
+    "character": "grok",
+    "outfit": "sports",
+    "action": "ball-hold",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 243
+  },
+  {
+    "character": "grok",
+    "outfit": "sports",
+    "action": "ball-miss",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 243
+  },
+  {
+    "character": "grok",
+    "outfit": "sports",
+    "action": "bonk",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 243
+  },
+  {
+    "character": "grok",
+    "outfit": "sports",
+    "action": "dizzy",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 243
+  },
+  {
+    "character": "grok",
+    "outfit": "sports",
+    "action": "farewell",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 243
+  },
+  {
+    "character": "grok",
+    "outfit": "sports",
+    "action": "eat",
+    "file": "outfits/sports/contact.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 246.654
+  },
+  {
+    "character": "grok",
+    "outfit": "sports",
+    "action": "meal",
+    "file": "outfits/sports/contact.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 246.654
+  },
+  {
+    "character": "grok",
+    "outfit": "sports",
+    "action": "build",
+    "file": "outfits/sports/contact.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 246.654
+  },
+  {
+    "character": "grok",
+    "outfit": "sports",
+    "action": "comb",
+    "file": "outfits/sports/contact.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 246.654
+  },
+  {
+    "character": "grok",
+    "outfit": "sports",
+    "action": "wipe",
+    "file": "outfits/sports/contact.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 246.654
+  },
+  {
+    "character": "grok",
+    "outfit": "sports",
+    "action": "walk",
+    "file": "outfits/sports/walk.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 317.24
+  },
+  {
+    "character": "grok",
+    "outfit": "sports",
+    "action": "stars",
+    "file": "outfits/sports/club.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 246.654
+  },
+  {
+    "character": "grok",
+    "outfit": "sports",
+    "action": "bubbles",
+    "file": "outfits/sports/club.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 246.654
+  },
+  {
+    "character": "grok",
+    "outfit": "sports",
+    "action": "stretch",
+    "file": "outfits/sports/club.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 246.654
+  },
+  {
     "character": "grok-adult",
     "outfit": "original",
     "action": "eat",
@@ -4992,15 +6868,6 @@
     "sha256": "bec815bcae16b2be7e78b5dccbec9a837d1a813eb7757241e033636176379d44",
     "method": "fixed neutral body pixels; posture and props do not rescale frames",
     "referenceHeightPixels": 438.0
-  },
-  {
-    "character": "grok-adult",
-    "outfit": "original",
-    "action": "dance",
-    "file": "motions/dance-base-atlas.png",
-    "sha256": "a157948a9ecb2e0b133ce012374d1b42869211ad750cdb5250e0119d18715441",
-    "method": "fixed neutral body pixels; posture and props do not rescale frames",
-    "referenceHeightPixels": 968.0
   },
   {
     "character": "grok-adult",
@@ -5130,15 +6997,6 @@
   },
   {
     "character": "grok-adult",
-    "outfit": "swim",
-    "action": "dance",
-    "file": "motions/dance-base-atlas.png",
-    "sha256": "a157948a9ecb2e0b133ce012374d1b42869211ad750cdb5250e0119d18715441",
-    "method": "fixed neutral body pixels; posture and props do not rescale frames",
-    "referenceHeightPixels": 968.0
-  },
-  {
-    "character": "grok-adult",
     "outfit": "wedding",
     "action": "eat",
     "file": "outfits/wedding/contact.png",
@@ -5265,12 +7123,251 @@
   },
   {
     "character": "grok-adult",
-    "outfit": "wedding",
-    "action": "dance",
-    "file": "motions/dance-base-atlas.png",
-    "sha256": "a157948a9ecb2e0b133ce012374d1b42869211ad750cdb5250e0119d18715441",
-    "method": "fixed neutral body pixels; posture and props do not rescale frames",
-    "referenceHeightPixels": 970.0
+    "outfit": "sports",
+    "action": "idle",
+    "file": "outfits/sports/portrait.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 372
+  },
+  {
+    "character": "grok-adult",
+    "outfit": "sports",
+    "action": "listen",
+    "file": "outfits/sports/portrait.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 372
+  },
+  {
+    "character": "grok-adult",
+    "outfit": "sports",
+    "action": "headpat",
+    "file": "outfits/sports/portrait.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 372
+  },
+  {
+    "character": "grok-adult",
+    "outfit": "sports",
+    "action": "poke",
+    "file": "outfits/sports/portrait.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 372
+  },
+  {
+    "character": "grok-adult",
+    "outfit": "sports",
+    "action": "tickle",
+    "file": "outfits/sports/portrait.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 372
+  },
+  {
+    "character": "grok-adult",
+    "outfit": "sports",
+    "action": "happy",
+    "file": "outfits/sports/portrait.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 372
+  },
+  {
+    "character": "grok-adult",
+    "outfit": "sports",
+    "action": "sad",
+    "file": "outfits/sports/portrait.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 372
+  },
+  {
+    "character": "grok-adult",
+    "outfit": "sports",
+    "action": "dizzy",
+    "file": "outfits/sports/portrait.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 372
+  },
+  {
+    "character": "grok-adult",
+    "outfit": "sports",
+    "action": "bonk",
+    "file": "outfits/sports/bonk.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 833
+  },
+  {
+    "character": "grok-adult",
+    "outfit": "sports",
+    "action": "chat",
+    "file": "outfits/sports/body.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 384
+  },
+  {
+    "character": "grok-adult",
+    "outfit": "sports",
+    "action": "think",
+    "file": "outfits/sports/body.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 384
+  },
+  {
+    "character": "grok-adult",
+    "outfit": "sports",
+    "action": "jump",
+    "file": "outfits/sports/body.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 384
+  },
+  {
+    "character": "grok-adult",
+    "outfit": "sports",
+    "action": "land",
+    "file": "outfits/sports/body.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 384
+  },
+  {
+    "character": "grok-adult",
+    "outfit": "sports",
+    "action": "curl",
+    "file": "outfits/sports/body.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 384
+  },
+  {
+    "character": "grok-adult",
+    "outfit": "sports",
+    "action": "sleep",
+    "file": "outfits/sports/body.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 384
+  },
+  {
+    "character": "grok-adult",
+    "outfit": "sports",
+    "action": "build",
+    "file": "outfits/sports/body.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 384
+  },
+  {
+    "character": "grok-adult",
+    "outfit": "sports",
+    "action": "pickup",
+    "file": "outfits/sports/body.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 384
+  },
+  {
+    "character": "grok-adult",
+    "outfit": "sports",
+    "action": "ball-miss",
+    "file": "outfits/sports/body.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 384
+  },
+  {
+    "character": "grok-adult",
+    "outfit": "sports",
+    "action": "ball-hit",
+    "file": "outfits/sports/body.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 384
+  },
+  {
+    "character": "grok-adult",
+    "outfit": "sports",
+    "action": "farewell",
+    "file": "outfits/sports/body.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 384
+  },
+  {
+    "character": "grok-adult",
+    "outfit": "sports",
+    "action": "comb",
+    "file": "outfits/sports/care.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 500
+  },
+  {
+    "character": "grok-adult",
+    "outfit": "sports",
+    "action": "wipe",
+    "file": "outfits/sports/care.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 500
+  },
+  {
+    "character": "grok-adult",
+    "outfit": "sports",
+    "action": "eat",
+    "file": "outfits/sports/catch.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 478
+  },
+  {
+    "character": "grok-adult",
+    "outfit": "sports",
+    "action": "meal",
+    "file": "outfits/sports/catch.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 478
+  },
+  {
+    "character": "grok-adult",
+    "outfit": "sports",
+    "action": "ball-ready",
+    "file": "outfits/sports/catch.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 478
+  },
+  {
+    "character": "grok-adult",
+    "outfit": "sports",
+    "action": "anticipate",
+    "file": "outfits/sports/catch.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 478
+  },
+  {
+    "character": "grok-adult",
+    "outfit": "sports",
+    "action": "ball-hold",
+    "file": "outfits/sports/catch.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 478
+  },
+  {
+    "character": "grok-adult",
+    "outfit": "sports",
+    "action": "stars",
+    "file": "outfits/sports/club.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 295
+  },
+  {
+    "character": "grok-adult",
+    "outfit": "sports",
+    "action": "bubbles",
+    "file": "outfits/sports/club.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 295
+  },
+  {
+    "character": "grok-adult",
+    "outfit": "sports",
+    "action": "stretch",
+    "file": "outfits/sports/club.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 295
+  },
+  {
+    "character": "grok-adult",
+    "outfit": "sports",
+    "action": "walk",
+    "file": "outfits/sports/walk.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 498
   },
   {
     "character": "kimi",
@@ -6086,6 +8183,254 @@
     "referenceHeightPixels": 330.5
   },
   {
+    "character": "kimi",
+    "outfit": "sports",
+    "action": "idle",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 239
+  },
+  {
+    "character": "kimi",
+    "outfit": "sports",
+    "action": "listen",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 239
+  },
+  {
+    "character": "kimi",
+    "outfit": "sports",
+    "action": "chat",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 239
+  },
+  {
+    "character": "kimi",
+    "outfit": "sports",
+    "action": "think",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 239
+  },
+  {
+    "character": "kimi",
+    "outfit": "sports",
+    "action": "headpat",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 239
+  },
+  {
+    "character": "kimi",
+    "outfit": "sports",
+    "action": "poke",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 239
+  },
+  {
+    "character": "kimi",
+    "outfit": "sports",
+    "action": "tickle",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 239
+  },
+  {
+    "character": "kimi",
+    "outfit": "sports",
+    "action": "happy",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 239
+  },
+  {
+    "character": "kimi",
+    "outfit": "sports",
+    "action": "sad",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 239
+  },
+  {
+    "character": "kimi",
+    "outfit": "sports",
+    "action": "jump",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 239
+  },
+  {
+    "character": "kimi",
+    "outfit": "sports",
+    "action": "land",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 239
+  },
+  {
+    "character": "kimi",
+    "outfit": "sports",
+    "action": "curl",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 239
+  },
+  {
+    "character": "kimi",
+    "outfit": "sports",
+    "action": "sleep",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 239
+  },
+  {
+    "character": "kimi",
+    "outfit": "sports",
+    "action": "pickup",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 239
+  },
+  {
+    "character": "kimi",
+    "outfit": "sports",
+    "action": "ball-ready",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 239
+  },
+  {
+    "character": "kimi",
+    "outfit": "sports",
+    "action": "anticipate",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 239
+  },
+  {
+    "character": "kimi",
+    "outfit": "sports",
+    "action": "ball-hit",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 239
+  },
+  {
+    "character": "kimi",
+    "outfit": "sports",
+    "action": "ball-hold",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 239
+  },
+  {
+    "character": "kimi",
+    "outfit": "sports",
+    "action": "ball-miss",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 239
+  },
+  {
+    "character": "kimi",
+    "outfit": "sports",
+    "action": "bonk",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 239
+  },
+  {
+    "character": "kimi",
+    "outfit": "sports",
+    "action": "dizzy",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 239
+  },
+  {
+    "character": "kimi",
+    "outfit": "sports",
+    "action": "farewell",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 239
+  },
+  {
+    "character": "kimi",
+    "outfit": "sports",
+    "action": "eat",
+    "file": "outfits/sports/contact.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 222.129
+  },
+  {
+    "character": "kimi",
+    "outfit": "sports",
+    "action": "meal",
+    "file": "outfits/sports/contact.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 222.129
+  },
+  {
+    "character": "kimi",
+    "outfit": "sports",
+    "action": "build",
+    "file": "outfits/sports/contact.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 222.129
+  },
+  {
+    "character": "kimi",
+    "outfit": "sports",
+    "action": "comb",
+    "file": "outfits/sports/contact.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 222.129
+  },
+  {
+    "character": "kimi",
+    "outfit": "sports",
+    "action": "wipe",
+    "file": "outfits/sports/contact.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 222.129
+  },
+  {
+    "character": "kimi",
+    "outfit": "sports",
+    "action": "walk",
+    "file": "outfits/sports/walk.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 285.31
+  },
+  {
+    "character": "kimi",
+    "outfit": "sports",
+    "action": "stars",
+    "file": "outfits/sports/club.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 230.565
+  },
+  {
+    "character": "kimi",
+    "outfit": "sports",
+    "action": "bubbles",
+    "file": "outfits/sports/club.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 230.565
+  },
+  {
+    "character": "kimi",
+    "outfit": "sports",
+    "action": "stretch",
+    "file": "outfits/sports/club.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 230.565
+  },
+  {
     "character": "kimi-adult",
     "outfit": "original",
     "action": "eat",
@@ -6210,15 +8555,6 @@
     "sha256": "c0eae58bcf44ec421d08979e7e7b5469958e27a11ed9664e23750edc02ea7983",
     "method": "fixed neutral body pixels; posture and props do not rescale frames",
     "referenceHeightPixels": 446.0
-  },
-  {
-    "character": "kimi-adult",
-    "outfit": "original",
-    "action": "dance",
-    "file": "motions/dance-base-atlas.png",
-    "sha256": "5ef7b3f5fcda513208b3083037c7bf34cca2120286c5cc325506464b6fe685d8",
-    "method": "fixed neutral body pixels; posture and props do not rescale frames",
-    "referenceHeightPixels": 972.0
   },
   {
     "character": "kimi-adult",
@@ -6348,15 +8684,6 @@
   },
   {
     "character": "kimi-adult",
-    "outfit": "swim",
-    "action": "dance",
-    "file": "motions/dance-base-atlas.png",
-    "sha256": "5ef7b3f5fcda513208b3083037c7bf34cca2120286c5cc325506464b6fe685d8",
-    "method": "fixed neutral body pixels; posture and props do not rescale frames",
-    "referenceHeightPixels": 972.0
-  },
-  {
-    "character": "kimi-adult",
     "outfit": "wedding",
     "action": "eat",
     "file": "outfits/wedding/contact.png",
@@ -6483,12 +8810,251 @@
   },
   {
     "character": "kimi-adult",
-    "outfit": "wedding",
-    "action": "dance",
-    "file": "motions/dance-base-atlas.png",
-    "sha256": "5ef7b3f5fcda513208b3083037c7bf34cca2120286c5cc325506464b6fe685d8",
-    "method": "fixed neutral body pixels; posture and props do not rescale frames",
-    "referenceHeightPixels": 972.0
+    "outfit": "sports",
+    "action": "idle",
+    "file": "outfits/sports/portrait.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 344
+  },
+  {
+    "character": "kimi-adult",
+    "outfit": "sports",
+    "action": "listen",
+    "file": "outfits/sports/portrait.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 344
+  },
+  {
+    "character": "kimi-adult",
+    "outfit": "sports",
+    "action": "headpat",
+    "file": "outfits/sports/portrait.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 344
+  },
+  {
+    "character": "kimi-adult",
+    "outfit": "sports",
+    "action": "poke",
+    "file": "outfits/sports/portrait.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 344
+  },
+  {
+    "character": "kimi-adult",
+    "outfit": "sports",
+    "action": "tickle",
+    "file": "outfits/sports/portrait.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 344
+  },
+  {
+    "character": "kimi-adult",
+    "outfit": "sports",
+    "action": "happy",
+    "file": "outfits/sports/portrait.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 344
+  },
+  {
+    "character": "kimi-adult",
+    "outfit": "sports",
+    "action": "sad",
+    "file": "outfits/sports/portrait.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 344
+  },
+  {
+    "character": "kimi-adult",
+    "outfit": "sports",
+    "action": "dizzy",
+    "file": "outfits/sports/portrait.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 344
+  },
+  {
+    "character": "kimi-adult",
+    "outfit": "sports",
+    "action": "bonk",
+    "file": "outfits/sports/bonk.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 830
+  },
+  {
+    "character": "kimi-adult",
+    "outfit": "sports",
+    "action": "chat",
+    "file": "outfits/sports/body.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 421
+  },
+  {
+    "character": "kimi-adult",
+    "outfit": "sports",
+    "action": "think",
+    "file": "outfits/sports/body.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 421
+  },
+  {
+    "character": "kimi-adult",
+    "outfit": "sports",
+    "action": "jump",
+    "file": "outfits/sports/body.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 421
+  },
+  {
+    "character": "kimi-adult",
+    "outfit": "sports",
+    "action": "land",
+    "file": "outfits/sports/body.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 421
+  },
+  {
+    "character": "kimi-adult",
+    "outfit": "sports",
+    "action": "curl",
+    "file": "outfits/sports/body.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 421
+  },
+  {
+    "character": "kimi-adult",
+    "outfit": "sports",
+    "action": "sleep",
+    "file": "outfits/sports/body.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 421
+  },
+  {
+    "character": "kimi-adult",
+    "outfit": "sports",
+    "action": "build",
+    "file": "outfits/sports/body.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 421
+  },
+  {
+    "character": "kimi-adult",
+    "outfit": "sports",
+    "action": "pickup",
+    "file": "outfits/sports/body.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 421
+  },
+  {
+    "character": "kimi-adult",
+    "outfit": "sports",
+    "action": "ball-miss",
+    "file": "outfits/sports/body.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 421
+  },
+  {
+    "character": "kimi-adult",
+    "outfit": "sports",
+    "action": "ball-hit",
+    "file": "outfits/sports/body.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 421
+  },
+  {
+    "character": "kimi-adult",
+    "outfit": "sports",
+    "action": "farewell",
+    "file": "outfits/sports/body.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 421
+  },
+  {
+    "character": "kimi-adult",
+    "outfit": "sports",
+    "action": "comb",
+    "file": "outfits/sports/care.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 495
+  },
+  {
+    "character": "kimi-adult",
+    "outfit": "sports",
+    "action": "wipe",
+    "file": "outfits/sports/care.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 495
+  },
+  {
+    "character": "kimi-adult",
+    "outfit": "sports",
+    "action": "eat",
+    "file": "outfits/sports/catch.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 480
+  },
+  {
+    "character": "kimi-adult",
+    "outfit": "sports",
+    "action": "meal",
+    "file": "outfits/sports/catch.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 480
+  },
+  {
+    "character": "kimi-adult",
+    "outfit": "sports",
+    "action": "ball-ready",
+    "file": "outfits/sports/catch.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 480
+  },
+  {
+    "character": "kimi-adult",
+    "outfit": "sports",
+    "action": "anticipate",
+    "file": "outfits/sports/catch.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 480
+  },
+  {
+    "character": "kimi-adult",
+    "outfit": "sports",
+    "action": "ball-hold",
+    "file": "outfits/sports/catch.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 480
+  },
+  {
+    "character": "kimi-adult",
+    "outfit": "sports",
+    "action": "stars",
+    "file": "outfits/sports/club.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 298
+  },
+  {
+    "character": "kimi-adult",
+    "outfit": "sports",
+    "action": "bubbles",
+    "file": "outfits/sports/club.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 298
+  },
+  {
+    "character": "kimi-adult",
+    "outfit": "sports",
+    "action": "stretch",
+    "file": "outfits/sports/club.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 298
+  },
+  {
+    "character": "kimi-adult",
+    "outfit": "sports",
+    "action": "walk",
+    "file": "outfits/sports/walk.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 486
   },
   {
     "character": "qwen",
@@ -7304,6 +9870,254 @@
     "referenceHeightPixels": 334.5
   },
   {
+    "character": "qwen",
+    "outfit": "sports",
+    "action": "idle",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 214
+  },
+  {
+    "character": "qwen",
+    "outfit": "sports",
+    "action": "listen",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 214
+  },
+  {
+    "character": "qwen",
+    "outfit": "sports",
+    "action": "chat",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 214
+  },
+  {
+    "character": "qwen",
+    "outfit": "sports",
+    "action": "think",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 214
+  },
+  {
+    "character": "qwen",
+    "outfit": "sports",
+    "action": "headpat",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 214
+  },
+  {
+    "character": "qwen",
+    "outfit": "sports",
+    "action": "poke",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 214
+  },
+  {
+    "character": "qwen",
+    "outfit": "sports",
+    "action": "tickle",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 214
+  },
+  {
+    "character": "qwen",
+    "outfit": "sports",
+    "action": "happy",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 214
+  },
+  {
+    "character": "qwen",
+    "outfit": "sports",
+    "action": "sad",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 214
+  },
+  {
+    "character": "qwen",
+    "outfit": "sports",
+    "action": "jump",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 214
+  },
+  {
+    "character": "qwen",
+    "outfit": "sports",
+    "action": "land",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 214
+  },
+  {
+    "character": "qwen",
+    "outfit": "sports",
+    "action": "curl",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 214
+  },
+  {
+    "character": "qwen",
+    "outfit": "sports",
+    "action": "sleep",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 214
+  },
+  {
+    "character": "qwen",
+    "outfit": "sports",
+    "action": "pickup",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 214
+  },
+  {
+    "character": "qwen",
+    "outfit": "sports",
+    "action": "ball-ready",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 214
+  },
+  {
+    "character": "qwen",
+    "outfit": "sports",
+    "action": "anticipate",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 214
+  },
+  {
+    "character": "qwen",
+    "outfit": "sports",
+    "action": "ball-hit",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 214
+  },
+  {
+    "character": "qwen",
+    "outfit": "sports",
+    "action": "ball-hold",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 214
+  },
+  {
+    "character": "qwen",
+    "outfit": "sports",
+    "action": "ball-miss",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 214
+  },
+  {
+    "character": "qwen",
+    "outfit": "sports",
+    "action": "bonk",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 214
+  },
+  {
+    "character": "qwen",
+    "outfit": "sports",
+    "action": "dizzy",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 214
+  },
+  {
+    "character": "qwen",
+    "outfit": "sports",
+    "action": "farewell",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 214
+  },
+  {
+    "character": "qwen",
+    "outfit": "sports",
+    "action": "eat",
+    "file": "outfits/sports/contact.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 247.629
+  },
+  {
+    "character": "qwen",
+    "outfit": "sports",
+    "action": "meal",
+    "file": "outfits/sports/contact.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 247.629
+  },
+  {
+    "character": "qwen",
+    "outfit": "sports",
+    "action": "build",
+    "file": "outfits/sports/contact.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 247.629
+  },
+  {
+    "character": "qwen",
+    "outfit": "sports",
+    "action": "comb",
+    "file": "outfits/sports/contact.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 247.629
+  },
+  {
+    "character": "qwen",
+    "outfit": "sports",
+    "action": "wipe",
+    "file": "outfits/sports/contact.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 247.629
+  },
+  {
+    "character": "qwen",
+    "outfit": "sports",
+    "action": "walk",
+    "file": "outfits/sports/walk.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 298.7
+  },
+  {
+    "character": "qwen",
+    "outfit": "sports",
+    "action": "stars",
+    "file": "outfits/sports/club.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 241.514
+  },
+  {
+    "character": "qwen",
+    "outfit": "sports",
+    "action": "bubbles",
+    "file": "outfits/sports/club.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 241.514
+  },
+  {
+    "character": "qwen",
+    "outfit": "sports",
+    "action": "stretch",
+    "file": "outfits/sports/club.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 241.514
+  },
+  {
     "character": "qwen-adult",
     "outfit": "original",
     "action": "eat",
@@ -7428,15 +10242,6 @@
     "sha256": "64c14b3e2945cf21927aaa0d89f627ef15854099ec6f67ee53dac2ad747fdb1d",
     "method": "fixed neutral body pixels; posture and props do not rescale frames",
     "referenceHeightPixels": 410.0
-  },
-  {
-    "character": "qwen-adult",
-    "outfit": "original",
-    "action": "dance",
-    "file": "motions/dance-base-atlas.png",
-    "sha256": "f2c8ee03fe841ebe7a173f511f48d2a8216774674e09e24e447b57c16fdf62ec",
-    "method": "fixed neutral body pixels; posture and props do not rescale frames",
-    "referenceHeightPixels": 980.0
   },
   {
     "character": "qwen-adult",
@@ -7566,15 +10371,6 @@
   },
   {
     "character": "qwen-adult",
-    "outfit": "swim",
-    "action": "dance",
-    "file": "motions/dance-base-atlas.png",
-    "sha256": "f2c8ee03fe841ebe7a173f511f48d2a8216774674e09e24e447b57c16fdf62ec",
-    "method": "fixed neutral body pixels; posture and props do not rescale frames",
-    "referenceHeightPixels": 980.0
-  },
-  {
-    "character": "qwen-adult",
     "outfit": "wedding",
     "action": "eat",
     "file": "outfits/wedding/contact.png",
@@ -7701,12 +10497,251 @@
   },
   {
     "character": "qwen-adult",
-    "outfit": "wedding",
-    "action": "dance",
-    "file": "motions/dance-base-atlas.png",
-    "sha256": "f2c8ee03fe841ebe7a173f511f48d2a8216774674e09e24e447b57c16fdf62ec",
-    "method": "fixed neutral body pixels; posture and props do not rescale frames",
-    "referenceHeightPixels": 980.0
+    "outfit": "sports",
+    "action": "idle",
+    "file": "outfits/sports/portrait.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 354
+  },
+  {
+    "character": "qwen-adult",
+    "outfit": "sports",
+    "action": "listen",
+    "file": "outfits/sports/portrait.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 354
+  },
+  {
+    "character": "qwen-adult",
+    "outfit": "sports",
+    "action": "headpat",
+    "file": "outfits/sports/portrait.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 354
+  },
+  {
+    "character": "qwen-adult",
+    "outfit": "sports",
+    "action": "poke",
+    "file": "outfits/sports/portrait.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 354
+  },
+  {
+    "character": "qwen-adult",
+    "outfit": "sports",
+    "action": "tickle",
+    "file": "outfits/sports/portrait.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 354
+  },
+  {
+    "character": "qwen-adult",
+    "outfit": "sports",
+    "action": "happy",
+    "file": "outfits/sports/portrait.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 354
+  },
+  {
+    "character": "qwen-adult",
+    "outfit": "sports",
+    "action": "sad",
+    "file": "outfits/sports/portrait.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 354
+  },
+  {
+    "character": "qwen-adult",
+    "outfit": "sports",
+    "action": "dizzy",
+    "file": "outfits/sports/portrait.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 354
+  },
+  {
+    "character": "qwen-adult",
+    "outfit": "sports",
+    "action": "bonk",
+    "file": "outfits/sports/bonk.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 820
+  },
+  {
+    "character": "qwen-adult",
+    "outfit": "sports",
+    "action": "chat",
+    "file": "outfits/sports/body.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 427
+  },
+  {
+    "character": "qwen-adult",
+    "outfit": "sports",
+    "action": "think",
+    "file": "outfits/sports/body.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 427
+  },
+  {
+    "character": "qwen-adult",
+    "outfit": "sports",
+    "action": "jump",
+    "file": "outfits/sports/body.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 427
+  },
+  {
+    "character": "qwen-adult",
+    "outfit": "sports",
+    "action": "land",
+    "file": "outfits/sports/body.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 427
+  },
+  {
+    "character": "qwen-adult",
+    "outfit": "sports",
+    "action": "curl",
+    "file": "outfits/sports/body.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 427
+  },
+  {
+    "character": "qwen-adult",
+    "outfit": "sports",
+    "action": "sleep",
+    "file": "outfits/sports/body.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 427
+  },
+  {
+    "character": "qwen-adult",
+    "outfit": "sports",
+    "action": "build",
+    "file": "outfits/sports/body.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 427
+  },
+  {
+    "character": "qwen-adult",
+    "outfit": "sports",
+    "action": "pickup",
+    "file": "outfits/sports/body.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 427
+  },
+  {
+    "character": "qwen-adult",
+    "outfit": "sports",
+    "action": "ball-miss",
+    "file": "outfits/sports/body.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 427
+  },
+  {
+    "character": "qwen-adult",
+    "outfit": "sports",
+    "action": "ball-hit",
+    "file": "outfits/sports/body.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 427
+  },
+  {
+    "character": "qwen-adult",
+    "outfit": "sports",
+    "action": "farewell",
+    "file": "outfits/sports/body.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 427
+  },
+  {
+    "character": "qwen-adult",
+    "outfit": "sports",
+    "action": "comb",
+    "file": "outfits/sports/care.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 509
+  },
+  {
+    "character": "qwen-adult",
+    "outfit": "sports",
+    "action": "wipe",
+    "file": "outfits/sports/care.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 509
+  },
+  {
+    "character": "qwen-adult",
+    "outfit": "sports",
+    "action": "eat",
+    "file": "outfits/sports/catch.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 491
+  },
+  {
+    "character": "qwen-adult",
+    "outfit": "sports",
+    "action": "meal",
+    "file": "outfits/sports/catch.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 491
+  },
+  {
+    "character": "qwen-adult",
+    "outfit": "sports",
+    "action": "ball-ready",
+    "file": "outfits/sports/catch.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 491
+  },
+  {
+    "character": "qwen-adult",
+    "outfit": "sports",
+    "action": "anticipate",
+    "file": "outfits/sports/catch.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 491
+  },
+  {
+    "character": "qwen-adult",
+    "outfit": "sports",
+    "action": "ball-hold",
+    "file": "outfits/sports/catch.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 491
+  },
+  {
+    "character": "qwen-adult",
+    "outfit": "sports",
+    "action": "stars",
+    "file": "outfits/sports/club.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 306
+  },
+  {
+    "character": "qwen-adult",
+    "outfit": "sports",
+    "action": "bubbles",
+    "file": "outfits/sports/club.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 306
+  },
+  {
+    "character": "qwen-adult",
+    "outfit": "sports",
+    "action": "stretch",
+    "file": "outfits/sports/club.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 306
+  },
+  {
+    "character": "qwen-adult",
+    "outfit": "sports",
+    "action": "walk",
+    "file": "outfits/sports/walk.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 488
   },
   {
     "character": "whale",
@@ -8516,6 +11551,254 @@
     "sha256": "20e2029872b169fa813c879a987c113d39d5736358ca05568a4ce93560346986",
     "method": "fixed seated sheet pixels; remove duplicate .76 shrink",
     "referenceHeightPixels": 351.5
+  },
+  {
+    "character": "whale",
+    "outfit": "sports",
+    "action": "idle",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 250
+  },
+  {
+    "character": "whale",
+    "outfit": "sports",
+    "action": "stars",
+    "file": "outfits/sports/club.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 294.118
+  },
+  {
+    "character": "whale",
+    "outfit": "sports",
+    "action": "bubbles",
+    "file": "outfits/sports/club.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 294.118
+  },
+  {
+    "character": "whale",
+    "outfit": "sports",
+    "action": "stretch",
+    "file": "outfits/sports/club.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 294.118
+  },
+  {
+    "character": "whale",
+    "outfit": "sports",
+    "action": "eat",
+    "file": "outfits/sports/contact.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 268.382
+  },
+  {
+    "character": "whale",
+    "outfit": "sports",
+    "action": "meal",
+    "file": "outfits/sports/contact.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 268.382
+  },
+  {
+    "character": "whale",
+    "outfit": "sports",
+    "action": "build",
+    "file": "outfits/sports/contact.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 268.382
+  },
+  {
+    "character": "whale",
+    "outfit": "sports",
+    "action": "comb",
+    "file": "outfits/sports/contact.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 268.382
+  },
+  {
+    "character": "whale",
+    "outfit": "sports",
+    "action": "wipe",
+    "file": "outfits/sports/contact.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 268.382
+  },
+  {
+    "character": "whale",
+    "outfit": "sports",
+    "action": "listen",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 250
+  },
+  {
+    "character": "whale",
+    "outfit": "sports",
+    "action": "chat",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 250
+  },
+  {
+    "character": "whale",
+    "outfit": "sports",
+    "action": "think",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 250
+  },
+  {
+    "character": "whale",
+    "outfit": "sports",
+    "action": "headpat",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 250
+  },
+  {
+    "character": "whale",
+    "outfit": "sports",
+    "action": "poke",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 250
+  },
+  {
+    "character": "whale",
+    "outfit": "sports",
+    "action": "tickle",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 250
+  },
+  {
+    "character": "whale",
+    "outfit": "sports",
+    "action": "happy",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 250
+  },
+  {
+    "character": "whale",
+    "outfit": "sports",
+    "action": "sad",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 250
+  },
+  {
+    "character": "whale",
+    "outfit": "sports",
+    "action": "jump",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 250
+  },
+  {
+    "character": "whale",
+    "outfit": "sports",
+    "action": "land",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 250
+  },
+  {
+    "character": "whale",
+    "outfit": "sports",
+    "action": "curl",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 250
+  },
+  {
+    "character": "whale",
+    "outfit": "sports",
+    "action": "sleep",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 250
+  },
+  {
+    "character": "whale",
+    "outfit": "sports",
+    "action": "pickup",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 250
+  },
+  {
+    "character": "whale",
+    "outfit": "sports",
+    "action": "ball-ready",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 250
+  },
+  {
+    "character": "whale",
+    "outfit": "sports",
+    "action": "anticipate",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 250
+  },
+  {
+    "character": "whale",
+    "outfit": "sports",
+    "action": "ball-hit",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 250
+  },
+  {
+    "character": "whale",
+    "outfit": "sports",
+    "action": "ball-hold",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 250
+  },
+  {
+    "character": "whale",
+    "outfit": "sports",
+    "action": "ball-miss",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 250
+  },
+  {
+    "character": "whale",
+    "outfit": "sports",
+    "action": "bonk",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 250
+  },
+  {
+    "character": "whale",
+    "outfit": "sports",
+    "action": "dizzy",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 250
+  },
+  {
+    "character": "whale",
+    "outfit": "sports",
+    "action": "farewell",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 250
+  },
+  {
+    "character": "whale",
+    "outfit": "sports",
+    "action": "walk",
+    "file": "outfits/sports/walk.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 365
   },
   {
     "character": "zhipu",
@@ -9331,6 +12614,254 @@
     "referenceHeightPixels": 343.5
   },
   {
+    "character": "zhipu",
+    "outfit": "sports",
+    "action": "idle",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 242
+  },
+  {
+    "character": "zhipu",
+    "outfit": "sports",
+    "action": "listen",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 242
+  },
+  {
+    "character": "zhipu",
+    "outfit": "sports",
+    "action": "chat",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 242
+  },
+  {
+    "character": "zhipu",
+    "outfit": "sports",
+    "action": "think",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 242
+  },
+  {
+    "character": "zhipu",
+    "outfit": "sports",
+    "action": "headpat",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 242
+  },
+  {
+    "character": "zhipu",
+    "outfit": "sports",
+    "action": "poke",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 242
+  },
+  {
+    "character": "zhipu",
+    "outfit": "sports",
+    "action": "tickle",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 242
+  },
+  {
+    "character": "zhipu",
+    "outfit": "sports",
+    "action": "happy",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 242
+  },
+  {
+    "character": "zhipu",
+    "outfit": "sports",
+    "action": "sad",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 242
+  },
+  {
+    "character": "zhipu",
+    "outfit": "sports",
+    "action": "jump",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 242
+  },
+  {
+    "character": "zhipu",
+    "outfit": "sports",
+    "action": "land",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 242
+  },
+  {
+    "character": "zhipu",
+    "outfit": "sports",
+    "action": "curl",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 242
+  },
+  {
+    "character": "zhipu",
+    "outfit": "sports",
+    "action": "sleep",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 242
+  },
+  {
+    "character": "zhipu",
+    "outfit": "sports",
+    "action": "pickup",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 242
+  },
+  {
+    "character": "zhipu",
+    "outfit": "sports",
+    "action": "ball-ready",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 242
+  },
+  {
+    "character": "zhipu",
+    "outfit": "sports",
+    "action": "anticipate",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 242
+  },
+  {
+    "character": "zhipu",
+    "outfit": "sports",
+    "action": "ball-hit",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 242
+  },
+  {
+    "character": "zhipu",
+    "outfit": "sports",
+    "action": "ball-hold",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 242
+  },
+  {
+    "character": "zhipu",
+    "outfit": "sports",
+    "action": "ball-miss",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 242
+  },
+  {
+    "character": "zhipu",
+    "outfit": "sports",
+    "action": "bonk",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 242
+  },
+  {
+    "character": "zhipu",
+    "outfit": "sports",
+    "action": "dizzy",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 242
+  },
+  {
+    "character": "zhipu",
+    "outfit": "sports",
+    "action": "farewell",
+    "file": "outfits/sports/core.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 242
+  },
+  {
+    "character": "zhipu",
+    "outfit": "sports",
+    "action": "eat",
+    "file": "outfits/sports/contact.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 228.919
+  },
+  {
+    "character": "zhipu",
+    "outfit": "sports",
+    "action": "meal",
+    "file": "outfits/sports/contact.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 228.919
+  },
+  {
+    "character": "zhipu",
+    "outfit": "sports",
+    "action": "build",
+    "file": "outfits/sports/contact.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 228.919
+  },
+  {
+    "character": "zhipu",
+    "outfit": "sports",
+    "action": "comb",
+    "file": "outfits/sports/contact.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 228.919
+  },
+  {
+    "character": "zhipu",
+    "outfit": "sports",
+    "action": "wipe",
+    "file": "outfits/sports/contact.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 228.919
+  },
+  {
+    "character": "zhipu",
+    "outfit": "sports",
+    "action": "walk",
+    "file": "outfits/sports/walk.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 303.85
+  },
+  {
+    "character": "zhipu",
+    "outfit": "sports",
+    "action": "stars",
+    "file": "outfits/sports/club.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 251.811
+  },
+  {
+    "character": "zhipu",
+    "outfit": "sports",
+    "action": "bubbles",
+    "file": "outfits/sports/club.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 251.811
+  },
+  {
+    "character": "zhipu",
+    "outfit": "sports",
+    "action": "stretch",
+    "file": "outfits/sports/club.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 251.811
+  },
+  {
     "character": "zhipu-adult",
     "outfit": "original",
     "action": "eat",
@@ -9455,15 +12986,6 @@
     "sha256": "d4d7e6a37239b5487dfe8db1347bdaea1b49e760f62d637fda0b4bff66c46753",
     "method": "fixed neutral body pixels; posture and props do not rescale frames",
     "referenceHeightPixels": 400.0
-  },
-  {
-    "character": "zhipu-adult",
-    "outfit": "original",
-    "action": "dance",
-    "file": "motions/dance-base-atlas.png",
-    "sha256": "7a94f4738cc9cb0981e6cde39f073e486e4f79d4bce23336dd1be4a5ec653fe3",
-    "method": "fixed neutral body pixels; posture and props do not rescale frames",
-    "referenceHeightPixels": 980.0
   },
   {
     "character": "zhipu-adult",
@@ -9593,15 +13115,6 @@
   },
   {
     "character": "zhipu-adult",
-    "outfit": "swim",
-    "action": "dance",
-    "file": "motions/dance-base-atlas.png",
-    "sha256": "7a94f4738cc9cb0981e6cde39f073e486e4f79d4bce23336dd1be4a5ec653fe3",
-    "method": "fixed neutral body pixels; posture and props do not rescale frames",
-    "referenceHeightPixels": 980.0
-  },
-  {
-    "character": "zhipu-adult",
     "outfit": "wedding",
     "action": "eat",
     "file": "outfits/wedding/contact.png",
@@ -9728,11 +13241,250 @@
   },
   {
     "character": "zhipu-adult",
-    "outfit": "wedding",
-    "action": "dance",
-    "file": "motions/dance-base-atlas.png",
-    "sha256": "7a94f4738cc9cb0981e6cde39f073e486e4f79d4bce23336dd1be4a5ec653fe3",
-    "method": "fixed neutral body pixels; posture and props do not rescale frames",
-    "referenceHeightPixels": 981.0
+    "outfit": "sports",
+    "action": "idle",
+    "file": "outfits/sports/portrait.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 366
+  },
+  {
+    "character": "zhipu-adult",
+    "outfit": "sports",
+    "action": "listen",
+    "file": "outfits/sports/portrait.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 366
+  },
+  {
+    "character": "zhipu-adult",
+    "outfit": "sports",
+    "action": "headpat",
+    "file": "outfits/sports/portrait.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 366
+  },
+  {
+    "character": "zhipu-adult",
+    "outfit": "sports",
+    "action": "poke",
+    "file": "outfits/sports/portrait.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 366
+  },
+  {
+    "character": "zhipu-adult",
+    "outfit": "sports",
+    "action": "tickle",
+    "file": "outfits/sports/portrait.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 366
+  },
+  {
+    "character": "zhipu-adult",
+    "outfit": "sports",
+    "action": "happy",
+    "file": "outfits/sports/portrait.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 366
+  },
+  {
+    "character": "zhipu-adult",
+    "outfit": "sports",
+    "action": "sad",
+    "file": "outfits/sports/portrait.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 366
+  },
+  {
+    "character": "zhipu-adult",
+    "outfit": "sports",
+    "action": "dizzy",
+    "file": "outfits/sports/portrait.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 366
+  },
+  {
+    "character": "zhipu-adult",
+    "outfit": "sports",
+    "action": "bonk",
+    "file": "outfits/sports/bonk.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 862
+  },
+  {
+    "character": "zhipu-adult",
+    "outfit": "sports",
+    "action": "chat",
+    "file": "outfits/sports/body.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 429
+  },
+  {
+    "character": "zhipu-adult",
+    "outfit": "sports",
+    "action": "think",
+    "file": "outfits/sports/body.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 429
+  },
+  {
+    "character": "zhipu-adult",
+    "outfit": "sports",
+    "action": "jump",
+    "file": "outfits/sports/body.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 429
+  },
+  {
+    "character": "zhipu-adult",
+    "outfit": "sports",
+    "action": "land",
+    "file": "outfits/sports/body.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 429
+  },
+  {
+    "character": "zhipu-adult",
+    "outfit": "sports",
+    "action": "curl",
+    "file": "outfits/sports/body.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 429
+  },
+  {
+    "character": "zhipu-adult",
+    "outfit": "sports",
+    "action": "sleep",
+    "file": "outfits/sports/body.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 429
+  },
+  {
+    "character": "zhipu-adult",
+    "outfit": "sports",
+    "action": "build",
+    "file": "outfits/sports/body.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 429
+  },
+  {
+    "character": "zhipu-adult",
+    "outfit": "sports",
+    "action": "pickup",
+    "file": "outfits/sports/body.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 429
+  },
+  {
+    "character": "zhipu-adult",
+    "outfit": "sports",
+    "action": "ball-miss",
+    "file": "outfits/sports/body.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 429
+  },
+  {
+    "character": "zhipu-adult",
+    "outfit": "sports",
+    "action": "ball-hit",
+    "file": "outfits/sports/body.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 429
+  },
+  {
+    "character": "zhipu-adult",
+    "outfit": "sports",
+    "action": "farewell",
+    "file": "outfits/sports/body.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 429
+  },
+  {
+    "character": "zhipu-adult",
+    "outfit": "sports",
+    "action": "comb",
+    "file": "outfits/sports/care.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 502
+  },
+  {
+    "character": "zhipu-adult",
+    "outfit": "sports",
+    "action": "wipe",
+    "file": "outfits/sports/care.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 502
+  },
+  {
+    "character": "zhipu-adult",
+    "outfit": "sports",
+    "action": "eat",
+    "file": "outfits/sports/catch.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 487
+  },
+  {
+    "character": "zhipu-adult",
+    "outfit": "sports",
+    "action": "meal",
+    "file": "outfits/sports/catch.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 487
+  },
+  {
+    "character": "zhipu-adult",
+    "outfit": "sports",
+    "action": "ball-ready",
+    "file": "outfits/sports/catch.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 487
+  },
+  {
+    "character": "zhipu-adult",
+    "outfit": "sports",
+    "action": "anticipate",
+    "file": "outfits/sports/catch.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 487
+  },
+  {
+    "character": "zhipu-adult",
+    "outfit": "sports",
+    "action": "ball-hold",
+    "file": "outfits/sports/catch.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 487
+  },
+  {
+    "character": "zhipu-adult",
+    "outfit": "sports",
+    "action": "stars",
+    "file": "outfits/sports/club.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 294
+  },
+  {
+    "character": "zhipu-adult",
+    "outfit": "sports",
+    "action": "bubbles",
+    "file": "outfits/sports/club.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 294
+  },
+  {
+    "character": "zhipu-adult",
+    "outfit": "sports",
+    "action": "stretch",
+    "file": "outfits/sports/club.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 294
+  },
+  {
+    "character": "zhipu-adult",
+    "outfit": "sports",
+    "action": "walk",
+    "file": "outfits/sports/walk.png",
+    "method": "authored fixed body plane and flow; preserve installer calibration",
+    "referenceHeightPixels": 504
   }
 ]

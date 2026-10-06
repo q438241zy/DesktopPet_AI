@@ -1,0 +1,123 @@
+{
+  "key": "whale-care-v2",
+  "id": "whale",
+  "style": "chibi",
+  "target": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-77b936b4-d3f1-476a-a2ac-ccf5231cc009.png",
+  "prompt": "Use case: identity-preserve. Repair this exact 24-pose DeepSeek chibi care atlas, preserving identity, three distinct outfits, row-major 4 columns x6 rows, and all action poses. Make ALL characters smaller within their cells so every shoe, lace edge, hair and tail has at least 18 transparent pixels of padding from the cell edge and 30 pixels from entire canvas border. No neighboring characters touch. Same anatomical size across 24 poses. Rows1-2 original navy maid outfit, rows3-4 navy swimsuit, rows5-6 white wedding dress. In each two-row group first4 poses: comb held at waist, comb physically touches temple hair, hand draws comb down lock to shoulder, comb lowered. Next4 poses: ivory face towel held at chest (NO COMB), towel against one cheek, towel against opposite cheek, towel lowered with smile. Prop firmly held by fingers. Exactly24, each complete seated figure. Preserve transparent alpha; no background, colored glow, labels or new accessories.",
+  "kind": "care",
+  "outfits": [
+    "original",
+    "swim"
+  ],
+  "columns": 4,
+  "rows": 6,
+  "dest": "src/DesktopPet.App/Assets/Characters/whale/motions/cloud-care-wardrobe.png",
+  "selected": true,
+  "originalSource": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-d6798018-9050-4769-863b-1d551043c44c.png",
+  "source": "D:/VibeCoding/Character/artwork/care-contact/whale-care-v2.png",
+  "clips": {
+    "0:comb": [
+      [
+        0,
+        1,
+        2,
+        1,
+        2,
+        3
+      ],
+      [
+        450,
+        750,
+        900,
+        750,
+        1100,
+        850
+      ],
+      false
+    ],
+    "0:wipe": [
+      [
+        7,
+        5,
+        6,
+        5,
+        6,
+        7
+      ],
+      [
+        400,
+        600,
+        850,
+        600,
+        1050,
+        700
+      ],
+      false
+    ],
+    "1:comb": [
+      [
+        8,
+        9,
+        10,
+        9,
+        10,
+        11
+      ],
+      [
+        450,
+        750,
+        900,
+        750,
+        1100,
+        850
+      ],
+      false
+    ],
+    "1:wipe": [
+      [
+        15,
+        13,
+        14,
+        13,
+        14,
+        15
+      ],
+      [
+        400,
+        600,
+        850,
+        600,
+        1050,
+        700
+      ],
+      false
+    ]
+  },
+  "review": "Original and swim atlas unchanged and retained. Wedding care migrated to whale-care-wedding-v5 to remove the three-hand error in old physical17.",
+  "referenceGroups": [
+    0,
+    0,
+    0,
+    0,
+    4,
+    4,
+    4,
+    4,
+    8,
+    8,
+    8,
+    8,
+    12,
+    12,
+    12,
+    12,
+    16,
+    16,
+    16,
+    16,
+    20,
+    20,
+    20,
+    20
+  ]
+}

@@ -1,0 +1,23 @@
+Use case: stylized-concept
+Asset type: transparent full-body sprite atlas for an interactive desktop pet Demo.
+Reference image 1 defines the EXISTING DeepSeek 3D-realistic adult woman's identity and wardrobe. Reference only; create NEW poses, do not copy its 8x3 layout.
+Subject: the SAME clearly adult (age 24) 3D realistic woman, long vivid cobalt-blue hair with cyan ends, a curved blue ahoge, blue eyes, small whale-inspired side fins near ears, white frilled maid headband and cyan hair bow, navy long-sleeve maid dress, white bib and short white frilled apron with small blue whale emblem, black semi-opaque tights, navy ankle boots. Natural adult head/body proportion and normal long legs, same face as reference, polished realistic 3D game-character rendering. Keep identity and full modest wardrobe stable.
+Layout: EXACTLY 3 columns x 4 rows of EQUAL SQUARE cells, portrait atlas ideally 1536x2048. TRANSPARENT alpha background, no backdrop or shadows, no labels, no grid, no drawn checkerboard. One complete full-body character per cell. Head size, torso position, leg length and planted feet must stay identical in all 12 cells; same front-facing camera with feet at 92% cell height and head at 8%; center pelvis in each cell. Leave 8% margin around limbs. All hand gestures must read clearly and five fingers be anatomically correct.
+12 new poses in strict left-to-right row-major order:
+Row 1:
+1 relaxed standing, arms down, gentle smile.
+2 preparing high-five, right elbow bent, hand at shoulder level on viewer's left.
+3 ready high-five, right arm raised, open five-finger PALM FACING VIEWER just above right shoulder on viewer's left, happy smile.
+Row 2:
+4 ROCK: right fist extended forward at lower chest height on viewer's left; left arm relaxed.
+5 SCISSORS: identical right elbow and wrist placement, index and middle fingers in clear V, three other fingers curled.
+6 PAPER: identical right elbow and wrist placement, open five-finger right palm toward viewer.
+Row 3:
+7 receiving gesture, both forearms extend toward viewer at waist height, empty upward cupped palms next to each other, no object.
+8 both hands actually support a small WHITE SQUARE GIFT BOX with PINK RIBBON at waist, pleasant surprise.
+9 opening same gift, left hand physically supports box, right hand holds detached lid lifted beside box, lid OPEN and little soft plush cloud visible inside, warm delighted smile.
+Row 4:
+10 reading a small OPEN BLUE HARDCOVER BOOK, both hands actually grip its edges at waist, gaze lowered onto pages, feet remain planted.
+11 turning one PAGE in the same blue book, left hand grips spine, right fingers in contact with a single curling page, slight head tilt, gaze on book.
+12 photo pose, front-facing smile, right hand V-sign near cheek, other arm by side.
+Constraints: recognizable SAME DeepSeek identity in each cell, no chibi/anime child face, no change of clothes, no extra body parts, no hand/wrist floating away from arms, no food, no dancing. Crisp alpha edges and detailed face/materials. Gift and book must be physically HELD and visibly part of the character pose, not floating decorations.

@@ -1,0 +1,22 @@
+{
+  "key": "gemini-adult-wedding-care-v6",
+  "id": "gemini-adult",
+  "family": "gemini",
+  "style": "realistic",
+  "kind": "care",
+  "outfits": [
+    "wedding"
+  ],
+  "columns": 4,
+  "rows": 2,
+  "dest": "src/DesktopPet.App/Assets/Characters/gemini-adult/motions/cloud-care-wedding.png",
+  "refs": [
+    "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/gemini-adult/outfits/wedding.png"
+  ],
+  "prompt": "Create a LANDSCAPE transparent animation sprite atlas, FOUR COLUMNS x TWO ROWS, EXACTLY EIGHT full-body poses of the mature adult woman from this reference. CRITICAL: preserve her EXACT adult human anatomy and proportions from the portrait: slender long legs, small head only one seventh of full standing height, long thigh/shin, narrow torso. Do not shorten the legs, enlarge head, broaden body or convert into chibi/cartoon proportions. The reference's head-to-body ratio and silhouette are more important than filling the cell. Every character stands the same height with feet planted. Same hair ornaments on SAME SIDE, same hairstyle, exact same outfit INCLUDING all sleeves, hosiery, exact shoes and veil if present, no wardrobe variants. Figure height about400px and width no more250px in each384x512 cell, generous empty transparency around all eight, at least35px outer boundary. Two normal arms and TWO hands total per character. TOP ROW left to right: hold a wooden comb at waist; grip comb with right hand and press teeth against temple hair; draw comb through the same lock down to shoulder while left hand can hold the lock; lower comb at waist. BOTTOM ROW: hold folded white facecloth at chest; press cloth against right cheek with bent elbow and slight head tilt; shift cloth to opposite cheek while preserving hand count; lower white cloth at chest. Actual comb-to-hair and cloth-to-cheek contact. Same human proportions in every pose; motion limited to forearms, head, expressions, tiny hair movement; don't redraw shorter body for wiping. Clean transparent alpha, full head/hair/clothes/shoes visible, no background, no floor shadow, no glow, no text or grid.",
+  "source": "D:\\VibeCoding\\Character\\artwork\\care-contact\\gemini-adult-wedding-care-v6.png",
+  "selected": true,
+  "originalSource": "C:\\Users\\99000256\\.codex\\generated_images\\01a0fd46-6e3f-7261-9d81-b01e63f96f10\\exec-1f380719-f3e0-4d8a-812b-4401e711b203.png",
+  "alphaThreshold": 120,
+  "review": "Selected after visual review: preserves standing adult proportions, exact outfit and shoes, eight actual comb/towel poses with two hands; alpha isolation checked. Native comparison required after install."
+}

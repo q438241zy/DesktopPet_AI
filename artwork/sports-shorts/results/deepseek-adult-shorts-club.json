@@ -1,0 +1,187 @@
+{
+  "key": "deepseek-adult-shorts-club",
+  "id": "deepseek-adult",
+  "family": "whale",
+  "style": "realistic",
+  "kind": "club",
+  "columns": 4,
+  "rows": 5,
+  "refs": [
+    "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/deepseek-adult/outfits/sports/portrait.png"
+  ],
+  "prompt": "Create game animation sprite atlas of the SAME clearly adult 23+ realistic 3D woman as the FIRST NEUTRAL figure in reference. Preserve face, hair, ornaments, palette and SHORT-SLEEVE zip sports top + loose MID-THIGH SHORTS + ankle socks + white trainers in EVERY pose. Bare forearms and legs. No long sleeves, trousers, leggings, dresses or tall socks. Full bodies all completely visible with 18% empty margins inside every cell; same head and body scale, no overlapping figures. True transparent alpha, no backdrop, no text, no ground shadows or auras. Exactly TWENTY FOUR full figures, FOUR COLUMNS SIX ROWS. Three 8-frame actions in row-major order. FIRST TWO ROWS (8 frames) count stars: arms relaxed, gaze rises, right index begins lifting, index points upper-right, eyes track point, LEFT palm opens to count while right index taps first finger, right index taps next finger, arms lower to relaxed. No painted stars. MIDDLE TWO ROWS (8 frames) blow bubbles: holds small soap bottle in left hand and circular bubble wand down in right, dips wand in bottle, raises circular wand toward mouth, holds wand ring in front of pursed lips, blows through ring with puffed cheeks, keeps blowing and small cheek change, lowers wand with smile, wand returns bottle. Same bottle and ring across all 8, fingers grip handle naturally. No floating bubbles painted, code adds them from ring. LAST TWO ROWS (8 frames) stretch: hands relaxed, fingers join at waist, joined hands rise chest, joined arms extend above head, gently lean left arms overhead, gently lean right, lower joined arms chest, arms rest. Same body scale across all 24, feet same positions. No labels or extra objects.",
+  "dest": "src/DesktopPet.App/Assets/Characters/deepseek-adult/outfits/sports/club.png",
+  "source": "D:\\VibeCoding\\Character\\src\\DesktopPet.App\\Assets\\Characters\\deepseek-adult\\outfits\\sports\\club.png",
+  "selected": true,
+  "tool": "builtin imagegen",
+  "originalSource": "C:\\Users\\99000256\\.codex\\generated_images\\01a0fd54-807b-7df2-88b5-c9f04a7bcefe\\exec-804f1c8d-012a-47e8-ba6f-5e199e46b111.png",
+  "review": "Full-body poses visually checked: short sleeves above elbows, shorts above knees, bare lower legs, preserved identity; actual ordered action poses reviewed.",
+  "clips": {
+    "stars": [
+      [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      [
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        500
+      ],
+      false
+    ],
+    "bubbles": [
+      [
+        8,
+        9,
+        10,
+        11,
+        12,
+        11,
+        10,
+        15
+      ],
+      [
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        500
+      ],
+      true
+    ],
+    "stretch": [
+      [
+        13,
+        14,
+        16,
+        16,
+        17,
+        17,
+        18,
+        19
+      ],
+      [
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        500
+      ],
+      false
+    ]
+  },
+  "referenceGroups": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "bubbleSources": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    {
+      "x": 0.05426356589147287,
+      "y": 0.6655518394648829
+    },
+    {
+      "x": 0.5798319327731093,
+      "y": 0.30333333333333334
+    },
+    {
+      "x": 0.40336134453781514,
+      "y": 0.1912751677852349
+    },
+    {
+      "x": 0.45454545454545453,
+      "y": 0.19732441471571907
+    },
+    {
+      "x": 0.4166666666666667,
+      "y": 0.20748299319727892
+    },
+    null,
+    null,
+    {
+      "x": 0.5344827586206896,
+      "y": 0.30927835051546393
+    },
+    null,
+    null,
+    null,
+    null
+  ],
+  "measurement": {
+    "bubbleRingPixels": [
+      [
+        8,
+        122,
+        781
+      ],
+      [
+        9,
+        425,
+        672
+      ],
+      [
+        10,
+        616,
+        640
+      ],
+      [
+        11,
+        846,
+        641
+      ],
+      [
+        12,
+        182,
+        941
+      ],
+      [
+        15,
+        860,
+        972
+      ]
+    ],
+    "basis": "physical atlas indices; ring centre in original pixels, normalized to measured sprite crop"
+  }
+}

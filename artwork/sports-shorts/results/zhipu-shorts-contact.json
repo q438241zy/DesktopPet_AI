@@ -1,0 +1,19 @@
+{
+  "key": "zhipu-shorts-contact",
+  "id": "zhipu",
+  "family": "zhipu",
+  "style": "chibi",
+  "kind": "contact",
+  "columns": 4,
+  "rows": 6,
+  "refs": [
+    "C:\\Users\\99000256\\.codex\\generated_images\\01a0fd46-2194-7b12-8882-479fedfd5c1e\\exec-22ee1e6f-4c8b-4da2-9ef0-82886494ad8b.png",
+    "C:\\Users\\99000256\\.codex\\generated_images\\01a0fd46-2194-7b12-8882-479fedfd5c1e\\exec-fc732096-ec21-4ae9-b832-65e54bb4fe78.png"
+  ],
+  "dest": "src/DesktopPet.App/Assets/Characters/zhipu/outfits/sports/contact.png",
+  "prompt": "Use case: identity-preserve. Image 1 is the precise 24-frame 4-column by 6-row animation template, Image 2 is the character identity and SHORT-SLEEVE + SHORTS costume reference. Replace Image1's character with Image2's black wavy long hair, black cat ears with pale inner fur, blue tassel side ornament and steel-blue eyes, black cat tail; ivory/navy top and navy shorts. Keep Image2 face, head/body proportions, ornament, palette and emblem, and do NOT carry over the blue whale girl's identity/tail. ALL sleeves end on upper arms. ALL shorts end above knees; knees and lower legs bare, ankle socks and white sneakers. No long sleeves, pants, leggings, skirts or tall socks, including seated, bent-knee and lying poses. Exact same physical gesture sequence and row-major order as Image1, only the identity/costume changes. Same head/anatomical scale in EVERY cell. Ample true transparent gutters and outer margins: each figure fits central 70% cell; no part touches neighbor or canvas edge, no shadows/glow/scenery, no labels/text. Preserve six biscuit-to-lips-and-down poses (0-5), six bowl/spoon-to-lips/withdraw poses (6-11), FIVE seated building-block poses (12-16), THREE combing-hair poses (17-19), FOUR cloth-to-face poses (20-23). Keep exact same connected tools/hand contact as template. Bowl always held, rice spoon tip reaches lips not elbow. Biscuit round not wand. Blocks moved by hands, comb touches actual hair, cloth presses cheek. For the FIVE seated building poses: thighs in SHORTS and knees/calves visibly bare skin. Do not leave long trousers on seated figures. Correct count: 6+6+5+3+4=24.",
+  "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0fd46-2194-7b12-8882-479fedfd5c1e\\exec-fb1b2e43-4d91-4f12-83d4-6d4981d28740.png",
+  "selected": false,
+  "tool": "built-in image_gen",
+  "status": "superseded-by-zhipu-shorts-contact-v2"
+}

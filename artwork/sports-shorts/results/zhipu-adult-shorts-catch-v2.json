@@ -1,0 +1,199 @@
+{
+  "key": "zhipu-adult-shorts-catch-v2",
+  "id": "zhipu-adult",
+  "family": "zhipu",
+  "style": "realistic",
+  "kind": "catch",
+  "columns": 4,
+  "rows": 3,
+  "refs": [
+    "C:\\Users\\99000256\\.codex\\generated_images\\01a0fd54-807b-7df2-88b5-c9f04a7bcefe\\exec-6a1bf994-a4b3-4f16-90c9-f0a6da7d4013.png"
+  ],
+  "prompt": "Repair framing ONLY. Keep EXACT twelve full-body adult 3D figures in 4 columns 3 rows, same face/cat ears/tail, SHORT SLEEVES and MID THIGH SHORTS, all snack/spoon eating/empty cupped hands poses unchanged. Uniformly scale down every complete figure by 15% inside its own cell. Restore any missing hair, tail tip and white sneaker edges, so every complete silhouette has minimum 20 pixels transparent margin to neighbors and to all canvas edges. Never crop feet at canvas bottom. Same clothes, bare legs, small ankle socks, props and ordering. True transparent alpha, no glow or backdrop or text.",
+  "dest": "src/DesktopPet.App/Assets/Characters/zhipu-adult/outfits/sports/catch.png",
+  "source": "D:\\VibeCoding\\Character\\src\\DesktopPet.App\\Assets\\Characters\\zhipu-adult\\outfits\\sports\\catch.png",
+  "selected": true,
+  "tool": "builtin imagegen",
+  "originalSource": "C:\\Users\\99000256\\.codex\\generated_images\\01a0fd54-807b-7df2-88b5-c9f04a7bcefe\\exec-9c9b6642-d875-4fc4-992d-6739e8ad7615.png",
+  "review": "Full-body poses visually checked: short sleeves above elbows, shorts above knees, bare lower legs, preserved identity; actual ordered action poses reviewed.",
+  "hands": {
+    "ball-ready": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      {
+        "height": 0.4239350912778905,
+        "offset": 0.003285932725678665,
+        "span": 0.09330628803245436
+      },
+      {
+        "height": 0.3474747474747475,
+        "offset": -0.0004077771939043,
+        "span": 0.21818181818181817
+      },
+      {
+        "height": 0.3877551020408163,
+        "offset": -0.0010674753882466,
+        "span": 0.10204081632653061
+      },
+      {
+        "height": 0.42105263157894735,
+        "offset": -0.011826651237953801,
+        "span": 0.09716599190283401
+      }
+    ],
+    "anticipate": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      {
+        "height": 0.4239350912778905,
+        "offset": 0.003285932725678665,
+        "span": 0.09330628803245436
+      },
+      {
+        "height": 0.3474747474747475,
+        "offset": -0.0004077771939043,
+        "span": 0.21818181818181817
+      },
+      {
+        "height": 0.3877551020408163,
+        "offset": -0.0010674753882466,
+        "span": 0.10204081632653061
+      },
+      {
+        "height": 0.42105263157894735,
+        "offset": -0.011826651237953801,
+        "span": 0.09716599190283401
+      }
+    ],
+    "ball-hold": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      {
+        "height": 0.4239350912778905,
+        "offset": 0.003285932725678665,
+        "span": 0.09330628803245436
+      },
+      {
+        "height": 0.3474747474747475,
+        "offset": -0.0004077771939043,
+        "span": 0.21818181818181817
+      },
+      {
+        "height": 0.3877551020408163,
+        "offset": -0.0010674753882466,
+        "span": 0.10204081632653061
+      },
+      {
+        "height": 0.42105263157894735,
+        "offset": -0.011826651237953801,
+        "span": 0.09716599190283401
+      }
+    ]
+  },
+  "measurement": {
+    "palms": [
+      [
+        173,
+        1240,
+        46
+      ],
+      [
+        414,
+        1202,
+        108
+      ],
+      [
+        642,
+        1225,
+        50
+      ],
+      [
+        876,
+        1239,
+        48
+      ]
+    ],
+    "basis": "source pixels: centre x/y, outer palm span; normalized to per-figure visible height and measured top-quarter head anchor"
+  },
+  "clips": {
+    "eat": [
+      [
+        0,
+        1,
+        2,
+        3,
+        0
+      ],
+      [
+        400,
+        600,
+        700,
+        900,
+        400
+      ],
+      false
+    ],
+    "meal": [
+      [
+        4,
+        5,
+        6,
+        7,
+        4
+      ],
+      [
+        600,
+        850,
+        1100,
+        1150,
+        500
+      ],
+      false
+    ],
+    "ball-ready": [
+      [
+        8
+      ],
+      [
+        5000
+      ],
+      false
+    ],
+    "anticipate": [
+      [
+        8
+      ],
+      [
+        5000
+      ],
+      false
+    ],
+    "ball-hold": [
+      [
+        11
+      ],
+      [
+        5000
+      ],
+      false
+    ]
+  }
+}

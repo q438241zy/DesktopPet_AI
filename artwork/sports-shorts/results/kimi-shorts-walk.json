@@ -1,0 +1,19 @@
+{
+  "key": "kimi-shorts-walk",
+  "id": "kimi",
+  "family": "kimi",
+  "style": "chibi",
+  "kind": "walk",
+  "columns": 3,
+  "rows": 4,
+  "refs": [
+    "C:\\Users\\99000256\\.codex\\generated_images\\01a0fd46-2194-7b12-8882-479fedfd5c1e\\exec-54630b1b-c941-4eeb-b9da-b78a1b550c86.png",
+    "C:\\Users\\99000256\\.codex\\generated_images\\01a0fd46-2194-7b12-8882-479fedfd5c1e\\exec-2a6588fc-944b-4a1a-935b-999ce5320cbb.png"
+  ],
+  "dest": "src/DesktopPet.App/Assets/Characters/kimi/outfits/sports/walk.png",
+  "prompt": "Use case: identity-preserve. Image 1 is the precise 12-frame 3-column by 4-row animation template, Image 2 is the character identity and SHORT-SLEEVE + SHORTS costume reference. Replace Image1's character with Image2's silver-lavender long wavy hair, crescent-moon and musical-note side ribbon and violet eyes; white/navy top and navy shorts; no animal ears or whale tail. Keep Image2 face, head/body proportions, ornament, palette and emblem, and do NOT carry over the blue whale girl's identity/tail. ALL sleeves end on upper arms. ALL shorts end above knees; knees and lower legs bare, ankle socks and white sneakers. No long sleeves, pants, leggings, skirts or tall socks, including seated, bent-knee and lying poses. Exact same physical gesture sequence and row-major order as Image1, only the identity/costume changes. Same head/anatomical scale in EVERY cell. Ample true transparent gutters and outer margins: each figure fits central 70% cell; no part touches neighbor or canvas edge, no shadows/glow/scenery, no labels/text. Preserve all12 right-facing side-view walk phases, with legs alternating support across two steps. Near and far legs must exchange which foot is ahead: first half near leg travels from forward to behind, second half near leg travels from behind to forward; far leg does opposite. Include feet-passing-under-hips phases3 and9. Opposite arms counter-swing. All12 faceRIGHT, any tail/hair trailsLEFT, bare knees bend naturally, both shoes whole. Small casual strides, no running, no disconnected legs, same shoes/head size/baseline. Do not repeat one leg forward in every pose. Leave generous transparent margins above first-row heads and below last-row shoes.",
+  "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0fd46-2194-7b12-8882-479fedfd5c1e\\exec-7d0a99b9-d1f5-4b14-84a9-38aa3337f6a4.png",
+  "selected": false,
+  "tool": "built-in image_gen",
+  "status": "superseded-by-kimi-shorts-walk-v2"
+}

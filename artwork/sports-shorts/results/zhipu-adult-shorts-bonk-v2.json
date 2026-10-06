@@ -1,0 +1,38 @@
+{
+  "key": "zhipu-adult-shorts-bonk-v2",
+  "id": "zhipu-adult",
+  "family": "zhipu",
+  "style": "realistic",
+  "kind": "bonk",
+  "columns": 3,
+  "rows": 1,
+  "refs": [
+    "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/zhipu-adult/outfits/sports/portrait.png"
+  ],
+  "dest": "src/DesktopPet.App/Assets/Characters/zhipu-adult/outfits/sports/bonk.png",
+  "clips": {
+    "bonk": [
+      [
+        0,
+        1,
+        2,
+        1,
+        0
+      ],
+      [
+        250,
+        550,
+        650,
+        350,
+        350
+      ],
+      false
+    ]
+  },
+  "prompt": "Use case: identity-preserve. Create a polished game sprite atlas, EXACT THREE complete full-body figures in ONE HORIZONTAL ROW on a wide transparent canvas (1536 x 1024 preferred). Reference image FIRST TOP LEFT figure is the adult woman's exact identity, face, proportions and SHORT-SLEEVE zip sports top, loose MID-THIGH SHORTS, ankle socks and white trainers. Use ONLY this first figure's body proportions. Do NOT inherit the smaller last-row bodies. All three stand straight on the SAME baseline with EXACT same head crown height, hip height, knees and shoe size. Long realistic adult legs identical across all 3. Leave ample empty space ABOVE heads so a raised toy mallet never forces the woman smaller. Frame0 neutral standing arms down. Frame1 same straight standing woman holding ONE small cute soft pastel toy mallet above her own head in right hand, left hand relaxed down, smiling. Frame2 same standing woman lightly taps her crown with that mallet and closes eyes cute flinch, right elbow bends; keep LEGS STRAIGHT same length and grounded, NO squat, no knees bending or crossing. Actual right fingers grip the handle. Keep the SAME character's head ornaments/hair/face and own colored outfit in all3, SHORT SLEEVES and clearly ABOVE-KNEE SHORTS. Full hair/tail/shoes and mallet not cropped. One clean separated figure per third; transparent gutters and generous outer margin. Preserve 3D realistic adult rendering. True transparent alpha, no backdrop, no floor/glow/text or extra effects.",
+  "source": "D:\\VibeCoding\\Character\\src\\DesktopPet.App\\Assets\\Characters\\zhipu-adult\\outfits\\sports\\bonk.png",
+  "selected": true,
+  "tool": "builtin imagegen",
+  "originalSource": "C:\\Users\\99000256\\.codex\\generated_images\\01a0fd54-807b-7df2-88b5-c9f04a7bcefe\\exec-f6c6cb94-d43a-45d0-855c-32d3817bb2a5.png",
+  "review": "Full-body poses visually checked: short sleeves above elbows, shorts above knees, bare lower legs, preserved identity; actual ordered action poses reviewed."
+}

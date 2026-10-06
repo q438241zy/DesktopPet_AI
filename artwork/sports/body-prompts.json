@@ -1,0 +1,130 @@
+[
+  {
+    "key": "deepseek-adult-sports-body",
+    "id": "deepseek-adult",
+    "family": "whale",
+    "style": "realistic",
+    "kind": "body",
+    "columns": 4,
+    "rows": 4,
+    "refs": [
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/deepseek-adult/motions/interaction.png",
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/deepseek-adult/portrait.png",
+      "D:/VibeCoding/Character/docs/demo/cloud-club/art/school-realistic.png"
+    ],
+    "prompt": "Use case: identity-preserve / sprite wardrobe edit. Image 1 is a sixteen-pose 4x4 animation template. Recreate those EXACT 16 full-body action poses and ordering with the adult DeepSeek identity from image 2: cobalt-to-cyan long wavy hair, loop ahoge, blue eyes, white fin ears, cyan bow and blue whale tail. Image 3 defines the approved SHORT-SLEEVE track uniform, recolor panels/pants to navy blue panels and track pants, cobalt piping, small whale emblem. Ivory zip-front short-sleeve top above elbows, matching long track pants with white side stripes, white trainers. Remove all maid costume pieces, dress and boots. KEEP the sixteen actions in template order: row1 listen, speak, quietly look up, jump crouch; row2 airborne knees tucked, landing, sitting hugging knees, resting head on hugged knees; row3 lying asleep on side, seated holding cube, actually placing cube on cube stack, seated pleased with finished stack; row4 lifted straight toes down, lifted knees bent, small recoil, missed catch arms open. All 16 complete figures show BOTH pant hems and shoes. Same head/anatomical pixel scale across ALL poses. Shrink every entire figure by 20% relative to input inside its cell to leave ample transparent gutters, not cropped limbs. EXACTLY 4 columns and 4 rows, portrait canvas. Adult 23+ realistic 3D rendering and mature anatomy. Keep image 2 face, hairstyle, ornaments and eye color, no DeepSeek tail unless identity requires it. Transparent alpha, no background/aura/floor, no text/numbers.",
+    "dest": "src/DesktopPet.App/Assets/Characters/deepseek-adult/outfits/sports/body.png"
+  },
+  {
+    "key": "gpt-adult-sports-body",
+    "id": "gpt-adult",
+    "family": "gpt",
+    "style": "realistic",
+    "kind": "body",
+    "columns": 4,
+    "rows": 4,
+    "refs": [
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/deepseek-adult/motions/interaction.png",
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/gpt-adult/portrait.png",
+      "D:/VibeCoding/Character/docs/demo/cloud-club/art/school-realistic.png"
+    ],
+    "prompt": "Use case: identity-preserve / sprite wardrobe edit. Image 1 is a sixteen-pose 4x4 animation template. Recreate those EXACT 16 full-body action poses and ordering with the adult GPT identity from image 2: silver-lavender long wavy hair, pale little horns, pointed elf ears, lavender eyes, silver knot hairpin. Image 3 defines the approved SHORT-SLEEVE track uniform, recolor panels/pants to deep emerald panels and track pants, pale mint piping, tiny white interlocking-knot emblem. Ivory zip-front short-sleeve top above elbows, matching long track pants with white side stripes, white trainers. Remove all maid costume pieces, dress and boots. KEEP the sixteen actions in template order: row1 listen, speak, quietly look up, jump crouch; row2 airborne knees tucked, landing, sitting hugging knees, resting head on hugged knees; row3 lying asleep on side, seated holding cube, actually placing cube on cube stack, seated pleased with finished stack; row4 lifted straight toes down, lifted knees bent, small recoil, missed catch arms open. All 16 complete figures show BOTH pant hems and shoes. Same head/anatomical pixel scale across ALL poses. Shrink every entire figure by 20% relative to input inside its cell to leave ample transparent gutters, not cropped limbs. EXACTLY 4 columns and 4 rows, portrait canvas. Adult 23+ realistic 3D rendering and mature anatomy. Keep image 2 face, hairstyle, ornaments and eye color, no DeepSeek tail unless identity requires it. Transparent alpha, no background/aura/floor, no text/numbers.",
+    "dest": "src/DesktopPet.App/Assets/Characters/gpt-adult/outfits/sports/body.png"
+  },
+  {
+    "key": "claude-adult-sports-body",
+    "id": "claude-adult",
+    "family": "claude",
+    "style": "realistic",
+    "kind": "body",
+    "columns": 4,
+    "rows": 4,
+    "refs": [
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/deepseek-adult/motions/interaction.png",
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/claude-adult/portrait.png",
+      "D:/VibeCoding/Character/docs/demo/cloud-club/art/school-realistic.png"
+    ],
+    "prompt": "Use case: identity-preserve / sprite wardrobe edit. Image 1 is a sixteen-pose 4x4 animation template. Recreate those EXACT 16 full-body action poses and ordering with the adult Claude identity from image 2: copper-orange long wavy hair, brown eyes, round wire-frame glasses and orange daisy hair ornament. Image 3 defines the approved SHORT-SLEEVE track uniform, recolor panels/pants to warm cocoa-brown panels and track pants, terracotta-orange piping, tiny orange sunburst emblem. Ivory zip-front short-sleeve top above elbows, matching long track pants with white side stripes, white trainers. Remove all maid costume pieces, dress and boots. KEEP the sixteen actions in template order: row1 listen, speak, quietly look up, jump crouch; row2 airborne knees tucked, landing, sitting hugging knees, resting head on hugged knees; row3 lying asleep on side, seated holding cube, actually placing cube on cube stack, seated pleased with finished stack; row4 lifted straight toes down, lifted knees bent, small recoil, missed catch arms open. All 16 complete figures show BOTH pant hems and shoes. Same head/anatomical pixel scale across ALL poses. Shrink every entire figure by 20% relative to input inside its cell to leave ample transparent gutters, not cropped limbs. EXACTLY 4 columns and 4 rows, portrait canvas. Adult 23+ realistic 3D rendering and mature anatomy. Keep image 2 face, hairstyle, ornaments and eye color, no DeepSeek tail unless identity requires it. Transparent alpha, no background/aura/floor, no text/numbers.",
+    "dest": "src/DesktopPet.App/Assets/Characters/claude-adult/outfits/sports/body.png"
+  },
+  {
+    "key": "gemini-adult-sports-body",
+    "id": "gemini-adult",
+    "family": "gemini",
+    "style": "realistic",
+    "kind": "body",
+    "columns": 4,
+    "rows": 4,
+    "refs": [
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/deepseek-adult/motions/interaction.png",
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/gemini-adult/portrait.png",
+      "D:/VibeCoding/Character/docs/demo/cloud-club/art/school-realistic.png"
+    ],
+    "prompt": "Use case: identity-preserve / sprite wardrobe edit. Image 1 is a sixteen-pose 4x4 animation template. Recreate those EXACT 16 full-body action poses and ordering with the adult Gemini identity from image 2: blue-violet long wavy hair with a side bun, cat ears and violet tail, one pink eye and one gold eye, twin-star hairpin. Image 3 defines the approved SHORT-SLEEVE track uniform, recolor panels/pants to deep indigo panels and track pants, lilac piping, tiny twin four-pointed stars emblem. Ivory zip-front short-sleeve top above elbows, matching long track pants with white side stripes, white trainers. Remove all maid costume pieces, dress and boots. KEEP the sixteen actions in template order: row1 listen, speak, quietly look up, jump crouch; row2 airborne knees tucked, landing, sitting hugging knees, resting head on hugged knees; row3 lying asleep on side, seated holding cube, actually placing cube on cube stack, seated pleased with finished stack; row4 lifted straight toes down, lifted knees bent, small recoil, missed catch arms open. All 16 complete figures show BOTH pant hems and shoes. Same head/anatomical pixel scale across ALL poses. Shrink every entire figure by 20% relative to input inside its cell to leave ample transparent gutters, not cropped limbs. EXACTLY 4 columns and 4 rows, portrait canvas. Adult 23+ realistic 3D rendering and mature anatomy. Keep image 2 face, hairstyle, ornaments and eye color, no DeepSeek tail unless identity requires it. Transparent alpha, no background/aura/floor, no text/numbers.",
+    "dest": "src/DesktopPet.App/Assets/Characters/gemini-adult/outfits/sports/body.png"
+  },
+  {
+    "key": "grok-adult-sports-body",
+    "id": "grok-adult",
+    "family": "grok",
+    "style": "realistic",
+    "kind": "body",
+    "columns": 4,
+    "rows": 4,
+    "refs": [
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/deepseek-adult/motions/interaction.png",
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/grok-adult/portrait.png",
+      "D:/VibeCoding/Character/docs/demo/cloud-club/art/school-realistic.png"
+    ],
+    "prompt": "Use case: identity-preserve / sprite wardrobe edit. Image 1 is a sixteen-pose 4x4 animation template. Recreate those EXACT 16 full-body action poses and ordering with the adult Grok identity from image 2: golden blonde twin tails, blue eyes, black ribbon hair ties and silver orbit hairclip. Image 3 defines the approved SHORT-SLEEVE track uniform, recolor panels/pants to charcoal black panels and track pants, warm gold piping, tiny silver orbit emblem. Ivory zip-front short-sleeve top above elbows, matching long track pants with white side stripes, white trainers. Remove all maid costume pieces, dress and boots. KEEP the sixteen actions in template order: row1 listen, speak, quietly look up, jump crouch; row2 airborne knees tucked, landing, sitting hugging knees, resting head on hugged knees; row3 lying asleep on side, seated holding cube, actually placing cube on cube stack, seated pleased with finished stack; row4 lifted straight toes down, lifted knees bent, small recoil, missed catch arms open. All 16 complete figures show BOTH pant hems and shoes. Same head/anatomical pixel scale across ALL poses. Shrink every entire figure by 20% relative to input inside its cell to leave ample transparent gutters, not cropped limbs. EXACTLY 4 columns and 4 rows, portrait canvas. Adult 23+ realistic 3D rendering and mature anatomy. Keep image 2 face, hairstyle, ornaments and eye color, no DeepSeek tail unless identity requires it. Transparent alpha, no background/aura/floor, no text/numbers.",
+    "dest": "src/DesktopPet.App/Assets/Characters/grok-adult/outfits/sports/body.png"
+  },
+  {
+    "key": "qwen-adult-sports-body",
+    "id": "qwen-adult",
+    "family": "qwen",
+    "style": "realistic",
+    "kind": "body",
+    "columns": 4,
+    "rows": 4,
+    "refs": [
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/deepseek-adult/motions/interaction.png",
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/qwen-adult/portrait.png",
+      "D:/VibeCoding/Character/docs/demo/cloud-club/art/school-realistic.png"
+    ],
+    "prompt": "Use case: identity-preserve / sprite wardrobe edit. Image 1 is a sixteen-pose 4x4 animation template. Recreate those EXACT 16 full-body action poses and ordering with the adult Qwen identity from image 2: periwinkle blue hair in two loose braids, purple eyes, small blue-and-gold tilted scholar hat. Image 3 defines the approved SHORT-SLEEVE track uniform, recolor panels/pants to deep blue-purple panels and track pants, pale gold piping, tiny white trefoil emblem. Ivory zip-front short-sleeve top above elbows, matching long track pants with white side stripes, white trainers. Remove all maid costume pieces, dress and boots. KEEP the sixteen actions in template order: row1 listen, speak, quietly look up, jump crouch; row2 airborne knees tucked, landing, sitting hugging knees, resting head on hugged knees; row3 lying asleep on side, seated holding cube, actually placing cube on cube stack, seated pleased with finished stack; row4 lifted straight toes down, lifted knees bent, small recoil, missed catch arms open. All 16 complete figures show BOTH pant hems and shoes. Same head/anatomical pixel scale across ALL poses. Shrink every entire figure by 20% relative to input inside its cell to leave ample transparent gutters, not cropped limbs. EXACTLY 4 columns and 4 rows, portrait canvas. Adult 23+ realistic 3D rendering and mature anatomy. Keep image 2 face, hairstyle, ornaments and eye color, no DeepSeek tail unless identity requires it. Transparent alpha, no background/aura/floor, no text/numbers.",
+    "dest": "src/DesktopPet.App/Assets/Characters/qwen-adult/outfits/sports/body.png"
+  },
+  {
+    "key": "zhipu-adult-sports-body",
+    "id": "zhipu-adult",
+    "family": "zhipu",
+    "style": "realistic",
+    "kind": "body",
+    "columns": 4,
+    "rows": 4,
+    "refs": [
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/deepseek-adult/motions/interaction.png",
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/zhipu-adult/portrait.png",
+      "D:/VibeCoding/Character/docs/demo/cloud-club/art/school-realistic.png"
+    ],
+    "prompt": "Use case: identity-preserve / sprite wardrobe edit. Image 1 is a sixteen-pose 4x4 animation template. Recreate those EXACT 16 full-body action poses and ordering with the adult GLM identity from image 2: long charcoal-black hair, gray-blue eyes, black cat ears and tail, small blue tassel hairclip; remove maid cap and forehead sleeping mask. Image 3 defines the approved SHORT-SLEEVE track uniform, recolor panels/pants to graphite panels and track pants, soft ice-blue piping, tiny geometric Z emblem. Ivory zip-front short-sleeve top above elbows, matching long track pants with white side stripes, white trainers. Remove all maid costume pieces, dress and boots. KEEP the sixteen actions in template order: row1 listen, speak, quietly look up, jump crouch; row2 airborne knees tucked, landing, sitting hugging knees, resting head on hugged knees; row3 lying asleep on side, seated holding cube, actually placing cube on cube stack, seated pleased with finished stack; row4 lifted straight toes down, lifted knees bent, small recoil, missed catch arms open. All 16 complete figures show BOTH pant hems and shoes. Same head/anatomical pixel scale across ALL poses. Shrink every entire figure by 20% relative to input inside its cell to leave ample transparent gutters, not cropped limbs. EXACTLY 4 columns and 4 rows, portrait canvas. Adult 23+ realistic 3D rendering and mature anatomy. Keep image 2 face, hairstyle, ornaments and eye color, no DeepSeek tail unless identity requires it. Transparent alpha, no background/aura/floor, no text/numbers.",
+    "dest": "src/DesktopPet.App/Assets/Characters/zhipu-adult/outfits/sports/body.png"
+  },
+  {
+    "key": "kimi-adult-sports-body",
+    "id": "kimi-adult",
+    "family": "kimi",
+    "style": "realistic",
+    "kind": "body",
+    "columns": 4,
+    "rows": 4,
+    "refs": [
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/deepseek-adult/motions/interaction.png",
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/kimi-adult/portrait.png",
+      "D:/VibeCoding/Character/docs/demo/cloud-club/art/school-realistic.png"
+    ],
+    "prompt": "Use case: identity-preserve / sprite wardrobe edit. Image 1 is a sixteen-pose 4x4 animation template. Recreate those EXACT 16 full-body action poses and ordering with the adult Kimi identity from image 2: silver-lilac long wavy hair, violet eyes, navy ribbons and silver crescent moon music hairpin; remove maid cap. Image 3 defines the approved SHORT-SLEEVE track uniform, recolor panels/pants to midnight indigo panels and track pants, pale lavender piping, tiny crescent moon emblem. Ivory zip-front short-sleeve top above elbows, matching long track pants with white side stripes, white trainers. Remove all maid costume pieces, dress and boots. KEEP the sixteen actions in template order: row1 listen, speak, quietly look up, jump crouch; row2 airborne knees tucked, landing, sitting hugging knees, resting head on hugged knees; row3 lying asleep on side, seated holding cube, actually placing cube on cube stack, seated pleased with finished stack; row4 lifted straight toes down, lifted knees bent, small recoil, missed catch arms open. All 16 complete figures show BOTH pant hems and shoes. Same head/anatomical pixel scale across ALL poses. Shrink every entire figure by 20% relative to input inside its cell to leave ample transparent gutters, not cropped limbs. EXACTLY 4 columns and 4 rows, portrait canvas. Adult 23+ realistic 3D rendering and mature anatomy. Keep image 2 face, hairstyle, ornaments and eye color, no DeepSeek tail unless identity requires it. Transparent alpha, no background/aura/floor, no text/numbers.",
+    "dest": "src/DesktopPet.App/Assets/Characters/kimi-adult/outfits/sports/body.png"
+  }
+]

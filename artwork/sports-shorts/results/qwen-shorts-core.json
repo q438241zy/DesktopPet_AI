@@ -1,0 +1,19 @@
+{
+  "key": "qwen-shorts-core",
+  "id": "qwen",
+  "family": "qwen",
+  "style": "chibi",
+  "kind": "core",
+  "columns": 4,
+  "rows": 6,
+  "refs": [
+    "D:/VibeCoding/Character/artwork/sports/superseded-long-pants/qwen/sports/core.png",
+    "D:/VibeCoding/Character/docs/demo/cloud-club/art/school-shorts-chibi.png"
+  ],
+  "dest": "src/DesktopPet.App/Assets/Characters/qwen/outfits/sports/core.png",
+  "prompt": "Use case: identity-preserve. Image 1 is a 24-pose game sprite atlas of this character, exactly 4 columns by 6 rows. Image 2 is ONLY a garment-length reference. Edit image 1: replace EVERY pair of long trousers with loose navy blue athletic SHORTS ending clearly above knees. Both knees, lower legs and elbows bare, ankle socks, same white sneakers. Every sleeve ends on upper arm above elbows. Keep this character's original identity, hair colour, face, ears/ornaments, chest emblem, costume palette and all props from Image1; do not turn this character into Image2's blue whale girl. Copy only Image2 sleeve/short lengths and covered waist. Keep ALL 24 action poses and their exact row-major order, head/body size, scale, expression and hands from image1 unchanged. Crucially: seated, curled, lying and tucked-leg poses also wear SHORTS with exposed skin on knees and lower legs; do not accidentally leave navy/brown/green leg fabric on those poses. No long sleeves, leggings, long trousers or tall socks. Fully transparent background, no glow/backdrop, isolated full figures with generous empty gutters and outer margins; complete heads, hair, hands and shoes. Exact 4x6 grid, 24 figures; no labels or text. Shorten trousers to shorts in ALL 24 cells and ensure upper-arm sleeves in every frame.",
+  "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0fd46-2194-7b12-8882-479fedfd5c1e\\exec-7910fc3b-07de-46e5-a84c-a9baf352a8f0.png",
+  "selected": false,
+  "tool": "built-in image_gen",
+  "status": "superseded-by-qwen-shorts-core-v2"
+}

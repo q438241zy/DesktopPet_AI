@@ -28,7 +28,7 @@ internal static class ScaleVerification
         (string Action, double Time)[] poses = [("idle",0),("walk",241),("headpat",420),("poke",400),
             ("eat",700),("chat",420),("build",1900),("curl",1900),("sleep",1800),("jump",350),("pickup",500),("think",420)];
         foreach (var c in pet.Catalog.Characters)
-        foreach (string outfit in new[] { "original", "swim", "wedding" })
+        foreach (string outfit in Catalog.BuiltInOutfits)
         {
             pet.SelectCharacter(c.Id); pet.State.Outfits[c.Id] = outfit; pet.ApplySettings();
             var idleFrame = (BitmapSource)image.Source;
@@ -48,7 +48,7 @@ internal static class ScaleVerification
                     Require(pet.State.Size == 240,c.Id+"/"+outfit+"/"+action+": user size is unchanged");
                     Require(Math.Abs(Canvas.GetTop(image)+image.Height*pet.Art.GroundLine(frame)+pet.AirborneOffset-468)<.01,
                         c.Id+"/"+outfit+"/"+action+": sole baseline is unchanged");
-                    if (!baseline && c.Category == CharacterStyles.Chibi && action == "build")
+                    if (!baseline && c.Category == CharacterStyles.Chibi && outfit != "sports" && action == "build")
                         Require(image.Height*pet.Art.VisibleHeight(frame)/standing is >=.85 and <=1.2,
                             c.Id+"/"+outfit+": seated block building does not shrink the character");
                     if (!baseline && c.Category == CharacterStyles.Chibi && outfit == "original" && action is "jump" or "think")

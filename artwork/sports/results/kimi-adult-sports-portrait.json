@@ -1,0 +1,19 @@
+{
+  "key": "kimi-adult-sports-portrait",
+  "id": "kimi-adult",
+  "family": "kimi",
+  "style": "realistic",
+  "kind": "portrait",
+  "columns": 3,
+  "rows": 4,
+  "refs": [
+    "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/kimi-adult/portrait.png",
+    "D:/VibeCoding/Character/docs/demo/cloud-club/art/school-realistic.png"
+  ],
+  "dest": "src/DesktopPet.App/Assets/Characters/kimi-adult/outfits/sports/portrait.png",
+  "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-7dfe1ca9-ddf4-44df-bb2f-de3c2b893d31.png",
+  "tool": "built-in image_gen",
+  "selected": false,
+  "status": "superseded-long-pants",
+  "reason": "User requires short sleeves AND shorts above knees in both styles; do not install or publish this batch."
+}

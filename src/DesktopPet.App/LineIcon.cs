@@ -11,6 +11,11 @@ internal sealed class LineIcon : Control
     public bool Soft { get; init; }
     private static readonly Dictionary<string, Geometry> Shapes = new Dictionary<string, string>
     {
+        ["highfive"]="M7,21 Q3,17 3,12 Q3,10 5,11 L7,14 V6 Q7,3 9,6 V12 V3 Q11,1 12,4 V12 V5 Q14,3 15,6 V13 L17,8 Q20,7 19,11 L17,19 Q15,23 7,21 Z M4,4 L2,2 M19,3 L21,1",
+        ["rps"]="M7,21 Q3,18 4,14 L7,13 L4,5 Q4,2 7,3 L11,11 L13,3 Q14,1 16,3 L15,12 Q20,10 20,15 Q20,20 16,22 Z M8,14 Q12,12 15,15",
+        ["gift"]="M4,10 H20 V21 H4 Z M3,7 H21 V11 H3 Z M12,7 V21 M12,7 Q3,7 5,3 Q8,0 12,7 Q21,7 19,3 Q16,0 12,7",
+        ["read"]="M12,6 Q7,2 2,4 V20 Q7,18 12,22 Q17,18 22,20 V4 Q17,2 12,6 V22 M5,8 L9,9 M5,12 L9,13 M15,9 L19,8 M15,13 L19,12",
+        ["photo"]="M3,6 H7 L9,3 H15 L17,6 H21 Q23,6 23,9 V19 Q23,21 20,21 H4 Q1,21 1,18 V9 Q1,6 3,6 M8,13 A4,4 0 1 0 16,13 A4,4 0 1 0 8,13 M19,9 H20",
         ["cloud"] = "M6,18 C1,18 1,10 6,10 C6,3 17,3 18,10 C24,10 23,18 18,18 Z",
         ["heart"] = "M12,20 C9,17 3,13 3,8 C3,2 10,2 12,7 C14,2 21,2 21,8 C21,13 15,17 12,20 Z",
         ["sun"] = "M8,12 A4,4 0 1 0 16,12 A4,4 0 1 0 8,12 M12,2 L12,4 M12,20 L12,22 M2,12 L4,12 M20,12 L22,12 M5,5 L6.5,6.5 M17.5,17.5 L19,19 M5,19 L6.5,17.5 M17.5,6.5 L19,5",
@@ -80,7 +85,6 @@ internal sealed class LineIcon : Control
         ["lullaby"] = "M8,11 C4,10 3,14 5,16 C7,19 13,19 15,15 M7,13 Q8,14 9,13 M11,13 Q12,14 13,13 M3,20 H19 M17,3 C13,7 16,11 20,9 M13,3 H15 L13,6 H15",
         ["breakfast"] = "M5,12 H19 Q20.5,12 20,14 C18.5,21 5.5,21 4,14 Q3.5,12 5,12 Z M7,20 H17 M6.5,11 C6,8 9,6.5 12,8 C15,6.5 18,8 17.5,11 M17,3 L13,9 M21,4 L17,9",
         ["snack"] = "M14.5,3.5 C7,1 2,7 3.5,14 C5,21 15,23 19.5,16 Q17,16 17,13 Q13.5,13.5 13,10 Q9.5,9 11,6 Q14,6.5 14.5,3.5 Z M7,10 L7.1,10 M7.5,15 L7.6,15 M12.5,17 L12.6,17 M19.5,6 L19.6,6 M17,2.5 L17.1,2.5",
-        ["dance"] = "M8.2,5 A2.3,2.3 0 1 0 12.8,5 A2.3,2.3 0 1 0 8.2,5 M3.5,8 Q7,11 11,9 L15.5,6 M10.5,9 L12,14 M12,14 L9,20.5 M12,14 L16,17 L19,14.5 M18,7 V2.5 L21.5,2 M15,8 A1.5,1.5 0 1 0 18,8 A1.5,1.5 0 1 0 15,8"
     }.ToDictionary(pair => pair.Key, pair => { var geometry = Geometry.Parse(pair.Value); geometry.Freeze(); return geometry; });
 
     protected override void OnRender(DrawingContext dc)

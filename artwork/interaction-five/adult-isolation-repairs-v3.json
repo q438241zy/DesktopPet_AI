@@ -1,0 +1,323 @@
+[
+  {
+    "key": "deepseek-adult-wedding-rps",
+    "character": "deepseek-adult",
+    "outfit": "wedding",
+    "group": "rps",
+    "poses": [
+      "fist-up",
+      "fist-mid",
+      "fist-down",
+      "reveal-rock"
+    ],
+    "filename": "deepseek-adult-wedding-rps-v3.png",
+    "references": [
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/deepseek-adult/outfits/wedding.png",
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/deepseek-adult/portrait.png"
+    ],
+    "prompt": "Create an atlas of FOUR complete full-length adult DeepSeek figures for a transparent production sprite sheet. Reference 1 defines the exact outfit and identity to preserve. Reference 2 defines ADULT body proportions only; do not copy reference 2's maid dress. Same DeepSeek mature face, vivid cobalt/cyan long wavy hair, whale ear ornaments, small adult head, approx 7.5-8 head lengths tall. Photorealistic 3D digital adult woman, detailed lifelike skin, hair and cloth. Exact white lace bridal gown, lace veil, blue waist ribbon, whale pendant and white bridal shoes from reference 1. No original maid apron.\n Preserve reference portrait mature adult 25+ face, natural small head, long thighs and shins, about 7.5 head lengths tall. Photorealistic 3D digital human rendering. Preserve identity, face, hairstyle, ornament and exact outfit/footwear. Body and legs cannot shrink in later cells. No chibi or doll anatomy. Accurate connected fingers/wrists. No shadows, floor, backdrop, text, labels or grid. True transparent alpha. LAYOUT: FOUR complete FULL BODY figures, TWO COLUMNS and TWO ROWS, square 2048x2048 transparent atlas. The whole top row fits y=6% to 43%; the whole bottom row fits y=56% to 93%. Copy the SAME full-height base body at EXACTLY the same scale into every cell, then change ONLY arms/face for the gestures. Heads, waist, knees and ankles remain at identical cell-relative levels. Leave empty transparent space below all four pairs of shoes and between all hair and gowns. Keep full gown and veil inside each cell. No overlapping people. Do not crop or shorten anyone to fit the canvas. Order: top-left, top-right, bottom-left, bottom-right.  FOUR POSES:  1) Guessing-game fist HIGH beside chin, right hand (viewer LEFT) CLOSED fist, elbow natural. 2) Same closed fist MID beside upper chest. 3) Same closed fist LOW beside waist. 4) ROCK reveal: same right closed fist extends gently forward at chest height, knuckles toward viewer. Left arm rests by side. Four clear distinct positions of the same anatomically connected arm.",
+    "rows": 2
+  },
+  {
+    "key": "deepseek-adult-wedding-handoff",
+    "character": "deepseek-adult",
+    "outfit": "wedding",
+    "group": "handoff",
+    "poses": [
+      "reveal-scissors",
+      "reveal-paper",
+      "receive",
+      "gift"
+    ],
+    "filename": "deepseek-adult-wedding-handoff-v3.png",
+    "references": [
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/deepseek-adult/outfits/wedding.png",
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/deepseek-adult/portrait.png"
+    ],
+    "prompt": "Create an atlas of FOUR complete full-length adult DeepSeek figures for a transparent production sprite sheet. Reference 1 defines the exact outfit and identity to preserve. Reference 2 defines ADULT body proportions only; do not copy reference 2's maid dress. Same DeepSeek mature face, vivid cobalt/cyan long wavy hair, whale ear ornaments, small adult head, approx 7.5-8 head lengths tall. Photorealistic 3D digital adult woman, detailed lifelike skin, hair and cloth. Exact white lace bridal gown, lace veil, blue waist ribbon, whale pendant and white bridal shoes from reference 1. No original maid apron.\n Preserve reference portrait mature adult 25+ face, natural small head, long thighs and shins, about 7.5 head lengths tall. Photorealistic 3D digital human rendering. Preserve identity, face, hairstyle, ornament and exact outfit/footwear. Body and legs cannot shrink in later cells. No chibi or doll anatomy. Accurate connected fingers/wrists. No shadows, floor, backdrop, text, labels or grid. True transparent alpha. LAYOUT: FOUR complete FULL BODY figures, TWO COLUMNS and TWO ROWS, square 2048x2048 transparent atlas. The whole top row fits y=6% to 43%; the whole bottom row fits y=56% to 93%. Copy the SAME full-height base body at EXACTLY the same scale into every cell, then change ONLY arms/face for the gestures. Heads, waist, knees and ankles remain at identical cell-relative levels. Leave empty transparent space below all four pairs of shoes and between all hair and gowns. Keep full gown and veil inside each cell. No overlapping people. Do not crop or shorten anyone to fit the canvas. Order: top-left, top-right, bottom-left, bottom-right.  FOUR POSES:  1) SCISSORS reveal: her right hand (viewer LEFT) extends at chest level showing only index and middle finger V, other fingers folded, natural wrist. 2) PAPER reveal: same hand/forearm position shows open five-finger palm toward viewer. 3) Receive gift: BOTH empty hands cupped together at natural waist, palms up, looking gently toward viewer. 4) Holds small WHITE gift box with PINK ribbon/bow, both hands physically support the closed box at waist; no floating props. Box no wider than torso.",
+    "rows": 2
+  },
+  {
+    "key": "deepseek-adult-wedding-book",
+    "character": "deepseek-adult",
+    "outfit": "wedding",
+    "group": "book",
+    "poses": [
+      "gift-empty",
+      "read",
+      "page",
+      "read-finish"
+    ],
+    "filename": "deepseek-adult-wedding-book-v3.png",
+    "references": [
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/deepseek-adult/outfits/wedding.png",
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/deepseek-adult/portrait.png"
+    ],
+    "prompt": "Create an atlas of FOUR complete full-length adult DeepSeek figures for a transparent production sprite sheet. Reference 1 defines the exact outfit and identity to preserve. Reference 2 defines ADULT body proportions only; do not copy reference 2's maid dress. Same DeepSeek mature face, vivid cobalt/cyan long wavy hair, whale ear ornaments, small adult head, approx 7.5-8 head lengths tall. Photorealistic 3D digital adult woman, detailed lifelike skin, hair and cloth. Exact white lace bridal gown, lace veil, blue waist ribbon, whale pendant and white bridal shoes from reference 1. No original maid apron.\n Preserve reference portrait mature adult 25+ face, natural small head, long thighs and shins, about 7.5 head lengths tall. Photorealistic 3D digital human rendering. Preserve identity, face, hairstyle, ornament and exact outfit/footwear. Body and legs cannot shrink in later cells. No chibi or doll anatomy. Accurate connected fingers/wrists. No shadows, floor, backdrop, text, labels or grid. True transparent alpha. LAYOUT: FOUR complete FULL BODY figures, TWO COLUMNS and TWO ROWS, square 2048x2048 transparent atlas. The whole top row fits y=6% to 43%; the whole bottom row fits y=56% to 93%. Copy the SAME full-height base body at EXACTLY the same scale into every cell, then change ONLY arms/face for the gestures. Heads, waist, knees and ankles remain at identical cell-relative levels. Leave empty transparent space below all four pairs of shoes and between all hair and gowns. Keep full gown and veil inside each cell. No overlapping people. Do not crop or shorten anyone to fit the canvas. Order: top-left, top-right, bottom-left, bottom-right.  FOUR POSES:  1) Open EMPTY gift box: left hand physically supports small white/pink box at waist, right hand holds the matching detached lid beside her shoulder. The open box has an EMPTY GREY cavity clearly above its front wall, no toy/object inside, no confetti. 2) Read: both hands physically hold an OPEN BLUE hardcover storybook at waist-to-chest, eyes look down at pages, lips relaxed closed. 3) Turn page: left hand supports the same book at exactly same position, right fingertip physically touches a single curling page, eyes on book. 4) Reading finished: both hands hold the CLOSED same blue book against waist, warm smile looking at viewer. All four figures stand TALL with same straight legs as reference, do not crouch to read.",
+    "rows": 2
+  },
+  {
+    "key": "deepseek-adult-wedding-photo",
+    "character": "deepseek-adult",
+    "outfit": "wedding",
+    "group": "photo",
+    "poses": [
+      "neutral",
+      "lift",
+      "photo",
+      "happy"
+    ],
+    "filename": "deepseek-adult-wedding-photo-v3.png",
+    "references": [
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/deepseek-adult/outfits/wedding.png",
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/deepseek-adult/portrait.png"
+    ],
+    "prompt": "Create an atlas of FOUR complete full-length adult DeepSeek figures for a transparent production sprite sheet. Reference 1 defines the exact outfit and identity to preserve. Reference 2 defines ADULT body proportions only; do not copy reference 2's maid dress. Same DeepSeek mature face, vivid cobalt/cyan long wavy hair, whale ear ornaments, small adult head, approx 7.5-8 head lengths tall. Photorealistic 3D digital adult woman, detailed lifelike skin, hair and cloth. Exact white lace bridal gown, lace veil, blue waist ribbon, whale pendant and white bridal shoes from reference 1. No original maid apron.\n Preserve reference portrait mature adult 25+ face, natural small head, long thighs and shins, about 7.5 head lengths tall. Photorealistic 3D digital human rendering. Preserve identity, face, hairstyle, ornament and exact outfit/footwear. Body and legs cannot shrink in later cells. No chibi or doll anatomy. Accurate connected fingers/wrists. No shadows, floor, backdrop, text, labels or grid. True transparent alpha. LAYOUT: FOUR complete FULL BODY figures, TWO COLUMNS and TWO ROWS, square 2048x2048 transparent atlas. The whole top row fits y=6% to 43%; the whole bottom row fits y=56% to 93%. Copy the SAME full-height base body at EXACTLY the same scale into every cell, then change ONLY arms/face for the gestures. Heads, waist, knees and ankles remain at identical cell-relative levels. Leave empty transparent space below all four pairs of shoes and between all hair and gowns. Keep full gown and veil inside each cell. No overlapping people. Do not crop or shorten anyone to fit the canvas. Order: top-left, top-right, bottom-left, bottom-right.  FOUR POSES:  1) Neutral full-body standing, both arms relaxed beside dress, calm smile. 2) Photo preparation: right hand moves up toward cheek, relaxed fingers, left arm rests by side. 3) Photo: natural right-hand two-finger V gesture beside cheek, gentle smile toward viewer, left arm down. 4) Happy relaxed full-body standing, friendly closed-mouth smile, both arms by sides. All four same straight standing legs and same adult face/body.",
+    "rows": 2
+  },
+  {
+    "key": "gpt-adult-original-highfive",
+    "character": "gpt-adult",
+    "outfit": "original",
+    "group": "highfive",
+    "poses": [
+      "high-prep",
+      "high-ready",
+      "high-contact",
+      "high-recoil"
+    ],
+    "filename": "gpt-adult-original-highfive-v3.png",
+    "references": [
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/gpt-adult/portrait.png"
+    ],
+    "prompt": "Create a transparent production full-body character keyframe sheet. The character is our existing GPT woman: silver-lavender long wavy hair, cream horns, pointed ears, lilac eyes, intricate silver knot hair ornament. Preserve horns and pointed ears across every outfit. Reference 1 defines exact character identity and original outfit; use its exact colors, textile details, ornaments and footwear in all four figures.  \nKeep ADULT 25+ anatomy, original mature face, approximately 7.5-8 heads tall, normal small head, long natural thighs and shins. Match original portrait's head-to-body ratio, torso length, waist, knee and ankle heights. Don't shorten legs to fit layout. Photorealistic 3D digital human rendering, lifelike skin, detailed hair and cloth. No chibi or doll proportions.\n Preserve reference portrait mature adult 25+ face, natural small head, long thighs and shins, about 7.5 head lengths tall. Photorealistic 3D digital human rendering. Preserve identity, face, hairstyle, ornament and exact outfit/footwear. Body and legs cannot shrink in later cells. No chibi or doll anatomy. Accurate connected fingers/wrists. No shadows, floor, backdrop, text, labels or grid. True transparent alpha. LAYOUT: FOUR full-body figures in ONE HORIZONTAL ROW, 4 columns x 1 row, panoramic 3:1 canvas, approximately 3072x1024 pixels. Each head-to-shoe complete figure occupies at most 18% of the canvas width and 84% of height. Broad EMPTY TRANSPARENT gutters separate ALL hair and skirts. Copy the SAME full-height base body and legs at exactly the same scale into all four columns; ONLY arms and face change. All heads, waists, knees and ankles stay at the same horizontal levels. Feet share baseline y=93%, leaving empty space below ALL shoes. Never crop or shorten legs. Order left to right.  FOUR POSES:  1) High-five preparation: her RIGHT hand (viewer LEFT) rises to shoulder height, relaxed open palm. 2) High-five ready: the same connected arm, open palm facing viewer beside her temple, NOT above head; five natural fingers. 3) High-five contact: the same palm gently presses forward toward viewer at shoulder/temple level; a small happy smile; natural elbow and wrist, no separate floating arm. 4) High-five recoil: hand withdraws slightly back beside shoulder, open relaxed fingers, pleased smile. Left arm rests by side throughout.",
+    "rows": 1
+  },
+  {
+    "key": "gpt-adult-original-handoff",
+    "character": "gpt-adult",
+    "outfit": "original",
+    "group": "handoff",
+    "poses": [
+      "reveal-scissors",
+      "reveal-paper",
+      "receive",
+      "gift"
+    ],
+    "filename": "gpt-adult-original-handoff-v3.png",
+    "references": [
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/gpt-adult/portrait.png"
+    ],
+    "prompt": "Create a transparent production full-body character keyframe sheet. The character is our existing GPT woman: silver-lavender long wavy hair, cream horns, pointed ears, lilac eyes, intricate silver knot hair ornament. Preserve horns and pointed ears across every outfit. Reference 1 defines exact character identity and original outfit; use its exact colors, textile details, ornaments and footwear in all four figures.  \nKeep ADULT 25+ anatomy, original mature face, approximately 7.5-8 heads tall, normal small head, long natural thighs and shins. Match original portrait's head-to-body ratio, torso length, waist, knee and ankle heights. Don't shorten legs to fit layout. Photorealistic 3D digital human rendering, lifelike skin, detailed hair and cloth. No chibi or doll proportions.\n Preserve reference portrait mature adult 25+ face, natural small head, long thighs and shins, about 7.5 head lengths tall. Photorealistic 3D digital human rendering. Preserve identity, face, hairstyle, ornament and exact outfit/footwear. Body and legs cannot shrink in later cells. No chibi or doll anatomy. Accurate connected fingers/wrists. No shadows, floor, backdrop, text, labels or grid. True transparent alpha. LAYOUT: FOUR full-body figures in ONE HORIZONTAL ROW, 4 columns x 1 row, panoramic 3:1 canvas, approximately 3072x1024 pixels. Each head-to-shoe complete figure occupies at most 18% of the canvas width and 84% of height. Broad EMPTY TRANSPARENT gutters separate ALL hair and skirts. Copy the SAME full-height base body and legs at exactly the same scale into all four columns; ONLY arms and face change. All heads, waists, knees and ankles stay at the same horizontal levels. Feet share baseline y=93%, leaving empty space below ALL shoes. Never crop or shorten legs. Order left to right.  FOUR POSES:  1) SCISSORS reveal: her right hand (viewer LEFT) extends at chest level showing only index and middle finger V, other fingers folded, natural wrist. 2) PAPER reveal: same hand/forearm position shows open five-finger palm toward viewer. 3) Receive gift: BOTH empty hands cupped together at natural waist, palms up, looking gently toward viewer. 4) Holds small WHITE gift box with PINK ribbon/bow, both hands physically support the closed box at waist; no floating props. Box no wider than torso.",
+    "rows": 1
+  },
+  {
+    "key": "gpt-adult-swim-highfive",
+    "character": "gpt-adult",
+    "outfit": "swim",
+    "group": "highfive",
+    "poses": [
+      "high-prep",
+      "high-ready",
+      "high-contact",
+      "high-recoil"
+    ],
+    "filename": "gpt-adult-swim-highfive-v3.png",
+    "references": [
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/gpt-adult/outfits/swim.png",
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/gpt-adult/portrait.png"
+    ],
+    "prompt": "Create a transparent production full-body character keyframe sheet. The character is our existing GPT woman: silver-lavender long wavy hair, cream horns, pointed ears, lilac eyes, intricate silver knot hair ornament. Preserve horns and pointed ears across every outfit. Reference 1 defines exact character identity and swim outfit; use its exact colors, textile details, ornaments and footwear in all four figures.  Reference 2 is original adult proportion/face only. Never borrow reference 2's clothes.\nKeep ADULT 25+ anatomy, original mature face, approximately 7.5-8 heads tall, normal small head, long natural thighs and shins. Match original portrait's head-to-body ratio, torso length, waist, knee and ankle heights. Don't shorten legs to fit layout. Photorealistic 3D digital human rendering, lifelike skin, detailed hair and cloth. No chibi or doll proportions.\n Preserve reference portrait mature adult 25+ face, natural small head, long thighs and shins, about 7.5 head lengths tall. Photorealistic 3D digital human rendering. Preserve identity, face, hairstyle, ornament and exact outfit/footwear. Body and legs cannot shrink in later cells. No chibi or doll anatomy. Accurate connected fingers/wrists. No shadows, floor, backdrop, text, labels or grid. True transparent alpha. LAYOUT: FOUR full-body figures in ONE HORIZONTAL ROW, 4 columns x 1 row, panoramic 3:1 canvas, approximately 3072x1024 pixels. Each head-to-shoe complete figure occupies at most 18% of the canvas width and 84% of height. Broad EMPTY TRANSPARENT gutters separate ALL hair and skirts. Copy the SAME full-height base body and legs at exactly the same scale into all four columns; ONLY arms and face change. All heads, waists, knees and ankles stay at the same horizontal levels. Feet share baseline y=93%, leaving empty space below ALL shoes. Never crop or shorten legs. Order left to right.  FOUR POSES:  1) High-five preparation: her RIGHT hand (viewer LEFT) rises to shoulder height, relaxed open palm. 2) High-five ready: the same connected arm, open palm facing viewer beside her temple, NOT above head; five natural fingers. 3) High-five contact: the same palm gently presses forward toward viewer at shoulder/temple level; a small happy smile; natural elbow and wrist, no separate floating arm. 4) High-five recoil: hand withdraws slightly back beside shoulder, open relaxed fingers, pleased smile. Left arm rests by side throughout.",
+    "rows": 1
+  },
+  {
+    "key": "gpt-adult-swim-rps",
+    "character": "gpt-adult",
+    "outfit": "swim",
+    "group": "rps",
+    "poses": [
+      "fist-up",
+      "fist-mid",
+      "fist-down",
+      "reveal-rock"
+    ],
+    "filename": "gpt-adult-swim-rps-v3.png",
+    "references": [
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/gpt-adult/outfits/swim.png",
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/gpt-adult/portrait.png"
+    ],
+    "prompt": "Create a transparent production full-body character keyframe sheet. The character is our existing GPT woman: silver-lavender long wavy hair, cream horns, pointed ears, lilac eyes, intricate silver knot hair ornament. Preserve horns and pointed ears across every outfit. Reference 1 defines exact character identity and swim outfit; use its exact colors, textile details, ornaments and footwear in all four figures.  Reference 2 is original adult proportion/face only. Never borrow reference 2's clothes.\nKeep ADULT 25+ anatomy, original mature face, approximately 7.5-8 heads tall, normal small head, long natural thighs and shins. Match original portrait's head-to-body ratio, torso length, waist, knee and ankle heights. Don't shorten legs to fit layout. Photorealistic 3D digital human rendering, lifelike skin, detailed hair and cloth. No chibi or doll proportions.\n Preserve reference portrait mature adult 25+ face, natural small head, long thighs and shins, about 7.5 head lengths tall. Photorealistic 3D digital human rendering. Preserve identity, face, hairstyle, ornament and exact outfit/footwear. Body and legs cannot shrink in later cells. No chibi or doll anatomy. Accurate connected fingers/wrists. No shadows, floor, backdrop, text, labels or grid. True transparent alpha. LAYOUT: FOUR full-body figures in ONE HORIZONTAL ROW, 4 columns x 1 row, panoramic 3:1 canvas, approximately 3072x1024 pixels. Each head-to-shoe complete figure occupies at most 18% of the canvas width and 84% of height. Broad EMPTY TRANSPARENT gutters separate ALL hair and skirts. Copy the SAME full-height base body and legs at exactly the same scale into all four columns; ONLY arms and face change. All heads, waists, knees and ankles stay at the same horizontal levels. Feet share baseline y=93%, leaving empty space below ALL shoes. Never crop or shorten legs. Order left to right.  FOUR POSES:  1) Guessing-game fist HIGH beside chin, right hand (viewer LEFT) CLOSED fist, elbow natural. 2) Same closed fist MID beside upper chest. 3) Same closed fist LOW beside waist. 4) ROCK reveal: same right closed fist extends gently forward at chest height, knuckles toward viewer. Left arm rests by side. Four clear distinct positions of the same anatomically connected arm.",
+    "rows": 1
+  },
+  {
+    "key": "gpt-adult-swim-handoff",
+    "character": "gpt-adult",
+    "outfit": "swim",
+    "group": "handoff",
+    "poses": [
+      "reveal-scissors",
+      "reveal-paper",
+      "receive",
+      "gift"
+    ],
+    "filename": "gpt-adult-swim-handoff-v3.png",
+    "references": [
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/gpt-adult/outfits/swim.png",
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/gpt-adult/portrait.png"
+    ],
+    "prompt": "Create a transparent production full-body character keyframe sheet. The character is our existing GPT woman: silver-lavender long wavy hair, cream horns, pointed ears, lilac eyes, intricate silver knot hair ornament. Preserve horns and pointed ears across every outfit. Reference 1 defines exact character identity and swim outfit; use its exact colors, textile details, ornaments and footwear in all four figures.  Reference 2 is original adult proportion/face only. Never borrow reference 2's clothes.\nKeep ADULT 25+ anatomy, original mature face, approximately 7.5-8 heads tall, normal small head, long natural thighs and shins. Match original portrait's head-to-body ratio, torso length, waist, knee and ankle heights. Don't shorten legs to fit layout. Photorealistic 3D digital human rendering, lifelike skin, detailed hair and cloth. No chibi or doll proportions.\n Preserve reference portrait mature adult 25+ face, natural small head, long thighs and shins, about 7.5 head lengths tall. Photorealistic 3D digital human rendering. Preserve identity, face, hairstyle, ornament and exact outfit/footwear. Body and legs cannot shrink in later cells. No chibi or doll anatomy. Accurate connected fingers/wrists. No shadows, floor, backdrop, text, labels or grid. True transparent alpha. LAYOUT: FOUR full-body figures in ONE HORIZONTAL ROW, 4 columns x 1 row, panoramic 3:1 canvas, approximately 3072x1024 pixels. Each head-to-shoe complete figure occupies at most 18% of the canvas width and 84% of height. Broad EMPTY TRANSPARENT gutters separate ALL hair and skirts. Copy the SAME full-height base body and legs at exactly the same scale into all four columns; ONLY arms and face change. All heads, waists, knees and ankles stay at the same horizontal levels. Feet share baseline y=93%, leaving empty space below ALL shoes. Never crop or shorten legs. Order left to right.  FOUR POSES:  1) SCISSORS reveal: her right hand (viewer LEFT) extends at chest level showing only index and middle finger V, other fingers folded, natural wrist. 2) PAPER reveal: same hand/forearm position shows open five-finger palm toward viewer. 3) Receive gift: BOTH empty hands cupped together at natural waist, palms up, looking gently toward viewer. 4) Holds small WHITE gift box with PINK ribbon/bow, both hands physically support the closed box at waist; no floating props. Box no wider than torso.",
+    "rows": 1
+  },
+  {
+    "key": "gpt-adult-wedding-rps",
+    "character": "gpt-adult",
+    "outfit": "wedding",
+    "group": "rps",
+    "poses": [
+      "fist-up",
+      "fist-mid",
+      "fist-down",
+      "reveal-rock"
+    ],
+    "filename": "gpt-adult-wedding-rps-v3.png",
+    "references": [
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/gpt-adult/outfits/wedding.png",
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/gpt-adult/portrait.png"
+    ],
+    "prompt": "Create a transparent production full-body character keyframe sheet. The character is our existing GPT woman: silver-lavender long wavy hair, cream horns, pointed ears, lilac eyes, intricate silver knot hair ornament. Preserve horns and pointed ears across every outfit. Reference 1 defines exact character identity and wedding outfit; use its exact colors, textile details, ornaments and footwear in all four figures.  Reference 2 is original adult proportion/face only. Never borrow reference 2's clothes.\nKeep ADULT 25+ anatomy, original mature face, approximately 7.5-8 heads tall, normal small head, long natural thighs and shins. Match original portrait's head-to-body ratio, torso length, waist, knee and ankle heights. Don't shorten legs to fit layout. Photorealistic 3D digital human rendering, lifelike skin, detailed hair and cloth. No chibi or doll proportions.\n Preserve reference portrait mature adult 25+ face, natural small head, long thighs and shins, about 7.5 head lengths tall. Photorealistic 3D digital human rendering. Preserve identity, face, hairstyle, ornament and exact outfit/footwear. Body and legs cannot shrink in later cells. No chibi or doll anatomy. Accurate connected fingers/wrists. No shadows, floor, backdrop, text, labels or grid. True transparent alpha. LAYOUT: FOUR complete FULL BODY figures, TWO COLUMNS and TWO ROWS, square 2048x2048 transparent atlas. The whole top row fits y=6% to 43%; the whole bottom row fits y=56% to 93%. Copy the SAME full-height base body at EXACTLY the same scale into every cell, then change ONLY arms/face for the gestures. Heads, waist, knees and ankles remain at identical cell-relative levels. Leave empty transparent space below all four pairs of shoes and between all hair and gowns. Keep full gown and veil inside each cell. No overlapping people. Do not crop or shorten anyone to fit the canvas. Order: top-left, top-right, bottom-left, bottom-right.  FOUR POSES:  1) Guessing-game fist HIGH beside chin, right hand (viewer LEFT) CLOSED fist, elbow natural. 2) Same closed fist MID beside upper chest. 3) Same closed fist LOW beside waist. 4) ROCK reveal: same right closed fist extends gently forward at chest height, knuckles toward viewer. Left arm rests by side. Four clear distinct positions of the same anatomically connected arm.",
+    "rows": 2
+  },
+  {
+    "key": "gpt-adult-wedding-book",
+    "character": "gpt-adult",
+    "outfit": "wedding",
+    "group": "book",
+    "poses": [
+      "gift-empty",
+      "read",
+      "page",
+      "read-finish"
+    ],
+    "filename": "gpt-adult-wedding-book-v3.png",
+    "references": [
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/gpt-adult/outfits/wedding.png",
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/gpt-adult/portrait.png"
+    ],
+    "prompt": "Create a transparent production full-body character keyframe sheet. The character is our existing GPT woman: silver-lavender long wavy hair, cream horns, pointed ears, lilac eyes, intricate silver knot hair ornament. Preserve horns and pointed ears across every outfit. Reference 1 defines exact character identity and wedding outfit; use its exact colors, textile details, ornaments and footwear in all four figures.  Reference 2 is original adult proportion/face only. Never borrow reference 2's clothes.\nKeep ADULT 25+ anatomy, original mature face, approximately 7.5-8 heads tall, normal small head, long natural thighs and shins. Match original portrait's head-to-body ratio, torso length, waist, knee and ankle heights. Don't shorten legs to fit layout. Photorealistic 3D digital human rendering, lifelike skin, detailed hair and cloth. No chibi or doll proportions.\n Preserve reference portrait mature adult 25+ face, natural small head, long thighs and shins, about 7.5 head lengths tall. Photorealistic 3D digital human rendering. Preserve identity, face, hairstyle, ornament and exact outfit/footwear. Body and legs cannot shrink in later cells. No chibi or doll anatomy. Accurate connected fingers/wrists. No shadows, floor, backdrop, text, labels or grid. True transparent alpha. LAYOUT: FOUR complete FULL BODY figures, TWO COLUMNS and TWO ROWS, square 2048x2048 transparent atlas. The whole top row fits y=6% to 43%; the whole bottom row fits y=56% to 93%. Copy the SAME full-height base body at EXACTLY the same scale into every cell, then change ONLY arms/face for the gestures. Heads, waist, knees and ankles remain at identical cell-relative levels. Leave empty transparent space below all four pairs of shoes and between all hair and gowns. Keep full gown and veil inside each cell. No overlapping people. Do not crop or shorten anyone to fit the canvas. Order: top-left, top-right, bottom-left, bottom-right.  FOUR POSES:  1) Open EMPTY gift box: left hand physically supports small white/pink box at waist, right hand holds the matching detached lid beside her shoulder. The open box has an EMPTY GREY cavity clearly above its front wall, no toy/object inside, no confetti. 2) Read: both hands physically hold an OPEN BLUE hardcover storybook at waist-to-chest, eyes look down at pages, lips relaxed closed. 3) Turn page: left hand supports the same book at exactly same position, right fingertip physically touches a single curling page, eyes on book. 4) Reading finished: both hands hold the CLOSED same blue book against waist, warm smile looking at viewer. All four figures stand TALL with same straight legs as reference, do not crouch to read.",
+    "rows": 2
+  },
+  {
+    "key": "gpt-adult-sports-handoff",
+    "character": "gpt-adult",
+    "outfit": "sports",
+    "group": "handoff",
+    "poses": [
+      "reveal-scissors",
+      "reveal-paper",
+      "receive",
+      "gift"
+    ],
+    "filename": "gpt-adult-sports-handoff-v3.png",
+    "references": [
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/gpt-adult/outfits/sports/portrait.png",
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/gpt-adult/portrait.png"
+    ],
+    "prompt": "Create a transparent production full-body character keyframe sheet. The character is our existing GPT woman: silver-lavender long wavy hair, cream horns, pointed ears, lilac eyes, intricate silver knot hair ornament. Preserve horns and pointed ears across every outfit. Reference 1 defines exact character identity and sports outfit; use its exact colors, textile details, ornaments and footwear in all four figures. White zip shirt with SHORT SLEEVES ending at upper arms and ABOVE-KNEE SHORT SHORTS, socks, athletic shoes; preserve uniform accent color. No long pants or long sleeves. Reference 2 is original adult proportion/face only. Never borrow reference 2's clothes.\nKeep ADULT 25+ anatomy, original mature face, approximately 7.5-8 heads tall, normal small head, long natural thighs and shins. Match original portrait's head-to-body ratio, torso length, waist, knee and ankle heights. Don't shorten legs to fit layout. Photorealistic 3D digital human rendering, lifelike skin, detailed hair and cloth. No chibi or doll proportions.\n Preserve reference portrait mature adult 25+ face, natural small head, long thighs and shins, about 7.5 head lengths tall. Photorealistic 3D digital human rendering. Preserve identity, face, hairstyle, ornament and exact outfit/footwear. Body and legs cannot shrink in later cells. No chibi or doll anatomy. Accurate connected fingers/wrists. No shadows, floor, backdrop, text, labels or grid. True transparent alpha. LAYOUT: FOUR full-body figures in ONE HORIZONTAL ROW, 4 columns x 1 row, panoramic 3:1 canvas, approximately 3072x1024 pixels. Each head-to-shoe complete figure occupies at most 18% of the canvas width and 84% of height. Broad EMPTY TRANSPARENT gutters separate ALL hair and skirts. Copy the SAME full-height base body and legs at exactly the same scale into all four columns; ONLY arms and face change. All heads, waists, knees and ankles stay at the same horizontal levels. Feet share baseline y=93%, leaving empty space below ALL shoes. Never crop or shorten legs. Order left to right.  FOUR POSES:  1) SCISSORS reveal: her right hand (viewer LEFT) extends at chest level showing only index and middle finger V, other fingers folded, natural wrist. 2) PAPER reveal: same hand/forearm position shows open five-finger palm toward viewer. 3) Receive gift: BOTH empty hands cupped together at natural waist, palms up, looking gently toward viewer. 4) Holds small WHITE gift box with PINK ribbon/bow, both hands physically support the closed box at waist; no floating props. Box no wider than torso.",
+    "rows": 1
+  },
+  {
+    "key": "claude-adult-wedding-highfive",
+    "character": "claude-adult",
+    "outfit": "wedding",
+    "group": "highfive",
+    "poses": [
+      "high-prep",
+      "high-ready",
+      "high-contact",
+      "high-recoil"
+    ],
+    "filename": "claude-adult-wedding-highfive-v3.png",
+    "references": [
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/claude-adult/outfits/wedding.png",
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/claude-adult/portrait.png"
+    ],
+    "prompt": "Create a transparent production full-body character keyframe sheet. The character is our existing Claude woman: copper-orange long wavy hair, amber eyes, round thin gold glasses, orange flower ornament with dark ribbon. Preserve glasses across every outfit. Reference 1 defines exact character identity and wedding outfit; use its exact colors, textile details, ornaments and footwear in all four figures.  Reference 2 is original adult proportion/face only. Never borrow reference 2's clothes.\nKeep ADULT 25+ anatomy, original mature face, approximately 7.5-8 heads tall, normal small head, long natural thighs and shins. Match original portrait's head-to-body ratio, torso length, waist, knee and ankle heights. Don't shorten legs to fit layout. Photorealistic 3D digital human rendering, lifelike skin, detailed hair and cloth. No chibi or doll proportions.\n Preserve reference portrait mature adult 25+ face, natural small head, long thighs and shins, about 7.5 head lengths tall. Photorealistic 3D digital human rendering. Preserve identity, face, hairstyle, ornament and exact outfit/footwear. Body and legs cannot shrink in later cells. No chibi or doll anatomy. Accurate connected fingers/wrists. No shadows, floor, backdrop, text, labels or grid. True transparent alpha. LAYOUT: FOUR complete FULL BODY figures, TWO COLUMNS and TWO ROWS, square 2048x2048 transparent atlas. The whole top row fits y=6% to 43%; the whole bottom row fits y=56% to 93%. Copy the SAME full-height base body at EXACTLY the same scale into every cell, then change ONLY arms/face for the gestures. Heads, waist, knees and ankles remain at identical cell-relative levels. Leave empty transparent space below all four pairs of shoes and between all hair and gowns. Keep full gown and veil inside each cell. No overlapping people. Do not crop or shorten anyone to fit the canvas. Order: top-left, top-right, bottom-left, bottom-right.  FOUR POSES:  1) High-five preparation: her RIGHT hand (viewer LEFT) rises to shoulder height, relaxed open palm. 2) High-five ready: the same connected arm, open palm facing viewer beside her temple, NOT above head; five natural fingers. 3) High-five contact: the same palm gently presses forward toward viewer at shoulder/temple level; a small happy smile; natural elbow and wrist, no separate floating arm. 4) High-five recoil: hand withdraws slightly back beside shoulder, open relaxed fingers, pleased smile. Left arm rests by side throughout.",
+    "rows": 2
+  },
+  {
+    "key": "claude-adult-wedding-rps",
+    "character": "claude-adult",
+    "outfit": "wedding",
+    "group": "rps",
+    "poses": [
+      "fist-up",
+      "fist-mid",
+      "fist-down",
+      "reveal-rock"
+    ],
+    "filename": "claude-adult-wedding-rps-v3.png",
+    "references": [
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/claude-adult/outfits/wedding.png",
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/claude-adult/portrait.png"
+    ],
+    "prompt": "Create a transparent production full-body character keyframe sheet. The character is our existing Claude woman: copper-orange long wavy hair, amber eyes, round thin gold glasses, orange flower ornament with dark ribbon. Preserve glasses across every outfit. Reference 1 defines exact character identity and wedding outfit; use its exact colors, textile details, ornaments and footwear in all four figures.  Reference 2 is original adult proportion/face only. Never borrow reference 2's clothes.\nKeep ADULT 25+ anatomy, original mature face, approximately 7.5-8 heads tall, normal small head, long natural thighs and shins. Match original portrait's head-to-body ratio, torso length, waist, knee and ankle heights. Don't shorten legs to fit layout. Photorealistic 3D digital human rendering, lifelike skin, detailed hair and cloth. No chibi or doll proportions.\n Preserve reference portrait mature adult 25+ face, natural small head, long thighs and shins, about 7.5 head lengths tall. Photorealistic 3D digital human rendering. Preserve identity, face, hairstyle, ornament and exact outfit/footwear. Body and legs cannot shrink in later cells. No chibi or doll anatomy. Accurate connected fingers/wrists. No shadows, floor, backdrop, text, labels or grid. True transparent alpha. LAYOUT: FOUR complete FULL BODY figures, TWO COLUMNS and TWO ROWS, square 2048x2048 transparent atlas. The whole top row fits y=6% to 43%; the whole bottom row fits y=56% to 93%. Copy the SAME full-height base body at EXACTLY the same scale into every cell, then change ONLY arms/face for the gestures. Heads, waist, knees and ankles remain at identical cell-relative levels. Leave empty transparent space below all four pairs of shoes and between all hair and gowns. Keep full gown and veil inside each cell. No overlapping people. Do not crop or shorten anyone to fit the canvas. Order: top-left, top-right, bottom-left, bottom-right.  FOUR POSES:  1) Guessing-game fist HIGH beside chin, right hand (viewer LEFT) CLOSED fist, elbow natural. 2) Same closed fist MID beside upper chest. 3) Same closed fist LOW beside waist. 4) ROCK reveal: same right closed fist extends gently forward at chest height, knuckles toward viewer. Left arm rests by side. Four clear distinct positions of the same anatomically connected arm.",
+    "rows": 2
+  },
+  {
+    "key": "claude-adult-wedding-book",
+    "character": "claude-adult",
+    "outfit": "wedding",
+    "group": "book",
+    "poses": [
+      "gift-empty",
+      "read",
+      "page",
+      "read-finish"
+    ],
+    "filename": "claude-adult-wedding-book-v3.png",
+    "references": [
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/claude-adult/outfits/wedding.png",
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/claude-adult/portrait.png"
+    ],
+    "prompt": "Create a transparent production full-body character keyframe sheet. The character is our existing Claude woman: copper-orange long wavy hair, amber eyes, round thin gold glasses, orange flower ornament with dark ribbon. Preserve glasses across every outfit. Reference 1 defines exact character identity and wedding outfit; use its exact colors, textile details, ornaments and footwear in all four figures.  Reference 2 is original adult proportion/face only. Never borrow reference 2's clothes.\nKeep ADULT 25+ anatomy, original mature face, approximately 7.5-8 heads tall, normal small head, long natural thighs and shins. Match original portrait's head-to-body ratio, torso length, waist, knee and ankle heights. Don't shorten legs to fit layout. Photorealistic 3D digital human rendering, lifelike skin, detailed hair and cloth. No chibi or doll proportions.\n Preserve reference portrait mature adult 25+ face, natural small head, long thighs and shins, about 7.5 head lengths tall. Photorealistic 3D digital human rendering. Preserve identity, face, hairstyle, ornament and exact outfit/footwear. Body and legs cannot shrink in later cells. No chibi or doll anatomy. Accurate connected fingers/wrists. No shadows, floor, backdrop, text, labels or grid. True transparent alpha. LAYOUT: FOUR complete FULL BODY figures, TWO COLUMNS and TWO ROWS, square 2048x2048 transparent atlas. The whole top row fits y=6% to 43%; the whole bottom row fits y=56% to 93%. Copy the SAME full-height base body at EXACTLY the same scale into every cell, then change ONLY arms/face for the gestures. Heads, waist, knees and ankles remain at identical cell-relative levels. Leave empty transparent space below all four pairs of shoes and between all hair and gowns. Keep full gown and veil inside each cell. No overlapping people. Do not crop or shorten anyone to fit the canvas. Order: top-left, top-right, bottom-left, bottom-right.  FOUR POSES:  1) Open EMPTY gift box: left hand physically supports small white/pink box at waist, right hand holds the matching detached lid beside her shoulder. The open box has an EMPTY GREY cavity clearly above its front wall, no toy/object inside, no confetti. 2) Read: both hands physically hold an OPEN BLUE hardcover storybook at waist-to-chest, eyes look down at pages, lips relaxed closed. 3) Turn page: left hand supports the same book at exactly same position, right fingertip physically touches a single curling page, eyes on book. 4) Reading finished: both hands hold the CLOSED same blue book against waist, warm smile looking at viewer. All four figures stand TALL with same straight legs as reference, do not crouch to read.",
+    "rows": 2
+  },
+  {
+    "key": "claude-adult-wedding-photo",
+    "character": "claude-adult",
+    "outfit": "wedding",
+    "group": "photo",
+    "poses": [
+      "neutral",
+      "lift",
+      "photo",
+      "happy"
+    ],
+    "filename": "claude-adult-wedding-photo-v3.png",
+    "references": [
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/claude-adult/outfits/wedding.png",
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/claude-adult/portrait.png"
+    ],
+    "prompt": "Create a transparent production full-body character keyframe sheet. The character is our existing Claude woman: copper-orange long wavy hair, amber eyes, round thin gold glasses, orange flower ornament with dark ribbon. Preserve glasses across every outfit. Reference 1 defines exact character identity and wedding outfit; use its exact colors, textile details, ornaments and footwear in all four figures.  Reference 2 is original adult proportion/face only. Never borrow reference 2's clothes.\nKeep ADULT 25+ anatomy, original mature face, approximately 7.5-8 heads tall, normal small head, long natural thighs and shins. Match original portrait's head-to-body ratio, torso length, waist, knee and ankle heights. Don't shorten legs to fit layout. Photorealistic 3D digital human rendering, lifelike skin, detailed hair and cloth. No chibi or doll proportions.\n Preserve reference portrait mature adult 25+ face, natural small head, long thighs and shins, about 7.5 head lengths tall. Photorealistic 3D digital human rendering. Preserve identity, face, hairstyle, ornament and exact outfit/footwear. Body and legs cannot shrink in later cells. No chibi or doll anatomy. Accurate connected fingers/wrists. No shadows, floor, backdrop, text, labels or grid. True transparent alpha. LAYOUT: FOUR complete FULL BODY figures, TWO COLUMNS and TWO ROWS, square 2048x2048 transparent atlas. The whole top row fits y=6% to 43%; the whole bottom row fits y=56% to 93%. Copy the SAME full-height base body at EXACTLY the same scale into every cell, then change ONLY arms/face for the gestures. Heads, waist, knees and ankles remain at identical cell-relative levels. Leave empty transparent space below all four pairs of shoes and between all hair and gowns. Keep full gown and veil inside each cell. No overlapping people. Do not crop or shorten anyone to fit the canvas. Order: top-left, top-right, bottom-left, bottom-right.  FOUR POSES:  1) Neutral full-body standing, both arms relaxed beside dress, calm smile. 2) Photo preparation: right hand moves up toward cheek, relaxed fingers, left arm rests by side. 3) Photo: natural right-hand two-finger V gesture beside cheek, gentle smile toward viewer, left arm down. 4) Happy relaxed full-body standing, friendly closed-mouth smile, both arms by sides. All four same straight standing legs and same adult face/body.",
+    "rows": 2
+  },
+  {
+    "key": "claude-adult-sports-photo",
+    "character": "claude-adult",
+    "outfit": "sports",
+    "group": "photo",
+    "poses": [
+      "neutral",
+      "lift",
+      "photo",
+      "happy"
+    ],
+    "filename": "claude-adult-sports-photo-v3.png",
+    "references": [
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/claude-adult/outfits/sports/portrait.png",
+      "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/claude-adult/portrait.png"
+    ],
+    "prompt": "Create a transparent production full-body character keyframe sheet. The character is our existing Claude woman: copper-orange long wavy hair, amber eyes, round thin gold glasses, orange flower ornament with dark ribbon. Preserve glasses across every outfit. Reference 1 defines exact character identity and sports outfit; use its exact colors, textile details, ornaments and footwear in all four figures. White zip shirt with SHORT SLEEVES ending at upper arms and ABOVE-KNEE SHORT SHORTS, socks, athletic shoes; preserve uniform accent color. No long pants or long sleeves. Reference 2 is original adult proportion/face only. Never borrow reference 2's clothes.\nKeep ADULT 25+ anatomy, original mature face, approximately 7.5-8 heads tall, normal small head, long natural thighs and shins. Match original portrait's head-to-body ratio, torso length, waist, knee and ankle heights. Don't shorten legs to fit layout. Photorealistic 3D digital human rendering, lifelike skin, detailed hair and cloth. No chibi or doll proportions.\n Preserve reference portrait mature adult 25+ face, natural small head, long thighs and shins, about 7.5 head lengths tall. Photorealistic 3D digital human rendering. Preserve identity, face, hairstyle, ornament and exact outfit/footwear. Body and legs cannot shrink in later cells. No chibi or doll anatomy. Accurate connected fingers/wrists. No shadows, floor, backdrop, text, labels or grid. True transparent alpha. LAYOUT: FOUR full-body figures in ONE HORIZONTAL ROW, 4 columns x 1 row, panoramic 3:1 canvas, approximately 3072x1024 pixels. Each head-to-shoe complete figure occupies at most 18% of the canvas width and 84% of height. Broad EMPTY TRANSPARENT gutters separate ALL hair and skirts. Copy the SAME full-height base body and legs at exactly the same scale into all four columns; ONLY arms and face change. All heads, waists, knees and ankles stay at the same horizontal levels. Feet share baseline y=93%, leaving empty space below ALL shoes. Never crop or shorten legs. Order left to right.  FOUR POSES:  1) Neutral full-body standing, both arms relaxed beside dress, calm smile. 2) Photo preparation: right hand moves up toward cheek, relaxed fingers, left arm rests by side. 3) Photo: natural right-hand two-finger V gesture beside cheek, gentle smile toward viewer, left arm down. 4) Happy relaxed full-body standing, friendly closed-mouth smile, both arms by sides. All four same straight standing legs and same adult face/body.",
+    "rows": 1
+  }
+]

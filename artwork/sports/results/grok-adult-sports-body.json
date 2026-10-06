@@ -1,0 +1,21 @@
+{
+  "key": "grok-adult-sports-body",
+  "id": "grok-adult",
+  "family": "grok",
+  "style": "realistic",
+  "kind": "body",
+  "columns": 4,
+  "rows": 4,
+  "refs": [
+    "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/deepseek-adult/motions/interaction.png",
+    "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/grok-adult/portrait.png",
+    "D:/VibeCoding/Character/docs/demo/cloud-club/art/school-realistic.png"
+  ],
+  "prompt": "Use case: identity-preserve / sprite wardrobe edit. Image 1 is a sixteen-pose 4x4 animation template. Recreate those EXACT 16 full-body action poses and ordering with the adult Grok identity from image 2: golden blonde twin tails, blue eyes, black ribbon hair ties and silver orbit hairclip. Image 3 defines the approved SHORT-SLEEVE track uniform, recolor panels/pants to charcoal black panels and track pants, warm gold piping, tiny silver orbit emblem. Ivory zip-front short-sleeve top above elbows, matching long track pants with white side stripes, white trainers. Remove all maid costume pieces, dress and boots. KEEP the sixteen actions in template order: row1 listen, speak, quietly look up, jump crouch; row2 airborne knees tucked, landing, sitting hugging knees, resting head on hugged knees; row3 lying asleep on side, seated holding cube, actually placing cube on cube stack, seated pleased with finished stack; row4 lifted straight toes down, lifted knees bent, small recoil, missed catch arms open. All 16 complete figures show BOTH pant hems and shoes. Same head/anatomical pixel scale across ALL poses. Shrink every entire figure by 20% relative to input inside its cell to leave ample transparent gutters, not cropped limbs. EXACTLY 4 columns and 4 rows, portrait canvas. Adult 23+ realistic 3D rendering and mature anatomy. Keep image 2 face, hairstyle, ornaments and eye color, no DeepSeek tail unless identity requires it. Transparent alpha, no background/aura/floor, no text/numbers.",
+  "dest": "src/DesktopPet.App/Assets/Characters/grok-adult/outfits/sports/body.png",
+  "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-641cabe1-587a-431c-b933-983d7998e867.png",
+  "tool": "image_gen.imagegen",
+  "selected": false,
+  "status": "superseded-long-pants",
+  "reason": "User requires short sleeves AND shorts above knees in both styles; do not install or publish this batch."
+}

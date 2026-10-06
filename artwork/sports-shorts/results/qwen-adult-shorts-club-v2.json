@@ -1,0 +1,188 @@
+{
+  "key": "qwen-adult-shorts-club-v2",
+  "id": "qwen-adult",
+  "family": "qwen",
+  "style": "realistic",
+  "kind": "club",
+  "columns": 4,
+  "rows": 5,
+  "refs": [
+    "C:\\Users\\99000256\\.codex\\generated_images\\01a0fd54-807b-7df2-88b5-c9f04a7bcefe\\exec-804f1c8d-012a-47e8-ba6f-5e199e46b111.png",
+    "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/qwen-adult/outfits/sports/portrait.png"
+  ],
+  "prompt": "Use case: identity-preserve animation retarget. FIRST image is EXACT TWENTY-FIGURE 4-column by 5-row action layout. SECOND image is adult character identity and SHORT SLEEVES + MID-THIGH SHORTS costume/colors. Replace FIRST character by SECOND while keeping ALL TWENTY complete full-body poses, their prop positions and exact layout. Do NOT add extra figures, rows or actions. Preserve first image's complete shoes and bare lower legs in EVERY cell. Same face, hairstyle/accessories from SECOND in all 20. Body scale constant. First 8 count stars: looking up, pointing, counting fingers. Next bubble figures hold bottle + circular bubble wand at mouth; preserve circular ring centre and hand contact, no bubbles painted. Final poses stretch joined hands left/right and lower. Do not crop to torso; feet MUST be visible. Shrink entire figures uniformly by 12% inside their cells leaving transparent gutters. Sleeves end on upper arms; shorts clearly above knees, ankle socks and trainers, no long pants/skirts. Actual transparent alpha no background/aura/floor/text. Use SECOND identity chest emblem, never copy DeepSeek blue whale except if second is DeepSeek.",
+  "dest": "src/DesktopPet.App/Assets/Characters/qwen-adult/outfits/sports/club.png",
+  "source": "D:\\VibeCoding\\Character\\src\\DesktopPet.App\\Assets\\Characters\\qwen-adult\\outfits\\sports\\club.png",
+  "clips": {
+    "stars": [
+      [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      [
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        500
+      ],
+      false
+    ],
+    "bubbles": [
+      [
+        8,
+        9,
+        10,
+        11,
+        12,
+        11,
+        10,
+        15
+      ],
+      [
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        500
+      ],
+      true
+    ],
+    "stretch": [
+      [
+        13,
+        14,
+        16,
+        16,
+        17,
+        17,
+        18,
+        19
+      ],
+      [
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        500
+      ],
+      false
+    ]
+  },
+  "referenceGroups": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "selected": true,
+  "tool": "builtin imagegen",
+  "originalSource": "C:\\Users\\99000256\\.codex\\generated_images\\01a0fd54-807b-7df2-88b5-c9f04a7bcefe\\exec-866ca9b3-8ee3-4f7f-a052-75733c46ea4f.png",
+  "review": "Full-body poses visually checked: short sleeves above elbows, shorts above knees, bare lower legs, preserved identity; actual ordered action poses reviewed.",
+  "bubbleSources": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    {
+      "x": 0.059880239520958084,
+      "y": 0.6624605678233438
+    },
+    {
+      "x": 0.551948051948052,
+      "y": 0.321656050955414
+    },
+    {
+      "x": 0.40522875816993464,
+      "y": 0.1949685534591195
+    },
+    {
+      "x": 0.43506493506493504,
+      "y": 0.20189274447949526
+    },
+    {
+      "x": 0.46357615894039733,
+      "y": 0.22185430463576158
+    },
+    null,
+    null,
+    {
+      "x": 0.5686274509803921,
+      "y": 0.3511705685618729
+    },
+    null,
+    null,
+    null,
+    null
+  ],
+  "measurement": {
+    "bubbleRingPixels": [
+      [
+        8,
+        108,
+        858
+      ],
+      [
+        9,
+        435,
+        752
+      ],
+      [
+        10,
+        630,
+        709
+      ],
+      [
+        11,
+        865,
+        712
+      ],
+      [
+        12,
+        181,
+        1030
+      ],
+      [
+        15,
+        887,
+        1071
+      ]
+    ],
+    "basis": "physical atlas indices; ring centre in original pixels, normalized to measured sprite crop"
+  }
+}

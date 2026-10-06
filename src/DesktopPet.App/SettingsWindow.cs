@@ -79,7 +79,7 @@ public sealed partial class SettingsWindow : Window
         if (destination == "styles" && page != "styles")
         {
             compareFamily = Catalog.BuiltInFamilies.Contains(pet.Character.FamilyId) ? pet.Character.FamilyId : "whale";
-            compareOutfit = new[] { "original", "swim", "wedding" }.Contains(pet.State.Outfit) ? pet.State.Outfit : "original";
+            compareOutfit = Catalog.BuiltInOutfits.Contains(pet.State.Outfit) ? pet.State.Outfit : "original";
         }
         page = destination; Rebuild();
     }
@@ -156,7 +156,7 @@ public sealed partial class SettingsWindow : Window
         }
         content.Children.Add(families);
         var wardrobe = new WrapPanel { Margin = new Thickness(0, 2, 0, 4) };
-        foreach (var (id, label) in new[] { ("original", "原装"), ("swim", "泳装"), ("wedding", "婚纱") })
+        foreach (var (id, label) in Catalog.BuiltInWardrobe)
         {
             var b = MakeButton(label, () => { compareOutfit = id; Rebuild(); }, "dress");
             b.Padding = new Thickness(10, 2, 13, 2); b.Margin = new Thickness(0, 0, 8, 2); b.Background = compareOutfit == id ? CloudTheme.Pale : Brushes.White;
@@ -179,7 +179,7 @@ public sealed partial class SettingsWindow : Window
             var card = Card(panel); card.Margin = new Thickness(0, 6, 12, 16); card.Padding = new Thickness(15); grid.Children.Add(card);
         }
         content.Children.Add(grid);
-        content.Children.Add(Text("Q版、3D真人均有原装、泳装和婚纱。切换风格会保留同一伙伴和服装。", 12, true));
+        content.Children.Add(Text("Q版、3D真人均有原装、泳装、婚纱和短袖短裤运动服。切换风格会保留同一伙伴和服装。", 12, true));
     }
     public void RefreshStatus()
     {
@@ -201,7 +201,7 @@ public sealed partial class SettingsWindow : Window
         progress.Children.Add(daily); content.Children.Add(Card(progress));
         var actionHeading = new DockPanel(); var stop = MakeButton("结束互动", pet.StopInteraction, "stop"); stop.FontSize = 11; stop.Padding = new Thickness(9, 5, 9, 5); stop.Background = Brushes.Transparent; stop.BorderThickness = new Thickness(0); DockPanel.SetDock(stop, Dock.Right); actionHeading.Children.Add(stop); actionHeading.Children.Add(Text("一起做点什么", 17)); content.Children.Add(actionHeading);
         var actions = new System.Windows.Controls.Primitives.UniformGrid { Columns = 4 };
-        foreach (var entry in PetActions.Daily.Where(e => e.Key != "dance" || pet.CanDance))
+        foreach (var entry in PetActions.Daily)
         {
             var access = pet.AccessTo(entry.Key);
             var tile = new StackPanel(); var icon = MemberVisual.ActionIcon(entry.Icon, !access.Allowed); icon.HorizontalAlignment = HorizontalAlignment.Left; tile.Children.Add(icon);
@@ -212,7 +212,7 @@ public sealed partial class SettingsWindow : Window
         }
         content.Children.Add(actions);
         var owned = pet.State.Treasures.Select(Collectibles.FromSavedName).Where(x => x is not null).GroupBy(x => x!.Id).ToDictionary(g => g.Key, g => g.Count());
-        var treasures = new StackPanel(); treasures.Children.Add(Text($"散步收藏 · {owned.Count}/20", 16));
+        var treasures = new StackPanel(); treasures.Children.Add(Text($"小物收藏 · {owned.Count}/20", 16));
         var shelf = new System.Windows.Controls.Primitives.UniformGrid { Columns = 5 };
         foreach (var item in Collectibles.All)
         {
@@ -230,6 +230,13 @@ public sealed partial class SettingsWindow : Window
         var legacy = pet.State.Treasures.Where(x => Collectibles.FromSavedName(x) is null).GroupBy(x => x).Select(g => $"{g.Key} × {g.Count()}");
         if (legacy.Any()) treasures.Children.Add(Text(string.Join("    ", legacy), 12, true));
         content.Children.Add(Card(treasures));
+        var stories=new StackPanel();stories.Children.Add(Text($"故事收藏 · {pet.State.ReadStories.Count}/{StoryLibrary.All.Count}",16));
+        foreach(var story in StoryLibrary.All)
+        {
+            int count=pet.State.ReadStories.GetValueOrDefault(story.Id);
+            stories.Children.Add(MakeButton(story.Title+(count>0?$" · 已读 {count} 次 · 再读一遍":" · 一起读完收藏"),()=>pet.ReadStory(story.Id),"read"));
+        }
+        content.Children.Add(Card(stories));
         content.Children.Add(Text("摸头、揉脸、挠痒也可以直接点击角色相应位置。摇晃后会头晕，连续摇晃会躺下缓一会儿。", 12, true));
     }
     private void Preferences()

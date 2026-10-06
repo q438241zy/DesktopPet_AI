@@ -1,0 +1,19 @@
+{
+  "key": "deepseek-adult-sports-portrait",
+  "id": "deepseek-adult",
+  "family": "whale",
+  "style": "realistic",
+  "kind": "portrait",
+  "columns": 3,
+  "rows": 4,
+  "refs": [
+    "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/deepseek-adult/portrait.png",
+    "D:/VibeCoding/Character/docs/demo/cloud-club/art/school-realistic.png"
+  ],
+  "dest": "src/DesktopPet.App/Assets/Characters/deepseek-adult/outfits/sports/portrait.png",
+  "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-eb53f706-fc78-4905-8c82-dc585e656b3d.png",
+  "tool": "built-in image_gen",
+  "selected": false,
+  "status": "superseded-long-pants",
+  "reason": "User requires short sleeves AND shorts above knees in both styles; do not install or publish this batch."
+}

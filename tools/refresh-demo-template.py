@@ -18,13 +18,14 @@ version = re.search(r"<Version>(.*?)</Version>", (root / "src/DesktopPet.App/Des
 payload["renderVersion"] = payload.get("renderVersion", payload["version"])
 payload["version"] = version
 payload["membership"] = json.loads(args.membership_rules.read_text(encoding="utf-8"))
-suffix = "；会员：黄金及以上开放"
+old_suffix = "；会员：黄金及以上开放"
+suffix = "；会员：测试期间全部开放" if payload["membership"].get("testingOpen") else old_suffix
 for row in payload["coverage"]:
-    if row["action"] == "chat" and not row["detail"].endswith(suffix):
-        row["detail"] += suffix
+    if row["action"] == "chat":
+        row["detail"] = row["detail"].removesuffix(old_suffix).removesuffix("；会员：测试期间全部开放") + suffix
 for actions in payload["clips"].values():
-    if "chat" in actions and not actions["chat"]["detail"].endswith(suffix):
-        actions["chat"]["detail"] += suffix
+    if "chat" in actions:
+        actions["chat"]["detail"] = actions["chat"]["detail"].removesuffix(old_suffix).removesuffix("；会员：测试期间全部开放") + suffix
 for frame in payload["frames"]:
     if not (args.source.parent / frame).is_file():
         raise SystemExit("Missing original native frame: " + frame)
@@ -32,7 +33,8 @@ template = (root / "docs/demo/template.html").read_text(encoding="utf-8")
 result = template.replace("__DEMO_DATA__", json.dumps(payload, ensure_ascii=False, separators=(",", ":")).replace("<", "\\u003c"))
 args.source.write_text(result, encoding="utf-8")
 (args.source.parent / "action-coverage.json").write_text(json.dumps(payload["coverage"], ensure_ascii=False, indent=2), encoding="utf-8")
-lines = ["# 動作覆蓋清單", "", "會員權益：聊天需黃金及以上；其他姿態分級待公布。", "",
+membership_note = "會員權益：測試期間全部開放；正式分級待公布。" if payload["membership"].get("testingOpen") else "會員權益：聊天需黃金及以上；其他姿態分級待公布。"
+lines = ["# 動作覆蓋清單", "", membership_note, "",
          "| 角色 | 風格 | 服裝 | 動作 | 狀態 | 說明 |", "|---|---|---|---|---|---|"]
 lines += ["| {character} | {category} | {outfit} | {title} | {status} | {detail} |".format(**r) for r in payload["coverage"]]
 (args.source.parent / "動作清單.md").write_text("\n".join(lines) + "\n", encoding="utf-8")

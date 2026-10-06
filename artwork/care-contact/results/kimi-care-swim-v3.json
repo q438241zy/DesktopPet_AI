@@ -1,0 +1,21 @@
+{
+  "key": "kimi-care-swim-v3",
+  "id": "kimi",
+  "family": "kimi",
+  "style": "chibi",
+  "kind": "care",
+  "outfits": [
+    "swim"
+  ],
+  "columns": 4,
+  "rows": 2,
+  "dest": "src/DesktopPet.App/Assets/Characters/kimi/motions/cloud-care-swim.png",
+  "refs": [
+    "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/kimi/outfits/swim.webp"
+  ],
+  "prompt": "Create a family-friendly cute mascot care sprite sheet using the reference character and exact costume. Eight complete seated full-body poses in 4 columns by 2 rows: comb held, comb to hair, comb down lock, comb lowered; white towel held, towel to cheek, gentle head tilt wiping, towel lowered. Preserve hair ornaments on the same side, all anatomy and clothes, full figures with ample transparent gaps and outer borders. True transparent alpha; no background, text or additional effects.",
+  "selected": true,
+  "source": "D:\\VibeCoding\\Character\\artwork\\care-contact\\kimi-care-swim-v3.png",
+  "originalSource": "C:/Users/99000256/.codex/generated_images/01a0e159-1c2b-7643-8517-9ec7beebfed3/exec-be7a7cdd-b06a-4791-8dc6-8d9bc63fe5bf.png",
+  "visualReview": "Approved full eight isolated poses; identity, outfit, actual comb/towel hand contact and transparent boundary inspected."
+}

@@ -1,0 +1,17 @@
+{
+  "key": "gpt-adult-sports-core-v2",
+  "id": "gpt-adult",
+  "family": "gpt",
+  "style": "realistic",
+  "kind": "core",
+  "refs": [
+    "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-b8f1bc0e-5f51-494b-8ac4-2539bf14281f.png"
+  ],
+  "prompt": "Edit this sprite atlas to repair the cropped-off legs. KEEP all 24 action poses, character identity, exact short sleeve sports uniform, face and realistic 3D style, but REDRAW every figure as a COMPLETE full body including both full-length pant legs and white sneakers. Rearrange the same 24 poses in the same row-major order into a precise 6-COLUMN by 4-ROW grid on a SQUARE 1536x1536 or larger canvas. Each pose occupies at most 72% of its cell height; leave VERY LARGE transparent gutters above and below and between every sprite. All standing figures have the SAME head size and anatomical pixel scale; seated and lying figures stay proportionally shorter, NOT enlarged to fill a cell. Neither a foot, hair, horn, raised hammer nor any hand may cross a cell edge. Preserve all pose differences; do not crop to bust or waist! The FIRST cell must be complete neutral front-facing standing pose with arms relaxed slightly away from hips and feet parallel separated. Need all 24 complete little full body sprites, not a composition of closeups. TRUE transparent alpha background, remove ALL glows and backdrops. No text, borders or effects.",
+  "dest": "src/DesktopPet.App/Assets/Characters/gpt-adult/outfits/sports/core.png",
+  "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-bb2fae55-3db6-4676-9992-ea9f31b3a201.png",
+  "tool": "built-in image_gen",
+  "selected": false,
+  "status": "superseded-long-pants",
+  "reason": "User requires short sleeves AND shorts above knees in both styles; do not install or publish this batch."
+}

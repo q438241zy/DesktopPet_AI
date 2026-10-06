@@ -1,0 +1,106 @@
+{
+  "key": "whale-shorts-club",
+  "id": "whale",
+  "family": "whale",
+  "style": "chibi",
+  "kind": "club",
+  "columns": 4,
+  "rows": 6,
+  "refs": [
+    "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/whale/motions/cloud-club-original.png",
+    "D:/VibeCoding/Character/docs/demo/cloud-club/art/school-shorts-chibi.png"
+  ],
+  "prompt": "Use case: identity-preserve. Image 1 is an EXACT 4-column 6-row sheet of 24 animation poses and hand gestures. Image 2 supplies approved chibi character and short-sleeve + SHORTS sports outfit. Replace costume in all image1 poses with image2 ivory/navy zip sports shirt, sleeves ending at upper arms, loose navy SHORTS ending above knees, bare forearms and lower legs, short ankle socks and white sneakers. No apron, skirt, headband, long sleeves, leggings, long trousers or boots. Keep all 24 poses row-major with original sitting posture and same body/head scale. Preserve cobalt-to-cyan hair, ahoge, fins and whale tail. First8: count stars with neutral, raise forearm, point up-left, higher-left, overhead, up-right, finger at cheek, lower arm. Next8: hold bottle and bubble-ring low, raise ring, ring reaches lips, blow through ring with pursed lips, continue blow, stop blow ring away, lower ring, relax. Last8: neutral, lift elbows/hands to chest, raise arms, overhead stretch, joined hands overhead, behind head relaxation, lower arms, neutral. Both ring and bottle are visibly held by fingers, ring reaches mouth during blowing. No painted bubbles or stars. All figures and props entirely within individual cells with wide transparent gaps, actual transparent alpha, no glow, no ground, no words, no grid borders.",
+  "dest": "src/DesktopPet.App/Assets/Characters/whale/outfits/sports/club.png",
+  "source": "D:\\VibeCoding\\Character\\src\\DesktopPet.App\\Assets\\Characters\\whale\\outfits\\sports\\club.png",
+  "selected": true,
+  "tool": "built-in image_gen",
+  "status": "visually-reviewed-short-sleeves-and-shorts",
+  "bubbleSources": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    {
+      "x": 0.18142,
+      "y": 0.67647
+    },
+    {
+      "x": 0.1674,
+      "y": 0.51261
+    },
+    {
+      "x": 0.36771,
+      "y": 0.55882
+    },
+    {
+      "x": 0.36652,
+      "y": 0.56067
+    },
+    {
+      "x": 0.33333,
+      "y": 0.56356
+    },
+    {
+      "x": 0.33186,
+      "y": 0.51046
+    },
+    {
+      "x": 0.21586,
+      "y": 0.67932
+    },
+    {
+      "x": 0.22321,
+      "y": 0.827
+    },
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ],
+  "bubbleReviewPixels": {
+    "8": [
+      78,
+      687
+    ],
+    "9": [
+      325,
+      646
+    ],
+    "10": [
+      616,
+      659
+    ],
+    "11": [
+      868,
+      661
+    ],
+    "12": [
+      112,
+      907
+    ],
+    "13": [
+      360,
+      894
+    ],
+    "14": [
+      580,
+      936
+    ],
+    "15": [
+      837,
+      970
+    ]
+  },
+  "referenceHeightPixels": 294.118,
+  "visualReview": "Every pose checked for short upper-arm sleeves, above-knee shorts, bare knees/calves, complete figure, correct tools/contact. Original PNG copied without bitmap edits; crop/flow metadata only. Cross-kind scale uses same face-width ruler; no per-frame silhouette resizing.",
+  "originalSource": "C:\\Users\\99000256\\.codex\\generated_images\\01a0fd46-2194-7b12-8882-479fedfd5c1e\\exec-419cdc1e-548d-46a0-b44f-d496e362cd03.png"
+}

@@ -1,0 +1,67 @@
+{
+  "review": "I3",
+  "identity": "deepseek-original-reference.png",
+  "selected": [
+    {
+      "group": "highfive",
+      "file": "art/real-adult-highfive-final.png",
+      "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-8b3975f0-d19f-44f8-a0d1-cdb1b53cead4.png",
+      "poses": [
+        "high-prep",
+        "high-ready",
+        "high-contact",
+        "high-recoil"
+      ],
+      "prompt": "adult-v5-prompts.json"
+    },
+    {
+      "group": "rps",
+      "file": "art/real-adult-rps-final.png",
+      "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-60793afd-4626-4f7e-b2fc-a06a3a4442eb.png",
+      "poses": [
+        "fist-up",
+        "fist-mid",
+        "fist-down",
+        "reveal-rock"
+      ],
+      "prompt": "adult-v5-prompts.json"
+    },
+    {
+      "group": "handoff",
+      "file": "art/real-adult-handoff-final.png",
+      "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-7370081b-5549-4726-97d4-1c751d8c33df.png",
+      "poses": [
+        "reveal-scissors",
+        "reveal-paper",
+        "receive",
+        "gift"
+      ],
+      "prompt": "handoff-alpha-replacement.txt"
+    },
+    {
+      "group": "book",
+      "file": "art/real-adult-book-final.png",
+      "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-4c92ceea-f378-49b1-828e-f85a97081c51.png",
+      "poses": [
+        "gift-empty",
+        "read",
+        "page",
+        "read-finish"
+      ],
+      "prompt": "adult-v5-prompts.json"
+    },
+    {
+      "group": "photo",
+      "file": "art/real-adult-photo-final.png",
+      "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-3c1d87ba-81bf-40b6-9986-acebf1b56445.png",
+      "poses": [
+        "neutral",
+        "lift",
+        "photo",
+        "happy"
+      ],
+      "prompt": "adult-v5-prompts.json"
+    }
+  ],
+  "notes": "All raster sources are unmodified tool outputs. Crop rectangles, fixed atlas units, shoe positions and contact anchors are rendering metadata only. Earlier v2/v3/v4 realistic sheets are superseded and not loaded."
+}

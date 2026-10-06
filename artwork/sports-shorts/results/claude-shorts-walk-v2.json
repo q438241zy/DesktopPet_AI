@@ -1,0 +1,24 @@
+{
+  "key": "claude-shorts-walk-v2",
+  "id": "claude",
+  "family": "claude",
+  "style": "chibi",
+  "kind": "walk",
+  "columns": 3,
+  "rows": 4,
+  "refs": [
+    "C:\\Users\\99000256\\.codex\\generated_images\\01a0fd46-2194-7b12-8882-479fedfd5c1e\\exec-badb0b9c-8c86-4635-b5bf-7bf9d6e3411a.png"
+  ],
+  "dest": "src/DesktopPet.App/Assets/Characters/claude/outfits/sports/walk.png",
+  "prompt": "Use case: precise-object-edit. Edit this EXACT12-pose 3-column by4-row walking sprite sheet. Preserve all12 character poses, facial identity, short-sleeve top and ABOVE-KNEE SHORTS outfit, bare legs, white ankle socks and shoes, distinct leg positions and right-facing orientation. Correct spacing/cleanliness: make ALL12 complete characters 15% smaller uniformly inside their current cells, centred with feet at same local baseline. Reconstruct any clipped tip of hair and tiny cropped shoe edge; every hair, hand, knee and entire sneaker is visible with outermost10% canvas margin and wide transparent gutters between rows/columns. Remove ALL colored speckles, clouds, glow, halos, shadows around silhouettes; ONLY clean character pixels on actual fully transparent alpha background. Keep soft antialiased edges. No coloured backdrop/no motion effects. Do not add or remove frames or change the sequence. Exactly3columns4rows12sprites, no labels/grid/text.",
+  "source": "D:\\VibeCoding\\Character\\artwork\\sports-shorts\\superseded-glasses\\claude\\walk.png",
+  "selected": false,
+  "tool": "built-in image_gen",
+  "status": "visually-reviewed-short-sleeves-and-shorts",
+  "referenceHeightPixels": 336.81,
+  "walkStride": 0.48,
+  "walkStrideReview": "12 distinct complete two-step poses,95ms each (1140ms loop). Feet pass under hips at phases3/9; opposite near-arm swing phases5-10. Estimated two-step advance about0.48 State.Size from shoe-separation versus common standing-height. Runtime pilot verifies feet vs translation.",
+  "originalSource": "C:\\Users\\99000256\\.codex\\generated_images\\01a0fd46-2194-7b12-8882-479fedfd5c1e\\exec-252d0945-23b3-45de-9782-c092b4dd215e.png",
+  "visualReview": "Every pose checked for short upper-arm sleeves, above-knee shorts, bare knees/calves, complete figure, correct tools/contact. Original PNG copied without bitmap edits; crop/flow metadata only. Cross-kind scale uses same face-width ruler; no per-frame silhouette resizing.",
+  "supersededBy": "claude-shorts-walk-glasses"
+}

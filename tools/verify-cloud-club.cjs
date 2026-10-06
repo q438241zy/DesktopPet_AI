@@ -1,7 +1,8 @@
 // Browser regression for the approved HTML design. Native integration has separate checks.
 const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),{pathToFileURL}=require('node:url');
 const root=path.resolve(__dirname,'..'),M=require(path.join(root,'docs/demo/cloud-club/model.js'));
-const output=path.join(root,'.artifacts/cloud-club-review-v3');fs.mkdirSync(output,{recursive:true});
+const file=process.argv[2]||path.join(root,'Release/win-x64/Demo/CloudClub/index.html');
+const output=path.join(root,'.artifacts/cloud-club-review-v6');fs.mkdirSync(output,{recursive:true});
 const P=require(path.join(root,'docs/demo/cloud-club/pose-motion.js'));
 assert(!M.actions.breathe);assert.equal(M.actions.stars.title,'数星星');
 assert.equal(P.sample('bubbles',1100).blowing,false);assert.equal(P.sample('bubbles',1120).blowing,true);assert.equal(P.sample('bubbles',2250).blowing,false);
@@ -22,7 +23,8 @@ for(const style of ['chibi','realistic']){
   assert.equal(M.menu('interaction',style).filter(k=>k==='peek').length,1);
   for(let tier=0;tier<5;tier++)for(const key of Object.keys(M.actions))assert(M.allowed(key,tier));
 }
-assert(!M.menu('root','chibi').includes('dance'));
+for(const style of ['chibi','realistic'])for(const group of ['root','play'])assert(!M.menu(group,style).includes('dance'));
+assert.equal(M.actions.dance,undefined);const removed=M.create();assert.equal(M.start(removed,'dance'),false);assert.equal(removed.action,'idle');
 for(const side of [-1,1]){
   const state=M.create(760);M.start(state,'peek',()=>side<0?0:.999);
   for(let i=0;i<120&&state.hideStage!=='hidden';i++)M.tick(state,100,760);
@@ -44,7 +46,7 @@ async function run(){
   try{
     const page=await browser.newPage({viewport:{width:1440,height:1160},deviceScaleFactor:1});
     const browserErrors=[];page.on('pageerror',e=>browserErrors.push(e.message));page.on('requestfailed',r=>browserErrors.push(r.url()+': '+r.failure()?.errorText));
-    await page.goto(pathToFileURL(path.join(root,'Release/win-x64/Demo/CloudClub/index.html')).href);
+    await page.goto(pathToFileURL(path.resolve(file)).href);
     await page.waitForFunction(()=>window.__clubDemo?.snapshot().frame!=null&&__clubDemo.snapshot().poseReady);
     assert(await page.evaluate(()=>{const data=CLUB_POSES;return Object.values(data.owners).every(o=>o.size[0]>500&&o.size[1]>500)&&Object.keys(data.flow).length===126;}));
     const snap=()=>page.evaluate(()=>__clubDemo.snapshot());
@@ -52,9 +54,16 @@ async function run(){
     const right=()=>page.locator('#pet-canvas').click({button:'right',position:{x:130,y:200}});
     await page.screenshot({path:path.join(output,'01-jade-overview.png'),fullPage:true});
     assert.equal(await page.locator('[data-palette]').count(),0);assert((await page.locator('.jade-approved').innerText()).includes('已选定'));
-    await page.locator('#school-study').scrollIntoViewIfNeeded();await page.waitForFunction(()=>[...document.querySelectorAll('.school-art img')].every(i=>i.complete&&i.naturalWidth>500));
+    await page.locator('#school-study').scrollIntoViewIfNeeded();
+    assert.equal(await page.locator('.sports-families button').count(),8);
+    for(const family of ['whale','gpt','claude','gemini','grok','qwen','zhipu','kimi']){
+      await page.locator(`.sports-families [data-family="${family}"]`).click();
+      const ids=[family,(family==='whale'?'deepseek':family)+'-adult'];
+      await page.waitForFunction(ids=>{const canvases=[...document.querySelectorAll('.school-art canvas')];return canvases.length===2&&canvases.every((c,i)=>c.width>200&&c.dataset.source.includes('/'+ids[i]+'/outfits/sports/'));},ids);
+    }
+    await page.locator('.sports-families [data-family="whale"]').click();await page.waitForFunction(()=>document.querySelector('.school-art canvas')?.dataset.source.includes('/whale/'));
     await page.locator('#school-study').screenshot({path:path.join(output,'school-concepts.png')});
-    passed('selected jade platinum only; two school tracksuit concepts load from D drive');
+    passed('selected jade platinum; all eight families and both styles use their actual sports idle frame from D drive');
     for(let tier=0;tier<5;tier++){
       await page.locator(`[data-tier="${tier}"]`).click();await page.locator('#menu-button').click();
       assert.equal(await page.locator('[data-menu-key="interaction"]').count(),1);
@@ -84,6 +93,11 @@ async function run(){
         if(['stretch','bubbles','stars'].includes(key)){
           const actorPixels=await page.locator('#pose-canvas').evaluate(c=>c.toDataURL());
           await page.waitForTimeout(160);const nextPixels=await page.locator('#pose-canvas').evaluate(c=>c.toDataURL());assert.notEqual(actorPixels,nextPixels,'character pixels must animate, separately from props');assert((await snap()).pose);
+        }
+        if(['comb','wipe'].includes(key)){
+          const firstFrame=(await snap()).frame;
+          await page.waitForTimeout(400);assert.notEqual((await snap()).frame,firstFrame,'care must play actual native actor frames');
+          assert(await page.evaluate(({look,key})=>new Set(CLUB_ASSETS.clips[look][key].frames).size>8,{look:`${style}-${outfit}`,key}));
         }
         if(outfit==='original'){
           await page.waitForTimeout(key==='bubbles'?1300:550);

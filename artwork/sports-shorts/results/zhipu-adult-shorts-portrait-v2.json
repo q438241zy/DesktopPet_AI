@@ -1,0 +1,132 @@
+{
+  "key": "zhipu-adult-shorts-portrait-v2",
+  "id": "zhipu-adult",
+  "family": "zhipu",
+  "style": "realistic",
+  "kind": "portrait",
+  "columns": 3,
+  "rows": 4,
+  "refs": [
+    "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/zhipu-adult/outfits/sports/portrait.png"
+  ],
+  "prompt": "Repair layout ONLY of this TWELVE-POSE adult 3D sports sprite atlas. Keep the exact face, hair, short-sleeve sports top, mid-thigh shorts, white ankle socks and trainers, all 12 actions and 3x4 order. Shrink each complete figure uniformly by 18% around the centre of its own cell, so every limb, shoe, head, hair curl, ears and tail are completely separated from neighboring cells by at least 25 pixels of fully transparent gutter. All 12 figures same pixel scale, including tilted poses. Restore any clipped hair tips. Exactly three columns, four rows, complete adult full bodies, no extra poses. Do not change shorts into long trousers. Actual transparent alpha, no background/glow/shadow/text.",
+  "dest": "src/DesktopPet.App/Assets/Characters/zhipu-adult/outfits/sports/portrait.png",
+  "source": "D:\\VibeCoding\\Character\\src\\DesktopPet.App\\Assets\\Characters\\zhipu-adult\\outfits\\sports\\portrait.png",
+  "selected": true,
+  "tool": "builtin imagegen",
+  "originalSource": "C:\\Users\\99000256\\.codex\\generated_images\\01a0fd54-807b-7df2-88b5-c9f04a7bcefe\\exec-ae12a80c-9c05-456d-8c22-db3ba25ab081.png",
+  "review": "Full-body poses visually checked: short sleeves above elbows, shorts above knees, bare lower legs, preserved identity; actual ordered action poses reviewed.",
+  "clips": {
+    "idle": [
+      [
+        0
+      ],
+      [
+        5000
+      ],
+      false
+    ],
+    "listen": [
+      [
+        0
+      ],
+      [
+        5000
+      ],
+      false
+    ],
+    "headpat": [
+      [
+        0,
+        1,
+        2,
+        1,
+        0
+      ],
+      [
+        200,
+        450,
+        900,
+        550,
+        500
+      ],
+      false
+    ],
+    "poke": [
+      [
+        0,
+        3,
+        4,
+        3,
+        0
+      ],
+      [
+        250,
+        500,
+        700,
+        500,
+        550
+      ],
+      false
+    ],
+    "tickle": [
+      [
+        0,
+        5,
+        6,
+        5,
+        6,
+        0
+      ],
+      [
+        180,
+        300,
+        500,
+        300,
+        620,
+        300
+      ],
+      false
+    ],
+    "happy": [
+      [
+        0,
+        7,
+        0
+      ],
+      [
+        350,
+        1200,
+        350
+      ],
+      false
+    ],
+    "sad": [
+      [
+        0,
+        8,
+        0
+      ],
+      [
+        350,
+        1200,
+        350
+      ],
+      false
+    ],
+    "dizzy": [
+      [
+        0,
+        9,
+        0
+      ],
+      [
+        600,
+        800,
+        600
+      ],
+      true
+    ]
+  },
+  "note": "Bonk uses dedicated 3-frame atlas with uncompressed standing-leg proportions."
+}

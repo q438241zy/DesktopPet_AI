@@ -1,0 +1,20 @@
+{
+  "key": "gpt-adult-sports-club",
+  "id": "gpt-adult",
+  "family": "gpt",
+  "style": "realistic",
+  "kind": "club",
+  "columns": 8,
+  "rows": 3,
+  "refs": [
+    "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/deepseek-adult/motions/cloud-club-original.png",
+    "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-d374a323-8c8d-457d-a711-19b8036ee5db.png"
+  ],
+  "dest": "src/DesktopPet.App/Assets/Characters/gpt-adult/outfits/sports/club.png",
+  "prompt": "Image 1 is an exact 24-pose animation template. Replace its character and clothes with the GPT from the FIRST pose of image 2, preserving silver-lavender long wavy hair, pale little horns, pointed elf ears, lavender eyes, silver knot hairpin. Keep all 24 poses and their row-major ordering from image 1. New SHORT-SLEEVE sports costume: ivory zip top, sleeves above elbows, long track pants, white sneakers; deep emerald panels and track pants, pale mint piping, tiny white interlocking-knot emblem. NO maid hat, apron, skirt, tights or boots. Every figure full body with ample clear gutters. Exactly 8 columns and 3 rows on LANDSCAPE canvas. Realistic 3D adult woman aged 23+, mature proportions from image 2. Sequence 1 (8 poses): neutral, begin raising forearm, point up left, point high left, point high center, point right, finger at cheek while counting, lower hand relaxed. Sequence 2 (8): hold bubble wand low and bottle, raise wand to shoulder, wand touching lips, puff cheeks blow through ring, eyes soft still blowing, stop blow and move wand away, lower wand, relaxed holding tools. Sequence 3 (8): neutral, elbows bent hands chest, arms raise half way, stretch overhead, fingers interlaced overhead, hands behind head relaxing, lower to shoulders, neutral. Bubble wand and bottle actually held by fingers. No drawn bubbles, stars, text, numbers or effects. Keep head/anatomical pixel scale consistent, feet planted baseline per row, no body resizing with raised arms. Small figures occupying central 75% of each cell, no touching between neighbours. Truly transparent alpha, no background or glow.",
+  "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-30849159-9022-459a-84c4-0624d8597efc.png",
+  "tool": "image_gen.imagegen",
+  "selected": false,
+  "status": "superseded-long-pants",
+  "reason": "User requires short sleeves AND shorts above knees in both styles; do not install or publish this batch."
+}

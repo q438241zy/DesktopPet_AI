@@ -12,7 +12,7 @@ const demoRoot = path.dirname(fullDemo);
 const appearances = {};
 const files = new Set();
 for (const style of ['chibi', 'realistic']) {
-  for (const outfit of ['original', 'swim', 'wedding']) {
+  for (const outfit of ['original', 'swim', 'wedding', 'sports']) {
     const key = `${style}-${outfit}`, clips = source.clips[key];
     if (!clips?.idle || !clips?.pickup || !clips?.place || !clips?.walk) throw new Error(`Incomplete ${key} lift artwork.`);
     const imagePaths = action => {
@@ -27,7 +27,7 @@ for (const style of ['chibi', 'realistic']) {
     };
     appearances[key] = { idle: imagePaths('idle'), pickup: imagePaths('pickup'),
       land: imagePaths(clips.land ? 'land' : 'place'),
-      walk: imagePaths('walk').slice(0, Math.round(clips.walk.cycleMs / source.sampleMs)),
+      walk: imagePaths('walk').slice(0, Math.ceil(clips.walk.cycleMs / source.sampleMs)),
       walkCycleMs: clips.walk.cycleMs, walkSpeed: clips.walk.walkSpeed / .8 * .9 };
   }
 }
@@ -35,4 +35,4 @@ for (const file of files) {
   if (!fs.statSync(path.join(demoRoot, file)).isFile()) throw new Error(`Missing ${file}`);
 }
 fs.writeFileSync(output, 'window.TASKBAR_FRAMES=' + JSON.stringify({ appearances }) + ';\n');
-console.log(`Taskbar lift Demo: 6 appearances, ${files.size} verified rendered images.`);
+console.log(`Taskbar lift Demo: ${Object.keys(appearances).length} appearances, ${files.size} verified rendered images.`);

@@ -1,0 +1,29 @@
+{
+  "key": "claude-adult-shorts-care",
+  "id": "claude-adult",
+  "family": "claude",
+  "style": "realistic",
+  "kind": "care",
+  "columns": 4,
+  "rows": 2,
+  "refs": [
+    "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/claude-adult/outfits/sports/portrait.png"
+  ],
+  "prompt": "Create game animation sprite atlas of the SAME clearly adult 23+ realistic 3D woman as the FIRST NEUTRAL figure in reference. Preserve face, hair, ornaments, palette and SHORT-SLEEVE zip sports top + loose MID-THIGH SHORTS + ankle socks + white trainers in EVERY pose. Bare forearms and legs. No long sleeves, trousers, leggings, dresses or tall socks. Full bodies all completely visible with 18% empty margins inside every cell; same head and body scale, no overlapping figures. True transparent alpha, no backdrop, no text, no ground shadows or auras. Exactly EIGHT full figures, FOUR COLUMNS TWO ROWS, landscape. ROW1 four frames comb hair: right hand holds little comb near shoulder, comb teeth touch hair near temple, comb moving down hair from temple to shoulder while left fingers gently gather hair, comb lowered with pleased smile. ROW2 four frames wipe face: right hand holds folded soft handkerchief at chest; cloth held actually touching LEFT cheek with closed eyes, cloth touching RIGHT cheek eyes relaxed; hand lowers cloth after wiping. Natural wrist, fingers grip comb/cloth, elbows never replace hands. Props attached to hands, not floating. Same frontal camera, foot placement and head pixel scale.",
+  "dest": "src/DesktopPet.App/Assets/Characters/claude-adult/outfits/sports/care.png",
+  "source": "D:\\VibeCoding\\Character\\src\\DesktopPet.App\\Assets\\Characters\\claude-adult\\outfits\\sports\\care.png",
+  "selected": true,
+  "tool": "builtin imagegen",
+  "originalSource": "C:\\Users\\99000256\\.codex\\generated_images\\01a0fd54-807b-7df2-88b5-c9f04a7bcefe\\exec-cf9f8e5d-b451-40d4-ab22-85f0e130659b.png",
+  "review": "Full-body poses visually checked: short sleeves above elbows, shorts above knees, bare lower legs, preserved identity; actual ordered action poses reviewed.",
+  "referenceGroups": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "key": "deepseek-adult-swim-care-v4",
+  "id": "deepseek-adult",
+  "family": "claude",
+  "style": "realistic",
+  "kind": "care",
+  "outfits": [
+    "swim"
+  ],
+  "columns": 4,
+  "rows": 2,
+  "dest": "src/DesktopPet.App/Assets/Characters/deepseek-adult/motions/cloud-care-swim.png",
+  "refs": [
+    "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/deepseek-adult/outfits/swim.png"
+  ],
+  "prompt": "Create an animation sprite sheet of exactly EIGHT complete full-body poses of the ONE mature adult woman in the provided reference image. Every pose wears exactly the SAME reference clothing, shoes, sleeves, jewelry and hair accessories. Same realistic 3D rendering and mature adult body proportions as reference (about seven heads tall), not chibi. FOUR COLUMNS by TWO ROWS, transparent canvas. Each figure's full hair, skirt hem and entire shoes must remain visible with 40 pixels empty margin from all cell edges, including the bottom and top canvas edges. Figures occupy at most 75% of cell height. All poses have exactly same head/body/limb proportions, same body height, front three-quarter camera, planted feet and gentle expression. TOP ROW is a coherent hair-combing movement, left to right: 1. hold a little wooden comb down at waist; 2. hand grips comb, comb TEETH pressed against temple hair; 3. same comb drawn downward through side hair to shoulder while the other hand holds the hair lock; 4. lower comb to waist. BOTTOM ROW uses ONLY A WHITE FACE TOWEL, no comb: 1. both hands hold small folded white face cloth at chest; 2. hand presses cloth visibly against right cheek, head tilts into cloth; 3. hand moves cloth across to opposite cheek with a gentle head tilt; 4. both hands lower the white cloth to chest. It must be clear the CHARACTER actually combs hair and wipes face. No floating props, no extra arms, no changing clothes, no duplicating poses, no wrong outfit on any frame. EIGHT separate complete figures in 4x2, large transparent gutters between them, no background, no glow, no text, no grid.",
+  "source": "D:\\VibeCoding\\Character\\artwork\\care-contact\\deepseek-adult-swim-care-v4.png",
+  "selected": true,
+  "review": "Visually reviewed exact clothes and actual hand/tool/face contact; pending scale calibration.",
+  "originalSource": "C:\\Users\\99000256\\.codex\\generated_images\\01a0fd46-6e3f-7261-9d81-b01e63f96f10\\exec-865b88e8-38d0-4724-9a3c-cb3e8cc90939.png",
+  "alphaReview": {
+    "threshold": 80,
+    "heights": [
+      513,
+      513,
+      513,
+      513,
+      499,
+      499,
+      499,
+      500
+    ]
+  }
+}

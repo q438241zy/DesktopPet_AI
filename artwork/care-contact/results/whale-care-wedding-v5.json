@@ -1,0 +1,72 @@
+{
+  "key": "whale-care-wedding-v5",
+  "id": "whale",
+  "family": "deepseek",
+  "style": "chibi",
+  "kind": "care",
+  "outfits": [
+    "wedding"
+  ],
+  "columns": 4,
+  "rows": 2,
+  "dest": "src/DesktopPet.App/Assets/Characters/whale/motions/cloud-care-wedding.png",
+  "refs": [
+    "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/whale/outfits/wedding.webp"
+  ],
+  "prompt": "Create a production 8-pose sprite sheet, exactly 4 columns x 2 rows, using this exact DeepSeek chibi wedding character. Preserve blue hair, big blue eyes, fin ears, tail, lacy white headdress and veil, white and pale blue wedding dress, blue-white closed shoes. This character is seated with shoes forward in every pose. Every pose must have EXACTLY TWO HANDS connected to EXACTLY TWO ARMS; when an arm lifts, its previous hand at lap MUST DISAPPEAR. Constant head and body scale in all 8 figures. Top row four stages of gently combing her own hair: 0 small brown comb held by both hands at lap; 1 right arm lifted with comb teeth visibly touching right temple hair, ONLY OTHER HAND rests at lap; 2 SAME right hand draws comb down same lock of hair to shoulder, left hand lightly holds the hair lock; 3 both hands return comb to lap, closed eyes relaxed smile. Bottom row four stages of face cleaning: 4 both hands holding small soft ivory face towel at chest; 5 right hand presses towel to right cheek, left hand stays chest; 6 left hand presses towel to left cheek, right hand stays chest, gentle opposite head tilt; 7 both hands lower towel to chest happy soft eyes. Real visible physical contact in each action, never floating props, no extra arms or hands. Each figure fully visible in its own equal grid cell with generous transparent margins (at least 25px all sides), no crossing cell boundaries; all 8 seated figures same anatomical pixel height. Sharp fine line art matching reference, smooth alpha edges. Output true transparent background, no colored glow, no blur, no labels or text, no panels.",
+  "selected": true,
+  "tool": "image_gen.imagegen",
+  "originalSource": "C:\\Users\\99000256\\.codex\\generated_images\\01a0fd46-2194-7b12-8882-479fedfd5c1e\\exec-970e196c-2e39-4082-a721-2fc147d7cc39.png",
+  "source": "D:\\VibeCoding\\Character\\artwork\\care-contact\\whale-care-wedding-v5.png",
+  "referenceGroups": [
+    0,
+    0,
+    0,
+    0,
+    4,
+    4,
+    4,
+    4
+  ],
+  "review": "Final 8-cell wedding-only atlas: exactly two hands/arms in every pose; comb teeth touch temple in1 then draw down lock in2; towel contacts opposite cheeks5/6. Wedding dress, veil, fin ears, whale tail, shoes preserved; no modification to original/swim atlas. Stable head/body scale across eight cells, alpha separation inspected.",
+  "clips": {
+    "0:comb": [
+      [
+        0,
+        1,
+        2,
+        1,
+        2,
+        3
+      ],
+      [
+        450,
+        750,
+        900,
+        750,
+        1100,
+        850
+      ],
+      false
+    ],
+    "0:wipe": [
+      [
+        4,
+        5,
+        6,
+        5,
+        6,
+        7
+      ],
+      [
+        400,
+        600,
+        850,
+        600,
+        1050,
+        700
+      ],
+      false
+    ]
+  }
+}

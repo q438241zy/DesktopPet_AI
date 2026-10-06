@@ -1,0 +1,115 @@
+{
+  "key": "zhipu-sports-contact-v2",
+  "id": "zhipu",
+  "family": "zhipu",
+  "style": "chibi",
+  "kind": "contact",
+  "columns": 4,
+  "rows": 6,
+  "refs": [
+    "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-1b57fd00-482c-4caa-b8f0-cf2baef3beb7.png",
+    "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-f47ef7d1-9a8a-4aa1-88c0-952b50464e18.png"
+  ],
+  "prompt": "Image 1 is a TWENTY-FOUR pose atlas template, exactly 4 columns x 6 rows. Keep exactly those 24 complete poses in exactly that order. Recreate it with the GLM chibi character from image 2 FIRST POSE: long charcoal-black hair, gray-blue eyes, black cat ears and tail, small blue tassel hairclip; remove maid cap and forehead sleeping mask. Clothing is that short-sleeve ivory zip-front track top, long pants and sneakers; graphite panels and track pants, soft ice-blue piping, tiny geometric Z emblem. All original non-sports clothes absent. Preserve original character identity; no whale accessories except DeepSeek. Make each complete sprite 20% SMALLER in its own cell than image1, leaving at least 24 transparent pixels between adjacent sprites and 12 pixels from canvas edges. Hair and tails NEVER overlap another sprite. Do not add or remove any poses. First6 biscuit held,lifted,bitten,chewed,lowered; next6 rice held,spoon raised,spoon touches mouth,chew,lower; next5 sitting blocks reaching,picking,stacking,raising blue block,finished stack; next3 standing comb ready,comb touching side hair,comb down hair; final4 cloth at chest,cloth at cheek,cloth at other cheek,cloth lowered. All hands really grip props. Finished block tower persists through last build frame. Fullbody, same anatomical pixel scale. Exactly 4x6 portrait canvas. True transparent alpha, no background/shadow/aura/text.",
+  "dest": "src/DesktopPet.App/Assets/Characters/zhipu/outfits/sports/contact.png",
+  "source": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-0996b7cf-ebb7-4cb2-9869-0269a878259f.png",
+  "tool": "image_gen.imagegen",
+  "selected": false,
+  "clips": {
+    "eat": [
+      [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      [
+        300,
+        450,
+        450,
+        650,
+        650,
+        500
+      ],
+      false
+    ],
+    "meal": [
+      [
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      [
+        400,
+        600,
+        650,
+        800,
+        950,
+        800
+      ],
+      false
+    ],
+    "build": [
+      [
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      [
+        450,
+        700,
+        850,
+        1000,
+        1400
+      ],
+      false
+    ],
+    "comb": [
+      [
+        17,
+        18,
+        19,
+        18,
+        19,
+        17
+      ],
+      [
+        450,
+        750,
+        900,
+        750,
+        1100,
+        850
+      ],
+      false
+    ],
+    "wipe": [
+      [
+        20,
+        21,
+        22,
+        21,
+        22,
+        23
+      ],
+      [
+        400,
+        600,
+        850,
+        600,
+        1050,
+        700
+      ],
+      false
+    ]
+  },
+  "status": "superseded-long-pants",
+  "reason": "User requires short sleeves AND shorts above knees in both styles; do not install or publish this batch."
+}

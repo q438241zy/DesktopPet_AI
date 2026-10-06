@@ -1,0 +1,31 @@
+{
+  "date": "2026-10-02",
+  "requirement": "All eight characters, both chibi and realistic: short sleeves ending on upper arms AND athletic shorts above knees. DeepSeek concepts approved; expand the complete sports wardrobe and motions to all characters.",
+  "records": [
+    {
+      "id": "school-shorts-chibi",
+      "reference": "D:/VibeCoding/Character/artwork/sports/superseded-long-pants/concepts/school-chibi.png",
+      "prompt": "Use case: identity-preserve. Edit the supplied DeepSeek chibi character outfit concept. Preserve the exact character identity, face, big-head chibi proportions, cobalt-to-cyan hair, looped ahoge, white fin ears, cyan bow, blue whale tail, relaxed full-body standing pose, illustration style and ivory/navy/cyan palette. Replace the LONG TROUSERS with comfortable loose navy athletic SHORTS, clearly ending above both knees (mid-thigh sports shorts), with white side stripes, visible bare knees and lower legs, ankle socks and the original white-blue trainers. The top must be an ivory/navy SHORT-SLEEVE zip sports shirt: sleeves end at mid upper arms, clearly above elbows, both forearms bare. Keep the small blue whale chest emblem, blue piping and covered waist. Show complete head, tail, hands and both shoes with generous transparent margin, one character only. Crisp clean illustration, actual transparent background with no colored glow, no scenery, no words, no watermark. This is a short-sleeve AND shorts sports outfit; absolutely no long sleeves, long pants, leggings or tall socks. Change only the outfit lengths and remove background glow; keep the character and approved design details.",
+      "source": "C:/Users/99000256/.codex/generated_images/01a0e159-1c2b-7643-8517-9ec7beebfed3/exec-c651eefa-1148-4fb5-85d3-65ec9a11d236.png",
+      "file": "school-shorts-chibi.png",
+      "tool": "built-in image_gen",
+      "status": "user-approved-for-full-roster-expansion",
+      "referenceAtGeneration": "D:/VibeCoding/Character/docs/demo/cloud-club/art/school-chibi.png",
+      "compatibilityAlias": "school-chibi.png"
+    },
+    {
+      "id": "school-shorts-realistic",
+      "reference": "D:/VibeCoding/Character/artwork/sports/superseded-long-pants/concepts/school-realistic.png",
+      "prompt": "Use case: identity-preserve. Edit the supplied full-body DeepSeek adult 3D character outfit concept. Preserve the exact clearly adult woman identity, adult facial features, natural adult body proportions, cobalt-to-cyan long hair, looped ahoge, white fin hair ornaments, cyan bows, relaxed standing pose, polished realistic 3D material style and ivory/navy/cyan palette. Replace the LONG TROUSERS with comfortable loose navy athletic SHORTS, clearly ending above both knees (mid-thigh sports shorts), white side stripes, visible bare knees and lower legs, ankle socks and original white-blue trainers. The top must be an ivory/navy SHORT-SLEEVE zip sports shirt: sleeves end at mid upper arms, clearly above elbows, both forearms bare. Keep the small blue whale chest emblem, blue piping, stand collar and fully covered waist. Ordinary modest casual exercise clothing with natural soft fabric folds. Complete figure from ahoge to both shoes, generous transparent margins, one adult character only. Crisp clean high-detail 3D render, actual transparent background, no colored glow, no scenery, no words, no watermark. A short-sleeve AND shorts sports outfit: absolutely no long sleeves, long pants, leggings or tall socks. Change only garment lengths and remove background glow; preserve character and approved design details.",
+      "source": "C:/Users/99000256/.codex/generated_images/01a0e159-1c2b-7643-8517-9ec7beebfed3/exec-79691d85-9e89-48e0-917c-055a0938c5a3.png",
+      "file": "school-shorts-realistic.png",
+      "tool": "built-in image_gen",
+      "status": "user-approved-for-full-roster-expansion",
+      "referenceAtGeneration": "D:/VibeCoding/Character/docs/demo/cloud-club/art/school-realistic.png",
+      "compatibilityAlias": "school-realistic.png"
+    }
+  ],
+  "visualReview": "Both concepts checked visually: upper-arm sleeves, above-knee shorts, bare elbows/knees, white trainers, full figure and original character identity.",
+  "runtimeDemo": "D:/VibeCoding/Character/Release/win-x64/Demo/CloudClub/index.html",
+  "latestUserDecision": "2026-10-02: 同意拓展到全部. Authorized all eight families in both styles, including complete sports actions; new verification remains required before release."
+}

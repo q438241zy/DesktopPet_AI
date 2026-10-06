@@ -1,0 +1,73 @@
+{
+  "key": "qwen-care-wedding-v3",
+  "id": "qwen",
+  "family": "qwen",
+  "style": "chibi",
+  "kind": "care",
+  "outfits": [
+    "wedding"
+  ],
+  "columns": 4,
+  "rows": 2,
+  "dest": "src/DesktopPet.App/Assets/Characters/qwen/motions/cloud-care-wedding.png",
+  "refs": [
+    "D:/VibeCoding/Character/src/DesktopPet.App/Assets/Characters/qwen/outfits/wedding.webp"
+  ],
+  "prompt": "Use case: identity-preserve. Production full-body chibi desktop pet care animation sprite sheet. Use this image ONLY as character/outfit reference. qwen identity must stay exact: hair, face, head ornaments, tail if present, color palette and outfit details. Keep the SAME wedding clothing in EVERY frame. Exactly EIGHT separate complete seated chibi figures arranged FOUR columns by TWO rows, landscape. Do not copy the reference's other expression poses. All heads and bodies have exactly same anatomical pixel size. All lace, shoes/feet, hair ends and tails completely visible, each figure confined to central75% of its own cell, clear transparent gaps >=30px and outer margins >=40px. Top row four ordered comb poses: 1 both hands hold a small wooden comb down in lap; 2 one hand lifts comb to temple with teeth touching hair; 3 draw the comb down along that SAME hair lock to shoulder while other hand lightly holds the lock; 4 lower comb to lap, relaxed smile. Bottom row four ordered towel poses: 5 both hands hold a WHITE SOFT FACE TOWEL at chest (no comb); 6 fingers lift towel and press against one cheek, gentle head tilt; 7 move towel to opposite cheek with opposite head tilt; 8 lower towel to chest, content smile. Real hand-and-prop contact, arms/head actually change poses. Exactly two hands, no extra limbs, no floating implements, no text or labels, no scene, no glow, no floor shadow. Genuine transparent alpha. Preserve the precise referenced outfit throughout, no swaps to another costume.",
+  "selected": true,
+  "originalSource": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-60ee3aeb-c393-467b-b777-a156336dc382.png",
+  "source": "D:/VibeCoding/Character/artwork/care-contact/qwen-care-wedding-v3.png",
+  "visualReview": "Approved full eight isolated poses; identity, outfit, actual comb/towel hand contact and transparent boundary inspected. Physical frame 6 mirrors hair accessories: excluded from all playback. Wipe uses physical frames 4,5,7 only.",
+  "excludedFrames": {
+    "6": "Hair ornament mirrored on wrong side; excluded from playback"
+  },
+  "clips": {
+    "0:comb": [
+      [
+        0,
+        1,
+        2,
+        1,
+        2,
+        3
+      ],
+      [
+        450,
+        750,
+        900,
+        750,
+        1100,
+        850
+      ],
+      false
+    ],
+    "0:wipe": [
+      [
+        4,
+        5,
+        4,
+        5,
+        7
+      ],
+      [
+        500,
+        900,
+        750,
+        1100,
+        950
+      ],
+      false
+    ]
+  },
+  "timingReview": "Two gentle approach/wipe strokes instead of a multi-second repeated hold; total 4200ms; frame6 remains excluded.",
+  "referenceGroups": [
+    0,
+    0,
+    0,
+    0,
+    4,
+    4,
+    4,
+    4
+  ]
+}

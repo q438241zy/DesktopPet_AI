@@ -13,6 +13,8 @@ public sealed class DesktopHost : IDisposable
     private readonly System.Windows.Forms.NotifyIcon tray;
     private readonly System.Drawing.Icon icon;
     public event Action<int>? Pressed;
+    internal event Func<int, Point, long, bool>? PointerInput;
+    internal event Action? PointerCancelled;
     public List<string> Warnings { get; } = [];
     public DesktopHost(Window window, Action settings, Action toggle, Action quit)
     {
@@ -49,7 +51,22 @@ public sealed class DesktopHost : IDisposable
         return new Rect(a, b);
     }
     private nint Hook(nint hwnd, int msg, nint wParam, nint lParam, ref bool handled)
-    { if (msg == 0x0312) { Pressed?.Invoke(wParam.ToInt32()); handled = true; } return 0; }
+    {
+        if (msg == 0x0312) { Pressed?.Invoke(wParam.ToInt32()); handled = true; }
+        else if (msg is 0x0200 or 0x0201 or 0x0202 or 0x0203)
+        {
+            // Mouse message coordinates belong to this HWND and this event. They
+            // remain valid while the cursor and the walking window both move.
+            long packed=lParam.ToInt64();
+            var point=new NativePoint{X=(short)(packed&0xffff),Y=(short)((packed>>16)&0xffff)};
+            if(ClientToScreen(hwnd,ref point))
+                handled=PointerInput?.Invoke(msg,new Point(point.X,point.Y),wParam.ToInt64())??false;
+        }
+        else if(msg is 0x0215 or 0x001f) PointerCancelled?.Invoke();
+        return 0;
+    }
+    internal void CapturePointer() => SetCapture(handle);
+    internal void ReleasePointer() { if(GetCapture()==handle)ReleaseCapture(); }
     public void Dispose()
     {
         foreach (int id in registered) UnregisterHotKey(handle, id);
@@ -60,4 +77,9 @@ public sealed class DesktopHost : IDisposable
     [DllImport("user32.dll")] private static extern bool UnregisterHotKey(nint hWnd, int id);
     [DllImport("user32.dll", EntryPoint = "GetWindowLongPtrW")] private static extern nint GetWindowLongPtr(nint hWnd, int index);
     [DllImport("user32.dll", EntryPoint = "SetWindowLongPtrW")] private static extern nint SetWindowLongPtr(nint hWnd, int index, nint value);
+    [StructLayout(LayoutKind.Sequential)] private struct NativePoint { public int X,Y; }
+    [DllImport("user32.dll")] private static extern bool ClientToScreen(nint hwnd,ref NativePoint point);
+    [DllImport("user32.dll")] private static extern nint SetCapture(nint hwnd);
+    [DllImport("user32.dll")] private static extern nint GetCapture();
+    [DllImport("user32.dll")] private static extern bool ReleaseCapture();
 }

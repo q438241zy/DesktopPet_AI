@@ -1,0 +1,36 @@
+{
+  "phase": "html-demo-W1-awaiting-user-review",
+  "date": "2026-10-06",
+  "method": "built-in image_gen; clothing edits of existing source images",
+  "items": [
+    {
+      "file": "deepseek-realistic-sports-v1.png",
+      "prompt": "Use case: identity-preserve / clothing-only edit.\nEdit target: image 1, the single full-body adult DeepSeek woman in the navy maid outfit, 1024 x 1536. Images 2 and 3 are the SAME woman's already accepted swimsuit and wedding outfit and confirm her invariant face, head scale, long adult legs and body proportions. Image 4 is CLOTHING DESIGN ONLY, not a body, face, hair or pose reference.\nCreate ONE single full-body image, same canvas and framing as image 1, by changing only the clothing into the sports uniform from image 4: white zip-front short-sleeved athletic top, navy shoulder/sleeve panels ending at the upper arms, cyan piping, small blue whale chest emblem; navy athletic SHORTS ending well ABOVE the knees with white/cyan side stripes; white low-top athletic sneakers and ankle socks. No long sleeves, no trousers. Keep the woman unmistakably adult, about 25 years old.\nLock the exact identity and anatomy from image 1: same face and eyes, head dimensions and head tilt, blue-to-cyan long hair, bow, ahoge and fin-shaped hair ornaments, skin tone, bust/waist/hip widths, torso length, hip height, knee and ankle locations and long leg length. Keep the SAME raised open hand at image-left, same fingers, same relaxed lower hand at image-right, same crossed/relaxed leg stance and foot positions. Preserve the original maid headband as her identity accessory. Do not make her shorter, rounder, younger, chibi, or change the hairstyle. In particular do NOT copy the squat figure from the 12-pose sports sheet. Do NOT enlarge the head to fill the image. No stretching individual body parts. Treat this as a precise virtual clothing try-on of image 1.\nCrisp high-quality realistic 3D rendering matching image 1. All hair and both complete shoes within frame. Transparent background with clean alpha, no scenery, no labels, no panel divisions. Only one woman, one full-body pose."
+    },
+    {
+      "file": "deepseek-chibi-swim-v1.png",
+      "prompt": "Use case: identity-preserve, clothing-only sprite edit.\nEdit target: IMAGE 1, the original DeepSeek Q-style 3-column by 2-row transparent sprite sheet, exactly 1536 x 1024. Image 2 is the old swim COSTUME reference only. Image 3 is the accepted wedding version as supporting identity reference.\nReturn the SAME 3 by 2 sprite sheet with all six characters in EXACTLY the same slots, identical poses, identical framing, scale and facial expressions as IMAGE 1: seated neutral, seated happy hands up, seated hands to cheeks, lying asleep, lying dizzy, seated sad. Change ONLY the maid clothing/footwear into the modest navy-and-white swimming outfit: simple sporty navy sleeveless top with small white whale emblem, high-waisted navy boyshort swim bottoms, white piping, bare feet. No sexy styling, no emphasis on anatomy.\nPreserve the exact original face/head silhouette and head size, eyes, long blue/cyan hair volume, ahoge, fin-shaped ears, cyan hair bow, tail shape/direction, shoulder width, torso length and slender arm/leg dimensions from IMAGE 1. Retain the identity headband. Preserve hand and elbow positions; do not move the limbs to invent new poses. The whole point is changing clothes ON the original character, not drawing a different shorter, rounder or larger-headed character. Keep the overall visible height and all original head landmarks at their original pixels. Do not inflate the torso, cheeks, knees or hips. Do not squash the body or enlarge the head. Bare feet replace the boots at the same ankle and sole locations. Use image 2 only to understand costume colors and whale motif, never its rounder body.\nKeep crisp original anime line quality and cel shading. Genuinely transparent background and original cell spacing, no background color, no checkerboard baked into pixels, no captions, no new props, no panels or labels. Complete tails and hair must stay in each original cell."
+    },
+    {
+      "file": "deepseek-chibi-swim-walk-v1.png",
+      "prompt": "Clothing-only sprite-sheet edit with strict identity preservation. Edit image 1: the DeepSeek original maid WALK animation sheet, exactly 1024 x 1536 with 3 columns and 4 rows, 12 poses. Output the identical sheet layout, the identical 12 walking poses at the original pixel positions. Image 2 supplies ONLY the new approved-for-review navy/white sporty swimming costume and unchanged character identity.\nReplace the maid dress, sleeves and boots in every cell with the modest navy sleeveless athletic swim top with small whale emblem, navy high-waisted boyshort swim bottoms with white piping and bare feet from image 2. Keep the original maid headband as an identity accessory. Do not redesign the character. Preserve the precise original face/head silhouette and head-to-body ratio, hair, ear fins, ahoge, hair bow, tail shape and direction, shoulders, slim torso, pelvis location, arm length, thigh and shin length, knee and ankle positions. Preserve all twelve arm/leg poses and walking gait from image 1. The blue hair always trails behind towards the left, and the character faces right. Bare feet must replace the boots at their original contact positions, without thick legs, swollen feet, shortened shins or squatting. Keep the same apparent height in every cell.\nThis is a non-sexual cute cartoon game sprite, same clean anime linework, colors and cel shading as the original. No new props or effects. Genuinely transparent alpha background; remove any glow outside the character; no background scenery, no labels, no extra characters, no cell borders. No cut-off hair, head, hands, feet or tails."
+    }
+  ],
+  "next": [
+    "Await user approval before any native wardrobe replacement or expansion.",
+    "The adult sports image is a single outfit sample; all-action expansion has not been done."
+  ],
+  "reviewedAt": "2026-10-07",
+  "referenceSha256": {
+    "realistic-sports-before.png": "57996E8C1D7B34EC0C5828BE49E5C97AE834349D72B6B568590E3F3F728198D7",
+    "chibi-walk-original.png": "C476BFA50E7409E7AD8AEDF0DAA495F4B0E643EF16A892DAE2AD0014F9763DCD",
+    "chibi-wedding.webp": "CB7AF9604DEBBAB44BB15BBDCEF4D0E8CEBAA6EAA0E4170C92B7EAFEE9B541F4",
+    "chibi-walk-before.png": "391BAD046B27FC2C0F6F01348DD92EBB87478DA083C87ABFDBD75654B5FBA912",
+    "realistic-swim.png": "D9D236D2512A4D5FB0414BA526C3444271C5DEB31099914DA77E508D1F3332C3",
+    "chibi-swim-before.webp": "47317DFC12C2CBE52905DA8422A335964A7EFA7FEF5CC10878876450DB93B36C",
+    "realistic-wedding.png": "A4DB71B8759494072DDAD41C67AE4596A2CD0CDD5FD9EDF509E2C5F7BCCBE3EB",
+    "realistic-original.png": "723D4F55F87C0AD1A4E77D5B889C905317C044C4A47E3ED32988925804ACF613",
+    "chibi-original.png": "0DA74C2FBAD632ABE339C4531DEC5861EDBE6CC7A62F99C00E006A0451CB86A5",
+    "chibi-sports.png": "3F3C5DE92DDD44F9963AA4A29A1EE9FC3A0A7571A2239551C80EF4DA9702B20A"
+  }
+}

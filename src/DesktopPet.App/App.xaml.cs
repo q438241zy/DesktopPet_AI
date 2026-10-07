@@ -56,6 +56,12 @@ public partial class App : Application
         if (e.Args.Contains("--ui-test")) pet.ShowInTaskbar = true;
         MainWindow = pet;
         pet.Show();
+        if(e.Args.Contains("--verify-native-pointer"))
+        {
+            try{await NativePointerVerification.Run(pet,DataRoot,e.Args.Contains("--pointer-all"));Shutdown(0);}
+            catch(Exception ex){Directory.CreateDirectory(DataRoot);File.WriteAllText(Path.Combine(DataRoot,"native-pointer-error.txt"),ex.ToString());Shutdown(1);}
+            return;
+        }
         if(e.Args.Contains("--verify-walk-interrupt"))
         {
             try{await WalkInterruptVerification.Run(pet,DataRoot);Shutdown(0);}

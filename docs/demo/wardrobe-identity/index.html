@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DeepSeek · 换装对照</title>
+  <link rel="stylesheet" href="style.css?v=W1"><script src="app.js?v=W1" defer></script>
+</head>
+<body>
+  <main>
+    <header><a class="back" href="../CloudClub/index.html">← 云朵俱乐部</a><span class="badge">W1 · 待审 Demo</span></header>
+    <section class="intro"><div class="cloud" aria-hidden="true"><svg viewBox="0 0 60 44"><path d="M16 36h30a10 10 0 0 0 1-20 17 17 0 0 0-32-4A12 12 0 0 0 16 36Z"/><path d="M23 24h.1m12 0h.1M27 29q3 3 6 0"/></svg></div><div><p class="eyebrow">DEEPSEEK WARDROBE</p><h1>熟悉的她，换一套衣服</h1><p>对照脸型、头身比和腿长，也看看走动时的样子。</p></div></section>
+    <nav class="styles segmented" aria-label="换装样稿"><button data-style="chibi" aria-pressed="true">Q版 · 泳装</button><button data-style="realistic" aria-pressed="false">3D真人 · 运动服</button></nav>
+    <section class="workbench" aria-label="同尺寸换装对照">
+      <div class="toolbar"><div class="segmented" aria-label="对照方式"><button data-mode="pair" aria-pressed="true">并排</button><button data-mode="overlay" aria-pressed="false">叠图</button></div><div class="options"><label><input type="checkbox" id="guides">对齐线</label><label><input type="checkbox" id="dark">深色背景</label></div></div>
+      <div id="chibi-controls" class="pose-options" aria-label="姿势"><button data-pose="0" aria-pressed="true">待机</button><button data-pose="1" aria-pressed="false">开心</button><button data-pose="2" aria-pressed="false">揉脸</button><button data-pose="3" aria-pressed="false">休息</button><button data-pose="4" aria-pressed="false">头晕</button><button data-pose="5" aria-pressed="false">难过</button><button data-pose="walk" aria-pressed="false">走路</button></div>
+      <div id="realistic-controls" class="pose-options" aria-label="3D真人参考服装" hidden><span>参考：</span><button data-reference="original" aria-pressed="true">原装</button><button data-reference="swim" aria-pressed="false">泳装</button><button data-reference="wedding" aria-pressed="false">婚纱</button></div>
+      <div id="comparison" class="comparison" data-style="chibi" data-mode="pair">
+        <article id="reference-card" class="art-card"><div class="card-label"><strong id="reference-label">原装</strong><span>角色参考</span></div><canvas id="reference-canvas" aria-label="原角色参考图"></canvas></article>
+        <article class="art-card candidate"><div class="card-label"><strong id="candidate-label">泳装 · 换衣样稿</strong><span id="candidate-note">待确认</span></div><canvas id="candidate-canvas" aria-label="换装样稿，与参考图使用相同尺寸"></canvas></article>
+      </div>
+      <div id="overlay-controls" class="overlay-controls" hidden><label for="opacity">换装叠加</label><input id="opacity" type="range" min="0" max="100" value="50"><output id="opacity-label">50%</output><button id="hold-reference" class="soft">按住看参考</button></div>
+      <div id="walk-controls" class="walk-controls" hidden><button id="play" class="soft" aria-pressed="false">播放</button><button id="previous" class="soft" aria-label="上一帧">←</button><label class="sr-only" for="frame">行走帧</label><input id="frame" type="range" min="0" max="11" value="0"><button id="next" class="soft" aria-label="下一帧">→</button><output id="frame-label">1 / 12</output><button id="direction" class="soft" aria-pressed="false">朝右 →</button></div>
+      <div class="comparison-foot"><p id="comparison-note">两侧使用同一画布和缩放比例。</p><label id="old-toggle"><input id="old" type="checkbox">对照现行泳装</label></div>
+      <p id="loading" role="status">正在准备换装图…</p><p id="error" role="alert" hidden></p>
+    </section>
+    <section class="references"><div class="section-title"><h2>现有衣橱参考</h2><span>仅供辨认原有角色与服饰</span></div><div id="gallery" class="gallery"></div></section>
+    <footer><span>本轮仅预览 DeepSeek；新图尚未替换桌面角色。</span><a id="source-image" href="art/deepseek-chibi-swim-v1.png" target="_blank" rel="noopener">查看换装原图 ↗</a></footer>
+  </main>
+</body>
+</html>

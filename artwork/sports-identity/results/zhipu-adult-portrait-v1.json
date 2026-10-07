@@ -10,6 +10,20 @@
     "src/DesktopPet.App/Assets/Characters/zhipu-adult/outfits/sports/portrait.png"
   ],
   "tool": "built-in image_gen",
-  "status": "generated-awaiting-geometry-review",
-  "selected": false
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-07",
+    "passed": true,
+    "summary": "单张与原装同画布对照，脸型、头饰、交叉腿姿势及成年身形保留；短袖短裤，未代表动作通过。",
+    "evidence": [
+      ".artifacts/sports-identity-review/zhipu-adult-portrait-v1-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "979dd4f76e75118475ce330510df275477374f4f34f642c53a2b70b6f92c402d",
+    "originalSha256": "d500c71d28b894e238d7d1cc4dc665d8eabc5265a7f9c2e9f8e49e0c010a4d44",
+    "comparisonFingerprint": "e089f105573367095b1b385c4b36d3e74cc344c14f9369207765ba5c573ce21f"
+  }
 }

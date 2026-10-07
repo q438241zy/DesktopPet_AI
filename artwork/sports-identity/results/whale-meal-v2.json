@@ -1,0 +1,31 @@
+{
+  "key": "whale-meal-v2",
+  "id": "whale",
+  "style": "chibi",
+  "kind": "meal",
+  "columns": 3,
+  "rows": 2,
+  "source": "artwork/sports-identity/whale-meal-v2.png",
+  "prompt": "Precise clothing-only edit of a desktop-pet animation sheet. Image 1 is the EDIT TARGET: the ORIGINAL DeepSeek Q character eating rice, six frames in a 3-column x 2-row 1536x1024 atlas. Image 2 is only the approved short-sleeve shirt, navy shorts and white-blue shoes DESIGN REFERENCE; do not copy its body poses. Match image 1's six original seated poses, body and head size, silhouette margins, character position inside each 512x512 cell, face, hair, whale tail, frilly white headband and blue bow. Keep the original crown around y=65 and original soles around y=447 in row 1 (row 2 roughly +512), leaving the original generous empty margins. Do not enlarge to fill cells. Preserve the original arms, legs, knee and ankle locations and head-to-body ratio. Keep six sequential expressions and rice bowl/spoon hand and mouth contact EXACTLY: scoop, raise, taste, chew, content, lower. ONLY replace navy maid uniform and tights with approved white/navy short-sleeve zip shirt, above-knee navy shorts, white ankle socks and white-blue sneakers. Do not lengthen/shorten her legs, head, torso or arms; no extra rice or props. Same source canvas and cell framing. Genuine transparent alpha outside figures, ignore all RGB colors in transparent pixels of references: no visible backdrop, glow, gradients, checkerboard, labels or panel borders.",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/whale/motions/eat.webp",
+    "docs/demo/wardrobe-identity/art/deepseek-chibi-sports-v1.png"
+  ],
+  "tool": "built-in image_gen",
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-07",
+    "passed": true,
+    "summary": "六帧碗勺与嘴部对应原图，修正上一稿整体放大；鞋底差异不用于缩放身体。",
+    "evidence": [
+      ".artifacts/sports-identity-review/whale-meal-v2-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "e976f00bdc044b63a20573becbd75e9c1376d8fff6ab2cb1540c9488151478a4",
+    "originalSha256": "ef6ddb5aca410eacc2eee4051b8065c8553524bfcba3a5d7facd60a636954e7c",
+    "comparisonFingerprint": "14b9202b0987d9cd9d952cda7da9a8d1824e66e846e5f7e17c6abed1eef64dac"
+  }
+}

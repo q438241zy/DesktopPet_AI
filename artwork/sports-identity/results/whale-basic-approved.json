@@ -1,0 +1,32 @@
+{
+  "key": "whale-basic-approved",
+  "id": "whale",
+  "style": "chibi",
+  "kind": "basic",
+  "columns": 3,
+  "rows": 2,
+  "source": "docs/demo/wardrobe-identity/art/deepseek-chibi-sports-v1.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/whale/atlas.png"
+  ],
+  "prompt": "Use case: identity-preserve. Clothing-only edit of the original desktop-pet sprite sheet.\nIMAGE 1 is the EDIT TARGET: DeepSeek original maid six-pose sheet, exactly 1536 x 1024, 3 columns by 2 rows. IMAGE 2 is the new SPORTS CLOTHING reference only, NOT a body or pose reference.\nChange only the maid dress/apron, long sleeves and boots in image 1 into a white short-sleeved zip-front sports shirt with navy shoulder and upper arm panels, cyan piping, small blue whale chest emblem, navy athletic shorts ending well above the knees with white side stripes, white low-top sneakers with cyan/navy accents and short white ankle socks as in image 2. Keep the original white ruffled identity headband.\nLeave all SIX existing poses exactly where they are on the original sheet: seated neutral hands together, seated happy fists raised, seated smiling hands to cheeks, lying on side asleep, lying prone dizzy, seated sad. Preserve every original head, face, expression, hair and tail silhouette, body shape and head-to-body proportions. Lock the face size and all original shoulder, elbow, wrist, hip, knee and ankle locations. No inflated cheeks, belly, feet or thighs; no larger head, no shortened legs or reduced torso. Sneakers replace the boots at the same sole positions and comparable volume. Do not use the walking poses from image 2. Every character must occupy the original cell with identical framing and scale. Dress the existing character; do not create a new shorter or rounder version.\nKeep crisp original anime linework and cel shading; same blue hair, ahoge, fin ears, cyan bow, headband and blue whale tail. Genuine transparent alpha background, no colored backdrop or glow. No new props, labels or panels. Preserve all six full characters without cuts. Exactly the original 1536 x 1024 canvas, six poses only.",
+  "tool": "built-in image_gen",
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
+  "approval": "W2 design approved for expansion by user; source geometry and runtime checks still recorded separately",
+  "provenanceRecord": "docs/demo/wardrobe-identity/art/sports-provenance.json",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-07",
+    "passed": true,
+    "summary": "重新核对已获用户W2批准的六姿势，头与脸保持，衣服为短袖膝上短裤；用户批准不代替原生尺度检查。",
+    "evidence": [
+      ".artifacts/sports-identity-review/whale-basic-approved-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "79bf9f9318e00f28fcd64dc10b8560ed096862f87056fd74aeaac7058c04b8fc",
+    "originalSha256": "0da74c2fbad632abe339c4531dec5861edbe6cc7a62f99c00e006a0451cb86a5",
+    "comparisonFingerprint": "1c36f8de0773ef211b5c36d38e86e137997a327023eb64b5fb55403f9292c764"
+  }
+}

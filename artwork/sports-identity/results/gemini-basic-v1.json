@@ -10,6 +10,20 @@
     "src/DesktopPet.App/Assets/Characters/gemini/outfits/sports/core.png"
   ],
   "tool": "built-in image_gen",
-  "status": "generated-awaiting-geometry-review",
-  "selected": false
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-07",
+    "passed": true,
+    "summary": "六个原姿势逐帧对照，身份、发型、头饰及整体头身比例保留；短袖与膝上短裤。",
+    "evidence": [
+      ".artifacts/sports-identity-review/gemini-basic-v1-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "2bbc3058324b4a731cef5fef83aeafaaded1830c04c827ed6b1a88ab740f8b50",
+    "originalSha256": "a2d91156bb3a308417ac8e9f488412714cf2bedc94060f76b747055f33199db4",
+    "comparisonFingerprint": "057b351cf3ec7c2271e7d3e5938aea095cb7ab77c71a290b5f65af242cf05803"
+  }
 }

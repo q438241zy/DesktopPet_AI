@@ -10,6 +10,20 @@
     "src/DesktopPet.App/Assets/Characters/claude/outfits/sports/core.png"
   ],
   "tool": "built-in image_gen",
-  "status": "generated-awaiting-geometry-review",
-  "selected": false
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-07",
+    "passed": true,
+    "summary": "六个原姿势逐帧对照，身份、发型、头饰及整体头身比例保留；短袖与膝上短裤。",
+    "evidence": [
+      ".artifacts/sports-identity-review/claude-basic-v1-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "52340d5f40ade155b0dda28b8b7e1a084b09712fe1a922faecc5b0665f9e26ef",
+    "originalSha256": "2c75e9c31cb1f05fd30ef37276d13083976292fa36c50fad09078be47b442173",
+    "comparisonFingerprint": "b2dfdbcae5f8dd6f8758e942b781793f0e3fe5cdf855415a2578595975fdfbc4"
+  }
 }

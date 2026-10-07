@@ -10,6 +10,20 @@
     "src/DesktopPet.App/Assets/Characters/gemini-adult/outfits/sports/portrait.png"
   ],
   "tool": "built-in image_gen",
-  "status": "generated-awaiting-geometry-review",
-  "selected": false
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-07",
+    "passed": true,
+    "summary": "单张与原装同画布对照，脸型、头饰、交叉腿姿势及成年身形保留；短袖短裤，未代表动作通过。",
+    "evidence": [
+      ".artifacts/sports-identity-review/gemini-adult-portrait-v1-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "36036eb51b91415f54f85e47b79f19c235e1d7a865260639a178776279e37b7b",
+    "originalSha256": "2864cf9cc50196b7e5d84858b81888af457c6ac9ad2740d13e8d89d527a1d7f3",
+    "comparisonFingerprint": "a0c18c25798c0d64bd7b871aaea06e22ee722f396a5d94ac4b18f757033a25d5"
+  }
 }

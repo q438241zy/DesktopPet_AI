@@ -12,6 +12,20 @@
     "docs/demo/wardrobe-identity/art/deepseek-chibi-sports-v1.png"
   ],
   "tool": "built-in image_gen",
-  "status": "generated-awaiting-geometry-review",
-  "selected": false
+  "status": "not-selected-after-review",
+  "selected": false,
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-07",
+    "passed": false,
+    "summary": "部分帧放大、脚底位置漂移，以v2取代。",
+    "evidence": [
+      ".artifacts/sports-identity-review/whale-bonk-v1-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "893383caacf63c1ee1ee8b7dc23568db329e8c7fe2eb6392dc32d87334e9956d",
+    "originalSha256": "1db2d4cccff5cb992d0e73b84025c328dac01138c721850a6be4925bdcada6cb",
+    "comparisonFingerprint": "89a1c45deaf59c5e15c03d060466f426e9f5f1175ee7068784eac447f9c5bf08"
+  }
 }

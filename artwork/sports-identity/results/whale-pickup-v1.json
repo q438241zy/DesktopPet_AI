@@ -12,6 +12,20 @@
     "docs/demo/wardrobe-identity/art/deepseek-chibi-sports-v1.png"
   ],
   "tool": "built-in image_gen",
-  "status": "generated-awaiting-geometry-review",
-  "selected": false
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-07",
+    "passed": true,
+    "summary": "六帧提起与悬腿动作保留，头部未放大；运动鞋轮廓变化需在原生基线复核。",
+    "evidence": [
+      ".artifacts/sports-identity-review/whale-pickup-v1-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "58aefda9f03098d2f8fdbf743f1a9400bcfdac794246bd176928d8342abd4170",
+    "originalSha256": "9f12b1e0c6ebfe5d0848c91e54d5761ad0989916f075f8f1678f1de6dd61ad62",
+    "comparisonFingerprint": "f97f7010d46d34f1ffcc71780ce4d90fe78a46fbaf6fc80319c89e27bb0bc8b9"
+  }
 }

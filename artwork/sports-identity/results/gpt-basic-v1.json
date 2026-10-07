@@ -10,6 +10,20 @@
     "src/DesktopPet.App/Assets/Characters/gpt/outfits/sports/core.png"
   ],
   "tool": "built-in image_gen",
-  "status": "generated-awaiting-contact-and-alpha-review",
-  "selected": false
+  "status": "not-selected-after-review",
+  "selected": false,
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-07",
+    "passed": false,
+    "summary": "难过姿势头部放大、睡眠与头晕位置偏移；采用重新按原图换衣的v2。",
+    "evidence": [
+      ".artifacts/sports-identity-review/gpt-basic-v1-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "8bfb73dc0dc88a2d77e367ca333ea475538bb751cf35942430a0d69eaecbf197",
+    "originalSha256": "2069da5c678960c7fb8a9dad29b6ad2aaa16978a92e07b1b64dd648c9c4726e9",
+    "comparisonFingerprint": "39dcf4b40082f74bc35f6bdc1965a99b5ffe8c8083a7f53b5a8f79df55a121d7"
+  }
 }

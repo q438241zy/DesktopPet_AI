@@ -10,6 +10,20 @@
     "src/DesktopPet.App/Assets/Characters/qwen/outfits/sports/core.png"
   ],
   "tool": "built-in image_gen",
-  "status": "generated-awaiting-geometry-review",
-  "selected": false
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-07",
+    "passed": true,
+    "summary": "六个原姿势逐帧对照，身份、发型、头饰及整体头身比例保留；短袖与膝上短裤。",
+    "evidence": [
+      ".artifacts/sports-identity-review/qwen-basic-v1-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "72c13c51c1cd58d77441f9a008ef7e7162f9e0a943b16bfa89e5c9c21f97321f",
+    "originalSha256": "b40eacc165610cedbc71fadbfb8662ea0db80ea0ccdf0ad0afb05cbbe9923a69",
+    "comparisonFingerprint": "44be3fc7c926c165d19d4069840512bc8555379d611cba5c608a1af4585d5ade"
+  }
 }

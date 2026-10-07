@@ -1,5 +1,7 @@
 # 全角色换装对照 W3
 
+当前进度：日常程序已是 v0.4；运动服动作全量拓展仍未完成。新增 `motions.html` 原图/候选逐帧对照页，DeepSeek 两种风格已完成隔离原生检查，GPT 修订及其余角色动作补齐中。后文 Preview27/28 是历史阶段说明，不代表现行程序。详见 `../../../artwork/sports-identity/README.md` 与 `../../verification-sports-identity-progress.md`。
+
 2026-10-07 更新：用户已批准 W2「同意拓展」，该授权覆盖下方历史待审说明。W3 已加入八位角色选择、各自 Q版六姿势和十二帧行走、3D真人新立绘，并分别保留原装/泳装/婚纱对照。入口沿用 `Release/win-x64/Demo/WardrobeIdentity/index.html`；21 组网页检查通过，截图与报告见 `.artifacts/wardrobe-identity-W3`。全角色配套运动服动作仍未全部生成、审阅和接入，日常程序保持 Preview28。原图、提示词、生成记录保存在 `artwork/sports-identity`，`selected:false` 的动作稿不得视为已经发布。
 
 ## W2 历史记录

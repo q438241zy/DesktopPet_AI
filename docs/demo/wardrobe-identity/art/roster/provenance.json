@@ -82,9 +82,9 @@
       "sha256": "038228c44db600128c837f1c4b5b8134e05191b6531a589372377507fcdb3c9a"
     },
     {
-      "source": "artwork/sports-identity/gpt-basic-v1.png",
+      "source": "artwork/sports-identity/gpt-basic-v2.png",
       "file": "art/roster/gpt/sports-identity.png",
-      "sha256": "8bfb73dc0dc88a2d77e367ca333ea475538bb751cf35942430a0d69eaecbf197"
+      "sha256": "d6a9715b2731b94252fbfd41eb33e178ec65bc491eedba2de438518fa7f0334e"
     },
     {
       "source": "src/DesktopPet.App/Assets/Characters/gpt/motions/walk-smooth.png",
@@ -262,9 +262,9 @@
       "sha256": "4919ae7c9594c1245b7d39e1b86daa1f633b777417e11dae87d121dd7090f99a"
     },
     {
-      "source": "artwork/sports-identity/grok-basic-v1.png",
+      "source": "artwork/sports-identity/grok-basic-v2.png",
       "file": "art/roster/grok/sports-identity.png",
-      "sha256": "aa6c0a19558bf30d57a05f8dda498288026bc08167e95c0b848fd1a1177ba6a6"
+      "sha256": "5f2191b2d478b9d34eb24c2b389a16f6b8612ac2cdeae75f2baed603d2b37c4b"
     },
     {
       "source": "src/DesktopPet.App/Assets/Characters/grok/motions/walk-smooth.png",
@@ -382,9 +382,9 @@
       "sha256": "60f3245a0f531ebe7d1134c1f0fd56d88df0c7528f27b1d454fcfe47b3af1f48"
     },
     {
-      "source": "artwork/sports-identity/zhipu-basic-v1.png",
+      "source": "artwork/sports-identity/zhipu-basic-v2.png",
       "file": "art/roster/zhipu/sports-identity.png",
-      "sha256": "72ff240dff1c5e32b339a78dc48bfedd6fc67679592586ea1d97e23487af062b"
+      "sha256": "ea7122aaba9829dc8ff4f4d775e22d22488c55239dc5e41ec06c49435acd4f6d"
     },
     {
       "source": "src/DesktopPet.App/Assets/Characters/zhipu/motions/walk-smooth.png",
@@ -442,9 +442,9 @@
       "sha256": "680086514afff63dad5542df576135ddb9908202068662abd4a66ea8a42f0158"
     },
     {
-      "source": "artwork/sports-identity/kimi-basic-v1.png",
+      "source": "artwork/sports-identity/kimi-basic-v2.png",
       "file": "art/roster/kimi/sports-identity.png",
-      "sha256": "4748ff8ee920567fde9bae447f2f01624fd1f900c2da245685faebf4ea9d8718"
+      "sha256": "05f7189f8e7dc08bdcabd50955517fd0e15b3434aa8177658b09792ab0c39e1a"
     },
     {
       "source": "src/DesktopPet.App/Assets/Characters/kimi/motions/walk-smooth.png",

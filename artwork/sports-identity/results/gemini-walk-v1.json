@@ -10,6 +10,20 @@
     "src/DesktopPet.App/Assets/Characters/gemini/outfits/sports/core.png"
   ],
   "tool": "built-in image_gen",
-  "status": "generated-awaiting-geometry-review",
-  "selected": false
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-07",
+    "passed": true,
+    "summary": "十二帧原图对照完成，步态顺序、朝向、头发及腿部比例保留；插帧与衣服切换尚未原生验证。",
+    "evidence": [
+      ".artifacts/sports-identity-review/gemini-walk-v1-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "6a2591816fc4a493f20e8c99bbc26b404dee9f8ea811a9f405945671a378c115",
+    "originalSha256": "8905c059aaf97719abb855e528b2652890658ec654e07b5a21f1fd14dcf424bc",
+    "comparisonFingerprint": "f84f550e64d369550e00341d744ef09a8596c9b3eee2d9d4dd1c83e32519979d"
+  }
 }

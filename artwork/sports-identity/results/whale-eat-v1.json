@@ -12,6 +12,20 @@
     "docs/demo/wardrobe-identity/art/deepseek-chibi-sports-v1.png"
   ],
   "tool": "built-in image_gen",
-  "status": "generated-awaiting-geometry-review",
-  "selected": false
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-07",
+    "passed": true,
+    "summary": "八帧饼干由双手送到嘴边，保留原头部、头饰与手部动作；待验证原生接触点。",
+    "evidence": [
+      ".artifacts/sports-identity-review/whale-eat-v1-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "1e10bd29616e1dbc20d8a756a02a8e192eab0485fb7675e7cb8e22968ad48ecd",
+    "originalSha256": "7b8aea5dfcb0560f018fe0bf76265382301487e2ef1bdf23249824faef93fe3a",
+    "comparisonFingerprint": "8013b95ec6f5d9a1206b50af18a01b01a4c8d69af3934b0ff274bad3c238f62a"
+  }
 }

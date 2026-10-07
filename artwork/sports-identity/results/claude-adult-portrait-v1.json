@@ -10,6 +10,20 @@
     "src/DesktopPet.App/Assets/Characters/claude-adult/outfits/sports/portrait.png"
   ],
   "tool": "built-in image_gen",
-  "status": "generated-awaiting-geometry-review",
-  "selected": false
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-07",
+    "passed": true,
+    "summary": "单张与原装同画布对照，脸型、头饰、交叉腿姿势及成年身形保留；短袖短裤，未代表动作通过。",
+    "evidence": [
+      ".artifacts/sports-identity-review/claude-adult-portrait-v1-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "e31afe52c39ccf07d4d8df33da2ec56f1380224388d0a0d5996a51f104dc840d",
+    "originalSha256": "25a5707a7c0f598827feded030900aa9d77f2a26dce450b823a75dbb895cf41b",
+    "comparisonFingerprint": "ef904468dabd1a2921f179f7784d07ee5a52adece4b06836f41b0818ab8fa165"
+  }
 }

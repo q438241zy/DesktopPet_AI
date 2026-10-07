@@ -10,6 +10,20 @@
     "src/DesktopPet.App/Assets/Characters/gpt/outfits/sports/core.png"
   ],
   "tool": "built-in image_gen",
-  "status": "generated-awaiting-geometry-review",
-  "selected": false
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-07",
+    "passed": true,
+    "summary": "十二帧原图对照完成，步态顺序、朝向、头发及腿部比例保留；插帧与衣服切换尚未原生验证。",
+    "evidence": [
+      ".artifacts/sports-identity-review/gpt-walk-v1-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "11fb8cc4915eda12169efab14c78f5dec1916a0bb88a4c4745aa17f33a207bb7",
+    "originalSha256": "c3a163e1f121853825870ea260ef7c36b5b640aa1d9d99c3b9022ac2152f8cc7",
+    "comparisonFingerprint": "ce5fe92c5d527578c0ead4e88e349245cc46834177fdf43e637b9fcc267acace"
+  }
 }

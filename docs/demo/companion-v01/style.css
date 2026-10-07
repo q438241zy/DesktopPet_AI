@@ -14,3 +14,73 @@ dialog{color:var(--ink);background:#fffcfd;border:1px solid var(--line);border-r
 @media(max-width:760px){.sidebar{position:sticky;top:0;inset-inline:0;width:100%;height:auto;padding:10px 14px;display:grid;grid-template-columns:1fr auto;gap:8px;border-right:0;border-bottom:1px solid var(--line);background:#fcf3f7ef;backdrop-filter:blur(15px)}.brand{display:flex;align-items:center;padding:0;font-size:19px;gap:6px}.cloud-logo svg{width:35px;height:30px}.sidebar nav{grid-column:1/-1;display:flex;justify-content:space-between;gap:3px}.sidebar nav button{gap:6px;font-size:11px;border-radius:11px;padding:9px 10px}.sidebar nav svg{width:17px;height:17px}.sidebar-bottom{grid-area:1/2;margin:0;align-self:center}.presence{font-size:10px;gap:7px}.version{font-size:8px;margin:4px 7px 0;text-align:right}main{margin:0;padding:23px 17px 40px}h1{font-size:26px}.page-header{margin-bottom:22px}.partner-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:9px;margin:16px 0 25px}.partner-card{border-radius:17px;padding:10px 3px 12px}.partner-card canvas{height:91px;margin-bottom:5px}.partner-card strong{font-size:11px}.partner-card.active:after{right:7px;bottom:12px;font-size:9px}.quiet{font-size:11px;padding:9px 11px;gap:6px}.quiet svg{width:17px;height:17px}.segmented button{padding:8px 15px;font-size:12px}.room-heading{padding:20px 18px 0}.room-actions{gap:1px;padding:11px 5px}.room-actions button{padding:8px 11px;font-size:11px;gap:6px}.pet-stage{height:365px}.pet-body{height:245px;width:250px}.room-actions svg{width:17px;height:17px}.checkin-panel{display:block;padding:24px}.checkin-panel>div:first-child{position:relative}.checkin-panel .primary{position:absolute;right:0;top:10px}.checkin-week{margin:30px 0 24px;gap:6px}.checkin-stats{gap:30px}.collection-grid{grid-template-columns:repeat(3,1fr);gap:10px}.collection-card{min-height:125px}.collection-tabs button{padding:9px 11px;font-size:12px}.collection-tabs small{font-size:9px;margin-left:2px}.detail-layout{display:block}.profile-card{display:grid;grid-template-columns:115px 1fr;align-items:center;margin-bottom:20px;padding:15px}.profile-card canvas{grid-row:1/4;height:138px;max-width:105px}.profile-card h2{margin:8px 0 10px}.profile-card p{margin:8px 0;font-size:11px}.profile-info>.segmented button{font-size:12px}.appearance-card canvas{height:174px}.auth-card{margin:15px auto;padding:30px 25px}.settings-card{padding:23px 20px}.work-form-row,.two-fields{grid-template-columns:1fr}.work-form-row{gap:16px}.photo-layout{grid-template-columns:1fr;gap:20px}.photo-preview{max-width:300px;margin:auto;padding:12px}dialog{padding:22px;width:calc(100vw - 28px)}.photo-layout form{gap:13px}.reminder{right:12px;bottom:12px;max-width:calc(100vw - 24px);padding:10px}.reminder canvas{width:70px;height:90px}.reminder p{font-size:11px}.story-sentence{font-size:17px}.review-links{flex-wrap:wrap}.pet-menu{left:auto;right:36px}}
 @media(max-width:400px){.partner-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.partner-card canvas{height:124px}.sidebar nav button{padding:8px 7px}.sidebar nav svg{width:15px}.collection-tabs button{padding:8px}.collection-grid{grid-template-columns:repeat(2,1fr)}.checkin-week{gap:2px}.day b{width:29px;height:29px}}
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+
+/* The original companion card: one unchanged image, name and wardrobe. */
+.partner-hero{display:grid;grid-template-columns:236px minmax(0,1fr);align-items:center;gap:18px;padding:12px 18px 12px 15px;border:1px solid var(--line);border-radius:22px;background:linear-gradient(125deg,#f4f8fd,#fdf7fb);box-shadow:var(--shadow)}
+.hero-art{height:182px;position:relative;isolation:isolate}
+.hero-art:before{content:"";position:absolute;z-index:-1;bottom:3px;left:12%;width:76%;height:30px;border-radius:50%;background:#fff9}
+.hero-art canvas{display:block;width:100%;height:100%}
+.hero-info{min-width:0;padding:12px 0}
+.hero-badges{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:12px}
+.hero-badges span{font-size:10px;color:#886c7a;padding:4px 9px;border-radius:20px;background:#fff9}
+.hero-badges span:first-child{color:#668a7c;background:#e9f3ed}
+.hero-badges span.paused{color:#b36a80;background:#fae9ef}
+.hero-info h2{font-size:25px;margin:0 0 7px}
+.hero-info p{font-size:12px;color:var(--muted);margin:0 0 16px}
+.hero-outfits{display:flex;gap:7px;flex-wrap:wrap}
+.hero-outfits button{font-size:12px;border:1px solid #eadde5;border-radius:11px;background:#fff9;padding:8px 13px;white-space:nowrap}
+.hero-outfits .selected{background:#f5e2ec;border-color:#dbaec3;color:#a45778}
+
+/* The date cell itself is the check-in action. */
+.checkin-panel{display:block;max-width:920px;padding:28px 32px}
+.calendar-heading{display:flex;align-items:center;justify-content:space-between;gap:18px}
+.calendar-heading h2{margin:7px 0 0;font-size:24px}
+.makeup-balance{display:inline-flex;align-items:center;gap:5px;white-space:nowrap;font-size:12px;color:#977788;border:1px solid var(--line);border-radius:20px;padding:9px 13px;background:#fff}
+.makeup-balance svg{width:16px;height:16px;margin-right:2px}
+.makeup-balance strong{font-weight:600}
+.calendar-toolbar{display:flex;justify-content:space-between;align-items:center;margin:24px 0 13px}
+.calendar-key{display:flex;gap:8px;align-items:center;font-size:11px;color:#967e8b}
+.calendar-key i{width:8px;height:8px;border-radius:50%;background:#bb6284}
+.calendar-navigation{display:flex;align-items:center;gap:9px}
+.calendar-navigation .icon-button{height:30px;width:30px}
+.calendar-navigation .icon-button svg{width:16px;height:16px}
+.calendar-navigation .quiet{padding:6px 12px;font-size:11px}
+#calendar-next svg{transform:rotate(180deg)}
+.calendar-weekdays,.checkin-calendar{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:8px}
+.calendar-weekdays{margin-bottom:8px;text-align:center;font-size:11px;color:#a18a97;line-height:25px}
+.calendar-day{min-height:66px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;border-radius:15px;border:1px solid #f1e6ec;background:#fff;transition:background .15s}
+.calendar-day>span{font-size:15px;font-weight:550;font-variant-numeric:tabular-nums}
+.calendar-day small{font-size:10px;line-height:14px;min-height:14px;color:inherit}
+.calendar-day:hover:not(:disabled){background:#fdf0f6;border-color:#dcb1c5}
+.calendar-day.done{background:#edf5f0;color:#638371;border-color:#dcebe2}
+.calendar-day:disabled{opacity:1}
+.calendar-day.today,.calendar-day.today:hover{color:white;background:#b76080;border-color:#b76080;box-shadow:0 4px 10px #b7608020}
+.calendar-day.future{color:#bfb2b9;border-color:transparent;background:#fcf9fb}
+.calendar-day.future small{visibility:hidden}
+.checkin-panel .checkin-stats{margin:22px 0 0;padding-top:20px;border-top:1px solid var(--line);gap:32px;display:flex}
+#makeup-dialog{max-width:360px}
+#makeup-dialog .dialog-heading{margin-bottom:18px}
+#makeup-date{font-size:19px;margin-bottom:8px}
+#makeup-dialog .button-row{margin-top:22px}
+
+.character-about{background:#fff;border:1px solid var(--line);border-radius:22px;padding:28px;margin:20px 0}
+.character-about h3{font-size:21px;line-height:1.6;margin:8px 0 18px}
+.character-about p{font-size:13px;line-height:1.95;color:#786873;margin:0 0 14px}
+.character-about h4{font-size:14px;font-weight:600;margin:26px 0 13px}
+.character-about #profile-together{margin-bottom:0}
+.profile-likes{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.profile-likes li{display:flex;flex-direction:column;gap:7px;padding:15px 16px;border-radius:14px;background:#fcf5f9}
+.profile-likes strong{font-size:12px;font-weight:600;color:#9e6882}
+.profile-likes span{font-size:12px;line-height:1.85;color:#8b7b84}
+
+@media(max-width:760px){
+  .partner-hero{grid-template-columns:115px minmax(0,1fr);gap:10px;padding:15px 12px}
+  .hero-art{height:150px}.hero-info{padding:0}.hero-info h2{font-size:23px}.hero-info p{font-size:10px;margin-bottom:12px}
+  .hero-badges{gap:5px;margin-bottom:10px}.hero-badges span{font-size:9px;padding:3px 6px}
+  .hero-outfits{gap:6px}.hero-outfits button{font-size:11px;padding:7px 9px}
+  .checkin-panel{padding:20px 14px}.calendar-heading{gap:10px}.calendar-heading h2{font-size:21px}
+  .makeup-balance{padding:7px 9px;font-size:10px;gap:3px}.makeup-balance svg{width:13px;height:13px}
+  .calendar-toolbar{margin-top:20px}.calendar-weekdays,.checkin-calendar{gap:5px}
+  .calendar-day{min-height:51px;border-radius:11px;gap:1px}.calendar-day>span{font-size:13px}.calendar-day small{font-size:8px}
+  .character-about{padding:22px 19px}.character-about h3{font-size:19px}.profile-likes{grid-template-columns:1fr;gap:9px}
+}

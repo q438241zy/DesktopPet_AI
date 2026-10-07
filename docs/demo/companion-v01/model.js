@@ -1,5 +1,6 @@
 (function(root,factory){const value=factory();if(typeof module==='object'&&module.exports)module.exports=value;else root.CompanionModel=value;})(globalThis,function(){
   'use strict';
+  const A=typeof module==='object'&&module.exports?require('./providers.js'):globalThis.CompanionProviders;
   const families=['whale','gpt','claude','gemini','grok','qwen','zhipu','kimi'];
   const outfits={original:{name:'原装',score:0},sports:{name:'运动服',score:20},swim:{name:'泳装',score:50},wedding:{name:'婚纱',score:80}};
   const clamp=(n,a,b)=>Math.max(a,Math.min(b,Number.isFinite(n)?n:0));
@@ -7,7 +8,7 @@
   const validDate=value=>typeof value==='string'&&/^\d{4}-\d{2}-\d{2}$/.test(value)&&!Number.isNaN(Date.parse(value+'T12:00:00'));
   const relation=()=>({score:0,seconds:0,interactions:0,history:[],awards:{},daily:{},companionshipAwarded:0});
   function create(saved){
-    const s={schema:1,selected:'whale',style:'chibi',outfits:{},relations:Object.fromEntries(families.map(id=>[id,relation()])),checkins:[],collection:{},stories:{},settings:{autoHide:true,reducedMotion:false},api:{provider:'local',endpoint:'',model:''},work:{minutes:10,message:'喝口水，放松一下肩膀'}};
+    const s={schema:1,selected:'whale',style:'chibi',outfits:{},relations:Object.fromEntries(families.map(id=>[id,relation()])),checkins:[],collection:{},stories:{},settings:{autoHide:true,reducedMotion:false},api:A.cleanConfig(),work:{enabled:false,minutes:10}};
     if(!saved||saved.schema!==1)return s;
     if(families.includes(saved.selected))s.selected=saved.selected;if(saved.style==='realistic')s.style='realistic';
     for(const id of families){
@@ -18,8 +19,8 @@
     for(const [key,value] of Object.entries(saved.collection||{}))if(/^[a-z-]+$/.test(key)&&Number.isFinite(value))s.collection[key]=clamp(value,1,99999);
     for(const [key,value] of Object.entries(saved.stories||{}))if(['cloud-post','little-bell','star-seed'].includes(key)&&Number.isFinite(value))s.stories[key]=clamp(value,1,99999);
     if(saved.settings){s.settings.autoHide=saved.settings.autoHide!==false;s.settings.reducedMotion=!!saved.settings.reducedMotion;}
-    if(['local','openai','deepseek'].includes(saved.api?.provider))s.api={provider:saved.api.provider,endpoint:String(saved.api.endpoint||'').slice(0,500),model:String(saved.api.model||'').slice(0,120)};
-    s.work.minutes=clamp(Number(saved.work?.minutes)||10,1,180);if(typeof saved.work?.message==='string')s.work.message=saved.work.message.slice(0,60);
+    s.api=A.cleanConfig(saved.api);
+    s.work.minutes=Math.round(clamp(Number(saved.work?.minutes)||10,1,180));s.work.enabled=saved.work?.enabled===true;
     return s;
   }
   function affect(s,id,delta,label,now,key='',cooldown=0){
@@ -36,21 +37,7 @@
   function streak(s,now){const date=new Date(now);date.setHours(12,0,0,0);if(!s.checkins.includes(day(date)))date.setDate(date.getDate()-1);let n=0;while(s.checkins.includes(day(date))){n++;date.setDate(date.getDate()-1);}return n;}
   function companion(s,id,seconds,now){const r=s.relations[id];r.seconds+=clamp(seconds,0,2);const reached=Math.floor(r.seconds/300);if(reached>r.companionshipAwarded){r.companionshipAwarded=reached;affect(s,id,1,'安静陪伴五分钟',now,'time',300000);}}
   function label(score){return score<=-60?'需要一些空间':score<0?'慢慢修复默契':score<20?'初次相遇':score<50?'渐渐熟悉':score<80?'默契伙伴':'亲密搭档';}
-  function endpoint(value,provider='openai'){
-    if(!value.trim())return '';
-    let u;try{u=new URL(value.trim());}catch{throw new Error('请输入完整的 API 地址。');}
-    const loopback=['localhost','127.0.0.1','[::1]'].includes(u.hostname);
-    if((u.protocol!=='https:'&&!(u.protocol==='http:'&&loopback))||u.username||u.password||u.search||u.hash)throw new Error('API 地址需使用 HTTPS；本机地址可使用 HTTP。');
-    let path=u.pathname.replace(/\/+$/,'');
-    if(path.endsWith('/responses'))throw new Error('这里使用 Chat Completions，请填写基础地址或 /chat/completions。');
-    if(!path&&u.hostname==='api.openai.com')path='/v1';
-    if(!path.endsWith('/chat/completions'))path+='/chat/completions';u.pathname=path;return u.href;
-  }
-  function request(api,key,messages,system){
-    const url=endpoint(api.endpoint,api.provider);if(!url)return null;if(!api.model.trim())throw new Error('请填写模型名称。');
-    const role=api.provider==='openai'?'developer':'system';
-    return {url,options:{method:'POST',headers:{'Content-Type':'application/json',...(key.trim()?{Authorization:'Bearer '+key.trim()}:{})},body:JSON.stringify({model:api.model.trim(),messages:[{role,content:system},...messages.filter(m=>['user','assistant'].includes(m.role)).slice(-24)],stream:false})}};
-  }
+  const endpoint=A.endpoint,request=A.request;
   function createRuntime(now){return {paused:false,action:'idle',started:now,until:0,idleSince:now,hideSide:'left',workActive:false,nextReminder:0,reminderCount:0,workRemaining:0};}
   function startHide(r,now,side){if(r.action==='hidden'||r.action==='hiding')return false;r.action='hiding';r.started=now;r.hideSide=side;r.until=now+2200;return true;}
   function tick(r,s,now,{canHide=true}={}){
@@ -63,7 +50,8 @@
     return events;
   }
   function find(r,now){if(!['hidden','hiding'].includes(r.action))return false;r.action='found';r.started=now;r.until=now+1700;r.idleSince=now;return true;}
-  function workStart(r,s,now){r.workActive=true;r.nextReminder=now+s.work.minutes*60000;r.workRemaining=s.work.minutes*60000;}
+  function workStart(r,s,now){s.work.enabled=true;r.workActive=true;r.nextReminder=now+s.work.minutes*60000;r.workRemaining=s.work.minutes*60000;}
+  function workStop(r,s){s.work.enabled=false;r.workActive=false;r.nextReminder=0;r.workRemaining=0;}
   function pause(r,now){r.paused=!r.paused;if(r.paused)r.workRemaining=Math.max(0,r.nextReminder-now);else{if(r.workActive)r.nextReminder=now+r.workRemaining;r.idleSince=now;}}
-  return {families,outfits,clamp,day,create,affect,checkin,streak,companion,label,endpoint,request,createRuntime,startHide,tick,find,workStart,pause};
+  return {families,outfits,clamp,day,create,affect,checkin,streak,companion,label,endpoint,request,createRuntime,startHide,tick,find,workStart,workStop,pause};
 });

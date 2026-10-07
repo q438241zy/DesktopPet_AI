@@ -110,7 +110,7 @@ for id,title,body in re.findall(r'new CompanionStory\("([^"]+)","([^"]+)",new\[\
 assert len(data['items'])==20 and len(data['stories'])==3
 
 if target!=SOURCE:
-    for name in ['index.html','style.css','icons.js','personas.js','model.js','app.js']:
+    for name in ['index.html','style.css','icons.js','personas.js','providers.js','model.js','app.js']:
         shutil.copyfile(SOURCE/name,target/name)
 shutil.copyfile(ROOT/'docs/demo/interaction-five/items.js',target/'items.js')
 (target/'data.js').write_text('globalThis.CLOUD_DATA='+json.dumps(data,ensure_ascii=False,separators=(',',':'))+';\n',encoding='utf-8')

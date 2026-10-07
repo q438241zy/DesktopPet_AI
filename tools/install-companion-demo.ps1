@@ -6,7 +6,7 @@ if (-not $demoRoot.StartsWith($projectRoot + [IO.Path]::DirectorySeparatorChar, 
 $target = Join-Path $demoRoot 'CompanionV01'
 python (Join-Path $PSScriptRoot 'build-companion-demo.py') --target $target
 if ($LASTEXITCODE -ne 0) { throw 'Companion Demo export failed.' }
-foreach ($name in @('index.html','style.css','icons.js','personas.js','model.js','app.js')) {
+foreach ($name in @('index.html','style.css','icons.js','personas.js','providers.js','model.js','app.js')) {
     $source = Join-Path $projectRoot ('docs/demo/companion-v01/' + $name)
     if ((Get-FileHash -LiteralPath $source).Hash -ne (Get-FileHash -LiteralPath (Join-Path $target $name)).Hash) { throw "Demo copy mismatch: $name" }
 }

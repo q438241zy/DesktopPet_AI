@@ -33,16 +33,18 @@ WPF 的透明控件可以通过内部命中测试，但透明分层窗口的零 
 
 ## 换装 Demo
 
-入口为 `Release/win-x64/Demo/WardrobeIdentity/index.html?review=W1`，从常态 CloudClub 顶部进入。六个 Q版基本姿势、十二帧泳装行走，以及一张3D真人短袖短裤样稿；支持同尺寸并排、叠图、逐帧和原装/泳装/婚纱参考。详见 [Demo 说明](demo/wardrobe-identity/README.md)。九组网页检查通过，含窄屏、2倍像素密度和不联网加载；实际截图已查看。
+首次 W1 入口为 `Release/win-x64/Demo/WardrobeIdentity/index.html?review=W1`，从常态 CloudClub 顶部进入。六个 Q版基本姿势、十二帧泳装行走，以及一张3D真人短袖短裤样稿；支持同尺寸并排、叠图、逐帧和原装/泳装/婚纱参考。九组网页检查通过，含窄屏、2倍像素密度和不联网加载；实际截图已查看。
 
-## 安装与同事包
+2026-10-07 用户更正两种风格的问题都指运动服，并认可3D真人样稿比例。后续 W2 同一入口改为 Q版运动服对照，泳装作为复核记录保留；详见 [Demo 说明](demo/wardrobe-identity/README.md)。此次网页更新不替换原生画稿或重新打包。
+
+## 安装与正式安装包
 
 日常路径仍是 `D:\VibeCoding\Character\Release\win-x64\DesktopPet.exe`，桌面「云朵伙伴」指向此处并带 `--settings`。常态 Demo 沿用 `DeepSeek-動作Demo.lnk`。新版本只替换 exe；926个正式素材文件逐个比对不变，用户数据在 D 盘备份，安装前后 state 文件哈希一致。
 
 程序版本：`1.2.0-preview.27+2407dea7ede68f1156638e87d9ef97932dd9f59b`。后缀是构建基底提交；本轮工作区变更另行提交。exe SHA-256：`7187848B8F663F7F0BB33AA23610C6CD5982D08C6E5598E99BB72218F0F16A1E`。
 
-同事包：`Release/DesktopPet-v1.2.0-preview.27-win-x64-portable.zip`，945文件，1,433,700,268字节。SHA-256：`AF30451B8A9C3E62A3F4DC76C23A29A77D3CBCBFBE25C478BDA37DE104EDB838`。
+现有正式安装包（解压即用 ZIP）：`Release/DesktopPet-v1.2.0-preview.27-win-x64-portable.zip`，945文件，1,433,700,268字节。SHA-256：`AF30451B8A9C3E62A3F4DC76C23A29A77D3CBCBFBE25C478BDA37DE104EDB838`。以后只在用户明确要求时制作新包。
 
 解压到新的中文及空格目录，每个文件与候选发布内容一致；新的隔离存档正常启动主页、窗口有响应且无错误日志。包含自带运行时、全部现有外观、Studio与许可证，不含个人资料或大型开发 Demo。此兼容性验证限于本机 Windows 环境。记录在 `.artifacts/preview27-package.json`、`.artifacts/preview27-portability.json`、`.artifacts/preview27-release-record.json`。
 
-GitHub 用于源码；Gitee 发布接口授权尚未通过，运行包仍在本地，不能把已生成的 ZIP 说成已上传。
+GitHub 用于源码。2026-10-07 用户明确暂不需要 Gitee，停止发布与授权请求，等待新需求；此前没有完成 Gitee 上传，现有正式安装包保留在本地。

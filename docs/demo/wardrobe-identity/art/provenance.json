@@ -1,5 +1,11 @@
 {
-  "phase": "html-demo-W1-awaiting-user-review",
+  "phase": "html-demo-W1-history-see-W2",
+  "reviewUpdate": {
+    "date": "2026-10-07",
+    "realisticSports": "User accepted the proportions of this single-image sample; no new full-action expansion yet.",
+    "chibiSwim": "User clarified that both problem outfits are sportswear; keep W1 swimsuit as review history.",
+    "currentRecord": "sports-provenance.json"
+  },
   "date": "2026-10-06",
   "method": "built-in image_gen; clothing edits of existing source images",
   "items": [
@@ -17,7 +23,7 @@
     }
   ],
   "next": [
-    "Await user approval before any native wardrobe replacement or expansion.",
+    "See the W2 record for current review scope. Q sportswear still awaits user review.",
     "The adult sports image is a single outfit sample; all-action expansion has not been done."
   ],
   "reviewedAt": "2026-10-07",

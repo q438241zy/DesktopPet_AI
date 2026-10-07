@@ -1,5 +1,10 @@
 # 本项目的持续约定
 
+- 2026-10-07 最新更正与审阅：本轮形体问题针对 Q版和3D真人的运动服。W1 的 Q版泳装仅算复核记录，不再当作修正目标；3D真人运动服单张样稿的比例已获用户认可，保留该图，不将此认可解释为新全动作或全角色扩展授权。W2 补充 DeepSeek Q版短袖＋膝上短裤的六姿势和十二帧走路对照，入口仍为 `Release/win-x64/Demo/WardrobeIdentity/index.html`，默认展示运动服行走。Q版新稿仍待审，原生程序及现有素材保持 Preview27；后续先 Demo、拍板后拓展。
+- 新增服装的长期规则：必须与原图作对比。以原图作换衣编辑目标，保留身份、脸型、头部大小、头身比、肩腰胯、膝盖和脚踝位置及整体协调；不得用重新造人或局部拉伸来满足同高。每套服装先提供同姿势、同源画布、同一等比缩放的并排与叠图，动作图集还须逐帧核对，不按每帧包围盒单独归一化。保存原图、参考图、提示词、生成来源和审阅状态；不得把页面几何检查通过当作用户认可美术。
+- 发布规则更新：对外统一称「正式安装包」，不再称「同事运行包／同事试用包」。只有用户明确要求时才制作新的正式安装包，普通源码或 Demo 更新不自动打包。现有 ZIP 为解压即用格式，不宣称已有安装向导。本轮不重打包。
+- 发布目的地更新：源码继续推送 GitHub。用户明确暂不需要 Gitee，停止 Gitee 上传、重试、授权请求及登录提示，等待用户新指令；此规则覆盖下方历史的 Gitee 等授权状态。沿用 D 盘工程与桌面原快捷方式，不把项目文件放回 C 盘桌面。
+
 - 2026-10-07 已完成 Preview27 原生鼠标修复并运行：petInput 使用 1/255 alpha 的人物输入面，排除脚下留白；DesktopHost 只对命中该输入面的本窗口鼠标消息捕获、拖动和松开。普通松手、Shift下落、捕获取消、落地散步和右键菜单规则不变。全64套/两方向 Windows 命中1152次0失败、手势1024项，候选288命中/64手势，旧行为和五项互动回归通过；旧躲藏验收改向实际 InputSurface 发事件。正式程序仍 Release/win-x64/DesktopPet.exe，926素材不变，用户state安装前后哈希一致。新的同事包为 Release/DesktopPet-v1.2.0-preview.27-win-x64-portable.zip，945文件/约1.43GB，已逐文件解压比对并隔离正常启动。详见docs/verification-preview27.md和.artifacts/preview27-release-record.json。新换装仍只在待审 W1 Demo：Release/win-x64/Demo/WardrobeIdentity/index.html，常态CloudClub顶部链接；DeepSeek Q泳装六姿势与12帧走路、3D真人短袖短裤单张，用原装/泳装/婚纱并排叠图核对，未接入原生、未拓展其他角色。禁止把该Demo当作已批准。Gitee仍缺有效接口授权，尚未上传；发布准备脚本改为Preview27及其SHA256。继续沿用D盘工程与桌面原两个快捷方式，不恢复已删除的舞蹈。
 
 - 2026-10-06 用户告知即将断网，当前暂停等待继续。本轮待办：任务栏行走仍难以提起；Q版泳装与3D真人运动服须按同一角色换衣，先重做DeepSeek HTML Demo。桌面「云朵伙伴」快捷方式已核实指向 Release/win-x64/DesktopPet.exe --settings。GitHub main 与 codex/cloud-companions 已完成推送2407dea；Gitee接口授权未通过，尚未上传，不再盲目要求重复网页登录。工作区新增 NativePointerVerification 与 DesktopHost/PetWindow 本窗口原生鼠标消息处理、微透明角色点击区域，仍待完整回归和发布，正式程序仍Preview26。旧版原生窗口命中检查发现144次采样中9次Windows穿透而WPF命中，证据.artifacts/native-pointer-before；后续结果看.artifacts/native-pointer-after。新换装图仅位于 docs/demo/wardrobe-identity/art（真人运动服一张、Q泳装六姿势与12帧行走各一张），以原画作衣服替换，提示词见provenance.json；HTML尚未完成且未获批准，禁止把新图直接接入原生或宣称全量修正。先完成同尺寸并排/叠图/逐帧Demo并目视验证，随后等用户拍板。不得因本条恢复已删除的舞蹈。Release旧13目录与3个PDB已清理，保留win-x64及Preview26 ZIP/校验文件。

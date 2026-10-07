@@ -1,3 +1,4 @@
+# 正式安装包（解压即用 ZIP）：仅在用户要求制作时执行，不随普通源码或 Demo 更新自动运行。
 param([string]$Runtime = 'win-x64', [string]$Version = '', [string]$SourceDirectory = '', [switch]$RuntimeOnly)
 $ErrorActionPreference = 'Stop'
 $projectRoot = Split-Path -Parent $PSScriptRoot
@@ -14,7 +15,7 @@ New-Item -ItemType Directory -Path (Join-Path $projectRoot 'Release') -Force | O
 $archivePath = Join-Path $projectRoot "Release/$folderName$suffix.zip"
 $entries = [Collections.Generic.List[object]]::new()
 if ($RuntimeOnly) {
-    # Explicit runtime inputs keep local accounts, logs, previews and developer files out of colleague packages.
+    # Explicit runtime inputs keep local accounts, logs, previews and developer files out of distribution packages.
     foreach ($name in @('DesktopPet.exe','Assets','Studio','LICENSE','THIRD_PARTY_NOTICES.md','docs/DeepSeek-LICENSE.txt','docs/licenses')) {
         $source = Join-Path $releaseRoot $name
         if (-not (Test-Path -LiteralPath $source)) { throw "Missing package input: $source" }

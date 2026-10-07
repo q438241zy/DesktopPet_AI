@@ -4,7 +4,9 @@
 
 ![云朵伙伴：角色分类与更衣室](docs/images/pet-home.png)
 
-由 **QQ奶茶大神** 的 UsageDashboard_AI 与 Character_Generator 整合而来，互动和八位 AI 角色的 Q 版画稿来自 DS Go。沿用原生 WPF 透明窗口、托盘与快捷键；取消举看板、余额采集与平台登录。当前版本为 1.2.0-preview.26。
+由 **QQ奶茶大神** 的 UsageDashboard_AI 与 Character_Generator 整合而来，互动和八位 AI 角色的 Q 版画稿来自 DS Go。沿用原生 WPF 透明窗口、托盘与快捷键；取消举看板、余额采集与平台登录。当前源码版本为 1.2.0-preview.27。
+
+Preview 27 继续修复任务栏行走时难以点中、提起的问题：角色区域补上 Windows 可命中的微透明输入面，并在本窗口处理按下、捕获、拖动与松开，避免透明空隙把点击交给桌面。按下即停步，普通松手放置、Shift 松手下落、落地散步和右键菜单规则保持一致。DeepSeek Q版泳装与3D真人运动服另有[换装对照 Demo](docs/demo/wardrobe-identity/README.md)，尚未替换正式角色，等待审阅。
 
 Preview 26 修复行走时鼠标点击和提起：由独立输入层接收点击、捕获和拖动，按下立即结束行走与探索，普通松手放在半空，Shift松手才下落。提供同事试用运行包，内含运行时和全部64套外观，不含开发资料、个人存档及大型Demo。
 
@@ -18,7 +20,7 @@ Preview 19 修正原装 Q版零食误用魔法棒画稿；左、右键找到躲�
 
 ## 开始使用
 
-下载 [最新绿色版](https://github.com/q438241zy/DesktopPet_AI/releases/latest)，完整解压后双击 `DesktopPet.exe`。保留旁边的 `Assets` 与 `Studio` 文件夹。绿色版包含 .NET 运行时，无须另装 SDK，不会设置开机启动。
+已发布版本见 [GitHub Releases](https://github.com/q438241zy/DesktopPet_AI/releases/latest)；其中的二进制版本可能落后于当前源码。完整解压同事试用包后双击 `DesktopPet.exe`，保留旁边的 `Assets` 与 `Studio` 文件夹。绿色版包含 .NET 运行时，无须另装 SDK，不会设置开机启动。
 
 - 点击睡着的宠物：叫醒。早餐从「照顾」菜单选择，当天只计算一次打卡。
 - 普通点击依次轮换摸头、揉脸、挠痒；也能在「照顾」里指定。拖动不消耗轮换次数。普通拖动保持稳定提起；连续明显来回摇晃会出现头顶星星，放下后轻微晕眩并在约 3 秒内恢复。支持左右或上下摇晃，Q版、3D真人及全部服装一致；小幅抖动、慢速调整不会误触发。减少动态时保留静态星星。

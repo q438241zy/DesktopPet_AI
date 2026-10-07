@@ -24,7 +24,9 @@ public sealed partial class PetWindow : Window
     private readonly Image sprite = new() { Stretch = Stretch.Uniform, Cursor = Cursors.Hand, Focusable = true };
     // Animation may hide or replace the rendered image. Keep pointer ownership on
     // a stable, visible-to-hit-testing layer above every character renderer.
-    private readonly Border petInput = new() { Background = Brushes.Transparent, Cursor = Cursors.Hand, Focusable = true };
+    // Alpha zero is hit-testable in WPF but passes through a layered HWND in
+    // Windows. One alpha unit supplies a native hit surface only over the pet.
+    private readonly Border petInput = new() { Background = new SolidColorBrush(Color.FromArgb(1,255,255,255)), Cursor = Cursors.Hand, Focusable = true };
     internal FrameworkElement InputSurface => petInput;
     private readonly InteractionFeedback effects = new() { Width = 560, Height = 680, IsHitTestVisible = false };
     private readonly Canvas menu = new();
@@ -89,6 +91,7 @@ public sealed partial class PetWindow : Window
     private double lastMotionTrace;
     private Action? onMotionEnd;
     private bool dragging, pressed, resting, roaming, exploring, closing, holdingBall, flyingBall, ballHit, caughtBall, clickThrough;
+    private bool nativePointerOwned;
     private Point downScreen, downWindow, ballPrevious;
     private double ballX, ballY, ballVx, ballVy, ballSampleTime, ballStarted, roamDeadline;
     private int direction = -1;
@@ -190,6 +193,8 @@ public sealed partial class PetWindow : Window
     private void InitializeDesktop()
     {
         desktop = new DesktopHost(this, OpenSettings, ToggleVisible, () => Application.Current.Shutdown());
+        desktop.PointerInput += NativePointer;
+        desktop.PointerCancelled += () => { if(nativePointerOwned)CancelInput(true); };
         desktop.Pressed += id => { if (id == 1) ToggleVisible(); if (id == 2) { SetClickThrough(false); if (!IsVisible) Show(); if (resting) RestorePet(); } if (id == 3) OpenSettings(); };
         var area = desktop.WorkArea(this);
         Left = State.Left ?? area.Right - Width + 36;
@@ -389,6 +394,39 @@ public sealed partial class PetWindow : Window
         if (BeginPointerGesture(ScreenPoint(e))) petInput.CaptureMouse();
         e.Handled = true;
     }
+    private bool NativePointer(int message, Point devicePoint, long buttons)
+    {
+        if(clickThrough || !IsHitTestVisible || !IsVisible)return false;
+        if(message is 0x0201 or 0x0203)
+        {
+            // Menus, chat, toys and the user's high-five hand retain their own
+            // routed input. This path owns only the character's input surface.
+            if(!ReferenceEquals(InputHitTest(PointFromScreen(devicePoint)),petInput))return false;
+            nativePointerOwned=true;
+            var logical=PresentationSource.FromVisual(this)?.CompositionTarget?.TransformFromDevice.Transform(devicePoint)??devicePoint;
+            if(BeginPointerGesture(logical))desktop?.CapturePointer();
+            TraceMotion("native-pointer-down");
+            return true;
+        }
+        if(!nativePointerOwned)return false;
+        if(message==0x0200)
+        {
+            if((buttons&1)==0){CancelInput(true);return true;}
+            var logical=PresentationSource.FromVisual(this)?.CompositionTarget?.TransformFromDevice.Transform(devicePoint)??devicePoint;
+            MovePointerGesture(logical);
+            return true;
+        }
+        if(message==0x0202)
+        {
+            nativePointerOwned=false;
+            var local=petInput.PointFromScreen(devicePoint);
+            EndPointerGesture((buttons&4)!=0,local.Y/Math.Max(1,petInput.ActualHeight));
+            desktop?.ReleasePointer();
+            TraceMotion("native-pointer-up");
+            return true;
+        }
+        return false;
+    }
     internal bool BeginPointerGesture(Point screen)
     {
         if (resting) { RestorePet(); return false; }
@@ -496,10 +534,12 @@ public sealed partial class PetWindow : Window
     internal void CancelInput(bool settleOnFloor = false)
     {
         bool hadDrag = dragging || liftActive;
+        nativePointerOwned=false;
         ResetShake();
         pressed = dragging = holdingBall = false;
         if (petInput.IsMouseCaptured) petInput.ReleaseMouseCapture();
         if (ball.IsMouseCaptured) ball.ReleaseMouseCapture();
+        desktop?.ReleasePointer();
         if (hadDrag)
         {
             dropping = liftedFromTaskbar = false; afterDrop = null;
@@ -895,11 +935,15 @@ public sealed partial class PetWindow : Window
     }
     private void UpdatePetInput()
     {
-        petInput.Width=sprite.Width;petInput.Height=sprite.Height;
+        double visibleHeight=sprite.Source is System.Windows.Media.Imaging.BitmapSource image?Art.VisibleHeight(image):1;
+        petInput.Width=sprite.Width;petInput.Height=sprite.Height*visibleHeight;
         petInput.Visibility=sprite.Visibility;
         petInput.RenderTransformOrigin=sprite.RenderTransformOrigin;
         petInput.RenderTransform=sprite.RenderTransform;
-        Canvas.SetLeft(petInput,Canvas.GetLeft(sprite));Canvas.SetTop(petInput,Canvas.GetTop(sprite));
+        Canvas.SetLeft(petInput,Canvas.GetLeft(sprite));
+        // Exclude image padding below the feet: the taskbar must still receive
+        // clicks in its own area, even when the character stands on its edge.
+        Canvas.SetTop(petInput,Canvas.GetTop(sprite)+sprite.Height*(groundLine-visibleHeight));
     }
     private void DrawEffects(double now)
     {

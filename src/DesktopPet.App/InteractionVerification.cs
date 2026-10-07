@@ -141,13 +141,16 @@ internal static class InteractionVerification
             pet.Left = (side < 0 ? pet.WorkArea.Left + pet.State.Size*.46 : pet.WorkArea.Right - pet.State.Size*.46) - 280;
             pet.Top = pet.WorkArea.Bottom - 468;
             pet.BeginHide(side); await Until(() => pet.HideStage == HidePhase.Peek, "found setup"); await Task.Delay(550);
-            var image = Find<Image>(pet).Single();
-            image.RaiseEvent(new MouseButtonEventArgs(Mouse.PrimaryDevice, 0, button) { RoutedEvent = button == MouseButton.Left ? UIElement.MouseLeftButtonDownEvent : UIElement.MouseRightButtonUpEvent });
+            // The stable input surface owns pointer events even when the
+            // character switches from an Image to an authored renderer.
+            var input = pet.InputSurface;
+            Require(input.IsVisible, $"{id}/{outfit}/{side}: peeking exposes the character input surface");
+            input.RaiseEvent(new MouseButtonEventArgs(Mouse.PrimaryDevice, 0, button) { RoutedEvent = button == MouseButton.Left ? UIElement.MouseLeftButtonDownEvent : UIElement.MouseRightButtonUpEvent });
             if(button==MouseButton.Right)
             {
                 Require(pet.HideStage==HidePhase.Peek && pet.IsMenuOpen,$"{id}/{outfit}/{side}: right click keeps hiding and opens the menu");
                 await Task.Delay(50);
-                image.RaiseEvent(new MouseButtonEventArgs(Mouse.PrimaryDevice,0,MouseButton.Left){RoutedEvent=UIElement.MouseLeftButtonDownEvent});
+                input.RaiseEvent(new MouseButtonEventArgs(Mouse.PrimaryDevice,0,MouseButton.Left){RoutedEvent=UIElement.MouseLeftButtonDownEvent});
             }
             Require(pet.HideStage==HidePhase.Return && pet.CurrentAction=="walk", "finding walks back instead of teleporting");
             await Until(()=>pet.HideStage is null,"found pet did not finish walking back");

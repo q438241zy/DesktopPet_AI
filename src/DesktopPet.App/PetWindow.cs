@@ -188,6 +188,7 @@ public sealed partial class PetWindow : Window
         Closed += (_, _) => { closing = true; UpdateWalkClock(); timer.Stop(); CancelInput(); CancelChoreography(); chatWindow?.Dispose(); settings?.Close(); desktop?.Dispose(); Save(); };
         day = DateOnly.FromDateTime(DateTime.Now);
         ApplySettings(false);
+        InitializeCompanion();
         TraceMotion("created");
     }
     private void InitializeDesktop()
@@ -231,6 +232,7 @@ public sealed partial class PetWindow : Window
     {
         var selected = Catalog.FindExact(id);
         if (selected is null) { Say("这个形象暂不可用，请重新选择。", 3000); return; }
+        CompanionActivity(); DismissWorkReminder(); chatWindow?.CancelResponse(); recentTouches.Clear();
         bool keepChat = ActiveChat is not null;
         CancelInput(); ClearTransient(keepChat); resting = false;
         sprite.Visibility = Visibility.Visible;
@@ -263,8 +265,9 @@ public sealed partial class PetWindow : Window
     public bool IsClickThrough => clickThrough;
     public void OpenSettings()
     {
+        CompanionActivity();
         if (settings is not null) { settings.Activate(); return; }
-        settings = new SettingsWindow(this); settings.Closed += (_, _) => settings = null; settings.Show();
+        settings = new SettingsWindow(this); settings.Closed += (_, _) => { settings = null; CompanionActivity(); }; settings.Show();
     }
     internal void OpenChat()
     {
@@ -284,7 +287,7 @@ public sealed partial class PetWindow : Window
     private void AccountChanged()
     {
         if (!Dispatcher.CheckAccess()) { Dispatcher.Invoke(AccountChanged); return; }
-        StopInteraction(); chatWindow?.ResetSession(); settings?.RefreshMembership();
+        StopInteraction(); DismissWorkReminder(); chatWindow?.ResetSession(); settings?.RefreshMembership();
     }
     private InlineChat CreateChat() { var chat = new InlineChat(this); surface.Children.Add(chat); Panel.SetZIndex(chat, 30); return chat; }
     internal void LayoutChat(bool makeRoom = false)
@@ -347,16 +350,20 @@ public sealed partial class PetWindow : Window
         if (message is not null) Say(message, duration + 400);
         Render();
     }
-    public void CheckIn()
+    public void CheckIn(bool meal = true)
     {
+        CompanionActivity();
         day = DateOnly.FromDateTime(DateTime.Now);
-        int before = State.BondLevel; bool added = State.CheckIn(day);
-        ClearTransient(); activeFood = Collectibles.Get("rice");
-        Play("meal", added ? "开饭啦。" : "再吃一点。", PortraitMotion.Duration("meal"));
-        prop = "food"; propStart = Now;
-        if (added && (State.BondLevel > before || new[] { 50, 150, 250, 300, 500, 1000 }.Contains(State.CheckIns.Count)))
-        { prop = "confetti"; Say($"我们成为「{State.BondName}」啦！", 4000); }
-        Save(); settings?.RefreshStatus();
+        string before = State.Companion(Character.FamilyId).Name; bool added = State.CheckIn(day);
+        if (added) AwardCompanion(3, "一起打卡", "checkin-" + day.ToString("yyyy-MM-dd"), 86400);
+        ClearTransient();
+        if (meal) { activeFood = Collectibles.Get("rice"); Play("meal", added ? "开饭啦。" : "再吃一点。", PortraitMotion.Duration("meal")); prop = "food"; propStart = Now; }
+        else Play("happy", added ? "今天也一起。" : "今天已经打过卡啦。", 2400);
+        if (added && State.Companion(Character.FamilyId).Name != before)
+        { prop = "confetti"; Say("我们又更默契了一点。", 3000); }
+        else if (added && new[] { 50, 150, 250, 300, 500, 1000 }.Contains(State.CheckIns.Count))
+        { prop = "confetti"; Say($"一起打卡 {State.CheckIns.Count} 天啦。", 3000); }
+        Save(); settings?.RefreshLife();
     }
     internal void Touch(double fraction)
     {
@@ -368,6 +375,7 @@ public sealed partial class PetWindow : Window
     }
     private void RunTouch(string motion)
     {
+        if (!TouchCompanion()) return;
         ClearTransient();
         Play(motion, motion switch { "headpat" => "再摸摸～", "poke" => "软软的。", _ => "哈哈，好痒！" }, PortraitMotion.Duration(motion));
     }
@@ -375,6 +383,7 @@ public sealed partial class PetWindow : Window
     {
         if (hideJourney is not {} journey) return false;
         if(foundStarted is not null) return true;
+        CompanionActivity(); AwardCompanion(1, "找到伙伴", "find", 60);
         menu.Children.Clear();foundStarted=Now;foundCenter=Left+walkOffset.X+CenterX;
         foundDuration=Math.Max(260,Math.Abs(foundCenter-journey.RestingCenter)/DesktopWalk.Speed(State.Size,Character.MotionFor(State.Outfit,"walk")!)*1000);
         SetAction("walk");Say("被你找到啦！",foundDuration+2000);Render();
@@ -382,6 +391,7 @@ public sealed partial class PetWindow : Window
     }
     internal void HandleRightClick()
     {
+        CompanionActivity();
         if (menu.Children.Count > 0) menu.Children.Clear(); else ShowMenu();
     }
     private Point ScreenPoint(MouseEventArgs e)
@@ -444,6 +454,7 @@ public sealed partial class PetWindow : Window
     }
     internal bool BeginPointerGesture(Point screen)
     {
+        CompanionActivity();
         if (resting) { RestorePet(); return false; }
         if (FindHiddenPet()) return false;
         if (dropping) { CancelChoreography(); Render(); Save(); }
@@ -635,10 +646,12 @@ public sealed partial class PetWindow : Window
     public void RunInteraction(string key)
     {
         if (!RequireMembership(key)) return;
+        CompanionActivity();
         CancelInput(); ClearTransient();
         switch (key)
         {
-            case "highfive":case "rps":case "gift":case "read":case "photo":StartFive(key);break;
+            case "highfive":case "rps":case "gift":case "read":StartFive(key);break;
+            case "photo": OpenCompanionPhoto(); break;
             case "checkin": CheckIn(); break;
             case "snack": Snack(); break;
             case "headpat": case "poke": case "tickle": RunTouch(key); break;
@@ -667,7 +680,7 @@ public sealed partial class PetWindow : Window
             default: Play(key, duration: PortraitMotion.Duration(key)); break;
         }
     }
-    public void StopInteraction() { CancelInput(); ClearTransient(); SetAction("idle"); lastInteraction = Now; Render(); }
+    public void StopInteraction() { CompanionActivity(); CancelInput(); ClearTransient(); SetAction("idle"); lastInteraction = Now; Render(); }
     private void Snack() { ClearTransient(); activeFood = Character.MotionFor(State.Outfit, "eat")?.BakedProps == true ? Collectibles.Get("bread") : snacks.Draw(); Play("eat", Character.MotionFor(State.Outfit,"eat")?.BakedProps == true ? "啊呜，好吃。" : activeFood.Name + "，啊呜。", PortraitMotion.Duration("eat")); prop = "food"; propStart = Now; }
     private void BuildBlocks() { ClearTransient(); Play("build", duration: PortraitMotion.Duration("build")); prop = "blocks"; propStart = Now; onMotionEnd = () => prop = null; }
     private void Celebrate(string label) { ClearTransient(); Play("chat", label + "。这封信送给你 ♡", 5200); prop = "letter"; propStart = Now; }
@@ -682,6 +695,7 @@ public sealed partial class PetWindow : Window
         double elapsed = now - careStarted;
         if (elapsed >= routine.Duration)
         {
+            AwardCompanion(1, "温柔照顾", "care", 30);
             careRoutine = null; careStep = -1; resting = routine.FallsAsleep;
             SetAction(resting ? "sleep" : "idle"); lastInteraction = now;
             if (resting) bubble.Visibility = Visibility.Collapsed;
@@ -774,10 +788,11 @@ public sealed partial class PetWindow : Window
     private void PlaceBall() { Canvas.SetLeft(ball, ballX); Canvas.SetTop(ball, ballY); }
     private void Tick()
     {
-        double now = Now, walkDt = Math.Clamp((now - lastTick) / 1000, 0, .25), dt = Math.Min(walkDt, .05); lastTick = now;
+        double now = Now, elapsedSeconds = Math.Max(0, (now - lastTick) / 1000), walkDt = Math.Min(elapsedSeconds, .25), dt = Math.Min(walkDt, .05); lastTick = now;
         var today = DateOnly.FromDateTime(DateTime.Now);
         if (day != today) { day = today; State.LastSeen = day.ToString("yyyy-MM-dd"); Save(); }
         UpdateCare(now);
+        TickCompanion(elapsedSeconds);
         TickClub(walkDt);
         TickFive(walkDt*1000);
         LayoutMenu();

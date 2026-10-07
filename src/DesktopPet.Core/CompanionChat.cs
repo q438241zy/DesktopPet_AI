@@ -1,37 +1,40 @@
-using System.Net.Http.Headers;
-using System.Text;
-using System.Text.Json;
 
 namespace DesktopPet.Core;
 
 public sealed record ChatMessage(string Role, string Content);
-public sealed record ChatOptions(string Endpoint = "", string Model = "");
+public sealed record ChatOptions(string Endpoint = "", string Model = "", string Provider = "", string Workspace = "")
+{
+    [System.Text.Json.Serialization.JsonIgnore] public string EffectiveProvider => string.IsNullOrWhiteSpace(Provider) ? CompanionProviders.InferProvider(Endpoint) : Provider;
+    [System.Text.Json.Serialization.JsonIgnore] public bool IsLocal => EffectiveProvider == "local" || string.IsNullOrWhiteSpace(Endpoint);
+}
 
 /// <summary>Explicit local conversation, or an optional user-configured chat-completions service.</summary>
 public static class CompanionChat
 {
     public static async Task<string> ReplyAfterThinkingAsync(HttpClient client, ChatOptions options, string apiKey,
-        IReadOnlyList<ChatMessage> messages, string name, CancellationToken cancellationToken)
+        IReadOnlyList<ChatMessage> messages, string name, CancellationToken cancellationToken, int affinity = 0)
     {
         // Start transport and the visible thinking period together. A fast API
         // response waits one second; a slow service does not incur another second.
         var minimum = Task.Delay(1000, cancellationToken);
-        var reply = ReplyAsync(client, options, apiKey, messages, name, cancellationToken);
+        var reply = ReplyAsync(client, options, apiKey, messages, name, cancellationToken, affinity);
         await Task.WhenAll(minimum, reply);
         cancellationToken.ThrowIfCancellationRequested();
         return await reply;
     }
-    public static Uri Endpoint(string value)
-    {
-        if (!Uri.TryCreate(value.Trim(), UriKind.Absolute, out var uri) || uri.UserInfo.Length > 0
-            || uri.Query.Length > 0 || uri.Fragment.Length > 0
-            || uri.Scheme != "https" && !(uri.Scheme == "http" && uri.IsLoopback))
-            throw new ArgumentException("API 地址需要使用 HTTPS；本机服务可以使用 HTTP。");
-        return uri.AbsolutePath.TrimEnd('/').EndsWith("/chat/completions", StringComparison.Ordinal)
-            ? uri : new Uri(uri.AbsoluteUri.TrimEnd('/') + "/chat/completions");
-    }
+    public static Uri Endpoint(string value) => CompanionProviders.Endpoint(value);
 
     public static string LocalReply(IReadOnlyList<ChatMessage> messages, string name)
+    {
+        return WantsStory(messages) ? LegacyStoryReply(messages, CompanionPersonas.Text(name, "name")) : CompanionPersonas.Reply(name, messages);
+    }
+    private static bool WantsStory(IReadOnlyList<ChatMessage> messages)
+    {
+        var recent = messages.Where(m => m.Role == "user").TakeLast(4).Select(m => m.Content).ToArray();
+        string latest = (recent.LastOrDefault() ?? "").Trim().TrimEnd('。', '！', '!', '？', '?', '~', '～');
+        return latest.Contains("故事") || recent.SkipLast(1).Any(s => s.Contains("故事")) && latest is "继续" or "繼續" or "继续吧" or "接着" or "接著" or "接着说" or "后来" or "后来呢" or "後來" or "後來呢" or "好" or "好的" or "好呀" or "嗯" or "嗯嗯" or "想听" or "想聽" or "听" or "聽";
+    }
+    private static string LegacyStoryReply(IReadOnlyList<ChatMessage> messages, string name)
     {
         var user = messages.Where(m => m.Role == "user").Select(m => m.Content).ToArray();
         string latest = user.LastOrDefault() ?? "", earlier = string.Join(' ', user.TakeLast(4).SkipLast(1));
@@ -65,35 +68,14 @@ public static class CompanionChat
         };
     }
 
-    public static async Task<string> ReplyAsync(HttpClient client, ChatOptions options, string apiKey,
-        IReadOnlyList<ChatMessage> messages, string name, CancellationToken cancellationToken)
+    public static Task<string> ReplyAsync(HttpClient client, ChatOptions options, string apiKey,
+        IReadOnlyList<ChatMessage> messages, string name, CancellationToken cancellationToken, int affinity = 0)
     {
-        if (string.IsNullOrWhiteSpace(options.Endpoint)) return LocalReply(messages, name);
-        if (string.IsNullOrWhiteSpace(options.Model)) throw new ArgumentException("请填写模型名称。");
-        using var deadline = CancellationTokenSource.CreateLinkedTokenSource(cancellationToken);
-        deadline.CancelAfter(TimeSpan.FromSeconds(45));
-        var requestToken = deadline.Token;
-        var context = new[] { new ChatMessage("system", $"你是桌面伙伴{name}。用自然、简短的中文接续聊天。不冒充对应厂商官方模型，不声称执行了未执行的桌面操作。") }
-            .Concat(messages.Where(m => m.Role is "user" or "assistant").TakeLast(24));
-        using var request = new HttpRequestMessage(HttpMethod.Post, Endpoint(options.Endpoint));
-        if (!string.IsNullOrWhiteSpace(apiKey)) request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", apiKey.Trim());
-        request.Content = new StringContent(JsonSerializer.Serialize(new { model = options.Model.Trim(), messages = context.Select(m => new { role = m.Role, content = m.Content }), stream = false }), Encoding.UTF8, "application/json");
-        using var response = await client.SendAsync(request, HttpCompletionOption.ResponseHeadersRead, requestToken);
-        if (!response.IsSuccessStatusCode) throw new HttpRequestException($"模型服务返回 {(int)response.StatusCode}。请检查地址、模型与金钥。");
-        await using var body = await response.Content.ReadAsStreamAsync(requestToken);
-        using var buffer = new MemoryStream(); byte[] chunk = new byte[8192];
-        int length;
-        while ((length = await body.ReadAsync(chunk, requestToken)) > 0)
+        cancellationToken.ThrowIfCancellationRequested();
+        if (options.IsLocal)
         {
-            if (buffer.Length + length > 1024 * 1024) throw new InvalidDataException("模型回复过长，请重试。");
-            buffer.Write(chunk, 0, length);
+            return Task.FromResult(WantsStory(messages) ? LegacyStoryReply(messages, CompanionPersonas.Text(name, "name")) : CompanionPersonas.Reply(name, messages, affinity));
         }
-        using var json = JsonDocument.Parse(buffer.ToArray());
-        if (json.RootElement.ValueKind != JsonValueKind.Object || !json.RootElement.TryGetProperty("choices", out var choices)
-            || choices.ValueKind != JsonValueKind.Array || choices.GetArrayLength() == 0 || choices[0].ValueKind != JsonValueKind.Object
-            || !choices[0].TryGetProperty("message", out var message) || message.ValueKind != JsonValueKind.Object || !message.TryGetProperty("content", out var content)
-            || content.ValueKind != JsonValueKind.String || string.IsNullOrWhiteSpace(content.GetString()))
-            throw new InvalidDataException("模型没有返回文字回复。");
-        return content.GetString()!;
+        return CompanionProviders.SendAsync(client, options, apiKey, messages, CompanionPersonas.Prompt(name, affinity), cancellationToken);
     }
 }

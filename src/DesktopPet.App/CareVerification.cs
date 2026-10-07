@@ -29,7 +29,8 @@ internal static class CareVerification
                 pet.EndPointerGesture(false, i%2 == 0 ? .1 : .7);
                 actions.Add(pet.CurrentAction);
                 Require(pet.State.CheckIns.Count == 0, label+": care click does not register a breakfast");
-                pet.AdvancePreview(time += 50);
+                // Gentle clicks are spaced outside the six-in-ten-seconds rough-touch rule.
+                pet.AdvancePreview(time += 2100);
             }
             Require(actions.Take(3).Distinct().Count()==3 && actions.Take(3).SequenceEqual(actions.Skip(3)), label+": six clicks rotate through three care gestures");
             foreach (var routine in CareRoutine.All)

@@ -33,12 +33,15 @@ dialog{color:var(--ink);background:#fffcfd;border:1px solid var(--line);border-r
 
 /* The date cell itself is the check-in action. */
 .checkin-panel{display:block;max-width:920px;padding:28px 32px}
-.calendar-heading{display:flex;align-items:center;justify-content:space-between;gap:18px}
+.calendar-heading{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:18px}
 .calendar-heading h2{margin:7px 0 0;font-size:24px}
+.calendar-heading h2.week-title{font-size:20px;line-height:1.5}
 .makeup-balance{display:inline-flex;align-items:center;gap:5px;white-space:nowrap;font-size:12px;color:#977788;border:1px solid var(--line);border-radius:20px;padding:9px 13px;background:#fff}
 .makeup-balance svg{width:16px;height:16px;margin-right:2px}
 .makeup-balance strong{font-weight:600}
-.calendar-toolbar{display:flex;justify-content:space-between;align-items:center;margin:24px 0 13px}
+.calendar-toolbar{display:flex;justify-content:space-between;align-items:center;gap:10px;margin:24px 0 13px}
+.calendar-view-tools{display:flex;align-items:center;gap:14px}
+.calendar-mode button{font-size:12px;padding:7px 12px}
 .calendar-key{display:flex;gap:8px;align-items:center;font-size:11px;color:#967e8b}
 .calendar-key i{width:8px;height:8px;border-radius:50%;background:#bb6284}
 .calendar-navigation{display:flex;align-items:center;gap:9px}
@@ -57,6 +60,7 @@ dialog{color:var(--ink);background:#fffcfd;border:1px solid var(--line);border-r
 .calendar-day.today,.calendar-day.today:hover{color:white;background:#b76080;border-color:#b76080;box-shadow:0 4px 10px #b7608020}
 .calendar-day.future{color:#bfb2b9;border-color:transparent;background:#fcf9fb}
 .calendar-day.future small{visibility:hidden}
+.week-view .calendar-day{min-height:92px}
 .checkin-panel .checkin-stats{margin:22px 0 0;padding-top:20px;border-top:1px solid var(--line);gap:32px;display:flex}
 #makeup-dialog{max-width:360px}
 #makeup-dialog .dialog-heading{margin-bottom:18px}
@@ -81,6 +85,8 @@ dialog{color:var(--ink);background:#fffcfd;border:1px solid var(--line);border-r
   .checkin-panel{padding:20px 14px}.calendar-heading{gap:10px}.calendar-heading h2{font-size:21px}
   .makeup-balance{padding:7px 9px;font-size:10px;gap:3px}.makeup-balance svg{width:13px;height:13px}
   .calendar-toolbar{margin-top:20px}.calendar-weekdays,.checkin-calendar{gap:5px}
+  .calendar-view-tools .calendar-key{display:none}.calendar-mode button{padding:7px 10px;font-size:11px}.calendar-heading h2.week-title{font-size:18px}
+  .week-view .calendar-day{min-height:65px}
   .calendar-day{min-height:51px;border-radius:11px;gap:1px}.calendar-day>span{font-size:13px}.calendar-day small{font-size:8px}
   .character-about{padding:22px 19px}.character-about h3{font-size:19px}.profile-likes{grid-template-columns:1fr;gap:9px}
 }

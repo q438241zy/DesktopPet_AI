@@ -18,7 +18,6 @@
     <ProjectReference Include="../DesktopPet.Core/DesktopPet.Core.csproj" />
     <PackageReference Include="SkiaSharp" Version="3.119.4" />
     <Content Include="Assets/**" Exclude="Assets/Characters/*-3d/**" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" ExcludeFromSingleFile="true" />
-    <Content Include="../../skills/**" Link="Studio/%(RecursiveDir)%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" ExcludeFromSingleFile="true" />
     <Content Include="../../docs/demo/template.html" Link="Demo/template.html" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" ExcludeFromSingleFile="true" />
   </ItemGroup>
 </Project>

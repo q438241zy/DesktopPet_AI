@@ -8,7 +8,7 @@
   const validDate=value=>typeof value==='string'&&/^\d{4}-\d{2}-\d{2}$/.test(value)&&day(new Date(value+'T12:00:00'))===value;
   const relation=()=>({score:0,seconds:0,interactions:0,history:[],awards:{},daily:{},companionshipAwarded:0});
   function create(saved){
-    const s={schema:1,selected:'whale',style:'chibi',outfits:{},relations:Object.fromEntries(families.map(id=>[id,relation()])),checkins:[],makeupCards:0,makeupCheckins:[],collection:{},stories:{},settings:{autoHide:true,reducedMotion:false},api:A.cleanConfig(),work:{enabled:false,minutes:10}};
+    const s={schema:1,selected:'whale',style:'chibi',outfits:{},relations:Object.fromEntries(families.map(id=>[id,relation()])),checkins:[],makeupCards:0,makeupCheckins:[],collection:{},stories:{},settings:{autoHide:true,reducedMotion:false,calendarView:'month'},api:A.cleanConfig(),work:{enabled:false,minutes:10}};
     if(!saved||saved.schema!==1)return s;
     if(families.includes(saved.selected))s.selected=saved.selected;if(saved.style==='realistic')s.style='realistic';
     for(const id of families){
@@ -20,7 +20,7 @@
     s.makeupCheckins=Array.isArray(saved.makeupCheckins)?[...new Set(saved.makeupCheckins.filter(date=>s.checkins.includes(date)))].sort():[];
     for(const [key,value] of Object.entries(saved.collection||{}))if(/^[a-z-]+$/.test(key)&&Number.isFinite(value))s.collection[key]=clamp(value,1,99999);
     for(const [key,value] of Object.entries(saved.stories||{}))if(['cloud-post','little-bell','star-seed'].includes(key)&&Number.isFinite(value))s.stories[key]=clamp(value,1,99999);
-    if(saved.settings){s.settings.autoHide=saved.settings.autoHide!==false;s.settings.reducedMotion=!!saved.settings.reducedMotion;}
+    if(saved.settings){s.settings.autoHide=saved.settings.autoHide!==false;s.settings.reducedMotion=!!saved.settings.reducedMotion;s.settings.calendarView=saved.settings.calendarView==='week'?'week':'month';}
     s.api=A.cleanConfig(saved.api);
     s.work.minutes=Math.round(clamp(Number(saved.work?.minutes)||10,1,180));s.work.enabled=saved.work?.enabled===true;
     return s;

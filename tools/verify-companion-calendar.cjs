@@ -2,7 +2,7 @@
 const {chromium}=require('C:/Users/99000256/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
 const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),{pathToFileURL}=require('node:url');
 const root=path.resolve(__dirname,'..'),M=require('../docs/demo/companion-v01/model.js'),P=require('../docs/demo/companion-v01/personas.js');
-const target=path.join(root,'Release/win-x64/Demo/CompanionV01/index.html'),out=path.join(root,'.artifacts/companion-v03-review');
+const target=path.join(root,'Release/win-x64/Demo/CompanionV01/index.html'),out=process.env.COMPANION_REVIEW_DIRECTORY||path.join(root,'.artifacts/companion-v03-review');
 fs.mkdirSync(out,{recursive:true});const checks=[],errors=[];
 async function group(name,fn){await fn();checks.push(name);console.log('PASS '+name);}
 (async()=>{
@@ -10,6 +10,7 @@ async function group(name,fn){await fn();checks.push(name);console.log('PASS '+n
     const old=M.create();delete old.makeupCards;delete old.makeupCheckins;old.checkins=['2024-02-29','2026-02-30','2026-02-29','2026-10-06','2026-10-06'];old.relations.gpt.score=27;old.collection.basketball=2;
     const migrated=M.create(old);assert.equal(migrated.makeupCards,0);assert.deepEqual(migrated.makeupCheckins,[]);assert.deepEqual(migrated.checkins,['2024-02-29','2026-10-06']);assert.equal(migrated.relations.gpt.score,27);assert.equal(migrated.collection.basketball,2);
     assert.equal(M.create({...old,makeupCards:-10}).makeupCards,0);assert.equal(M.create({...old,makeupCards:1.9}).makeupCards,1);
+    assert.equal(M.create(old).settings.calendarView,'month');assert.equal(M.create({...old,settings:{calendarView:'week'}}).settings.calendarView,'week');
   });
   await group('makeup spends exactly one card on a missed past day without inventing affection or time',()=>{
     const s=M.create(),t=new Date(2026,9,7,12).getTime();s.checkins=['2026-10-05'];
@@ -54,6 +55,16 @@ async function group(name,fn){await fn();checks.push(name);console.log('PASS '+n
       await page.locator('[data-date="2026-10-06"]').click();await page.locator('#makeup-confirm').click();const after=await snap();assert.equal(after.makeupCards,1);assert.deepEqual(after.makeupCheckins,['2026-10-06']);assert.equal(after.relations.whale.score,before.relations.whale.score);assert.equal(await page.locator('[data-date="2026-10-06"]').isDisabled(),true);assert.equal(await page.locator('#streak-count').innerText(),'2');
       await page.reload();await page.waitForFunction(()=>globalThis.companionDemo);assert.equal((await snap()).makeupCards,1);assert.deepEqual((await snap()).makeupCheckins,['2026-10-06']);
     });
+    await group('week and month share check-ins, navigate by their own period and remember view',async()=>{
+      await page.locator('[data-page="daily"]').click();await page.locator('[data-calendar-view="week"]').click();assert.equal(await page.locator('.calendar-day').count(),7);assert.equal(await page.locator('.calendar-day').first().getAttribute('data-date'),'2026-10-05');assert.equal(await page.locator('#check-in').isDisabled(),true);assert.equal(await page.locator('[data-date="2026-10-06"] small').innerText(),'补签');assert.equal(await page.locator('#calendar-prev').getAttribute('aria-label'),'上一周');await shot('calendar-week');
+      await page.locator('#calendar-prev').click();assert.equal(await page.locator('.calendar-day').first().getAttribute('data-date'),'2026-09-28');assert.equal(await page.locator('.calendar-day').last().getAttribute('data-date'),'2026-10-04');await page.locator('[data-calendar-view="month"]').click();assert.equal(await page.locator('.calendar-day').count(),30);assert.match(await page.locator('#calendar-month').innerText(),/9月/);await page.locator('[data-calendar-view="week"]').click();assert.equal(await page.locator('.calendar-day').first().getAttribute('data-date'),'2026-09-28');
+      await page.locator('#calendar-next').click();assert.equal(await page.locator('#check-in').isDisabled(),true);assert.equal(await page.locator('#calendar-next').isDisabled(),true);await page.reload();await page.waitForFunction(()=>globalThis.companionDemo);await page.locator('[data-page="daily"]').click();assert.equal(await page.locator('[data-calendar-view="week"]').getAttribute('aria-pressed'),'true');assert.equal(await page.locator('.calendar-day').count(),7);assert.equal(await page.locator('#makeup-count').innerText(),'1');
+      await page.locator('[data-date="2026-10-05"]').click();await page.locator('#makeup-confirm').click();assert.equal((await snap()).makeupCards,0);await page.locator('[data-calendar-view="month"]').click();assert.equal(await page.locator('[data-date="2026-10-05"] small').innerText(),'补签');assert.equal(await page.locator('#total-count').innerText(),'3');
+    });
+    await group('week handles year boundaries, Monday rollover and direct check-in',async()=>{
+      await page.clock.setFixedTime(new Date('2026-12-31T10:00:00+08:00'));await page.reload();await page.waitForFunction(()=>globalThis.companionDemo);await page.locator('[data-page="daily"]').click();await page.locator('[data-calendar-view="week"]').click();assert.equal(await page.locator('.calendar-day').first().getAttribute('data-date'),'2026-12-28');assert.equal(await page.locator('.calendar-day').last().getAttribute('data-date'),'2027-01-03');assert.match(await page.locator('#calendar-month').innerText(),/2027/);await page.locator('#check-in').click();await page.locator('[data-calendar-view="month"]').click();assert.equal(await page.locator('#check-in').isDisabled(),true);await page.locator('[data-calendar-view="week"]').click();
+      await page.evaluate(()=>companionDemo.advance(4*86400000));assert.equal(await page.locator('.calendar-day').first().getAttribute('data-date'),'2027-01-04');assert.equal(await page.locator('#check-in').isEnabled(),true);await page.locator('[data-calendar-view="month"]').click();await page.clock.setFixedTime(new Date('2026-10-07T10:00:00+08:00'));await page.reload();await page.waitForFunction(()=>globalThis.companionDemo);
+    });
     await group('today refreshes while open, including a month boundary',async()=>{
       await page.locator('[data-page="daily"]').click();await page.evaluate(()=>companionDemo.advance(28*86400000));assert.equal(await page.locator('#check-in').getAttribute('data-date'),'2026-11-04');assert.equal(await page.locator('#check-in').isEnabled(),true);assert.equal(await page.locator('.calendar-day').count(),30);assert.match(await page.locator('#calendar-month').innerText(),/11月/);
       await page.reload();await page.waitForFunction(()=>globalThis.companionDemo);
@@ -66,6 +77,7 @@ async function group(name,fn){await fn();checks.push(name);console.log('PASS '+n
     await group('narrow layouts preserve readable calendar, original card and descriptions',async()=>{
       await page.setViewportSize({width:390,height:844});await page.locator('[data-style="chibi"]').click();await page.locator('.partner-card[data-family="whale"]').click();await shot('mobile-home');assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);
       await page.locator('[data-page="daily"]').click();await shot('mobile-calendar');assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);
+      await page.locator('[data-calendar-view="week"]').click();await shot('mobile-calendar-week');assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);await page.setViewportSize({width:320,height:844});assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);await page.setViewportSize({width:390,height:844});
       await page.locator('[data-page="partners"]').click();await page.locator('.partner-card[data-family="gpt"]').click({button:'right'});await page.locator('[data-detail="voice"]').click();await shot('mobile-profile');assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);
       assert.deepEqual(errors,[]);assert.deepEqual((await snap()).errors,[]);
     });

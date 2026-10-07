@@ -13,7 +13,7 @@
 - 作者：QQ奶茶大神。
 - 原仓库：`https://github.com/q438241zy/Character_Generator`。
 - 导入版本：`b147334b04e2b280a5ab171a67918d3904dab378`。
-- 使用范围：`Skill/character-storyboard-generator` 的完整副本；应用读取其姿势和表情定义，导入器识别其规范文件名。
+- 历史使用范围：曾整合角色生成器及标准命名导入。v0.4 按项目所有者要求移除角色工房、生成器附件与专用导入器，保留这条历史来源记录。
 - 原仓库没有独立开源许可证；由同一仓库所有者明确授权整合。原角色范例目录未导入。
 
 ## DS Go / DeepSeek Harness

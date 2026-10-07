@@ -1,6 +1,6 @@
 # 八家模型接口核对
 
-2026-10-07；本轮仅用于 CompanionV01 HTML Demo，项目版本 v0.2。所有角色都能使用所选服务；角色性格由独立 persona 提示定义，不强制角色和服务一一绑定。
+2026-10-07；适用于 CompanionV01 HTML Demo 和原生 v0.4。所有角色都能使用所选服务；角色性格由独立 persona 提示定义，不强制角色和服务一一绑定。
 
 | 服务 | 默认基础地址 | 请求及文字回包 | 官方依据 |
 | --- | --- | --- | --- |
@@ -17,8 +17,8 @@
 
 Claude 可填写多工作区密钥需要的 Workspace ID；网页直连声明与 [Anthropic 官方 TypeScript SDK](https://github.com/anthropics/anthropic-sdk-typescript/blob/main/src/client.ts) 一致。此声明不能解决其他服务的 CORS 或网络限制。
 
-API Key 不进入本机存储、URL、请求正文或报告。切换服务及编辑地址时清空输入；退出账号或刷新页面后清除会话密钥。基础地址或完整端点仅补齐一次，拒绝错用 Responses/Messages/generateContent 路径；Gemini 完整端点的模型须与模型输入一致。历史只保留 user/assistant 文本并合并连续同角色消息。回包不展示 Gemini thought 或 Claude thinking 块。
+API Key 不进入本机存储、URL、请求正文或报告。切换服务及编辑地址时清空输入；退出账号或刷新页面或重启原生程序后清除会话密钥。基础地址或完整端点仅补齐一次，拒绝错用 Responses/Messages/generateContent 路径；Gemini 完整端点的模型须与模型输入一致。历史只保留 user/assistant 文本并合并连续同角色消息。回包不展示 Gemini thought 或 Claude thinking 块。
 
 工作模式由每个角色六条预设提醒起步，不要求用户撰写；配置 API 且本次会话已填写密钥时尝试生成一句提醒。这个请求只发送角色性格、专注间隔及提醒主题，不附带聊天历史。模型失败继续显示明确标注的预设提醒，避免丢失定时提醒；关闭开关、关闭提醒、换角色、暂停陪伴或切换接口会取消未返回请求。
 
-验证使用 Node 的协议断言和 Chromium 的实际表单/聊天/测试连接，HTTP 请求被测试路由截获，核对八家端点、字段、认证头和回包解析。**没有八家真实密钥，未验证真实账号权限、额度、跨域、网络及服务响应；不声称八家线上全部连通。** 用户可通过“测试连接”用自己的配置执行真实请求。日常原生程序仍为 Preview28，尚未接入本轮八家 Demo 适配。
+验证使用 Node 的协议断言和 Chromium 的实际表单/聊天/测试连接，HTTP 请求被测试路由截获，核对八家端点、字段、认证头和回包解析。**没有八家真实密钥，未验证真实账号权限、额度、跨域、网络及服务响应；不声称八家线上全部连通。** 用户可通过“测试连接”用自己的配置执行真实请求。原生适配在 CompanionProviders.cs；核心检查用内存 HttpMessageHandler 验证八家请求和响应，不发送真实网络请求。

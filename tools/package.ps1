@@ -16,7 +16,7 @@ $archivePath = Join-Path $projectRoot "Release/$folderName$suffix.zip"
 $entries = [Collections.Generic.List[object]]::new()
 if ($RuntimeOnly) {
     # Explicit runtime inputs keep local accounts, logs, previews and developer files out of distribution packages.
-    foreach ($name in @('DesktopPet.exe','Assets','Studio','LICENSE','THIRD_PARTY_NOTICES.md','docs/DeepSeek-LICENSE.txt','docs/licenses')) {
+    foreach ($name in @('DesktopPet.exe','Assets','LICENSE','THIRD_PARTY_NOTICES.md','docs/DeepSeek-LICENSE.txt','docs/licenses')) {
         $source = Join-Path $releaseRoot $name
         if (-not (Test-Path -LiteralPath $source)) { throw "Missing package input: $source" }
         $files = if (Test-Path -LiteralPath $source -PathType Container) { Get-ChildItem -LiteralPath $source -Recurse -File } else { Get-Item -LiteralPath $source }

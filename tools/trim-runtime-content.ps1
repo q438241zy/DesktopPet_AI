@@ -14,6 +14,8 @@ function Confirm-ManagedPath([string]$candidate) {
     }
 }
 $retired = @('deepseek','gpt','claude','gemini','grok','qwen','zhipu','kimi')
+$studio = [IO.Path]::GetFullPath((Join-Path $runtime 'Studio'))
+if (Test-Path -LiteralPath $studio) { Confirm-ManagedPath $studio; Remove-Item -LiteralPath $studio -Recurse -Force }
 foreach ($family in $retired) {
     $folder = [IO.Path]::GetFullPath((Join-Path $runtime "Assets/Characters/$family-3d"))
     if (Test-Path -LiteralPath $folder) {

@@ -14,7 +14,7 @@ internal static class ChatVerification
                 int calls = 0;
                 using var client = new HttpClient(new Handler((_, _) => { calls++; return Task.FromResult(Reply("{\"choices\":[{\"message\":{\"content\":\"ok\"}}]}")); }));
                 var elapsed = System.Diagnostics.Stopwatch.StartNew();
-                var answer = CompanionChat.ReplyAfterThinkingAsync(client, api ? new("https://example.invalid/v1", "mock") : new(), "", [new("user", "你好")], "DeepSeek", default);
+                var answer = CompanionChat.ReplyAfterThinkingAsync(client, api ? new("https://example.invalid/v1", "mock") : new(), "test-only-key", [new("user", "你好")], "DeepSeek", default);
                 Require(!answer.IsCompleted);
                 answer.GetAwaiter().GetResult();
                 Require(elapsed.ElapsedMilliseconds >= 990 && calls == (api ? 1 : 0));
@@ -24,7 +24,7 @@ internal static class ChatVerification
         {
             using var client = new HttpClient(new Handler(async (_, token) => { await Task.Delay(1250, token); return Reply("{\"choices\":[{\"message\":{\"content\":\"ok\"}}]}"); }));
             var elapsed = System.Diagnostics.Stopwatch.StartNew();
-            CompanionChat.ReplyAfterThinkingAsync(client, new("https://example.invalid/v1", "mock"), "", [], "DeepSeek", default).GetAwaiter().GetResult();
+            CompanionChat.ReplyAfterThinkingAsync(client, new("https://example.invalid/v1", "mock"), "test-only-key", [], "DeepSeek", default).GetAwaiter().GetResult();
             Require(elapsed.ElapsedMilliseconds is >= 1200 and < 2200);
             using var cancel = new CancellationTokenSource(40); elapsed.Restart();
             bool stopped = false;
@@ -41,7 +41,7 @@ internal static class ChatVerification
                 history.Add(new("user", text));
                 history.Add(new("assistant", CompanionChat.ReplyAsync(client, new(), "", history, "DeepSeek", default).GetAwaiter().GetResult()));
             }
-            Require(history[^1].Content.Contains("原来是工作") && history.Where(m => m.Role == "assistant").Select(m => m.Content).Distinct().Count() == 3);
+            Require(history[^1].Content == CompanionPersonas.Get("whale").GetProperty("work")[0].GetString() && history.Where(m => m.Role == "assistant").Select(m => m.Content).Distinct().Count() == 3);
             history.Add(new("user", "想听故事")); history.Add(new("assistant", CompanionChat.LocalReply(history, "DeepSeek")));
             history.Add(new("user", "继续")); string second = CompanionChat.LocalReply(history, "DeepSeek"); history.Add(new("assistant", second));
             history.Add(new("user", "后来呢")); string third = CompanionChat.LocalReply(history, "DeepSeek");
@@ -57,7 +57,7 @@ internal static class ChatVerification
                 using var payload = JsonDocument.Parse(await request.Content!.ReadAsStringAsync(token));
                 Require(payload.RootElement.GetProperty("model").GetString() == "mock-model");
                 var turns = payload.RootElement.GetProperty("messages");
-                Require(turns.GetArrayLength() == 4 && turns[0].GetProperty("role").GetString() == "system"
+                Require(turns.GetArrayLength() == 4 && turns[0].GetProperty("role").GetString() == "developer"
                     && turns[2].GetProperty("content").GetString() == "你好呀" && turns[3].GetProperty("content").GetString() == "接着聊");
                 return Reply("{\"choices\":[{\"message\":{\"content\":\"模型的实际回复\"}}]}");
             }));
@@ -69,13 +69,13 @@ internal static class ChatVerification
         {
             using var client = new HttpClient(new Handler(async (request, token) =>
             {
-                Require(request.RequestUri!.AbsolutePath == "/v1/chat/completions" && request.Headers.Authorization is null);
+                Require(request.RequestUri!.AbsolutePath == "/v1/chat/completions" && request.Headers.Authorization?.Parameter == "test-only-key");
                 using var payload = JsonDocument.Parse(await request.Content!.ReadAsStringAsync(token));
                 var turns = payload.RootElement.GetProperty("messages"); Require(turns.GetArrayLength() == 25 && turns[1].GetProperty("content").GetString() == "16");
                 return Reply("{\"choices\":[{\"message\":{\"content\":\"ok\"}}]}");
             }));
             var history = Enumerable.Range(0, 40).Select(i => new ChatMessage(i % 2 == 0 ? "user" : "assistant", i.ToString())).ToArray();
-            CompanionChat.ReplyAsync(client, new("https://example.invalid/v1/chat/completions", "mock"), "", history, "pet", default).GetAwaiter().GetResult();
+            CompanionChat.ReplyAsync(client, new("https://example.invalid/v1/chat/completions", "mock"), "test-only-key", history, "pet", default).GetAwaiter().GetResult();
         });
         test("bad endpoint and model settings fail before transport", () =>
         {
@@ -91,17 +91,17 @@ internal static class ChatVerification
             foreach (string content in new[] { "{}", "[]", "{\"choices\":null}", "{\"choices\":[{\"message\":null}]}", "{\"choices\":[{\"message\":{\"content\":\"\"}}]}" })
             {
                 using var client = new HttpClient(new Handler((_, _) => Task.FromResult(Reply(content))));
-                bool rejected = false; try { CompanionChat.ReplyAsync(client, new("https://example.invalid/v1", "mock"), "", [], "pet", default).GetAwaiter().GetResult(); } catch (InvalidDataException) { rejected = true; } Require(rejected);
+                bool rejected = false; try { CompanionChat.ReplyAsync(client, new("https://example.invalid/v1", "mock"), "test-only-key", [], "pet", default).GetAwaiter().GetResult(); } catch (InvalidDataException) { rejected = true; } Require(rejected);
             }
             using var failed = new HttpClient(new Handler((_, _) => Task.FromResult(new HttpResponseMessage(HttpStatusCode.Unauthorized) { Content = new StringContent("private server details") })));
-            bool safeError = false; try { CompanionChat.ReplyAsync(failed, new("https://example.invalid/v1", "mock"), "", [], "pet", default).GetAwaiter().GetResult(); }
+            bool safeError = false; try { CompanionChat.ReplyAsync(failed, new("https://example.invalid/v1", "mock"), "test-only-key", [], "pet", default).GetAwaiter().GetResult(); }
             catch (HttpRequestException ex) { safeError = ex.Message.Contains("401") && !ex.Message.Contains("private"); } Require(safeError);
         });
         test("stopping a remote reply cancels its transport", () =>
         {
             using var cancellation = new CancellationTokenSource();
             using var client = new HttpClient(new Handler(async (_, token) => { cancellation.Cancel(); await Task.Delay(5000, token); return Reply("{}"); }));
-            bool stopped = false; try { CompanionChat.ReplyAsync(client, new("https://example.invalid/v1", "mock"), "", [], "pet", cancellation.Token).GetAwaiter().GetResult(); } catch (OperationCanceledException) { stopped = true; } Require(stopped);
+            bool stopped = false; try { CompanionChat.ReplyAsync(client, new("https://example.invalid/v1", "mock"), "test-only-key", [], "pet", cancellation.Token).GetAwaiter().GetResult(); } catch (OperationCanceledException) { stopped = true; } Require(stopped);
         });
     }
     private static HttpResponseMessage Reply(string content) => new(HttpStatusCode.OK) { Content = new StringContent(content) };

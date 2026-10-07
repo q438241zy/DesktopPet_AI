@@ -14,6 +14,7 @@ internal sealed class InlineChat : Border, IDisposable
 {
     private readonly PetWindow pet;
     private readonly List<ChatMessage> history = [];
+    private readonly Dictionary<string, List<ChatMessage>> conversations = [];
     private readonly TextBox input = new() { MinHeight = 36, MaxHeight = 70, AcceptsReturn = true, TextWrapping = TextWrapping.Wrap, MaxLength = 4000, VerticalScrollBarVisibility = ScrollBarVisibility.Auto };
     private readonly TextBlock reply = new() { TextWrapping = TextWrapping.Wrap, FontSize = 13, LineHeight = 20, Foreground = CloudTheme.Ink };
     private readonly Button send = new() { Content = "发送", Padding = new Thickness(10, 5, 10, 5), MinWidth = 48 };
@@ -27,6 +28,8 @@ internal sealed class InlineChat : Border, IDisposable
     internal IReadOnlyList<ChatMessage> History => history;
     internal bool IsThinking => pending is { IsCancellationRequested: false };
     internal string ReplyText => reply.Text;
+    internal bool HasDraft => !string.IsNullOrWhiteSpace(input.Text);
+    internal bool CanGenerate => !Options.IsLocal && (!string.IsNullOrWhiteSpace(apiKey) || Uri.TryCreate(Options.Endpoint, UriKind.Absolute, out var uri) && uri.IsLoopback);
     private string OptionsPath => Path.Combine(App.DataRoot, "chat-settings.json");
 
     public InlineChat(PetWindow pet)
@@ -52,7 +55,8 @@ internal sealed class InlineChat : Border, IDisposable
             if (e.Key == Key.Enter && !Keyboard.Modifiers.HasFlag(ModifierKeys.Shift)) { e.Handled = true; await SendText(input.Text); }
         };
         try { if (File.Exists(OptionsPath)) Options = JsonSerializer.Deserialize<ChatOptions>(File.ReadAllText(OptionsPath)) ?? new(); }
-        catch (Exception ex) when (ex is IOException or JsonException) { reply.Text = "聊天设置读取失败，请到桌面偏好重新填写。"; }
+        catch (Exception ex) when (ex is IOException or JsonException) { reply.Text = "聊天设置读取失败，请到设定重新填写。"; }
+        input.TextChanged += (_, _) => pet.CompanionActivity();
         SetCompanion();
     }
     internal void Open()
@@ -63,41 +67,69 @@ internal sealed class InlineChat : Border, IDisposable
     }
     internal void Close()
     {
-        pending?.Cancel(); Visibility = Visibility.Collapsed;
+        CancelResponse(); Visibility = Visibility.Collapsed;
         pet.EndConversation();
+    }
+    internal void CancelResponse()
+    {
+        sessionGeneration++; pending?.Cancel(); pending = null; send.Visibility = Visibility.Visible; stop.Visibility = Visibility.Collapsed;
     }
     internal void ResetSession()
     {
-        sessionGeneration++; Close(); history.Clear(); input.Clear(); reply.Text = "今天想聊些什么？"; apiKey = "";
+        Close(); history.Clear(); conversations.Clear(); input.Clear(); reply.Text = CompanionPersonas.Text(pet.Character.FamilyId, "hello"); apiKey = "";
     }
     internal void SetCompanion()
     {
         if (family == pet.Character.FamilyId) return;
-        pending?.Cancel(); family = pet.Character.FamilyId; history.Clear(); input.Clear();
-        reply.Text = "今天想聊些什么？";
+        CancelResponse(); if (family.Length > 0) conversations[family] = history.ToList(); family = pet.Character.FamilyId; history.Clear();
+        if (conversations.TryGetValue(family, out var saved)) history.AddRange(saved);
+        input.Clear(); reply.Text = history.LastOrDefault(m => m.Role == "assistant")?.Content ?? CompanionPersonas.Text(family, "hello");
     }
     internal string? SaveOptions(ChatOptions options, string key)
     {
         try
         {
-            options = new(options.Endpoint.Trim(), options.Model.Trim());
-            if (options.Endpoint.Length > 0) { CompanionChat.Endpoint(options.Endpoint); if (options.Model.Length == 0) throw new ArgumentException("请填写模型名称。"); }
+            options = new(options.Endpoint.Trim(), options.Model.Trim(), options.EffectiveProvider, options.Workspace.Trim());
+            if (!options.IsLocal) { CompanionProviders.Endpoint(options.Endpoint, options.EffectiveProvider, options.Model); if (options.Model.Length == 0) throw new ArgumentException("请填写模型名称。"); }
             Directory.CreateDirectory(App.DataRoot); File.WriteAllText(OptionsPath, JsonSerializer.Serialize(options));
-            Options = options; apiKey = key; return null;
+            CancelResponse(); pet.ConversationListen(); pet.DismissWorkReminder(); Options = options; apiKey = options.IsLocal ? "" : key; return null;
         }
         catch (Exception ex) when (ex is IOException or UnauthorizedAccessException or ArgumentException) { return ex.Message; }
     }
     internal FrameworkElement SettingsPanel()
     {
-        var panel = new StackPanel();
-        var endpoint = new TextBox { Text = Options.Endpoint }; var model = new TextBox { Text = Options.Model }; var key = new PasswordBox { Password = apiKey };
-        void Field(string label, Control box) { panel.Children.Add(new TextBlock { Text = label, Foreground = CloudTheme.Muted, Margin = new Thickness(0, 9, 0, 4), FontSize = 12 }); AutomationProperties.SetName(box, label); panel.Children.Add(box); }
-        Field("API 地址（留空使用本机对话）", endpoint); Field("模型", model); Field("API 金钥（仅本次使用）", key);
+        var panel = new StackPanel(); var provider = new ComboBox { MinHeight = 36 }; provider.Items.Add(new ComboBoxItem { Content = "本机对话", Tag = "local" });
+        foreach (var spec in CompanionProviders.All) provider.Items.Add(new ComboBoxItem { Content = spec.Name, Tag = spec.Id });
+        provider.SelectedItem = provider.Items.Cast<ComboBoxItem>().FirstOrDefault(i => (string)i.Tag == Options.EffectiveProvider) ?? provider.Items[0];
+        AutomationProperties.SetName(provider, "模型服务"); panel.Children.Add(TextLabel("模型服务")); panel.Children.Add(provider);
+        var fields = new StackPanel(); panel.Children.Add(fields);
+        var endpoint = new TextBox { Text = Options.Endpoint }; var model = new TextBox { Text = Options.Model }; var key = new PasswordBox { Password = apiKey }; var workspace = new TextBox { Text = Options.Workspace };
+        StackPanel Field(string label, Control box) { var row = new StackPanel(); row.Children.Add(TextLabel(label)); AutomationProperties.SetName(box, label); row.Children.Add(box); fields.Children.Add(row); return row; }
+        Field("API 地址", endpoint); Field("模型名称", model); Field("API Key（仅本次会话）", key); var workspaceRow = Field("Workspace ID（可选）", workspace);
         var status = new TextBlock { Foreground = CloudTheme.Muted, Margin = new Thickness(0, 8, 0, 0), TextWrapping = TextWrapping.Wrap };
-        var save = new Button { Content = "保存聊天设置", HorizontalAlignment = HorizontalAlignment.Left, Margin = new Thickness(0, 12, 0, 0) };
-        save.Click += (_, _) => status.Text = SaveOptions(new(endpoint.Text, model.Text), key.Password) ?? "已保存";
-        panel.Children.Add(save); panel.Children.Add(status); return panel;
+        var buttons = new WrapPanel(); var save = new Button { Content = "保存设定", Margin = new Thickness(0, 12, 10, 0) }; var test = new Button { Content = "测试连接", Margin = new Thickness(0, 12, 0, 0) };
+        AutomationProperties.SetName(save, "保存接口设定"); AutomationProperties.SetName(test, "测试模型连接"); buttons.Children.Add(save); buttons.Children.Add(test); panel.Children.Add(buttons); panel.Children.Add(status);
+        CancellationTokenSource? testing = null; int generation = 0;
+        string Selected() => (string)((ComboBoxItem)provider.SelectedItem).Tag;
+        ChatOptions Read() => Selected() == "local" ? new(Provider: "local") : new(endpoint.Text, model.Text, Selected(), workspace.Text);
+        void CancelTest() { generation++; testing?.Cancel(); test.IsEnabled = true; }
+        void Fields() { fields.Visibility = test.Visibility = Selected() == "local" ? Visibility.Collapsed : Visibility.Visible; workspaceRow.Visibility = Selected() == "claude" ? Visibility.Visible : Visibility.Collapsed; }
+        provider.SelectionChanged += (_, _) => { CancelTest(); endpoint.Text = Selected() == "local" ? "" : CompanionProviders.Find(Selected()).Base; model.Clear(); key.Clear(); workspace.Clear(); status.Text = "尚未保存"; Fields(); };
+        endpoint.TextChanged += (_, _) => { CancelTest(); key.Clear(); status.Text = "尚未保存"; }; model.TextChanged += (_, _) => CancelTest(); key.PasswordChanged += (_, _) => CancelTest(); workspace.TextChanged += (_, _) => CancelTest();
+        save.Click += (_, _) => { CancelTest(); status.Text = SaveOptions(Read(), key.Password) ?? "已保存"; };
+        test.Click += async (_, _) =>
+        {
+            CancelTest(); var cancellation = new CancellationTokenSource(); testing = cancellation; int turn = generation; test.IsEnabled = false; status.Text = "正在连接…";
+            try { await CompanionProviders.SendAsync(client, Read(), key.Password, [new("user", "请只回复：连接成功")], "这是连接测试，只回复连接成功。", cancellation.Token); if (generation == turn) status.Text = "连接成功"; }
+            catch (OperationCanceledException) { if (generation == turn) status.Text = "连接超时，请重试。"; }
+            catch (Exception ex) when (ex is HttpRequestException or JsonException or IOException or ArgumentException or FormatException) { if (generation == turn) status.Text = ex.Message; }
+            finally { if (ReferenceEquals(testing, cancellation)) { testing = null; test.IsEnabled = true; } cancellation.Dispose(); }
+        };
+        panel.Unloaded += (_, _) => CancelTest(); Fields(); return panel;
+        static TextBlock TextLabel(string text) => new() { Text = text, Foreground = CloudTheme.Muted, Margin = new Thickness(0, 9, 0, 4), FontSize = 12 };
     }
+    internal Task<string> GenerateReminder(string family, int index, CancellationToken token) => CompanionProviders.SendAsync(client, Options, apiKey,
+        [new("user", "工作提醒时间到了，请笑着用一句简短的话提醒我休息。主题：" + CompanionPersonas.Reminder(family, index))], CompanionPersonas.Prompt(family, pet.State.Companion(family).Score), token);
     internal async Task SendText(string text)
     {
         if (!pet.AccessTo("chat").Allowed || pending is not null || disposed || Visibility != Visibility.Visible || string.IsNullOrWhiteSpace(text)) return;
@@ -108,10 +140,10 @@ internal sealed class InlineChat : Border, IDisposable
         send.Visibility = Visibility.Collapsed; stop.Visibility = Visibility.Visible; pet.ConversationThinking();
         try
         {
-            string answer = await CompanionChat.ReplyAfterThinkingAsync(client, turnOptions, turnKey, history.ToArray(), pet.Character.Name, cancellation.Token);
+            string answer = await CompanionChat.ReplyAfterThinkingAsync(client, turnOptions, turnKey, history.ToArray(), pet.Character.FamilyId, cancellation.Token, pet.State.Companion(pet.Character.FamilyId).Score);
             if (disposed || turnFamily != family || turnSession != sessionGeneration || cancellation.IsCancellationRequested || Visibility != Visibility.Visible) return;
             history.Add(new("assistant", answer)); if (history.Count > 48) history.RemoveRange(0, history.Count - 48);
-            reply.Text = answer; pet.ConversationReply(answer);
+            reply.Text = answer; pet.AwardCompanion(1, "聊了几句", "chat", 60); pet.ConversationReply(answer);
         }
         catch (OperationCanceledException) { if (!disposed && turnFamily == family && turnSession == sessionGeneration) { reply.Text = cancellation.IsCancellationRequested ? "已停止" : "回复超时，请重试。"; pet.ConversationListen(); } }
         catch (ObjectDisposedException) when (disposed) { }
@@ -121,7 +153,7 @@ internal sealed class InlineChat : Border, IDisposable
         {
             if (ReferenceEquals(pending, cancellation)) pending = null;
             cancellation.Dispose();
-            if (!disposed) { send.Visibility = Visibility.Visible; stop.Visibility = Visibility.Collapsed; pet.LayoutChat(); }
+            if (!disposed && pending is null) { send.Visibility = Visibility.Visible; stop.Visibility = Visibility.Collapsed; pet.LayoutChat(); }
         }
     }
     public void Dispose() { disposed = true; pending?.Cancel(); client.Dispose(); }

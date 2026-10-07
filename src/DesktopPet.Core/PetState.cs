@@ -3,7 +3,7 @@ using System.Text.Json;
 namespace DesktopPet.Core;
 
 /// <summary>Local progress only: missed days never remove earned affection or collectibles.</summary>
-public sealed class PetState
+public sealed partial class PetState
 {
     public int Version { get; set; } = 1;
     public string Character { get; set; } = "whale";
@@ -76,6 +76,7 @@ public sealed class PetState
             || GiftDrawRemaining.Any(id=>!Collectibles.All.Any(x=>x.Id==id)))
             GiftDrawRemaining=Collectibles.All.Select(x=>x.Id).ToList();
         if(!Collectibles.All.Any(x=>x.Id==LastGift)) LastGift=null;
+        ValidateCompanions();
     }
 }
 

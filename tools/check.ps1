@@ -11,6 +11,10 @@ Get-Content -LiteralPath "$verifyRoot/asset-check.txt"
 if ($process.ExitCode -ne 0) { throw 'Asset validation failed' }
 $uiRoot = Join-Path $projectRoot ('artifacts/ui-smoke-' + [Guid]::NewGuid().ToString('N'))
 $uiRoot | Set-Content -LiteralPath (Join-Path $projectRoot 'artifacts/current-ui-check.txt')
+$companionRoot = Join-Path $projectRoot ('artifacts/companion-smoke-' + [Guid]::NewGuid().ToString('N'))
+$process = Start-Process -FilePath $exe -ArgumentList @('--ui-test','--verify-companion','--data-dir',('"' + $companionRoot + '"')) -PassThru -Wait -WindowStyle Hidden
+if ($process.ExitCode -ne 0) { Get-Content -LiteralPath "$companionRoot/companion-error.txt"; throw 'Companion integration checks failed' }
+Get-Content -LiteralPath "$companionRoot/companion-check.txt" -Tail 1
 # Live presentation checks need a visible window; Windows throttles hidden WPF rendering.
 $process = Start-Process -FilePath $exe -ArgumentList @('--ui-test','--verify-ui','--verify-scale','--verify-club','--verify-sports','--verify-floor-contact','--data-dir',('"' + $uiRoot + '"')) -PassThru -Wait
 if ($process.ExitCode -ne 0) { Get-Content -LiteralPath "$uiRoot/ui-check.txt"; throw 'WPF integration checks failed' }

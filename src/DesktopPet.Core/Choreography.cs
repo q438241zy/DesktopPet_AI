@@ -10,7 +10,8 @@ public sealed class EdgeHide
     public double Edge { get; }
     public double RestingCenter { get; }
     public double ApproachSeconds { get; }
-    public double Duration => ApproachSeconds + 4.6;
+    /// <summary>Time to settle at the edge. Finding the pet is an explicit user action.</summary>
+    public double Duration => ApproachSeconds + 1.95;
     private readonly double start, hidden, peeking;
 
     public EdgeHide(double center, double left, double right, double size, double speed, int? side = null)
@@ -30,9 +31,7 @@ public sealed class EdgeHide
         if (t < .8) return new(Lerp(RestingCenter, hidden, t / .8), Side, HidePhase.Hide, true);
         if (t < 1.45) return new(hidden, -Side, HidePhase.Hidden, false);
         if (t < 1.95) return new(Lerp(hidden, peeking, (t - 1.45) / .5), -Side, HidePhase.Peek, false);
-        if (t < 3.65) return new(peeking, -Side, HidePhase.Peek, false);
-        if (t < 4.6) return new(Lerp(peeking, RestingCenter, (t - 3.65) / .95), -Side, HidePhase.Return, true);
-        return new(RestingCenter, -Side, HidePhase.Complete, false);
+        return new(peeking, -Side, HidePhase.Peek, false);
     }
     private static double Lerp(double from, double to, double progress)
     { double eased = progress * progress * (3 - 2 * progress); return from + (to - from) * eased; }

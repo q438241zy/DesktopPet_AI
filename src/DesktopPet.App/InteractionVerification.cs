@@ -95,17 +95,17 @@ internal static class InteractionVerification
         window.Width = 920; window.Height = 650; window.UpdateLayout(); Capture((FrameworkElement)window.Content, "refined-home-compact");
         Require(Find<Button>(window).Where(b => AutomationProperties.GetName(b).StartsWith("分类 ")).All(b => b.ActualWidth > 65), "style selector stays usable at minimum window size");
         window.Width = 1120; window.Height = 850; window.UpdateLayout();
-        foreach (var (label, file) in new[] { ("陪伴日常", "refined-life"), ("桌面偏好", "refined-preferences"), ("角色工坊", "refined-studio") })
+        foreach (var (label, file) in new[] { ("陪伴日常", "refined-life"), ("会员中心", "refined-members"), ("设定", "refined-preferences") })
         {
             Find<Button>(window).Single(b => AutomationProperties.GetName(b) == label).RaiseEvent(new RoutedEventArgs(Button.ClickEvent)); window.UpdateLayout(); Capture((FrameworkElement)window.Content, file);
         }
-        var dropdown = Find<ComboBox>(window).First(); dropdown.IsDropDownOpen = true; window.UpdateLayout(); await Task.Delay(150);
+        var dropdown = Find<ComboBox>(window).First(); dropdown.BringIntoView(); window.UpdateLayout(); await Task.Delay(150); dropdown.IsDropDownOpen = true; window.UpdateLayout(); await Task.Delay(150);
         var popup = (System.Windows.Controls.Primitives.Popup)dropdown.Template.FindName("PART_Popup", dropdown);
-        Require(popup.IsOpen && popup.Child is FrameworkElement dropdownSurface && dropdownSurface.ActualWidth >= dropdown.ActualWidth - 1, "rounded studio dropdown opens at the field width");
-        Capture((FrameworkElement)popup.Child, "refined-dropdown"); dropdown.SelectedIndex = 1; dropdown.IsDropDownOpen = false; window.UpdateLayout(); Require(dropdown.SelectedIndex == 1, "studio dropdown selection survives the new template");
+        Require(popup.IsOpen && popup.Child is FrameworkElement dropdownSurface && dropdownSurface.ActualWidth >= dropdown.ActualWidth - 1, $"rounded model-service dropdown opens at the field width (open={popup.IsOpen}, field={dropdown.ActualWidth}, popup={(popup.Child as FrameworkElement)?.ActualWidth})");
+        Capture((FrameworkElement)popup.Child, "refined-dropdown"); dropdown.SelectedIndex = 1; dropdown.IsDropDownOpen = false; window.UpdateLayout(); Require(dropdown.SelectedIndex == 1, "model-service dropdown selection survives the template");
         Find<Button>(window).Single(b => AutomationProperties.GetName(b) == "陪伴日常").RaiseEvent(new RoutedEventArgs(Button.ClickEvent)); window.UpdateLayout();
         pet.RunInteraction("stars"); Require(pet.CurrentAction != "idle", "daily interaction starts the existing star-counting animation");
-        Find<Button>(window).Single(b => AutomationProperties.GetName(b) == "结束互动").RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
+        window.RaiseEvent(new KeyEventArgs(Keyboard.PrimaryDevice, PresentationSource.FromVisual(window)!, 0, Key.Escape) { RoutedEvent = Keyboard.KeyDownEvent });
         Require(pet.CurrentAction == "idle", "settings stop returns the active interaction to idle");
         window.Close();
         foreach (var (id, outfit) in new[] { ("whale", "original"), ("deepseek-adult", "swim"), ("deepseek-adult", "wedding") })
@@ -124,7 +124,9 @@ internal static class InteractionVerification
                 pet.Save(); var saved = new StateStore(output).Load(); Require(saved.Left + 280 >= area.Left && saved.Left + 280 <= area.Right, "saving while hidden restores inside desktop");
                 await Until(() => pet.HideStage == HidePhase.Peek, "pet never peeked back"); await Task.Delay(600);
                 Capture((FrameworkElement)pet.Content, $"hide-{id}-{side}");
-                await Until(() => pet.HideStage is null, "pet did not return");
+                Require(pet.HideStage == HidePhase.Peek, $"{id}: holds at edge until discovered {side}");
+                pet.InputSurface.RaiseEvent(new MouseButtonEventArgs(Mouse.PrimaryDevice, 0, MouseButton.Left) { RoutedEvent = UIElement.MouseLeftButtonDownEvent });
+                await Until(() => pet.HideStage is null, "found pet did not return");
                 Require(pet.Left + 280 >= area.Left && pet.Left + 280 <= area.Right && ((Canvas)pet.Content).Clip is null, $"{id}: returns safely on-screen {side}");
             }
         pet.BeginHide(-1); await Task.Delay(100); pet.StopInteraction();

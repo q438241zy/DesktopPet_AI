@@ -79,7 +79,7 @@ internal static class UiVerification
         Click("选择角色 GPT");
         Click("选择服装 婚纱");
         Click("选择角色 Claude"); Click("选择角色 GPT"); Require(pet.State.Outfit == "wedding", "outfit selection survives switching characters");
-        for (int i = 0; i < 3; i++) { Click("陪伴日常"); Click("角色工坊"); Click("桌面偏好"); Click("风格预览"); Click("我的伙伴"); }
+        for (int i = 0; i < 3; i++) { Click("陪伴日常"); Click("会员中心"); Click("设定"); Click("我的伙伴"); Click("伙伴档案"); Click("风格预览"); Click("我的伙伴"); }
         Require(true, "repeated navigation reuses no parented controls");
         Click("陪伴日常"); pet.CheckIn(); int total = pet.State.CheckIns.Count; pet.CheckIn(); Require(pet.State.CheckIns.Count == total, "UI check-in is idempotent");
         foreach (var action in new[] { "headpat", "poke", "tickle", "snack", "chat", "ball", "blocks", "walk", "peek", "letter" })
@@ -211,17 +211,11 @@ internal static class UiVerification
         { var png = new PngBitmapEncoder(); png.Frames.Add(BitmapFrame.Create(bitmap)); using var stream = File.Create(Path.Combine(source, name)); png.Save(stream); }
         Export("fixture__P01-standing-neutral__E01-joy__v01__v1.0.png");
         Export("fixture__P11-walking__E01-joy__v01__v1.0.png");
-        var imported = Storyboard.Import(pet.Catalog, source);
-        Require(imported.Atlas.Columns == 1 && imported.Motions["walk"].Columns == 1, "generator outputs import as static poses");
-        Require(File.Exists(Path.Combine(imported.Root, "pet.json")), "import persists a portable manifest");
         var portrait = pet.Catalog.ImportPortrait(Directory.GetFiles(source)[0], "测试立绘", "adult");
         Require(portrait.Atlas.Rows == 1 && portrait.Category == CharacterStyles.Realistic, "legacy portrait import uses the merged category and a single cell");
-        foreach (var still in new[] { imported, portrait })
-        {
-            pet.SelectCharacter(still.Id); double beforeStatic = pet.Left; pet.StartWalk(false, -1); await Task.Delay(250);
-            Require(!pet.CanWalk && pet.Left == beforeStatic, "static import never pretends to walk: " + still.Id);
-        }
-        pet.Catalog.Characters.Remove(imported); pet.Catalog.Characters.Remove(portrait);
+        pet.SelectCharacter(portrait.Id); double beforeStatic = pet.Left; pet.StartWalk(false, -1); await Task.Delay(250);
+        Require(!pet.CanWalk && pet.Left == beforeStatic, "legacy static import never pretends to walk");
+        pet.Catalog.Characters.Remove(portrait);
         pet.SelectCharacter("whale"); pet.State.Outfits["whale"] = "original"; pet.ApplySettings(); Click("我的伙伴"); Click("分类 Q版"); await Capture("pet-home");
         foreach (string family in Catalog.BuiltInFamilies)
             foreach (string outfit in Catalog.BuiltInOutfits)
@@ -248,20 +242,19 @@ internal static class UiVerification
             var selected = pet.Art.Frame(pet.Character, pet.Character.Resolve("wedding", "chat", 0).Sprite, pet.DrawnFrame);
             Require(pet.CurrentAction == "chat" && pet.Character.Category == style && pet.State.Outfit == "wedding" && ReferenceEquals(Find<Image>(pet).Single().Source, selected), "style change mid-walk cancels old frames and preserves wedding: " + style);
         }
-        Click("风格预览");
         foreach (string family in Catalog.BuiltInFamilies)
         {
-            Click("对照角色 " + pet.Catalog.Find(family).Name);
+            window.ShowProfile(family); Click("风格预览");
             foreach (var (outfit, label) in Catalog.BuiltInWardrobe)
             {
-                Click("对照服装 " + label);
+                Click(outfit == "sports" ? "运动服" : label);
                 foreach (string style in CharacterStyles.All)
                 {
                     string id = Catalog.VariantId(family, style);
                     var c = pet.Catalog.Find(id);
                     var expected = pet.Art.Frame(c, outfit == "original" ? c.Atlas : c.Outfits[outfit].Idle!, 0);
                     Require(Find<Image>(window).Any(image => ReferenceEquals(image.Source, expected)), $"gallery previews {id}/{outfit}");
-                    Click("试看 " + CloudTheme.CategoryName(style));
+                    Click("陪伴我 · " + CloudTheme.CategoryName(style));
                     Require(pet.State.Character == id && pet.State.Outfit == outfit, $"gallery applies {id}/{outfit}");
                 }
                 await Capture($"styles-{family}-{outfit}");
@@ -276,8 +269,8 @@ internal static class UiVerification
         Click("我的伙伴"); Click("分类 3D真人"); await Capture("roster-realistic");
         Require(Find<Button>(window).Count(button => AutomationProperties.GetName(button).StartsWith("分类 ")) == 2, "settings shows exactly two style choices");
         pet.SelectCharacter("whale"); pet.State.Outfits["whale"] = "original"; pet.ApplySettings();
-        Click("风格预览"); await Capture("deepseek-styles");
-        Click("陪伴日常"); await Capture("cloud-life"); Click("角色工坊"); await Capture("cloud-studio"); Click("桌面偏好"); await Capture("cloud-settings");
+        window.ShowProfile("whale"); Click("风格预览"); await Capture("deepseek-styles");
+        Click("陪伴日常"); await Capture("cloud-life"); Click("会员中心"); await Capture("cloud-members"); Click("设定"); await Capture("cloud-settings");
         pet.Save(); var restored = new StateStore(output).Load();
         Require(restored.Character == "whale" && restored.Outfit == "original" && restored.CheckIns.Count == total, "state reload preserves selection and progress");
         Require(restored.Outfits["gpt-adult"] == "wedding" && restored.Outfits["claude-adult"] == "swim" && !restored.Outfits.ContainsKey("gpt-3d"), "state reload preserves merged companions' outfit selections without retired IDs");

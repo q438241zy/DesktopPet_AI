@@ -10,8 +10,9 @@
   let page='partners',detailId=state.selected,detailTab='bond',collectionTab='balls',apiKey='',session=null,authMode='login',chatTicket=0,chatAbort=null,chatStarted=0,chatFinished=0,photoStamp='',photoBusy=false,photoTicket=0,story=null,storyLine=0,storyFinished=false,lastTick=performance.now(),lastSave=now(),touches=[],saveFailed=false;
   const chats=Object.fromEntries(M.families.map(id=>[id,[]]));
   let viewStamp='',lastPose=null,toastTimer,reminderTimer,reminderTicket=0,reminderAbort=null,reminderIndex=0,apiTestTicket=0,apiTestAbort=null;
-  const monthStart=time=>{const date=new Date(time);return new Date(date.getFullYear(),date.getMonth(),1,12);};
-  let calendarDate=monthStart(now()),dailyDate=M.day(now()),makeupDate='';
+  const dateAtNoon=time=>{const date=new Date(time);date.setHours(12,0,0,0);return date;};
+  const calendarStart=time=>{const date=dateAtNoon(time);if(state.settings.calendarView==='week')date.setDate(date.getDate()-(date.getDay()+6)%7);else date.setDate(1);return date;};
+  let calendarDate=dateAtNoon(now()),dailyDate=M.day(now()),makeupDate='';
   const outfit=(family=state.selected,style=state.style)=>state.outfits[family+'/'+style]||'original';
   const look=(family=state.selected,style=state.style,clothes=outfit(family,style))=>D.families[family].styles[style].looks[clothes];
   const icon=name=>`<svg viewBox="0 0 24 24" aria-hidden="true"><path d="${CompanionIcons[name]||CompanionIcons.cloud}"></path></svg>`;
@@ -160,23 +161,32 @@
     $('#profile-together').textContent=profile.together;
   }
   function renderCalendar(){
-    const t=now(),today=M.day(t),date=new Date(t),currentMonth=monthStart(t),oldMonth=monthStart(dailyDate+'T12:00:00');
-    if(dailyDate!==today&&calendarDate.getTime()===oldMonth.getTime())calendarDate=currentMonth;
+    const t=now(),today=M.day(t),date=new Date(t),week=state.settings.calendarView==='week',currentStart=calendarStart(t),oldStart=calendarStart(dailyDate+'T12:00:00');
+    if(dailyDate!==today&&calendarStart(calendarDate).getTime()===oldStart.getTime())calendarDate=dateAtNoon(t);
     dailyDate=today;
+    const start=calendarStart(calendarDate),end=new Date(start);end.setDate(start.getDate()+6);
     $('#today-date').textContent=date.toLocaleDateString('zh-CN',{month:'long',day:'numeric',weekday:'long'});
-    $('#calendar-month').textContent=calendarDate.toLocaleDateString('zh-CN',{year:'numeric',month:'long'});
+    $('#calendar-month').textContent=week?start.toLocaleDateString('zh-CN',{year:'numeric',month:'long',day:'numeric'})+' – '+end.toLocaleDateString('zh-CN',{...(start.getFullYear()!==end.getFullYear()?{year:'numeric'}:{}),month:'long',day:'numeric'}):start.toLocaleDateString('zh-CN',{year:'numeric',month:'long'});
+    $('#calendar-month').classList.toggle('week-title',week);
+    $$('[data-calendar-view]').forEach(el=>{const active=el.dataset.calendarView===state.settings.calendarView;el.classList.toggle('selected',active);el.setAttribute('aria-pressed',String(active));});
     $('#makeup-count').textContent=state.makeupCards;$('#streak-count').textContent=M.streak(state,t);$('#total-count').textContent=state.checkins.length;
-    $('#calendar-next').disabled=calendarDate.getTime()>=currentMonth.getTime();$('#calendar-today').disabled=calendarDate.getTime()===currentMonth.getTime();
-    const grid=$('#checkin-calendar');grid.replaceChildren();
-    const first=(calendarDate.getDay()+6)%7,days=new Date(calendarDate.getFullYear(),calendarDate.getMonth()+1,0).getDate();
-    for(let i=0;i<Math.ceil((first+days)/7)*7;i++){
+    $('#calendar-prev').setAttribute('aria-label',week?'上一周':'上一个月');$('#calendar-next').setAttribute('aria-label',week?'下一周':'下一个月');
+    $('#calendar-next').disabled=start>=currentStart;$('#calendar-today').disabled=start.getTime()===currentStart.getTime();
+    const grid=$('#checkin-calendar');grid.replaceChildren();grid.classList.toggle('week-view',week);
+    const first=week?0:(start.getDay()+6)%7,days=week?7:new Date(start.getFullYear(),start.getMonth()+1,0).getDate();
+    for(let i=0;i<(week?7:Math.ceil((first+days)/7)*7);i++){
       const n=i-first+1;if(n<1||n>days){const blank=document.createElement('span');blank.className='calendar-empty';blank.setAttribute('aria-hidden','true');grid.append(blank);continue;}
-      const d=new Date(calendarDate.getFullYear(),calendarDate.getMonth(),n,12),key=M.day(d),checked=state.checkins.includes(key),isToday=key===today,isMakeup=state.makeupCheckins.includes(key),future=key>today;
+      const d=new Date(start);d.setDate(start.getDate()+n-1);const key=M.day(d),checked=state.checkins.includes(key),isToday=key===today,isMakeup=state.makeupCheckins.includes(key),future=key>today;
       const cell=document.createElement('button');cell.type='button';cell.className='calendar-day'+(isToday?' today':'')+(checked?' done':'')+(future?' future':'');cell.dataset.date=key;
-      const number=document.createElement('span'),mark=document.createElement('small');number.textContent=n;mark.textContent=checked?(isMakeup?'补签':'已打卡'):isToday?'打卡':'';cell.append(number,mark);
+      const number=document.createElement('span'),mark=document.createElement('small');number.textContent=d.getDate();mark.textContent=checked?(isMakeup?'补签':'已打卡'):isToday?'打卡':'';cell.append(number,mark);
       cell.setAttribute('aria-label',d.toLocaleDateString('zh-CN',{month:'long',day:'numeric'})+(isToday?'，今天':'')+'，'+(checked?(isMakeup?'已补签':'已打卡'):future?'尚未到来':isToday?'点击打卡':'补签'));
       if(isToday){cell.id='check-in';cell.setAttribute('aria-current','date');}cell.disabled=checked||future;cell.onclick=()=>calendarCheckin(key);grid.append(cell);
     }
+  }
+  function moveCalendar(direction){
+    const start=calendarStart(calendarDate),currentStart=calendarStart(now());if(direction>0&&start>=currentStart)return;
+    if(state.settings.calendarView==='week')start.setDate(start.getDate()+direction*7);else start.setMonth(start.getMonth()+direction);
+    calendarDate=start.getTime()===currentStart.getTime()?dateAtNoon(now()):start;renderCalendar();
   }
   function calendarCheckin(date){
     if(date===M.day(now())){if(M.checkin(state,now())){save();renderCalendar();toast('今日已打卡');}return;}
@@ -318,7 +328,8 @@
   $('#pet-body').onclick=pat;$('#find-left').onclick=find;$('#find-right').onclick=find;$('#pet-stage').oncontextmenu=event=>{event.preventDefault();$('#pet-menu').hidden=!$('#pet-menu').hidden;};
   $('#inline-chat').onsubmit=event=>{event.preventDefault();reply();};
   $('#presence').onclick=()=>{M.pause(runtime,now());cancelChat();if(runtime.paused)dismissReminder();if(runtime.action==='thinking')runtime.action='idle';save();syncStage(true);syncWork();};
-  $('#calendar-prev').onclick=()=>{calendarDate.setMonth(calendarDate.getMonth()-1);renderCalendar();};$('#calendar-next').onclick=()=>{if(calendarDate<monthStart(now()))calendarDate.setMonth(calendarDate.getMonth()+1);renderCalendar();};$('#calendar-today').onclick=()=>{calendarDate=monthStart(now());renderCalendar();};
+  $$('[data-calendar-view]').forEach(el=>el.onclick=()=>{state.settings.calendarView=el.dataset.calendarView;renderCalendar();save();});
+  $('#calendar-prev').onclick=()=>moveCalendar(-1);$('#calendar-next').onclick=()=>moveCalendar(1);$('#calendar-today').onclick=()=>{calendarDate=dateAtNoon(now());renderCalendar();};
   $('#makeup-confirm').onclick=()=>{const success=M.makeup(state,makeupDate,now());$('#makeup-dialog').close();if(success){save();renderCalendar();toast('已补签');}else toast('这一天无法补签，请检查补签卡余量。');makeupDate='';};
   $$('[data-collection]').forEach(el=>el.onclick=()=>{collectionTab=el.dataset.collection;renderDaily();});$('#story-next').onclick=nextStory;
   $('#work-open').onclick=()=>{navigate('settings');$(runtime.workActive?'#work-minutes':'#work-enabled').focus();};$('#work-enabled').onchange=workToggle;$('#work-form').onsubmit=workStart;$('#work-try').onclick=()=>remind();$('#reminder-dismiss').onclick=dismissReminder;

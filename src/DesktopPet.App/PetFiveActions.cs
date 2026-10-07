@@ -45,6 +45,7 @@ public sealed partial class PetWindow
     internal void FiveCommand(string command)
     {
         if(five is null)return;
+        CompanionActivity();
         switch(command)
         {
             case "highfive":fiveFeedback.PrepareApproach();five.HighFive();break;
@@ -66,7 +67,7 @@ public sealed partial class PetWindow
         // Bounded substeps retain the full elapsed time on a late desktop frame.
         while(milliseconds>0){double step=Math.Min(100,milliseconds);five.Advance(step);milliseconds-=step;}
         if(five.Revision!=fiveSavedRevision)
-        {fiveSavedRevision=five.Revision;Save();settings?.RefreshLife();}
+        {fiveSavedRevision=five.Revision;if(five.Key is "read" or "gift")AwardCompanion(2,five.Key=="read"?"一起读完故事":"一起拆礼物",five.Key,60);Save();settings?.RefreshLife();}
     }
     private bool RenderFivePose()
     {
@@ -169,7 +170,7 @@ public sealed partial class PetWindow
     private void SaveFivePhoto()
     {
         if(five?.Phase!="capture")return;
-        var dialog=new Microsoft.Win32.SaveFileDialog{Filter="PNG 图片|*.png",FileName="一起-"+DateTime.Now.ToString("yyyyMMdd-HHmmss")+".png",InitialDirectory=AppContext.BaseDirectory};
+        var dialog=new Microsoft.Win32.SaveFileDialog{Filter="PNG 图片|*.png",FileName="一起-"+DateTime.Now.ToString("yyyyMMdd-HHmmss")+".png",InitialDirectory=Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory)};
         if(dialog.ShowDialog(this)!=true)return;
         try{var encoder=new PngBitmapEncoder();encoder.Frames.Add(BitmapFrame.Create(CreateFivePhoto()));using(var file=File.Create(dialog.FileName))encoder.Save(file);five.PhotoSaved();}
         catch(Exception ex)when(ex is IOException or UnauthorizedAccessException){MessageBox.Show(this,"图片未保存："+ex.Message);}

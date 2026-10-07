@@ -11,6 +11,7 @@ void Equal<T>(T expected, T actual) { if (!EqualityComparer<T>.Default.Equals(ex
 void Reject(Action run) { try { run(); } catch (InvalidDataException) { return; } throw new Exception("Invalid input was accepted"); }
 MembershipTests.Run(Test);
 FiveTests.Run(Test);
+CompanionTests.Run(Test);
 
 Test("care tolerates a delayed frame and sleep belongs only to lullaby", () =>
 {
@@ -222,7 +223,7 @@ Test("the displayed facing follows travel and each source clip orientation", () 
     Equal(1d, DesktopWalk.ScaleX(-1, "left")); Equal(-1d, DesktopWalk.ScaleX(1, "left"));
     Equal(44d, DesktopWalk.Speed(200, new Sprite("walk.png", 2, 1, [500, 500])));
 });
-Test("hide-and-seek reaches the nearest edge before disappearing and returns inward", () =>
+Test("hide-and-seek reaches the nearest edge and waits indefinitely for discovery", () =>
 {
     foreach (double origin in new[] { -1920d, 0, 2560 })
         foreach (int side in new[] { -1, 1 })
@@ -239,8 +240,8 @@ Test("hide-and-seek reaches the nearest edge before disappearing and returns inw
                 var peek = journey.At(journey.ApproachSeconds + 2.2);
                 Equal(HidePhase.Peek, peek.Phase); Equal(-side, peek.Direction); Equal(true, Math.Abs(peek.Center - journey.Edge) < size / 2);
                 var end = journey.At(journey.Duration + 1);
-                Equal(HidePhase.Complete, end.Phase); Equal(journey.RestingCenter, end.Center); Equal(-side, end.Direction);
-                Equal(true, end.Center >= origin && end.Center <= origin + 1920);
+                Equal(HidePhase.Peek, end.Phase); Equal(peek.Center, end.Center); Equal(-side, end.Direction);
+                Equal(end, journey.At(journey.Duration + 3600));
                 for (double time = 0; time < journey.Duration; time += .025)
                     Equal(true, Math.Abs(journey.At(time + .025).Center - journey.At(time).Center) < size * .06);
             }

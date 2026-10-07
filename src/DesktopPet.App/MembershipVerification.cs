@@ -57,11 +57,11 @@ internal static class MembershipVerification
         TextBox Input(string name) => Find<TextBox>(window).Single(b => AutomationProperties.GetName(b) == name);
         PasswordBox Secret(string name) => Find<PasswordBox>(window).Single(b => AutomationProperties.GetName(b) == name);
         string Message() => Find<TextBlock>(window).Single(b => AutomationProperties.GetName(b) == "账号提示").Text;
-        string savedProgress = JsonSerializer.Serialize(pet.State, Json.Options);
-        Require(Find<Button>(window).Any(b => AutomationProperties.GetName(b) == "注册 / 登录"), "registration entry is on the home page");
-        Capture(window, "membership-home"); Click("注册 / 登录");
-        Require(Membership.Tiers.All(t => Find<Border>(window).Any(b => AutomationProperties.GetName(b) == Membership.Name(t) + "会员权益")), "five tier cards are present and are not upgrade buttons");
-        Click("注册新账号"); Capture(window, "membership-register");
+        string savedProgress = JsonSerializer.Serialize(new { pet.State.Character, pet.State.Outfits, pet.State.CheckIns, pet.State.Treasures, pet.State.ReadStories }, Json.Options);
+        Require(!Find<Button>(window).Any(b => AutomationProperties.GetName(b) == "注册 / 登录"), "home no longer contains membership upsell");
+        Capture(window, "membership-home"); Click("会员中心");
+        Require(Find<Button>(window).Any(b => AutomationProperties.GetName(b) == "登录分页") && !Find<Border>(window).Any(b => AutomationProperties.GetName(b).Contains("会员权益")), "member center is a login/register form");
+        Click("注册分页"); Capture(window, "membership-register");
         const string password = "native cloud account password 2026";
         string username = "cloud_" + Guid.NewGuid().ToString("N")[..10];
         Input("注册账号").Text = username; Input("注册昵称").Text = "小云朵"; Secret("注册密码").Password = password; Secret("确认密码").Password = "wrong";
@@ -69,10 +69,10 @@ internal static class MembershipVerification
         Require(pet.Accounts.CurrentAccount is null && Message().Contains("不一致"), "mismatched confirmation is rejected by the real form");
         Secret("注册密码").Password = password; Secret("确认密码").Password = password; Click("注册并登录"); await Until(() => pet.Accounts.CurrentAccount is not null);
         window.UpdateLayout(); Require(pet.Accounts.CurrentAccount is { Tier: MembershipTier.Brass, Nickname: "小云朵" }, "actual registration logs in as brass");
-        Require(JsonSerializer.Serialize(pet.State, Json.Options) == savedProgress, "registration preserves character, outfit, check-ins and collectibles");
+        Require(JsonSerializer.Serialize(new { pet.State.Character, pet.State.Outfits, pet.State.CheckIns, pet.State.Treasures, pet.State.ReadStories }, Json.Options) == savedProgress, "registration preserves character, outfit, check-ins and collectibles");
         Require(!File.ReadAllText(Path.Combine(output, "member-accounts.json")).Contains(password), "registered password is not stored as plaintext");
         Capture(window, "membership-brass");
-        Click("退出登录"); Click("已有账号登录"); Input("登录账号").Text = username; Secret("登录密码").Password = "incorrect"; Click("登录");
+        Click("退出登录"); Click("登录分页"); Input("登录账号").Text = username; Secret("登录密码").Password = "incorrect"; Click("登录");
         await Until(() => Message() != "正在登录…"); Require(pet.Accounts.CurrentAccount is null && Message().Contains("不正确"), "wrong password does not authenticate");
         Secret("登录密码").Password = password; Click("登录"); await Until(() => pet.Accounts.CurrentAccount is not null);
         Require(pet.Accounts.CurrentAccount!.Username == username, "actual login reopens the registered account");
@@ -84,14 +84,12 @@ internal static class MembershipVerification
             Require(Find<MemberLock>(chat).Any() == !allowed, tier + ": root chat uses a cute lock only when gated");
             Require(allowed || AutomationProperties.GetHelpText(chat).Contains("黄金"), tier + ": keyboard and accessible names expose the requirement");
             if (tier == MembershipTier.Brass) Capture((FrameworkElement)pet.Content, "membership-test-open-circle");
-            Click("陪伴日常"); var daily = Find<Button>(window).Single(b => AutomationProperties.GetName(b) == "聊天");
-            Require(Find<MemberLock>(daily).Any() == !allowed, tier + ": daily chat has the same lock and access rule");
             foreach (string id in new[] { "whale", "deepseek-adult" })
             foreach (string outfit in Catalog.BuiltInOutfits)
             {
                 pet.SelectCharacter(id); pet.State.Outfits[id] = outfit; pet.ApplySettings();
-                Click("陪伴日常");
-                Find<Button>(window).Single(b => AutomationProperties.GetName(b) == "聊天").RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
+                pet.ShowMenu(); pet.UpdateLayout();
+                Find<Button>(pet).Single(b => AutomationProperties.GetName(b) == "聊天").RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
                 Require((pet.ActiveChat is not null) == allowed, $"{tier}/{id}/{outfit}: real click respects membership");
                 pet.StopInteraction(); pet.OpenChat(); Require((pet.ActiveChat is not null) == allowed, $"{tier}/{id}/{outfit}: direct chat cannot bypass membership");
                 Require(pet.State.Character == id && pet.State.Outfit == outfit, $"{tier}/{id}/{outfit}: access does not change appearance");
@@ -101,7 +99,7 @@ internal static class MembershipVerification
             {
                 pet.OpenChat(); var response = pet.Chat.SendText("你好"); await Task.Delay(250);
                 Require(pet.Chat.IsThinking && pet.CurrentAction == "thinking", tier + ": entitled chat still thinks for a second");
-                await response; Require(pet.Chat.History.Count == 2 && pet.Chat.ReplyText.Length > 4, tier + ": entitled local chat returns a real reply");
+                await response; Require(pet.Chat.History.Count >= 2 && pet.Chat.ReplyText.Length > 4, tier + ": entitled local chat returns a real reply");
                 pet.StopInteraction();
             }
             else

@@ -194,6 +194,12 @@ public sealed partial class PetWindow : Window
     {
         desktop = new DesktopHost(this, OpenSettings, ToggleVisible, () => Application.Current.Shutdown());
         desktop.PointerInput += NativePointer;
+        desktop.BodyHit += point => !clickThrough && IsHitTestVisible && IsVisible && ReferenceEquals(InputHitTest(PointFromScreen(point)),petInput);
+        desktop.RecoverWalkingPointer += () => roaming && !clickThrough && IsHitTestVisible && IsVisible;
+        desktop.OwnsPointer += () => nativePointerOwned;
+        desktop.RightClick += HandleRightClick;
+        if(App.MotionLog is not null)desktop.PointerRecoveryTrace += TraceMotion;
+        if(App.MotionLog is not null)desktop.PointerTrace += message => TraceMotion("window-message-"+message.ToString("x4"));
         desktop.PointerCancelled += () => { if(nativePointerOwned)CancelInput(true); };
         desktop.Pressed += id => { if (id == 1) ToggleVisible(); if (id == 2) { SetClickThrough(false); if (!IsVisible) Show(); if (resting) RestorePet(); } if (id == 3) OpenSettings(); };
         var area = desktop.WorkArea(this);
@@ -328,8 +334,6 @@ public sealed partial class PetWindow : Window
     }
     private void PlaceWalk(double center)
     {
-        // HWND coordinates are whole physical pixels. Integrate the logical
-        // center independently and render the remainder inside the window.
         double desiredLeft = center - CenterX, dpi = VisualTreeHelper.GetDpi(this).DpiScaleX;
         Left = Math.Round(desiredLeft * dpi) / dpi;
         walkOffset.X = desiredLeft - Left;
@@ -399,19 +403,30 @@ public sealed partial class PetWindow : Window
         if(clickThrough || !IsHitTestVisible || !IsVisible)return false;
         if(message is 0x0201 or 0x0203)
         {
+            if (nativePointerOwned) return true;
             // Menus, chat, toys and the user's high-five hand retain their own
             // routed input. This path owns only the character's input surface.
-            if(!ReferenceEquals(InputHitTest(PointFromScreen(devicePoint)),petInput))return false;
+            if(!ReferenceEquals(InputHitTest(PointFromScreen(devicePoint)),petInput)){TraceMotion("native-pointer-down-outside-input");return false;}
             nativePointerOwned=true;
             var logical=PresentationSource.FromVisual(this)?.CompositionTarget?.TransformFromDevice.Transform(devicePoint)??devicePoint;
-            if(BeginPointerGesture(logical))desktop?.CapturePointer();
+            // Register capture with WPF as well as Windows. Otherwise the WPF
+            // mouse provider can release an unfamiliar native capture when a
+            // delayed move arrives after the recovered press.
+            if(BeginPointerGesture(logical) && !petInput.CaptureMouse())desktop?.CapturePointer();
             TraceMotion("native-pointer-down");
             return true;
         }
         if(!nativePointerOwned)return false;
         if(message==0x0200)
         {
-            if((buttons&1)==0){CancelInput(true);return true;}
+            if((buttons&1)==0)
+            {
+                // A move queued before a recovered press can still carry the
+                // old button mask. It must not cancel the newly captured drag.
+                if(desktop?.LeftPointerDown!=true)
+                    NativePointer(0x0202,devicePoint,desktop?.ShiftDown==true?4:0);
+                return true;
+            }
             var logical=PresentationSource.FromVisual(this)?.CompositionTarget?.TransformFromDevice.Transform(devicePoint)??devicePoint;
             MovePointerGesture(logical);
             return true;
@@ -436,6 +451,7 @@ public sealed partial class PetWindow : Window
         lastInteraction = Now;
         menu.Children.Clear(); petInput.Focus(); pressed = true; dragging = false;
         downScreen = screen; downWindow = new Point(Left + walkOffset.X, Top);
+        if(App.MotionLog is not null)TraceMotion($"gesture-origin-{screen.X:0.##},{screen.Y:0.##}");
         TraceMotion("pointer-down");
         return true;
     }
@@ -448,6 +464,7 @@ public sealed partial class PetWindow : Window
     {
         if (!pressed) return false;
         var delta = screen - downScreen;
+        if(App.MotionLog is not null && !dragging && delta.Length>=8)TraceMotion($"gesture-drag-{screen.X:0.##},{screen.Y:0.##}-delta-{delta.X:0.##},{delta.Y:0.##}");
         if (!dragging && delta.Length < 8) return false;
         if (!dragging) { dragging = true; BeginLift(); }
         MoveLift(downWindow.X + delta.X, downWindow.Y + delta.Y);

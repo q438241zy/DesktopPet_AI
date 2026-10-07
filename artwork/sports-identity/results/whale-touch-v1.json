@@ -1,0 +1,67 @@
+{
+  "key": "whale-touch-v1",
+  "id": "whale",
+  "style": "chibi",
+  "kind": "touch",
+  "columns": 4,
+  "rows": 3,
+  "prompt": "Edit ONLY the clothes in this original DeepSeek chibi 12-pose touch sheet. Preserve the EXACT 1448x1086 canvas and original 4 columns x 3 rows. No repartition, no stretching into a different canvas aspect, no character rescaling. All poses are seated. Row1 is cheek touch, row2 is tickle, row3 is reaching hands to receive a ball (do not add a ball). This is a clothing edit of the SAME original character, not a redesign. Preserve original face, exact head size, hair/headband/ears/tail, expression, each hand/wrist/hip/knee/ankle position, pose, perspective, figure height and location on the source canvas. Outfit: white zip-front athletic shirt, NAVY short upper-arm sleeves with cyan piping and small blue whale chest emblem; navy above-knee athletic SHORTS with thin white side stripes; bare forearms without white cuffs, bare knees and lower legs, white ankle socks and small white/navy sneakers. Never shorten legs, enlarge head, thicken body, change a pose, or move a prop. Genuine transparent alpha outside all characters and props. No backdrop, captions, grid, extra effects or shadow.",
+  "source": "artwork/sports-identity/whale-touch-v1.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/whale/motions/touch-continuity.png"
+  ],
+  "generationReferences": [
+    "src/DesktopPet.App/Assets/Characters/whale/motions/touch-continuity.png"
+  ],
+  "tool": "built-in image_gen",
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-59ecb8c5-8f23-4b0c-9895-d8e679a2cb73.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-07",
+    "passed": true,
+    "summary": "十二帧保持原头部和坐姿比例；接球改为张开掌心，需重测接物点，不能直接沿用旧拳头位置。",
+    "evidence": [
+      ".artifacts/sports-identity-review/whale-touch-v1-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "0a6e85c96b75453aabc144984ba7c1659e08457936aa1755d13aa0526ec9f9f3",
+    "originalSha256": "97b3c3c45f1ad76ab4a00a3131fde9fa9a73c2e5c92bd10ff970a79b5a537429",
+    "comparisonFingerprint": "61eac36a6e468366353c3327316c017ddfc407bce0df7f8d9ba86b1d771dc06f"
+  },
+  "measurementPixels": {
+    "hands": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      [
+        113,
+        944,
+        46
+      ],
+      [
+        478,
+        943,
+        46
+      ],
+      [
+        830,
+        945,
+        46
+      ],
+      [
+        1207,
+        945,
+        46
+      ]
+    ]
+  },
+  "measurementNote": "Assistant marked on original candidate pixels; native contact verification pending, no image edit."
+}

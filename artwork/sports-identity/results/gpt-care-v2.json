@@ -1,0 +1,20 @@
+{
+  "key": "gpt-care-v2",
+  "id": "gpt",
+  "style": "chibi",
+  "kind": "care",
+  "columns": 4,
+  "rows": 6,
+  "source": "artwork/sports-identity/gpt-care-v2.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/gpt/motions/cloud-care-wardrobe.png"
+  ],
+  "generationReferences": [
+    "artwork/sports-identity/gpt-care-v1.png"
+  ],
+  "prompt": "Precise small-area EDIT of the FIRST attached sprite sheet. Preserve its canvas dimensions, all figure positions, exact head sizes, identity, silver/lavender hair, horns, ears, hair ornament, facial expressions, existing short-sleeve emerald/white sports shirt and above-knee shorts. Do not resize or shift figures. Keep genuine transparent alpha outside figures, no background or glow. This atlas is 4 columns by 6 rows. Correct ONLY props and hand pose in ROW TWO (the second row from the top), the sports wiping sequence. The four figures must hold the SAME soft pale cream folded face towel throughout: column 1 holds folded towel above lap; column 2 gently presses towel to her cheek (already right); column 3 wipes opposite cheek or mouth with that towel (REMOVE the wrong brown brush completely); column 4 lowers folded towel to lap (already right). Keep ROW ONE's brown hairbrush and all four brushing poses unchanged. Keep all remaining rows 3-6 unchanged and separate. No extra towels floating outside hands. Preserve same face, head, body and legs.",
+  "tool": "built-in image_gen",
+  "status": "generated-awaiting-visual-review",
+  "selected": false,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-938a74f7-bfd4-48bc-8a35-f0b8cc721045.png"
+}

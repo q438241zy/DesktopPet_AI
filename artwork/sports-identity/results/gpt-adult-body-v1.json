@@ -1,0 +1,34 @@
+{
+  "key": "gpt-adult-body-v1",
+  "id": "gpt-adult",
+  "style": "realistic",
+  "kind": "body",
+  "columns": 4,
+  "rows": 4,
+  "source": "artwork/sports-identity/gpt-adult-body-v1.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/gpt-adult/motions/interaction.png"
+  ],
+  "generationReferences": [
+    "src/DesktopPet.App/Assets/Characters/gpt-adult/motions/interaction.png"
+  ],
+  "prompt": "Precise clothing-only EDIT of this original GPT photorealistic 3D ADULT woman with long adult legs action atlas. Keep EXACT source 1024x1536 canvas, all original figure positions, pose order, cell spacing and camera. Never repack or rescale figures to fill margins. Preserve original face and head SIZE, head-body ratio, shoulders, torso, hips, knees, ankles, feet and hand/wrist/finger positions in EVERY pose, including sitting, lying, leaning, bent knees or raised hands. This is clothing on the SAME person, no redesign, no doll anatomy, no larger head, no shorter or thicker legs. Preserve silver/lavender hair, violet eyes, horns, pointed ears, knot hair ornament and ahoge, all expressions and hair/ear/tail silhouettes and directions.\nReplace only old dress/apron, long sleeves, wrist cuffs, tights and boots with a WHITE zip-front school sports shirt with deep emerald green upper-arm SHORT SLEEVES/shoulder panels, green piping and small green knot chest motif; deep emerald green athletic SHORTS ending well ABOVE knees with narrow white side stripes; white ankle socks and small white-green low-top sneakers at the original ankle/sole positions. Keep neckline modest and zipped. Bare forearms, knees and lower legs. NO long sleeves, trousers, gloves or leftover wrist frills. Keep headband and hair accessories even if they are frilly. Keep original hand contacts and ALL existing props, fingers and gesture shapes; do not invent an extra ball, hammer, sparkle or particle.\nIMPORTANT: preserve the source's exact head and limb coordinates, original folded seated legs, original small margins at canvas edge, and full figure heights. No longer dangling seated legs and no shortening adult legs to fit a raised arm. Genuine transparent alpha outside characters and held objects. No painted backdrop, gradient, glow, grid, label or extra shadow.",
+  "tool": "built-in image_gen",
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-93ea2ca0-52a7-48e2-b30b-16b4b011f022.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-07",
+    "passed": true,
+    "summary": "16姿势对照原图：头身、腰膝踝、抱膝、侧卧、跳跃及积木接触保持；遗留帧尺度需在原生继承。",
+    "evidence": [
+      ".artifacts/sports-identity-review/gpt-adult-body-v1-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "ab3f9e116a4a300e529eff692f370165934b08f4f4108180114121495559d981",
+    "originalSha256": "13f7c798a2c0b6d88aa9721a290ee140a8031130da44dcedf175beaffdc18e4e",
+    "comparisonFingerprint": "7cb15ae8b6b038d385da48ea95b10c63c84d59f3e1da204e32a015cecd7da37b"
+  }
+}

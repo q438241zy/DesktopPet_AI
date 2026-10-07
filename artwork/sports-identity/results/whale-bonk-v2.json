@@ -1,0 +1,32 @@
+{
+  "key": "whale-bonk-v2",
+  "id": "whale",
+  "style": "chibi",
+  "kind": "bonk",
+  "columns": 3,
+  "rows": 2,
+  "source": "artwork/sports-identity/whale-bonk-v2.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/whale/motions/bonk.webp",
+    "docs/demo/wardrobe-identity/art/deepseek-chibi-sports-v1.png"
+  ],
+  "prompt": "Precise clothing-only edit. Image1 is the EDIT TARGET, original DeepSeek Q bonk six-frame atlas, 1536x1024, 3 columns x 2 rows. Image2 is only the UNIFORM design reference, not poses. Preserve the EXACT source positions and proportions, not a redesigned character: head size, blue eyes, blue hair, white ruffled headband, cyan bow, fin ears, ahoge, whale tail, torso, knees and ankles. Cell-local alpha bounds including hammer: [66,32,433,448], [55,40,433,449], [84,83,424,448], [55,24,432,448], [80,98,432,448], [84,86,423,448]. Keep seated soles at local y=448 in all cells; do NOT grow the body when removing the apron. Preserve the exact little blue whale hammer, its placement and hit/surprise/comfort progression. No additional hammer, no additional hands. ONLY replace the navy maid outfit by image2's white/navy short-sleeve zip sports shirt, navy above-knee athletic shorts, white ankle socks and white-blue low-top sneakers. Bare wrists: no leftover maid cuffs. Leave all other artwork and all original six gestures/expressions untouched. Preserve generous source whitespace. Genuine transparent background with alpha, no colored backdrop or glow. Ignore RGB junk in transparent source pixels.",
+  "tool": "built-in image_gen",
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-a3f02b52-3a58-4b8d-88f7-bad27ea80a46.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-07",
+    "passed": true,
+    "summary": "保留原图鲸鱼槌子及敲打姿势，头部比例接近原图；不另加第二个槌子。",
+    "evidence": [
+      ".artifacts/sports-identity-review/whale-bonk-v2-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "4b728b5526f29aec4bee92a80c93353668e568557f5eb39a447a17d443c1a2b4",
+    "originalSha256": "1db2d4cccff5cb992d0e73b84025c328dac01138c721850a6be4925bdcada6cb",
+    "comparisonFingerprint": "d8df4bbb92cb289c5e9459884ba9ed54dff4a8720f924df62059e383e39cc51b"
+  }
+}

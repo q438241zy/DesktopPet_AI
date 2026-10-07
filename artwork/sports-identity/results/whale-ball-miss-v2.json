@@ -1,0 +1,35 @@
+{
+  "key": "whale-ball-miss-v2",
+  "id": "whale",
+  "style": "chibi",
+  "kind": "ball-miss",
+  "columns": 3,
+  "rows": 2,
+  "prompt": "Precise clothing-only edit of this original DeepSeek chibi 1536x1024 six-frame sheet (3 columns, 2 rows). Keep source head and face size EXACTLY, and retain every single source figure's position and height. Do not enlarge the figures to fill cell margins. Retain original seated folded-leg posture, hips, knees, ankles and shoe sole positions EXACTLY; feet must NOT move downward to make longer hanging legs. Preserve source facial expressions, blue hair/headband/ears/tail, exact hand gestures. Replace old maid dress and long sleeves with white zip shirt, NAVY SHORT upper-arm sleeves, cyan piping, small blue whale emblem, NAVY above-knee SHORTS, white ankle socks and SMALL white-blue sneakers replacing boots at the original locations. No old wrist cuffs, no white frills except HEADBAND. Don't change anatomy, hand gestures, feet stance or hair size. Genuine transparent alpha background, with no new prop or effects. Critical: the source figures have intentionally generous empty margins. KEEP those margins; do not zoom the head, redraw bigger eyes or make the whole character 15-20 percent larger. Change only clothing.",
+  "source": "artwork/sports-identity/whale-ball-miss-v2.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/whale/motions/ball-miss.webp"
+  ],
+  "generationReferences": [
+    "src/DesktopPet.App/Assets/Characters/whale/motions/ball-miss.webp"
+  ],
+  "comparisonRole": "original-clothing-edit",
+  "tool": "built-in image_gen",
+  "status": "not-selected-after-review",
+  "selected": false,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-1b00dfec-a3f5-4818-be36-c9cc4501813f.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-07",
+    "passed": false,
+    "summary": "头部放大已改善，但坐姿双腿仍比原图向下延伸，脚底明显降低；继续返工，不接入。",
+    "evidence": [
+      ".artifacts/sports-identity-review/whale-ball-miss-v2-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "ee0ee38fe3f5060cdd327ba0ce82d6a5539637a1395347e41e17e5dc8ec4ea3e",
+    "originalSha256": "aceff42b8049045bd0b70e9187b5b39387d153198bfd2f557ce4038a08e99a7f",
+    "comparisonFingerprint": "2691fb27df5a82f87385c1702e36f529138da6913fd371e6d079a92d45475d72"
+  }
+}

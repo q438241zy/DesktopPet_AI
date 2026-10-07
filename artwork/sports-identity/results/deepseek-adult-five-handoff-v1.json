@@ -1,0 +1,34 @@
+{
+  "key": "deepseek-adult-five-handoff-v1",
+  "id": "deepseek-adult",
+  "style": "realistic",
+  "kind": "five-handoff",
+  "columns": 4,
+  "rows": 1,
+  "prompt": "Clothing-only edit of this original DeepSeek character atlas. Keep EXACT source canvas width/height, each original cell and figure scale, physical layout and margins. Preserve every pose, original face/head size, natural head-body and leg proportions, eyes, blue hair, fin ears, headband, bow and any tail. Preserve ALL exact hand/finger/wrist positions and prop contact. Dress the EXISTING body in a white zipped sports shirt with NAVY short upper-arm sleeves and cyan piping, small blue whale emblem, NAVY above-knee SHORTS with thin white side stripes, white ankle socks and small white-blue sneakers. Bare forearms, knees/lower legs; no old dress, tights, long sleeves or cuffs. NO shortening or widening body, changing gestures, removing or adding props. Genuine transparent alpha, no background, grid, caption or new effects. This is a photorealistic 3D ADULT woman with long adult legs; retain mature proportions exactly. FOUR poses in ONE ROW on the exact original wide source canvas; do NOT repack it into 2x2 and do not crop feet. Preserve original handoff gestures, all fingers, and any book or gift contacts. Natural long legs and normal size head must match original, no doll or chibi anatomy.",
+  "source": "artwork/sports-identity/deepseek-adult-five-handoff-v1.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/deepseek-adult/interactions/original/real-adult-handoff-final.png"
+  ],
+  "generationReferences": [
+    "src/DesktopPet.App/Assets/Characters/deepseek-adult/interactions/original/real-adult-handoff-final.png"
+  ],
+  "tool": "built-in image_gen",
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-36274b47-2b2b-412a-94bc-54e347394041.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-07",
+    "passed": true,
+    "summary": "剪刀、布、接物、持礼物四姿势保持原人体比例，物品在双手上；接触点待重映射。",
+    "evidence": [
+      ".artifacts/sports-identity-review/deepseek-adult-five-handoff-v1-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "9443c8e66674923b36b419a8efb984d986ed6cff2d0853d4d7ca519c9e16e692",
+    "originalSha256": "3cd98f02659e44b17e05fa7199acd9068151343e4bfe6d37c466be0d88bbe027",
+    "comparisonFingerprint": "c6801e0429406ba35ee992c526b49db55ca72fb880c5af6a5a31cd740dab9d18"
+  }
+}

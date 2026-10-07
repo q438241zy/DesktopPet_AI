@@ -1,0 +1,37 @@
+{
+  "key": "deepseek-adult-emotions-v1",
+  "id": "deepseek-adult",
+  "style": "realistic",
+  "kind": "emotions",
+  "columns": 3,
+  "rows": 4,
+  "prompt": "IMAGE1 is the authoritative identity, outfit and ANATOMY reference: the mature photorealistic 3D adult DeepSeek woman wearing short-sleeve navy/white zipped sports shirt and navy short shorts. IMAGE2 is ONLY a 12-pose gesture/contact guide; its shorter body proportions and missing headband must NOT be copied. Make a transparent 1024x1536 sprite sheet, 3 columns x 4 rows, exactly twelve FULL BODY poses of the SAME woman in IMAGE1, with her long adult thighs/shins, original slender waist, exact realistic adult face, small head-to-body ratio, blue flowing hair, fin ears, white FRILLY HEADBAND and cyan bow present in every frame. Each figure stands at exactly one constant anatomical scale, head size, leg length, ground baseline per row and outfit. No chibi/doll/shortened proportions. Follow IMAGE2's gesture sequence: row1 neutral arms relaxed, eyes closed accepting head pat with hands behind back, shy lowered head with hands together; row2 hand to right cheek, hand to left cheek, shoulders raised with hands open laughing tickle; row3 gentle eyes-closed smiling self-hug, pleased clasped hands, small sad arms-down; row4 dizzy off-balance (feet slightly apart), lifting the SAME blue/pink WHALE TOY HAMMER above head, tapping head lightly with that hammer while closing eyes. Hammer must be in the character's hand in last two frames. Keep neckline modest zipped as image1; SHORT upper-arm sleeves and above-knee SHORTS, white-blue sneakers. Keep the body proportion from IMAGE1 across all frames; knees/ankles anatomical, no leg compression to make room for raised hands. Transparent alpha background, no gradients/glow/text/grid.",
+  "source": "artwork/sports-identity/deepseek-adult-emotions-v1.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/deepseek-adult/outfits/sports/portrait.png",
+    "docs/demo/wardrobe-identity/art/deepseek-realistic-sports-v1.png"
+  ],
+  "generationReferences": [
+    "docs/demo/wardrobe-identity/art/deepseek-realistic-sports-v1.png",
+    "src/DesktopPet.App/Assets/Characters/deepseek-adult/outfits/sports/portrait.png"
+  ],
+  "comparisonRole": "previous-pose-guide; identity from second reference",
+  "tool": "built-in image_gen",
+  "status": "not-selected-after-review",
+  "selected": false,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-4143e6b6-9a3c-4e26-93af-e0bdfcf97097.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-07",
+    "passed": false,
+    "summary": "表情和衣服参考正确，但底部三个姿势被截腿，不能采用。",
+    "evidence": [
+      ".artifacts/sports-identity-review/deepseek-adult-emotions-v1-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "9805ebc4483159bb13db5c2a5e5dd45f61ac30b5565ba9d28f0dc84c86bc3277",
+    "originalSha256": "57996e8c1d7b34ec0c5828be49e5c97ae834349d72b6b568590e3f3f728198d7",
+    "comparisonFingerprint": "91e1dc7ca1656a5d67ea1935e0d2b007495495a969809f7b40a5e649c30487cf"
+  }
+}

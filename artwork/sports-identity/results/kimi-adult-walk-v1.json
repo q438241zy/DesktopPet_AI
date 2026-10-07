@@ -1,0 +1,32 @@
+{
+  "key": "kimi-adult-walk-v1",
+  "id": "kimi-adult",
+  "style": "realistic",
+  "kind": "walk",
+  "columns": 3,
+  "rows": 4,
+  "source": "artwork/sports-identity/kimi-adult-walk-v1.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/kimi-adult/motions/walk-smooth.png",
+    "artwork/sports-identity/kimi-adult-portrait-v1.png"
+  ],
+  "prompt": "CLOTHING-ONLY EDIT. IMAGE1 is the exact edit target: original Kimi adult realistic 3D woman twelve-frame walking atlas. IMAGE2 is ONLY the approved sports uniform design, never the pose/framing. KEEP original 1024x1536 canvas, 3 columns x 4 rows, same source pixel positions and margins. Retain each of the twelve original right-facing walk phases exactly, including alternating foot support, knee angles and opposite arm swing; no extra frames, no skipped or duplicate phase. Replace only original outfit and boots with white zip athletic shirt, NAVY upper-arm short sleeves with pale blue piping, navy above-knee shorts with pale-blue/white stripes, white ankle socks, white and pale-blue low-top sneakers. Change clothes only. Preserve exact original face and small adult head, white ruffled headband, silver hair with blue tips, violet eyes, dark ribbons, crescent moon and music-note ornaments, shoulders/waist/hips and full natural adult leg lengths. Expose bare forearms and knees, no leftover cuffs, long sleeves, skirt or stockings. KEEP ORIGINAL LEG JOINT COORDINATES including knees, ankles and ground contact, even when replacing heels by sneakers; do not make her squat/chunky, inflate the head, thicken legs, or copy the waving pose in image2. Preserve real adult 3D shading and delicate facial detail and correct original walking direction. Real transparent alpha outside figures; no background, added shadow, glow, grid or text.",
+  "tool": "built-in image_gen",
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-8f35bc41-05b3-4661-a16c-d0979d8ec103.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-07",
+    "passed": true,
+    "summary": "十二帧原图对照完成，保持成年身形、原头部与膝踝位置，短袖短裤；尚待原生连续播放与转身检查。",
+    "evidence": [
+      ".artifacts/sports-identity-review/kimi-adult-walk-v1-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "d919d0d3efabfb11a02ac6c8e5096741f651744b197a9420cf5d12ac5650ad2c",
+    "originalSha256": "c364e53fabafb72d7cbccb431270c88d0ae803a22c31d7b27b8b01f52db924f5",
+    "comparisonFingerprint": "d681d84c7e77426b83b3b3fabd84163b52f4eff72d47bcf58b4c5dad2b8c9ea1"
+  }
+}

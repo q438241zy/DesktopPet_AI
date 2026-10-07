@@ -1,0 +1,29 @@
+const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto'),{pathToFileURL}=require('node:url');
+let pw;try{pw=require('playwright');}catch{pw=require('C:/Users/99000256/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');}
+const root=path.resolve(__dirname,'..'),output=path.join(root,'.artifacts/sports-identity-review'),target=path.join(root,'Release/win-x64/Demo/WardrobeIdentity/motions.html');
+fs.mkdirSync(output,{recursive:true});
+const evidenceFile=path.join(output,'comparison-evidence.json'),evidence=fs.existsSync(evidenceFile)?JSON.parse(fs.readFileSync(evidenceFile,'utf8')):{},changedOnly=process.argv.includes('--changed');
+const rendererHash=crypto.createHash('sha256').update(fs.readFileSync(path.join(root,'docs/demo/wardrobe-identity/motions.js'))).update(fs.readFileSync(path.join(root,'docs/demo/wardrobe-identity/motions.html'))).digest('hex');
+(async()=>{const browser=await pw.chromium.launch({headless:true,executablePath:'C:/Program Files/Google/Chrome/Application/chrome.exe'}),errors=[],checks=[];
+ try{const page=await browser.newPage({viewport:{width:1440,height:1000},deviceScaleFactor:1});page.on('pageerror',e=>errors.push(e.message));page.on('requestfailed',r=>errors.push(r.url()));
+ await page.goto(pathToFileURL(target).href);await page.waitForFunction(()=>window.sportsReview?.().ready);const rows=await page.evaluate(()=>sportsMotionReview.sheets),count=rows.length,cached=[];
+ for(let index=0;index<count;index++){const row=rows[index],fingerprint=crypto.createHash('sha256').update(JSON.stringify([rendererHash,row.candidateSha256,row.originalSha256,row.comparisonWindows,row.sourceCells,row.clips,row.columns,row.rows,row.comparisonRole])).digest('hex');
+ if(changedOnly&&evidence[row.key]?.fingerprint===fingerprint&&fs.existsSync(path.join(output,row.key+'-pairs.png'))){cached.push(row.key);continue;}
+ await page.selectOption('#sheet',String(index));await page.waitForFunction(i=>sportsReview().ready&&sportsReview().index===i,index);const s=await page.evaluate(()=>sportsReview());assert(s.candidateResolution>0,s.key+' preserves the original canvas aspect');assert.equal(s.candidateSize[0]/s.originalSize[0],s.candidateSize[1]/s.originalSize[1]);assert.equal(await page.locator('#grid canvas').count(),s.frames);assert.equal(s.installed,false);assert.equal(new Set(await page.locator('#grid canvas').evaluateAll(cs=>cs.map(c=>c.dataset.scale))).size,1,s.key+' uses a common scale for every frame');if(/basic/.test(s.key))assert.equal(s.frames,6);if(/walk/.test(s.key))assert.equal(s.frames,12);checks.push(s.key);
+ await page.locator('#grid').screenshot({path:path.join(output,s.key+'-pairs.png')});
+ evidence[s.key]={fingerprint,candidateSha256:row.candidateSha256,originalSha256:row.originalSha256,capturedAt:new Date().toISOString(),rendererHash};fs.writeFileSync(evidenceFile,JSON.stringify(evidence,null,2));
+ }
+ async function sheet(key){const index=await page.evaluate(key=>sportsMotionReview.sheets.findIndex(s=>s.key===key),key);assert(index>=0,key);await page.selectOption('#sheet',String(index));await page.waitForFunction(key=>sportsReview().ready&&sportsReview().key===key,key);return page.evaluate(()=>sportsReview());}
+ assert.deepEqual((await sheet('whale-build-v1')).clipFrames,Array.from({length:12},(_,i)=>i+12));
+ await sheet('whale-care-v2');for(let clip=0;clip<2;clip++){await page.selectOption('#clip',String(clip));const s=await page.evaluate(()=>sportsReview());assert(s.clipFrames.every(f=>f<8),'sports care excludes the swimsuit and wedding rows');}
+ await sheet('deepseek-adult-club-v1');await page.selectOption('#clip','1');assert.deepEqual((await page.evaluate(()=>sportsReview())).clipFrames,Array.from({length:8},(_,i)=>i+8));
+ await sheet('deepseek-adult-emotion-touch-v1');assert.equal(await page.locator('#reference-label').textContent(),'已复核运动服参考');
+ await sheet('deepseek-adult-emotions-v2');assert.match(await page.locator('#status').textContent(),/未采用/);
+ await page.selectOption('#sheet',String(await page.locator('#sheet option').evaluateAll(opts=>opts.findIndex(o=>o.textContent.includes('吃饭')&&o.textContent.includes('v2')))));await page.waitForFunction(()=>sportsReview().ready&&sportsReview().key==='whale-meal-v2');
+ await page.locator('#prev').click();assert.equal((await page.evaluate(()=>sportsReview())).frame,5);await page.locator('#next').click();assert.equal((await page.evaluate(()=>sportsReview())).frame,0);
+ await page.locator('#play').click();await page.waitForFunction(()=>sportsReview().frame>0);await page.locator('#play').click();assert.equal((await page.evaluate(()=>sportsReview())).playing,false);
+ await page.locator('#overlay').check();await page.locator('#dark').check();await page.screenshot({path:path.join(output,'meal-v2-overlay.png'),fullPage:true});
+ await page.setViewportSize({width:390,height:844});assert(await page.evaluate(()=>document.documentElement.scrollWidth<=window.innerWidth+1));await page.screenshot({path:path.join(output,'mobile.png'),fullPage:true});assert.deepEqual(errors,[]);
+ fs.writeFileSync(path.join(output,'browser-report.json'),JSON.stringify({scope:'Comparison functionality only; not visual approval.',sheets:checks,reusedUnchangedEvidence:cached,total:count,allLoaded:checks.length+cached.length===count,canvasAspectMatch:true,commonFrameScale:true,sourceClips:true,playbackAndWrap:true,narrowLayout:true,errors},null,2));console.log(`${checks.length} sheets checked; ${cached.length} unchanged comparisons reused. Shared scale, source sequences, playback, wrap, overlay and narrow layout passed.`);
+ }finally{await browser.close();}
+})().catch(e=>{console.error(e);process.exit(1)});

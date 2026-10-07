@@ -1,0 +1,87 @@
+{
+  "key": "deepseek-adult-club-v1",
+  "id": "deepseek-adult",
+  "style": "realistic",
+  "kind": "club",
+  "columns": 4,
+  "rows": 6,
+  "prompt": "Edit ONLY clothing on this original photorealistic 3D ADULT DeepSeek 24-pose atlas on EXACT 1536x1024 canvas. Its physical layout is EIGHT columns x THREE rows. Preserve all 24 original physical cell positions: top8 counting stars with hands, middle8 bubble bottle/wand gestures, bottom8 stretching. Do not rearrange into another grid, do not change row character scales (they vary in the source). Keep adult anatomy and long legs exactly. Preserve bottle/wand and all hand contacts, no extra bubbles. This is a clothing edit of the SAME original character, not a redesign. Preserve original face, exact head size, hair/headband/ears/tail, expression, each hand/wrist/hip/knee/ankle position, pose, perspective, figure height and location on the source canvas. Outfit: white zip-front athletic shirt, NAVY short upper-arm sleeves with cyan piping and small blue whale chest emblem; navy above-knee athletic SHORTS with thin white side stripes; bare forearms without white cuffs, bare knees and lower legs, white ankle socks and small white/navy sneakers. Never shorten legs, enlarge head, thicken body, change a pose, or move a prop. Genuine transparent alpha outside all characters and props. No backdrop, captions, grid, extra effects or shadow.",
+  "source": "artwork/sports-identity/deepseek-adult-club-v1.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/deepseek-adult/motions/cloud-club-original.png"
+  ],
+  "generationReferences": [
+    "src/DesktopPet.App/Assets/Characters/deepseek-adult/motions/cloud-club-original.png"
+  ],
+  "tool": "built-in image_gen",
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-4e37f9b2-6b10-4c23-8511-696d09f44765.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-07",
+    "passed": true,
+    "summary": "按源图实际8列3行对照，成年头身比、长腿、数星星/泡泡/伸展动作保持；待原生道具定位。",
+    "evidence": [
+      ".artifacts/sports-identity-review/deepseek-adult-club-v1-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "63dab68ea2bc7d266b3399cc988473e56847416d22e5287284e097848cada3c1",
+    "originalSha256": "ba65ac025ee4d9d3c3396d3fd7da3a94e28163ebddeae3542d744a817e35fea6",
+    "comparisonFingerprint": "bc72acbe02f00d94165e081808f158b08f018521d9e5a2080b18fe0490ce3a8c"
+  },
+  "measurementPixels": {
+    "bubbleSources": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      [
+        74,
+        535
+      ],
+      [
+        288,
+        430
+      ],
+      [
+        481,
+        430
+      ],
+      [
+        671,
+        430
+      ],
+      [
+        851,
+        440
+      ],
+      [
+        1024,
+        422
+      ],
+      [
+        1244,
+        474
+      ],
+      [
+        1435,
+        519
+      ],
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ]
+  },
+  "measurementNote": "Assistant marked on original candidate pixels; native contact verification pending, no image edit."
+}

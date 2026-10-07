@@ -1,0 +1,71 @@
+{
+  "key": "gpt-adult-emotion-touch-v1",
+  "id": "gpt-adult",
+  "style": "realistic",
+  "kind": "emotion-touch",
+  "columns": 4,
+  "rows": 1,
+  "source": "artwork/sports-identity/gpt-adult-emotion-touch-v1.png",
+  "references": [
+    "artwork/sports-identity/gpt-adult-five-photo-v1.png",
+    "src/DesktopPet.App/Assets/Characters/gpt-adult/interactions/original/gpt-adult-original-photo-v1.png"
+  ],
+  "generationReferences": [
+    "artwork/sports-identity/gpt-adult-five-photo-v1.png"
+  ],
+  "prompt": "Precise upper-body pose EDIT of this exact 1774x887, 4-column 1-row sprite sheet. Keep the SAME adult GPT woman and the SAME approved short-sleeve white/deep emerald green sports shirt and above-knee deep emerald green shorts. Keep the original face, mature small head size, silver/lavender hair, violet eyes, horns, pointed ears, knot hair ornament and ahoge, clean 3D rendering, and all clothing details. Preserve the complete hips, long thighs, knees, shins, ankles, sneakers and ground position at EXACT original scale and coordinates in ALL four poses. Do not redesign the person or shorten/thicken legs, enlarge heads, resize individual figures or crop feet. Modify ONLY expressions and arms/hands, left to right: 1 gently close eyes and smile while being petted, relaxed hands; 2 right hand softly cups right cheek; 3 left hand softly cups left cheek; 4 laugh with shoulders slightly raised and both hands open near chest as if tickled. Preserve the original canvas, original figure positions, margins, camera and order of 4 full figures. True transparent alpha outside figures and held props. No background, gradient, glow, text, frame or extra people.",
+  "tool": "built-in image_gen",
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
+  "comparisonRole": "approved-sports-pose-edit",
+  "sourceAtlas": "photo",
+  "physicalOrder": true,
+  "clips": {
+    "headpat": {
+      "frames": [
+        0
+      ],
+      "frameMs": [
+        5000
+      ],
+      "loop": false
+    },
+    "poke": {
+      "frames": [
+        1,
+        2,
+        1
+      ],
+      "frameMs": [
+        500,
+        650,
+        500
+      ],
+      "loop": false
+    },
+    "tickle": {
+      "frames": [
+        3
+      ],
+      "frameMs": [
+        5000
+      ],
+      "loop": false
+    }
+  },
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-9507cb94-2063-4035-af90-af5f62b8384d.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-07",
+    "passed": true,
+    "summary": "以已复核真人运动服照片图为基底，四帧完整长腿、膝踝与头部大小保留，仅编辑手臂表情。",
+    "evidence": [
+      ".artifacts/sports-identity-review/gpt-adult-emotion-touch-v1-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "4b61e481321c8007a067d5d48444542192562180cf63bb4980d729a1d21278c9",
+    "originalSha256": "4ed830896a2c1d8176ee1e9a011f57de756ff546b2c11263ac611d3f6a567b0e",
+    "comparisonFingerprint": "2076947faa82deb0ac5adf067a1be818e7a0e94ec99b0ee8aea88317b1148c6b"
+  }
+}

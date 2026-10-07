@@ -1,0 +1,34 @@
+{
+  "key": "whale-care-v2",
+  "id": "whale",
+  "style": "chibi",
+  "kind": "care",
+  "columns": 4,
+  "rows": 6,
+  "prompt": "Make tiny sleeve corrections to this existing 1024x1536 4x6 DeepSeek sprite sheet. Edit ONLY the FIRST TWO ROWS, sports outfit. Remove remaining white frilled wrist cuffs and white forearm fabric in row1 column3 and any first-two-row poses; they must have navy short upper-arm sleeves, fully bare forearms to hands, same white athletic top and navy shorts. Keep the brown hairbrush and cream FACE TOWEL exactly, including the cloth held to the cheek (the towel is a PROP, do not erase it). Preserve original hands/wrists and contact with brush/towel. Preserve all 24 positions, all faces/head sizes, blue hair, headbands, tail, poses, knees and shoes. Do not edit lower four rows; do not reposition or rescale. Keep 1024x1536 genuine alpha transparency.",
+  "source": "artwork/sports-identity/whale-care-v2.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/whale/motions/cloud-care-wardrobe.png"
+  ],
+  "generationReferences": [
+    "artwork/sports-identity/whale-care-v1.png"
+  ],
+  "tool": "built-in image_gen",
+  "status": "not-selected-after-review",
+  "selected": false,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-59d3ed52-ed31-4819-8a11-542fca6b0d81.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-07",
+    "passed": false,
+    "summary": "袖口去除后，第一和最后擦脸姿势丢失毛巾，且透明通道丢失；禁止安装。",
+    "evidence": [
+      ".artifacts/sports-identity-review/whale-care-v2-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "2cfd94a3f2533b72f50decaca07c0049481dee218056d3bd2106356a06b24192",
+    "originalSha256": "8573f860c00d112a1ee9f6d89b3ba7c0cecedf41276db3d0dbe1340b323ba404",
+    "comparisonFingerprint": "5cab00222bb41fa1039cd076afbe01dad4f4a5d0df1090154508b29558a361f5"
+  }
+}

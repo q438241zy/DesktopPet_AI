@@ -1,0 +1,642 @@
+{
+  "schema": 1,
+  "date": "2026-10-07",
+  "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+  "decisions": [
+    {
+      "key": "whale-eat-v1",
+      "passed": true,
+      "summary": "八帧饼干由双手送到嘴边，保留原头部、头饰与手部动作；待验证原生接触点。"
+    },
+    {
+      "key": "whale-curl-v1",
+      "passed": true,
+      "summary": "六帧坐姿至抱膝姿势保留，弯腿不作逐帧拉高；待原生过渡检查。"
+    },
+    {
+      "key": "whale-pickup-v1",
+      "passed": true,
+      "summary": "六帧提起与悬腿动作保留，头部未放大；运动鞋轮廓变化需在原生基线复核。"
+    },
+    {
+      "key": "whale-meal-v2",
+      "passed": true,
+      "summary": "六帧碗勺与嘴部对应原图，修正上一稿整体放大；鞋底差异不用于缩放身体。"
+    },
+    {
+      "key": "whale-headpat-v2",
+      "passed": true,
+      "summary": "六帧头部倾斜和放松表情对应原图，头饰、尾巴及脸型保留。"
+    },
+    {
+      "key": "whale-bonk-v2",
+      "passed": true,
+      "summary": "保留原图鲸鱼槌子及敲打姿势，头部比例接近原图；不另加第二个槌子。"
+    },
+    {
+      "key": "whale-think-v2",
+      "passed": true,
+      "summary": "保留原图各帧尺度和思考动作；中间四帧仍需继承原有头部尺度校正，尚未验证运行比例。"
+    },
+    {
+      "key": "whale-chat-v3",
+      "passed": true,
+      "summary": "聊天六帧手势及嘴部表情对应原图，修正前稿整体放大与残留袖口。"
+    },
+    {
+      "key": "whale-jump-v3",
+      "passed": true,
+      "summary": "六帧起跳、腾空及落地姿势对应原图；原图中间小帧必须在原生校正，不能直接等高播放。"
+    },
+    {
+      "key": "deepseek-adult-contact-v1",
+      "passed": true,
+      "summary": "九帧饼干、碗勺和接物动作保持原脸型、腿长及接触姿势；道具锚点与原生衔接尚待检查。"
+    },
+    {
+      "key": "deepseek-adult-body-v1",
+      "passed": true,
+      "summary": "十六帧站立、跳跃、蜷起、休息及堆积木对照完成；保留坐卧姿势和手部接触，未验证插帧。"
+    },
+    {
+      "key": "whale-build-v1",
+      "passed": true,
+      "summary": "原图下半部十二帧保留坐姿拿取、摆放及堆叠积木过程；接入须只使用原有12–23帧。"
+    },
+    {
+      "key": "whale-club-v1",
+      "passed": false,
+      "summary": "吹泡泡收手帧仍有旧的长袖形状，需去除袖口并复核泡泡圈锚点。"
+    },
+    {
+      "key": "whale-care-v1",
+      "passed": false,
+      "summary": "梳头和擦脸有旧白色袖口残留；另误改非运动服参考区域的头饰，不接入其他服装。"
+    },
+    {
+      "key": "gpt-basic-v1",
+      "passed": false,
+      "summary": "难过姿势头部放大、睡眠与头晕位置偏移；采用重新按原图换衣的v2。"
+    },
+    {
+      "key": "grok-basic-v1",
+      "passed": false,
+      "summary": "下排三姿势头部与位置偏离原图；采用v2。"
+    },
+    {
+      "key": "zhipu-basic-v1",
+      "passed": false,
+      "summary": "下排三姿势位置上移、难过头部放大；采用v2。"
+    },
+    {
+      "key": "kimi-basic-v1",
+      "passed": false,
+      "summary": "下排三姿势有放大与位置上移；采用v2。"
+    },
+    {
+      "key": "zhipu-adult-walk-v2",
+      "passed": false,
+      "summary": "备选修订稿。完整源图与修正裁切已确认v1尾巴存在，保留v1，不因预览误判重复替换。"
+    },
+    {
+      "key": "whale-meal-v1",
+      "passed": false,
+      "summary": "人物整体比原图约大19%，以v2取代。"
+    },
+    {
+      "key": "whale-chat-v1",
+      "passed": false,
+      "summary": "人物整体比原图约大17%，以v3取代。"
+    },
+    {
+      "key": "whale-chat-v2",
+      "passed": false,
+      "summary": "仍有约9%放大，第三帧有多余袖口，以v3取代。"
+    },
+    {
+      "key": "whale-headpat-v1",
+      "passed": false,
+      "summary": "人物整体比原图约大13%，以v2取代。"
+    },
+    {
+      "key": "whale-bonk-v1",
+      "passed": false,
+      "summary": "部分帧放大、脚底位置漂移，以v2取代。"
+    },
+    {
+      "key": "whale-think-v1",
+      "passed": false,
+      "summary": "中间帧比原图约大23%，无法沿用原校正，以v2取代。"
+    },
+    {
+      "key": "whale-jump-v1",
+      "passed": false,
+      "summary": "腾空帧比原图约大18–24%，以v3取代。"
+    },
+    {
+      "key": "whale-jump-v2",
+      "passed": false,
+      "summary": "起落与腾空帧仍有放大，以v3取代。"
+    },
+    {
+      "key": "gpt-basic-v2",
+      "passed": true,
+      "summary": "重新以原图换衣，六个原姿势、头饰及脸型保留；下排偏移与头部放大较上一稿修正。"
+    },
+    {
+      "key": "grok-basic-v2",
+      "passed": true,
+      "summary": "重新以原图换衣，六个原姿势、头饰及脸型保留；下排偏移与头部放大较上一稿修正。"
+    },
+    {
+      "key": "zhipu-basic-v2",
+      "passed": true,
+      "summary": "重新以原图换衣，六个原姿势、头饰及脸型保留；下排偏移与头部放大较上一稿修正。"
+    },
+    {
+      "key": "kimi-basic-v2",
+      "passed": true,
+      "summary": "重新以原图换衣，六个原姿势、头饰及脸型保留；下排偏移与头部放大较上一稿修正。"
+    },
+    {
+      "key": "claude-basic-v1",
+      "passed": true,
+      "summary": "六个原姿势逐帧对照，身份、发型、头饰及整体头身比例保留；短袖与膝上短裤。"
+    },
+    {
+      "key": "gemini-basic-v1",
+      "passed": true,
+      "summary": "六个原姿势逐帧对照，身份、发型、头饰及整体头身比例保留；短袖与膝上短裤。"
+    },
+    {
+      "key": "qwen-basic-v1",
+      "passed": true,
+      "summary": "六个原姿势逐帧对照，身份、发型、头饰及整体头身比例保留；短袖与膝上短裤。"
+    },
+    {
+      "key": "gpt-walk-v1",
+      "passed": true,
+      "summary": "十二帧原图对照完成，步态顺序、朝向、头发及腿部比例保留；插帧与衣服切换尚未原生验证。"
+    },
+    {
+      "key": "gpt-adult-portrait-v1",
+      "passed": true,
+      "summary": "单张与原装同画布对照，脸型、头饰、交叉腿姿势及成年身形保留；短袖短裤，未代表动作通过。"
+    },
+    {
+      "key": "claude-walk-v1",
+      "passed": true,
+      "summary": "十二帧原图对照完成，步态顺序、朝向、头发及腿部比例保留；插帧与衣服切换尚未原生验证。"
+    },
+    {
+      "key": "claude-adult-portrait-v1",
+      "passed": true,
+      "summary": "单张与原装同画布对照，脸型、头饰、交叉腿姿势及成年身形保留；短袖短裤，未代表动作通过。"
+    },
+    {
+      "key": "gemini-walk-v1",
+      "passed": true,
+      "summary": "十二帧原图对照完成，步态顺序、朝向、头发及腿部比例保留；插帧与衣服切换尚未原生验证。"
+    },
+    {
+      "key": "gemini-adult-portrait-v1",
+      "passed": true,
+      "summary": "单张与原装同画布对照，脸型、头饰、交叉腿姿势及成年身形保留；短袖短裤，未代表动作通过。"
+    },
+    {
+      "key": "grok-walk-v1",
+      "passed": true,
+      "summary": "十二帧原图对照完成，步态顺序、朝向、头发及腿部比例保留；插帧与衣服切换尚未原生验证。"
+    },
+    {
+      "key": "grok-adult-portrait-v1",
+      "passed": true,
+      "summary": "单张与原装同画布对照，脸型、头饰、交叉腿姿势及成年身形保留；短袖短裤，未代表动作通过。"
+    },
+    {
+      "key": "qwen-walk-v1",
+      "passed": true,
+      "summary": "十二帧原图对照完成，步态顺序、朝向、头发及腿部比例保留；插帧与衣服切换尚未原生验证。"
+    },
+    {
+      "key": "qwen-adult-portrait-v1",
+      "passed": true,
+      "summary": "单张与原装同画布对照，脸型、头饰、交叉腿姿势及成年身形保留；短袖短裤，未代表动作通过。"
+    },
+    {
+      "key": "zhipu-walk-v1",
+      "passed": true,
+      "summary": "十二帧原图对照完成，步态顺序、朝向、头发及腿部比例保留；插帧与衣服切换尚未原生验证。"
+    },
+    {
+      "key": "zhipu-adult-portrait-v1",
+      "passed": true,
+      "summary": "单张与原装同画布对照，脸型、头饰、交叉腿姿势及成年身形保留；短袖短裤，未代表动作通过。"
+    },
+    {
+      "key": "kimi-walk-v1",
+      "passed": true,
+      "summary": "十二帧原图对照完成，步态顺序、朝向、头发及腿部比例保留；插帧与衣服切换尚未原生验证。"
+    },
+    {
+      "key": "kimi-adult-portrait-v1",
+      "passed": true,
+      "summary": "单张与原装同画布对照，脸型、头饰、交叉腿姿势及成年身形保留；短袖短裤，未代表动作通过。"
+    },
+    {
+      "key": "deepseek-adult-walk-v1",
+      "passed": true,
+      "summary": "十二帧原图对照完成，保持成年身形、原头部与膝踝位置，短袖短裤；尚待原生连续播放与转身检查。"
+    },
+    {
+      "key": "gpt-adult-walk-v1",
+      "passed": true,
+      "summary": "十二帧原图对照完成，保持成年身形、原头部与膝踝位置，短袖短裤；尚待原生连续播放与转身检查。"
+    },
+    {
+      "key": "claude-adult-walk-v1",
+      "passed": true,
+      "summary": "十二帧原图对照完成，保持成年身形、原头部与膝踝位置，短袖短裤；尚待原生连续播放与转身检查。"
+    },
+    {
+      "key": "gemini-adult-walk-v1",
+      "passed": true,
+      "summary": "十二帧原图对照完成，保持成年身形、原头部与膝踝位置，短袖短裤；尚待原生连续播放与转身检查。"
+    },
+    {
+      "key": "grok-adult-walk-v1",
+      "passed": true,
+      "summary": "十二帧原图对照完成，保持成年身形、原头部与膝踝位置，短袖短裤；尚待原生连续播放与转身检查。"
+    },
+    {
+      "key": "qwen-adult-walk-v1",
+      "passed": true,
+      "summary": "十二帧原图对照完成，保持成年身形、原头部与膝踝位置，短袖短裤；尚待原生连续播放与转身检查。"
+    },
+    {
+      "key": "zhipu-adult-walk-v1",
+      "passed": true,
+      "summary": "十二帧原图对照完成，保持成年身形、原头部与膝踝位置，短袖短裤；尚待原生连续播放与转身检查。"
+    },
+    {
+      "key": "kimi-adult-walk-v1",
+      "passed": true,
+      "summary": "十二帧原图对照完成，保持成年身形、原头部与膝踝位置，短袖短裤；尚待原生连续播放与转身检查。"
+    },
+    {
+      "key": "whale-angry-v1",
+      "passed": true,
+      "summary": "六帧头部、蓝发与坐姿比例保持，生气和抱臂表情连续；短袖短裤。"
+    },
+    {
+      "key": "whale-ball-hit-v1",
+      "passed": false,
+      "summary": "头部基本对应，但坐姿腿部和脚底被向下延伸，身体高度与原图不一致，需返工。"
+    },
+    {
+      "key": "whale-ball-miss-v1",
+      "passed": false,
+      "summary": "相同画布对照中头部和整体人物明显放大，需按原图比例重做。"
+    },
+    {
+      "key": "whale-farewell-v1",
+      "passed": true,
+      "summary": "头部身份与道别、伸手、眨眼姿态对应；保留同一比例的短袖短裤稿，原生尺寸仍待检验。"
+    },
+    {
+      "key": "whale-peek-v1",
+      "passed": true,
+      "summary": "侧身探头姿态、尾巴朝向及原身份保持；需继承原图躲藏动作的尺寸校正后再验原生。"
+    },
+    {
+      "key": "whale-shaken-v1",
+      "passed": true,
+      "summary": "摇晃方向、蓝发与螺旋眼保持，裸露前臂和短裤；待原生连续摇晃检查。"
+    },
+    {
+      "key": "whale-shaken-strong-v1",
+      "passed": true,
+      "summary": "六帧头晕与倾斜方向对应原图，保留尾巴及头饰，待原生尺寸和动态检查。"
+    },
+    {
+      "key": "whale-touch-v1",
+      "passed": true,
+      "summary": "十二帧保持原头部和坐姿比例；接球改为张开掌心，需重测接物点，不能直接沿用旧拳头位置。"
+    },
+    {
+      "key": "whale-dizzy-v1",
+      "passed": true,
+      "summary": "输出是原方形画布的整体等比高分辨率版本；螺旋眼、撑地手和身体姿态对应，不单独缩放人物。"
+    },
+    {
+      "key": "whale-club-v2",
+      "passed": true,
+      "summary": "已移除吹泡泡收手时残留袖口，保留泡泡环、瓶与数星星手势；所有帧逐一对照。"
+    },
+    {
+      "key": "whale-care-v2",
+      "passed": false,
+      "summary": "袖口去除后，第一和最后擦脸姿势丢失毛巾，且透明通道丢失；禁止安装。"
+    },
+    {
+      "key": "deepseek-adult-club-v1",
+      "passed": true,
+      "summary": "按源图实际8列3行对照，成年头身比、长腿、数星星/泡泡/伸展动作保持；待原生道具定位。"
+    },
+    {
+      "key": "deepseek-adult-care-v1",
+      "passed": true,
+      "summary": "梳子和毛巾接触保留，头身、膝踝位置与原图对应，短袖短裤保持成年比例。"
+    },
+    {
+      "key": "deepseek-adult-five-photo-v1",
+      "passed": true,
+      "summary": "同源四姿势逐帧对照，脸型、头部大小、腰膝踝及原手势保持；短袖膝上短裤，待原生接触点复核。"
+    },
+    {
+      "key": "deepseek-adult-five-highfive-v1",
+      "passed": true,
+      "summary": "四个击掌姿势与原图的脸、腿长、手臂位置一致；掌心需按新裁切重映射后运行核验。"
+    },
+    {
+      "key": "deepseek-adult-five-rps-v1",
+      "passed": true,
+      "summary": "四个猜拳拳头姿势、脸与成年腿长保持原图，帧间没有新矮化；运行待核验。"
+    },
+    {
+      "key": "deepseek-adult-five-handoff-v1",
+      "passed": true,
+      "summary": "剪刀、布、接物、持礼物四姿势保持原人体比例，物品在双手上；接触点待重映射。"
+    },
+    {
+      "key": "deepseek-adult-five-book-v1",
+      "passed": true,
+      "summary": "开礼物、翻书、共读及合书四姿势保持原脸和腰膝踝；书与双手接触可见，运行待核验。"
+    },
+    {
+      "key": "gpt-adult-body-v1",
+      "passed": true,
+      "summary": "16姿势对照原图：头身、腰膝踝、抱膝、侧卧、跳跃及积木接触保持；遗留帧尺度需在原生继承。"
+    },
+    {
+      "key": "gpt-adult-contact-v1",
+      "passed": true,
+      "summary": "9姿势对照原图，零食、勺碗、接球双掌的原接触及成年腿长保持；无长袖长裤。"
+    },
+    {
+      "key": "gpt-adult-care-v1",
+      "passed": true,
+      "summary": "8姿势的刷子、毛巾与脸/手接触保留，头与腿长对照一致；浅/深背景和原生待核验。"
+    },
+    {
+      "key": "gpt-adult-club-v1",
+      "passed": true,
+      "summary": "24姿势按实际8列3行核对，数星星、泡泡环、伸展与原腿长保持；泡泡发射点待按新裁切重映射。"
+    },
+    {
+      "key": "gpt-adult-five-photo-v1",
+      "passed": true,
+      "summary": "四个合照姿势保持原脸、站姿、头身与腿长；换为短袖短裤。"
+    },
+    {
+      "key": "gpt-adult-five-highfive-v1",
+      "passed": true,
+      "summary": "四个击掌姿势与原掌心位置、成年比例一致，运行接触待核验。"
+    },
+    {
+      "key": "gpt-adult-five-rps-v1",
+      "passed": true,
+      "summary": "四个猜拳拳头姿势与原人像头身、膝踝位置一致。"
+    },
+    {
+      "key": "gpt-adult-five-handoff-v1",
+      "passed": true,
+      "summary": "剪刀、布、接礼物及持礼物保持原手势、面容和长腿，接物点待核验。"
+    },
+    {
+      "key": "gpt-adult-five-book-v1",
+      "passed": true,
+      "summary": "开礼物、读书、翻页和合书保持原脸与身体比例，未把书替换为外加道具。"
+    },
+    {
+      "key": "whale-basic-approved",
+      "passed": true,
+      "summary": "重新核对已获用户W2批准的六姿势，头与脸保持，衣服为短袖膝上短裤；用户批准不代替原生尺度检查。"
+    },
+    {
+      "key": "whale-walk-approved",
+      "passed": true,
+      "summary": "重新核对已获用户W2批准的十二步态，原腿关节、朝向、尾巴与头身保留；原生插帧待验证。"
+    },
+    {
+      "key": "deepseek-adult-portrait-approved",
+      "passed": true,
+      "summary": "重新核对用户已批准的真人原图换衣单张，脸型、身体与腿长一致，待原生和各动作衔接。"
+    },
+    {
+      "key": "whale-ball-hit-v2",
+      "passed": true,
+      "summary": "返工后头和姿态与原图一致，坐姿双腿保持折叠；鞋底余量变化需在接球到待机切换检查。"
+    },
+    {
+      "key": "whale-ball-miss-v2",
+      "passed": false,
+      "summary": "头部放大已改善，但坐姿双腿仍比原图向下延伸，脚底明显降低；继续返工，不接入。"
+    },
+    {
+      "key": "whale-care-v3",
+      "passed": false,
+      "summary": "透明背景残留且alpha零值比例仅19.74%，不能采用。"
+    },
+    {
+      "key": "whale-care-v4",
+      "passed": true,
+      "summary": "背景移除完成，第一至八帧梳头、擦脸的刷子及毛巾存在，短袖短裤；仅采用前八帧，不引用下方泳装婚纱。"
+    },
+    {
+      "key": "whale-five-main-v1",
+      "passed": true,
+      "summary": "12个物理姿势与原图保持同头身及成年/童趣类别，短袖短裤；跨格边缘须以连通区域隔离，逻辑八格需重新映射。"
+    },
+    {
+      "key": "whale-five-contact-v1",
+      "passed": true,
+      "summary": "12姿势原脸、站姿、击掌/猜拳/礼物/合书接触保留；需用实际新掌心点与隔离裁切接入。"
+    },
+    {
+      "key": "deepseek-adult-emotions-v1",
+      "passed": false,
+      "summary": "表情和衣服参考正确，但底部三个姿势被截腿，不能采用。"
+    },
+    {
+      "key": "whale-ball-miss-v3",
+      "passed": false,
+      "summary": "原有白色发箍丢失，坐姿整体也改变，不采用。"
+    },
+    {
+      "key": "whale-ball-miss-v4",
+      "passed": true,
+      "summary": "在第二稿上仅返工坐姿腿脚后，原头/脸/发箍保留，收紧的双腿与已批准基础坐姿相符；鞋型差异保留，运行切换待复核。"
+    },
+    {
+      "key": "deepseek-adult-emotions-v2",
+      "passed": false,
+      "summary": "十二格虽补齐脚部，但头身和腿长仍不如原成年立绘稳定；改用同一完整立绘四张一组，不采用本稿。"
+    },
+    {
+      "key": "deepseek-adult-emotion-touch-v1",
+      "passed": true,
+      "summary": "以已复核运动服立绘修改上身手势；四姿势腰线、头部尺寸、膝踝和脚底保持，摸头/左右揉脸/挠痒表情完整。"
+    },
+    {
+      "key": "deepseek-adult-emotion-mood-v1",
+      "passed": true,
+      "summary": "以已复核运动服立绘修改表情与手势，四姿势保持成年长腿及原头身；高兴、低落、自抱、眩晕均全身完整。"
+    },
+    {
+      "key": "deepseek-adult-emotion-bonk-v1",
+      "passed": true,
+      "summary": "以已复核运动服立绘修改手臂；四姿势同腿长和脸，原蓝鲸锤由手握住，敲头接触明确；原生衔接待验证。"
+    },
+    {
+      "key": "gpt-angry-v1",
+      "passed": true,
+      "summary": "六帧表情与抱臂手势保留，头部与坐姿位置相符；改为短袖短裤。"
+    },
+    {
+      "key": "gpt-ball-hit-v1",
+      "passed": true,
+      "summary": "碰球后的缩肩、摸头和恢复表情保持原序，头饰完整；待运行验收。"
+    },
+    {
+      "key": "gpt-ball-miss-v1",
+      "passed": true,
+      "summary": "看球、挥手和恢复坐姿保留原尺度，脚部仅更换鞋袜。"
+    },
+    {
+      "key": "gpt-bonk-v1",
+      "passed": true,
+      "summary": "原画槌子的路径和敲头接触保留，未另加程序槌子；短袖短裤。"
+    },
+    {
+      "key": "gpt-chat-v1",
+      "passed": true,
+      "summary": "说话张嘴、伸掌和倾听帧相符，原头部大小与手势保留。"
+    },
+    {
+      "key": "gpt-curl-v1",
+      "passed": true,
+      "summary": "坐姿至抱膝闭眼过程保留，蜷起不拉高到站姿；原膝位相符。"
+    },
+    {
+      "key": "gpt-eat-v1",
+      "passed": false,
+      "summary": "八帧头部与身体被整体放大，不能按相同源画布直接使用；需要重做。"
+    },
+    {
+      "key": "gpt-farewell-v1",
+      "passed": true,
+      "summary": "道别挥手、托腮和等待表情保留，头身与原图接近。"
+    },
+    {
+      "key": "gpt-headpat-v1",
+      "passed": true,
+      "summary": "闭眼、歪头和双手靠脸姿势对应，未放大头部。"
+    },
+    {
+      "key": "gpt-jump-v1",
+      "passed": true,
+      "summary": "六帧原姿势顺序、弯腿和空中小帧布局保留；沿用源动作尺度校正后仍需原生检查。"
+    },
+    {
+      "key": "gpt-peek-v1",
+      "passed": true,
+      "summary": "边缘探头的倾斜、扶边位置和头部大小对应，服装为短袖短裤。"
+    },
+    {
+      "key": "gpt-pickup-v1",
+      "passed": false,
+      "summary": "提起时数帧膝脚被向下拉长，原弯腿姿态改变；需重做。"
+    },
+    {
+      "key": "gpt-shaken-v1",
+      "passed": true,
+      "summary": "摇晃的头发方向、旋涡表情和摆腿顺序保留，头部未放大。"
+    },
+    {
+      "key": "gpt-shaken-strong-v1",
+      "passed": true,
+      "summary": "强摇晃的左右倾斜、旋涡表情和脚部方向对应原图。"
+    },
+    {
+      "key": "gpt-think-v1",
+      "passed": false,
+      "summary": "中间四帧头部相对原图放大，违反原像素尺度；需重做。"
+    },
+    {
+      "key": "gpt-meal-v1",
+      "passed": true,
+      "summary": "六帧碗勺到嘴、咀嚼和收回顺序保留，同姿态头部大小相符。"
+    },
+    {
+      "key": "gpt-build-v1",
+      "passed": true,
+      "summary": "逐帧对照十二姿势，头部大小、跪坐腿部和手拿积木的顺序对应原图。"
+    },
+    {
+      "key": "gpt-club-v1",
+      "passed": true,
+      "summary": "24帧同源缩放对照，数星星指点、吹泡泡圈口和伸懒腰姿态保留，待核对原生接触点。"
+    },
+    {
+      "key": "gpt-dizzy-v1",
+      "passed": true,
+      "summary": "保留单张侧倾、旋涡眼与按太阳穴姿态，短袖短裤；坐姿透视与原图相近。"
+    },
+    {
+      "key": "gpt-five-main-v1",
+      "passed": true,
+      "summary": "20帧击掌猜拳礼物阅读合照按原图换衣，头部、膝脚位置和道具顺序相符。"
+    },
+    {
+      "key": "gpt-adult-emotion-touch-v1",
+      "passed": true,
+      "summary": "以已复核真人运动服照片图为基底，四帧完整长腿、膝踝与头部大小保留，仅编辑手臂表情。"
+    },
+    {
+      "key": "gpt-adult-emotion-mood-v1",
+      "passed": true,
+      "summary": "四帧沿用已复核运动服真人身体，微笑失落抱臂头晕对应设计，脚底未裁切。"
+    },
+    {
+      "key": "gpt-adult-emotion-bonk-v1",
+      "passed": true,
+      "summary": "四帧保留已复核真人身材，轻槌动作与手臂连贯，完整膝踝鞋底未裁切。"
+    },
+    {
+      "key": "gpt-pickup-v2",
+      "passed": true,
+      "summary": "修订提起姿态后，弯膝脚底位置回到原图附近，头身比例未整体放大。"
+    },
+    {
+      "key": "gpt-think-v2",
+      "passed": true,
+      "summary": "修订中间帧头部放大问题，同画布下头部和头发尺度与原图相符。"
+    },
+    {
+      "key": "gpt-touch-v1",
+      "passed": false,
+      "summary": "第2、3、5、6、7帧残留旧衣服白色前臂袖口，需去除并保留原手势。"
+    },
+    {
+      "key": "gpt-care-v1",
+      "passed": false,
+      "summary": "擦脸第二行第1及第3格仍持梳子而非毛巾，会导致道具突变，需修正。"
+    },
+    {
+      "key": "gpt-eat-v2",
+      "passed": false,
+      "summary": "头部比例已恢复，但坐姿鞋底比原图垂低，需恢复向前的原小腿投影。"
+    }
+  ]
+}

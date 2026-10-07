@@ -10,6 +10,20 @@
     "src/DesktopPet.App/Assets/Characters/kimi-adult/outfits/sports/portrait.png"
   ],
   "tool": "built-in image_gen",
-  "status": "generated-awaiting-geometry-review",
-  "selected": false
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-07",
+    "passed": true,
+    "summary": "单张与原装同画布对照，脸型、头饰、交叉腿姿势及成年身形保留；短袖短裤，未代表动作通过。",
+    "evidence": [
+      ".artifacts/sports-identity-review/kimi-adult-portrait-v1-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "04e7576d9acbdd22f821a55c0d209c536b0948a4e6c6caa123591542449ed9db",
+    "originalSha256": "7da6156f1f470dd4fdae075cb7a20f99a25628979827eb34069f19e6d13c501e",
+    "comparisonFingerprint": "07278828b170108a3c07fc9e2523a5aca7d4f758d1eb5f8ba5039a6c4d0e9f1e"
+  }
 }

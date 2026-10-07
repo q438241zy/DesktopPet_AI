@@ -1,0 +1,31 @@
+{
+  "key": "whale-jump-v3",
+  "id": "whale",
+  "style": "chibi",
+  "kind": "jump",
+  "columns": 3,
+  "rows": 2,
+  "source": "artwork/sports-identity/whale-jump-v3.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/whale/motions/jump.webp"
+  ],
+  "prompt": "EDIT ONLY THE CLOTHES in the single attached source atlas. Keep the attached original image composition pixel-aligned: all six ORIGINAL character sizes, exact blue heads, faces, ears, white frilled headband, cyan bows, tails, hand poses, kneecap locations and foot locations must remain in their original positions. No character redrawing, no enlargement. Maintain the original 1536x1024 canvas and 3x2 layout. Especially KEEP the four small airborne figures at their original 295-pixel full-figure height: top row column2 occupies local y80..375; top row column3 y42..337; bottom row column1 y31..326; bottom row column2 y76..371. They MUST stay small within the same generous transparent cell margins. Keep tuck of knees/shoes exactly as source, do not extend legs downward. Replace maid clothes by white high-collar zip athletic shirt with NAVY short sleeves only upper arms, cyan thin piping, tiny blue whale chest mark; NAVY SHORTS above knees; white ankle socks and WHITE-BLUE SMALL SNEAKERS matching exact original foot size. Remove long sleeves, wrist cuffs, apron, skirt and tights. Forearms and legs naturally exposed, bare wrists. Keep everything outside the old clothes unchanged. Ignore invisible transparent RGB junk. Output genuine TRANSPARENT background, no glow or backdrop.",
+  "tool": "built-in image_gen",
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-bc704273-f938-4504-b883-ad77bf712828.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-07",
+    "passed": true,
+    "summary": "六帧起跳、腾空及落地姿势对应原图；原图中间小帧必须在原生校正，不能直接等高播放。",
+    "evidence": [
+      ".artifacts/sports-identity-review/whale-jump-v3-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "3ab2bfe6c0558d6ae8587758fc580f1750992bc9ee36013e5bed3911323d6af2",
+    "originalSha256": "10037e52a395e2c6d8f9f1f53799943fe3ed691ef60e7e2e73f99adda7ea46ce",
+    "comparisonFingerprint": "ae4c4f40f94cf8c4dbad45021b9a21111ff35c68d64935cf1c120b67e533eb8d"
+  }
+}

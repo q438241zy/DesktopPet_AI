@@ -1,0 +1,35 @@
+{
+  "key": "whale-care-v4",
+  "id": "whale",
+  "style": "chibi",
+  "kind": "care",
+  "columns": 4,
+  "rows": 6,
+  "prompt": "Remove the ENTIRE colored blue/white glowy BACKGROUND from this 1024x1536 sprite sheet, making all space OUTSIDE the 24 characters and their held props fully transparent alpha=0. This is only a background-removal edit. Preserve all character pixels and proportions, hair, headband, outfits, shorts, shoes, the hairbrushes and every cream towel, including the two hand-held towels at row2 columns1 and4. Do NOT redraw the figures, move them, resize them, change their poses, add a shadow, or leave blue glow/colored rectangles behind. Exact same 1024x1536 4-column 6-row canvas. Transparent empty canvas; clean antialiased edges; keep white fabric/towels opaque.",
+  "source": "artwork/sports-identity/whale-care-v4.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/whale/motions/cloud-care-wardrobe.png"
+  ],
+  "generationReferences": [
+    "artwork/sports-identity/whale-care-v3.png"
+  ],
+  "comparisonRole": "original-clothing-edit",
+  "tool": "built-in image_gen",
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-98cfbd9b-1be8-4ff5-9d87-80dddf7d39e6.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-07",
+    "passed": true,
+    "summary": "背景移除完成，第一至八帧梳头、擦脸的刷子及毛巾存在，短袖短裤；仅采用前八帧，不引用下方泳装婚纱。",
+    "evidence": [
+      ".artifacts/sports-identity-review/whale-care-v4-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "13e95249ffa58ae4bf7dd0c5f4376d771ac6a005c53007aa02f6636aca55d1b6",
+    "originalSha256": "8573f860c00d112a1ee9f6d89b3ba7c0cecedf41276db3d0dbe1340b323ba404",
+    "comparisonFingerprint": "d92aae73b59b255f88aa1262bde1b07ee79f135fb0f528fd363bd56c165c5652"
+  }
+}

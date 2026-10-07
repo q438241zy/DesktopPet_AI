@@ -1,0 +1,31 @@
+{
+  "key": "whale-peek-v1",
+  "id": "whale",
+  "style": "chibi",
+  "kind": "peek",
+  "columns": 3,
+  "rows": 2,
+  "source": "artwork/sports-identity/whale-peek-v1.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/whale/motions/peek.webp"
+  ],
+  "prompt": "Edit ONLY clothing on the single original DeepSeek chibi peek action atlas. Preserve exact source 1536x1024 canvas and 3-column by 2-row six-frame layout, source pose sequence, original per-frame character SCALE, head/body anatomy and position. This is putting clothes on the SAME character, no redesign. Preserve face, eyes, expression, blue hair, white frilly HEADBAND, fin ears, cyan bow, blue whale tail and hair accessories in ALL six frames. Preserve every exact original hand/wrist, hip/knee/ankle location and the action gesture of each frame, including turning/leaning/crouching. Replace only old long sleeves, maid dress, apron, tights and boots with white zip-front high-collar athletic shirt with NAVY short upper-arm sleeves, cyan piping and small blue whale chest emblem; navy athletic SHORTS ending well above knees with thin white side stripes, white ankle socks and small white-blue sneakers. Bare forearms with NO wrist cuffs, bare knees/lower legs. Keep original props and emotion symbols but do not add separate effect objects. Keep original canvas margins and figure heights exactly, especially any intentionally smaller middle poses. No making heads bigger, moving joints, shorter legs or wider bodies. Genuine transparent alpha outside the full character/props; no painted background, new shadow, glow, grid or captions.",
+  "tool": "built-in image_gen",
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-88c309af-4f00-45dd-a563-ed221d63a382.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-07",
+    "passed": true,
+    "summary": "侧身探头姿态、尾巴朝向及原身份保持；需继承原图躲藏动作的尺寸校正后再验原生。",
+    "evidence": [
+      ".artifacts/sports-identity-review/whale-peek-v1-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "f0337d9d84c63d8f140b6e219eebc5f2c2e662add995e8e0426beefd45ed33e4",
+    "originalSha256": "755aef0be5ab7acf79af6d346a7115be1f758329207d4c6c5da330f04c4af5b8",
+    "comparisonFingerprint": "b191d7fabffa031da55f916f72ec8f4b3ccf2342293c9e310f8dee67ce8d2b56"
+  }
+}

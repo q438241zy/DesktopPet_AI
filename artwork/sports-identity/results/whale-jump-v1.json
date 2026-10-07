@@ -12,6 +12,20 @@
     "docs/demo/wardrobe-identity/art/deepseek-chibi-sports-v1.png"
   ],
   "tool": "built-in image_gen",
-  "status": "generated-awaiting-geometry-review",
-  "selected": false
+  "status": "not-selected-after-review",
+  "selected": false,
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-07",
+    "passed": false,
+    "summary": "腾空帧比原图约大18–24%，以v3取代。",
+    "evidence": [
+      ".artifacts/sports-identity-review/whale-jump-v1-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "5045ea38bfcce171dd47075b3d080870515fa52d8f4b9fdf9be0d4b6372c0ec5",
+    "originalSha256": "10037e52a395e2c6d8f9f1f53799943fe3ed691ef60e7e2e73f99adda7ea46ce",
+    "comparisonFingerprint": "e81289799ecf76509f62f4ef9aa73d618cd1fea565c727c5b92c921e01ae5a9e"
+  }
 }

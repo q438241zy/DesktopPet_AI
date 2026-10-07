@@ -1,0 +1,36 @@
+{
+  "key": "deepseek-adult-emotions-v2",
+  "id": "deepseek-adult",
+  "style": "realistic",
+  "kind": "emotions",
+  "columns": 3,
+  "rows": 4,
+  "prompt": "Create an exact 1024x1536 transparent sprite atlas of the SAME adult DeepSeek woman shown in the reference. The reference is authoritative for her mature photorealistic 3D face, small head-to-body ratio, long adult thighs/shins, slender proportions, blue hair, fin ears, white frilly headband, cyan bow, navy/white SHORT upper-arm sleeve sports shirt, navy athletic SHORTS ending above knees and white-blue low-top sneakers. This is 12 FULL-BODY poses, 3 columns x 4 rows. ALL TWELVE FIGURES MUST FIT WITH COMPLETE SHOES. DO NOT CROP BOTTOM ROW AT KNEES OR ANKLES. Cells are 341x384. Every whole person (including head accessories, raised arm and hammer) must fit within y=20..355 of her local cell, leaving 29 pixels EMPTY below the soles. Character body anatomical height about 310px, same in ALL 12 cells; choose one global scale so raised props fit without changing anatomy. Do not fill cells with oversized torso, do not make top rows tall and then truncate last row. Keep fully transparent margins between cells. Row1: neutral arms down, happy eyes-closed receiving headpat hands behind back, shy head lowered hands together. Row2: right hand cupping right cheek, left hand cupping left cheek, laughing tickled with open hands and shrug. Row3: smiling eyes-closed self-hug, pleased hands clasped near chest, sad looking down arms at sides. Row4: dizzy off-balance with BOTH feet fully visible and small swirls, holding a cute blue whale head toy hammer with pink endcaps just above her head, gently tapping her own head with SAME hammer eyes closed. Headband in every frame. Whole body head through COMPLETE SHOES including row4. Arms and legs proportionally adult and never compressed. No gradient, glow, shadow, text or background; true transparent alpha. Output exact 3x4 grid on 1024x1536.",
+  "source": "artwork/sports-identity/deepseek-adult-emotions-v2.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/deepseek-adult/outfits/sports/portrait.png",
+    "docs/demo/wardrobe-identity/art/deepseek-realistic-sports-v1.png"
+  ],
+  "generationReferences": [
+    "docs/demo/wardrobe-identity/art/deepseek-realistic-sports-v1.png"
+  ],
+  "comparisonRole": "previous-pose-guide; identity from second reference",
+  "tool": "built-in image_gen",
+  "status": "not-selected-after-review",
+  "selected": false,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-145251b1-75fe-46ad-bf12-ff0025ebb568.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-07",
+    "passed": false,
+    "summary": "十二格虽补齐脚部，但头身和腿长仍不如原成年立绘稳定；改用同一完整立绘四张一组，不采用本稿。",
+    "evidence": [
+      ".artifacts/sports-identity-review/deepseek-adult-emotions-v2-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "dc0d6034845d1caaa6f5fdf51f2d238e4cb0eec328ac14e21d90f0e37bbd1db8",
+    "originalSha256": "57996e8c1d7b34ec0c5828be49e5c97ae834349d72b6b568590e3f3f728198d7",
+    "comparisonFingerprint": "0d8a5bcb04a23e576a16ee14228262f7052797b7de2267de84bb7a78043909ba"
+  }
+}

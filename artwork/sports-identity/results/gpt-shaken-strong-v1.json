@@ -1,0 +1,34 @@
+{
+  "key": "gpt-shaken-strong-v1",
+  "id": "gpt",
+  "style": "chibi",
+  "kind": "shaken-strong",
+  "columns": 3,
+  "rows": 2,
+  "source": "artwork/sports-identity/gpt-shaken-strong-v1.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/gpt/motions/shaken-strong.webp"
+  ],
+  "generationReferences": [
+    "src/DesktopPet.App/Assets/Characters/gpt/motions/shaken-strong.webp"
+  ],
+  "prompt": "Precise clothing-only EDIT of this original GPT Q/chibi original character action atlas. Keep EXACT source 1536x1024 canvas, all original figure positions, pose order, cell spacing and camera. Never repack or rescale figures to fill margins. Preserve original face and head SIZE, head-body ratio, shoulders, torso, hips, knees, ankles, feet and hand/wrist/finger positions in EVERY pose, including sitting, lying, leaning, bent knees or raised hands. This is clothing on the SAME person, no redesign, no doll anatomy, no larger head, no shorter or thicker legs. Preserve silver/lavender hair, violet eyes, horns, pointed ears, knot hair ornament and ahoge, all expressions and hair/ear/tail silhouettes and directions.\nReplace only old dress/apron, long sleeves, wrist cuffs, tights and boots with a WHITE zip-front school sports shirt with deep emerald green upper-arm SHORT SLEEVES/shoulder panels, green piping and small green knot chest motif; deep emerald green athletic SHORTS ending well ABOVE knees with narrow white side stripes; white ankle socks and small white-green low-top sneakers at the original ankle/sole positions. Keep neckline modest and zipped. Bare forearms, knees and lower legs. NO long sleeves, trousers, gloves or leftover wrist frills. Keep headband and hair accessories even if they are frilly. Keep original hand contacts and ALL existing props, fingers and gesture shapes; do not invent an extra ball, hammer, sparkle or particle.\nIMPORTANT: preserve the source's exact head and limb coordinates, original folded seated legs, original small margins at canvas edge, and full figure heights. No longer dangling seated legs and no shortening adult legs to fit a raised arm. Genuine transparent alpha outside characters and held objects. No painted backdrop, gradient, glow, grid, label or extra shadow.",
+  "tool": "built-in image_gen",
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-cd9c8fff-521e-46db-a715-039fb22fe2ed.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-07",
+    "passed": true,
+    "summary": "强摇晃的左右倾斜、旋涡表情和脚部方向对应原图。",
+    "evidence": [
+      ".artifacts/sports-identity-review/gpt-shaken-strong-v1-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "6102c1bfb97d77e1fa6cf078b7b49173ebd68d77fd990feff721ea5c6caeca8d",
+    "originalSha256": "44687f0870321afea8733e5ce3efdfbf51e4e92661de3dd07a680c5bfb710cb4",
+    "comparisonFingerprint": "66009713a6b0bd5ef942bf9880d98da1a28e33ec386acd8355a9df6a17253dd0"
+  }
+}

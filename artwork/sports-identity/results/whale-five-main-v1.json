@@ -1,0 +1,34 @@
+{
+  "key": "whale-five-main-v1",
+  "id": "whale",
+  "style": "chibi",
+  "kind": "five-main",
+  "columns": 3,
+  "rows": 4,
+  "prompt": "Clothing-only edit of this original DeepSeek character atlas. Keep EXACT source canvas width/height, each original cell and figure scale, physical layout and margins. Preserve every pose, original face/head size, natural head-body and leg proportions, eyes, blue hair, fin ears, headband, bow and any tail. Preserve ALL exact hand/finger/wrist positions and prop contact. Dress the EXISTING body in a white zipped sports shirt with NAVY short upper-arm sleeves and cyan piping, small blue whale emblem, NAVY above-knee SHORTS with thin white side stripes, white ankle socks and small white-blue sneakers. Bare forearms, knees/lower legs; no old dress, tights, long sleeves or cuffs. NO shortening or widening body, changing gestures, removing or adding props. Genuine transparent alpha, no background, grid, caption or new effects. Keep all TWELVE original standing Q/chibi poses in THREE columns FOUR rows, including the gift, cloud toy, book and page-turn. Preserve the exact source (1086x1448) canvas. Keep hands and original fingers intact, no changing rock/scissors/paper symbols.",
+  "source": "artwork/sports-identity/whale-five-main-v1.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/whale/interactions/original/deepseek-chibi-v1.png"
+  ],
+  "generationReferences": [
+    "src/DesktopPet.App/Assets/Characters/whale/interactions/original/deepseek-chibi-v1.png"
+  ],
+  "tool": "built-in image_gen",
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-5bf418dd-932e-43b2-be5e-7fc1acf6b4da.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-07",
+    "passed": true,
+    "summary": "12个物理姿势与原图保持同头身及成年/童趣类别，短袖短裤；跨格边缘须以连通区域隔离，逻辑八格需重新映射。",
+    "evidence": [
+      ".artifacts/sports-identity-review/whale-five-main-v1-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "344da5f14f0c16aa01bb57e4cc237768c48f01a079fadfdea059e8abc86cf978",
+    "originalSha256": "5aa3cf89f60fc840a6a34c1b860fc99ccf55f913e59b5d347c0c2310b2d8f590",
+    "comparisonFingerprint": "a6a2c98000d71989cdf2ab38c6a09bcb2e860f0171cbf3356588aa2db7213ab7"
+  }
+}

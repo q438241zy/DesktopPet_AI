@@ -11,6 +11,23 @@ FAMILIES = [('whale', 'DeepSeek', 'deepseek-adult')] + [(s, n, s+'-adult') for s
 roster = {}
 provenance = []
 
+def reviewed(cid, kinds):
+    options=[]
+    for path in (ROOT/'artwork/sports-identity/results').glob('*.json'):
+        job=json.loads(path.read_text(encoding='utf-8-sig'))
+        review=job.get('visualReview') or {}
+        if job['id']!=cid or job['kind'] not in kinds or not job.get('selected') or not review.get('passed'):
+            continue
+        source=ROOT/job['source']
+        if hashlib.sha256(source.read_bytes()).hexdigest()!=review.get('candidateSha256'):
+            raise ValueError('Stale image review: '+job['key'])
+        if hashlib.sha256((ROOT/job['references'][0]).read_bytes()).hexdigest()!=review.get('originalSha256'):
+            raise ValueError('Stale original review: '+job['key'])
+        options.append(source)
+    if len(options)!=1:
+        raise ValueError(f'{cid} {kinds}: expected one reviewed selection, found {len(options)}')
+    return options[0]
+
 def copy(source, name, sprite=None):
     target = DEMO / 'art/roster' / (name + source.suffix)
     target.parent.mkdir(parents=True, exist_ok=True)
@@ -35,12 +52,12 @@ for family, name, adult in FAMILIES:
         if family == 'whale':
             selected = DEMO/'art'/('deepseek-chibi-sports-v1.png' if style == 'chibi' else 'deepseek-realistic-sports-v1.png')
         else:
-            selected = ROOT/'artwork/sports-identity'/(cid+('-basic-v1.png' if style == 'chibi' else '-portrait-v1.png'))
+            selected = reviewed(cid, ['basic','original-basic','original-six'] if style=='chibi' else ['portrait','original-portrait'])
         value = dict(original=original, candidate=copy(selected,cid+'/sports-identity',dict(columns=3,rows=2) if style=='chibi' else None), gallery=gallery)
         if style == 'chibi':
             sprite = pet['motions']['walk']
             value['walkOriginal'] = copy(folder/sprite['file'],cid+'/walk-original',sprite)
-            walk = DEMO/'art/deepseek-chibi-sports-walk-v2.png' if family=='whale' else ROOT/'artwork/sports-identity'/(cid+'-walk-v1.png')
+            walk = DEMO/'art/deepseek-chibi-sports-walk-v2.png' if family=='whale' else reviewed(cid,['walk','original-walk'])
             value['walkCandidate'] = copy(walk,cid+'/walk-identity',dict(columns=3,rows=4))
         entry[style] = value
     roster[family] = entry

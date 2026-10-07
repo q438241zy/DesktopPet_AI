@@ -10,6 +10,20 @@
     "src/DesktopPet.App/Assets/Characters/grok-adult/outfits/sports/portrait.png"
   ],
   "tool": "built-in image_gen",
-  "status": "generated-awaiting-geometry-review",
-  "selected": false
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-07",
+    "passed": true,
+    "summary": "单张与原装同画布对照，脸型、头饰、交叉腿姿势及成年身形保留；短袖短裤，未代表动作通过。",
+    "evidence": [
+      ".artifacts/sports-identity-review/grok-adult-portrait-v1-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "201f04491bfa9d7c8107494f956900b8a931df1bbc09538c04c4a7b4b8f0bf32",
+    "originalSha256": "c0df0dd834b5a585a8d9a937d2650a9120869c47919e0e24c43219469270c85e",
+    "comparisonFingerprint": "789eb70382e608d20475853e6ba6cacc1650440816e1c4383cbd09b6d6b0974f"
+  }
 }

@@ -1,0 +1,34 @@
+{
+  "key": "deepseek-adult-care-v1",
+  "id": "deepseek-adult",
+  "style": "realistic",
+  "kind": "care",
+  "columns": 4,
+  "rows": 2,
+  "prompt": "Edit ONLY clothing in this original photorealistic 3D ADULT DeepSeek 1536x1024 4-column 2-row 8-frame care atlas. Preserve adult facial identity, LONG adult legs, poses and original body size. TOP row: comb hair with brown brush, preserve brush and hand. BOTTOM row: wipe face with cream towel, preserve towel and hand/cheek contact; towel is not a sleeve. Keep original ankle/foot places and difference in sizes between two rows. This is a clothing edit of the SAME original character, not a redesign. Preserve original face, exact head size, hair/headband/ears/tail, expression, each hand/wrist/hip/knee/ankle position, pose, perspective, figure height and location on the source canvas. Outfit: white zip-front athletic shirt, NAVY short upper-arm sleeves with cyan piping and small blue whale chest emblem; navy above-knee athletic SHORTS with thin white side stripes; bare forearms without white cuffs, bare knees and lower legs, white ankle socks and small white/navy sneakers. Never shorten legs, enlarge head, thicken body, change a pose, or move a prop. Genuine transparent alpha outside all characters and props. No backdrop, captions, grid, extra effects or shadow.",
+  "source": "artwork/sports-identity/deepseek-adult-care-v1.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/deepseek-adult/motions/cloud-care-original.png"
+  ],
+  "generationReferences": [
+    "src/DesktopPet.App/Assets/Characters/deepseek-adult/motions/cloud-care-original.png"
+  ],
+  "tool": "built-in image_gen",
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-2a61f082-404b-4cfc-abc0-5bee05071c05.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-07",
+    "passed": true,
+    "summary": "梳子和毛巾接触保留，头身、膝踝位置与原图对应，短袖短裤保持成年比例。",
+    "evidence": [
+      ".artifacts/sports-identity-review/deepseek-adult-care-v1-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "fb25aeff2402a0c601c4d16efb0e5a51ff9ea15eec8b63bb209bf7482c61ed31",
+    "originalSha256": "4e2148d28cea19544fe26fe15d7a7ca247c0bca0d09cbdc69339cefb3eeaa0a1",
+    "comparisonFingerprint": "7bd33747f5eaa771ad5e311eb0bcb3830698d422c4940079d06d132c9b527490"
+  }
+}

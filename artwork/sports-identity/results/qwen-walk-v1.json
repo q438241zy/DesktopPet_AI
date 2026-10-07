@@ -10,6 +10,20 @@
     "src/DesktopPet.App/Assets/Characters/qwen/outfits/sports/core.png"
   ],
   "tool": "built-in image_gen",
-  "status": "generated-awaiting-geometry-review",
-  "selected": false
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-07",
+    "passed": true,
+    "summary": "十二帧原图对照完成，步态顺序、朝向、头发及腿部比例保留；插帧与衣服切换尚未原生验证。",
+    "evidence": [
+      ".artifacts/sports-identity-review/qwen-walk-v1-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "1d30e215e73130abe6fe3397ceb2d09d1d0bcca7a5537210c834521a92be8933",
+    "originalSha256": "6a276465848bcf0b82d1bfa9343ba78d073efa5491577f25d38ee00d335a7140",
+    "comparisonFingerprint": "bb8c6b3fa61d94138e7d7328647d57c52f8c5dec42057ea7310eb89423783e65"
+  }
 }

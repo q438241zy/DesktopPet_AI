@@ -1,0 +1,34 @@
+{
+  "key": "gpt-dizzy-v1",
+  "id": "gpt",
+  "style": "chibi",
+  "kind": "dizzy",
+  "columns": 1,
+  "rows": 1,
+  "source": "artwork/sports-identity/gpt-dizzy-v1.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/gpt/dizzy.png"
+  ],
+  "generationReferences": [
+    "src/DesktopPet.App/Assets/Characters/gpt/dizzy.png"
+  ],
+  "prompt": "Precise clothing-only EDIT of this original GPT Q/chibi original character action atlas. Keep EXACT source 512x512 canvas, all original figure positions, pose order, cell spacing and camera. Never repack or rescale figures to fill margins. Preserve original face and head SIZE, head-body ratio, shoulders, torso, hips, knees, ankles, feet and hand/wrist/finger positions in EVERY pose, including sitting, lying, leaning, bent knees or raised hands. This is clothing on the SAME person, no redesign, no doll anatomy, no larger head, no shorter or thicker legs. Preserve silver/lavender hair, violet eyes, horns, pointed ears, knot hair ornament and ahoge, all expressions and hair/ear/tail silhouettes and directions.\nReplace only old dress/apron, long sleeves, wrist cuffs, tights and boots with a WHITE zip-front school sports shirt with deep emerald green upper-arm SHORT SLEEVES/shoulder panels, green piping and small green knot chest motif; deep emerald green athletic SHORTS ending well ABOVE knees with narrow white side stripes; white ankle socks and small white-green low-top sneakers at the original ankle/sole positions. Keep neckline modest and zipped. Bare forearms, knees and lower legs. NO long sleeves, trousers, gloves or leftover wrist frills. Keep headband and hair accessories even if they are frilly. Keep original hand contacts and ALL existing props, fingers and gesture shapes; do not invent an extra ball, hammer, sparkle or particle.\nIMPORTANT: preserve the source's exact head and limb coordinates, original folded seated legs, original small margins at canvas edge, and full figure heights. No longer dangling seated legs and no shortening adult legs to fit a raised arm. Genuine transparent alpha outside characters and held objects. No painted backdrop, gradient, glow, grid, label or extra shadow.",
+  "tool": "built-in image_gen",
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-ccd9c61b-070f-4e88-ba77-db7a3d23d6cf.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-07",
+    "passed": true,
+    "summary": "保留单张侧倾、旋涡眼与按太阳穴姿态，短袖短裤；坐姿透视与原图相近。",
+    "evidence": [
+      ".artifacts/sports-identity-review/gpt-dizzy-v1-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "909025ff274e9b7eef6ef48acb093e9f17f704322b69812d920d8244ccb35eff",
+    "originalSha256": "27dbf631bbe8e2618cbcc5fe8f4b9d2ef8eb47fe261b6fbdf6de5f3d002a4631",
+    "comparisonFingerprint": "bab7e7a35fe858f2fc7a11d13e1c6daedbf9d62e4bb75119e13b067ec44e7175"
+  }
+}

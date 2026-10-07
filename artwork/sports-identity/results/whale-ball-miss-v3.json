@@ -1,0 +1,35 @@
+{
+  "key": "whale-ball-miss-v3",
+  "id": "whale",
+  "style": "chibi",
+  "kind": "ball-miss",
+  "columns": 3,
+  "rows": 2,
+  "prompt": "Clothing-only edit of this exact original 1536x1024 six-pose DeepSeek Q/chibi atlas, 3 columns x 2 rows. Preserve the ORIGINAL body's coordinates and all visible contours except costume. The character is SITTING with LEGS FOLDED TIGHTLY IN FRONT OF HER, the tiny original dark soles facing forward. Do NOT turn this into a chair-sitting pose with legs hanging down. In every cell the two sneaker soles MUST occupy the exact original dark shoe sole locations, not below them. Keep the floor baseline and the tiny distance from fists to knees to soles identical to this source. Keep the head, eyes, hair, headband, fin ears, blue whale tail and hands PIXEL ALIGNED with the original. Original small torso and tightly tucked-in thighs unchanged. Only replace maid dress/apron/long sleeves/wrist frills and tights with white zipped school sports shirt, navy SHORT upper-arm sleeves and navy above-knee SHORTS. Small white-blue sneakers viewed with SOLES FORWARD exactly where the original soles are. Do not elongate thighs, forearms, calves, ankles or torso. All six emotions remain original: side-looking, surprised, tilted smile, wave, happy, settled. No zoom, no enlarged heads, no repositioning, no extra objects or shadow. True transparent alpha outside the figures; no colored background. Exact 1536x1024 canvas.",
+  "source": "artwork/sports-identity/whale-ball-miss-v3.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/whale/motions/ball-miss.webp"
+  ],
+  "generationReferences": [
+    "src/DesktopPet.App/Assets/Characters/whale/motions/ball-miss.webp"
+  ],
+  "comparisonRole": "original-clothing-edit",
+  "tool": "built-in image_gen",
+  "status": "not-selected-after-review",
+  "selected": false,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-da1521e3-bb46-472a-8c24-d5fb2d01232a.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-07",
+    "passed": false,
+    "summary": "原有白色发箍丢失，坐姿整体也改变，不采用。",
+    "evidence": [
+      ".artifacts/sports-identity-review/whale-ball-miss-v3-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "cf6f7509b893d325d4ead449ffd81bf215c632f58a4e1b7067e475a19ca50452",
+    "originalSha256": "aceff42b8049045bd0b70e9187b5b39387d153198bfd2f557ce4038a08e99a7f",
+    "comparisonFingerprint": "9482c10a5b19cd46f304fbd2d2557154c4ccf4bc8cf0c2d078a9c84c413804fc"
+  }
+}

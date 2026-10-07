@@ -1,0 +1,35 @@
+{
+  "key": "whale-ball-hit-v2",
+  "id": "whale",
+  "style": "chibi",
+  "kind": "ball-hit",
+  "columns": 3,
+  "rows": 2,
+  "prompt": "Precise clothing-only edit of this original DeepSeek chibi 1536x1024 six-frame sheet (3 columns, 2 rows). Keep source head and face size EXACTLY, and retain every single source figure's position and height. Do not enlarge the figures to fill cell margins. Retain original seated folded-leg posture, hips, knees, ankles and shoe sole positions EXACTLY; feet must NOT move downward to make longer hanging legs. Preserve source facial expressions, blue hair/headband/ears/tail, exact hand gestures. Replace old maid dress and long sleeves with white zip shirt, NAVY SHORT upper-arm sleeves, cyan piping, small blue whale emblem, NAVY above-knee SHORTS, white ankle socks and SMALL white-blue sneakers replacing boots at the original locations. No old wrist cuffs, no white frills except HEADBAND. Don't change anatomy, hand gestures, feet stance or hair size. Genuine transparent alpha background, with no new prop or effects. All six poses stay sitting directly on the ground with feet pointing forwards at the original height. Do NOT show the legs dangling down from an imaginary chair.",
+  "source": "artwork/sports-identity/whale-ball-hit-v2.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/whale/motions/ball-hit.webp"
+  ],
+  "generationReferences": [
+    "src/DesktopPet.App/Assets/Characters/whale/motions/ball-hit.webp"
+  ],
+  "comparisonRole": "original-clothing-edit",
+  "tool": "built-in image_gen",
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-85676722-dec5-48b0-b7eb-03ca4d149f2a.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-07",
+    "passed": true,
+    "summary": "返工后头和姿态与原图一致，坐姿双腿保持折叠；鞋底余量变化需在接球到待机切换检查。",
+    "evidence": [
+      ".artifacts/sports-identity-review/whale-ball-hit-v2-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "1ebff3bb327803b1119135a68a9e0e78016b1f507a7d94e477b4bc3035e2709e",
+    "originalSha256": "c7a0151dce22680fb12c42ad2f6f11a43e68d719aeadef99e4d3cce3d1238f0e",
+    "comparisonFingerprint": "0cdccf9d08ffd1146c7e03bcbd02245e46d58079012576defe8d0c54683f1b75"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "key": "whale-headpat-v2",
+  "id": "whale",
+  "style": "chibi",
+  "kind": "headpat",
+  "columns": 3,
+  "rows": 2,
+  "source": "artwork/sports-identity/whale-headpat-v2.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/whale/motions/headpat.webp",
+    "docs/demo/wardrobe-identity/art/deepseek-chibi-sports-v1.png"
+  ],
+  "prompt": "Precise CLOTHING-ONLY edit. Image 1 is the edit target: ORIGINAL DeepSeek Q headpat animation, six distinct frames in 3 columns x 2 rows, 1536x1024. Image 2 is ONLY the approved sports-uniform reference. Preserve the original poses and expressions one by one, including original head size, cheek shape, eye positions, blue hair silhouette and whale tail, white frilly headband, small cyan bow, body proportion, all hand/leg and ankle positions, and source-cell placement. Each cell is 512x512; preserve original generous empty margins, crown near y=55 and soles near y=445 in upper row, with +512 for lower row. Do not enlarge figures or fill cells. Do not copy poses from the sports reference. ONLY replace the maid dress, sleeves and tights with the white/navy short-sleeve zipped sports shirt, navy athletic above-knee shorts, white ankle socks and white/blue sneakers of image2. Keep seated legs bent in exactly the original position, no shorter or wider body. Retain all six gradual facial changes and original subtle head tilts: eyes open, half relaxed, smiling eyes closed, tilt, recover, eyes open. Do not add a floating petting hand. Output real transparent alpha, no backdrop, checkerboard, text, margins filled with color, or glow. Ignore all RGB artifacts in transparent pixels. Identity and animation pose preservation are essential.",
+  "tool": "built-in image_gen",
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-f7648213-f4f9-481f-9534-9f66860ff5ff.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-07",
+    "passed": true,
+    "summary": "六帧头部倾斜和放松表情对应原图，头饰、尾巴及脸型保留。",
+    "evidence": [
+      ".artifacts/sports-identity-review/whale-headpat-v2-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "afada500aff318678517c16d6d30f9f96015cbeef69a8c019ef5703ced57705e",
+    "originalSha256": "dee19c8dfb8cc9611c70885d2872e6f880a21c4476c1256e5edad6d73a9eb649",
+    "comparisonFingerprint": "5eeb778a3ec2d2b594b8062b2806fe2173b688985e890581fd19af8e60127d67"
+  }
+}

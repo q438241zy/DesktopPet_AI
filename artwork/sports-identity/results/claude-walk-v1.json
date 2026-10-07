@@ -10,6 +10,20 @@
     "src/DesktopPet.App/Assets/Characters/claude/outfits/sports/core.png"
   ],
   "tool": "built-in image_gen",
-  "status": "generated-awaiting-geometry-review",
-  "selected": false
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-07",
+    "passed": true,
+    "summary": "十二帧原图对照完成，步态顺序、朝向、头发及腿部比例保留；插帧与衣服切换尚未原生验证。",
+    "evidence": [
+      ".artifacts/sports-identity-review/claude-walk-v1-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "1240656543289aaf1c449328e906ba6114235534e1d31152eff0a0e2c3ce5556",
+    "originalSha256": "dd861e4089ea5b4f99f88057904556f6a0998536921e002fcebe8f65b75dffd4",
+    "comparisonFingerprint": "f8df3404aee5f510d386da504c9fd0645be722a64ff756ba771a177bb19c8b0b"
+  }
 }

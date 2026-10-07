@@ -1,0 +1,34 @@
+{
+  "key": "gpt-think-v2",
+  "id": "gpt",
+  "style": "chibi",
+  "kind": "think",
+  "columns": 3,
+  "rows": 2,
+  "source": "artwork/sports-identity/gpt-think-v2.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/gpt/motions/think.webp"
+  ],
+  "generationReferences": [
+    "src/DesktopPet.App/Assets/Characters/gpt/motions/think.webp"
+  ],
+  "prompt": "Precise clothing-only EDIT of this original GPT Q/chibi original character action atlas. Keep EXACT source 1536x1024 canvas, all original figure positions, pose order, cell spacing and camera. Never repack or rescale figures to fill margins. Preserve original face and head SIZE, head-body ratio, shoulders, torso, hips, knees, ankles, feet and hand/wrist/finger positions in EVERY pose, including sitting, lying, leaning, bent knees or raised hands. This is clothing on the SAME person, no redesign, no doll anatomy, no larger head, no shorter or thicker legs. Preserve silver/lavender hair, violet eyes, horns, pointed ears, knot hair ornament and ahoge, all expressions and hair/ear/tail silhouettes and directions.\nReplace only old dress/apron, long sleeves, wrist cuffs, tights and boots with a WHITE zip-front school sports shirt with deep emerald green upper-arm SHORT SLEEVES/shoulder panels, green piping and small green knot chest motif; deep emerald green athletic SHORTS ending well ABOVE knees with narrow white side stripes; white ankle socks and small white-green low-top sneakers at the original ankle/sole positions. Keep neckline modest and zipped. Bare forearms, knees and lower legs. NO long sleeves, trousers, gloves or leftover wrist frills. Keep headband and hair accessories even if they are frilly. Keep original hand contacts and ALL existing props, fingers and gesture shapes; do not invent an extra ball, hammer, sparkle or particle.\nIMPORTANT: preserve the source's exact head and limb coordinates, original folded seated legs, original small margins at canvas edge, and full figure heights. No longer dangling seated legs and no shortening adult legs to fit a raised arm. Genuine transparent alpha outside characters and held objects. No painted backdrop, gradient, glow, grid, label or extra shadow. CORRECTION: The previous draft enlarged heads or moved knees/feet. Use THIS ORIGINAL as the only pose and scale authority. Keep the entire original head and hair completely UNCHANGED; edit only clothing pixels and change shoes within their original footprint. These are the original global nontransparent figure bounding rectangles [left,top,right,bottom], in row-major order: [[85, 81, 427, 448], [599, 94, 933, 448], [1111, 91, 1445, 445], [87, 603, 421, 957], [599, 606, 933, 960], [1109, 593, 1451, 960]]. Do NOT fill empty margins. Preserve every original head top, chin, wrist, knee and ankle, including the intentionally smaller middle thinking/jump poses. Preserve each exact original seated/dangling leg angle. No enlarged head, longer shin, lower foot, figure normalization or repacking.",
+  "tool": "built-in image_gen",
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-8bb82721-f12d-42e0-a69f-e3de39b3e491.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-07",
+    "passed": true,
+    "summary": "修订中间帧头部放大问题，同画布下头部和头发尺度与原图相符。",
+    "evidence": [
+      ".artifacts/sports-identity-review/gpt-think-v2-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "9a92c0edea469176af025e5c12ba16bdb4fd9cd49b9b787dc41839e8927629de",
+    "originalSha256": "0bce5cb288acc3114503ff87c8494dd7b0101a9a8e16ad6fd9fde023c6599c07",
+    "comparisonFingerprint": "acf63b84b1ba5f38ebc8e207381c78982bcba5d4837ae5ba9b6fdd42b8abb994"
+  }
+}

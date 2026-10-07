@@ -1,0 +1,57 @@
+{
+  "key": "deepseek-adult-emotion-bonk-v1",
+  "id": "deepseek-adult",
+  "style": "realistic",
+  "kind": "emotion-bonk",
+  "columns": 4,
+  "rows": 1,
+  "prompt": "Precise upper-body pose edit of this exact 1774x887 4-column, 1-row sprite sheet, keeping the SAME ADULT photorealistic DeepSeek woman in the SAME approved short-sleeve navy/white sports shirt and above-knee navy shorts. This target is already the correct long-legged adult proportion: keep the ORIGINAL complete hips, long thighs, knees, shins, ankles and white-blue sneakers at EXACT original scale and coordinates. Keep the original face identity, small mature head size, flowing blue hair, white frilly headband, cyan bow, fin ears and clean 3D rendering. Do NOT redraw as a doll, shrink legs, enlarge head or resize individual figures. Modify ONLY expressions and arms/hands as follows: left to right: 1 neutral small smile and hands relaxed; 2 holding ONE cute BLUE WHALE toy hammer with PINK rubber endcaps beside her head, handle in right hand; 3 same toy hammer gently touching TOP of her head, eyes closed, small smile; 4 lowering that SAME hammer in right hand alongside her shoulder. Clear hand grip, SAME hammer size and design in frames 2-4. Complete shoes visible. Keep legs, waist, knees, ankles, torso and head dimensions EXACTLY as reference; adjust only forearm/hand and expression. Raised prop may use top margin, never shorten the body. Preserve source 1774x887 canvas, original ground lines, camera, margins, number/order of 4 whole figures. No extra people, no lower-body crop. Genuine transparent alpha outside characters and held props; no background, gradients, glow or text.",
+  "source": "artwork/sports-identity/deepseek-adult-emotion-bonk-v1.png",
+  "references": [
+    "artwork/sports-identity/deepseek-adult-five-photo-v1.png",
+    "src/DesktopPet.App/Assets/Characters/deepseek-adult/interactions/original/real-adult-photo-final.png"
+  ],
+  "generationReferences": [
+    "artwork/sports-identity/deepseek-adult-five-photo-v1.png"
+  ],
+  "tool": "built-in image_gen",
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
+  "comparisonRole": "approved-sports-pose-edit",
+  "sourceAtlas": "realistic-photo",
+  "physicalOrder": true,
+  "clips": {
+    "bonk": {
+      "frames": [
+        0,
+        1,
+        2,
+        3,
+        0
+      ],
+      "frameMs": [
+        180,
+        300,
+        350,
+        400,
+        220
+      ],
+      "loop": false
+    }
+  },
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-3cd6ca8d-394f-4a5d-92af-9a7e8a1626ac.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-07",
+    "passed": true,
+    "summary": "以已复核运动服立绘修改手臂；四姿势同腿长和脸，原蓝鲸锤由手握住，敲头接触明确；原生衔接待验证。",
+    "evidence": [
+      ".artifacts/sports-identity-review/deepseek-adult-emotion-bonk-v1-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "ae4eac562a2a841ec0b4c20b0604199addda1608087d238ee5eab68a08247856",
+    "originalSha256": "e72c5e8460d2c84b81f4103dba59e701d0edb1ab4db4a209c59cc3b157130f96",
+    "comparisonFingerprint": "7989db86942cbe20052660540ead782ba80c4f31d27d1f34e0175c0c360b3f08"
+  }
+}

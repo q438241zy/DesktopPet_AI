@@ -1,0 +1,36 @@
+{
+  "key": "whale-ball-miss-v4",
+  "id": "whale",
+  "style": "chibi",
+  "kind": "ball-miss",
+  "columns": 3,
+  "rows": 2,
+  "prompt": "IMAGE1 is the target to edit, a 1536x1024 six-pose transparent sportswear sprite sheet. Preserve EVERY face, head, hair, white frilly HEADBAND, cyan bow, fin ear, hand, torso, expression, blue tail, navy/white short-sleeve shirt and shorts exactly from IMAGE1. Change only the tightly seated leg and shoe positions to match IMAGE2, the original pose guide. IMAGE1 shoes extend downward too much. The thighs and knees must fold closely to the body and the little shoes face soles-forward at the exact IMAGE2 sole coordinates, tucked up about 25 source pixels, not hanging down. Do not change overall figure/head scale, canvas or positions; no face edits, NO REMOVING HEADBAND. Keep feet small, navy/white-blue sneakers, bare knees, SHORTS. All source pixels outside the changed seated feet/legs should look untouched. Same exact 1536x1024 canvas with full transparent alpha, 3x2 arrangement. No gradients/glow/shadows/text.",
+  "source": "artwork/sports-identity/whale-ball-miss-v4.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/whale/motions/ball-miss.webp"
+  ],
+  "generationReferences": [
+    "artwork/sports-identity/whale-ball-miss-v2.png",
+    "src/DesktopPet.App/Assets/Characters/whale/motions/ball-miss.webp"
+  ],
+  "comparisonRole": "original-clothing-edit",
+  "tool": "built-in image_gen",
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-a5bf9098-1a2c-4351-af57-90c9e4af10a4.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-07",
+    "passed": true,
+    "summary": "在第二稿上仅返工坐姿腿脚后，原头/脸/发箍保留，收紧的双腿与已批准基础坐姿相符；鞋型差异保留，运行切换待复核。",
+    "evidence": [
+      ".artifacts/sports-identity-review/whale-ball-miss-v4-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "be3d5b3129fcb4fddb4e13f00fca848896e410e0ad1b1e128851b6dccd5088c1",
+    "originalSha256": "aceff42b8049045bd0b70e9187b5b39387d153198bfd2f557ce4038a08e99a7f",
+    "comparisonFingerprint": "cb1ce4778f5d8ffbcdb35a09fd8f133c69592f001a672958a8dffe49446f12e2"
+  }
+}

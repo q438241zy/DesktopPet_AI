@@ -1,0 +1,31 @@
+{
+  "key": "deepseek-adult-body-v1",
+  "id": "deepseek-adult",
+  "style": "realistic",
+  "kind": "body",
+  "columns": 4,
+  "rows": 4,
+  "source": "artwork/sports-identity/deepseek-adult-body-v1.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/deepseek-adult/motions/interaction.png"
+  ],
+  "prompt": "Exact CLOTHING-ONLY edit of this original DeepSeek action atlas. Keep the original 1024x1536 canvas, 4 columns by 4 rows, exact per-frame source-pixel figure sizes/positions, no rearrangement, zoom, or head/leg resizing. Preserve identity: blue hair and eyes, white frilled HEADBAND, cyan bow, fin ears, blue whale tail wherever present. Keep all skeleton, wrists, knees, ankles, face/hair and expressions unchanged. Replace the original outfit by white zip-front athletic shirt with NAVY short upper-arm sleeves, cyan piping and small blue whale chest emblem; NAVY SHORTS ending ABOVE KNEES, short white ankle socks and white-blue LOW TOP sneakers of comparable original foot volume. Remove old wrist cuffs, apron, skirt and tights; forearms and knees uncovered. Keep all sixteen original poses in order: standing, talking, thinking, crouching, jumping, landing, knees hugged, sleeping, curled on side, stacking blocks in three phases, lifted with hands up in two phases, flinching, shrugging. Retain original natural adult head/body proportions, long thighs/shins and exact folded-leg skeleton. Preserve colored blocks and hand contact. Do not stand up seated/lying poses. This is the same character in new clothes, never a new shorter or chubbier character. Original per-pose scale differences remain exactly as source for later shared animation calibration. Transparent alpha outside figures and actual props, not a painted background, no glow or new shadows.",
+  "tool": "built-in image_gen",
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-95129bb0-6248-4d26-a0eb-6a6db112ab2e.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-07",
+    "passed": true,
+    "summary": "十六帧站立、跳跃、蜷起、休息及堆积木对照完成；保留坐卧姿势和手部接触，未验证插帧。",
+    "evidence": [
+      ".artifacts/sports-identity-review/deepseek-adult-body-v1-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "0b540494cb81fa6937e70081d8f23c3a0565fbd00ce09bf886a3c7d4f932760d",
+    "originalSha256": "1ac8ec4f34a5fea532ef3d553eaa82abf9cb33a39b1edd506b96fafcc71b781d",
+    "comparisonFingerprint": "4b1cec7708ddaabbd1323efb595ea895f861a0a29a09ee17f674be2a3cbd5ac3"
+  }
+}

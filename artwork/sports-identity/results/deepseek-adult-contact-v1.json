@@ -1,0 +1,58 @@
+{
+  "key": "deepseek-adult-contact-v1",
+  "id": "deepseek-adult",
+  "style": "realistic",
+  "kind": "contact",
+  "columns": 3,
+  "rows": 3,
+  "source": "artwork/sports-identity/deepseek-adult-contact-v1.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/deepseek-adult/motions/contact.png",
+    "docs/demo/wardrobe-identity/art/deepseek-realistic-sports-v1.png"
+  ],
+  "prompt": "Precise clothing-only EDIT, not a new character. Image1 is the EDIT TARGET: the original DeepSeek 3D realistic adult woman animation atlas. Preserve exact 3 columns by 3 rows, source 1024x1536 canvas, same original per-frame framing and scale. Image2 is the approved sports clothing design and identity reference only. Nine sequential original poses in exactly the same source locations. First row cookie held, lifted to mouth, bitten. Second row rice bowl and spoon, raising spoon to mouth, returning spoon. Third row reaching hands to receive ball, cupped palms, close cupped palms. All wrist/hand contact points and original props unchanged. Do not add floating food or a ball. Preserve original thin waist, natural adult torso and LONG leg proportions, no shrinking legs or growing heads. Keep all original hair and headband. Replace only navy maid dress and tights/boots with approved WHITE zip shirt with navy shoulder and upper-arm SHORT SLEEVES, cyan piping and little blue whale chest motif, navy sports SHORTS above knee with cyan/white side piping, white ankle socks and white-blue sneakers. Keep face, body silhouette, natural adult anatomy, hips/waist/leg lengths and all poses from image1 unchanged. Preserve actual facial identity and mature realistic 3D style; no Q/chibi features, no doll proportion, no shorter body, no posing from image2. All full figures fully inside source canvas. Transparent alpha outside figures; no visible background, halos, gradients, text or grids.",
+  "tool": "built-in image_gen",
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-c4c753b3-020d-43ad-b0a8-b920d0f81fd5.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-07",
+    "passed": true,
+    "summary": "九帧饼干、碗勺和接物动作保持原脸型、腿长及接触姿势；道具锚点与原生衔接尚待检查。",
+    "evidence": [
+      ".artifacts/sports-identity-review/deepseek-adult-contact-v1-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "d3db275fb172120da11ca9e6dd3dd856aa90dd242149560469cff23e0bb8c5b7",
+    "originalSha256": "903b993a43ab6db86303dae36394e64b1551ef65ab2d343cbd23743af51df4d7",
+    "comparisonFingerprint": "bd3427e61aa6b4e55d9b96d33938b7875726126269463481fcdd0ab1e1d69153"
+  },
+  "measurementPixels": {
+    "hands": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      [
+        133,
+        1175,
+        45
+      ],
+      [
+        471,
+        1191,
+        38
+      ],
+      [
+        824,
+        1190,
+        35
+      ]
+    ]
+  },
+  "measurementNote": "Assistant marked on original candidate pixels; native contact verification pending, no image edit."
+}

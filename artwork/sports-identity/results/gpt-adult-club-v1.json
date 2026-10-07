@@ -1,0 +1,34 @@
+{
+  "key": "gpt-adult-club-v1",
+  "id": "gpt-adult",
+  "style": "realistic",
+  "kind": "club",
+  "columns": 4,
+  "rows": 6,
+  "source": "artwork/sports-identity/gpt-adult-club-v1.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/gpt-adult/motions/cloud-club-original.png"
+  ],
+  "generationReferences": [
+    "src/DesktopPet.App/Assets/Characters/gpt-adult/motions/cloud-club-original.png"
+  ],
+  "prompt": "Precise clothing-only EDIT of this original GPT photorealistic 3D ADULT woman with long adult legs action atlas. Keep EXACT source 1536x1024 canvas, all original figure positions, pose order, cell spacing and camera. Never repack or rescale figures to fill margins. Preserve original face and head SIZE, head-body ratio, shoulders, torso, hips, knees, ankles, feet and hand/wrist/finger positions in EVERY pose, including sitting, lying, leaning, bent knees or raised hands. This is clothing on the SAME person, no redesign, no doll anatomy, no larger head, no shorter or thicker legs. Preserve silver/lavender hair, violet eyes, horns, pointed ears, knot hair ornament and ahoge, all expressions and hair/ear/tail silhouettes and directions.\nReplace only old dress/apron, long sleeves, wrist cuffs, tights and boots with a WHITE zip-front school sports shirt with deep emerald green upper-arm SHORT SLEEVES/shoulder panels, green piping and small green knot chest motif; deep emerald green athletic SHORTS ending well ABOVE knees with narrow white side stripes; white ankle socks and small white-green low-top sneakers at the original ankle/sole positions. Keep neckline modest and zipped. Bare forearms, knees and lower legs. NO long sleeves, trousers, gloves or leftover wrist frills. Keep headband and hair accessories even if they are frilly. Keep original hand contacts and ALL existing props, fingers and gesture shapes; do not invent an extra ball, hammer, sparkle or particle.\nIMPORTANT: preserve the source's exact head and limb coordinates, original folded seated legs, original small margins at canvas edge, and full figure heights. No longer dangling seated legs and no shortening adult legs to fit a raised arm. Genuine transparent alpha outside characters and held objects. No painted backdrop, gradient, glow, grid, label or extra shadow. Preserve the original physical layout even if uneven. Keep all 8 counting-star gestures, 8 bubble bottle/wand poses, and 8 stretching poses. Preserve mouth-to-ring and hand-to-bottle contacts.",
+  "tool": "built-in image_gen",
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-df6a92ec-0d9a-4612-8101-f5e1e7798fab.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-07",
+    "passed": true,
+    "summary": "24姿势按实际8列3行核对，数星星、泡泡环、伸展与原腿长保持；泡泡发射点待按新裁切重映射。",
+    "evidence": [
+      ".artifacts/sports-identity-review/gpt-adult-club-v1-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "7211d1ce62454c1e903ccb77f540db864ca1d224747ceb12783821d2834c97e9",
+    "originalSha256": "338dc73906c921d68ee02b22b1c7775a350b2bf36aec2626182b2488f46cbb21",
+    "comparisonFingerprint": "f50bfe664432f76df9a4487da0c2380d3e4448d808388a27d5fca259453eebb3"
+  }
+}

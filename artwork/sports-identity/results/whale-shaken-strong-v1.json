@@ -1,0 +1,31 @@
+{
+  "key": "whale-shaken-strong-v1",
+  "id": "whale",
+  "style": "chibi",
+  "kind": "shaken-strong",
+  "columns": 3,
+  "rows": 2,
+  "source": "artwork/sports-identity/whale-shaken-strong-v1.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/whale/motions/shaken-strong.webp"
+  ],
+  "prompt": "Edit ONLY clothing on the single original DeepSeek chibi shaken-strong action atlas. Preserve exact source 1536x1024 canvas and 3-column by 2-row six-frame layout, source pose sequence, original per-frame character SCALE, head/body anatomy and position. This is putting clothes on the SAME character, no redesign. Preserve face, eyes, expression, blue hair, white frilly HEADBAND, fin ears, cyan bow, blue whale tail and hair accessories in ALL six frames. Preserve every exact original hand/wrist, hip/knee/ankle location and the action gesture of each frame, including turning/leaning/crouching. Replace only old long sleeves, maid dress, apron, tights and boots with white zip-front high-collar athletic shirt with NAVY short upper-arm sleeves, cyan piping and small blue whale chest emblem; navy athletic SHORTS ending well above knees with thin white side stripes, white ankle socks and small white-blue sneakers. Bare forearms with NO wrist cuffs, bare knees/lower legs. Keep original props and emotion symbols but do not add separate effect objects. Keep original canvas margins and figure heights exactly, especially any intentionally smaller middle poses. No making heads bigger, moving joints, shorter legs or wider bodies. Genuine transparent alpha outside the full character/props; no painted background, new shadow, glow, grid or captions.",
+  "tool": "built-in image_gen",
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-07ba8b07-a93f-4471-a548-e869bf79e6df.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-07",
+    "passed": true,
+    "summary": "六帧头晕与倾斜方向对应原图，保留尾巴及头饰，待原生尺寸和动态检查。",
+    "evidence": [
+      ".artifacts/sports-identity-review/whale-shaken-strong-v1-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "f87c7ca97301a415bd55155a1e759af99f9ac0be457288faa75530ce675e8218",
+    "originalSha256": "b9c8501a810d94c7673a132beb90f98ce6f30f73a643e7ce2862d5c5610aa1c1",
+    "comparisonFingerprint": "e9f0f559d3754874db23b6083b91f090302a6e469d0eea1b2bb48dcc4162f0fb"
+  }
+}

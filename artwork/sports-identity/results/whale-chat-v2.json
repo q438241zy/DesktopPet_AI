@@ -1,0 +1,32 @@
+{
+  "key": "whale-chat-v2",
+  "id": "whale",
+  "style": "chibi",
+  "kind": "chat",
+  "columns": 3,
+  "rows": 2,
+  "source": "artwork/sports-identity/whale-chat-v2.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/whale/motions/chat.webp",
+    "docs/demo/wardrobe-identity/art/deepseek-chibi-sports-v1.png"
+  ],
+  "prompt": "Precise CLOTHING-ONLY edit. Image 1 is the edit target: ORIGINAL DeepSeek Q chat animation, six distinct frames in 3 columns x 2 rows, 1536x1024. Image 2 is ONLY the approved sports-uniform reference. Preserve the original poses and expressions one by one, including original head size, cheek shape, eye positions, blue hair silhouette and whale tail, white frilly headband, small cyan bow, body proportion, all hand/leg and ankle positions, and source-cell placement. Each cell is 512x512; preserve original generous empty margins, crown near y=55 and soles near y=445 in upper row, with +512 for lower row. Do not enlarge figures or fill cells. Do not copy poses from the sports reference. ONLY replace the maid dress, sleeves and tights with the white/navy short-sleeve zipped sports shirt, navy athletic above-knee shorts, white ankle socks and white/blue sneakers of image2. Keep seated legs bent in exactly the original position, no shorter or wider body. Retain all six speaking gestures: hands resting, little raised fist, open conversational hand, chin-touch, eyes closed, return to idle. Output real transparent alpha, no backdrop, checkerboard, text, margins filled with color, or glow. Ignore all RGB artifacts in transparent pixels. Identity and animation pose preservation are essential.",
+  "tool": "built-in image_gen",
+  "status": "not-selected-after-review",
+  "selected": false,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-1c629451-2399-4d6d-bb5a-17ac141b67f1.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-07",
+    "passed": false,
+    "summary": "仍有约9%放大，第三帧有多余袖口，以v3取代。",
+    "evidence": [
+      ".artifacts/sports-identity-review/whale-chat-v2-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "19a177d32b48efc5d3207ccc2bdd4409e2927abc62e6d66d50693c8c35053a4f",
+    "originalSha256": "5dc1fa7fb8fdd15a0d25158806814ee1306324932d3e62e21d4556f59ff30ad9",
+    "comparisonFingerprint": "616b0048bc485cfd0479a3576189354737a92b1c7c4e3a5636085e086e97bfc2"
+  }
+}

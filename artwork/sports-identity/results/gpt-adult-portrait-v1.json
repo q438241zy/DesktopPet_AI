@@ -10,6 +10,20 @@
     "src/DesktopPet.App/Assets/Characters/gpt-adult/outfits/sports/portrait.png"
   ],
   "tool": "built-in image_gen",
-  "status": "generated-awaiting-geometry-review",
-  "selected": false
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-07",
+    "passed": true,
+    "summary": "单张与原装同画布对照，脸型、头饰、交叉腿姿势及成年身形保留；短袖短裤，未代表动作通过。",
+    "evidence": [
+      ".artifacts/sports-identity-review/gpt-adult-portrait-v1-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "c7027baa0ec2f930056ef5d19c62a770d6b8fe4af2a30bb44a102787ca75c54d",
+    "originalSha256": "931ca537328ba0a9e1aa91b9bb80a79f0b4ed402a5fd17e4f51e7caaeba85403",
+    "comparisonFingerprint": "344418b15bdd89412baea1a44a5385d64008f8d82c4c1440fd5262d9fa1dd41e"
+  }
 }

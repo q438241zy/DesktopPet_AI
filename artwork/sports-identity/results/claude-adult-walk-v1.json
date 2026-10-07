@@ -1,0 +1,32 @@
+{
+  "key": "claude-adult-walk-v1",
+  "id": "claude-adult",
+  "style": "realistic",
+  "kind": "walk",
+  "columns": 3,
+  "rows": 4,
+  "source": "artwork/sports-identity/claude-adult-walk-v1.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/claude-adult/motions/walk-smooth.png",
+    "artwork/sports-identity/claude-adult-portrait-v1.png"
+  ],
+  "prompt": "CLOTHING-ONLY EDIT. IMAGE1 is the exact edit target: original Claude adult realistic 3D woman twelve-frame walking atlas. IMAGE2 is ONLY the approved sports uniform design, never the pose/framing. KEEP original 1024x1536 canvas, 3 columns x 4 rows, same source pixel positions and margins. Retain each of the twelve original right-facing walk phases exactly, including alternating foot support, knee angles and opposite arm swing; no extra frames, no skipped or duplicate phase. Replace only original outfit and boots with white athletic zip shirt with orange piping and brown upper-arm SHORT sleeves, small orange sun chest emblem, brown above-knee shorts, short white ankle socks and white-orange low-top sneakers. Change clothes only. Preserve exact original face and small adult head, thin round glasses, copper-orange wavy hair, orange flower, brown hair ribbons and earrings, shoulders/waist/hips and full natural adult leg lengths. Expose bare forearms and knees, no leftover cuffs, long sleeves, skirt or stockings. KEEP ORIGINAL LEG JOINT COORDINATES including knees, ankles and ground contact, even when replacing heels by sneakers; do not make her squat/chunky, inflate the head, thicken legs, or copy the waving pose in image2. Preserve real adult 3D shading and delicate facial detail and correct original walking direction. Real transparent alpha outside figures; no background, added shadow, glow, grid or text.",
+  "tool": "built-in image_gen",
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-ee841896-7664-4fb0-9e85-6592ebeaf8f9.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-07",
+    "passed": true,
+    "summary": "十二帧原图对照完成，保持成年身形、原头部与膝踝位置，短袖短裤；尚待原生连续播放与转身检查。",
+    "evidence": [
+      ".artifacts/sports-identity-review/claude-adult-walk-v1-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "eec4bc396e3c671d6ff687f3a34da45f04714edd45f931d6a4510bf7887368d7",
+    "originalSha256": "5969381173c8305dbafba16f9053ccd0f20ed46324222e7707528a9e26b399ef",
+    "comparisonFingerprint": "ced513eff3cd6941328e7ec39f2c50f35f7f82bcd9f480c476c57fe0d4e2102b"
+  }
+}

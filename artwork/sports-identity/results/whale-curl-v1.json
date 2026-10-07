@@ -12,6 +12,20 @@
     "docs/demo/wardrobe-identity/art/deepseek-chibi-sports-v1.png"
   ],
   "tool": "built-in image_gen",
-  "status": "generated-awaiting-geometry-review",
-  "selected": false
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-07",
+    "passed": true,
+    "summary": "六帧坐姿至抱膝姿势保留，弯腿不作逐帧拉高；待原生过渡检查。",
+    "evidence": [
+      ".artifacts/sports-identity-review/whale-curl-v1-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "f0454c265d5ccefd22d68fd59514fa1b36b9c5414af85ddbdd1332d6be19a135",
+    "originalSha256": "1a54360ee79ff073f6e55f27bad190ee8557ab8e4005a82b0e48faad1ca16f57",
+    "comparisonFingerprint": "7227a78090f1dd8942c248b8c7d2c8c44e78f8483ce5fc2273209d893c045820"
+  }
 }

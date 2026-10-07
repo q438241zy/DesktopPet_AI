@@ -1,0 +1,32 @@
+{
+  "key": "whale-walk-approved",
+  "id": "whale",
+  "style": "chibi",
+  "kind": "walk",
+  "columns": 3,
+  "rows": 4,
+  "source": "docs/demo/wardrobe-identity/art/deepseek-chibi-sports-walk-v2.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/whale/motions/walk-smooth.png"
+  ],
+  "prompt": "Use case: identity-preserve, one narrow correction.\nIMAGE 1 is the edit target: the DeepSeek short-sleeved sportswear walking sheet, 1024 x 1536, 3 columns by 4 rows with 12 poses. IMAGE 2 is the original maid walking sheet and supplies ONLY the missing identity headband.\nAdd back the SAME white ruffled headband from image 2 on top of the blue hair in each of the twelve poses of image 1. Keep its size, curve and position matching the corresponding pose in image 2.\nEverything else in image 1 stays unchanged: exact face and head scale, hair and ahoge silhouette, fin ears, bow and tail, white/navy short-sleeve shirt, above-knee navy shorts, socks and sneakers, anatomy and body proportions, all twelve hand and leg poses and all sole locations. Do not redraw or rescale the body, move characters or change the gait. Do not restore the dress or boots. Retain the original 1024 x 1536 canvas and cell positions.\nTransparent alpha background. No new background, glow, props, labels or text. Only restore the white headband.",
+  "tool": "built-in image_gen",
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
+  "approval": "W2 design approved for expansion by user; source geometry and runtime checks still recorded separately",
+  "provenanceRecord": "docs/demo/wardrobe-identity/art/sports-provenance.json",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-07",
+    "passed": true,
+    "summary": "重新核对已获用户W2批准的十二步态，原腿关节、朝向、尾巴与头身保留；原生插帧待验证。",
+    "evidence": [
+      ".artifacts/sports-identity-review/whale-walk-approved-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "8fb225e663bc52c52bbea951b18395fd86a525055e24b3fb93192381d57f354c",
+    "originalSha256": "c476bfa50e7409e7ad8aedf0daa495f4b0e643ef16a892dae2ad0014f9763dcd",
+    "comparisonFingerprint": "32a3c96598475c94ce86aa20154add9a76e6c41a5dffa869f39c7363c381c871"
+  }
+}

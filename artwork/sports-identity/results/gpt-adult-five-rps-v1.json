@@ -1,0 +1,34 @@
+{
+  "key": "gpt-adult-five-rps-v1",
+  "id": "gpt-adult",
+  "style": "realistic",
+  "kind": "five-rps",
+  "columns": 4,
+  "rows": 1,
+  "source": "artwork/sports-identity/gpt-adult-five-rps-v1.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/gpt-adult/interactions/original/gpt-adult-original-rps-v1.png"
+  ],
+  "generationReferences": [
+    "src/DesktopPet.App/Assets/Characters/gpt-adult/interactions/original/gpt-adult-original-rps-v1.png"
+  ],
+  "prompt": "Precise clothing-only EDIT of this original GPT photorealistic 3D ADULT woman with long adult legs action atlas. Keep EXACT source 1774x887 canvas, all original figure positions, pose order, cell spacing and camera. Never repack or rescale figures to fill margins. Preserve original face and head SIZE, head-body ratio, shoulders, torso, hips, knees, ankles, feet and hand/wrist/finger positions in EVERY pose, including sitting, lying, leaning, bent knees or raised hands. This is clothing on the SAME person, no redesign, no doll anatomy, no larger head, no shorter or thicker legs. Preserve silver/lavender hair, violet eyes, horns, pointed ears, knot hair ornament and ahoge, all expressions and hair/ear/tail silhouettes and directions.\nReplace only old dress/apron, long sleeves, wrist cuffs, tights and boots with a WHITE zip-front school sports shirt with deep emerald green upper-arm SHORT SLEEVES/shoulder panels, green piping and small green knot chest motif; deep emerald green athletic SHORTS ending well ABOVE knees with narrow white side stripes; white ankle socks and small white-green low-top sneakers at the original ankle/sole positions. Keep neckline modest and zipped. Bare forearms, knees and lower legs. NO long sleeves, trousers, gloves or leftover wrist frills. Keep headband and hair accessories even if they are frilly. Keep original hand contacts and ALL existing props, fingers and gesture shapes; do not invent an extra ball, hammer, sparkle or particle.\nIMPORTANT: preserve the source's exact head and limb coordinates, original folded seated legs, original small margins at canvas edge, and full figure heights. No longer dangling seated legs and no shortening adult legs to fit a raised arm. Genuine transparent alpha outside characters and held objects. No painted backdrop, gradient, glow, grid, label or extra shadow.",
+  "tool": "built-in image_gen",
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-93fa8500-2695-479f-93d9-614eb0cbf9ae.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-07",
+    "passed": true,
+    "summary": "四个猜拳拳头姿势与原人像头身、膝踝位置一致。",
+    "evidence": [
+      ".artifacts/sports-identity-review/gpt-adult-five-rps-v1-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "63a44cb55b45045b7396c90e012f779527c055132f2bf5b89bbb2500dc1caf99",
+    "originalSha256": "609fc78a7eaf57149fe99b8596f2b9bbc2d56a23bd3387e82fae47e19bec1d27",
+    "comparisonFingerprint": "f45277752061c69179a393f650ddbb728f83e36126973e6688e9fb6733049841"
+  }
+}

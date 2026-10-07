@@ -1,0 +1,31 @@
+{
+  "key": "gpt-basic-v2",
+  "id": "gpt",
+  "style": "chibi",
+  "kind": "original-basic",
+  "columns": 3,
+  "rows": 2,
+  "source": "artwork/sports-identity/gpt-basic-v2.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/gpt/atlas.png"
+  ],
+  "prompt": "CLOTHING ONLY EDIT of the single attached original gpt chibi six-pose atlas. Keep the exact 1536x1024 canvas, 3-column 2-row layout, every original figure's source-pixel size and position, and every pose unchanged. Do NOT enlarge the sad sixth figure or move its head higher, do NOT enlarge/reposition the sleeping fourth and dizzy fifth. Preserve each original head size, hair shape, every hair/head ornament, eye/face identity, ears/horns/tail if present, hand/finger and foot positions, skeleton, head/body proportions and gaps between figures. Replace only existing clothes and footwear by white high-collar zip athletic shirt, emerald-green SHORT sleeves ending on upper arms, small green knot chest emblem, emerald-green athletic SHORTS above the knees, white ankle socks and small white-green low-top sneakers. Bare forearms and knees, remove old dress, skirt, gloves, wrist cuffs and tights; the shorts have two visibly separate legs. Preserve the original hand-to-cheek, joy, sleep, dizzy, sad facial expressions and original tiny attached emotion symbols. Footwear must occupy the original shoe locations and comparable volume. No new anatomy or new pose design. Keep original opacity inside hair and accessories, including any dark tails; genuine TRANSPARENT background only outside figures and symbols. No border, text, glow or floor shadows.",
+  "tool": "built-in image_gen",
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-1f27b2fb-6fd3-4941-8076-8f3b85bd5390.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-07",
+    "passed": true,
+    "summary": "重新以原图换衣，六个原姿势、头饰及脸型保留；下排偏移与头部放大较上一稿修正。",
+    "evidence": [
+      ".artifacts/sports-identity-review/gpt-basic-v2-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "d6a9715b2731b94252fbfd41eb33e178ec65bc491eedba2de438518fa7f0334e",
+    "originalSha256": "2069da5c678960c7fb8a9dad29b6ad2aaa16978a92e07b1b64dd648c9c4726e9",
+    "comparisonFingerprint": "475bc695c86af0a00f2ec6cb516312fcf7e03c191153058d98fd5d3b59d938be"
+  }
+}

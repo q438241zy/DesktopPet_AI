@@ -1,0 +1,32 @@
+{
+  "key": "deepseek-adult-walk-v1",
+  "id": "deepseek-adult",
+  "style": "realistic",
+  "kind": "walk",
+  "columns": 3,
+  "rows": 4,
+  "source": "artwork/sports-identity/deepseek-adult-walk-v1.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/deepseek-adult/motions/walk-smooth.png",
+    "docs/demo/wardrobe-identity/art/deepseek-realistic-sports-v1.png"
+  ],
+  "prompt": "Precise clothing-only EDIT, not a new character. Image1 is the EDIT TARGET: the original DeepSeek 3D realistic adult woman animation atlas. Preserve exact 3 columns by 4 rows, source 1024x1536 canvas, same original per-frame framing and scale. Image2 is the approved sports clothing design and identity reference only. Twelve side-facing-right walk poses in exactly the same order, same phase of the feet and same opposite arm swing, no added intermediate, no skipping or repeating poses. Preserve natural adult leg length, shoulders, knees and ankles relative to the original HEAD in EVERY frame. Replacing heeled boots by sports sneakers must not shorten the legs. Preserve headband, fin ears, bow and loose blue hair trailing behind. Image1 is the exact gait target; do not use waving pose from image2. Replace only navy maid dress and tights/boots with approved WHITE zip shirt with navy shoulder and upper-arm SHORT SLEEVES, cyan piping and little blue whale chest motif, navy sports SHORTS above knee with cyan/white side piping, white ankle socks and white-blue sneakers. Keep face, body silhouette, natural adult anatomy, hips/waist/leg lengths and all poses from image1 unchanged. Preserve actual facial identity and mature realistic 3D style; no Q/chibi features, no doll proportion, no shorter body, no posing from image2. All full figures fully inside source canvas. Transparent alpha outside figures; no visible background, halos, gradients, text or grids.",
+  "tool": "built-in image_gen",
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-bb64d452-2dd2-4fad-a486-18d280560436.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-07",
+    "passed": true,
+    "summary": "十二帧原图对照完成，保持成年身形、原头部与膝踝位置，短袖短裤；尚待原生连续播放与转身检查。",
+    "evidence": [
+      ".artifacts/sports-identity-review/deepseek-adult-walk-v1-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "4600a4b070fb616588a9c53efa4721f43618ca54226f1fb4fe5b1e91641c728d",
+    "originalSha256": "362ac065cb5cf0ef38b1bbc49a31c19d457c43d33a6da42ac8e1e2f7fe4ac5e0",
+    "comparisonFingerprint": "4aec38e6d90a64a8c637ef230af55a51f7da155e36a306a5c5f5529bed5515c3"
+  }
+}

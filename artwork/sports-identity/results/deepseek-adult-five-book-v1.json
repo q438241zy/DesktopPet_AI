@@ -1,0 +1,34 @@
+{
+  "key": "deepseek-adult-five-book-v1",
+  "id": "deepseek-adult",
+  "style": "realistic",
+  "kind": "five-book",
+  "columns": 4,
+  "rows": 1,
+  "prompt": "Clothing-only edit of this original DeepSeek character atlas. Keep EXACT source canvas width/height, each original cell and figure scale, physical layout and margins. Preserve every pose, original face/head size, natural head-body and leg proportions, eyes, blue hair, fin ears, headband, bow and any tail. Preserve ALL exact hand/finger/wrist positions and prop contact. Dress the EXISTING body in a white zipped sports shirt with NAVY short upper-arm sleeves and cyan piping, small blue whale emblem, NAVY above-knee SHORTS with thin white side stripes, white ankle socks and small white-blue sneakers. Bare forearms, knees/lower legs; no old dress, tights, long sleeves or cuffs. NO shortening or widening body, changing gestures, removing or adding props. Genuine transparent alpha, no background, grid, caption or new effects. This is a photorealistic 3D ADULT woman with long adult legs; retain mature proportions exactly. FOUR poses in ONE ROW on the exact original wide source canvas; do NOT repack it into 2x2 and do not crop feet. Preserve original book gestures, all fingers, and any book or gift contacts. Natural long legs and normal size head must match original, no doll or chibi anatomy.",
+  "source": "artwork/sports-identity/deepseek-adult-five-book-v1.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/deepseek-adult/interactions/original/real-adult-book-final.png"
+  ],
+  "generationReferences": [
+    "src/DesktopPet.App/Assets/Characters/deepseek-adult/interactions/original/real-adult-book-final.png"
+  ],
+  "tool": "built-in image_gen",
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-f905c6e8-fa3c-4ba4-a3d7-393cee05a06c.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-07",
+    "passed": true,
+    "summary": "开礼物、翻书、共读及合书四姿势保持原脸和腰膝踝；书与双手接触可见，运行待核验。",
+    "evidence": [
+      ".artifacts/sports-identity-review/deepseek-adult-five-book-v1-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "b382716da00152718e1867038033a6d22bcbda9c3451f6f4020684e297604bd6",
+    "originalSha256": "f39219306219e6c5f1df128cb4718827869b25897e1aba137c7294ab425ae03d",
+    "comparisonFingerprint": "eb4fc20bb4a5afe81e08169947252a06d69a2c3bde964a20a8b43bc359d7fdb1"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "key": "whale-think-v2",
+  "id": "whale",
+  "style": "chibi",
+  "kind": "think",
+  "columns": 3,
+  "rows": 2,
+  "source": "artwork/sports-identity/whale-think-v2.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/whale/motions/think.webp",
+    "docs/demo/wardrobe-identity/art/deepseek-chibi-sports-v1.png"
+  ],
+  "prompt": "Precise clothing-only edit. Image1 is the EDIT TARGET, original DeepSeek Q think six-frame atlas, 1536x1024, 3 columns x 2 rows. Image2 is only the UNIFORM design reference, not poses. Preserve the EXACT source positions and proportions, not a redesigned character: head size, blue eyes, blue hair, white ruffled headband, cyan bow, fin ears, ahoge, whale tail, torso, knees and ankles. Cell-local bounds for the 6 original figures are [81,54,432,446], [125,86,415,421], [125,83,415,418], [125,83,415,418], [125,86,415,421], [81,54,432,446]. Frames 2-5 are intentionally SMALLER figures in the file: preserve their exact original scale, there is existing animation scale metadata. Do NOT make all frames equal-sized. Keep the chin/cheek-thinking finger at exactly the same location. Keep all eyes and tilts distinct and preserve head ornaments. ONLY replace the navy maid outfit by image2's white/navy short-sleeve zip sports shirt, navy above-knee athletic shorts, white ankle socks and white-blue low-top sneakers. Bare wrists: no leftover maid cuffs. Leave all other artwork and all original six gestures/expressions untouched. Preserve generous source whitespace. Genuine transparent background with alpha, no colored backdrop or glow. Ignore RGB junk in transparent source pixels.",
+  "tool": "built-in image_gen",
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-0da2ff68-71cd-4e9d-aa75-daf884c828ad.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-07",
+    "passed": true,
+    "summary": "保留原图各帧尺度和思考动作；中间四帧仍需继承原有头部尺度校正，尚未验证运行比例。",
+    "evidence": [
+      ".artifacts/sports-identity-review/whale-think-v2-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "1f205796d1ea7e51f940be5717efd19ecd1cab41224412a7b6596321c32e79d0",
+    "originalSha256": "168878994f427af8b15ef23bda95fc9adf692a0640f9b26b18eae35e04af4dd2",
+    "comparisonFingerprint": "60eab989d9b8d3e4c12b4a07975229a31e2c5fc09860799c5af93d715d47b9e1"
+  }
+}

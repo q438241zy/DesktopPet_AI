@@ -1,0 +1,76 @@
+{
+  "key": "gpt-adult-emotion-mood-v1",
+  "id": "gpt-adult",
+  "style": "realistic",
+  "kind": "emotion-mood",
+  "columns": 4,
+  "rows": 1,
+  "source": "artwork/sports-identity/gpt-adult-emotion-mood-v1.png",
+  "references": [
+    "artwork/sports-identity/gpt-adult-five-photo-v1.png",
+    "src/DesktopPet.App/Assets/Characters/gpt-adult/interactions/original/gpt-adult-original-photo-v1.png"
+  ],
+  "generationReferences": [
+    "artwork/sports-identity/gpt-adult-five-photo-v1.png"
+  ],
+  "prompt": "Precise upper-body pose EDIT of this exact 1774x887, 4-column 1-row sprite sheet. Keep the SAME adult GPT woman and the SAME approved short-sleeve white/deep emerald green sports shirt and above-knee deep emerald green shorts. Keep the original face, mature small head size, silver/lavender hair, violet eyes, horns, pointed ears, knot hair ornament and ahoge, clean 3D rendering, and all clothing details. Preserve the complete hips, long thighs, knees, shins, ankles, sneakers and ground position at EXACT original scale and coordinates in ALL four poses. Do not redesign the person or shorten/thicken legs, enlarge heads, resize individual figures or crop feet. Modify ONLY expressions and arms/hands, left to right: 1 warm happy smile with relaxed hands; 2 a slightly disappointed pout with relaxed hands; 3 a gentle self-hug with hands around opposite upper arms; 4 dizzy expression with eyes shut and one hand resting against the temple, without changing the legs. Preserve the original canvas, original figure positions, margins, camera and order of 4 full figures. True transparent alpha outside figures and held props. No background, gradient, glow, text, frame or extra people.",
+  "tool": "built-in image_gen",
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
+  "comparisonRole": "approved-sports-pose-edit",
+  "sourceAtlas": "photo",
+  "physicalOrder": true,
+  "clips": {
+    "happy": {
+      "frames": [
+        0
+      ],
+      "frameMs": [
+        5000
+      ],
+      "loop": false
+    },
+    "sad": {
+      "frames": [
+        1
+      ],
+      "frameMs": [
+        5000
+      ],
+      "loop": false
+    },
+    "faint": {
+      "frames": [
+        2
+      ],
+      "frameMs": [
+        5000
+      ],
+      "loop": false
+    },
+    "dizzy": {
+      "frames": [
+        3
+      ],
+      "frameMs": [
+        5000
+      ],
+      "loop": false
+    }
+  },
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-d202cc80-a47c-4a03-8150-0549e00f8333.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-07",
+    "passed": true,
+    "summary": "四帧沿用已复核运动服真人身体，微笑失落抱臂头晕对应设计，脚底未裁切。",
+    "evidence": [
+      ".artifacts/sports-identity-review/gpt-adult-emotion-mood-v1-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "9ad67799c5b779f48f5f4caefc6a266e87acb415c16d692718faa31e240b9347",
+    "originalSha256": "4ed830896a2c1d8176ee1e9a011f57de756ff546b2c11263ac611d3f6a567b0e",
+    "comparisonFingerprint": "17fb1949cff687c2cad383354aaae7baa56fd1e951c62fcc3a8017b20219ffde"
+  }
+}

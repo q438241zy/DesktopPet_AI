@@ -1,0 +1,32 @@
+{
+  "key": "zhipu-adult-walk-v2",
+  "id": "zhipu-adult",
+  "style": "realistic",
+  "kind": "walk",
+  "columns": 3,
+  "rows": 4,
+  "source": "artwork/sports-identity/zhipu-adult-walk-v2.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/zhipu-adult/motions/walk-smooth.png",
+    "artwork/sports-identity/zhipu-adult-walk-v1.png"
+  ],
+  "prompt": "Repair the CLOTHING EDIT and TRANSPARENT ALPHA for GLM's twelve-frame walking sprite atlas. IMAGE 1 is the original exact identity/pose/canvas; IMAGE 2 is the sports outfit replacement to preserve. Keep image 2's white/navy short-sleeved zip athletic shirt, above-knee navy shorts, ankle socks and white-blue sneakers. Keep the same 1024x1536 canvas with 3 columns by 4 rows, original twelve exact poses, long adult leg anatomy, small head, facial identity, black cat ears, hair and white frilled headband. CRITICAL FIX: preserve the complete BLACK FURRY CAT TAIL curling left behind the hips in ALL TWELVE frames, matching image 1's tail exactly. The tail is part of the character, NOT background; it must have opaque alpha across its black fur and anti-aliased edges. In image 2 the tail RGB exists but has been mistakenly removed from the alpha matte, making the displayed character tailless. Correct this so the black tail is clearly visible even on a white background. Do not change character sizes, framing, leg joints, faces, walking phases or any other details. Generate real transparent alpha only outside character silhouettes, including OUTSIDE (not inside) the black tails. No new backgrounds, glows, captions or floor shadows.",
+  "tool": "built-in image_gen",
+  "status": "not-selected-after-review",
+  "selected": false,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-15b33350-a04b-4757-8b4a-f99f23218b24.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-07",
+    "passed": false,
+    "summary": "备选修订稿。完整源图与修正裁切已确认v1尾巴存在，保留v1，不因预览误判重复替换。",
+    "evidence": [
+      ".artifacts/sports-identity-review/zhipu-adult-walk-v2-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "c40475f3fe0b9c66902d83dbf941bc08190467d02aacc73ac02e104bc3edee74",
+    "originalSha256": "dd483e4b753a2129929cec2784cb0d2ea674c0ef7666b6c43f4e84326dd6d5fd",
+    "comparisonFingerprint": "14c2a1890d80aca77cd4af790840ec4c46ba5dd9a0183b9403d6d0d180642545"
+  }
+}

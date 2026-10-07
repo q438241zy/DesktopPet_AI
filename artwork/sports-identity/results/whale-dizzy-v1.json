@@ -1,0 +1,34 @@
+{
+  "key": "whale-dizzy-v1",
+  "id": "whale",
+  "style": "chibi",
+  "kind": "dizzy",
+  "columns": 1,
+  "rows": 1,
+  "prompt": "Edit only the clothes of the single original DeepSeek chibi dizzy seated pose. Preserve original 512x512 square canvas, spiral eye, hand against forehead, other hand braced on the ground, leaning head, original proportions and exact source placement. This is a clothing edit of the SAME original character, not a redesign. Preserve original face, exact head size, hair/headband/ears/tail, expression, each hand/wrist/hip/knee/ankle position, pose, perspective, figure height and location on the source canvas. Outfit: white zip-front athletic shirt, NAVY short upper-arm sleeves with cyan piping and small blue whale chest emblem; navy above-knee athletic SHORTS with thin white side stripes; bare forearms without white cuffs, bare knees and lower legs, white ankle socks and small white/navy sneakers. Never shorten legs, enlarge head, thicken body, change a pose, or move a prop. Genuine transparent alpha outside all characters and props. No backdrop, captions, grid, extra effects or shadow.",
+  "source": "artwork/sports-identity/whale-dizzy-v1.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/whale/dizzy.png"
+  ],
+  "generationReferences": [
+    "src/DesktopPet.App/Assets/Characters/whale/dizzy.png"
+  ],
+  "tool": "built-in image_gen",
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-d344733d-9eaa-425b-8bd5-a65adb4cd288.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-07",
+    "passed": true,
+    "summary": "输出是原方形画布的整体等比高分辨率版本；螺旋眼、撑地手和身体姿态对应，不单独缩放人物。",
+    "evidence": [
+      ".artifacts/sports-identity-review/whale-dizzy-v1-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "46254dad4835b4c2e9d03f934efb57c8aad4c6c51770eb0504c3217a129aa44e",
+    "originalSha256": "3b50891dcc16b40126fdb660a2c165dff3e316fbce55fd3ecc1e784ead4ce6b8",
+    "comparisonFingerprint": "ce4e3dc1024bf2bc74bcccfe396bcf84ad18b07c9f1ac81a739b56db81c612e4"
+  }
+}

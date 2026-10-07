@@ -1,0 +1,57 @@
+{
+  "key": "gpt-adult-emotion-bonk-v1",
+  "id": "gpt-adult",
+  "style": "realistic",
+  "kind": "emotion-bonk",
+  "columns": 4,
+  "rows": 1,
+  "source": "artwork/sports-identity/gpt-adult-emotion-bonk-v1.png",
+  "references": [
+    "artwork/sports-identity/gpt-adult-five-photo-v1.png",
+    "src/DesktopPet.App/Assets/Characters/gpt-adult/interactions/original/gpt-adult-original-photo-v1.png"
+  ],
+  "generationReferences": [
+    "artwork/sports-identity/gpt-adult-five-photo-v1.png"
+  ],
+  "prompt": "Precise upper-body pose EDIT of this exact 1774x887, 4-column 1-row sprite sheet. Keep the SAME adult GPT woman and the SAME approved short-sleeve white/deep emerald green sports shirt and above-knee deep emerald green shorts. Keep the original face, mature small head size, silver/lavender hair, violet eyes, horns, pointed ears, knot hair ornament and ahoge, clean 3D rendering, and all clothing details. Preserve the complete hips, long thighs, knees, shins, ankles, sneakers and ground position at EXACT original scale and coordinates in ALL four poses. Do not redesign the person or shorten/thicken legs, enlarge heads, resize individual figures or crop feet. Modify ONLY expressions and arms/hands, left to right: 1 relaxed neutral smile; 2 raise a small soft green toy hammer with a proper hand grip just beside the head; 3 gently tap the top of the head with the SAME toy hammer, eyes squeezed shut in playful surprise; 4 lower the SAME hammer and smile; keep the hammer fully inside each source cell. Preserve the original canvas, original figure positions, margins, camera and order of 4 full figures. True transparent alpha outside figures and held props. No background, gradient, glow, text, frame or extra people.",
+  "tool": "built-in image_gen",
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
+  "comparisonRole": "approved-sports-pose-edit",
+  "sourceAtlas": "photo",
+  "physicalOrder": true,
+  "clips": {
+    "bonk": {
+      "frames": [
+        0,
+        1,
+        2,
+        3,
+        0
+      ],
+      "frameMs": [
+        400,
+        650,
+        400,
+        600,
+        450
+      ],
+      "loop": false
+    }
+  },
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-f5635706-f328-4e31-848c-74d1d46d3b6a.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-07",
+    "passed": true,
+    "summary": "四帧保留已复核真人身材，轻槌动作与手臂连贯，完整膝踝鞋底未裁切。",
+    "evidence": [
+      ".artifacts/sports-identity-review/gpt-adult-emotion-bonk-v1-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "e85117705121648e0ba647b0184ba1aa4320a566085f81d23f32cf576f7a11ee",
+    "originalSha256": "4ed830896a2c1d8176ee1e9a011f57de756ff546b2c11263ac611d3f6a567b0e",
+    "comparisonFingerprint": "e80984110f966bd980e4c447b5fe61164accb4647fdb29fccc6a61c06827e0c6"
+  }
+}

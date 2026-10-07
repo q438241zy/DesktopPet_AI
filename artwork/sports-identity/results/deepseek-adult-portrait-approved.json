@@ -1,0 +1,32 @@
+{
+  "key": "deepseek-adult-portrait-approved",
+  "id": "deepseek-adult",
+  "style": "realistic",
+  "kind": "portrait",
+  "columns": 1,
+  "rows": 1,
+  "source": "docs/demo/wardrobe-identity/art/deepseek-realistic-sports-v1.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/deepseek-adult/portrait.png"
+  ],
+  "prompt": "Use case: identity-preserve / clothing-only edit.\nEdit target: image 1, the single full-body adult DeepSeek woman in the navy maid outfit, 1024 x 1536. Images 2 and 3 are the SAME woman's already accepted swimsuit and wedding outfit and confirm her invariant face, head scale, long adult legs and body proportions. Image 4 is CLOTHING DESIGN ONLY, not a body, face, hair or pose reference.\nCreate ONE single full-body image, same canvas and framing as image 1, by changing only the clothing into the sports uniform from image 4: white zip-front short-sleeved athletic top, navy shoulder/sleeve panels ending at the upper arms, cyan piping, small blue whale chest emblem; navy athletic SHORTS ending well ABOVE the knees with white/cyan side stripes; white low-top athletic sneakers and ankle socks. No long sleeves, no trousers. Keep the woman unmistakably adult, about 25 years old.\nLock the exact identity and anatomy from image 1: same face and eyes, head dimensions and head tilt, blue-to-cyan long hair, bow, ahoge and fin-shaped hair ornaments, skin tone, bust/waist/hip widths, torso length, hip height, knee and ankle locations and long leg length. Keep the SAME raised open hand at image-left, same fingers, same relaxed lower hand at image-right, same crossed/relaxed leg stance and foot positions. Preserve the original maid headband as her identity accessory. Do not make her shorter, rounder, younger, chibi, or change the hairstyle. In particular do NOT copy the squat figure from the 12-pose sports sheet. Do NOT enlarge the head to fill the image. No stretching individual body parts. Treat this as a precise virtual clothing try-on of image 1.\nCrisp high-quality realistic 3D rendering matching image 1. All hair and both complete shoes within frame. Transparent background with clean alpha, no scenery, no labels, no panel divisions. Only one woman, one full-body pose.",
+  "tool": "built-in image_gen",
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
+  "approval": "W2 design approved for expansion by user; source geometry and runtime checks still recorded separately",
+  "provenanceRecord": "docs/demo/wardrobe-identity/art/provenance.json",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-07",
+    "passed": true,
+    "summary": "重新核对用户已批准的真人原图换衣单张，脸型、身体与腿长一致，待原生和各动作衔接。",
+    "evidence": [
+      ".artifacts/sports-identity-review/deepseek-adult-portrait-approved-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "fa03fcda5d0f40f3ddb28bdc13da31e8c52b6a99524e99c473f6f12de14c5e75",
+    "originalSha256": "723d4f55f87c0ad1a4e77d5b889c905317c044c4a47e3ed32988925804acf613",
+    "comparisonFingerprint": "20e72039e2c45004f411fbc5fa8b7dd0b3d38dc48aa749559790085cd654eb09"
+  }
+}

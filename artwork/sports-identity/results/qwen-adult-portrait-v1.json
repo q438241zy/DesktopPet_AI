@@ -10,6 +10,20 @@
     "src/DesktopPet.App/Assets/Characters/qwen-adult/outfits/sports/portrait.png"
   ],
   "tool": "built-in image_gen",
-  "status": "generated-awaiting-geometry-review",
-  "selected": false
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-07",
+    "passed": true,
+    "summary": "单张与原装同画布对照，脸型、头饰、交叉腿姿势及成年身形保留；短袖短裤，未代表动作通过。",
+    "evidence": [
+      ".artifacts/sports-identity-review/qwen-adult-portrait-v1-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "8ab938b5a513140600e1d5b3ef39431d9d6c5b0e2d073d79984e84357d374a82",
+    "originalSha256": "472aa9da515f65c99b08b9d85700d3938411d52e202d178cffc50e8486ca8aa6",
+    "comparisonFingerprint": "c42eee09f4fe3b8d6336440dfc19ffcf523393ff03fe570f06a24c7a349f640a"
+  }
 }

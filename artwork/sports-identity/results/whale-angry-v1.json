@@ -1,0 +1,31 @@
+{
+  "key": "whale-angry-v1",
+  "id": "whale",
+  "style": "chibi",
+  "kind": "angry",
+  "columns": 3,
+  "rows": 2,
+  "source": "artwork/sports-identity/whale-angry-v1.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/whale/motions/angry.webp"
+  ],
+  "prompt": "Edit ONLY clothing on the single original DeepSeek chibi angry action atlas. Preserve exact source 1536x1024 canvas and 3-column by 2-row six-frame layout, source pose sequence, original per-frame character SCALE, head/body anatomy and position. This is putting clothes on the SAME character, no redesign. Preserve face, eyes, expression, blue hair, white frilly HEADBAND, fin ears, cyan bow, blue whale tail and hair accessories in ALL six frames. Preserve every exact original hand/wrist, hip/knee/ankle location and the action gesture of each frame, including turning/leaning/crouching. Replace only old long sleeves, maid dress, apron, tights and boots with white zip-front high-collar athletic shirt with NAVY short upper-arm sleeves, cyan piping and small blue whale chest emblem; navy athletic SHORTS ending well above knees with thin white side stripes, white ankle socks and small white-blue sneakers. Bare forearms with NO wrist cuffs, bare knees/lower legs. Keep original props and emotion symbols but do not add separate effect objects. Keep original canvas margins and figure heights exactly, especially any intentionally smaller middle poses. No making heads bigger, moving joints, shorter legs or wider bodies. Genuine transparent alpha outside the full character/props; no painted background, new shadow, glow, grid or captions.",
+  "tool": "built-in image_gen",
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-114a5396-c85f-4d86-8b8b-a2d219fbc10a.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-07",
+    "passed": true,
+    "summary": "六帧头部、蓝发与坐姿比例保持，生气和抱臂表情连续；短袖短裤。",
+    "evidence": [
+      ".artifacts/sports-identity-review/whale-angry-v1-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "cac6562119d866d69d9a6905f8c2fe86258cd308258b4282e6e8d9132422df24",
+    "originalSha256": "4cbfc0aff6f6e4a1ef110129600858cf93f7363a2782db91916c720c7acd0eaf",
+    "comparisonFingerprint": "98f107a59c83b6d06816b2ffcf291559ef31c3e2c8603d0dfeb32fdc59945e54"
+  }
+}

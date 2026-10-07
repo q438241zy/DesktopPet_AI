@@ -1,0 +1,32 @@
+{
+  "key": "qwen-adult-walk-v1",
+  "id": "qwen-adult",
+  "style": "realistic",
+  "kind": "walk",
+  "columns": 3,
+  "rows": 4,
+  "source": "artwork/sports-identity/qwen-adult-walk-v1.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/qwen-adult/motions/walk-smooth.png",
+    "artwork/sports-identity/qwen-adult-portrait-v1.png"
+  ],
+  "prompt": "CLOTHING-ONLY EDIT. IMAGE1 is the exact edit target: original Qwen adult realistic 3D woman twelve-frame walking atlas. IMAGE2 is ONLY the approved sports uniform design, never the pose/framing. KEEP original 1024x1536 canvas, 3 columns x 4 rows, same source pixel positions and margins. Retain each of the twelve original right-facing walk phases exactly, including alternating foot support, knee angles and opposite arm swing; no extra frames, no skipped or duplicate phase. Replace only original outfit and boots with white zip athletic shirt, NAVY upper-arm short sleeves with blue piping, navy above-knee shorts with white/blue side stripes, white ankle socks, white-blue low-top sneakers. Change clothes only. Preserve exact original face and small adult head, periwinkle braided hair, violet eyes, navy/white/gold tilted cap and tassel, earrings, shoulders/waist/hips and full natural adult leg lengths. Expose bare forearms and knees, no leftover cuffs, long sleeves, skirt or stockings. KEEP ORIGINAL LEG JOINT COORDINATES including knees, ankles and ground contact, even when replacing heels by sneakers; do not make her squat/chunky, inflate the head, thicken legs, or copy the waving pose in image2. Preserve real adult 3D shading and delicate facial detail and correct original walking direction. Real transparent alpha outside figures; no background, added shadow, glow, grid or text.",
+  "tool": "built-in image_gen",
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-cb8dc3f0-966e-4273-8b32-f33ecc8e3f11.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-07",
+    "passed": true,
+    "summary": "十二帧原图对照完成，保持成年身形、原头部与膝踝位置，短袖短裤；尚待原生连续播放与转身检查。",
+    "evidence": [
+      ".artifacts/sports-identity-review/qwen-adult-walk-v1-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "8eb4d5e83e625e6ab4b3e9ffaf99dfbc8a884ee203e155a9be376c8bb4655022",
+    "originalSha256": "08eaf32382277f0eb31a2f23250548ce844e923faac46cd34ec89bb9c04faf3e",
+    "comparisonFingerprint": "e466fbc1b953f22dab930a0d7fcbfe31909f58e4c10c1060b31e08595870e9de"
+  }
+}

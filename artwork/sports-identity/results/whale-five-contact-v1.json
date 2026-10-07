@@ -1,0 +1,34 @@
+{
+  "key": "whale-five-contact-v1",
+  "id": "whale",
+  "style": "chibi",
+  "kind": "five-contact",
+  "columns": 4,
+  "rows": 3,
+  "prompt": "Clothing-only edit of this original DeepSeek character atlas. Keep EXACT source canvas width/height, each original cell and figure scale, physical layout and margins. Preserve every pose, original face/head size, natural head-body and leg proportions, eyes, blue hair, fin ears, headband, bow and any tail. Preserve ALL exact hand/finger/wrist positions and prop contact. Dress the EXISTING body in a white zipped sports shirt with NAVY short upper-arm sleeves and cyan piping, small blue whale emblem, NAVY above-knee SHORTS with thin white side stripes, white ankle socks and small white-blue sneakers. Bare forearms, knees/lower legs; no old dress, tights, long sleeves or cuffs. NO shortening or widening body, changing gestures, removing or adding props. Genuine transparent alpha, no background, grid, caption or new effects. Keep all TWELVE original standing Q/chibi poses in FOUR columns THREE rows, including high-five palm, rock-paper-scissors hands, opened gift and closed book. Keep exact original canvas dimensions and figure locations.",
+  "source": "artwork/sports-identity/whale-five-contact-v1.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/whale/interactions/original/interaction-chibi-v2.png"
+  ],
+  "generationReferences": [
+    "src/DesktopPet.App/Assets/Characters/whale/interactions/original/interaction-chibi-v2.png"
+  ],
+  "tool": "built-in image_gen",
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-4fcbc3dd-6036-4e49-aa33-2921f57b26e4.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-07",
+    "passed": true,
+    "summary": "12姿势原脸、站姿、击掌/猜拳/礼物/合书接触保留；需用实际新掌心点与隔离裁切接入。",
+    "evidence": [
+      ".artifacts/sports-identity-review/whale-five-contact-v1-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "26be086bff83f2db386a1db808067c77fa873e670a15a6d58f3e3b8543a9de41",
+    "originalSha256": "37f8d038111c792ed81dec69297a6c96bfe84561ae68672f4f75f52186bb267e",
+    "comparisonFingerprint": "ffd81d90e3488a00d136556f87f261ba33f8f6e24b52a850503b60a0ff188e77"
+  }
+}

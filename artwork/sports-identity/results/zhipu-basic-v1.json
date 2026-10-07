@@ -10,6 +10,20 @@
     "src/DesktopPet.App/Assets/Characters/zhipu/outfits/sports/core.png"
   ],
   "tool": "built-in image_gen",
-  "status": "generated-awaiting-geometry-review",
-  "selected": false
+  "status": "not-selected-after-review",
+  "selected": false,
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-07",
+    "passed": false,
+    "summary": "下排三姿势位置上移、难过头部放大；采用v2。",
+    "evidence": [
+      ".artifacts/sports-identity-review/zhipu-basic-v1-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "72ff240dff1c5e32b339a78dc48bfedd6fc67679592586ea1d97e23487af062b",
+    "originalSha256": "ff9412edb4b3813a66dafa2ab49481f3942e332f8d3812d589dd58084999259d",
+    "comparisonFingerprint": "0d981e5797c180b8f21cb31730cbd343d308eb7fcbf1ae44bf168081b1ff753f"
+  }
 }

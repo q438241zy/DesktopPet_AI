@@ -1,0 +1,31 @@
+{
+  "key": "whale-chat-v3",
+  "id": "whale",
+  "style": "chibi",
+  "kind": "chat",
+  "columns": 3,
+  "rows": 2,
+  "source": "artwork/sports-identity/whale-chat-v3.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/whale/motions/chat.webp"
+  ],
+  "prompt": "EDIT ONLY THE CLOTHES in the single attached source atlas. Keep the attached original image composition pixel-aligned: all six ORIGINAL character sizes, exact blue heads, faces, ears, white frilled headband, cyan bows, tails, hand poses, kneecap locations and foot locations must remain in their original positions. No character redrawing, no enlargement. Maintain the original 1536x1024 canvas and 3x2 layout. All six seated figures stay near 390-pixel height with soles at local y447, head crown at y55; do not fill empty margin or increase heads or hair. Replace maid clothes by white high-collar zip athletic shirt with NAVY short sleeves only upper arms, cyan thin piping, tiny blue whale chest mark; NAVY SHORTS above knees; white ankle socks and WHITE-BLUE SMALL SNEAKERS matching exact original foot size. Remove long sleeves, wrist cuffs, apron, skirt and tights. Forearms and legs naturally exposed, bare wrists. Keep everything outside the old clothes unchanged. Ignore invisible transparent RGB junk. Output genuine TRANSPARENT background, no glow or backdrop.",
+  "tool": "built-in image_gen",
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-62b51606-5ff8-4427-a73a-812d542ccc39.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-07",
+    "passed": true,
+    "summary": "聊天六帧手势及嘴部表情对应原图，修正前稿整体放大与残留袖口。",
+    "evidence": [
+      ".artifacts/sports-identity-review/whale-chat-v3-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "0ddae762da0bad096614e7d3f9af14fcc979da9f15e969cd377a914d1b08af04",
+    "originalSha256": "5dc1fa7fb8fdd15a0d25158806814ee1306324932d3e62e21d4556f59ff30ad9",
+    "comparisonFingerprint": "ead91dcf1495edf2a1c422ab6f6955e1abb79de4ab8797941254684ec7b6538a"
+  }
+}

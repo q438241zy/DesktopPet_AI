@@ -1,0 +1,32 @@
+{
+  "key": "grok-adult-walk-v1",
+  "id": "grok-adult",
+  "style": "realistic",
+  "kind": "walk",
+  "columns": 3,
+  "rows": 4,
+  "source": "artwork/sports-identity/grok-adult-walk-v1.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/grok-adult/motions/walk-smooth.png",
+    "artwork/sports-identity/grok-adult-portrait-v1.png"
+  ],
+  "prompt": "CLOTHING-ONLY EDIT. IMAGE1 is the exact edit target: original Grok adult realistic 3D woman twelve-frame walking atlas. IMAGE2 is ONLY the approved sports uniform design, never the pose/framing. KEEP original 1024x1536 canvas, 3 columns x 4 rows, same source pixel positions and margins. Retain each of the twelve original right-facing walk phases exactly, including alternating foot support, knee angles and opposite arm swing; no extra frames, no skipped or duplicate phase. Replace only original outfit and boots with white zip athletic shirt, BLACK upper-arm short sleeves with gold piping, black above-knee shorts with gold side stripes, white ankle socks, white-gold low-top sneakers. Change clothes only. Preserve exact original face and small adult head, blonde twin tails, black/gold ribbons, blue eyes, ring hair ornament and ahoge, shoulders/waist/hips and full natural adult leg lengths. Expose bare forearms and knees, no leftover cuffs, long sleeves, skirt or stockings. KEEP ORIGINAL LEG JOINT COORDINATES including knees, ankles and ground contact, even when replacing heels by sneakers; do not make her squat/chunky, inflate the head, thicken legs, or copy the waving pose in image2. Preserve real adult 3D shading and delicate facial detail and correct original walking direction. Real transparent alpha outside figures; no background, added shadow, glow, grid or text.",
+  "tool": "built-in image_gen",
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-fb709e39-93a3-4a63-bd10-2b691b2dff22.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-07",
+    "passed": true,
+    "summary": "十二帧原图对照完成，保持成年身形、原头部与膝踝位置，短袖短裤；尚待原生连续播放与转身检查。",
+    "evidence": [
+      ".artifacts/sports-identity-review/grok-adult-walk-v1-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "ebd88d69960acfbfbccc96a9e808f7e2b991ff043808175f1e1278ebcfc3df4a",
+    "originalSha256": "496e00f14544042264ea397b52098d122d519754de2bf71b3d93063bbc213d50",
+    "comparisonFingerprint": "b1da82a62b2bc5efe2110c35115840e548c22fc13377b6053e7d56d540082be0"
+  }
+}

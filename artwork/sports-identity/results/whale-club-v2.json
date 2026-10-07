@@ -1,0 +1,87 @@
+{
+  "key": "whale-club-v2",
+  "id": "whale",
+  "style": "chibi",
+  "kind": "club",
+  "columns": 4,
+  "rows": 6,
+  "prompt": "Make ONE tiny correction to this existing 1024x1536 DeepSeek sportswear sprite sheet, 4 columns x 6 rows. In row 4 column 4 (the girl with both hands clasped on her lap, last bubble pose), remove the old white long sleeves/cuffs: both forearms must be bare skin from the end of navy upper-arm short sleeves to her hands, matching row 1 column 1. Preserve every other pixel/pose as closely as possible: all 24 heads, eyes, blue hair, frilly HEADBAND, whale tail, body, legs, shorts, shoes, bubble bottle and pink bubble wand. Do not remove the headband, bottle or pink bubble wand. Do not change scale or rearrange any frame. Keep 1024x1536 and full alpha transparency.",
+  "source": "artwork/sports-identity/whale-club-v2.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/whale/motions/cloud-club-original.png"
+  ],
+  "generationReferences": [
+    "artwork/sports-identity/whale-club-v1.png"
+  ],
+  "tool": "built-in image_gen",
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-0cbf1b54-46ea-48ba-af81-d750c6b4a6f4.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-07",
+    "passed": true,
+    "summary": "已移除吹泡泡收手时残留袖口，保留泡泡环、瓶与数星星手势；所有帧逐一对照。",
+    "evidence": [
+      ".artifacts/sports-identity-review/whale-club-v2-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "f4e526e7b1cd18ce2cbf4c6e5816e9965e64cf2dd77473830edf744cbd963e73",
+    "originalSha256": "ead08dafae0f076f03927f9b6b1de7ca23ceb397bb9d7843dcd0ba48981d2d0c",
+    "comparisonFingerprint": "cd114b2aedd1727a70f054071b5ce2b74b8c6ef2373ed8ec85a84c82895c3207"
+  },
+  "measurementPixels": {
+    "bubbleSources": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      [
+        77,
+        692
+      ],
+      [
+        325,
+        644
+      ],
+      [
+        615,
+        655
+      ],
+      [
+        864,
+        658
+      ],
+      [
+        108,
+        905
+      ],
+      [
+        319,
+        895
+      ],
+      [
+        580,
+        934
+      ],
+      [
+        880,
+        930
+      ],
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ]
+  },
+  "measurementNote": "Assistant marked on original candidate pixels; native contact verification pending, no image edit."
+}

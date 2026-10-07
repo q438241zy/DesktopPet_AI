@@ -76,10 +76,11 @@ internal static class ScaleVerification
                     {
                         pet.PreviewMotion(action,elapsed+1,20000);
                         var frame=(BitmapSource)image.Source;
-                        scales.Add(image.Height/Math.Max(frame.PixelWidth,frame.PixelHeight));
+                        double calibratedFactor=clip.FrameScaleFactors?[pet.DrawnFrame] ?? 1;
+                        scales.Add(image.Height/Math.Max(frame.PixelWidth,frame.PixelHeight)/calibratedFactor);
                         elapsed+=clip.FrameMs?[i] ?? 240;
                     }
-                    Require(scales.Max()/scales.Min()<1.03,c.Id+"/"+outfit+"/"+action+": constant source pixel scale through the full clip");
+                    Require(scales.Max()/scales.Min()<1.03,c.Id+"/"+outfit+"/"+action+": source pixel scale follows the original calibrated factors through the full clip");
                 }
                 // Returning from a calibrated pose must restore the exact idle
                 // size, including after repeated action changes at slider limits.

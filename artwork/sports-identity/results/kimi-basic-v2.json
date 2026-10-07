@@ -1,0 +1,31 @@
+{
+  "key": "kimi-basic-v2",
+  "id": "kimi",
+  "style": "chibi",
+  "kind": "original-basic",
+  "columns": 3,
+  "rows": 2,
+  "source": "artwork/sports-identity/kimi-basic-v2.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/kimi/atlas.png"
+  ],
+  "prompt": "CLOTHING ONLY EDIT of the single attached original kimi chibi six-pose atlas. Keep the exact 1536x1024 canvas, 3-column 2-row layout, every original figure's source-pixel size and position, and every pose unchanged. Do NOT enlarge the sad sixth figure or move its head higher, do NOT enlarge/reposition the sleeping fourth and dizzy fifth. Preserve each original head size, hair shape, every hair/head ornament, eye/face identity, ears/horns/tail if present, hand/finger and foot positions, skeleton, head/body proportions and gaps between figures. Replace only existing clothes and footwear by white high-collar zip athletic shirt, navy SHORT sleeves ending on upper arms, fine lavender piping and small blue crescent chest emblem, NAVY athletic SHORTS above the knees, white ankle socks and small white-lavender low-top sneakers. Bare forearms and knees, remove old dress, skirt, gloves, wrist cuffs and tights; the shorts have two visibly separate legs. Preserve the original hand-to-cheek, joy, sleep, dizzy, sad facial expressions and original tiny attached emotion symbols. Footwear must occupy the original shoe locations and comparable volume. No new anatomy or new pose design. Keep original opacity inside hair and accessories, including any dark tails; genuine TRANSPARENT background only outside figures and symbols. No border, text, glow or floor shadows.",
+  "tool": "built-in image_gen",
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-2c886515-ee41-45c2-a62a-7309b2536bda.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-07",
+    "passed": true,
+    "summary": "重新以原图换衣，六个原姿势、头饰及脸型保留；下排偏移与头部放大较上一稿修正。",
+    "evidence": [
+      ".artifacts/sports-identity-review/kimi-basic-v2-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "05f7189f8e7dc08bdcabd50955517fd0e15b3434aa8177658b09792ab0c39e1a",
+    "originalSha256": "e5f58a6d433ef15b76c4d41e87d9c9dc942be4a1efec4452f4008aec9038182b",
+    "comparisonFingerprint": "6d1a16607f1eb4238539444cffbabc4d6f64dd62b3bc7a03557faf85c770e6b6"
+  }
+}

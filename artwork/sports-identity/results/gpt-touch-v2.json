@@ -1,0 +1,20 @@
+{
+  "key": "gpt-touch-v2",
+  "id": "gpt",
+  "style": "chibi",
+  "kind": "touch",
+  "columns": 4,
+  "rows": 3,
+  "source": "artwork/sports-identity/gpt-touch-v2.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/gpt/motions/touch-continuity.png"
+  ],
+  "generationReferences": [
+    "artwork/sports-identity/gpt-touch-v1.png"
+  ],
+  "prompt": "Precise small-area EDIT of the FIRST attached sprite sheet. Preserve its canvas dimensions, all figure positions, exact head sizes, identity, silver/lavender hair, horns, ears, hair ornament, facial expressions, existing short-sleeve emerald/white sports shirt and above-knee shorts. Do not resize or shift figures. Keep genuine transparent alpha outside figures, no background or glow. Repair ONLY the leftover WHITE FOREARM SLEEVES / FRILLY CUFFS. Every arm must be bare skin from short sleeve hem at the upper arm to the fingers. Specifically row 1 columns 2 and 3, and row 2 columns 1, 2, 3 have white fabric around the wrists/forearms; replace this fabric with continuous natural bare forearms. Retain hands, fingers, all 12 original poses, feet, knees, clothing elsewhere and all their coordinates unchanged. Row 3 open-palmed gestures must be unchanged.",
+  "tool": "built-in image_gen",
+  "status": "generated-awaiting-visual-review",
+  "selected": false,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-35ec69f9-ca7d-4d32-aba6-11f20019a509.png"
+}

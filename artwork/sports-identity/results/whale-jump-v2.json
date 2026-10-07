@@ -1,0 +1,32 @@
+{
+  "key": "whale-jump-v2",
+  "id": "whale",
+  "style": "chibi",
+  "kind": "jump",
+  "columns": 3,
+  "rows": 2,
+  "source": "artwork/sports-identity/whale-jump-v2.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/whale/motions/jump.webp",
+    "docs/demo/wardrobe-identity/art/deepseek-chibi-sports-v1.png"
+  ],
+  "prompt": "Precise clothing-only edit. Image1 is the EDIT TARGET, original DeepSeek Q jump six-frame atlas, 1536x1024, 3 columns x 2 rows. Image2 is only the UNIFORM design reference, not poses. Preserve the EXACT source positions and proportions, not a redesigned character: head size, blue eyes, blue hair, white ruffled headband, cyan bow, fin ears, ahoge, whale tail, torso, knees and ankles. Cell-local bounding boxes, each 512x512: [71,97,443,454], [123,80,394,375], [123,42,394,337], [123,31,394,326], [123,76,394,371], [75,73,437,449]. Frames 2-5 are intentionally SMALLER figures in source, preserve those exact scales and the original vertical flight positions. Do NOT enlarge any figure to fill the cell. Keep the original bent knees, tucked feet, hands raised in takeoff-flight-landing. Remove all original wrist frills and tights, leave bare forearms and legs, shoes fit original foot positions. ONLY replace the navy maid outfit by image2's white/navy short-sleeve zip sports shirt, navy above-knee athletic shorts, white ankle socks and white-blue low-top sneakers. Bare wrists: no leftover maid cuffs. Leave all other artwork and all original six gestures/expressions untouched. Preserve generous source whitespace. Genuine transparent background with alpha, no colored backdrop or glow. Ignore RGB junk in transparent source pixels.",
+  "tool": "built-in image_gen",
+  "status": "not-selected-after-review",
+  "selected": false,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-267f27cf-32f6-4150-8456-a2e1bdbcb431.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-07",
+    "passed": false,
+    "summary": "起落与腾空帧仍有放大，以v3取代。",
+    "evidence": [
+      ".artifacts/sports-identity-review/whale-jump-v2-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "f870d1231e66807debdcf635da0d0ee44912cbfdbc667dc289bf41b30f986ece",
+    "originalSha256": "10037e52a395e2c6d8f9f1f53799943fe3ed691ef60e7e2e73f99adda7ea46ce",
+    "comparisonFingerprint": "6fb7de539fd16785dc9b43e7e5d3b72f1c61cf36167de609cea4dd5569f93359"
+  }
+}

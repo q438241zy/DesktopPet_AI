@@ -1,0 +1,31 @@
+{
+  "key": "whale-farewell-v1",
+  "id": "whale",
+  "style": "chibi",
+  "kind": "farewell",
+  "columns": 3,
+  "rows": 2,
+  "source": "artwork/sports-identity/whale-farewell-v1.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/whale/motions/farewell.webp"
+  ],
+  "prompt": "Edit ONLY clothing on the single original DeepSeek chibi farewell action atlas. Preserve exact source 1536x1024 canvas and 3-column by 2-row six-frame layout, source pose sequence, original per-frame character SCALE, head/body anatomy and position. This is putting clothes on the SAME character, no redesign. Preserve face, eyes, expression, blue hair, white frilly HEADBAND, fin ears, cyan bow, blue whale tail and hair accessories in ALL six frames. Preserve every exact original hand/wrist, hip/knee/ankle location and the action gesture of each frame, including turning/leaning/crouching. Replace only old long sleeves, maid dress, apron, tights and boots with white zip-front high-collar athletic shirt with NAVY short upper-arm sleeves, cyan piping and small blue whale chest emblem; navy athletic SHORTS ending well above knees with thin white side stripes, white ankle socks and small white-blue sneakers. Bare forearms with NO wrist cuffs, bare knees/lower legs. Keep original props and emotion symbols but do not add separate effect objects. Keep original canvas margins and figure heights exactly, especially any intentionally smaller middle poses. No making heads bigger, moving joints, shorter legs or wider bodies. Genuine transparent alpha outside the full character/props; no painted background, new shadow, glow, grid or captions.",
+  "tool": "built-in image_gen",
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-297cf97d-e8f1-4282-935f-c2aea1cfbbfe.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-07",
+    "passed": true,
+    "summary": "头部身份与道别、伸手、眨眼姿态对应；保留同一比例的短袖短裤稿，原生尺寸仍待检验。",
+    "evidence": [
+      ".artifacts/sports-identity-review/whale-farewell-v1-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "fc831b211acf2644c7b104d2195a632021f08576d4e405f04afca3f97e173f87",
+    "originalSha256": "92f5cc77df74945cccfaa873c12024190555a0c4b43545f0f2ba6192ed91ba66",
+    "comparisonFingerprint": "62af59edbfc20f2a150d46404bd76361d1ecbb386ab86056009eacfb93cd8a80"
+  }
+}

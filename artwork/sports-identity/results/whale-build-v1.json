@@ -1,0 +1,31 @@
+{
+  "key": "whale-build-v1",
+  "id": "whale",
+  "style": "chibi",
+  "kind": "build",
+  "columns": 4,
+  "rows": 6,
+  "source": "artwork/sports-identity/whale-build-v1.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/whale/motions/build-smooth.png"
+  ],
+  "prompt": "Exact CLOTHING-ONLY edit of this original DeepSeek action atlas. Keep the original 1024x1536 canvas, 4 columns by 6 rows, exact per-frame source-pixel figure sizes/positions, no rearrangement, zoom, or head/leg resizing. Preserve identity: blue hair and eyes, white frilled HEADBAND, cyan bow, fin ears, blue whale tail wherever present. Keep all skeleton, wrists, knees, ankles, face/hair and expressions unchanged. Replace the original outfit by white zip-front athletic shirt with NAVY short upper-arm sleeves, cyan piping and small blue whale chest emblem; NAVY SHORTS ending ABOVE KNEES, short white ankle socks and white-blue LOW TOP sneakers of comparable original foot volume. Remove old wrist cuffs, apron, skirt and tights; forearms and knees uncovered. Keep exactly all 24 original poses and colored blocks in their source positions. Top twelve running/arm poses unchanged; bottom twelve sitting on ground and physically picking up, placing and stacking pink, blue and yellow blocks. Preserve all hand-to-block contacts and evolving stack order, original seated anatomy. Only clothes change. This is the same character in new clothes, never a new shorter or chubbier character. Original per-pose scale differences remain exactly as source for later shared animation calibration. Transparent alpha outside figures and actual props, not a painted background, no glow or new shadows.",
+  "tool": "built-in image_gen",
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-50ad7c16-87a1-41ae-9748-264592993e24.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-07",
+    "passed": true,
+    "summary": "原图下半部十二帧保留坐姿拿取、摆放及堆叠积木过程；接入须只使用原有12–23帧。",
+    "evidence": [
+      ".artifacts/sports-identity-review/whale-build-v1-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "a08ada6eb528eea3ee37b7911654fbfb5987e7e4acb392662f1bbaa8393e4847",
+    "originalSha256": "f5cfd3dd0ecc5283412d303a65086ec26c9822065622cceee9533751ed616f59",
+    "comparisonFingerprint": "f37d1a142bab47a874fca22849554b167aba52d70e09c27bc93b269bd99dadfb"
+  }
+}

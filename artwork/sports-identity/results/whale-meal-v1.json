@@ -12,6 +12,20 @@
     "docs/demo/wardrobe-identity/art/deepseek-chibi-sports-v1.png"
   ],
   "tool": "built-in image_gen",
-  "status": "generated-awaiting-geometry-review",
-  "selected": false
+  "status": "not-selected-after-review",
+  "selected": false,
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-07",
+    "passed": false,
+    "summary": "人物整体比原图约大19%，以v2取代。",
+    "evidence": [
+      ".artifacts/sports-identity-review/whale-meal-v1-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "93a1dc049d58fc914eeae38556fa517e18df84bf7eb9a1db187fbeb22390aa91",
+    "originalSha256": "ef6ddb5aca410eacc2eee4051b8065c8553524bfcba3a5d7facd60a636954e7c",
+    "comparisonFingerprint": "24d8460e2411f53478fdca36ef93690e99315ad6c209c1b12bfd0669e02c5285"
+  }
 }

@@ -1,0 +1,34 @@
+{
+  "key": "whale-care-v3",
+  "id": "whale",
+  "style": "chibi",
+  "kind": "care",
+  "columns": 4,
+  "rows": 6,
+  "prompt": "Edit only TWO poses in this existing DeepSeek 1024x1536 4-column 6-row sprite sheet: row2 column1 and row2 column4. Restore a small cream face towel held between both hands at chest level, matching the towel design in the two middle poses of row2. The two hands should clasp the towel naturally together at chest level. Keep both forearms bare skin, navy SHORT upper-arm sleeves, no frilled wrist cuffs. Towel must visibly hang down a little between the hands. DO NOT alter row2 columns2 or3, any other row, outfit, headband, blue hair, tail, face/head scale, legs, shorts, shoes, figure position or canvas dimensions. Only restore the two missing hand-held towels, preserve transparent alpha.",
+  "source": "artwork/sports-identity/whale-care-v3.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/whale/motions/cloud-care-wardrobe.png"
+  ],
+  "generationReferences": [
+    "artwork/sports-identity/whale-care-v2.png"
+  ],
+  "tool": "built-in image_gen",
+  "status": "not-selected-after-review",
+  "selected": false,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-434bf524-9cc4-458a-a0bd-98332a7641af.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-07",
+    "passed": false,
+    "summary": "透明背景残留且alpha零值比例仅19.74%，不能采用。",
+    "evidence": [
+      ".artifacts/sports-identity-review/whale-care-v3-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "2bb7abd43008f6dfa4310f81b6f022b022075be2296b08c899a86dc6c76aa376",
+    "originalSha256": "8573f860c00d112a1ee9f6d89b3ba7c0cecedf41276db3d0dbe1340b323ba404",
+    "comparisonFingerprint": "25532d03d194f5f9da9d17e48d6dd67cb1455c075658f622facf05a2bc549eb1"
+  }
+}

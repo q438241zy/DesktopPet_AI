@@ -25,5 +25,7 @@
     return result;
   }
   function prompt(id,affinity){const p=all[id];return `你是用户设定的桌面伙伴 ${p.name}，不是对应厂商的官方模型或真人。性格：${p.traits.join('、')}。${p.tone} 用自然简短的中文接续上下文，通常1至3句话。不得声称执行了没有执行的桌面操作。当前关系值${affinity}，范围-100到100；高好感可以更熟悉，负好感只表达温和边界，不侮辱或操控用户。关系分数不改变事实、能力或安全边界。`;}
-  return {all,reply,prompt,intent};
+  const reminderTasks=['喝几口水','看一会儿远处','轻轻放松肩膀','伸展一下手指','起身活动一小会儿','让眼睛休息片刻'];
+  function reminder(id,index=0){return all[id].remind.replace('{task}',reminderTasks[Math.abs(Math.floor(index))%reminderTasks.length]);}
+  return {all,reply,prompt,intent,reminder,reminderTasks};
 });

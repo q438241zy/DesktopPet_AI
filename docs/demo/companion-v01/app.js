@@ -1,7 +1,7 @@
 (() => {
   'use strict';
   const $=selector=>document.querySelector(selector), $$=selector=>[...document.querySelectorAll(selector)];
-  const M=CompanionModel,P=PetPersonas,D=CLOUD_DATA;
+  const M=CompanionModel,P=PetPersonas,D=CLOUD_DATA,A=CompanionProviders;
   const storageKey='cloud-companions.demo.v01.state',accountKey='cloud-companions.demo.v01.accounts';
   const read=key=>{try{return JSON.parse(localStorage.getItem(key)||'null');}catch{return null;}};
   const state=M.create(read(storageKey));
@@ -9,7 +9,7 @@
   const runtime=M.createRuntime(now()),images=new Map(),photoImages=new Map(),pendingPhotos=new Map(),errors=[];
   let page='partners',detailId=state.selected,detailTab='bond',collectionTab='balls',apiKey='',session=null,authMode='login',chatTicket=0,chatAbort=null,chatStarted=0,chatFinished=0,photoStamp='',photoBusy=false,photoTicket=0,story=null,storyLine=0,storyFinished=false,lastTick=performance.now(),lastSave=now(),touches=[],saveFailed=false;
   const chats=Object.fromEntries(M.families.map(id=>[id,[]]));
-  let viewStamp='',lastPose=null,toastTimer,reminderTimer;
+  let viewStamp='',lastPose=null,toastTimer,reminderTimer,reminderTicket=0,reminderAbort=null,reminderIndex=0,apiTestTicket=0,apiTestAbort=null;
   const outfit=(family=state.selected,style=state.style)=>state.outfits[family+'/'+style]||'original';
   const look=(family=state.selected,style=state.style,clothes=outfit(family,style))=>D.families[family].styles[style].looks[clothes];
   const icon=name=>`<svg viewBox="0 0 24 24" aria-hidden="true"><path d="${CompanionIcons[name]||CompanionIcons.cloud}"></path></svg>`;
@@ -50,10 +50,10 @@
     if(next==='daily')renderDaily();if(next==='detail')renderDetail();if(next==='settings')renderSettings();drawStatic();syncStage(true);window.scrollTo({top:0,behavior:'instant'});
   }
   function select(family){
-    if(!M.families.includes(family))return;cancelChat();state.selected=family;detailId=family;runtime.action='idle';runtime.started=now();touch();touches=[];viewStamp='';
+    if(!M.families.includes(family))return;cancelChat();dismissReminder();state.selected=family;detailId=family;runtime.action='idle';runtime.started=now();touch();touches=[];viewStamp='';
     renderCards();$('#active-name').textContent=P.all[family].name;$('#chat-input').placeholder=`和 ${P.all[family].name} 说句话…`;$('#chat-input').value='';$('#pet-canvas').setAttribute('aria-label',P.all[family].name);$('#bubble-text').textContent=P.all[family].hello;save();syncStage(true);
   }
-  function style(value){if(!['chibi','realistic'].includes(value))return;cancelChat();state.style=value;runtime.action='idle';runtime.started=now();touch();renderCards();save();syncStage(true);if(page==='detail')renderDetail();}
+  function style(value){if(!['chibi','realistic'].includes(value))return;cancelChat();dismissReminder();state.style=value;runtime.action='idle';runtime.started=now();touch();renderCards();save();syncStage(true);if(page==='detail')renderDetail();}
   function renderCards(){
     const grid=$('#partner-grid');grid.replaceChildren();
     for(const id of M.families){const card=document.createElement('button');card.className='partner-card'+(state.selected===id?' active':'');card.dataset.family=id;card.setAttribute('aria-pressed',String(state.selected===id));card.setAttribute('aria-label',`${P.all[id].name}，右键查看档案`);card.innerHTML='<canvas width="400" height="320"></canvas><strong></strong>';card.querySelector('strong').textContent=P.all[id].name;card.onclick=()=>select(id);card.oncontextmenu=event=>{event.preventDefault();openDetail(id);};card.onkeydown=event=>{if(event.key==='ContextMenu'||event.shiftKey&&event.key==='F10'){event.preventDefault();openDetail(id);}};grid.append(card);}
@@ -108,25 +108,17 @@
     touch();const id=state.selected,ticket=++chatTicket;chatAbort?.abort();chatAbort=new AbortController();const controller=chatAbort;
     chats[id].push({role:'user',content:text});chats[id]=chats[id].slice(-24);$('#chat-input').value='';$('#chat-send').disabled=true;
     runtime.action='thinking';runtime.started=now();chatStarted=performance.now();$('#bubble-text').textContent='让我想一想';syncStage(true);
-    let requestTimer;
     try{
       const fetchReply=async()=>{
         if(state.api.provider==='local'||!state.api.endpoint.trim())return P.reply(id,chats[id],state.relations[id].score);
-        const req=M.request(state.api,apiKey,chats[id],P.prompt(id,state.relations[id].score));requestTimer=setTimeout(()=>controller.abort(),45000);
-        const response=await fetch(req.url,{...req.options,signal:controller.signal,credentials:'omit',redirect:'error'});
-        if(!response.ok)throw new Error(`模型服务返回 ${response.status}，请检查地址、模型和 API Key。`);
-        const reader=response.body.getReader();let size=0,chunks=[];
-        while(true){const {done,value}=await reader.read();if(done)break;size+=value.length;if(size>1024*1024){await reader.cancel();throw new Error('回复内容过长，请重试。');}chunks.push(value);}
-        const all=new Uint8Array(size);let at=0;for(const c of chunks){all.set(c,at);at+=c.length;}
-        const json=JSON.parse(new TextDecoder().decode(all));const content=json.choices?.[0]?.message?.content;
-        if(typeof content!=='string'||!content.trim())throw new Error('模型没有返回文字回复。');return content.trim();
+        return A.send({...state.api},apiKey,chats[id],P.prompt(id,state.relations[id].score),{signal:controller.signal});
       };
       const result=await Promise.allSettled([fetchReply(),new Promise(resolve=>setTimeout(resolve,1000))]);
       if(ticket!==chatTicket||state.selected!==id)return;
       if(result[0].status==='rejected')throw result[0].reason;
       const answer=result[0].value;chats[id].push({role:'assistant',content:answer});chatFinished=performance.now();affect(1,'聊了几句','chat',60000);speak(answer,'talk',Math.max(3600,Math.min(9000,answer.length*75)));
     }catch(error){if(ticket===chatTicket){runtime.action='idle';runtime.started=now();runtime.idleSince=now();$('#bubble-text').textContent=error.name==='AbortError'?'这次回复超时了，请再试一次。':error instanceof TypeError?'连接没有成功，浏览器可能限制此接口。请检查地址或使用本机对话。':error.message;syncStage(true);}}
-    finally{clearTimeout(requestTimer);if(ticket===chatTicket){$('#chat-send').disabled=false;chatAbort=null;syncStage(true);}}
+    finally{if(ticket===chatTicket){$('#chat-send').disabled=false;chatAbort=null;syncStage(true);}}
   }
   function openDetail(id){detailId=id;detailTab='bond';navigate('detail');}
   function renderDetail(){
@@ -159,24 +151,66 @@
     $('#keepsake-grid').replaceChildren(...D.items.filter(x=>x.kind==='keepsakes').map(itemCard));$('#keepsakes').hidden=collectionTab==='stories';
   }
   function itemCard(item){const el=document.createElement('div');el.className='collection-card'+(state.collection[item.id]?' earned':' unearned');el.innerHTML=FiveItems.svg(item.id)+'<span></span><small></small>';el.querySelector('span').textContent=item.name;el.querySelector('small').textContent=state.collection[item.id]?`已收藏 ×${state.collection[item.id]}`:'还没遇见';return el;}
-  function drawGift(){const random=new Uint32Array(1);crypto.getRandomValues(random);const pool=D.items.filter(i=>!state.collection[i.id]),item=(pool.length?pool:D.items)[random[0]%(pool.length||D.items.length)];state.collection[item.id]=(state.collection[item.id]||0)+1;affect(2,'一起拆礼物','gift',60000);save();renderDaily();toast(`找到 ${item.name}，已收进${{balls:'球区',food:'食物区',keepsakes:'其他小物'}[item.kind]}`);}
   function openStory(id){story=D.stories.find(x=>x.id===id);storyLine=0;storyFinished=false;renderStory();$('#story-dialog').showModal();}
   function renderStory(){$('#story-title').textContent=story.title;$('#story-sentence').textContent=story.sentences[storyLine];$('#story-page').textContent=`${storyLine+1} / ${story.sentences.length}`;$('#story-progress-fill').style.width=((storyLine+1)/story.sentences.length*100)+'%';$('#story-next').textContent=storyLine===story.sentences.length-1?'读完收藏':'下一句';}
   function nextStory(){if(storyFinished)return;if(storyLine<story.sentences.length-1){storyLine++;renderStory();return;}storyFinished=true;state.stories[story.id]=(state.stories[story.id]||0)+1;affect(2,'共读《'+story.title+'》','story-'+story.id,86400000);save();$('#story-dialog').close();renderDaily();toast('《'+story.title+'》已收进故事区');}
   function renderSettings(){
-    $('#auto-hide').checked=state.settings.autoHide;$('#reduced-motion').checked=state.settings.reducedMotion;$('#work-minutes').value=state.work.minutes;$('#work-message').value=state.work.message;$('#api-provider').value=state.api.provider;$('#api-endpoint').value=state.api.endpoint;$('#api-model').value=state.api.model;$('#api-key').value=apiKey;apiFields();syncWork();
+    $('#auto-hide').checked=state.settings.autoHide;$('#reduced-motion').checked=state.settings.reducedMotion;$('#work-minutes').value=state.work.minutes;$('#api-provider').value=state.api.provider;$('#api-endpoint').value=state.api.endpoint;$('#api-model').value=state.api.model;$('#api-key').value=apiKey;$('#api-workspace').value=state.api.workspace||'';apiFields();syncWork();
   }
-  function apiFields(){$('#api-fields').hidden=$('#api-provider').value==='local';}
-  function apiSave(event){event.preventDefault();const provider=$('#api-provider').value,endpoint=$('#api-endpoint').value.trim(),model=$('#api-model').value.trim();try{if(provider!=='local'&&endpoint){M.endpoint(endpoint,provider);if(!model)throw new Error('请填写模型名称。');}cancelChat();state.api={provider,endpoint:provider==='local'?'':endpoint,model:provider==='local'?'':model};apiKey=provider==='local'?'':$('#api-key').value.trim();save();$('#api-status').textContent=provider==='local'||!endpoint?'已保存 · 本机对话':'已保存 · 发送聊天时连接';chatSource();toast('设定已保存');}catch(error){$('#api-status').textContent=error.message;}}
-  function chatSource(){$('#chat-source').textContent=state.api.provider==='local'||!state.api.endpoint?'本机对话':state.api.provider==='openai'?'OpenAI 接口':'DeepSeek 接口';}
-  function workValues(){const minutes=Number($('#work-minutes').value);if(!Number.isInteger(minutes)||minutes<1||minutes>180)throw new Error('提醒间隔为 1 至 180 分钟。');state.work={minutes,message:$('#work-message').value.trim()||'喝口水，放松一下肩膀'};save();}
-  function workStart(event){event.preventDefault();try{workValues();M.workStart(runtime,state,now());if(runtime.paused)runtime.workRemaining=state.work.minutes*60000;syncWork();toast(`每 ${state.work.minutes} 分钟提醒一次`);}catch(error){toast(error.message);}}
-  function remind(message=state.work.message){
-    const id=state.selected,p=P.all[id],text=p.remind.replace('{task}',message);$('#reminder').dataset.family=id;$('#reminder').dataset.style=state.style;$('#reminder').dataset.outfit=outfit();$('#reminder-name').textContent=p.name;$('#reminder-text').textContent=text;$('#reminder').hidden=false;drawStatic();clearTimeout(reminderTimer);reminderTimer=setTimeout(()=>$('#reminder').hidden=true,15000);
+  function apiFields(){
+    const spec=A.catalog[$('#api-provider').value];$('#api-fields').hidden=!spec;$('#api-test').hidden=!spec;$('#api-workspace-row').hidden=spec?.protocol!=='messages';
+    if(spec){$('#api-endpoint').placeholder=spec.base;$('#api-model').placeholder='例如 '+spec.hint;$('#api-provider-note').textContent=spec.note||({messages:'Claude 原生接口',gemini:'Gemini 原生接口',chat:'Chat Completions 接口'}[spec.protocol]);$('#api-doc').href=spec.doc;}
+  }
+  function apiDraft(){
+    const api=A.cleanConfig({provider:$('#api-provider').value,endpoint:$('#api-endpoint').value.trim(),model:$('#api-model').value.trim(),workspace:$('#api-workspace').value.trim()});
+    if(api.provider!=='claude')api.workspace='';
+    if(api.provider!=='local'&&api.endpoint){if(!api.model)throw new Error('请填写模型名称。');M.endpoint(api.endpoint,api.provider,api.model);}
+    return api;
+  }
+  function cancelApiTest(){apiTestTicket++;apiTestAbort?.abort();apiTestAbort=null;$('#api-test').disabled=false;$('#api-test').textContent='测试连接';}
+  function apiSave(event){
+    event.preventDefault();try{const api=apiDraft();cancelChat();dismissReminder();cancelApiTest();state.api=api;apiKey=api.provider==='local'?'':$('#api-key').value.trim();save();$('#api-status').textContent=api.provider==='local'||!api.endpoint?'已保存 · 本机对话':'已保存 · 尚未测试连接';chatSource();syncWork();toast('设定已保存');}catch(error){$('#api-status').textContent=error.message;}
+  }
+  async function apiTest(){
+    cancelApiTest();const ticket=apiTestTicket,controller=new AbortController();apiTestAbort=controller;
+    try{
+      const api=apiDraft();$('#api-test').disabled=true;$('#api-test').textContent='连接中…';$('#api-status').textContent='正在测试当前填写的接口…';
+      await A.send(api,$('#api-key').value.trim(),[{role:'user',content:'请只回复：连接成功。'}],'这是一个文本连接测试。请简短回复。',{signal:controller.signal});
+      if(ticket===apiTestTicket)$('#api-status').textContent='连接成功 · '+A.catalog[api.provider].name;
+    }catch(error){if(ticket===apiTestTicket)$('#api-status').textContent=error.name==='AbortError'?'连接超时，请稍后重试。':error instanceof TypeError?'连接失败，请检查网络及接口是否允许浏览器访问。':error.message;}
+    finally{if(ticket===apiTestTicket){apiTestAbort=null;$('#api-test').disabled=false;$('#api-test').textContent='测试连接';}}
+  }
+  function chatSource(){$('#chat-source').textContent=state.api.provider==='local'||!state.api.endpoint?'本机对话':A.catalog[state.api.provider].name;}
+  function workStart(event){
+    event?.preventDefault();if(!runtime.workActive)return;
+    const minutes=Number($('#work-minutes').value);if(!Number.isInteger(minutes)||minutes<1||minutes>180){toast('提醒间隔为 1 至 180 分钟。');return;}
+    state.work.minutes=minutes;M.workStart(runtime,state,now());save();syncWork();toast(`每 ${minutes} 分钟提醒一次`);
+  }
+  function workToggle(){
+    if($('#work-enabled').checked){M.workStart(runtime,state,now());$('#work-minutes').value=state.work.minutes;}
+    else{M.workStop(runtime,state);dismissReminder();}
+    save();syncWork();
+  }
+  function dismissReminder(){reminderTicket++;reminderAbort?.abort();reminderAbort=null;clearTimeout(reminderTimer);$('#reminder').hidden=true;}
+  async function remind(){
+    if(!runtime.workActive||runtime.paused)return;
+    dismissReminder();const ticket=reminderTicket,id=state.selected,p=P.all[id],text=P.reminder(id,reminderIndex++),controller=new AbortController();reminderAbort=controller;
+    $('#reminder').dataset.family=id;$('#reminder').dataset.style=state.style;$('#reminder').dataset.outfit=outfit();$('#reminder-name').textContent=p.name;$('#reminder-text').textContent=text;$('#reminder-source').textContent='预设提醒';$('#reminder').hidden=false;drawStatic();reminderTimer=setTimeout(dismissReminder,15000);
     if(!['hiding','hidden','thinking'].includes(runtime.action))speak(text,'smile',6000);
+    const smileStarted=runtime.started;
+    if(state.api.provider==='local'||!state.api.endpoint.trim()||!apiKey){reminderAbort=null;return;}
+    $('#reminder-source').textContent='预设提醒 · 正在准备新话语';
+    try{
+      const reply=await A.send({...state.api},apiKey,[{role:'user',content:`已专注 ${state.work.minutes} 分钟。请围绕“${text}”写一句轻松、带笑意的中文休息提醒，不超过45字，不加引号或说明。`}],P.prompt(id,state.relations[id].score),{signal:controller.signal,timeout:10000});
+      if(ticket!==reminderTicket||id!==state.selected||$('#reminder').hidden)return;
+      const answer=[...reply].slice(0,90).join('');$('#reminder-text').textContent=answer;$('#reminder-source').textContent='模型提醒';
+      if(runtime.action==='smile'&&runtime.started===smileStarted)speak(answer,'smile',6000);
+    }catch(error){if(ticket===reminderTicket&&!$('#reminder').hidden)$('#reminder-source').textContent='预设提醒 · 模型暂未响应';}
+    finally{if(ticket===reminderTicket)reminderAbort=null;}
   }
   function syncWork(){
-    $('#work-stop').hidden=!runtime.workActive;$('#work-start').textContent=runtime.workActive?'更新提醒':'开启提醒';$('#work-pill').hidden=!runtime.workActive;
+    $('#work-enabled').checked=runtime.workActive;$('#work-enabled').setAttribute('aria-expanded',String(runtime.workActive));$('#work-form').hidden=!runtime.workActive;$('#work-form').querySelectorAll('input,button').forEach(el=>el.disabled=!runtime.workActive);$('#work-try').disabled=!runtime.workActive||runtime.paused;$('#work-pill').hidden=!runtime.workActive;
+    $('#work-preview-name').textContent=P.all[state.selected].name+' · 自动提醒';$('#work-preview').textContent=P.reminder(state.selected,reminderIndex);
     if(runtime.workActive){const remain=runtime.paused?runtime.workRemaining:Math.max(0,runtime.nextReminder-now()),seconds=Math.ceil(remain/1000),time=`${String(Math.floor(seconds/60)).padStart(2,'0')}:${String(seconds%60).padStart(2,'0')}`;$('#work-countdown').textContent=time;$('#work-status').textContent=runtime.paused?`已暂停 · 剩余 ${time}`:`每 ${state.work.minutes} 分钟 · 下次 ${time}`;}else $('#work-status').textContent='未开启';
   }
   async function digest(password,salt){const material=await crypto.subtle.importKey('raw',new TextEncoder().encode(password),'PBKDF2',false,['deriveBits']);const bits=await crypto.subtle.deriveBits({name:'PBKDF2',salt:new Uint8Array(salt),iterations:210000,hash:'SHA-256'},material,256);return Array.from(new Uint8Array(bits),b=>b.toString(16).padStart(2,'0')).join('');}
@@ -238,20 +272,21 @@
   $('#details-open').onclick=()=>openDetail(state.selected);$('#detail-back').onclick=()=>navigate('partners');$$('[data-detail]').forEach(el=>el.onclick=()=>{detailTab=el.dataset.detail;renderDetail();});$('#voice-chat').onclick=()=>{select(detailId);navigate('partners');$('#chat-input').focus();};
   $('#pet-body').onclick=pat;$('#find-left').onclick=find;$('#find-right').onclick=find;$('#pet-stage').oncontextmenu=event=>{event.preventDefault();$('#pet-menu').hidden=!$('#pet-menu').hidden;};
   $('#inline-chat').onsubmit=event=>{event.preventDefault();reply();};
-  $('#presence').onclick=()=>{M.pause(runtime,now());cancelChat();if(runtime.action==='thinking')runtime.action='idle';save();syncStage(true);syncWork();};
-  $('#check-in').onclick=()=>{if(M.checkin(state,now())){save();renderDaily();toast('打卡成功 · 好感 +3');}};$('#gift-draw').onclick=drawGift;$$('[data-collection]').forEach(el=>el.onclick=()=>{collectionTab=el.dataset.collection;renderDaily();});$('#story-next').onclick=nextStory;
-  $('#work-open').onclick=()=>{navigate('settings');$('#work-minutes').focus();};$('#work-form').onsubmit=workStart;$('#work-stop').onclick=()=>{runtime.workActive=false;syncWork();};$('#work-try').onclick=()=>remind($('#work-message').value.trim()||'喝口水，放松一下肩膀');$('#reminder-dismiss').onclick=()=>$('#reminder').hidden=true;
+  $('#presence').onclick=()=>{M.pause(runtime,now());cancelChat();if(runtime.paused)dismissReminder();if(runtime.action==='thinking')runtime.action='idle';save();syncStage(true);syncWork();};
+  $('#check-in').onclick=()=>{if(M.checkin(state,now())){save();renderDaily();toast('打卡成功 · 好感 +3');}};$$('[data-collection]').forEach(el=>el.onclick=()=>{collectionTab=el.dataset.collection;renderDaily();});$('#story-next').onclick=nextStory;
+  $('#work-open').onclick=()=>{navigate('settings');$(runtime.workActive?'#work-minutes':'#work-enabled').focus();};$('#work-enabled').onchange=workToggle;$('#work-form').onsubmit=workStart;$('#work-try').onclick=()=>remind();$('#reminder-dismiss').onclick=dismissReminder;
   $('#auto-hide').onchange=event=>{state.settings.autoHide=event.target.checked;touch();save();};$('#reduced-motion').onchange=event=>{state.settings.reducedMotion=event.target.checked;document.body.classList.toggle('reduced-motion',event.target.checked);save();};
-  $('#api-provider').onchange=()=>{apiFields();const provider=$('#api-provider').value;$('#api-endpoint').value={openai:'https://api.openai.com/v1',deepseek:'https://api.deepseek.com',local:''}[provider];$('#api-key').value='';$('#api-model').value=provider==='deepseek'?'deepseek-flash':'';};$('#api-form').onsubmit=apiSave;
-  $('#login-tab').onclick=()=>authTabs('login');$('#register-tab').onclick=()=>authTabs('register');$('#auth-form').onsubmit=auth;$('#sign-out').onclick=()=>{session=null;apiKey='';cancelChat();for(const id of M.families)chats[id]=[];$('#api-key').value='';$('#account-session').hidden=true;$('#auth-form').hidden=false;$('.auth-card [role=tablist]').hidden=false;authTabs('login');toast('已退出登录');};
+  $('#api-provider').onchange=()=>{cancelApiTest();const provider=$('#api-provider').value;$('#api-endpoint').value=A.catalog[provider]?.base||'';$('#api-key').value='';$('#api-workspace').value='';$('#api-model').value=provider==='deepseek'?'deepseek-flash':'';$('#api-status').textContent='尚未保存';apiFields();};$('#api-form').onsubmit=apiSave;$('#api-test').onclick=apiTest;
+  $('#api-form').oninput=event=>{cancelApiTest();if(event.target.id==='api-endpoint')$('#api-key').value='';$('#api-status').textContent='尚未保存';};
+  $('#login-tab').onclick=()=>authTabs('login');$('#register-tab').onclick=()=>authTabs('register');$('#auth-form').onsubmit=auth;$('#sign-out').onclick=()=>{session=null;apiKey='';cancelChat();dismissReminder();cancelApiTest();for(const id of M.families)chats[id]=[];$('#api-key').value='';$('#account-session').hidden=true;$('#auth-form').hidden=false;$('.auth-card [role=tablist]').hidden=false;authTabs('login');toast('已退出登录');};
   $('#photo-form').onsubmit=generatePhoto;$('#photo-save').onclick=savePhoto;$('#photo-partner').onchange=invalidatePhoto;$('#photo-caption').oninput=invalidatePhoto;$$('input[name=frame]').forEach(el=>el.onchange=invalidatePhoto);
   $('#review-open').onclick=()=>{const id=page==='detail'?detailId:state.selected;$('#review-affinity').dataset.family=id;$('#review-affinity').value=state.relations[id].score;$('#review-score').textContent=state.relations[id].score;$('#review-dialog').showModal();};
   $('#review-idle').onclick=()=>{cancelChat();runtime.action='idle';runtime.idleSince=now()-60001;$('#review-dialog').close();navigate('partners');runtime.idleSince=now()-60001;document.activeElement.blur();tick();};
-  $('#review-work').onclick=()=>{if(!runtime.workActive)M.workStart(runtime,state,now());offset+=Math.max(0,runtime.nextReminder-now())+1;$('#review-dialog').close();tick();};
+  $('#review-work').onclick=()=>{if(!runtime.workActive){toast('请先开启工作模式');return;}offset+=Math.max(0,runtime.nextReminder-now())+1;$('#review-dialog').close();tick();};
   $('#review-affinity').oninput=event=>{state.relations[event.target.dataset.family].score=Number(event.target.value);$('#review-score').textContent=event.target.value;save();if(page==='detail')renderDetail();};
-  document.addEventListener('pointerdown',event=>{if(!event.target.closest('#review-dialog'))touch();});document.addEventListener('keydown',event=>{touch();if(event.key==='Escape')$('#pet-menu').hidden=true;});document.addEventListener('visibilitychange',()=>{lastTick=performance.now();save();});window.addEventListener('pagehide',()=>{save();cancelChat();});window.addEventListener('resize',()=>{drawStatic();drawPet();});
+  document.addEventListener('pointerdown',event=>{if(!event.target.closest('#review-dialog'))touch();});document.addEventListener('keydown',event=>{touch();if(event.key==='Escape')$('#pet-menu').hidden=true;});document.addEventListener('visibilitychange',()=>{lastTick=performance.now();save();});window.addEventListener('pagehide',()=>{save();cancelChat();dismissReminder();cancelApiTest();});window.addEventListener('resize',()=>{drawStatic();drawPet();});
   $('.brand').onclick=event=>{event.preventDefault();navigate('partners');};
   globalThis.companionDemo={snapshot:()=>({page,selected:state.selected,style:state.style,outfit:outfit(),runtime:{...runtime},relations:structuredClone(state.relations),checkins:[...state.checkins],collection:{...state.collection},stories:{...state.stories},pose:lastPose,photoReady:!!photoStamp,photoBusy,chatCount:chats[state.selected].length,chatDuration:chatFinished-chatStarted,errors:[...errors],version:D.version}),advance:ms=>{offset+=ms;tick();},select,style,navigate,openDetail,render:tick};
-  renderSettings();renderCards();select(state.selected);chatSource();setInterval(tick,100);tick();
+  if(state.work.enabled)M.workStart(runtime,state,now());renderSettings();renderCards();select(state.selected);chatSource();setInterval(tick,100);tick();
   function animate(){if(!document.hidden&&!runtime.paused&&page==='partners'&&['hiding','thinking','talk','pat'].includes(runtime.action)&&!state.settings.reducedMotion)drawPet();requestAnimationFrame(animate);}requestAnimationFrame(animate);
 })();

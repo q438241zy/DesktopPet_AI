@@ -1,4 +1,6 @@
-# 云朵伙伴 v0.1 Demo
+# 云朵伙伴 Demo
+
+当前 v0.2：移除右上角 Demo 版本标记，版本号仅显示在左下角；点击左下角版本仍可打开测试工具。工作模式改为开关及自动准备提醒，新增八家模型服务，移除陪伴日常的“拆份礼物”。本轮仍为 Demo 审阅。
 
 2026-10-07，14 项功能和界面调整的第一轮 HTML 审阅。尚未接入日常原生程序；本页使用独立 Demo 存档，不会改动用户的宠物、账号、服装或收藏。原生日常程序仍为已发布的 Preview28。
 
@@ -9,11 +11,11 @@
 - 我的伙伴：选择八位角色，直接在人物上方聊天。右键角色卡片进入档案；“伙伴档案”按钮与 Shift+F10 提供等效入口。
 - 档案：我们的默契、风格预览、聊天性格三个分页。每个角色分别记录 −100 至 +100 的关系值和可见页面上的陪伴时间；Q版与3D真人共用该角色的记录。原装/运动服/泳装/婚纱可预览、切换。
 - 躲藏：默认闲置一分钟后触发，或点击“躲藏”；先走向随机边缘，再留在边缘等左键找到。右键只切换菜单，不返回。正在输入草稿、打开分页或对话框时不自动躲藏。
-- 设定：工作提醒间隔 1–180 分钟，默认 10 分钟；支持自定义提醒内容、试提醒和停止。每轮到点以当前人物的笑脸与语气提醒，隐藏中通过独立提醒卡出现，不把躲藏人物拉回。暂停陪伴会暂停倒计时；恢复后继续剩余时间。浏览器关闭不提供后台服务。
+- 设定：工作模式默认关闭，开启开关后才显示设置并按已保存间隔计时；间隔 1–180 分钟，默认 10 分钟，修改后点击“保存间隔”。无须填写提醒内容，八个角色各六种预设话语轮换；模型已设置且本次会话有 Key 时自动生成简短提醒，等待或失败期间仍使用预设话语，并标明实际来源。关闭开关同时停止计时、撤下提醒、取消未返回请求；试提醒不改变周期。重开页面时仅恢复开关与间隔，从完整新周期开始，不补发关页期间提醒。每轮使用当前人物笑脸；不会打断躲藏或聊天。暂停陪伴会暂停倒计时。浏览器关闭不提供后台服务。
 - 合照：邀请其他任一角色，沿用当前风格和各自所选服装；输入最多 60 字，选择暖云/浅玉/奶油相框，生成 1200×1400 PNG。保存时优先调用浏览器保存选择器并定位桌面；不支持此能力的浏览器只能下载，页面会说明实际结果。取消保存不会产生成功提示。
-- 陪伴日常：本地日期每日一次打卡、当周记录、连续/累计天数；球区、食物区、故事区。20 种随机礼物沿用项目原始清单，非食物日常物品保存在“其他小物”。三篇 7–8 句原创故事读到最后并确认后收藏。
+- 陪伴日常：本地日期每日一次打卡、当周记录、连续/累计天数；球区、食物区、故事区。“拆份礼物”入口及抽取逻辑已移除，已有收藏计数保留；20 种物品清单仍用于展示，非食物日常物品保存在“其他小物”。三篇 7–8 句原创故事读到最后并确认后收藏。本次只移除这页入口，未删除已批准的原生拆礼物互动。
 - 会员中心：登录、注册分页；本机 Demo 账号，随机盐与 PBKDF2 摘要，密码不存明文，刷新后重新登录。未提供云端账号服务。
-- 顶部 Demo 按钮提供“模拟闲置一分钟”“推进一个提醒周期”和当前角色关系值滑杆。只改变测试存档，不冒充真实陪伴时长。
+- 点击左下角版本号可使用“模拟闲置一分钟”“推进一个提醒周期”和当前角色关系值滑杆。只改变测试存档，不冒充真实陪伴时长。
 
 ## 待审规则
 
@@ -25,7 +27,9 @@
 
 ## 接口检查
 
-目前原生 `CompanionChat.cs` 已使用 POST、Bearer、`model/messages/stream:false` 和 `choices[0].message.content`；填写 OpenAI `/v1` 或完整端点可用，但只填写 OpenAI 根地址时缺 `/v1`。Demo 补齐该识别，接受根地址、`/v1` 和完整端点，避免重复拼接。DeepSeek 使用兼容的 Chat Completions 格式；OpenAI 提示用 developer，DeepSeek 用 system。API Key 只留在当前页面内存，不写本机存储。
+Demo 支持 GPT/OpenAI、Claude、Gemini、Grok、DeepSeek、Qwen、GLM、Kimi 八家。Claude 使用 Messages，Gemini 使用 generateContent，其余使用各自官方 Chat Completions 格式。请求、鉴权、回包解析、端点和官方来源见 [八家接口核对](../../companion-api-providers.md)。界面可保存设置并测试连接，模型名由用户填写已开通的型号；示例仅作占位提示。API Key 只留在页面内存，切换服务或编辑地址清空输入，刷新后重新填写。模拟检查不能证明实际账号、额度、网络和浏览器跨域可用。
+
+目前原生 `CompanionChat.cs` 仍是上一版；Demo 中的八家适配和根地址修正尚未接入日常程序。
 
 - [OpenAI Chat Completions 官方参考](https://developers.openai.com/api/reference/resources/chat/subresources/completions/methods/create)：`https://api.openai.com/v1/chat/completions`。
 - [DeepSeek 官方入门](https://api-docs.deepseek.com/)：`https://api.deepseek.com/chat/completions`，也接受 `/v1` 基础地址。2026-10-07 页面示例模型为 `deepseek-flash`；用户可改成账号可用的其他模型。
@@ -43,8 +47,9 @@ python tools/build-companion-demo.py
 ./tools/install-companion-demo.ps1
 node tools/verify-companion-demo.cjs Release/win-x64/Demo/CompanionV01/index.html
 node tools/verify-companion-boundaries.cjs
+node tools/verify-companion-providers.cjs
 ```
 
 `data.js` 和 `.generated/photos` 由现有角色清单、原始 PNG/WebP 与 `Version.props` 生成，不提交重复的图像编码。所有图片像素不变；透明边界测量只生成定位与固定缩放元数据。合照按需加载原图编码，解决 file 页面画布无法导出的问题。合照图片缓存最多 8 张，其余预览最多 48 张，退出或刷新释放。
 
-验证脚本使用真正 Chromium file 页面、鼠标点击、键盘输入和 PNG 导出；计时长周期通过 Demo 时钟推进检查。截图与报告输出到 `.artifacts/companion-v01-review`，检查前后核对日常 exe 和 state 文件哈希。
+验证脚本使用真正 Chromium file 页面、鼠标点击、键盘输入和 PNG 导出；计时长周期通过 Demo 时钟推进检查。v0.2 报告位于 `.artifacts/companion-v02-review`；旧回归脚本可通过 `COMPANION_REVIEW_DIRECTORY` 指定报告目录，检查前后核对日常 exe 和 state 文件哈希。八家请求由测试路由截获并回包，不使用真实付费密钥。

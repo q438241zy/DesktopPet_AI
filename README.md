@@ -6,9 +6,9 @@
 
 由 **QQ奶茶大神** 的 UsageDashboard_AI 与 Character_Generator 整合而来，互动和八位 AI 角色的 Q 版画稿来自 DS Go。沿用原生 WPF 透明窗口、托盘与快捷键；取消举看板、余额采集与平台登录。当前源码版本为 1.2.0-preview.27。
 
-Preview 27 继续修复任务栏行走时难以点中、提起的问题：角色区域补上 Windows 可命中的微透明输入面，并在本窗口处理按下、捕获、拖动与松开，避免透明空隙把点击交给桌面。按下即停步，普通松手放置、Shift 松手下落、落地散步和右键菜单规则保持一致。DeepSeek Q版泳装与3D真人运动服另有[换装对照 Demo](docs/demo/wardrobe-identity/README.md)，尚未替换正式角色，等待审阅。
+Preview 27 继续修复任务栏行走时难以点中、提起的问题：角色区域补上 Windows 可命中的微透明输入面，并在本窗口处理按下、捕获、拖动与松开，避免透明空隙把点击交给桌面。按下即停步，普通松手放置、Shift 松手下落、落地散步和右键菜单规则保持一致。DeepSeek Q版与3D真人运动服另有[换装对照 Demo](docs/demo/wardrobe-identity/README.md)：3D真人样稿比例已获认可，Q版新稿待审；泳装保留为复核记录。Demo 新图尚未替换正式角色。
 
-Preview 26 修复行走时鼠标点击和提起：由独立输入层接收点击、捕获和拖动，按下立即结束行走与探索，普通松手放在半空，Shift松手才下落。提供同事试用运行包，内含运行时和全部64套外观，不含开发资料、个人存档及大型Demo。
+Preview 26 修复行走时鼠标点击和提起：由独立输入层接收点击、捕获和拖动，按下立即结束行走与探索，普通松手放在半空，Shift松手才下落。正式安装包内含运行时和全部64套外观，不含开发资料、个人存档及大型Demo。
 
 Preview 25 加入击掌、猜拳、拆礼物、翻书共读和合照，覆盖八位角色、Q版与3D真人、四套服装的64套外观。故事读完后收藏并记录阅读次数，可选择重读；礼物随机抽取20种物品并收集。常态 Demo 和动作清单同步。舞蹈保持删除。
 
@@ -20,7 +20,9 @@ Preview 19 修正原装 Q版零食误用魔法棒画稿；左、右键找到躲�
 
 ## 开始使用
 
-已发布版本见 [GitHub Releases](https://github.com/q438241zy/DesktopPet_AI/releases/latest)；其中的二进制版本可能落后于当前源码。完整解压同事试用包后双击 `DesktopPet.exe`，保留旁边的 `Assets` 与 `Studio` 文件夹。绿色版包含 .NET 运行时，无须另装 SDK，不会设置开机启动。
+已发布版本见 [GitHub Releases](https://github.com/q438241zy/DesktopPet_AI/releases/latest)；其中的二进制版本可能落后于当前源码。正式安装包目前为解压即用 ZIP，完整解压后双击 `DesktopPet.exe`，保留旁边的 `Assets` 与 `Studio` 文件夹。包含 .NET 运行时，无须另装 SDK，不会设置开机启动。
+
+源码持续更新到 GitHub；正式安装包按用户要求单独制作，不随每次源码或 Demo 更新自动生成。Gitee 发布已按用户要求暂停，等新的发布需求。
 
 - 点击睡着的宠物：叫醒。早餐从「照顾」菜单选择，当天只计算一次打卡。
 - 普通点击依次轮换摸头、揉脸、挠痒；也能在「照顾」里指定。拖动不消耗轮换次数。普通拖动保持稳定提起；连续明显来回摇晃会出现头顶星星，放下后轻微晕眩并在约 3 秒内恢复。支持左右或上下摇晃，Q版、3D真人及全部服装一致；小幅抖动、慢速调整不会误触发。减少动态时保留静态星星。
@@ -51,6 +53,8 @@ Preview 19 修正原装 Q版零食误用魔法棒画稿；左、右键找到躲�
 `tools/demo.ps1` 从当前桌面渲染器导出两种风格 × 四套服装的 DeepSeek 离线 HTML，并生成全部八位角色、64 套外观的动作清单。打开程序目录中的 `Demo/DeepSeek-demo.html`，保留同目录的 `frames` 文件夹；高清图片按当前动作载入。本机项目和素材保存在 `D:\VibeCoding\Character`，桌面保留 `DeepSeek-動作Demo.lnk`。当前入口为 `Demo/CloudClub/index.html`，可切换八位角色查看两种风格的运动服，并进入完整运动服动作页与任务栏提起 Demo。更新后执行 `tools/install-cloud-club-demo.ps1 -DesktopShortcut` 维护入口，不把工程或素材复制到桌面。
 
 可以并排播放、暂停逐帧比较、换装、拖动放置、摇晃触发头晕、演示自然落下与头顶本机聊天。网页交互是独立展示逻辑，不能代替 Windows 鼠标或真实 API 验收。图像来自桌面渲染器，清单区分专用逐帧、专用姿势、程序动作、近似动作和缺少动作。
+
+新增服装必须先与原图比较：在原角色上换衣，保留脸型、头身比与身体比例；提供同姿势、同画布、同缩放的并排和叠图，行走等动作逐帧核对。保存原图、提示词与审阅状态，不用局部拉伸或逐帧缩放遮盖差异；先完成 HTML Demo，经用户拍板后接入和拓展。
 
 Preview 12 修复散步走走停停：移动改由 WPF 画面刷新驱动，逻辑位置保留小数，原生窗口的整像素位置用画面内偏移补偿；脚步跟随实际位移，边缘转身保持到达时的姿势，较慢的一帧不会丢弃行走时间。应用于全部 72 套外观及边缘躲藏，Demo 同步转身与时间推进逻辑。实测对照及检查见 [散步流畅度](docs/verification-walking.md)。
 
@@ -125,7 +129,7 @@ dotnet run --project tests/DesktopPet.Tests -c Release
 
 `check.ps1` 运行行为检查、WPF 构建、全部运行素材解码与真实窗口集成回归，使用隔离存档。`publish.ps1` 生成 `Release/win-x64/DesktopPet.exe` 及其素材目录。
 
-给同事试用时执行 `./tools/package.ps1 -RuntimeOnly`，版本号从发布的 exe 自动读取；输出带 SHA-256 校验文件的便携 ZIP。解压整个文件夹后运行 `DesktopPet.exe`，无需安装 .NET。保留 `Assets` 和 `Studio`，运行说明随包提供；大型 Demo 和开发资料不进入这个运行包。
+仅在用户要求制作正式安装包时执行 `./tools/package.ps1 -RuntimeOnly`，版本号从发布的 exe 自动读取；输出带 SHA-256 校验文件的 ZIP。解压整个文件夹后运行 `DesktopPet.exe`，无需安装 .NET。保留 `Assets` 和 `Studio`，运行说明随包提供；大型 Demo 和开发资料不进入正式安装包。普通源码或 Demo 更新不执行打包。
 
 ```text
 src/DesktopPet.Core/    角色与存档、动画选帧、圆盘布局、骨骼动作、物品抽签与玩具物理

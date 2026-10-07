@@ -1,0 +1,75 @@
+{
+  "phase": "html-demo-W2-chibi-sports-awaiting-review",
+  "date": "2026-10-07",
+  "method": "built-in image_gen; original PNGs copied without image processing",
+  "scope": {
+    "chibiSports": "New six-pose and twelve-frame walking samples await review.",
+    "realisticSports": "User accepted the W1 single-image proportions; unchanged in W2.",
+    "chibiSwim": "W1 retained as swimsuit review history; the reported issue concerns sportswear.",
+    "nativeInstalled": false
+  },
+  "invariants": "Original identity, head/body proportions and corresponding poses are edit targets. Equal canvas/scale comparisons expose differences; generation instructions do not assert exact pixel equality.",
+  "items": [
+    {
+      "file": "deepseek-chibi-sports-walk-v1.png",
+      "selected": false,
+      "prompt": "Use case: identity-preserve. Clothing-only edit of a desktop-pet sprite sheet.\nIMAGE 1 is the EDIT TARGET: DeepSeek original maid walking sheet, 1024 x 1536, 3 columns and 4 rows, exactly 12 full-body walking poses. IMAGE 2 is CLOTHING DESIGN ONLY; do NOT copy its head size, body, leg length, pose or hair.\nReplace only the maid dress, apron, long sleeves and boots in image 1 with the short-sleeved school sports uniform from image 2: white zip-front sports shirt with navy shoulder and upper-arm sleeve panels, cyan piping, small blue whale chest emblem, navy athletic shorts ending well above the knees with white side stripes, white low-top sneakers with cyan/navy accents and short white ankle socks. No long sleeves and no trousers.\nLock every original pose and all original pixel coordinates from image 1: same head/face size and expression, head-to-body ratio, blue hair silhouette, ahoge, fin ears, cyan bow, identity maid headband, tail, shoulder/hip widths, torso, elbows, wrists, knees, ankles and sole positions. The purpose is trying clothes on the original character, never redrawing a shorter or rounder person. Do not enlarge the head, shorten legs, thicken the torso, lengthen legs, stretch anatomy, switch left/right support feet or change the gait. Sneakers should have the original boots' sole/contact positions and comparable volume. Keep hair trailing toward image-left; every character faces right.\nReturn exactly the same 12-cell sheet and framing as image 1. Clean original anime linework and cel shading. Genuine transparent alpha background, no colored backdrop, no glow, no text, no labels, no scene, no cut-off heads, hair, hands, tail or feet. Change the clothing only; preserve the original body and all twelve walking poses.",
+      "inputs": [
+        {
+          "file": "chibi-walk-original.png",
+          "role": "edit target"
+        },
+        {
+          "file": "chibi-sports.png",
+          "role": "clothing design only"
+        }
+      ],
+      "review": "Headband omitted; superseded by v2. Kept only as provenance input."
+    },
+    {
+      "file": "deepseek-chibi-sports-v1.png",
+      "selected": true,
+      "prompt": "Use case: identity-preserve. Clothing-only edit of the original desktop-pet sprite sheet.\nIMAGE 1 is the EDIT TARGET: DeepSeek original maid six-pose sheet, exactly 1536 x 1024, 3 columns by 2 rows. IMAGE 2 is the new SPORTS CLOTHING reference only, NOT a body or pose reference.\nChange only the maid dress/apron, long sleeves and boots in image 1 into a white short-sleeved zip-front sports shirt with navy shoulder and upper arm panels, cyan piping, small blue whale chest emblem, navy athletic shorts ending well above the knees with white side stripes, white low-top sneakers with cyan/navy accents and short white ankle socks as in image 2. Keep the original white ruffled identity headband.\nLeave all SIX existing poses exactly where they are on the original sheet: seated neutral hands together, seated happy fists raised, seated smiling hands to cheeks, lying on side asleep, lying prone dizzy, seated sad. Preserve every original head, face, expression, hair and tail silhouette, body shape and head-to-body proportions. Lock the face size and all original shoulder, elbow, wrist, hip, knee and ankle locations. No inflated cheeks, belly, feet or thighs; no larger head, no shortened legs or reduced torso. Sneakers replace the boots at the same sole positions and comparable volume. Do not use the walking poses from image 2. Every character must occupy the original cell with identical framing and scale. Dress the existing character; do not create a new shorter or rounder version.\nKeep crisp original anime linework and cel shading; same blue hair, ahoge, fin ears, cyan bow, headband and blue whale tail. Genuine transparent alpha background, no colored backdrop or glow. No new props, labels or panels. Preserve all six full characters without cuts. Exactly the original 1536 x 1024 canvas, six poses only.",
+      "inputs": [
+        {
+          "file": "chibi-original.png",
+          "role": "edit target"
+        },
+        {
+          "file": "deepseek-chibi-sports-walk-v1.png",
+          "role": "clothing design only"
+        }
+      ]
+    },
+    {
+      "file": "deepseek-chibi-sports-walk-v2.png",
+      "selected": true,
+      "prompt": "Use case: identity-preserve, one narrow correction.\nIMAGE 1 is the edit target: the DeepSeek short-sleeved sportswear walking sheet, 1024 x 1536, 3 columns by 4 rows with 12 poses. IMAGE 2 is the original maid walking sheet and supplies ONLY the missing identity headband.\nAdd back the SAME white ruffled headband from image 2 on top of the blue hair in each of the twelve poses of image 1. Keep its size, curve and position matching the corresponding pose in image 2.\nEverything else in image 1 stays unchanged: exact face and head scale, hair and ahoge silhouette, fin ears, bow and tail, white/navy short-sleeve shirt, above-knee navy shorts, socks and sneakers, anatomy and body proportions, all twelve hand and leg poses and all sole locations. Do not redraw or rescale the body, move characters or change the gait. Do not restore the dress or boots. Retain the original 1024 x 1536 canvas and cell positions.\nTransparent alpha background. No new background, glow, props, labels or text. Only restore the white headband.",
+      "inputs": [
+        {
+          "file": "deepseek-chibi-sports-walk-v1.png",
+          "role": "edit target"
+        },
+        {
+          "file": "chibi-walk-original.png",
+          "role": "headband reference"
+        }
+      ],
+      "review": "Restored headband; full sheet used as original generated PNG in W2."
+    }
+  ],
+  "next": [
+    "Review Q sportswear against original six poses and walking frames.",
+    "Do not expand to native or other characters without the user's approval.",
+    "Produce a new official distribution package only when requested. Gitee publishing is paused by user."
+  ],
+  "sha256": {
+    "deepseek-realistic-sports-v1.png": "FA03FCDA5D0F40F3DDB28BDC13DA31E8C52B6A99524E99C473F6F12DE14C5E75",
+    "chibi-original.png": "0DA74C2FBAD632ABE339C4531DEC5861EDBE6CC7A62F99C00E006A0451CB86A5",
+    "chibi-walk-original.png": "C476BFA50E7409E7AD8AEDF0DAA495F4B0E643EF16A892DAE2AD0014F9763DCD",
+    "deepseek-chibi-sports-walk-v2.png": "8FB225E663BC52C52BBEA951B18395FD86A525055E24B3FB93192381D57F354C",
+    "chibi-sports.png": "3F3C5DE92DDD44F9963AA4A29A1EE9FC3A0A7571A2239551C80EF4DA9702B20A",
+    "deepseek-chibi-sports-v1.png": "79BF9F9318E00F28FCD64DC10B8560ED096862F87056FD74AEAAC7058C04B8FC",
+    "deepseek-chibi-sports-walk-v1.png": "3E9CD8E27C53750B6DB3B3F565D19BF6A77C386F154A720FB82F010EFC03A894"
+  }
+}

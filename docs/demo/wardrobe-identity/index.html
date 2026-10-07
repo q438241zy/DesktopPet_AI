@@ -2,13 +2,14 @@
 <html lang="zh-CN">
 <head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>DeepSeek · 换装对照</title>
-  <link rel="stylesheet" href="style.css?v=W2"><script src="app.js?v=W2" defer></script>
+  <title>云朵伙伴 · 换装对照</title>
+  <link rel="stylesheet" href="style.css?v=W3"><script src="roster.js?v=W3" defer></script><script src="app.js?v=W3" defer></script>
 </head>
 <body>
   <main>
-    <header><a class="back" href="../CloudClub/index.html">← 云朵俱乐部</a><span class="badge">W2 · 运动服对照</span></header>
+    <header><a class="back" href="../CloudClub/index.html">← 云朵俱乐部</a><span class="badge">W3 · 全角色运动服对照</span></header>
     <section class="intro"><div class="cloud" aria-hidden="true"><svg viewBox="0 0 60 44"><path d="M16 36h30a10 10 0 0 0 1-20 17 17 0 0 0-32-4A12 12 0 0 0 16 36Z"/><path d="M23 24h.1m12 0h.1M27 29q3 3 6 0"/></svg></div><div><p class="eyebrow">DEEPSEEK WARDROBE</p><h1>熟悉的她，换一套衣服</h1><p>对照脸型、头身比和腿长，也看看走动时的样子。</p></div></section>
+    <label class="family-picker" for="family">角色 <select id="family"><option value="whale">DeepSeek</option><option value="gpt">GPT</option><option value="claude">Claude</option><option value="gemini">Gemini</option><option value="grok">Grok</option><option value="qwen">Qwen</option><option value="zhipu">GLM</option><option value="kimi">Kimi</option></select></label>
     <nav class="styles segmented" aria-label="换装样稿"><button data-style="chibi" aria-pressed="true">Q版 · 运动服</button><button data-style="realistic" aria-pressed="false">3D真人 · 运动服</button></nav>
     <section class="workbench" aria-label="同尺寸换装对照">
       <div class="toolbar"><div class="segmented" aria-label="对照方式"><button data-mode="pair" aria-pressed="true">并排</button><button data-mode="overlay" aria-pressed="false">叠图</button></div><div class="options"><label><input type="checkbox" id="guides">对齐线</label><label><input type="checkbox" id="dark">深色背景</label></div></div>

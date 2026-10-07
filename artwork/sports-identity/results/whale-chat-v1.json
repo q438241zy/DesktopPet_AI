@@ -1,0 +1,17 @@
+{
+  "key": "whale-chat-v1",
+  "id": "whale",
+  "style": "chibi",
+  "kind": "chat",
+  "columns": 3,
+  "rows": 2,
+  "source": "artwork/sports-identity/whale-chat-v1.png",
+  "prompt": "Identity-preserve clothing-only EDIT. Image 1 is the original DeepSeek Q character chat animation atlas and is the EDIT TARGET. Image 2 is only the approved sports UNIFORM reference. Preserve every one of the six ORIGINAL poses and expressions, exactly 3 columns by 2 rows in the same 1536x1024 source canvas. Keep the original image1 character position and SCALE INSIDE EACH CELL, head size, face, head/body ratio, hair shape and volume, white ruffled headband, cyan hair bow, fin ears, ahoge, blue eyes and whale tail. Do NOT enlarge figures to fill cells, invent a new body, fatten or shorten her, or replace the animation by identical idle poses. Change ONLY dress/sleeves/tights/shoes into white short-sleeve zip sports shirt with navy upper-arm panels and cyan piping, small whale chest emblem, navy athletic SHORTS above knees, white ankle socks and white-blue low-top sneakers from image2. Preserve exact limb poses, hand-to-face/body contact, leg bends, wrist/ankle locations and row-major action progression. Keep all nonclothing character details, all six complete figures with comfortable original cell margins. No long sleeves or long pants. Output genuine transparent alpha outside figures; ignore any old colored transparent RGB artifacts, no background, glow, labels, borders, added hands or props.",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/whale/motions/chat.webp",
+    "docs/demo/wardrobe-identity/art/deepseek-chibi-sports-v1.png"
+  ],
+  "tool": "built-in image_gen",
+  "status": "generated-awaiting-geometry-review",
+  "selected": false
+}

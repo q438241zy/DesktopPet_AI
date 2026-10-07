@@ -1,0 +1,17 @@
+{
+  "key": "whale-meal-v1",
+  "id": "whale",
+  "style": "chibi",
+  "kind": "meal",
+  "columns": 3,
+  "rows": 2,
+  "source": "artwork/sports-identity/whale-meal-v1.png",
+  "prompt": "Identity-preserve clothing-only EDIT. Image 1 is the EDIT TARGET: existing DeepSeek Q/chibi original action atlas. Preserve its exact 3-column by 2-row layout, all 6 poses, 1536x1024 canvas, same frame order, character position, per-frame head size, face, blue eyes, blue flowing hair, white ruffled HEADBAND, cyan bow, ahoge, fin ears and whale tail. Image 2 provides only the already approved short sports uniform. Replace maid dress, sleeves, tights and shoes in every frame with white SHORT-SLEEVE zip sports shirt, navy upper-arm panels and cyan piping, small blue whale chest emblem, navy athletic SHORTS above knees, white ankle socks and white-blue low-top sneakers. Keep EXACT original seated body/leg anatomy and pose, head/body ratio and hand/wrist locations. Do not stand her up, fatten or shrink her, remove accessories or redraw another character. Keep the rice bowl, spoon, rice, chewing faces and exact hand-to-mouth contacts. Only one physical spoon and bowl in every frame. Preserve exact original action and expression in each cell. Clean true transparent alpha outside character and props, no background colors/stripes or glow, no captions or borders. Complete original limbs and props, isolated inside their original cells. Clothing replacement only.",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/whale/motions/eat.webp",
+    "docs/demo/wardrobe-identity/art/deepseek-chibi-sports-v1.png"
+  ],
+  "tool": "built-in image_gen",
+  "status": "generated-awaiting-geometry-review",
+  "selected": false
+}

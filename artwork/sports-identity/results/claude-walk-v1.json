@@ -1,0 +1,15 @@
+{
+  "key": "claude-walk-v1",
+  "id": "claude",
+  "style": "chibi",
+  "kind": "original-walk",
+  "source": "artwork/sports-identity/claude-walk-v1.png",
+  "prompt": "Clothing-only edit of IMAGE 1, the ORIGINAL Claude desktop-pet atlas. IMAGE 2 is the uniform design reference ONLY. Replace the brown dress, blouse and boots with white SHORT-SLEEVED zip-front sports shirt with orange piping/upper-arm accents and small orange sun emblem, brown-black athletic SHORTS ending well above knees, white short ankle socks and white low-top orange-accent sneakers. Keep the original face, copper-orange wavy hair, brown eyes, round thin glasses, orange flower, dark hair ribbons and earrings. Preserve the exact original head size, head/body ratio, shoulder/hip width, elbow/wrist/knee/ankle and sole positions. Never enlarge the head, shorten legs, thicken the torso or change any pose to match the clothing reference. Change garments only, preserve original crisp anime linework and cel shading. Genuinely transparent alpha, no scene, panels, text or glow. Keep all complete figures with original framing and scale. Exactly the original 1024x1536 canvas, 3x4 layout and 12 original walking frames facing RIGHT. Same alternating support feet, arm swing and forward stride, hair trailing left. Foot contact positions cannot change; shoes replace boots. Do not cut feet at the bottom or hair at edges.",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/claude/motions/walk-smooth.png",
+    "src/DesktopPet.App/Assets/Characters/claude/outfits/sports/core.png"
+  ],
+  "tool": "built-in image_gen",
+  "status": "generated-awaiting-geometry-review",
+  "selected": false
+}

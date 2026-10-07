@@ -1,0 +1,15 @@
+{
+  "key": "zhipu-walk-v1",
+  "id": "zhipu",
+  "style": "chibi",
+  "kind": "original-walk",
+  "source": "artwork/sports-identity/zhipu-walk-v1.png",
+  "prompt": "Use case identity-preserve. Clothing-only edit of IMAGE 1, the ORIGINAL GLM/Zhipu pet. Image 2 gives SPORTS CLOTHING ONLY, not head/body or accessories. Replace the black maid dress, sleeves, stockings and shoes with a white SHORT-SLEEVED zip-front school sports top with navy shoulder/upper-arm panels and blue piping, tiny blue Z emblem on chest, navy ATHLETIC SHORTS ending above knees, white ankle socks and blue-accent white trainers. MUST PRESERVE the ORIGINAL ruffled black/white SLEEP MASK worn on top of the head, its eyelash symbol, Z hair tag, bell, white/blue tassels, black cat ears, tail, black hair and grey-blue eyes. Keep exact original face/head size, body shape and proportions; exact elbows/wrists/hips/knees/ankles and sole positions in each frame. No short/chunky remake, larger head, widened body or changed limb lengths. Same original crisp anime linework, shading, expressions and pose. Transparent alpha, no backdrop or glow, labels, text or extra props. Exactly original 1024x1536 canvas, 3x4 grid and TWELVE right-facing walking poses. Preserve alternating support feet, hand swing, original stride phases, hair and tail trailing left. Full figures and all foot contact positions intact. Keep sleep mask/headband in ALL frames.",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/zhipu/motions/walk-smooth.png",
+    "src/DesktopPet.App/Assets/Characters/zhipu/outfits/sports/core.png"
+  ],
+  "tool": "built-in image_gen",
+  "status": "generated-awaiting-geometry-review",
+  "selected": false
+}

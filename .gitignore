@@ -8,3 +8,6 @@ artifacts/
 *.log
 .vs/
 __pycache__/
+docs/demo/companion-v01/.generated/
+docs/demo/companion-v01/data.js
+docs/demo/companion-v01/items.js

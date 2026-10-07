@@ -1,0 +1,15 @@
+{
+  "key": "gpt-walk-v1",
+  "id": "gpt",
+  "style": "chibi",
+  "kind": "original-walk",
+  "source": "artwork/sports-identity/gpt-walk-v1.png",
+  "prompt": "Use case: identity-preserve, clothing-only sprite-sheet edit. IMAGE 1 is the EDIT TARGET: GPT's ORIGINAL walking atlas, 1024x1536, exactly 3 columns x 4 rows and 12 full-body walking poses facing RIGHT. IMAGE 2 supplies CLOTHING ONLY. Replace the original white fantasy dress and boots with the white short-sleeved zip-front sports shirt with deep green upper-arm/shoulder panels, small green knot chest emblem, emerald-green athletic SHORTS ending above the knees, white short ankle socks and white low-top green-accent sneakers. Keep the target's EXACT head/body proportions and all original pose landmarks and framing: face size, silver-lavender hair silhouette, purple eyes, horns, elf ears, ahoge, knot hair clip/tassel; same shoulders, hips, elbows, wrists, knees, ankles and sole positions in all twelve cells. Do not copy the short chunky body from the clothing reference. No enlarged heads, thickening, shorter legs, altered stride or switched feet. Keep each original right-facing walking pose, arm swing, alternating support feet, and hair trailing left; shoes replace boots at original contact points. Only replace garments, retain the existing character. Exact original 3x4 layout, 1024x1536 canvas, 12 complete figures. Crisp anime linework, consistent original cel shading, full transparent alpha background, no scenery or glow, no text, labels, extra props or clipped hair/feet.",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/gpt/motions/walk-smooth.png",
+    "src/DesktopPet.App/Assets/Characters/gpt/outfits/sports/core.png"
+  ],
+  "tool": "built-in image_gen",
+  "status": "generated-awaiting-geometry-review",
+  "selected": false
+}

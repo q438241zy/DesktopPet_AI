@@ -1,0 +1,15 @@
+{
+  "key": "gemini-basic-v1",
+  "id": "gemini",
+  "style": "chibi",
+  "kind": "original-basic",
+  "source": "artwork/sports-identity/gemini-basic-v1.png",
+  "prompt": "Clothing-only edit of IMAGE 1, the ORIGINAL Gemini desktop pet. IMAGE 2 is the uniform design reference ONLY. Replace the starry fantasy dress/long sleeves/boots with a white short-sleeved zip-front sports shirt with navy-purple upper-arm panels, violet piping and tiny purple star emblem; navy-purple athletic SHORTS well ABOVE KNEES; short white ankle socks and white low-top violet-accent sneakers. Preserve ORIGINAL head and face size, purple-blue multicolour hair, cat ears, pink and amber heterochromatic eyes, star hair clips, braids, bows, ahoge and fluffy purple tail. Preserve exact original anatomy, shoulder/hip width, limb lengths, elbow/wrist/knee/ankle/sole positions. Do not copy the chunky body from the clothing reference. Do not enlarge the head, shorten legs or widen the body. Replace only clothing and keep all expressions, pose angles and emotion marks. Match original crisp anime linework and cel shading. Fully transparent alpha background, no glow/backdrop/scene, no text or extra props. Same 1536x1024 canvas and exact 3x2 layout with SIX original poses in order: seated neutral, seated cheering, seated hands to cheeks, lying asleep, prone dizzy, seated sad. Identical framing and scale; no cropped figures.",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/gemini/atlas.png",
+    "src/DesktopPet.App/Assets/Characters/gemini/outfits/sports/core.png"
+  ],
+  "tool": "built-in image_gen",
+  "status": "generated-awaiting-geometry-review",
+  "selected": false
+}

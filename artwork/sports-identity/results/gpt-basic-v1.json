@@ -1,0 +1,15 @@
+{
+  "key": "gpt-basic-v1",
+  "id": "gpt",
+  "style": "chibi",
+  "kind": "original-six",
+  "source": "artwork/sports-identity/gpt-basic-v1.png",
+  "prompt": "Use case: identity-preserve. Clothing-only edit for an existing desktop-pet sprite sheet. Image 1 is the EDIT TARGET: original GPT mascot six-pose sheet, exactly 1536x1024, 3 columns by 2 rows. Image 2 is ONLY the sports uniform design reference, not a body, head or pose reference. Replace image 1's white fantasy dress and boots with a white short-sleeved zip-front athletic shirt, deep emerald-green shoulder and upper-arm panels, small green knot emblem on chest, deep green athletic SHORTS ending clearly above the knees, short white ankle socks and white low-top sneakers with green accents. Keep all six original poses exactly: seated neutral hands together, seated happy fists raised, seated smiling hands to cheeks, lying on side asleep, prone dizzy, seated sad. Preserve identity, face, purple eyes, head size, silver-lavender hair, horns, pointed ears, ahoge, knot hair ornament and tassel. Lock original face size, head-body ratio, shoulder/elbow/wrist/hip/knee/ankle positions and sole contact positions in every cell. Change garments only; do not create a rounder, shorter character, enlarge the head, thicken the body, shorten or lengthen limbs. No long sleeves or trousers. Preserve all original expressions and small emotion marks. Keep original composition and scale and all 6 complete figures with empty gutters, no crops. Match original clean anime linework/cel shading. Genuinely transparent background, no backdrop, no glow, no panels, no text. Exact same 3x2 layout and canvas as image 1.",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/gpt/atlas.png",
+    "src/DesktopPet.App/Assets/Characters/gpt/outfits/sports/core.png"
+  ],
+  "tool": "built-in image_gen",
+  "status": "generated-awaiting-contact-and-alpha-review",
+  "selected": false
+}

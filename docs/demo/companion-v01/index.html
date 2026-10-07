@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>云朵伙伴 · v0.1 Demo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <a class="brand" href="#partners"><span class="cloud-logo" data-icon="cloud"></span><strong>云朵伙伴</strong></a>
+    <nav aria-label="主导航">
+      <button data-page="partners" class="active"><span data-icon="heart"></span>我的伙伴</button>
+      <button data-page="daily"><span data-icon="calendar"></span>陪伴日常</button>
+      <button data-page="member"><span data-icon="crown"></span>会员中心</button>
+      <button data-page="settings"><span data-icon="settings"></span>设定</button>
+    </nav>
+    <div class="sidebar-bottom"><button id="presence" class="presence" aria-pressed="true" title="暂停或继续陪伴"><i class="status-light"></i><span>正在陪伴</span></button><div class="version">云朵伙伴 / DesktopPet <span data-version>v0.1</span></div></div>
+  </aside>
+  <main>
+    <header class="page-header"><h1 id="page-title">我的伙伴</h1><button id="review-open" class="demo-tag" title="查看 Demo 测试工具">Demo · <span data-version>v0.1</span></button></header>
+    <section id="page-partners" class="page">
+      <div class="section-row"><div class="segmented" role="group" aria-label="角色风格"><button data-style="chibi" class="selected">Q版</button><button data-style="realistic">3D真人</button></div><button id="details-open" class="quiet"><span data-icon="profile"></span>伙伴档案</button></div>
+      <div id="partner-grid" class="partner-grid"></div>
+      <section class="companion-room" aria-label="互动预览">
+        <div class="room-heading"><div><span class="eyebrow">此刻陪伴</span><h2 id="active-name">DeepSeek</h2></div><div id="work-pill" class="work-pill" hidden><span data-icon="clock"></span><span id="work-countdown"></span></div><button id="work-open" class="quiet"><span data-icon="clock"></span>工作模式</button></div>
+        <div id="pet-stage" class="pet-stage">
+          <div class="stage-orbit orbit-one"></div><div class="stage-orbit orbit-two"></div>
+          <div id="pet-bubble" class="pet-bubble" role="status" aria-live="polite"><span id="bubble-text">今天也一起慢慢来。</span><span class="thinking-dots" hidden><i></i><i></i><i></i></span></div>
+          <form id="inline-chat" class="inline-chat"><input id="chat-input" maxlength="600" placeholder="和 DeepSeek 说句话…" autocomplete="off" aria-label="聊天内容"><button id="chat-send" type="submit" title="发送" aria-label="发送"><span data-icon="send"></span></button></form>
+          <button id="pet-body" class="pet-body" title="摸摸头；躲藏时点击找到"><canvas id="pet-canvas" width="500" height="520" aria-label="DeepSeek"></canvas><span id="touch-heart" hidden>♡</span></button>
+          <button id="find-left" class="find-hint left" hidden aria-label="找到左边的伙伴">♡</button><button id="find-right" class="find-hint right" hidden aria-label="找到右边的伙伴">♡</button>
+          <div class="room-floor"></div><span class="chat-source" id="chat-source">本机对话</span>
+          <div id="pet-menu" class="pet-menu" hidden><button data-act="chat" title="聊天"><span data-icon="chat"></span></button><button data-act="pat" title="摸摸头"><span data-icon="hand"></span></button><button data-act="hide" title="躲藏"><span data-icon="hide"></span></button><button data-act="photo" title="合照"><span data-icon="camera"></span></button></div>
+        </div>
+        <div class="room-actions"><button data-act="chat"><span data-icon="chat"></span>聊天</button><button data-act="pat"><span data-icon="hand"></span>摸摸头</button><button data-act="hide"><span data-icon="hide"></span>躲藏</button><button data-act="photo"><span data-icon="camera"></span>合照</button></div>
+      </section>
+    </section>
+    <section id="page-daily" class="page" hidden>
+      <section class="checkin-panel"><div><span class="eyebrow" id="today-date"></span><h2>今日打卡</h2><button id="check-in" class="primary"><span data-icon="check"></span>打卡</button></div><div id="checkin-week" class="checkin-week"></div><div class="checkin-stats"><div><strong id="streak-count">0</strong><span>连续天数</span></div><div><strong id="total-count">0</strong><span>累计打卡</span></div></div></section>
+      <div class="section-row collection-heading"><h2>收藏区</h2><button id="gift-draw" class="quiet"><span data-icon="gift"></span>拆份礼物</button></div>
+      <div class="segmented collection-tabs" role="group" aria-label="收藏分类"><button data-collection="balls" class="selected">球区 <small id="balls-count">0/10</small></button><button data-collection="food">食物区 <small id="food-count">0/6</small></button><button data-collection="stories">故事区 <small id="stories-count">0/3</small></button></div>
+      <div id="collection-grid" class="collection-grid"></div>
+      <details id="keepsakes" class="keepsakes"><summary>其他小物</summary><div id="keepsake-grid" class="collection-grid"></div></details>
+    </section>
+    <section id="page-member" class="page" hidden>
+      <div class="auth-card"><div class="auth-cloud" data-icon="cloud"></div><h2>云朵会员</h2><div class="segmented" role="tablist" aria-label="会员入口"><button id="login-tab" role="tab" aria-selected="true" aria-controls="auth-form" class="selected">登录</button><button id="register-tab" role="tab" aria-selected="false" aria-controls="auth-form">注册</button></div>
+        <form id="auth-form" role="tabpanel"><label>账号<input id="account-name" autocomplete="username" minlength="3" maxlength="32" required></label><label>密码<input id="account-password" type="password" autocomplete="current-password" minlength="8" maxlength="128" required></label><label id="password-again-row" hidden>确认密码<input id="account-password-again" type="password" autocomplete="new-password" minlength="8" maxlength="128"></label><button class="primary" id="auth-submit">登录</button><p id="auth-result" role="status"></p><small class="muted">Demo 本机账号</small></form>
+        <div id="account-session" hidden><p id="signed-name"></p><span class="tier bronze">黄铜</span><button id="sign-out" class="quiet">退出登录</button></div>
+      </div>
+    </section>
+    <section id="page-settings" class="page" hidden>
+      <section class="settings-card"><h2>桌面陪伴</h2><label class="setting-row"><span>闲置一分钟后躲藏</span><input id="auto-hide" type="checkbox" role="switch" checked></label><label class="setting-row"><span>减少动态效果</span><input id="reduced-motion" type="checkbox" role="switch"></label></section>
+      <section class="settings-card"><h2>工作模式</h2><form id="work-form"><div class="work-form-row"><label>提醒间隔<div class="unit-field"><input id="work-minutes" type="number" min="1" max="180" value="10" required><span>分钟</span></div></label><label>提醒内容<input id="work-message" maxlength="60" value="喝口水，放松一下肩膀"></label></div><div class="button-row"><button id="work-start" class="primary">开启提醒</button><button type="button" id="work-stop" class="quiet" hidden>停止</button><button type="button" id="work-try" class="quiet">试试提醒</button></div><p id="work-status" class="muted" role="status">未开启</p></form></section>
+      <section class="settings-card"><h2>角色聊天</h2><form id="api-form"><label>模型接口<select id="api-provider"><option value="local">本机对话</option><option value="openai">OpenAI 标准接口</option><option value="deepseek">DeepSeek 标准接口</option></select></label><div id="api-fields" hidden><label>API 地址<input id="api-endpoint" type="url" placeholder="https://api.openai.com/v1" autocomplete="off"></label><div class="two-fields"><label>模型名称<input id="api-model" placeholder="填写可用的模型名称" autocomplete="off"></label><label>API Key<input id="api-key" type="password" autocomplete="off" placeholder="仅用于本次会话"></label></div></div><button class="primary">保存设定</button><p id="api-status" class="muted" role="status">本机对话</p></form></section>
+    </section>
+    <section id="page-detail" class="page" hidden>
+      <button id="detail-back" class="quiet back"><span data-icon="back"></span>我的伙伴</button><div class="detail-layout"><div class="profile-card"><canvas id="profile-canvas" width="600" height="700"></canvas><h2 id="profile-name"></h2><div id="profile-traits" class="trait-row"></div><p id="profile-description"></p></div><div class="profile-info"><div class="segmented" role="group" aria-label="伙伴档案"><button data-detail="bond" class="selected">我们的默契</button><button data-detail="style">风格预览</button><button data-detail="voice">聊天性格</button></div>
+      <div id="detail-bond"><section class="bond-panel"><span id="bond-label" class="eyebrow"></span><div class="bond-number"><strong id="bond-score">0</strong><span>/ 100</span></div><div class="bond-meter"><i id="bond-fill"></i><b></b></div><div class="meter-labels"><span>厌恶 −100</span><span>初识 0</span><span>好感 +100</span></div><div class="bond-stats"><div><strong id="companion-time">0 分钟</strong><span>陪伴时间</span></div><div><strong id="interaction-count">0 次</strong><span>相处记录</span></div></div></section><ul id="bond-history" class="bond-history"></ul></div>
+      <div id="detail-style" hidden><div class="section-row"><h3>同一个她，两种风格</h3><span class="tiny-tag">测试期全开放</span></div><div id="style-pair" class="style-pair"></div><h3>衣橱</h3><div id="wardrobe-grid" class="wardrobe-grid"></div><p class="muted wardrobe-note">好感门槛为本轮预览方案。</p></div>
+      <div id="detail-voice" hidden><h3 id="voice-title"></h3><p id="voice-description"></p><div id="voice-samples" class="voice-samples"></div><button id="voice-chat" class="primary">和她聊聊</button></div></div></div>
+    </section>
+  </main>
+  <dialog id="photo-dialog"><div class="dialog-heading"><h2>一起合照</h2><button data-close="photo-dialog" class="icon-button" aria-label="关闭合照"><span data-icon="close"></span></button></div><div class="photo-layout"><div class="photo-preview"><canvas id="photo-canvas" width="1200" height="1400" aria-label="双角色相框合照"></canvas></div><form id="photo-form"><label>邀请伙伴<select id="photo-partner"></select></label><label>照片上的话<textarea id="photo-caption" rows="3" maxlength="60" placeholder="把今天的好心情留在这里"></textarea></label><fieldset><legend>相框</legend><div class="frame-options"><label><input type="radio" name="frame" value="cloud" checked><span>暖云</span></label><label><input type="radio" name="frame" value="jade"><span>浅玉</span></label><label><input type="radio" name="frame" value="cream"><span>奶油</span></label></div></fieldset><button id="photo-generate" class="primary">生成合照</button><button type="button" id="photo-save" class="quiet" disabled><span data-icon="download"></span>保存图片</button><small class="muted">默认保存到桌面</small><p id="photo-status" role="status"></p></form></div></dialog>
+  <dialog id="story-dialog"><div class="dialog-heading"><h2 id="story-title"></h2><button data-close="story-dialog" class="icon-button" aria-label="关闭故事"><span data-icon="close"></span></button></div><div class="story-illustration" data-icon="book"></div><p id="story-sentence" class="story-sentence"></p><div class="story-progress"><i id="story-progress-fill"></i></div><div class="section-row"><span id="story-page"></span><button id="story-next" class="primary">下一句</button></div></dialog>
+  <dialog id="review-dialog"><div class="dialog-heading"><h2>Demo 测试</h2><button data-close="review-dialog" class="icon-button" aria-label="关闭测试工具"><span data-icon="close"></span></button></div><p>本页使用独立 Demo 存档。</p><div class="button-row"><button id="review-idle" class="quiet">模拟闲置 1 分钟</button><button id="review-work" class="quiet">推进一个提醒周期</button></div><label>当前角色好感度（测试存档）<input id="review-affinity" type="range" min="-100" max="100" value="0"><output id="review-score">0</output></label><p class="muted">测试期所有风格开放。离开或漏签不会扣好感。</p><div class="review-links"><a href="../CloudClub/index.html">完整动作 Demo</a><a href="../WardrobeIdentity/index.html">运动服对照</a></div></dialog>
+  <div id="reminder" class="reminder" hidden role="status" aria-live="polite"><canvas id="reminder-canvas" width="220" height="260"></canvas><div><strong id="reminder-name"></strong><p id="reminder-text"></p></div><button id="reminder-dismiss" class="icon-button" aria-label="关闭提醒"><span data-icon="close"></span></button></div>
+  <div id="toast" class="toast" role="status" hidden></div>
+  <script src="data.js"></script><script src="icons.js"></script><script src="items.js"></script><script src="personas.js"></script><script src="model.js"></script><script src="app.js"></script>
+</body>
+</html>

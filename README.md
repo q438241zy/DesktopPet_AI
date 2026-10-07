@@ -4,9 +4,11 @@
 
 ![云朵伙伴：角色分类与更衣室](docs/images/pet-home.png)
 
-由 **QQ奶茶大神** 的 UsageDashboard_AI 与 Character_Generator 整合而来，互动和八位 AI 角色的 Q 版画稿来自 DS Go。沿用原生 WPF 透明窗口、托盘与快捷键；取消举看板、余额采集与平台登录。当前源码版本为 1.2.0-preview.27。
+由 **QQ奶茶大神** 的 UsageDashboard_AI 与 Character_Generator 整合而来，互动和八位 AI 角色的 Q 版画稿来自 DS Go。沿用原生 WPF 透明窗口、托盘与快捷键；取消举看板、余额采集与平台登录。项目版本重新从 **v0.1** 起算，统一由 [Version.props](Version.props) 管理；大版本由用户决定，每次交付更新推进小版本，规则见[版本管理](docs/versioning.md)。
 
-Preview 27 继续修复任务栏行走时难以点中、提起的问题：角色区域补上 Windows 可命中的微透明输入面，并在本窗口处理按下、捕获、拖动与松开，避免透明空隙把点击交给桌面。按下即停步，普通松手放置、Shift 松手下落、落地散步和右键菜单规则保持一致。DeepSeek Q版与3D真人运动服另有[换装对照 Demo](docs/demo/wardrobe-identity/README.md)：3D真人样稿比例已获认可，Q版新稿待审；泳装保留为复核记录。Demo 新图尚未替换正式角色。
+本轮 [v0.1 控制面板 Demo](docs/demo/companion-v01/README.md) 提供八位角色的聊天性格、等待点击找到的边缘躲藏、工作提醒、双角色相框合照、独立关系记录、精简会员入口与打卡收藏。按用户“先 Demo 后接入”的规则，目前仍处于 HTML 审阅阶段，不能把它当作原生功能已经发布。
+
+日常原生程序仍是 Preview28：补齐窗口移动时遗漏的新鼠标按下，按当前屏幕坐标拖动，统一 WPF 与 Windows 的鼠标捕获。真实系统鼠标检查与限制见 [Preview28 验证](docs/verification-preview28.md)。[换装对照 W3](docs/demo/wardrobe-identity/README.md) 已扩展八位伙伴的 Q版基础/行走与3D真人立绘，新运动服配套动作仍在拓展，不宣称全部接入。
 
 Preview 26 修复行走时鼠标点击和提起：由独立输入层接收点击、捕获和拖动，按下立即结束行走与探索，普通松手放在半空，Shift松手才下落。正式安装包内含运行时和全部64套外观，不含开发资料、个人存档及大型Demo。
 

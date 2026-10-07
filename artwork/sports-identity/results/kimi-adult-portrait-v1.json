@@ -1,0 +1,15 @@
+{
+  "key": "kimi-adult-portrait-v1",
+  "id": "kimi-adult",
+  "style": "realistic",
+  "kind": "original-portrait",
+  "source": "artwork/sports-identity/kimi-adult-portrait-v1.png",
+  "prompt": "Use case identity-preserve, clothing-only edit. Image 1 is the EDIT TARGET: original full-body adult character at 1024x1536. Image 2 is only a CLOTHING DESIGN reference, never its body shape or face. Replace only the original dress, sleeves, tights and boots with white zip-front school sports shirt with navy shoulder panels, silver-lavender piping and small crescent moon chest emblem; navy athletic shorts ending well above knees; white ankle socks and white low-top lavender blue sneakers. Shirt sleeves end on upper arms, NOT elbows or wrists; shorts end well above knees leaving knees and lower legs bare. Preserve the EXACT adult woman in image 1, same face, head size, head/body ratio, slender shoulders/waist/hips, long thighs and shins, knee and ankle positions, original waving-hand and crossed-leg pose, full-body placement, camera and lighting. Preserve silver lavender long flowing hair, purple eyes, original frilly white headband and silver crescent moon hair ornament, navy ribbon and pearl dangles, every hair accessory and hair volume. Do not create a shorter, wider or younger replacement character. Keep original hand/wrist/finger/foot locations. One complete full-body character in the exact source framing, not an atlas. Genuine transparent alpha, no background, glow, caption, border or additional props.",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/kimi-adult/portrait.png",
+    "src/DesktopPet.App/Assets/Characters/kimi-adult/outfits/sports/portrait.png"
+  ],
+  "tool": "built-in image_gen",
+  "status": "generated-awaiting-geometry-review",
+  "selected": false
+}

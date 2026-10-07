@@ -1,0 +1,15 @@
+{
+  "key": "zhipu-adult-portrait-v1",
+  "id": "zhipu-adult",
+  "style": "realistic",
+  "kind": "original-portrait",
+  "source": "artwork/sports-identity/zhipu-adult-portrait-v1.png",
+  "prompt": "Use case identity-preserve, clothing-only edit. Image 1 is the EDIT TARGET: original full-body adult character at 1024x1536. Image 2 is only a CLOTHING DESIGN reference, never its body shape or face. Replace only the original dress, sleeves, tights and boots with white zip-front school sports shirt with charcoal navy shoulder panels, pale blue piping and small gray emblem; navy athletic shorts ending well above knees; white ankle socks and white low-top blue sneakers. Shirt sleeves end on upper arms, NOT elbows or wrists; shorts end well above knees leaving knees and lower legs bare. Preserve the EXACT adult woman in image 1, same face, head size, head/body ratio, slender shoulders/waist/hips, long thighs and shins, knee and ankle positions, original waving-hand and crossed-leg pose, full-body placement, camera and lighting. Preserve black to blue-gray long hair, blue eyes, black cat ears and cat tail, original frilly white headband and black eyelash sleep-mask ornament resting on head, Z hair tag and blue tassels, every hair accessory and hair volume. Do not create a shorter, wider or younger replacement character. Keep original hand/wrist/finger/foot locations. One complete full-body character in the exact source framing, not an atlas. Genuine transparent alpha, no background, glow, caption, border or additional props.",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/zhipu-adult/portrait.png",
+    "src/DesktopPet.App/Assets/Characters/zhipu-adult/outfits/sports/portrait.png"
+  ],
+  "tool": "built-in image_gen",
+  "status": "generated-awaiting-geometry-review",
+  "selected": false
+}

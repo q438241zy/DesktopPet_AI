@@ -1,0 +1,485 @@
+{
+  "scope": "8 families, original-source clothing edits; action expansion in progress",
+  "sources": [
+    {
+      "source": "src/DesktopPet.App/Assets/Characters/whale/atlas.png",
+      "file": "art/roster/whale/original.png",
+      "sha256": "0da74c2fbad632abe339c4531dec5861edbe6cc7a62f99c00e006a0451cb86a5"
+    },
+    {
+      "source": "src/DesktopPet.App/Assets/Characters/whale/outfits/swim.webp",
+      "file": "art/roster/whale/swim-before.webp",
+      "sha256": "47317dfc12c2cbe52905da8422a335964a7efa7fef5cc10878876450db93b36c"
+    },
+    {
+      "source": "src/DesktopPet.App/Assets/Characters/whale/outfits/wedding.webp",
+      "file": "art/roster/whale/wedding-before.webp",
+      "sha256": "cb7af9604debbab44bb15bbdcef4d0e8cebaa6eaa0e4170c92b7eafee9b541f4"
+    },
+    {
+      "source": "src/DesktopPet.App/Assets/Characters/whale/outfits/sports/core.png",
+      "file": "art/roster/whale/sports-before.png",
+      "sha256": "3f3c5de92ddd44f9963aa4a29a1ee9fc3a0a7571a2239551c80ef4da9702b20a"
+    },
+    {
+      "source": "docs/demo/wardrobe-identity/art/deepseek-chibi-sports-v1.png",
+      "file": "art/roster/whale/sports-identity.png",
+      "sha256": "79bf9f9318e00f28fcd64dc10b8560ed096862f87056fd74aeaac7058c04b8fc"
+    },
+    {
+      "source": "src/DesktopPet.App/Assets/Characters/whale/motions/walk-smooth.png",
+      "file": "art/roster/whale/walk-original.png",
+      "sha256": "c476bfa50e7409e7ad8aedf0daa495f4b0e643ef16a892dae2ad0014f9763dcd"
+    },
+    {
+      "source": "docs/demo/wardrobe-identity/art/deepseek-chibi-sports-walk-v2.png",
+      "file": "art/roster/whale/walk-identity.png",
+      "sha256": "8fb225e663bc52c52bbea951b18395fd86a525055e24b3fb93192381d57f354c"
+    },
+    {
+      "source": "src/DesktopPet.App/Assets/Characters/deepseek-adult/portrait.png",
+      "file": "art/roster/deepseek-adult/original.png",
+      "sha256": "723d4f55f87c0ad1a4e77d5b889c905317c044c4a47e3ed32988925804acf613"
+    },
+    {
+      "source": "src/DesktopPet.App/Assets/Characters/deepseek-adult/outfits/swim.png",
+      "file": "art/roster/deepseek-adult/swim-before.png",
+      "sha256": "d9d236d2512a4d5fb0414ba526c3444271c5deb31099914da77e508d1f3332c3"
+    },
+    {
+      "source": "src/DesktopPet.App/Assets/Characters/deepseek-adult/outfits/wedding.png",
+      "file": "art/roster/deepseek-adult/wedding-before.png",
+      "sha256": "a4db71b8759494072ddad41c67ae4596a2cd0cdd5fd9edf509e2c5f7bccbe3eb"
+    },
+    {
+      "source": "src/DesktopPet.App/Assets/Characters/deepseek-adult/outfits/sports/portrait.png",
+      "file": "art/roster/deepseek-adult/sports-before.png",
+      "sha256": "57996e8c1d7b34ec0c5828be49e5c97ae834349d72b6b568590e3f3f728198d7"
+    },
+    {
+      "source": "docs/demo/wardrobe-identity/art/deepseek-realistic-sports-v1.png",
+      "file": "art/roster/deepseek-adult/sports-identity.png",
+      "sha256": "fa03fcda5d0f40f3ddb28bdc13da31e8c52b6a99524e99c473f6f12de14c5e75"
+    },
+    {
+      "source": "src/DesktopPet.App/Assets/Characters/gpt/atlas.png",
+      "file": "art/roster/gpt/original.png",
+      "sha256": "2069da5c678960c7fb8a9dad29b6ad2aaa16978a92e07b1b64dd648c9c4726e9"
+    },
+    {
+      "source": "src/DesktopPet.App/Assets/Characters/gpt/outfits/swim.webp",
+      "file": "art/roster/gpt/swim-before.webp",
+      "sha256": "f3dd1e551c7a1871f016f67f81f179fcff5d5cc6f00643b096fd8577fdf8a764"
+    },
+    {
+      "source": "src/DesktopPet.App/Assets/Characters/gpt/outfits/wedding.webp",
+      "file": "art/roster/gpt/wedding-before.webp",
+      "sha256": "a1e1cbd7d77f4594fa057a1b74d5382712fbe89fdd0fa1751dcec854f221123c"
+    },
+    {
+      "source": "src/DesktopPet.App/Assets/Characters/gpt/outfits/sports/core.png",
+      "file": "art/roster/gpt/sports-before.png",
+      "sha256": "038228c44db600128c837f1c4b5b8134e05191b6531a589372377507fcdb3c9a"
+    },
+    {
+      "source": "artwork/sports-identity/gpt-basic-v1.png",
+      "file": "art/roster/gpt/sports-identity.png",
+      "sha256": "8bfb73dc0dc88a2d77e367ca333ea475538bb751cf35942430a0d69eaecbf197"
+    },
+    {
+      "source": "src/DesktopPet.App/Assets/Characters/gpt/motions/walk-smooth.png",
+      "file": "art/roster/gpt/walk-original.png",
+      "sha256": "c3a163e1f121853825870ea260ef7c36b5b640aa1d9d99c3b9022ac2152f8cc7"
+    },
+    {
+      "source": "artwork/sports-identity/gpt-walk-v1.png",
+      "file": "art/roster/gpt/walk-identity.png",
+      "sha256": "11fb8cc4915eda12169efab14c78f5dec1916a0bb88a4c4745aa17f33a207bb7"
+    },
+    {
+      "source": "src/DesktopPet.App/Assets/Characters/gpt-adult/portrait.png",
+      "file": "art/roster/gpt-adult/original.png",
+      "sha256": "931ca537328ba0a9e1aa91b9bb80a79f0b4ed402a5fd17e4f51e7caaeba85403"
+    },
+    {
+      "source": "src/DesktopPet.App/Assets/Characters/gpt-adult/outfits/swim.png",
+      "file": "art/roster/gpt-adult/swim-before.png",
+      "sha256": "5526c93bd6ac90c6692964fe3fe7eb0ba148d25079b3a17dece28947ff63d6bf"
+    },
+    {
+      "source": "src/DesktopPet.App/Assets/Characters/gpt-adult/outfits/wedding.png",
+      "file": "art/roster/gpt-adult/wedding-before.png",
+      "sha256": "d4c4b6e8950c201228144c1fd49340ba50308951569d5a082eb2a29ee8fcf601"
+    },
+    {
+      "source": "src/DesktopPet.App/Assets/Characters/gpt-adult/outfits/sports/portrait.png",
+      "file": "art/roster/gpt-adult/sports-before.png",
+      "sha256": "39fb6b96aa2ee22e6f2e8cfead92f9634517325b84abd6cb0e80e2c1745e6d9b"
+    },
+    {
+      "source": "artwork/sports-identity/gpt-adult-portrait-v1.png",
+      "file": "art/roster/gpt-adult/sports-identity.png",
+      "sha256": "c7027baa0ec2f930056ef5d19c62a770d6b8fe4af2a30bb44a102787ca75c54d"
+    },
+    {
+      "source": "src/DesktopPet.App/Assets/Characters/claude/atlas.png",
+      "file": "art/roster/claude/original.png",
+      "sha256": "2c75e9c31cb1f05fd30ef37276d13083976292fa36c50fad09078be47b442173"
+    },
+    {
+      "source": "src/DesktopPet.App/Assets/Characters/claude/outfits/swim.webp",
+      "file": "art/roster/claude/swim-before.webp",
+      "sha256": "b156c98c14882723056f3703a87b506926626288ed85fe93cad9fca881b41652"
+    },
+    {
+      "source": "src/DesktopPet.App/Assets/Characters/claude/outfits/wedding.webp",
+      "file": "art/roster/claude/wedding-before.webp",
+      "sha256": "ff8bf67221b214eb9ac4f0c1bf2658f42b169aa291ef43b32d23388fc2eb49ba"
+    },
+    {
+      "source": "src/DesktopPet.App/Assets/Characters/claude/outfits/sports/core.png",
+      "file": "art/roster/claude/sports-before.png",
+      "sha256": "911edc12689dc36bad429c68e95c595d6d37ca4e090529a7a0ae265c18bfcd50"
+    },
+    {
+      "source": "artwork/sports-identity/claude-basic-v1.png",
+      "file": "art/roster/claude/sports-identity.png",
+      "sha256": "52340d5f40ade155b0dda28b8b7e1a084b09712fe1a922faecc5b0665f9e26ef"
+    },
+    {
+      "source": "src/DesktopPet.App/Assets/Characters/claude/motions/walk-smooth.png",
+      "file": "art/roster/claude/walk-original.png",
+      "sha256": "dd861e4089ea5b4f99f88057904556f6a0998536921e002fcebe8f65b75dffd4"
+    },
+    {
+      "source": "artwork/sports-identity/claude-walk-v1.png",
+      "file": "art/roster/claude/walk-identity.png",
+      "sha256": "1240656543289aaf1c449328e906ba6114235534e1d31152eff0a0e2c3ce5556"
+    },
+    {
+      "source": "src/DesktopPet.App/Assets/Characters/claude-adult/portrait.png",
+      "file": "art/roster/claude-adult/original.png",
+      "sha256": "25a5707a7c0f598827feded030900aa9d77f2a26dce450b823a75dbb895cf41b"
+    },
+    {
+      "source": "src/DesktopPet.App/Assets/Characters/claude-adult/outfits/swim.png",
+      "file": "art/roster/claude-adult/swim-before.png",
+      "sha256": "43f87edf5ddc6af188c3d8bcbf8a09be438110dc016333a7de2e092396aea134"
+    },
+    {
+      "source": "src/DesktopPet.App/Assets/Characters/claude-adult/outfits/wedding.png",
+      "file": "art/roster/claude-adult/wedding-before.png",
+      "sha256": "d316fc4033b5ed3b19d23c86f1103040546bde769a6e5fedd2716fe5f535dfeb"
+    },
+    {
+      "source": "src/DesktopPet.App/Assets/Characters/claude-adult/outfits/sports/portrait.png",
+      "file": "art/roster/claude-adult/sports-before.png",
+      "sha256": "37789041cf5f57b150b6a77c18454b953d1d961e57b787d19b6ba3e25f80a2e5"
+    },
+    {
+      "source": "artwork/sports-identity/claude-adult-portrait-v1.png",
+      "file": "art/roster/claude-adult/sports-identity.png",
+      "sha256": "e31afe52c39ccf07d4d8df33da2ec56f1380224388d0a0d5996a51f104dc840d"
+    },
+    {
+      "source": "src/DesktopPet.App/Assets/Characters/gemini/atlas.png",
+      "file": "art/roster/gemini/original.png",
+      "sha256": "a2d91156bb3a308417ac8e9f488412714cf2bedc94060f76b747055f33199db4"
+    },
+    {
+      "source": "src/DesktopPet.App/Assets/Characters/gemini/outfits/swim.webp",
+      "file": "art/roster/gemini/swim-before.webp",
+      "sha256": "f3aabad2da7952db4579780cc7822b20b74c5413c079db4566827dc0fb02a0de"
+    },
+    {
+      "source": "src/DesktopPet.App/Assets/Characters/gemini/outfits/wedding.webp",
+      "file": "art/roster/gemini/wedding-before.webp",
+      "sha256": "a4abf80e149447f2b4a2ecccf78fe806631192e187ff7337ad19ef10fd2a9041"
+    },
+    {
+      "source": "src/DesktopPet.App/Assets/Characters/gemini/outfits/sports/core.png",
+      "file": "art/roster/gemini/sports-before.png",
+      "sha256": "243ce69958f942a33b1200517ac707915534ef0e739aa6c4811e9636286e65ff"
+    },
+    {
+      "source": "artwork/sports-identity/gemini-basic-v1.png",
+      "file": "art/roster/gemini/sports-identity.png",
+      "sha256": "2bbc3058324b4a731cef5fef83aeafaaded1830c04c827ed6b1a88ab740f8b50"
+    },
+    {
+      "source": "src/DesktopPet.App/Assets/Characters/gemini/motions/walk-smooth.png",
+      "file": "art/roster/gemini/walk-original.png",
+      "sha256": "8905c059aaf97719abb855e528b2652890658ec654e07b5a21f1fd14dcf424bc"
+    },
+    {
+      "source": "artwork/sports-identity/gemini-walk-v1.png",
+      "file": "art/roster/gemini/walk-identity.png",
+      "sha256": "6a2591816fc4a493f20e8c99bbc26b404dee9f8ea811a9f405945671a378c115"
+    },
+    {
+      "source": "src/DesktopPet.App/Assets/Characters/gemini-adult/portrait.png",
+      "file": "art/roster/gemini-adult/original.png",
+      "sha256": "2864cf9cc50196b7e5d84858b81888af457c6ac9ad2740d13e8d89d527a1d7f3"
+    },
+    {
+      "source": "src/DesktopPet.App/Assets/Characters/gemini-adult/outfits/swim.png",
+      "file": "art/roster/gemini-adult/swim-before.png",
+      "sha256": "d84b5b062b17330269d880af016afcccd524c2c1b4c8480295b88af54b644e46"
+    },
+    {
+      "source": "src/DesktopPet.App/Assets/Characters/gemini-adult/outfits/wedding.png",
+      "file": "art/roster/gemini-adult/wedding-before.png",
+      "sha256": "f852d6a66dc897fef2bcc9f6480ed6b811cadbcb73f7d9e511e19d32200844c4"
+    },
+    {
+      "source": "src/DesktopPet.App/Assets/Characters/gemini-adult/outfits/sports/portrait.png",
+      "file": "art/roster/gemini-adult/sports-before.png",
+      "sha256": "813ebfbc62307a56c3152e0bd8f7f4a877dcf71f5f352d7ca307a5e50a53f1ed"
+    },
+    {
+      "source": "artwork/sports-identity/gemini-adult-portrait-v1.png",
+      "file": "art/roster/gemini-adult/sports-identity.png",
+      "sha256": "36036eb51b91415f54f85e47b79f19c235e1d7a865260639a178776279e37b7b"
+    },
+    {
+      "source": "src/DesktopPet.App/Assets/Characters/grok/atlas.png",
+      "file": "art/roster/grok/original.png",
+      "sha256": "b1190a1b6477d2b210a696653acf2af4d0d228d190fc3da3bfa6b7f24c5ba8ea"
+    },
+    {
+      "source": "src/DesktopPet.App/Assets/Characters/grok/outfits/swim.webp",
+      "file": "art/roster/grok/swim-before.webp",
+      "sha256": "8d1b9a267ffbc02841bc4d2db3f3948ee5823551bf94d7d09705d40d36bf540f"
+    },
+    {
+      "source": "src/DesktopPet.App/Assets/Characters/grok/outfits/wedding.webp",
+      "file": "art/roster/grok/wedding-before.webp",
+      "sha256": "7efb4767cce3fb19947eff3125dce2a8b79d5439c674c461c90397996d67f82d"
+    },
+    {
+      "source": "src/DesktopPet.App/Assets/Characters/grok/outfits/sports/core.png",
+      "file": "art/roster/grok/sports-before.png",
+      "sha256": "4919ae7c9594c1245b7d39e1b86daa1f633b777417e11dae87d121dd7090f99a"
+    },
+    {
+      "source": "artwork/sports-identity/grok-basic-v1.png",
+      "file": "art/roster/grok/sports-identity.png",
+      "sha256": "aa6c0a19558bf30d57a05f8dda498288026bc08167e95c0b848fd1a1177ba6a6"
+    },
+    {
+      "source": "src/DesktopPet.App/Assets/Characters/grok/motions/walk-smooth.png",
+      "file": "art/roster/grok/walk-original.png",
+      "sha256": "4bb350c3cf5eae0f072a0ac36ed8961f6e1f1a45caa5fdad5ff15abd94b381c3"
+    },
+    {
+      "source": "artwork/sports-identity/grok-walk-v1.png",
+      "file": "art/roster/grok/walk-identity.png",
+      "sha256": "231a181b2506454b65bcfa70406d7c40fd67fd5b1afe4d86f7856fe62d5a28bc"
+    },
+    {
+      "source": "src/DesktopPet.App/Assets/Characters/grok-adult/portrait.png",
+      "file": "art/roster/grok-adult/original.png",
+      "sha256": "c0df0dd834b5a585a8d9a937d2650a9120869c47919e0e24c43219469270c85e"
+    },
+    {
+      "source": "src/DesktopPet.App/Assets/Characters/grok-adult/outfits/swim.png",
+      "file": "art/roster/grok-adult/swim-before.png",
+      "sha256": "5ff48f7590a4cf794c880c3ad5592d4ddf7b99b721b7d889438c2fe71a4aef7e"
+    },
+    {
+      "source": "src/DesktopPet.App/Assets/Characters/grok-adult/outfits/wedding.png",
+      "file": "art/roster/grok-adult/wedding-before.png",
+      "sha256": "d7d820283c02c3e8fe446cabd5877dcccb10c4f21e4949b4305f505d4eefff66"
+    },
+    {
+      "source": "src/DesktopPet.App/Assets/Characters/grok-adult/outfits/sports/portrait.png",
+      "file": "art/roster/grok-adult/sports-before.png",
+      "sha256": "3c9b92665b4884cbe3c50cea2aad096abb17ea01a21de6dda8f041ddfe7ce26e"
+    },
+    {
+      "source": "artwork/sports-identity/grok-adult-portrait-v1.png",
+      "file": "art/roster/grok-adult/sports-identity.png",
+      "sha256": "201f04491bfa9d7c8107494f956900b8a931df1bbc09538c04c4a7b4b8f0bf32"
+    },
+    {
+      "source": "src/DesktopPet.App/Assets/Characters/qwen/atlas.png",
+      "file": "art/roster/qwen/original.png",
+      "sha256": "b40eacc165610cedbc71fadbfb8662ea0db80ea0ccdf0ad0afb05cbbe9923a69"
+    },
+    {
+      "source": "src/DesktopPet.App/Assets/Characters/qwen/outfits/swim.webp",
+      "file": "art/roster/qwen/swim-before.webp",
+      "sha256": "de73be96e53752a2ce4c111cb9d7699cab4d3d07181e49e23a17ce334ed1f640"
+    },
+    {
+      "source": "src/DesktopPet.App/Assets/Characters/qwen/outfits/wedding.webp",
+      "file": "art/roster/qwen/wedding-before.webp",
+      "sha256": "634444c03624cc94907c573c873c5cc6efd4130c3753fe0f9e21484a14a07c9d"
+    },
+    {
+      "source": "src/DesktopPet.App/Assets/Characters/qwen/outfits/sports/core.png",
+      "file": "art/roster/qwen/sports-before.png",
+      "sha256": "aa14a4e6dca9e06525e6f6c24d00237eacafd72e69e4a0543954812b34075490"
+    },
+    {
+      "source": "artwork/sports-identity/qwen-basic-v1.png",
+      "file": "art/roster/qwen/sports-identity.png",
+      "sha256": "72c13c51c1cd58d77441f9a008ef7e7162f9e0a943b16bfa89e5c9c21f97321f"
+    },
+    {
+      "source": "src/DesktopPet.App/Assets/Characters/qwen/motions/walk-smooth.png",
+      "file": "art/roster/qwen/walk-original.png",
+      "sha256": "6a276465848bcf0b82d1bfa9343ba78d073efa5491577f25d38ee00d335a7140"
+    },
+    {
+      "source": "artwork/sports-identity/qwen-walk-v1.png",
+      "file": "art/roster/qwen/walk-identity.png",
+      "sha256": "1d30e215e73130abe6fe3397ceb2d09d1d0bcca7a5537210c834521a92be8933"
+    },
+    {
+      "source": "src/DesktopPet.App/Assets/Characters/qwen-adult/portrait.png",
+      "file": "art/roster/qwen-adult/original.png",
+      "sha256": "472aa9da515f65c99b08b9d85700d3938411d52e202d178cffc50e8486ca8aa6"
+    },
+    {
+      "source": "src/DesktopPet.App/Assets/Characters/qwen-adult/outfits/swim.png",
+      "file": "art/roster/qwen-adult/swim-before.png",
+      "sha256": "8a214e29201d27a2671ecb527c30bad7c773b1a4742c76380b017d6c9230918d"
+    },
+    {
+      "source": "src/DesktopPet.App/Assets/Characters/qwen-adult/outfits/wedding.png",
+      "file": "art/roster/qwen-adult/wedding-before.png",
+      "sha256": "06a7fbbc077870785b66daa7540bb6beee7c9e826a6b2ec991c810d956dda172"
+    },
+    {
+      "source": "src/DesktopPet.App/Assets/Characters/qwen-adult/outfits/sports/portrait.png",
+      "file": "art/roster/qwen-adult/sports-before.png",
+      "sha256": "6700bc225535b10e3f265524a84da4ec9cb293023e3f62440fca447ddcc29bf1"
+    },
+    {
+      "source": "artwork/sports-identity/qwen-adult-portrait-v1.png",
+      "file": "art/roster/qwen-adult/sports-identity.png",
+      "sha256": "8ab938b5a513140600e1d5b3ef39431d9d6c5b0e2d073d79984e84357d374a82"
+    },
+    {
+      "source": "src/DesktopPet.App/Assets/Characters/zhipu/atlas.png",
+      "file": "art/roster/zhipu/original.png",
+      "sha256": "ff9412edb4b3813a66dafa2ab49481f3942e332f8d3812d589dd58084999259d"
+    },
+    {
+      "source": "src/DesktopPet.App/Assets/Characters/zhipu/outfits/swim.webp",
+      "file": "art/roster/zhipu/swim-before.webp",
+      "sha256": "32f7c15262c0b682de87ca24df08d60307079c0696d1cba84aa96ed6953ccd7d"
+    },
+    {
+      "source": "src/DesktopPet.App/Assets/Characters/zhipu/outfits/wedding.webp",
+      "file": "art/roster/zhipu/wedding-before.webp",
+      "sha256": "6e01f6a89a7e12247d8e699f55ebff893ce68de8d41749084851454a5379d07b"
+    },
+    {
+      "source": "src/DesktopPet.App/Assets/Characters/zhipu/outfits/sports/core.png",
+      "file": "art/roster/zhipu/sports-before.png",
+      "sha256": "60f3245a0f531ebe7d1134c1f0fd56d88df0c7528f27b1d454fcfe47b3af1f48"
+    },
+    {
+      "source": "artwork/sports-identity/zhipu-basic-v1.png",
+      "file": "art/roster/zhipu/sports-identity.png",
+      "sha256": "72ff240dff1c5e32b339a78dc48bfedd6fc67679592586ea1d97e23487af062b"
+    },
+    {
+      "source": "src/DesktopPet.App/Assets/Characters/zhipu/motions/walk-smooth.png",
+      "file": "art/roster/zhipu/walk-original.png",
+      "sha256": "bf922a1b920404b4af7c64ccb553a5b1848018a958913fd0b72d87cab055934d"
+    },
+    {
+      "source": "artwork/sports-identity/zhipu-walk-v1.png",
+      "file": "art/roster/zhipu/walk-identity.png",
+      "sha256": "2ccf594949dce191bbc8cff52716eaf454f3e6917a1173b0f536a47ef4a64346"
+    },
+    {
+      "source": "src/DesktopPet.App/Assets/Characters/zhipu-adult/portrait.png",
+      "file": "art/roster/zhipu-adult/original.png",
+      "sha256": "d500c71d28b894e238d7d1cc4dc665d8eabc5265a7f9c2e9f8e49e0c010a4d44"
+    },
+    {
+      "source": "src/DesktopPet.App/Assets/Characters/zhipu-adult/outfits/swim.png",
+      "file": "art/roster/zhipu-adult/swim-before.png",
+      "sha256": "362310e7eb41a5fb4d5dcc1c03dd4164a3e6cab711961952fa53705893436f16"
+    },
+    {
+      "source": "src/DesktopPet.App/Assets/Characters/zhipu-adult/outfits/wedding.png",
+      "file": "art/roster/zhipu-adult/wedding-before.png",
+      "sha256": "93f2ace2cb8a173a0b27c2002bc6bb15dd3fe8154d92b6eacf016fe1687e3a52"
+    },
+    {
+      "source": "src/DesktopPet.App/Assets/Characters/zhipu-adult/outfits/sports/portrait.png",
+      "file": "art/roster/zhipu-adult/sports-before.png",
+      "sha256": "124c7d443f75ced52a89377f574862e4f1bd918495078a1ec7d6222621e8b450"
+    },
+    {
+      "source": "artwork/sports-identity/zhipu-adult-portrait-v1.png",
+      "file": "art/roster/zhipu-adult/sports-identity.png",
+      "sha256": "979dd4f76e75118475ce330510df275477374f4f34f642c53a2b70b6f92c402d"
+    },
+    {
+      "source": "src/DesktopPet.App/Assets/Characters/kimi/atlas.png",
+      "file": "art/roster/kimi/original.png",
+      "sha256": "e5f58a6d433ef15b76c4d41e87d9c9dc942be4a1efec4452f4008aec9038182b"
+    },
+    {
+      "source": "src/DesktopPet.App/Assets/Characters/kimi/outfits/swim.webp",
+      "file": "art/roster/kimi/swim-before.webp",
+      "sha256": "b111c34397cb1cc9d8e70aa78a57ca9859813512f90e172270615d802eda800b"
+    },
+    {
+      "source": "src/DesktopPet.App/Assets/Characters/kimi/outfits/wedding.webp",
+      "file": "art/roster/kimi/wedding-before.webp",
+      "sha256": "716773359409c87b0b3a78397d9bf2e195d37fda254580b18d118c9cc39f3d16"
+    },
+    {
+      "source": "src/DesktopPet.App/Assets/Characters/kimi/outfits/sports/core.png",
+      "file": "art/roster/kimi/sports-before.png",
+      "sha256": "680086514afff63dad5542df576135ddb9908202068662abd4a66ea8a42f0158"
+    },
+    {
+      "source": "artwork/sports-identity/kimi-basic-v1.png",
+      "file": "art/roster/kimi/sports-identity.png",
+      "sha256": "4748ff8ee920567fde9bae447f2f01624fd1f900c2da245685faebf4ea9d8718"
+    },
+    {
+      "source": "src/DesktopPet.App/Assets/Characters/kimi/motions/walk-smooth.png",
+      "file": "art/roster/kimi/walk-original.png",
+      "sha256": "46c0ae30a3260fb605ee91c17f5078b8d0c1662553b58cfa2bec43284f79b454"
+    },
+    {
+      "source": "artwork/sports-identity/kimi-walk-v1.png",
+      "file": "art/roster/kimi/walk-identity.png",
+      "sha256": "cdb70a72c83a807adb94388fc2725af9d19196a96d553839ea33ae560b24f80f"
+    },
+    {
+      "source": "src/DesktopPet.App/Assets/Characters/kimi-adult/portrait.png",
+      "file": "art/roster/kimi-adult/original.png",
+      "sha256": "7da6156f1f470dd4fdae075cb7a20f99a25628979827eb34069f19e6d13c501e"
+    },
+    {
+      "source": "src/DesktopPet.App/Assets/Characters/kimi-adult/outfits/swim.png",
+      "file": "art/roster/kimi-adult/swim-before.png",
+      "sha256": "07cf873ca77f8a581f56d05876c665c96773495e44eaee5080f3e9b3a5185e52"
+    },
+    {
+      "source": "src/DesktopPet.App/Assets/Characters/kimi-adult/outfits/wedding.png",
+      "file": "art/roster/kimi-adult/wedding-before.png",
+      "sha256": "1029e0887ce79a0d8b03324c621e15b5cc794438ae60d8f9624626a725f3213c"
+    },
+    {
+      "source": "src/DesktopPet.App/Assets/Characters/kimi-adult/outfits/sports/portrait.png",
+      "file": "art/roster/kimi-adult/sports-before.png",
+      "sha256": "fd0d8549873d2245cac2308c7cf48a79406d5d37f4beff87a45f144d7976ff0a"
+    },
+    {
+      "source": "artwork/sports-identity/kimi-adult-portrait-v1.png",
+      "file": "art/roster/kimi-adult/sports-identity.png",
+      "sha256": "04e7576d9acbdd22f821a55c0d209c536b0948a4e6c6caa123591542449ed9db"
+    }
+  ]
+}

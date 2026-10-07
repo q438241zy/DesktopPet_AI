@@ -1,0 +1,15 @@
+{
+  "key": "claude-basic-v1",
+  "id": "claude",
+  "style": "chibi",
+  "kind": "original-basic",
+  "source": "artwork/sports-identity/claude-basic-v1.png",
+  "prompt": "Clothing-only edit of IMAGE 1, the ORIGINAL Claude desktop-pet atlas. IMAGE 2 is the uniform design reference ONLY. Replace the brown dress, blouse and boots with white SHORT-SLEEVED zip-front sports shirt with orange piping/upper-arm accents and small orange sun emblem, brown-black athletic SHORTS ending well above knees, white short ankle socks and white low-top orange-accent sneakers. Keep the original face, copper-orange wavy hair, brown eyes, round thin glasses, orange flower, dark hair ribbons and earrings. Preserve the exact original head size, head/body ratio, shoulder/hip width, elbow/wrist/knee/ankle and sole positions. Never enlarge the head, shorten legs, thicken the torso or change any pose to match the clothing reference. Change garments only, preserve original crisp anime linework and cel shading. Genuinely transparent alpha, no scene, panels, text or glow. Keep all complete figures with original framing and scale. Exactly the original 1536x1024 canvas, 3x2 layout, six original poses in order: seated neutral hands together; seated happy fists up; seated smiling hands at cheeks; lying asleep; prone dizzy; seated sad. Preserve every expression and emotion mark.",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/claude/atlas.png",
+    "src/DesktopPet.App/Assets/Characters/claude/outfits/sports/core.png"
+  ],
+  "tool": "built-in image_gen",
+  "status": "generated-awaiting-geometry-review",
+  "selected": false
+}

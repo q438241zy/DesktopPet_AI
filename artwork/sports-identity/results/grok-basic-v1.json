@@ -1,0 +1,15 @@
+{
+  "key": "grok-basic-v1",
+  "id": "grok",
+  "style": "chibi",
+  "kind": "original-basic",
+  "source": "artwork/sports-identity/grok-basic-v1.png",
+  "prompt": "Clothing-only edit of IMAGE 1, the ORIGINAL Grok pet atlas. IMAGE 2 is clothing design reference ONLY, never a body reference. Replace black fantasy dress, long sleeves, tights and boots with a WHITE zip-front SHORT-SLEEVED school sports shirt, black upper-arm/shoulder panels, thin GOLD piping and small ring chest emblem, BLACK athletic SHORTS with gold side detail well above knees, short white ankle socks and white low-top gold-accent trainers. Keep source character identity and anatomy exactly: blonde twin tails, black/gold ribbons, blue eyes, silver ring hair clip, ahoge, original face size and head/body proportions, original shoulders, hips, elbow/wrist/knee/ankle/sole positions. Do not shorten legs, enlarge heads, widen bodies or copy the reference's squat build. Keep every existing expression, pose and full character. Exact original crisp anime drawing style and shading. True transparent alpha background, no scene, glow, text or panels. Keep exactly the original 1536x1024, 3 columns x 2 rows, six poses: seated neutral; cheering seated; hands to cheeks seated; side sleeping; prone dizzy; seated sad. Same framing and size; preserve emotion marks.",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/grok/atlas.png",
+    "src/DesktopPet.App/Assets/Characters/grok/outfits/sports/core.png"
+  ],
+  "tool": "built-in image_gen",
+  "status": "generated-awaiting-geometry-review",
+  "selected": false
+}

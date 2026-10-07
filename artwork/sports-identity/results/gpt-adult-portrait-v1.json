@@ -1,0 +1,15 @@
+{
+  "key": "gpt-adult-portrait-v1",
+  "id": "gpt-adult",
+  "style": "realistic",
+  "kind": "original-portrait",
+  "source": "artwork/sports-identity/gpt-adult-portrait-v1.png",
+  "prompt": "Use case identity-preserve, clothing-only edit. Image 1 is the EDIT TARGET: the original full-body adult GPT character, 1024x1536. Image 2 supplies only the SPORTS UNIFORM clothing design. Replace the flowing white fantasy dress, sleeves, white tights and heeled boots with a white short-sleeved zip-front school sports shirt with deep emerald-green shoulder/upper-arm panels and piping, small green knot chest emblem, emerald-green athletic SHORTS ending well above the knees, short white ankle socks and white low-top green-accent sneakers. Preserve the SAME ADULT woman, exact face, silver-lavender flowing hair, violet eyes, horns, pointed ears, knot hair ornament and ahoge. Keep the exact original head size, head/body ratio, slender adult body, shoulders, waist, hips, long thighs/shins, knees, ankles, hand/wrist positions and full-body silhouette. This is clothing replacement, not redrawing a shorter person. Preserve original pose: raised waving hand, other arm down, crossed leg stance and original foot locations. Keep original camera, lighting, skin rendering, hair volume, scale and full 1024x1536 framing. No shortened legs, enlarged head, body thickening or age change. Garment sleeves end on upper arms, shorts above knees with bare lower legs. Genuine transparent alpha background, no scene, glow, text, frame or extra props. One complete full-body character only.",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/gpt-adult/portrait.png",
+    "src/DesktopPet.App/Assets/Characters/gpt-adult/outfits/sports/portrait.png"
+  ],
+  "tool": "built-in image_gen",
+  "status": "generated-awaiting-geometry-review",
+  "selected": false
+}

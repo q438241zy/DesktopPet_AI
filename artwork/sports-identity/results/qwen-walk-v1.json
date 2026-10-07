@@ -1,0 +1,15 @@
+{
+  "key": "qwen-walk-v1",
+  "id": "qwen",
+  "style": "chibi",
+  "kind": "original-walk",
+  "source": "artwork/sports-identity/qwen-walk-v1.png",
+  "prompt": "Use case identity-preserve, CLOTHING-ONLY edit. Image 1 is the ORIGINAL Qwen pet edit target. Image 2 is only the SPORTS UNIFORM design reference. Change the original Chinese-style dress, flowing sleeves and shoes into a white short-sleeved zip-front school athletics shirt, navy upper-arm panels, blue piping and small blue Qwen emblem, navy athletic SHORTS above knees, short white ankle socks, white/blue low-top sneakers. Preserve identity and EXACT original proportions: periwinkle braided hair, violet eyes, small navy/white/gold tilted cap with tassel and medallion, gold earrings, original face/head size, shoulder/hip widths and all elbow/wrist/knee/ankle/sole positions. Do not copy the shorter thicker body of the clothes reference. Clothing only, no new character, no head enlargement or limb length change. Preserve all original pose angles, hands and expressions. Clean original anime linework and cel shading. Transparent alpha background, no glow, backdrop, scene, panels, text, or extra items. Preserve exact original 1024x1536 canvas and 3x4 layout, all twelve RIGHT-facing walk poses with the same alternating support feet, stride phases, arms and trailing braids. Replace footwear at the same sole points. No clipped figures or changed cell framing.",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/qwen/motions/walk-smooth.png",
+    "src/DesktopPet.App/Assets/Characters/qwen/outfits/sports/core.png"
+  ],
+  "tool": "built-in image_gen",
+  "status": "generated-awaiting-geometry-review",
+  "selected": false
+}

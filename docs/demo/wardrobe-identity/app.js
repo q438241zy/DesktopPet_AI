@@ -2,11 +2,17 @@
    Never normalize each pose's bounding box or stretch individual body parts. */
 'use strict';
 const $=id=>document.getElementById(id),images=new Map();
-const state={style:'chibi',outfit:'sports',mode:'pair',pose:'walk',frame:0,playing:false,direction:1,reference:'original',old:false,opacity:.5,hold:false,guides:false,ready:false};
+const state={family:'whale',style:'chibi',outfit:'sports',mode:'pair',pose:'walk',frame:0,playing:false,direction:1,reference:'original',old:false,opacity:.5,hold:false,guides:false,ready:false};
 const files=['chibi-original.png','chibi-swim-before.webp','chibi-wedding.webp','chibi-sports.png','chibi-walk-original.png','chibi-walk-before.png','deepseek-chibi-swim-v1.png','deepseek-chibi-swim-walk-v1.png','deepseek-chibi-sports-v1.png','deepseek-chibi-sports-walk-v2.png','realistic-original.png','realistic-swim.png','realistic-wedding.png','realistic-sports-before.png','deepseek-realistic-sports-v1.png'];
 const titles={original:'原装',swim:'泳装',wedding:'婚纱'},poseNames=['待机','开心','揉脸','休息','头晕','难过'];
 const frameOf=(file,columns=1,rows=1,index=0)=>{const im=images.get(file),w=im.naturalWidth/columns,h=im.naturalHeight/rows;return {file,im,x:index%columns*w,y:Math.floor(index/columns)*h,w,h};};
 function selectedFrames(){
+  if(state.outfit==='sports'||state.style==='realistic'){
+    const r=window.identityRoster[state.family][state.style];
+    if(state.style==='realistic')return [descriptor(r.gallery[state.reference]),descriptor(r.candidate)];
+    return state.pose==='walk'?[frameOf(r.walkOriginal.file,3,4,state.frame),frameOf(r.walkCandidate.file,3,4,state.frame)]:
+      [frameOf(r.original.file,3,2,state.pose),frameOf(r.candidate.file,3,2,state.pose)];
+  }
   if(state.style==='realistic')return [frameOf('realistic-'+state.reference+'.png'),frameOf('deepseek-realistic-sports-v1.png')];
   if(state.outfit==='sports')return state.pose==='walk'?
     [frameOf('chibi-walk-original.png',3,4,state.frame),frameOf('deepseek-chibi-sports-walk-v2.png',3,4,state.frame)]:
@@ -14,6 +20,7 @@ function selectedFrames(){
   if(state.pose==='walk')return [frameOf('chibi-walk-original.png',3,4,state.frame),frameOf(state.old?'chibi-walk-before.png':'deepseek-chibi-swim-walk-v1.png',3,4,state.frame)];
   return [frameOf('chibi-original.png',3,2,state.pose),frameOf(state.old?'chibi-swim-before.webp':'deepseek-chibi-swim-v1.png',3,2,state.pose)];
 }
+function descriptor(d,index=0){const f=frameOf(d.file,d.columns,d.rows,index);if(d.cells){const p=d.cells[index];Object.assign(f,{x:p.x,y:p.y,w:p.width,h:p.height});}return f;}
 function context(canvas){const r=canvas.getBoundingClientRect(),dpr=window.devicePixelRatio||1;canvas.width=Math.round(r.width*dpr);canvas.height=Math.round(r.height*dpr);const c=canvas.getContext('2d');c.scale(dpr,dpr);c.imageSmoothingEnabled=true;c.imageSmoothingQuality='high';return {c,w:r.width,h:r.height};}
 function paint(c,frame,t,alpha=1,mirror=false){c.save();c.globalAlpha=alpha;c.translate(t.x+t.w/2,t.y);c.scale(mirror?-1:1,1);c.drawImage(frame.im,frame.x,frame.y,frame.w,frame.h,-t.w/2,0,t.w,t.h);c.restore();}
 function transform(w,h,frame,mini=false){const padding=mini?4:16,top=mini?2:53,s=Math.min((w-2*padding)/frame.w,(h-top-padding)/frame.h);return {x:(w-frame.w*s)/2,y:top+(h-top-padding-frame.h*s)/2,w:frame.w*s,h:frame.h*s,scale:s};}
@@ -29,14 +36,14 @@ function render(){if(!state.ready)return;const [ref,target]=selectedFrames();dra
 function gallery(){
   if(!state.ready)return;
   $('gallery').replaceChildren();
-  const entries=state.style==='chibi'?
+  const entries=state.outfit==='sports'||state.style==='realistic'?Object.entries(window.identityRoster[state.family][state.style].gallery).map(([key,d])=>[key==='sports'?'现行运动服':titles[key],descriptor(d)]):state.style==='chibi'?
     [['原装 · 坐姿',frameOf('chibi-original.png',3,2,0)],['现行泳装 · 坐姿',frameOf('chibi-swim-before.webp',3,2,0)],['婚纱 · 坐姿',frameOf('chibi-wedding.webp')],['现行运动服 · 站姿',frameOf('chibi-sports.png',4,6,0)]]:
     [['原装',frameOf('realistic-original.png')],['泳装',frameOf('realistic-swim.png')],['婚纱',frameOf('realistic-wedding.png')],['现行运动服',Object.assign(frameOf('realistic-sports-before.png'),{x:116,y:6,w:165,h:383})]];
   for(const [label,frame]of entries){const f=document.createElement('figure'),canvas=document.createElement('canvas'),caption=document.createElement('figcaption');canvas.setAttribute('aria-label',label);caption.textContent=label;f.append(canvas,caption);$('gallery').append(f);const {c,w,h}=context(canvas);paint(c,frame,transform(w,h,frame,true));}
 }
 function update(){
   $('comparison').dataset.style=state.style;$('comparison').dataset.mode=state.mode;
-  $('outfit-controls').hidden=state.style!=='chibi';
+  $('outfit-controls').hidden=state.style!=='chibi'||state.family!=='whale';
   $('chibi-controls').hidden=state.style!=='chibi';$('realistic-controls').hidden=state.style!=='realistic';
   $('walk-controls').hidden=state.style!=='chibi'||state.pose!=='walk';$('overlay-controls').hidden=state.mode!=='overlay';$('old-toggle').hidden=state.style!=='chibi'||state.outfit!=='swim';
   document.querySelectorAll('[data-style]').forEach(b=>{if(b.tagName==='BUTTON')b.setAttribute('aria-pressed',b.dataset.style===state.style);});
@@ -47,13 +54,14 @@ function update(){
   document.querySelectorAll('[data-reference]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.reference===state.reference));
   const adult=state.style==='realistic',sports=state.outfit==='sports';
   $('reference-label').textContent=adult?titles[state.reference]:'原装';$('candidate-label').textContent=adult||sports?'运动服 · 换衣样稿':state.old?'现行泳装':'泳装 · 复核样稿';
-  $('candidate-note').textContent=adult?'比例已认可':sports?'待确认':state.old?'现有画稿':'复核记录';
+  $('candidate-note').textContent=adult||sports?(state.family==='whale'?'已通过样稿':'原图换衣拓展'):state.old?'现有画稿':'复核记录';
   $('comparison-note').textContent=adult?'参考与换装保持同一画布。短袖上衣＋膝上短裤。':state.pose==='walk'?'12 帧同步对照；相同缩放，可暂停逐帧查看。':'两侧使用同一画布和缩放比例。';
-  $('review-status').textContent=adult?'3D真人比例已认可；这里保留样稿对照。':sports?'Q版运动服待确认；本轮仅更新 Demo。':'泳装保留为复核记录；本轮修正目标为运动服。';
+  $('review-status').textContent=adult||sports?window.identityRoster[state.family].name+' · 原图换衣对照。配套动作拓展中，暂未替换原生运动服。':'泳装保留为复核记录；本轮修正目标为运动服。';
   $('play').textContent=state.playing?'暂停':'播放';$('play').setAttribute('aria-pressed',state.playing);$('direction').textContent=state.direction<0?'← 朝左':'朝右 →';$('direction').setAttribute('aria-pressed',state.direction<0);
   if(state.ready)$('source-image').href='art/'+selectedFrames()[1].file;
   render();
 }
+$('family').addEventListener('change',async e=>{state.family=e.target.value;state.outfit='sports';state.reference='original';state.playing=false;state.old=false;state.hold=false;await loadFamily();});
 document.querySelectorAll('button[data-style]').forEach(b=>b.addEventListener('click',()=>{state.style=b.dataset.style;state.playing=false;state.hold=false;update();gallery();}));
 document.querySelectorAll('[data-outfit]').forEach(b=>b.addEventListener('click',()=>{state.outfit=b.dataset.outfit;state.old=false;$('old').checked=false;state.pose='walk';state.frame=0;state.playing=false;state.hold=false;update();}));
 document.querySelectorAll('button[data-mode]').forEach(b=>b.addEventListener('click',()=>{state.mode=b.dataset.mode;state.hold=false;update();}));
@@ -68,4 +76,8 @@ $('previous').addEventListener('click',()=>seek(state.frame-1));$('next').addEve
 let last=0,elapsed=0;function tick(t){if(state.ready&&state.playing&&!document.hidden){elapsed+=Math.min(t-last,160);if(elapsed>=80){const frames=Math.floor(elapsed/80);state.frame=(state.frame+frames)%12;elapsed%=80;render();}}last=t;requestAnimationFrame(tick);}requestAnimationFrame(tick);
 window.addEventListener('resize',()=>{render();if(state.ready)gallery();});document.addEventListener('visibilitychange',()=>{last=performance.now();elapsed=0;});
 window.wardrobeReview=()=>({...state,frames:state.ready?selectedFrames().map(({file,x,y,w,h})=>({file,x,y,w,h})):[],installed:false});
-Promise.all(files.map(file=>new Promise((resolve,reject)=>{const im=new Image();im.onload=()=>{images.set(file,im);resolve();};im.onerror=()=>reject(new Error('图片无法读取：'+file));im.src='art/'+file;}))).then(()=>{state.ready=true;$('loading').hidden=true;update();gallery();}).catch(e=>{$('loading').hidden=true;$('error').hidden=false;$('error').textContent=e.message;});
+const loadingImages=new Map();
+function loadImage(file){if(images.has(file))return Promise.resolve();if(loadingImages.has(file))return loadingImages.get(file);const promise=new Promise((resolve,reject)=>{const im=new Image();im.onload=()=>{images.set(file,im);resolve();};im.onerror=()=>{loadingImages.delete(file);reject(new Error('图片无法读取：'+file));};im.src='art/'+file;});loadingImages.set(file,promise);return promise;}
+let loadVersion=0;
+async function loadFamily(){const version=++loadVersion;state.ready=false;$('loading').hidden=false;$('error').hidden=true;const roster=window.identityRoster[state.family],all=[];for(const style of ['chibi','realistic']){const r=roster[style];all.push(r.original.file,r.candidate.file,...Object.values(r.gallery).map(x=>x.file));if(r.walkOriginal)all.push(r.walkOriginal.file,r.walkCandidate.file);}try{await Promise.all([...new Set([...all,...(state.family==='whale'?files:[])])].map(loadImage));if(version!==loadVersion)return;state.ready=true;$('loading').hidden=true;update();gallery();}catch(e){if(version!==loadVersion)return;$('loading').hidden=true;$('error').hidden=false;$('error').textContent=e.message;}}
+loadFamily();

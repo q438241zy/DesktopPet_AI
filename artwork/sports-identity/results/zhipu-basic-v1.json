@@ -1,0 +1,15 @@
+{
+  "key": "zhipu-basic-v1",
+  "id": "zhipu",
+  "style": "chibi",
+  "kind": "original-basic",
+  "source": "artwork/sports-identity/zhipu-basic-v1.png",
+  "prompt": "Use case identity-preserve. Clothing-only edit of IMAGE 1, the ORIGINAL GLM/Zhipu pet. Image 2 gives SPORTS CLOTHING ONLY, not head/body or accessories. Replace the black maid dress, sleeves, stockings and shoes with a white SHORT-SLEEVED zip-front school sports top with navy shoulder/upper-arm panels and blue piping, tiny blue Z emblem on chest, navy ATHLETIC SHORTS ending above knees, white ankle socks and blue-accent white trainers. MUST PRESERVE the ORIGINAL ruffled black/white SLEEP MASK worn on top of the head, its eyelash symbol, Z hair tag, bell, white/blue tassels, black cat ears, tail, black hair and grey-blue eyes. Keep exact original face/head size, body shape and proportions; exact elbows/wrists/hips/knees/ankles and sole positions in each frame. No short/chunky remake, larger head, widened body or changed limb lengths. Same original crisp anime linework, shading, expressions and pose. Transparent alpha, no backdrop or glow, labels, text or extra props. Exactly original 1536x1024 canvas, 3x2 grid and SIX poses: seated neutral, seated cheering, seated hands to cheeks, lying asleep, prone dizzy, seated sad. Identical framing and scale and small original emotion marks.",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/zhipu/atlas.png",
+    "src/DesktopPet.App/Assets/Characters/zhipu/outfits/sports/core.png"
+  ],
+  "tool": "built-in image_gen",
+  "status": "generated-awaiting-geometry-review",
+  "selected": false
+}

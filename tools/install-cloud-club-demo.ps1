@@ -22,5 +22,6 @@ foreach ($name in @('school-shorts-chibi.png','school-shorts-realistic.png','sch
 }
 & (Join-Path $PSScriptRoot 'install-interaction-five-demo.ps1') -DemoDirectory $demoRoot
 & (Join-Path $PSScriptRoot 'install-wardrobe-identity-demo.ps1') -DemoDirectory $demoRoot
+& (Join-Path $PSScriptRoot 'install-companion-demo.ps1') -DemoDirectory $demoRoot
 if ($DesktopShortcut) { & (Join-Path $PSScriptRoot 'desktop-demo.ps1') -DemoPath (Join-Path $target 'index.html') }
 Write-Output (Join-Path $target 'index.html')

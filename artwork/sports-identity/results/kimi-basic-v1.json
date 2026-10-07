@@ -1,0 +1,15 @@
+{
+  "key": "kimi-basic-v1",
+  "id": "kimi",
+  "style": "chibi",
+  "kind": "original-basic",
+  "source": "artwork/sports-identity/kimi-basic-v1.png",
+  "prompt": "Use case identity-preserve. CLOTHING-ONLY edit of IMAGE 1, the ORIGINAL Kimi pet atlas. Image 2 is only the sports uniform reference, not identity/body reference. Replace the navy maid dress, apron, long sleeves, tall socks and shoes with white SHORT-SLEEVED zip-front school athletic shirt with navy upper-arm/shoulder panels, blue piping and tiny K chest emblem, navy SHORTS ending above knees, short white ankle socks, white blue-accent low-top trainers. Preserve the original white ruffled HEADBAND in EVERY frame, crescent-moon/K/music-note hair ornaments, dark ribbons, silver hair with pale blue tips and violet eyes. Keep every original head/face size, head-body ratio, shoulder/hip width, elbow/wrist/knee/ankle/sole coordinates and body shape. Never enlarge head, thicken torso or shorten/lengthen legs. Only change clothing; preserve all poses/expressions and complete figures, original clean anime linework and cel shading. True transparent alpha background, no glow, backdrop, scene, labels or panels. Match exact original 1536x1024 canvas, 3x2 grid and six original poses: seated neutral, seated cheering, seated hands to cheeks, side sleeping, prone dizzy, seated sad. Same composition, scale and emotion marks.",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/kimi/atlas.png",
+    "src/DesktopPet.App/Assets/Characters/kimi/outfits/sports/core.png"
+  ],
+  "tool": "built-in image_gen",
+  "status": "generated-awaiting-geometry-review",
+  "selected": false
+}

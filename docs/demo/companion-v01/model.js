@@ -5,10 +5,10 @@
   const outfits={original:{name:'原装',score:0},sports:{name:'运动服',score:20},swim:{name:'泳装',score:50},wedding:{name:'婚纱',score:80}};
   const clamp=(n,a,b)=>Math.max(a,Math.min(b,Number.isFinite(n)?n:0));
   const day=now=>{const d=new Date(now);return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;};
-  const validDate=value=>typeof value==='string'&&/^\d{4}-\d{2}-\d{2}$/.test(value)&&!Number.isNaN(Date.parse(value+'T12:00:00'));
+  const validDate=value=>typeof value==='string'&&/^\d{4}-\d{2}-\d{2}$/.test(value)&&day(new Date(value+'T12:00:00'))===value;
   const relation=()=>({score:0,seconds:0,interactions:0,history:[],awards:{},daily:{},companionshipAwarded:0});
   function create(saved){
-    const s={schema:1,selected:'whale',style:'chibi',outfits:{},relations:Object.fromEntries(families.map(id=>[id,relation()])),checkins:[],collection:{},stories:{},settings:{autoHide:true,reducedMotion:false},api:A.cleanConfig(),work:{enabled:false,minutes:10}};
+    const s={schema:1,selected:'whale',style:'chibi',outfits:{},relations:Object.fromEntries(families.map(id=>[id,relation()])),checkins:[],makeupCards:0,makeupCheckins:[],collection:{},stories:{},settings:{autoHide:true,reducedMotion:false},api:A.cleanConfig(),work:{enabled:false,minutes:10}};
     if(!saved||saved.schema!==1)return s;
     if(families.includes(saved.selected))s.selected=saved.selected;if(saved.style==='realistic')s.style='realistic';
     for(const id of families){
@@ -16,6 +16,8 @@
       for(const style of ['chibi','realistic']){const k=id+'/'+style;if(Object.hasOwn(outfits,saved.outfits?.[k]))s.outfits[k]=saved.outfits[k];}
     }
     s.checkins=Array.isArray(saved.checkins)?[...new Set(saved.checkins.filter(validDate))].sort():[];
+    s.makeupCards=Math.floor(clamp(Number(saved.makeupCards),0,99999));
+    s.makeupCheckins=Array.isArray(saved.makeupCheckins)?[...new Set(saved.makeupCheckins.filter(date=>s.checkins.includes(date)))].sort():[];
     for(const [key,value] of Object.entries(saved.collection||{}))if(/^[a-z-]+$/.test(key)&&Number.isFinite(value))s.collection[key]=clamp(value,1,99999);
     for(const [key,value] of Object.entries(saved.stories||{}))if(['cloud-post','little-bell','star-seed'].includes(key)&&Number.isFinite(value))s.stories[key]=clamp(value,1,99999);
     if(saved.settings){s.settings.autoHide=saved.settings.autoHide!==false;s.settings.reducedMotion=!!saved.settings.reducedMotion;}
@@ -34,6 +36,10 @@
     return actual;
   }
   function checkin(s,now){const date=day(now);if(s.checkins.includes(date))return false;s.checkins.push(date);affect(s,s.selected,3,'一起打卡',now,'checkin-'+date,86400000);return true;}
+  function makeup(s,date,now){
+    if(!validDate(date)||date>=day(now)||s.checkins.includes(date)||!Number.isInteger(s.makeupCards)||s.makeupCards<1)return false;
+    s.makeupCards--;s.checkins.push(date);s.checkins.sort();s.makeupCheckins.push(date);s.makeupCheckins.sort();return true;
+  }
   function streak(s,now){const date=new Date(now);date.setHours(12,0,0,0);if(!s.checkins.includes(day(date)))date.setDate(date.getDate()-1);let n=0;while(s.checkins.includes(day(date))){n++;date.setDate(date.getDate()-1);}return n;}
   function companion(s,id,seconds,now){const r=s.relations[id];r.seconds+=clamp(seconds,0,2);const reached=Math.floor(r.seconds/300);if(reached>r.companionshipAwarded){r.companionshipAwarded=reached;affect(s,id,1,'安静陪伴五分钟',now,'time',300000);}}
   function label(score){return score<=-60?'需要一些空间':score<0?'慢慢修复默契':score<20?'初次相遇':score<50?'渐渐熟悉':score<80?'默契伙伴':'亲密搭档';}
@@ -53,5 +59,5 @@
   function workStart(r,s,now){s.work.enabled=true;r.workActive=true;r.nextReminder=now+s.work.minutes*60000;r.workRemaining=s.work.minutes*60000;}
   function workStop(r,s){s.work.enabled=false;r.workActive=false;r.nextReminder=0;r.workRemaining=0;}
   function pause(r,now){r.paused=!r.paused;if(r.paused)r.workRemaining=Math.max(0,r.nextReminder-now);else{if(r.workActive)r.nextReminder=now+r.workRemaining;r.idleSince=now;}}
-  return {families,outfits,clamp,day,create,affect,checkin,streak,companion,label,endpoint,request,createRuntime,startHide,tick,find,workStart,workStop,pause};
+  return {families,outfits,clamp,day,create,affect,checkin,makeup,streak,companion,label,endpoint,request,createRuntime,startHide,tick,find,workStart,workStop,pause};
 });

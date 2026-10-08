@@ -1,0 +1,34 @@
+{
+  "key": "claude-angry-v2",
+  "id": "claude",
+  "style": "chibi",
+  "kind": "angry",
+  "columns": 3,
+  "rows": 2,
+  "source": "artwork/sports-identity/claude-angry-v2.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/claude/motions/angry.webp"
+  ],
+  "generationReferences": [
+    "src/DesktopPet.App/Assets/Characters/claude/motions/angry.webp"
+  ],
+  "prompt": "Precise clothing-only EDIT of this original Claude Q/chibi original character action atlas. Keep EXACT source 1536x1024 canvas, all original figure positions, pose order, cell spacing and camera. Never repack or rescale figures to fill margins. Preserve original face and head SIZE, head-body ratio, shoulders, torso, hips, knees, ankles, feet and hand/wrist/finger positions in EVERY pose, including sitting, lying, leaning, bent knees or raised hands. This is clothing on the SAME person, no redesign, no doll anatomy, no larger head, no shorter or thicker legs. Preserve copper-orange hair, eyeglasses, warm brown eyes, sunflower hair clip and black ribbon, all expressions and hair/ear/tail silhouettes and directions.\nReplace only old dress/apron, long sleeves, wrist cuffs, tights and boots with a WHITE zip-front school sports shirt with chestnut brown upper-arm SHORT SLEEVES/shoulder panels, warm orange piping and small orange sun chest motif; chestnut brown athletic SHORTS ending well ABOVE knees with narrow white side stripes; white ankle socks and small white-orange low-top sneakers at the original ankle/sole positions. Keep neckline modest and zipped. Bare forearms, knees and lower legs. NO long sleeves, trousers, gloves or leftover wrist frills. Keep headband and hair accessories even if they are frilly. Keep original hand contacts and ALL existing props, fingers and gesture shapes; do not invent an extra ball, hammer, sparkle or particle.\nIMPORTANT: preserve the source's exact head and limb coordinates, original folded seated legs, original small margins at canvas edge, and full figure heights. No longer dangling seated legs and no shortening adult legs to fit a raised arm. Genuine transparent alpha outside characters and held objects. No painted backdrop, gradient, glow, grid, label or extra shadow. CORRECTION: original reference is the ONLY coordinate/scale/pose authority. Global full-figure bounding rectangles in frame order are [[81, 60, 439, 448], [593, 60, 951, 448], [1106, 60, 1463, 448], [80, 570, 440, 960], [597, 569, 954, 959], [1105, 569, 1462, 959]]. Keep each original head top, chin, hair width, hips, knees and ankle/sole coordinates; intentionally smaller middle poses MUST remain exactly smaller, not enlarged to fill margins. For seated poses the shins point toward the viewer with sneaker SOLES FACING CAMERA, just like the original boot soles, not toes/laces facing upward or legs dangling down. Do not move feet below the original baseline. No shortening anatomy: preserve the original limb projection. Preserve the original individual hand/finger pose, folded arms when shown, and any orange action symbols, rather than turning all hands into hands-in-lap. Bare forearms from upper-arm short sleeve to fingers, no cuffs. Everything except clothing and footwear must remain exactly as the source.",
+  "tool": "built-in image_gen",
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-e4598548-151a-46f8-a4dc-d971f4ae96b4.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-08",
+    "passed": true,
+    "summary": "六帧抱臂与坐姿脚底方向恢复，头部与原图同尺度，短袖短裤及裸前臂保持。",
+    "evidence": [
+      ".artifacts/sports-identity-review/claude-angry-v2-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "785f863c1c4f9043bc3b98de512c6a5188cf50d27b9eeafc8bba4ee5620f4b82",
+    "originalSha256": "f9448ef1db956a2406da7502f23e12f462614c04de7a7fc3044fad5c0651d3cb",
+    "comparisonFingerprint": "5b65e6366227c8b490beaa1712944bc52e9f25523f5310bf4158c1812373cf91"
+  }
+}

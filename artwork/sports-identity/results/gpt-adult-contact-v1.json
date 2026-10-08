@@ -19,7 +19,7 @@
   "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-189ee3cf-12be-46a5-a7de-c9712c1a80c2.png",
   "visualReview": {
     "reviewer": "assistant",
-    "date": "2026-10-07",
+    "date": "2026-10-08",
     "passed": true,
     "summary": "9姿势对照原图，零食、勺碗、接球双掌的原接触及成年腿长保持；无长袖长裤。",
     "evidence": [
@@ -30,5 +30,34 @@
     "candidateSha256": "05880a7f97a4598c2d76949e22cad1b7651226b8ed7f20a2b2397f6816625d61",
     "originalSha256": "dd72c479c0f9feab973d635121ee40286322f5570a115c171f7613d2d0f8cfb4",
     "comparisonFingerprint": "4bd9d1db3711c129e47a5a6b3634917b92f054dd6fc0c216a2f40d344262c9ba"
+  },
+  "measurementPixels": {
+    "hands": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      [
+        165,
+        1173,
+        45
+      ],
+      [
+        477,
+        1157,
+        36
+      ],
+      [
+        804,
+        1165,
+        32
+      ]
+    ]
+  },
+  "contactReview": {
+    "method": "assistant visual review of source-pixel marker crops",
+    "evidence": ".artifacts/sports-identity-review/gpt-adult-contact-v1-anchors.png"
   }
 }

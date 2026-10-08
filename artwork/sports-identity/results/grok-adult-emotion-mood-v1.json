@@ -1,0 +1,62 @@
+{
+  "key": "grok-adult-emotion-mood-v1",
+  "id": "grok-adult",
+  "style": "realistic",
+  "kind": "emotion-mood",
+  "columns": 4,
+  "rows": 1,
+  "source": "artwork/sports-identity/grok-adult-emotion-mood-v1.png",
+  "references": [
+    "artwork/sports-identity/grok-adult-five-photo-v1.png",
+    "src/DesktopPet.App/Assets/Characters/grok-adult/interactions/original/grok-adult-original-photo-v1.png"
+  ],
+  "generationReferences": [
+    "artwork/sports-identity/grok-adult-five-photo-v1.png"
+  ],
+  "prompt": "Precise upper-body pose EDIT of this exact 2172x724, 4-column 1-row sprite sheet. Keep the SAME adult Grok woman and the SAME approved short-sleeve white/charcoal black sports shirt and above-knee charcoal black shorts. Keep the original face, mature small head size, golden blonde flowing twin tails, blue eyes, black/gold ribbons and ringed-planet hair clip, clean 3D rendering, and all clothing details. Preserve the complete hips, long thighs, knees, shins, ankles, sneakers and ground position at EXACT original scale and coordinates in ALL four poses. Do not redesign the person or shorten/thicken legs, enlarge heads, resize individual figures or crop feet. Modify ONLY expressions and arms/hands, left to right: 1 warm happy smile with relaxed hands; 2 a slightly disappointed pout with relaxed hands; 3 a gentle self-hug with hands around opposite upper arms; 4 dizzy expression with eyes shut and one hand resting against the temple, without changing the legs. Preserve the original canvas, original figure positions, margins, camera and order of 4 full figures. True transparent alpha outside figures and held props. No background, gradient, glow, text, frame or extra people. Show only her own two arms and hands. No external petting hand above her head, no second person, no detached third hand. Keep a clear fully transparent gap between figures.",
+  "tool": "built-in image_gen",
+  "status": "generated-awaiting-visual-review",
+  "selected": false,
+  "comparisonRole": "approved-sports-pose-edit",
+  "sourceAtlas": "photo",
+  "physicalOrder": true,
+  "clips": {
+    "happy": {
+      "frames": [
+        0
+      ],
+      "frameMs": [
+        5000
+      ],
+      "loop": false
+    },
+    "sad": {
+      "frames": [
+        1
+      ],
+      "frameMs": [
+        5000
+      ],
+      "loop": false
+    },
+    "faint": {
+      "frames": [
+        2
+      ],
+      "frameMs": [
+        5000
+      ],
+      "loop": false
+    },
+    "dizzy": {
+      "frames": [
+        3
+      ],
+      "frameMs": [
+        5000
+      ],
+      "loop": false
+    }
+  },
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-e7ce5f47-3209-456d-8db5-c12c46fa39f8.png"
+}

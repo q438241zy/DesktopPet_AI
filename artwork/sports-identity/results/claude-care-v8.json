@@ -1,0 +1,21 @@
+{
+  "key": "claude-care-v8",
+  "id": "claude",
+  "style": "chibi",
+  "kind": "care",
+  "columns": 4,
+  "rows": 6,
+  "source": "artwork/sports-identity/claude-care-v8.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/claude/motions/cloud-care-wardrobe.png",
+    "artwork/sports-identity/claude-care-v7.png"
+  ],
+  "generationReferences": [
+    "artwork/sports-identity/claude-care-v7.png"
+  ],
+  "prompt": "Localized garment correction to this exact sprite sheet. ONLY edit arms in the first TWO rows (8 poses). The raised hand holding the comb in row 1 still has a thick white ruffled cuff and white forearm sleeve: replace all those old sleeve/cuff pixels with smooth bare peach skin continuous from the hand across the wrist and forearm to the brown short sleeve on UPPER ARM. Same for the other first 8 poses: completely bare forearms, no wristbands. Keep the cream towel as a held PROP. No change to any pixel of head, hair, glasses, body shape, shoes, shoe soles, shorts, brush/towel, pose coordinates or figure scale. Keep all lower FOUR rows intact. Exact source canvas and positions. Transparent outside figures; no background. Do NOT move shoes or extend dangling legs.",
+  "tool": "built-in image_gen",
+  "status": "generated-awaiting-visual-review",
+  "selected": false,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-73dc26bb-6a73-43da-a120-c75a5afe56d7.png"
+}

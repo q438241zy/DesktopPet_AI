@@ -1,0 +1,34 @@
+{
+  "key": "claude-eat-v2",
+  "id": "claude",
+  "style": "chibi",
+  "kind": "eat",
+  "columns": 4,
+  "rows": 2,
+  "source": "artwork/sports-identity/claude-eat-v2.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/claude/motions/snack-continuity.png"
+  ],
+  "generationReferences": [
+    "artwork/sports-identity/claude-eat-v1.png"
+  ],
+  "prompt": "Precise local correction EDIT of the attached Claude short-sleeve school sports atlas. Preserve canvas dimensions, all head/face/hair sizes, every pose and hand coordinate, sports shirt/shorts, seated folded legs and shoe positions. Preserve transparent background. Remove leftover WHITE WRIST FRILLY CUFFS: replace only that wrist/forearm fabric with continuous natural bare skin; fingers, cheeks and objects stay at the exact coordinates. No head enlargement or longer seated legs.",
+  "tool": "built-in image_gen",
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-12c130f3-ca7a-4c86-a69c-e5a11c738f2f.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-08",
+    "passed": true,
+    "summary": "八帧饼干到嘴、咬食和收手保留，短袖到腕部为裸前臂，头身与原图对照保持；待原生食品接触检查。",
+    "evidence": [
+      ".artifacts/sports-identity-review/claude-eat-v2-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "8e426f7e15c7441a3617974ae53c31500a25d131ce8dc2168827327ec1b50e38",
+    "originalSha256": "53081f38413c450ffc6b5239fde526a6624096596e6aa73d02b8b7a1de820711",
+    "comparisonFingerprint": "8949bd74b958418d217c084adf8444941c38467b051949dcef5d385b39637f0a"
+  }
+}

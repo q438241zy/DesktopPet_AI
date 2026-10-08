@@ -1,0 +1,34 @@
+{
+  "key": "gemini-farewell-v1",
+  "id": "gemini",
+  "style": "chibi",
+  "kind": "farewell",
+  "columns": 3,
+  "rows": 2,
+  "source": "artwork/sports-identity/gemini-farewell-v1.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/gemini/motions/farewell.webp"
+  ],
+  "generationReferences": [
+    "src/DesktopPet.App/Assets/Characters/gemini/motions/farewell.webp"
+  ],
+  "prompt": "Precise clothing-only EDIT of this original Gemini Q/chibi original character action atlas. Keep EXACT source 1536x1024 canvas, all original figure positions, pose order, cell spacing and camera. Never repack or rescale figures to fill margins. Preserve original face and head SIZE, head-body ratio, shoulders, torso, hips, knees, ankles, feet and hand/wrist/finger positions in EVERY pose, including sitting, lying, leaning, bent knees or raised hands. This is clothing on the SAME person, no redesign, no doll anatomy, no larger head, no shorter or thicker legs. Preserve blue-purple gradient hair, cat ears, pink and gold heterochromatic eyes, star hair clip and purple cat tail, all expressions and hair/ear/tail silhouettes and directions.\nReplace only old dress/apron, long sleeves, wrist cuffs, tights and boots with a WHITE zip-front school sports shirt with navy upper-arm SHORT SLEEVES/shoulder panels, violet piping and small violet four-point star chest motif; navy athletic SHORTS ending well ABOVE knees with narrow white side stripes; white ankle socks and small white-blue-violet low-top sneakers at the original ankle/sole positions. Keep neckline modest and zipped. Bare forearms, knees and lower legs. NO long sleeves, trousers, gloves or leftover wrist frills. Keep headband and hair accessories even if they are frilly. Keep original hand contacts and ALL existing props, fingers and gesture shapes; do not invent an extra ball, hammer, sparkle or particle.\nIMPORTANT: preserve the source's exact head and limb coordinates, original folded seated legs, original small margins at canvas edge, and full figure heights. No longer dangling seated legs and no shortening adult legs to fit a raised arm. Genuine transparent alpha outside characters and held objects. No painted backdrop, gradient, glow, grid, label or extra shadow.",
+  "tool": "built-in image_gen",
+  "status": "not-selected-after-review",
+  "selected": false,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-6c47e9dc-889b-4757-9281-0781a67724e0.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-08",
+    "passed": false,
+    "summary": "换衣保留发色和脸，但坐姿鞋子改成鞋面朝前、腿下垂，未保持原投影；部分手臂姿势简化，需要按原图姿态修正。",
+    "evidence": [
+      ".artifacts/sports-identity-review/gemini-farewell-v1-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "f1c54351b5d84a1ab87abf6795a6fad7acb871c826b93b4522ed44c533eb8dc6",
+    "originalSha256": "b91818bb7fa8000fb2de4ad53e8722bcd38afff6b4d0f558e45e8c55f7ab7010",
+    "comparisonFingerprint": "5d4b74e95ab4bdad85d52da76a3fd32448ca67d53e8c2bf35117fb590e2cdebb"
+  }
+}

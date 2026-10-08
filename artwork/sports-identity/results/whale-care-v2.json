@@ -19,7 +19,7 @@
   "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-59d3ed52-ed31-4819-8a11-542fca6b0d81.png",
   "visualReview": {
     "reviewer": "assistant",
-    "date": "2026-10-07",
+    "date": "2026-10-08",
     "passed": false,
     "summary": "袖口去除后，第一和最后擦脸姿势丢失毛巾，且透明通道丢失；禁止安装。",
     "evidence": [
@@ -29,6 +29,6 @@
     "runtimeVerified": false,
     "candidateSha256": "2cfd94a3f2533b72f50decaca07c0049481dee218056d3bd2106356a06b24192",
     "originalSha256": "8573f860c00d112a1ee9f6d89b3ba7c0cecedf41276db3d0dbe1340b323ba404",
-    "comparisonFingerprint": "5cab00222bb41fa1039cd076afbe01dad4f4a5d0df1090154508b29558a361f5"
+    "comparisonFingerprint": "657c024bcf5ca15120b386cd8426e6c845b9ef968427a041ea7c5157dab4d526"
   }
 }

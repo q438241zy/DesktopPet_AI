@@ -1,0 +1,66 @@
+{
+  "key": "gpt-touch-v4",
+  "id": "gpt",
+  "style": "chibi",
+  "kind": "touch",
+  "columns": 4,
+  "rows": 3,
+  "source": "artwork/sports-identity/gpt-touch-v4.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/gpt/motions/touch-continuity.png"
+  ],
+  "generationReferences": [
+    "src/DesktopPet.App/Assets/Characters/gpt/motions/touch-continuity.png"
+  ],
+  "prompt": "Precise clothing-only EDIT of this original GPT Q/chibi original character action atlas. Keep EXACT source 1448x1086 canvas, all original figure positions, pose order, cell spacing and camera. Never repack or rescale figures to fill margins. Preserve original face and head SIZE, head-body ratio, shoulders, torso, hips, knees, ankles, feet and hand/wrist/finger positions in EVERY pose, including sitting, lying, leaning, bent knees or raised hands. This is clothing on the SAME person, no redesign, no doll anatomy, no larger head, no shorter or thicker legs. Preserve silver/lavender hair, violet eyes, horns, pointed ears, knot hair ornament and ahoge, all expressions and hair/ear/tail silhouettes and directions.\nReplace only old dress/apron, long sleeves, wrist cuffs, tights and boots with a WHITE zip-front school sports shirt with deep emerald green upper-arm SHORT SLEEVES/shoulder panels, green piping and small green knot chest motif; deep emerald green athletic SHORTS ending well ABOVE knees with narrow white side stripes; white ankle socks and small white-green low-top sneakers at the original ankle/sole positions. Keep neckline modest and zipped. Bare forearms, knees and lower legs. NO long sleeves, trousers, gloves or leftover wrist frills. Keep headband and hair accessories even if they are frilly. Keep original hand contacts and ALL existing props, fingers and gesture shapes; do not invent an extra ball, hammer, sparkle or particle.\nIMPORTANT: preserve the source's exact head and limb coordinates, original folded seated legs, original small margins at canvas edge, and full figure heights. No longer dangling seated legs and no shortening adult legs to fit a raised arm. Genuine transparent alpha outside characters and held objects. No painted backdrop, gradient, glow, grid, label or extra shadow. CRITICAL: return EXACTLY 1448x1086 pixels, not 1447x1087. Preserve the original transparent gutters and source silhouette bounds. All 12 figure islands MUST remain disconnected, including between shoes and the ahoge in the next row; NO enlarging any head or hair volume. Every forearm from the short upper-arm sleeve to fingers MUST be continuous BARE SKIN, especially raised wrist poses. Remove old white frilly cuffs entirely; do not merely recolor them. Preserve original forward-facing seated soles, no dangling lower legs.",
+  "tool": "built-in image_gen",
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-5c815924-dea4-476d-b42c-384bd9ad8ebb.png",
+  "measurementPixels": {
+    "hands": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      [
+        123,
+        960,
+        46
+      ],
+      [
+        486,
+        956,
+        46
+      ],
+      [
+        908,
+        971,
+        46
+      ],
+      [
+        1208,
+        958,
+        46
+      ]
+    ]
+  },
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-08",
+    "passed": true,
+    "summary": "裸前臂、头身与银色结饰保留；第7帧一手回落仍为笑的挠痒过渡。完整12帧可从高透明度内核分离。画布边缘有不足2px的取整差，始终只用一个等比像素倍率；待原生图像验收。",
+    "evidence": [
+      ".artifacts/sports-identity-review/gpt-touch-v4-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "76c3758471a5185e88c524e10ffa566dcf633ef5881008a02ffb13dc9ffbfec7",
+    "originalSha256": "600f0e86a63d6a8ae0997e22333e4a3121eaeb3ade496e81198c80fff211736a",
+    "comparisonFingerprint": "014335faddc54fce0ed8e993228749e1fa4e49ffa50b319ed5e961729e830dfc"
+  }
+}

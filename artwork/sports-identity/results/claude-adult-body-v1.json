@@ -1,0 +1,34 @@
+{
+  "key": "claude-adult-body-v1",
+  "id": "claude-adult",
+  "style": "realistic",
+  "kind": "body",
+  "columns": 4,
+  "rows": 4,
+  "source": "artwork/sports-identity/claude-adult-body-v1.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/claude-adult/motions/interaction.png"
+  ],
+  "generationReferences": [
+    "src/DesktopPet.App/Assets/Characters/claude-adult/motions/interaction.png"
+  ],
+  "prompt": "Precise clothing-only EDIT of this original Claude photorealistic 3D ADULT woman with long adult legs action atlas. Keep EXACT source 1024x1536 canvas, all original figure positions, pose order, cell spacing and camera. Never repack or rescale figures to fill margins. Preserve original face and head SIZE, head-body ratio, shoulders, torso, hips, knees, ankles, feet and hand/wrist/finger positions in EVERY pose, including sitting, lying, leaning, bent knees or raised hands. This is clothing on the SAME person, no redesign, no doll anatomy, no larger head, no shorter or thicker legs. Preserve copper-orange hair, eyeglasses, warm brown eyes, sunflower hair clip and black ribbon, all expressions and hair/ear/tail silhouettes and directions.\nReplace only old dress/apron, long sleeves, wrist cuffs, tights and boots with a WHITE zip-front school sports shirt with chestnut brown upper-arm SHORT SLEEVES/shoulder panels, warm orange piping and small orange sun chest motif; chestnut brown athletic SHORTS ending well ABOVE knees with narrow white side stripes; white ankle socks and small white-orange low-top sneakers at the original ankle/sole positions. Keep neckline modest and zipped. Bare forearms, knees and lower legs. NO long sleeves, trousers, gloves or leftover wrist frills. Keep headband and hair accessories even if they are frilly. Keep original hand contacts and ALL existing props, fingers and gesture shapes; do not invent an extra ball, hammer, sparkle or particle.\nIMPORTANT: preserve the source's exact head and limb coordinates, original folded seated legs, original small margins at canvas edge, and full figure heights. No longer dangling seated legs and no shortening adult legs to fit a raised arm. Genuine transparent alpha outside characters and held objects. No painted backdrop, gradient, glow, grid, label or extra shadow.",
+  "tool": "built-in image_gen",
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-d6d37dcd-efdf-471e-9fdc-4419379c495c.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-08",
+    "passed": true,
+    "summary": "16姿势对照原图，成年头身、弯膝跳起、抱膝侧卧、积木到手均保持；短袖短裤不改变长腿。",
+    "evidence": [
+      ".artifacts/sports-identity-review/claude-adult-body-v1-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "cfb0467b8a74cbbcacb97ac6c466519a561170893dc5b1230f845bfb5cbd2327",
+    "originalSha256": "1a744d300b7f0413a23093fa26eccab9bd7615091de950dbee9e7582c9eb1402",
+    "comparisonFingerprint": "f4bcae646c56bddd570cde0b29e473a0e97fa4cbf48c7231ce08ad66e40bdf74"
+  }
+}

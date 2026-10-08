@@ -1,0 +1,71 @@
+{
+  "key": "claude-adult-emotion-touch-v2",
+  "id": "claude-adult",
+  "style": "realistic",
+  "kind": "emotion-touch",
+  "columns": 4,
+  "rows": 1,
+  "source": "artwork/sports-identity/claude-adult-emotion-touch-v2.png",
+  "references": [
+    "artwork/sports-identity/claude-adult-five-photo-v1.png",
+    "src/DesktopPet.App/Assets/Characters/claude-adult/interactions/original/claude-adult-original-photo-v1.png"
+  ],
+  "generationReferences": [
+    "artwork/sports-identity/claude-adult-emotion-touch-v1.png"
+  ],
+  "prompt": "Local repair ONLY in the FIRST of four figures: remove the floating external human hand and wrist above/on her hair; restore just the covered copper hair. Keep her own two relaxed arms, eyes-closed smile and entire body exactly as is. Preserve the other THREE figures unchanged, including the original small heads, long legs and clothing. Do NOT add a cursor, external hand or effect. Keep the exact canvas dimensions, figure positions and transparent background.",
+  "tool": "built-in image_gen",
+  "status": "not-selected-after-review",
+  "selected": false,
+  "comparisonRole": "approved-sports-pose-edit",
+  "sourceAtlas": "photo",
+  "physicalOrder": true,
+  "clips": {
+    "headpat": {
+      "frames": [
+        0
+      ],
+      "frameMs": [
+        5000
+      ],
+      "loop": false
+    },
+    "poke": {
+      "frames": [
+        1,
+        2,
+        1
+      ],
+      "frameMs": [
+        500,
+        650,
+        500
+      ],
+      "loop": false
+    },
+    "tickle": {
+      "frames": [
+        3
+      ],
+      "frameMs": [
+        5000
+      ],
+      "loop": false
+    }
+  },
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-ed33a6aa-5204-4eaa-bc19-e0d945abee56.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-08",
+    "passed": false,
+    "summary": "外来手已移除，但毛发周围出现棕色半透明矩形底，继续修透明背景。",
+    "evidence": [
+      ".artifacts/sports-identity-review/claude-adult-emotion-touch-v2-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "d080167b26bfe7d2f68794fb08c1e5a7992af2fba0b28cde0979093305e89924",
+    "originalSha256": "ebdbd8fc76125806f802d31645d0f83ce0007dd86cc8dd3082e673e167c80d4c",
+    "comparisonFingerprint": "139cf3296fd5c0229c8a84cccac1e0a0951926aac613b1afe07cc2b263eb4f13"
+  }
+}

@@ -1,0 +1,92 @@
+{
+  "key": "gemini-club-v1",
+  "id": "gemini",
+  "style": "chibi",
+  "kind": "club",
+  "columns": 4,
+  "rows": 6,
+  "source": "artwork/sports-identity/gemini-club-v1.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/gemini/motions/cloud-club-original.png"
+  ],
+  "generationReferences": [
+    "src/DesktopPet.App/Assets/Characters/gemini/motions/cloud-club-original.png"
+  ],
+  "prompt": "Precise clothing-only EDIT of this original Gemini Q/chibi original character action atlas. Keep EXACT source 1024x1536 canvas, all original figure positions, pose order, cell spacing and camera. Never repack or rescale figures to fill margins. Preserve original face and head SIZE, head-body ratio, shoulders, torso, hips, knees, ankles, feet and hand/wrist/finger positions in EVERY pose, including sitting, lying, leaning, bent knees or raised hands. This is clothing on the SAME person, no redesign, no doll anatomy, no larger head, no shorter or thicker legs. Preserve blue-purple gradient hair, cat ears, pink and gold heterochromatic eyes, star hair clip and purple cat tail, all expressions and hair/ear/tail silhouettes and directions.\nReplace only old dress/apron, long sleeves, wrist cuffs, tights and boots with a WHITE zip-front school sports shirt with navy upper-arm SHORT SLEEVES/shoulder panels, violet piping and small violet four-point star chest motif; navy athletic SHORTS ending well ABOVE knees with narrow white side stripes; white ankle socks and small white-blue-violet low-top sneakers at the original ankle/sole positions. Keep neckline modest and zipped. Bare forearms, knees and lower legs. NO long sleeves, trousers, gloves or leftover wrist frills. Keep headband and hair accessories even if they are frilly. Keep original hand contacts and ALL existing props, fingers and gesture shapes; do not invent an extra ball, hammer, sparkle or particle.\nIMPORTANT: preserve the source's exact head and limb coordinates, original folded seated legs, original small margins at canvas edge, and full figure heights. No longer dangling seated legs and no shortening adult legs to fit a raised arm. Genuine transparent alpha outside characters and held objects. No painted backdrop, gradient, glow, grid, label or extra shadow. Preserve the original physical layout even if uneven. Keep all 8 counting-star gestures, 8 bubble bottle/wand poses, and 8 stretching poses. Preserve mouth-to-ring and hand-to-bottle contacts. Original reference is the ONLY pose and coordinate authority. Keep every original head top, chin, hip, knee, ankle and sole at the same source position. Preserve deliberately smaller source poses. Wherever the original seated boots show SOLES toward the camera, the new sneaker SOLES must face the camera too, with the same foreshortened shins; do not replace this with a dangling-leg or toes-up pose. Preserve crossed arms, bent elbows and each individual finger gesture exactly. Changing clothing must not turn a sequence into repeated hands-in-lap poses.",
+  "tool": "built-in image_gen",
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-dbb225a9-30ab-46e2-92fd-2997877f1203.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-08",
+    "passed": true,
+    "summary": "数星抬手、泡泡棒送嘴、伸懒腰完整24帧，坐姿头身稳定，待标定泡泡圈。",
+    "evidence": [
+      ".artifacts/sports-identity-review/gemini-club-v1-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "2637941d53b4b6d1d8703d24fe2c72189dbb6f49136d149cf817064c91a85a50",
+    "originalSha256": "d5fff305ea122be2fec404e8d11cf7f333abe8657030c6eda365d1a10d9bed15",
+    "comparisonFingerprint": "308d4627f6c1f6189287012a96dc3e234631b4849a648c8cbc36e02fd936f766"
+  },
+  "measurementPixels": {
+    "bubbleSources": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      [
+        84,
+        678
+      ],
+      [
+        346,
+        633
+      ],
+      [
+        629,
+        640
+      ],
+      [
+        889,
+        642
+      ],
+      [
+        117,
+        883
+      ],
+      [
+        321,
+        876
+      ],
+      [
+        576,
+        907
+      ],
+      [
+        848,
+        926
+      ],
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ]
+  },
+  "contactReview": {
+    "date": "2026-10-08",
+    "reviewer": "assistant",
+    "method": "Manual source-pixel palm / bubble-ring markers viewed on browser composite",
+    "evidence": ".artifacts/sports-identity-review/gemini-club-v1-anchors.png"
+  }
+}

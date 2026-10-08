@@ -1,0 +1,34 @@
+{
+  "key": "gemini-eat-v1",
+  "id": "gemini",
+  "style": "chibi",
+  "kind": "eat",
+  "columns": 4,
+  "rows": 2,
+  "source": "artwork/sports-identity/gemini-eat-v1.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/gemini/motions/snack-continuity.png"
+  ],
+  "generationReferences": [
+    "src/DesktopPet.App/Assets/Characters/gemini/motions/snack-continuity.png"
+  ],
+  "prompt": "Precise clothing-only EDIT of this original Gemini Q/chibi original character action atlas. Keep EXACT source 1536x1024 canvas, all original figure positions, pose order, cell spacing and camera. Never repack or rescale figures to fill margins. Preserve original face and head SIZE, head-body ratio, shoulders, torso, hips, knees, ankles, feet and hand/wrist/finger positions in EVERY pose, including sitting, lying, leaning, bent knees or raised hands. This is clothing on the SAME person, no redesign, no doll anatomy, no larger head, no shorter or thicker legs. Preserve blue-purple gradient hair, cat ears, pink and gold heterochromatic eyes, star hair clip and purple cat tail, all expressions and hair/ear/tail silhouettes and directions.\nReplace only old dress/apron, long sleeves, wrist cuffs, tights and boots with a WHITE zip-front school sports shirt with navy upper-arm SHORT SLEEVES/shoulder panels, violet piping and small violet four-point star chest motif; navy athletic SHORTS ending well ABOVE knees with narrow white side stripes; white ankle socks and small white-blue-violet low-top sneakers at the original ankle/sole positions. Keep neckline modest and zipped. Bare forearms, knees and lower legs. NO long sleeves, trousers, gloves or leftover wrist frills. Keep headband and hair accessories even if they are frilly. Keep original hand contacts and ALL existing props, fingers and gesture shapes; do not invent an extra ball, hammer, sparkle or particle.\nIMPORTANT: preserve the source's exact head and limb coordinates, original folded seated legs, original small margins at canvas edge, and full figure heights. No longer dangling seated legs and no shortening adult legs to fit a raised arm. Genuine transparent alpha outside characters and held objects. No painted backdrop, gradient, glow, grid, label or extra shadow. Keep every food, spoon, bowl, cookie, block and actual fingertip-to-object or mouth contact unchanged. Do not replace eating with waving or add a second utensil.",
+  "tool": "built-in image_gen",
+  "status": "not-selected-after-review",
+  "selected": false,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-f358adbd-21bc-453c-9fa4-a29a6b4eb9b5.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-08",
+    "passed": false,
+    "summary": "换衣保留发色和脸，但坐姿鞋子改成鞋面朝前、腿下垂，未保持原投影；部分手臂姿势简化，需要按原图姿态修正。",
+    "evidence": [
+      ".artifacts/sports-identity-review/gemini-eat-v1-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "b4fedf7ed060d9b9869eb256b07b910c07e20d80fa415f51b75d68c009f1c9a6",
+    "originalSha256": "feb20a51986e1ccab2b8aa5a139cfd2c6452ca1eb809111e9b403cbce848e113",
+    "comparisonFingerprint": "2cb3aaae5a2da888daca7d92c2d7ab2dcd12ec66653192ea4959b6ffd40fc8eb"
+  }
+}

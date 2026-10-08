@@ -21,6 +21,19 @@ PROFILES={
  'kimi':('Kimi','navy','silver lavender','small crescent moon','white-lavender-blue','silver lavender hair, purple eyes, white frilly headband, silver crescent ornament, navy ribbon and pearl dangles')
 }
 
+def pose_lock(path, columns, rows):
+ """Describe source-space limits; never alter or normalize the artwork."""
+ im=Image.open(path).convert('RGBA');alpha=im.getchannel('A').point(lambda a:255 if a>=80 else 0)
+ boxes=[]
+ for i in range(columns*rows):
+  x,y=i%columns*im.width//columns,i//columns*im.height//rows
+  r,b=(i%columns+1)*im.width//columns,(i//columns+1)*im.height//rows
+  box=alpha.crop((x,y,r,b)).getbbox()
+  boxes.append([x+box[0],y+box[1],x+box[2],y+box[3]] if box else None)
+ coordinates=(' Source global frame bounds (left,top,right,bottom) are '+str(boxes)+'.') if len(boxes)<=12 else ''
+ return (' Original reference is the ONLY pose and coordinate authority.'+coordinates+
+  ' Keep every original head top, chin, hip, knee, ankle and sole at the same source position. Preserve deliberately smaller source poses. Wherever the original seated boots show SOLES toward the camera, the new sneaker SOLES must face the camera too, with the same foreshortened shins; do not replace this with a dangling-leg or toes-up pose. Preserve crossed arms, bent elbows and each individual finger gesture exactly. Changing clothing must not turn a sequence into repeated hands-in-lap poses.')
+
 def prepare(cid,kinds):
  family='whale' if cid=='deepseek-adult' else cid.removesuffix('-adult')
  name,color,piping,emblem,shoe,identity=PROFILES[family]
@@ -49,6 +62,7 @@ def prepare(cid,kinds):
     'emotion-bonk':{'bonk':dict(frames=[0,1,2,3,0],frameMs=[400,650,400,600,450],loop=False)}
    }
    prompt=f'''Precise upper-body pose EDIT of this exact {width}x{height}, 4-column 1-row sprite sheet. Keep the SAME adult {name} woman and the SAME approved short-sleeve white/{color} sports shirt and above-knee {color} shorts. Keep the original face, mature small head size, {identity}, clean 3D rendering, and all clothing details. Preserve the complete hips, long thighs, knees, shins, ankles, sneakers and ground position at EXACT original scale and coordinates in ALL four poses. Do not redesign the person or shorten/thicken legs, enlarge heads, resize individual figures or crop feet. Modify ONLY expressions and arms/hands, left to right: {gestures[kind]}. Preserve the original canvas, original figure positions, margins, camera and order of 4 full figures. True transparent alpha outside figures and held props. No background, gradient, glow, text, frame or extra people.'''
+   prompt+=' Show only her own two arms and hands. No external petting hand above her head, no second person, no detached third hand. Keep a clear fully transparent gap between figures.'
    jobs.append(dict(key=key,id=cid,style='realistic',kind=kind,columns=4,rows=1,source='artwork/sports-identity/'+key+'.png',references=[reference['source'],reference['references'][0]],generationReferences=[reference['source']],prompt=prompt,tool='built-in image_gen',status='generated-awaiting-visual-review',selected=False,comparisonRole='approved-sports-pose-edit',sourceAtlas='realistic-photo' if family=='whale' else 'photo',physicalOrder=True,clips=clips[kind]))
    continue
   if kind=='dizzy':sprite=pet['dizzy']
@@ -70,12 +84,13 @@ def prepare(cid,kinds):
   prompt=f'''Precise clothing-only EDIT of this original {name} {style} action atlas. Keep EXACT source {width}x{height} canvas, all original figure positions, pose order, cell spacing and camera. Never repack or rescale figures to fill margins. Preserve original face and head SIZE, head-body ratio, shoulders, torso, hips, knees, ankles, feet and hand/wrist/finger positions in EVERY pose, including sitting, lying, leaning, bent knees or raised hands. This is clothing on the SAME person, no redesign, no doll anatomy, no larger head, no shorter or thicker legs. Preserve {identity}, all expressions and hair/ear/tail silhouettes and directions.
 Replace only old dress/apron, long sleeves, wrist cuffs, tights and boots with a WHITE zip-front school sports shirt with {color} upper-arm SHORT SLEEVES/shoulder panels, {piping} piping and {emblem} chest motif; {color} athletic SHORTS ending well ABOVE knees with narrow white side stripes; white ankle socks and small {shoe} low-top sneakers at the original ankle/sole positions. Keep neckline modest and zipped. Bare forearms, knees and lower legs. NO long sleeves, trousers, gloves or leftover wrist frills. Keep headband and hair accessories even if they are frilly. Keep original hand contacts and ALL existing props, fingers and gesture shapes; do not invent an extra ball, hammer, sparkle or particle.
 IMPORTANT: preserve the source's exact head and limb coordinates, original folded seated legs, original small margins at canvas edge, and full figure heights. No longer dangling seated legs and no shortening adult legs to fit a raised arm. Genuine transparent alpha outside characters and held objects. No painted backdrop, gradient, glow, grid, label or extra shadow.'''
-  if kind=='care' and not adult:
+  if kind=='care' and not adult and rows>2:
    prompt+=' Edit ONLY the first TWO rows (8 care poses) to sportswear. The lower FOUR rows show other outfits and must remain unchanged; these lower rows will not be used for sports. Keep cream face towels held in BOTH the opening and closing wipe poses, as well as against the cheek; do not mistake the towel for a sleeve. Keep the hairbrush.'
   elif kind=='care':prompt+=' Preserve every cream face towel, brush and exact hand/cheek contact. Cloth held in the hands is a PROP, not a sleeve.'
   elif kind=='club':prompt+=' Preserve the original physical layout even if uneven. Keep all 8 counting-star gestures, 8 bubble bottle/wand poses, and 8 stretching poses. Preserve mouth-to-ring and hand-to-bottle contacts.'
   elif kind in ('eat','meal','contact','build'):prompt+=' Keep every food, spoon, bowl, cookie, block and actual fingertip-to-object or mouth contact unchanged. Do not replace eating with waving or add a second utensil.'
   elif kind=='bonk':prompt+=' Keep the SAME original pre-painted toy hammer and its existing path above the head. Preserve each original hammer position, angle and head contact; do not invent a hand grip or a second hammer.'
+  if not adult:prompt+=pose_lock(original,columns,rows)
   jobs.append(dict(key=key,id=cid,style='realistic' if adult else 'chibi',kind=kind,columns=columns,rows=rows,source='artwork/sports-identity/'+key+'.png',references=[relative],generationReferences=[relative],prompt=prompt,tool='built-in image_gen',status='generated-awaiting-visual-review',selected=False))
  return jobs
 

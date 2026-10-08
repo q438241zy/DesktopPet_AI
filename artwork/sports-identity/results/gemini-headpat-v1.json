@@ -1,0 +1,34 @@
+{
+  "key": "gemini-headpat-v1",
+  "id": "gemini",
+  "style": "chibi",
+  "kind": "headpat",
+  "columns": 3,
+  "rows": 2,
+  "source": "artwork/sports-identity/gemini-headpat-v1.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/gemini/motions/headpat.webp"
+  ],
+  "generationReferences": [
+    "src/DesktopPet.App/Assets/Characters/gemini/motions/headpat.webp"
+  ],
+  "prompt": "Precise clothing-only EDIT of this original Gemini Q/chibi original character action atlas. Keep EXACT source 1536x1024 canvas, all original figure positions, pose order, cell spacing and camera. Never repack or rescale figures to fill margins. Preserve original face and head SIZE, head-body ratio, shoulders, torso, hips, knees, ankles, feet and hand/wrist/finger positions in EVERY pose, including sitting, lying, leaning, bent knees or raised hands. This is clothing on the SAME person, no redesign, no doll anatomy, no larger head, no shorter or thicker legs. Preserve blue-purple gradient hair, cat ears, pink and gold heterochromatic eyes, star hair clip and purple cat tail, all expressions and hair/ear/tail silhouettes and directions.\nReplace only old dress/apron, long sleeves, wrist cuffs, tights and boots with a WHITE zip-front school sports shirt with navy upper-arm SHORT SLEEVES/shoulder panels, violet piping and small violet four-point star chest motif; navy athletic SHORTS ending well ABOVE knees with narrow white side stripes; white ankle socks and small white-blue-violet low-top sneakers at the original ankle/sole positions. Keep neckline modest and zipped. Bare forearms, knees and lower legs. NO long sleeves, trousers, gloves or leftover wrist frills. Keep headband and hair accessories even if they are frilly. Keep original hand contacts and ALL existing props, fingers and gesture shapes; do not invent an extra ball, hammer, sparkle or particle.\nIMPORTANT: preserve the source's exact head and limb coordinates, original folded seated legs, original small margins at canvas edge, and full figure heights. No longer dangling seated legs and no shortening adult legs to fit a raised arm. Genuine transparent alpha outside characters and held objects. No painted backdrop, gradient, glow, grid, label or extra shadow.",
+  "tool": "built-in image_gen",
+  "status": "not-selected-after-review",
+  "selected": false,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-2bfa2cb8-d389-4df0-8082-a65ba089ec72.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-08",
+    "passed": false,
+    "summary": "坐姿脚尖与脚底朝向被改变，部分腿段伸长；按原始脚踝、脚底与弯膝位置重绘，不以缩放修正。",
+    "evidence": [
+      ".artifacts/sports-identity-review/gemini-headpat-v1-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "9511302dd708103e9841cdf9d0084d7ff0913aabf28797c12ad2841979980586",
+    "originalSha256": "1760c121041ad331b3e0c654ad996d6003aa1d0a6c1c273c800d6722aa0e6b83",
+    "comparisonFingerprint": "88e00ec9005873d0649cd49cc6492b9d954b7b8a0a41ad7f7179c0d20f9f2e9b"
+  }
+}

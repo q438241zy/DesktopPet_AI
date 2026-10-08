@@ -1,0 +1,57 @@
+{
+  "key": "gemini-adult-emotion-bonk-v1",
+  "id": "gemini-adult",
+  "style": "realistic",
+  "kind": "emotion-bonk",
+  "columns": 4,
+  "rows": 1,
+  "source": "artwork/sports-identity/gemini-adult-emotion-bonk-v1.png",
+  "references": [
+    "artwork/sports-identity/gemini-adult-five-photo-v1.png",
+    "src/DesktopPet.App/Assets/Characters/gemini-adult/interactions/original/gemini-adult-original-photo-v1.png"
+  ],
+  "generationReferences": [
+    "artwork/sports-identity/gemini-adult-five-photo-v1.png"
+  ],
+  "prompt": "Precise upper-body pose EDIT of this exact 2170x725, 4-column 1-row sprite sheet. Keep the SAME adult Gemini woman and the SAME approved short-sleeve white/navy sports shirt and above-knee navy shorts. Keep the original face, mature small head size, blue-purple gradient hair, cat ears, pink and gold heterochromatic eyes, star hair clip and purple cat tail, clean 3D rendering, and all clothing details. Preserve the complete hips, long thighs, knees, shins, ankles, sneakers and ground position at EXACT original scale and coordinates in ALL four poses. Do not redesign the person or shorten/thicken legs, enlarge heads, resize individual figures or crop feet. Modify ONLY expressions and arms/hands, left to right: 1 relaxed neutral smile; 2 raise a small soft violet toy hammer with a proper hand grip just beside the head; 3 gently tap the top of the head with the SAME toy hammer, eyes squeezed shut in playful surprise; 4 lower the SAME hammer and smile; keep the hammer fully inside each source cell. Preserve the original canvas, original figure positions, margins, camera and order of 4 full figures. True transparent alpha outside figures and held props. No background, gradient, glow, text, frame or extra people. The head-patting pose must show ONLY this woman and her own two arms: no external hand above her head, no second person, no detached hand. Keep complete transparent gaps between figures.",
+  "tool": "built-in image_gen",
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
+  "comparisonRole": "approved-sports-pose-edit",
+  "sourceAtlas": "photo",
+  "physicalOrder": true,
+  "clips": {
+    "bonk": {
+      "frames": [
+        0,
+        1,
+        2,
+        3,
+        0
+      ],
+      "frameMs": [
+        400,
+        650,
+        400,
+        600,
+        450
+      ],
+      "loop": false
+    }
+  },
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-5c645207-1272-44f4-9c75-0d004c57b2c5.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-08",
+    "passed": true,
+    "summary": "四帧成年人形体一致，单一紫色玩具槌有握持、举起、轻敲与收回过程，无额外叠加槌。",
+    "evidence": [
+      ".artifacts/sports-identity-review/gemini-adult-emotion-bonk-v1-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "5270efe11f2fcd735b7cc7c44fac55d22f2c69169ab4e8b3672efbce7d0b1944",
+    "originalSha256": "269b1be09c38c3fc990f878b42ce2bb887b10dc7ba317cdaa79c0da14fb6be63",
+    "comparisonFingerprint": "b2a617a913dd5d41b230af27f073c43f9d08be55f032e4fca7cdabcf96517936"
+  }
+}

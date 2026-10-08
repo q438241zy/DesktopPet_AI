@@ -1,0 +1,35 @@
+{
+  "key": "grok-adult-five-rps-v2",
+  "id": "grok-adult",
+  "style": "realistic",
+  "kind": "five-rps",
+  "columns": 4,
+  "rows": 1,
+  "source": "artwork/sports-identity/grok-adult-five-rps-v2.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/grok-adult/interactions/original/grok-adult-original-rps-v1.png",
+    "artwork/sports-identity/grok-adult-five-rps-v1.png"
+  ],
+  "generationReferences": [
+    "artwork/sports-identity/grok-adult-five-rps-v1.png"
+  ],
+  "prompt": "Precise local clothing correction of the attached sportswear atlas, preserve everything except the specified old sleeve remnants. In the FOURTH figure at far right, the arm extending its fist toward camera retains a BLACK LONG SLEEVE plus white cuff at wrist. Replace this old sleeve with smooth natural bare skin from fist through wrist to elbow. Keep only a charcoal short sleeve on UPPER arm, matching the first 3 figures. The foreshortened arm and fist stay at the exact same coordinates. Keep first 3 figures unchanged. Preserve exact mature head size, hair, face, torso, long legs, knee and ankle coordinates, above-knee shorts, sneakers, original full canvas and all figure sizes. Do not redraw the character or resize figures. Transparent alpha background.",
+  "tool": "built-in image_gen",
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-fabf1bb1-7643-4ac6-9486-1283862c4ed8.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-08",
+    "passed": true,
+    "summary": "4帧共同缩放对照已查看，向前出拳的白袖口已去除，保留原拳头的透视位置、成熟头身与交叉双腿。",
+    "evidence": [
+      ".artifacts/sports-identity-review/grok-adult-five-rps-v2-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "ba5c172c70c599fda6e908d24c179635058951518a0422dfd9b7f13d5e031d8c",
+    "originalSha256": "b1f2568eb040d55ea4a4b53ba6fcccd69c3bea24ee8d5b012cc2d4e2818481f6",
+    "comparisonFingerprint": "089fc5a7a40f5edd67e4e1d28e517028e5465cbcb5abb3a935c15aedd02f9681"
+  }
+}

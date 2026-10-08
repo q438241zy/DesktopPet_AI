@@ -1,0 +1,87 @@
+{
+  "key": "claude-club-v1",
+  "id": "claude",
+  "style": "chibi",
+  "kind": "club",
+  "columns": 4,
+  "rows": 6,
+  "source": "artwork/sports-identity/claude-club-v1.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/claude/motions/cloud-club-original.png"
+  ],
+  "generationReferences": [
+    "src/DesktopPet.App/Assets/Characters/claude/motions/cloud-club-original.png"
+  ],
+  "prompt": "Precise clothing-only EDIT of this original Claude Q/chibi original character action atlas. Keep EXACT source 1024x1536 canvas, all original figure positions, pose order, cell spacing and camera. Never repack or rescale figures to fill margins. Preserve original face and head SIZE, head-body ratio, shoulders, torso, hips, knees, ankles, feet and hand/wrist/finger positions in EVERY pose, including sitting, lying, leaning, bent knees or raised hands. This is clothing on the SAME person, no redesign, no doll anatomy, no larger head, no shorter or thicker legs. Preserve copper-orange hair, eyeglasses, warm brown eyes, sunflower hair clip and black ribbon, all expressions and hair/ear/tail silhouettes and directions.\nReplace only old dress/apron, long sleeves, wrist cuffs, tights and boots with a WHITE zip-front school sports shirt with chestnut brown upper-arm SHORT SLEEVES/shoulder panels, warm orange piping and small orange sun chest motif; chestnut brown athletic SHORTS ending well ABOVE knees with narrow white side stripes; white ankle socks and small white-orange low-top sneakers at the original ankle/sole positions. Keep neckline modest and zipped. Bare forearms, knees and lower legs. NO long sleeves, trousers, gloves or leftover wrist frills. Keep headband and hair accessories even if they are frilly. Keep original hand contacts and ALL existing props, fingers and gesture shapes; do not invent an extra ball, hammer, sparkle or particle.\nIMPORTANT: preserve the source's exact head and limb coordinates, original folded seated legs, original small margins at canvas edge, and full figure heights. No longer dangling seated legs and no shortening adult legs to fit a raised arm. Genuine transparent alpha outside characters and held objects. No painted backdrop, gradient, glow, grid, label or extra shadow. Preserve the original physical layout even if uneven. Keep all 8 counting-star gestures, 8 bubble bottle/wand poses, and 8 stretching poses. Preserve mouth-to-ring and hand-to-bottle contacts.",
+  "tool": "built-in image_gen",
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-c85082ed-4be7-4d59-83f9-1294761a6d56.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-08",
+    "passed": true,
+    "summary": "数星星八手势、泡泡棒送嘴八帧、伸展八帧保留；头身比例未归一化，出口待手动核对。",
+    "evidence": [
+      ".artifacts/sports-identity-review/claude-club-v1-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "b96fdd613cafdfb8977eca7a5bc7c52591e05ed886f606d840b15d30d92e157a",
+    "originalSha256": "338cc12f340782bc6dba2e1570e7227b820458affe90469cfb7d23c7955605be",
+    "comparisonFingerprint": "5a00502f6d4564d57816532dbaf3452d21519e5158a577e9983815eb83cdad67"
+  },
+  "measurementPixels": {
+    "bubbleSources": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      [
+        84,
+        666
+      ],
+      [
+        346,
+        640
+      ],
+      [
+        629,
+        643
+      ],
+      [
+        882,
+        645
+      ],
+      [
+        114,
+        886
+      ],
+      [
+        326,
+        885
+      ],
+      [
+        602,
+        914
+      ],
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ]
+  },
+  "contactReview": {
+    "method": "assistant visual review of source-pixel marker crops",
+    "evidence": ".artifacts/sports-identity-review/claude-club-v1-anchors.png"
+  }
+}

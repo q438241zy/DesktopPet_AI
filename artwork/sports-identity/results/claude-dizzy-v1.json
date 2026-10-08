@@ -1,0 +1,34 @@
+{
+  "key": "claude-dizzy-v1",
+  "id": "claude",
+  "style": "chibi",
+  "kind": "dizzy",
+  "columns": 1,
+  "rows": 1,
+  "source": "artwork/sports-identity/claude-dizzy-v1.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/claude/dizzy.png"
+  ],
+  "generationReferences": [
+    "src/DesktopPet.App/Assets/Characters/claude/dizzy.png"
+  ],
+  "prompt": "Precise clothing-only EDIT of this original Claude Q/chibi original character action atlas. Keep EXACT source 512x512 canvas, all original figure positions, pose order, cell spacing and camera. Never repack or rescale figures to fill margins. Preserve original face and head SIZE, head-body ratio, shoulders, torso, hips, knees, ankles, feet and hand/wrist/finger positions in EVERY pose, including sitting, lying, leaning, bent knees or raised hands. This is clothing on the SAME person, no redesign, no doll anatomy, no larger head, no shorter or thicker legs. Preserve copper-orange hair, eyeglasses, warm brown eyes, sunflower hair clip and black ribbon, all expressions and hair/ear/tail silhouettes and directions.\nReplace only old dress/apron, long sleeves, wrist cuffs, tights and boots with a WHITE zip-front school sports shirt with chestnut brown upper-arm SHORT SLEEVES/shoulder panels, warm orange piping and small orange sun chest motif; chestnut brown athletic SHORTS ending well ABOVE knees with narrow white side stripes; white ankle socks and small white-orange low-top sneakers at the original ankle/sole positions. Keep neckline modest and zipped. Bare forearms, knees and lower legs. NO long sleeves, trousers, gloves or leftover wrist frills. Keep headband and hair accessories even if they are frilly. Keep original hand contacts and ALL existing props, fingers and gesture shapes; do not invent an extra ball, hammer, sparkle or particle.\nIMPORTANT: preserve the source's exact head and limb coordinates, original folded seated legs, original small margins at canvas edge, and full figure heights. No longer dangling seated legs and no shortening adult legs to fit a raised arm. Genuine transparent alpha outside characters and held objects. No painted backdrop, gradient, glow, grid, label or extra shadow.",
+  "tool": "built-in image_gen",
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-34788ca0-2b32-4dec-a436-f1f63bd3cde0.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-08",
+    "passed": true,
+    "summary": "保留单眼漩涡、扶额和倾坐，原图与候选共同缩放比对通过。",
+    "evidence": [
+      ".artifacts/sports-identity-review/claude-dizzy-v1-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "3423198752156fbe3c5f22ff62d92b32ce2283562a70909401c221d5c7f207dd",
+    "originalSha256": "4b98292492627c6b2e9d8558f41ed2cde5ccbd34760b46b57a29e52a56e42e4f",
+    "comparisonFingerprint": "905d0c52c575ad31791fd199cfdd6c3edbbd1ef7a72eff95a2cfaa1b87b82936"
+  }
+}

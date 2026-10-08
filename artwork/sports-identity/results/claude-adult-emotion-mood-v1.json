@@ -1,0 +1,76 @@
+{
+  "key": "claude-adult-emotion-mood-v1",
+  "id": "claude-adult",
+  "style": "realistic",
+  "kind": "emotion-mood",
+  "columns": 4,
+  "rows": 1,
+  "source": "artwork/sports-identity/claude-adult-emotion-mood-v1.png",
+  "references": [
+    "artwork/sports-identity/claude-adult-five-photo-v1.png",
+    "src/DesktopPet.App/Assets/Characters/claude-adult/interactions/original/claude-adult-original-photo-v1.png"
+  ],
+  "generationReferences": [
+    "artwork/sports-identity/claude-adult-five-photo-v1.png"
+  ],
+  "prompt": "Precise upper-body pose EDIT of this exact 1536x1024, 4-column 1-row sprite sheet. Keep the SAME adult Claude woman and the SAME approved short-sleeve white/chestnut brown sports shirt and above-knee chestnut brown shorts. Keep the original face, mature small head size, copper-orange hair, eyeglasses, warm brown eyes, sunflower hair clip and black ribbon, clean 3D rendering, and all clothing details. Preserve the complete hips, long thighs, knees, shins, ankles, sneakers and ground position at EXACT original scale and coordinates in ALL four poses. Do not redesign the person or shorten/thicken legs, enlarge heads, resize individual figures or crop feet. Modify ONLY expressions and arms/hands, left to right: 1 warm happy smile with relaxed hands; 2 a slightly disappointed pout with relaxed hands; 3 a gentle self-hug with hands around opposite upper arms; 4 dizzy expression with eyes shut and one hand resting against the temple, without changing the legs. Preserve the original canvas, original figure positions, margins, camera and order of 4 full figures. True transparent alpha outside figures and held props. No background, gradient, glow, text, frame or extra people.",
+  "tool": "built-in image_gen",
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
+  "comparisonRole": "approved-sports-pose-edit",
+  "sourceAtlas": "photo",
+  "physicalOrder": true,
+  "clips": {
+    "happy": {
+      "frames": [
+        0
+      ],
+      "frameMs": [
+        5000
+      ],
+      "loop": false
+    },
+    "sad": {
+      "frames": [
+        1
+      ],
+      "frameMs": [
+        5000
+      ],
+      "loop": false
+    },
+    "faint": {
+      "frames": [
+        2
+      ],
+      "frameMs": [
+        5000
+      ],
+      "loop": false
+    },
+    "dizzy": {
+      "frames": [
+        3
+      ],
+      "frameMs": [
+        5000
+      ],
+      "loop": false
+    }
+  },
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-00dd9114-2c43-48ae-b846-aa59044ba140.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-08",
+    "passed": true,
+    "summary": "以已复核运动服为参考修改笑、失落、抱臂、揉额表情，头身与腿部保留原比例；待原生动态验收。",
+    "evidence": [
+      ".artifacts/sports-identity-review/claude-adult-emotion-mood-v1-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "28cbc7d86ffc97422c2a1fee11ac895e0c39fe48cf6079f707dd5b3ea724802f",
+    "originalSha256": "ebdbd8fc76125806f802d31645d0f83ce0007dd86cc8dd3082e673e167c80d4c",
+    "comparisonFingerprint": "e58a1f3bdaa91d5c38a4993e013a18cf1ca6e89a23017c2cc83712d3236c6e94"
+  }
+}

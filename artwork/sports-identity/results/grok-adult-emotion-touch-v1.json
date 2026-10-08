@@ -1,0 +1,71 @@
+{
+  "key": "grok-adult-emotion-touch-v1",
+  "id": "grok-adult",
+  "style": "realistic",
+  "kind": "emotion-touch",
+  "columns": 4,
+  "rows": 1,
+  "source": "artwork/sports-identity/grok-adult-emotion-touch-v1.png",
+  "references": [
+    "artwork/sports-identity/grok-adult-five-photo-v1.png",
+    "src/DesktopPet.App/Assets/Characters/grok-adult/interactions/original/grok-adult-original-photo-v1.png"
+  ],
+  "generationReferences": [
+    "artwork/sports-identity/grok-adult-five-photo-v1.png"
+  ],
+  "prompt": "Precise upper-body pose EDIT of this exact 2172x724, 4-column 1-row sprite sheet. Keep the SAME adult Grok woman and the SAME approved short-sleeve white/charcoal black sports shirt and above-knee charcoal black shorts. Keep the original face, mature small head size, golden blonde flowing twin tails, blue eyes, black/gold ribbons and ringed-planet hair clip, clean 3D rendering, and all clothing details. Preserve the complete hips, long thighs, knees, shins, ankles, sneakers and ground position at EXACT original scale and coordinates in ALL four poses. Do not redesign the person or shorten/thicken legs, enlarge heads, resize individual figures or crop feet. Modify ONLY expressions and arms/hands, left to right: 1 gently close eyes and smile while being petted, relaxed hands; 2 right hand softly cups right cheek; 3 left hand softly cups left cheek; 4 laugh with shoulders slightly raised and both hands open near chest as if tickled. Preserve the original canvas, original figure positions, margins, camera and order of 4 full figures. True transparent alpha outside figures and held props. No background, gradient, glow, text, frame or extra people. Show only her own two arms and hands. No external petting hand above her head, no second person, no detached third hand. Keep a clear fully transparent gap between figures.",
+  "tool": "built-in image_gen",
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
+  "comparisonRole": "approved-sports-pose-edit",
+  "sourceAtlas": "photo",
+  "physicalOrder": true,
+  "clips": {
+    "headpat": {
+      "frames": [
+        0
+      ],
+      "frameMs": [
+        5000
+      ],
+      "loop": false
+    },
+    "poke": {
+      "frames": [
+        1,
+        2,
+        1
+      ],
+      "frameMs": [
+        500,
+        650,
+        500
+      ],
+      "loop": false
+    },
+    "tickle": {
+      "frames": [
+        3
+      ],
+      "frameMs": [
+        5000
+      ],
+      "loop": false
+    }
+  },
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-5dad0bb2-efd0-4b03-be52-6353ab3fbec8.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-08",
+    "passed": true,
+    "summary": "对照已复核的运动服原姿势，四帧只调整表情/上肢，摸头/双侧揉脸/挠痒手形清楚，腰线及长腿不变，无外部多余手。",
+    "evidence": [
+      ".artifacts/sports-identity-review/grok-adult-emotion-touch-v1-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "e312cc71289c6773bd4c16b9d879e309ac76319e956ab3cb0fed58f2254ed77b",
+    "originalSha256": "fa7dbbe569ee7ad8823929d9752748903984c27c35333fec5a15ea5cb2183f20",
+    "comparisonFingerprint": "c07f5ad685f94429aa04cbf59862421135e15cc81d551c9c8bd9dbc8dba569cd"
+  }
+}

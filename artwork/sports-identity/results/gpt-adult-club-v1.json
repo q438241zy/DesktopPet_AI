@@ -19,7 +19,7 @@
   "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-df6a92ec-0d9a-4612-8101-f5e1e7798fab.png",
   "visualReview": {
     "reviewer": "assistant",
-    "date": "2026-10-07",
+    "date": "2026-10-08",
     "passed": true,
     "summary": "24姿势按实际8列3行核对，数星星、泡泡环、伸展与原腿长保持；泡泡发射点待按新裁切重映射。",
     "evidence": [
@@ -30,5 +30,61 @@
     "candidateSha256": "7211d1ce62454c1e903ccb77f540db864ca1d224747ceb12783821d2834c97e9",
     "originalSha256": "338dc73906c921d68ee02b22b1c7775a350b2bf36aec2626182b2488f46cbb21",
     "comparisonFingerprint": "f50bfe664432f76df9a4487da0c2380d3e4448d808388a27d5fca259453eebb3"
+  },
+  "measurementPixels": {
+    "bubbleSources": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      [
+        51,
+        594
+      ],
+      [
+        254,
+        458
+      ],
+      [
+        476,
+        451
+      ],
+      [
+        660,
+        457
+      ],
+      [
+        839,
+        460
+      ],
+      [
+        997,
+        453
+      ],
+      [
+        1225,
+        486
+      ],
+      [
+        1388,
+        594
+      ],
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ]
+  },
+  "contactReview": {
+    "method": "assistant visual review of source-pixel marker crops",
+    "evidence": ".artifacts/sports-identity-review/gpt-adult-club-v1-anchors.png"
   }
 }

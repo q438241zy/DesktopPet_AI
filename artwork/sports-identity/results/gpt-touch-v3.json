@@ -1,0 +1,66 @@
+{
+  "key": "gpt-touch-v3",
+  "id": "gpt",
+  "style": "chibi",
+  "kind": "touch",
+  "columns": 4,
+  "rows": 3,
+  "source": "artwork/sports-identity/gpt-touch-v3.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/gpt/motions/touch-continuity.png"
+  ],
+  "generationReferences": [
+    "artwork/sports-identity/gpt-touch-v2.png"
+  ],
+  "prompt": "Technical sprite separation EDIT of the attached 1448x1086 GPT chibi sports atlas. Preserve the SAME 12 poses, 4 columns x3 rows, at their EXACT current size and locations; keep all correct bare forearms, sports uniform, head/hair/face and limbs. The character silhouettes currently connect across adjacent cells because stray hair alpha touches neighboring heads/feet. Make every character a completely separate opaque island with a thin genuinely TRANSPARENT 5-pixel gutter between it and any neighboring figure. Remove ONLY the tiny connecting stray flyaways / antialiasing bridges and off-character color residue. Do not erase ears, horns, head or feet; do not shift, enlarge, shrink or redesign any body. Leave all currently transparent areas alpha zero, and whole body interiors fully opaque. No background, glow, gradient, shadow or connected checkerboard texture. The result must contain TWELVE separate complete figures with clear alpha gaps, all short sleeves and shorts unchanged.",
+  "tool": "built-in image_gen",
+  "status": "not-selected-after-review",
+  "selected": false,
+  "measurementPixels": {
+    "hands": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      [
+        114,
+        963,
+        46
+      ],
+      [
+        482,
+        951,
+        46
+      ],
+      [
+        907,
+        967,
+        46
+      ],
+      [
+        1206,
+        953,
+        46
+      ]
+    ]
+  },
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-4e190ff2-3a21-4acd-8501-c93208a30a9e.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-08",
+    "passed": false,
+    "summary": "间隔修复未成功，仍连成一个大图块，保持不选用。",
+    "evidence": [
+      ".artifacts/sports-identity-review/gpt-touch-v3-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "36a24dd46264fe2806f10c08500741ac1002cfa7233d3f01e1ed3f1937527368",
+    "originalSha256": "600f0e86a63d6a8ae0997e22333e4a3121eaeb3ade496e81198c80fff211736a",
+    "comparisonFingerprint": "172d1c1235eb679e02462604c133e4cc2bd2cb0aa56e09f05eb2849ae556fd1c"
+  }
+}

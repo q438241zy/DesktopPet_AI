@@ -1,0 +1,34 @@
+{
+  "key": "grok-adult-club-v1",
+  "id": "grok-adult",
+  "style": "realistic",
+  "kind": "club",
+  "columns": 4,
+  "rows": 6,
+  "source": "artwork/sports-identity/grok-adult-club-v1.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/grok-adult/motions/cloud-club-original.png"
+  ],
+  "generationReferences": [
+    "src/DesktopPet.App/Assets/Characters/grok-adult/motions/cloud-club-original.png"
+  ],
+  "prompt": "Precise clothing-only EDIT of this original Grok photorealistic 3D ADULT woman with long adult legs action atlas. Keep EXACT source 1536x1024 canvas, all original figure positions, pose order, cell spacing and camera. Never repack or rescale figures to fill margins. Preserve original face and head SIZE, head-body ratio, shoulders, torso, hips, knees, ankles, feet and hand/wrist/finger positions in EVERY pose, including sitting, lying, leaning, bent knees or raised hands. This is clothing on the SAME person, no redesign, no doll anatomy, no larger head, no shorter or thicker legs. Preserve golden blonde flowing twin tails, blue eyes, black/gold ribbons and ringed-planet hair clip, all expressions and hair/ear/tail silhouettes and directions.\nReplace only old dress/apron, long sleeves, wrist cuffs, tights and boots with a WHITE zip-front school sports shirt with charcoal black upper-arm SHORT SLEEVES/shoulder panels, gold piping and small gray ringed planet chest motif; charcoal black athletic SHORTS ending well ABOVE knees with narrow white side stripes; white ankle socks and small white-gold low-top sneakers at the original ankle/sole positions. Keep neckline modest and zipped. Bare forearms, knees and lower legs. NO long sleeves, trousers, gloves or leftover wrist frills. Keep headband and hair accessories even if they are frilly. Keep original hand contacts and ALL existing props, fingers and gesture shapes; do not invent an extra ball, hammer, sparkle or particle.\nIMPORTANT: preserve the source's exact head and limb coordinates, original folded seated legs, original small margins at canvas edge, and full figure heights. No longer dangling seated legs and no shortening adult legs to fit a raised arm. Genuine transparent alpha outside characters and held objects. No painted backdrop, gradient, glow, grid, label or extra shadow. Preserve the original physical layout even if uneven. Keep all 8 counting-star gestures, 8 bubble bottle/wand poses, and 8 stretching poses. Preserve mouth-to-ring and hand-to-bottle contacts.",
+  "tool": "built-in image_gen",
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-584d3abf-0626-4ab0-bcae-22f91f8d4dc1.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-08",
+    "passed": true,
+    "summary": "逐帧对照原图，24帧数星/吹泡泡/伸懒腰的成年头身、长腿和手持道具保留；袖口在上臂，短裤膝上；泡泡圈坐标待测。",
+    "evidence": [
+      ".artifacts/sports-identity-review/grok-adult-club-v1-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "fd100a950a27b6430af267f88277831b8e9f46125cb2fef31b80a7c637394f63",
+    "originalSha256": "0e74629dbc765d16a8f6cc75a9f2781ec991392b1a8bf821f5e4a9dd229df808",
+    "comparisonFingerprint": "f35771f7190420abedb28c87b78d818b9d6b021772551d43de2c7af6dda5b021"
+  }
+}

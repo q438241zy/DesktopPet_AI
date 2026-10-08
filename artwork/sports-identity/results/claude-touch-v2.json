@@ -1,0 +1,70 @@
+{
+  "key": "claude-touch-v2",
+  "id": "claude",
+  "style": "chibi",
+  "kind": "touch",
+  "columns": 4,
+  "rows": 3,
+  "source": "artwork/sports-identity/claude-touch-v2.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/claude/motions/touch-continuity.png"
+  ],
+  "generationReferences": [
+    "src/DesktopPet.App/Assets/Characters/claude/motions/touch-continuity.png"
+  ],
+  "prompt": "Precise clothing-only EDIT of this original Claude Q/chibi original character action atlas. Keep EXACT source 1448x1086 canvas, all original figure positions, pose order, cell spacing and camera. Never repack or rescale figures to fill margins. Preserve original face and head SIZE, head-body ratio, shoulders, torso, hips, knees, ankles, feet and hand/wrist/finger positions in EVERY pose, including sitting, lying, leaning, bent knees or raised hands. This is clothing on the SAME person, no redesign, no doll anatomy, no larger head, no shorter or thicker legs. Preserve copper-orange hair, eyeglasses, warm brown eyes, sunflower hair clip and black ribbon, all expressions and hair/ear/tail silhouettes and directions.\nReplace only old dress/apron, long sleeves, wrist cuffs, tights and boots with a WHITE zip-front school sports shirt with chestnut brown upper-arm SHORT SLEEVES/shoulder panels, warm orange piping and small orange sun chest motif; chestnut brown athletic SHORTS ending well ABOVE knees with narrow white side stripes; white ankle socks and small white-orange low-top sneakers at the original ankle/sole positions. Keep neckline modest and zipped. Bare forearms, knees and lower legs. NO long sleeves, trousers, gloves or leftover wrist frills. Keep headband and hair accessories even if they are frilly. Keep original hand contacts and ALL existing props, fingers and gesture shapes; do not invent an extra ball, hammer, sparkle or particle.\nIMPORTANT: preserve the source's exact head and limb coordinates, original folded seated legs, original small margins at canvas edge, and full figure heights. No longer dangling seated legs and no shortening adult legs to fit a raised arm. Genuine transparent alpha outside characters and held objects. No painted backdrop, gradient, glow, grid, label or extra shadow. Keep clear genuine transparent gutters between all twelve figures; no hair touching neighboring faces or feet. Every arm bare from upper-arm sleeve to fingers, no old wrist cuff remains. CRITICAL: return EXACTLY 1448x1086 pixels, not 1447x1087. Preserve the original transparent gutters and source silhouette bounds. All 12 figure islands MUST remain disconnected, including between shoes and the ahoge in the next row; NO enlarging any head or hair volume. Every forearm from the short upper-arm sleeve to fingers MUST be continuous BARE SKIN, especially raised wrist poses. Remove old white frilly cuffs entirely; do not merely recolor them. Preserve original forward-facing seated soles, no dangling lower legs.",
+  "tool": "built-in image_gen",
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-47f90022-6861-4560-8b9e-fa491aa6c420.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-08",
+    "passed": true,
+    "summary": "十二帧头、眼镜、发饰与掌心姿势保持；裸前臂与短袖已分开。允许不足2px画布边缘取整，未拉伸或逐帧缩放，待原生验收。",
+    "evidence": [
+      ".artifacts/sports-identity-review/claude-touch-v2-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "8bf92502e83dccbd9636ef92712676d896db3bfca0b32de7ca44f25a2f22a38b",
+    "originalSha256": "f7910186e874ff16c894811d8cead575a24ef1a14700e9495c87287e4db9e46a",
+    "comparisonFingerprint": "8726c56e3839458fd6bf6f37861eef7041ad497364468087f4de98ec69fb357b"
+  },
+  "measurementPixels": {
+    "hands": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      [
+        129,
+        944,
+        46
+      ],
+      [
+        489,
+        944,
+        46
+      ],
+      [
+        838,
+        942,
+        46
+      ],
+      [
+        1204,
+        944,
+        46
+      ]
+    ]
+  },
+  "contactReview": {
+    "method": "assistant visual review of source-pixel marker crops",
+    "evidence": ".artifacts/sports-identity-review/claude-touch-v2-anchors.png"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "key": "claude-meal-v3",
+  "id": "claude",
+  "style": "chibi",
+  "kind": "meal",
+  "columns": 3,
+  "rows": 2,
+  "source": "artwork/sports-identity/claude-meal-v3.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/claude/motions/eat.webp"
+  ],
+  "generationReferences": [
+    "artwork/sports-identity/claude-meal-v1.png"
+  ],
+  "prompt": "Make ONE SMALL LOCAL EDIT only: in the BOTTOM-RIGHT sixth pose, replace only the old dark flower/collar at the neck with the tiny orange sun emblem and white high collar already worn by the first five poses. The target area is only the neck below the chin in the sixth pose. Do not modify anything outside that one tiny collar area. Preserve EVERY head, hair, body, hand, spoon, bowl, face, shoe and position exactly; same 1536x1024 canvas and existing transparency. Do not redraw, recenter, enlarge or normalize any figure.",
+  "tool": "built-in image_gen",
+  "status": "not-selected-after-review",
+  "selected": false,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-54f71d92-5980-4d45-94ee-9292d04eba11.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-08",
+    "passed": false,
+    "summary": "人物尺寸较首稿接近，但出现有色半透明背景块，不选用。",
+    "evidence": [
+      ".artifacts/sports-identity-review/claude-meal-v3-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "e78e1166fd3754549e7b2af4d532179a32a76adef129944c7f8826e33533673a",
+    "originalSha256": "b3de1044bc6cbf324841061d336e1dfa221f54d62cee0f538313070006468938",
+    "comparisonFingerprint": "aafaa21efafbb49035a38e4501eaba983bbad3a138ed2265b3ae5f06caea2e35"
+  }
+}

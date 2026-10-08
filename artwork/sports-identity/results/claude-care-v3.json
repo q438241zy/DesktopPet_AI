@@ -1,0 +1,35 @@
+{
+  "key": "claude-care-v3",
+  "id": "claude",
+  "style": "chibi",
+  "kind": "care",
+  "columns": 4,
+  "rows": 6,
+  "source": "artwork/sports-identity/claude-care-v3.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/claude/motions/cloud-care-wardrobe.png"
+  ],
+  "generationReferences": [
+    "src/DesktopPet.App/Assets/Characters/claude/motions/cloud-care-wardrobe.png",
+    "artwork/sports-identity/claude-care-v2.png"
+  ],
+  "prompt": "Important precision repair: use the original first reference as the edit target. Retain original CRISP linework, head sizes, source positions and orange-brown hair rendering. Do NOT soften, blur, repaint faces, stretch or enlarge. Edit only the top two rows to the approved short-sleeve chestnut/white sports shirt, above-knee shorts and original-position small white-orange sneakers, bare forearms. Keep the brown hairbrush held horizontally in BOTH the first and fourth top-row poses. Keep a clearly visible cream square towel in BOTH first and last second-row poses, and touching her cheek in the two middle wiping poses. No old wrist cuffs. The second reference supplies sports COLORS ONLY; do not copy its blurred rendering or layout. Lower four rows are unused; keep them as in original. Transparent background.",
+  "tool": "built-in image_gen",
+  "status": "not-selected-after-review",
+  "selected": false,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-ba65c9dc-fed0-46b4-933a-d9d18ebc8f65.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-08",
+    "passed": false,
+    "summary": "原生运行发现脚下混入相邻帧发丝；自动检查通过不构成美术验收，改用透明边缘修订稿。",
+    "evidence": [
+      ".artifacts/sports-identity-review/claude-care-v3-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "a4256793e4ad2a108b26205b46650764737045e70759e2d11824416cfc8da5b7",
+    "originalSha256": "174b482f491cd6657113a82798f37463e5745fa0d9f0ed624cf16410a4aad70e",
+    "comparisonFingerprint": "0521f1302858ed736422e7f03a98f8c6e15b36df7c23a86e76cc09253bb95e2e"
+  }
+}

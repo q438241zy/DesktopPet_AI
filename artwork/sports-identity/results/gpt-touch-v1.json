@@ -19,7 +19,7 @@
   "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-a9918e74-1622-4fc6-93bb-61939f0ca995.png",
   "visualReview": {
     "reviewer": "assistant",
-    "date": "2026-10-07",
+    "date": "2026-10-08",
     "passed": false,
     "summary": "第2、3、5、6、7帧残留旧衣服白色前臂袖口，需去除并保留原手势。",
     "evidence": [
@@ -29,6 +29,6 @@
     "runtimeVerified": false,
     "candidateSha256": "62473bb93ec1167b9a2a69ca3984819de373a0dc8fd1e6605fb0d091be1f41a4",
     "originalSha256": "600f0e86a63d6a8ae0997e22333e4a3121eaeb3ade496e81198c80fff211736a",
-    "comparisonFingerprint": "2ddf8ae61599fb8452947cdb7f843f93a619f9f1fa4f8df29d6e0c3161969f96"
+    "comparisonFingerprint": "c90da2b84033c8ddc687d581da55f05fd860a80b55538f15fd500287a101fc6a"
   }
 }

@@ -14,7 +14,21 @@
   ],
   "prompt": "Precise small-area EDIT of the FIRST attached sprite sheet. Preserve its canvas dimensions, all figure positions, exact head sizes, identity, silver/lavender hair, horns, ears, hair ornament, facial expressions, existing short-sleeve emerald/white sports shirt and above-knee shorts. Do not resize or shift figures. Keep genuine transparent alpha outside figures, no background or glow. This atlas is 4 columns by 6 rows. Correct ONLY props and hand pose in ROW TWO (the second row from the top), the sports wiping sequence. The four figures must hold the SAME soft pale cream folded face towel throughout: column 1 holds folded towel above lap; column 2 gently presses towel to her cheek (already right); column 3 wipes opposite cheek or mouth with that towel (REMOVE the wrong brown brush completely); column 4 lowers folded towel to lap (already right). Keep ROW ONE's brown hairbrush and all four brushing poses unchanged. Keep all remaining rows 3-6 unchanged and separate. No extra towels floating outside hands. Preserve same face, head, body and legs.",
   "tool": "built-in image_gen",
-  "status": "generated-awaiting-visual-review",
-  "selected": false,
-  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-938a74f7-bfd4-48bc-8a35-f0b8cc721045.png"
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-938a74f7-bfd4-48bc-8a35-f0b8cc721045.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-08",
+    "passed": true,
+    "summary": "运动服擦脸四帧均使用同一毛巾，梳头四帧仍为梳子；仅采用上方八帧。",
+    "evidence": [
+      ".artifacts/sports-identity-review/gpt-care-v2-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "f38ad6582b83d847564b400f4735b52e7f9a59b9cc5d27573f6b6af59ef9c5c5",
+    "originalSha256": "9af504572679ff0738cb797bbca54f9d230f2688a2cdf96f96cc077ff43aaf35",
+    "comparisonFingerprint": "a8ff77ac64c64f15121ba2877fddce70e0a04f9a3fd8d587e36a424375f98da1"
+  }
 }

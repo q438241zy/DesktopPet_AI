@@ -1,0 +1,34 @@
+{
+  "key": "gemini-care-v2",
+  "id": "gemini",
+  "style": "chibi",
+  "kind": "care",
+  "columns": 4,
+  "rows": 6,
+  "source": "artwork/sports-identity/gemini-care-v2.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/gemini/motions/cloud-care-wardrobe.png"
+  ],
+  "generationReferences": [
+    "src/DesktopPet.App/Assets/Characters/gemini/motions/cloud-care-wardrobe.png"
+  ],
+  "prompt": "Precise clothing-only EDIT of this original Gemini Q/chibi original character action atlas. Keep EXACT source 1024x1536 canvas, all original figure positions, pose order, cell spacing and camera. Never repack or rescale figures to fill margins. Preserve original face and head SIZE, head-body ratio, shoulders, torso, hips, knees, ankles, feet and hand/wrist/finger positions in EVERY pose, including sitting, lying, leaning, bent knees or raised hands. This is clothing on the SAME person, no redesign, no doll anatomy, no larger head, no shorter or thicker legs. Preserve blue-purple gradient hair, cat ears, pink and gold heterochromatic eyes, star hair clip and purple cat tail, all expressions and hair/ear/tail silhouettes and directions.\nReplace only old dress/apron, long sleeves, wrist cuffs, tights and boots with a WHITE zip-front school sports shirt with navy upper-arm SHORT SLEEVES/shoulder panels, violet piping and small violet four-point star chest motif; navy athletic SHORTS ending well ABOVE knees with narrow white side stripes; white ankle socks and small white-blue-violet low-top sneakers at the original ankle/sole positions. Keep neckline modest and zipped. Bare forearms, knees and lower legs. NO long sleeves, trousers, gloves or leftover wrist frills. Keep headband and hair accessories even if they are frilly. Keep original hand contacts and ALL existing props, fingers and gesture shapes; do not invent an extra ball, hammer, sparkle or particle.\nIMPORTANT: preserve the source's exact head and limb coordinates, original folded seated legs, original small margins at canvas edge, and full figure heights. No longer dangling seated legs and no shortening adult legs to fit a raised arm. Genuine transparent alpha outside characters and held objects. No painted backdrop, gradient, glow, grid, label or extra shadow. Edit ONLY the first TWO rows (8 care poses) to sportswear. The lower FOUR rows show other outfits and must remain unchanged; these lower rows will not be used for sports. Keep cream face towels held in BOTH the opening and closing wipe poses, as well as against the cheek; do not mistake the towel for a sleeve. Keep the hairbrush. Original reference is the ONLY pose and coordinate authority. Keep every original head top, chin, hip, knee, ankle and sole at the same source position. Preserve deliberately smaller source poses. Wherever the original seated boots show SOLES toward the camera, the new sneaker SOLES must face the camera too, with the same foreshortened shins; do not replace this with a dangling-leg or toes-up pose. Preserve crossed arms, bent elbows and each individual finger gesture exactly. Changing clothing must not turn a sequence into repeated hands-in-lap poses.\nPRECISION CORRECTION: Only TOP TWO ROWS, eight poses, change to sportswear. Preserve lower four rows original. Top row frames 1 and 4 must both visibly HOLD the ORIGINAL brown hairbrush horizontally in their hands, never empty hands. Row2 frames1 and4 both HOLD a cream square TOWEL; row2middle2 touch the cheek with same towel. Keep original hair positions, short folded seated shins and forward-facing sneaker sole tread. No wrist cuffs. Original reference is the ONLY pose and coordinate authority. Keep every original head top, chin, hip, knee, ankle and sole at the same source position. Preserve deliberately smaller source poses. Wherever the original seated boots show SOLES toward the camera, the new sneaker SOLES must face the camera too, with the same foreshortened shins; do not replace this with a dangling-leg or toes-up pose. Preserve crossed arms, bent elbows and each individual finger gesture exactly. Changing clothing must not turn a sequence into repeated hands-in-lap poses.",
+  "tool": "built-in image_gen",
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-90f67ae7-bed9-4357-b8e5-748836b72c6f.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-08",
+    "passed": true,
+    "summary": "前8帧梳子与毛巾起止姿势、脸颊接触已恢复；仅这8帧用于运动服，后16帧不接入。",
+    "evidence": [
+      ".artifacts/sports-identity-review/gemini-care-v2-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "197f0858a1edbf5f517d3a7b64724325543280c1f101ac1161dab82d792fa65c",
+    "originalSha256": "e9d84a3fbb26a5ad5096714c2c8d2c54671ce492c3c7630b0e316e11e915f04c",
+    "comparisonFingerprint": "50cd8ea301403c8af87988614fe5742b3e6a8d090316595719aaa661b2a263e9"
+  }
+}

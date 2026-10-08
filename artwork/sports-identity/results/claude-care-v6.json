@@ -1,0 +1,34 @@
+{
+  "key": "claude-care-v6",
+  "id": "claude",
+  "style": "chibi",
+  "kind": "care",
+  "columns": 4,
+  "rows": 6,
+  "source": "artwork/sports-identity/claude-care-v6.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/claude/motions/cloud-care-wardrobe.png"
+  ],
+  "generationReferences": [
+    "src/DesktopPet.App/Assets/Characters/claude/motions/cloud-care-wardrobe.png"
+  ],
+  "prompt": "Precise CLOTHING ONLY edit of the ORIGINAL Claude chibi care atlas, EXACT 1024x1536 and 4 columns x 6 rows. Edit ONLY the TOP EIGHT figures (rows 1 and 2). Keep rows 3–6 exactly unchanged. Preserve original face/head sizes, orange hair loops, glasses, sun clip and black ribbons. Change brown dress and sleeves to a white zip-front sports shirt with brown upper-arm SHORT SLEEVES, orange piping/sun emblem and brown ABOVE-KNEE SHORTS with white side stripes. Remove wrist cuffs entirely, keep bare forearms. Most important: preserve ORIGINAL SEATED LEG AND FOOT POSE. All top 8 original black boot SOLES face FORWARD at the camera; replace with small white/orange sneaker SOLES facing forward, exactly the same boot silhouettes and sole coordinates. Do NOT draw top-view laces or drooping feet. Do NOT extend legs downward. Row 1 sole bottoms stay at y=240; row 2 sole bottoms at y=485. Original top-of-head/hair and all joint locations unchanged, no resizing/normalization of any frame. Keep original hairbrush held across lap in row1 frames1/4 and at head/hair in frames2/3. Keep original CREAM TOWEL in all four row2 frames, held in lap at start/end and against cheeks in middle. No towel disappears. Make genuine transparent alpha outside each complete figure/props with clear alpha-zero gaps between adjacent rows; NO colored matte, background, gradient or shadow.",
+  "tool": "built-in image_gen",
+  "status": "not-selected-after-review",
+  "selected": false,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-e51ed044-f690-44fd-a224-00256df2a0ae.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-08",
+    "passed": false,
+    "summary": "鞋底已回到原位置，但还残留裙边与腕袖，由v7清理。",
+    "evidence": [
+      ".artifacts/sports-identity-review/claude-care-v6-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "d590528cb838c33038a0288efe1d26b0ae6fc383eb7eecd8956fe9cb91565a9c",
+    "originalSha256": "174b482f491cd6657113a82798f37463e5745fa0d9f0ed624cf16410a4aad70e",
+    "comparisonFingerprint": "b818ce893347c3348a4f40347afe833fdcee8b906f939f277e8969fa0e33a782"
+  }
+}

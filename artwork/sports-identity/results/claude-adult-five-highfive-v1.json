@@ -1,0 +1,34 @@
+{
+  "key": "claude-adult-five-highfive-v1",
+  "id": "claude-adult",
+  "style": "realistic",
+  "kind": "five-highfive",
+  "columns": 4,
+  "rows": 1,
+  "source": "artwork/sports-identity/claude-adult-five-highfive-v1.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/claude-adult/interactions/original/claude-adult-original-highfive-v1.png"
+  ],
+  "generationReferences": [
+    "src/DesktopPet.App/Assets/Characters/claude-adult/interactions/original/claude-adult-original-highfive-v1.png"
+  ],
+  "prompt": "Precise clothing-only EDIT of this original Claude photorealistic 3D ADULT woman with long adult legs action atlas. Keep EXACT source 1881x836 canvas, all original figure positions, pose order, cell spacing and camera. Never repack or rescale figures to fill margins. Preserve original face and head SIZE, head-body ratio, shoulders, torso, hips, knees, ankles, feet and hand/wrist/finger positions in EVERY pose, including sitting, lying, leaning, bent knees or raised hands. This is clothing on the SAME person, no redesign, no doll anatomy, no larger head, no shorter or thicker legs. Preserve copper-orange hair, eyeglasses, warm brown eyes, sunflower hair clip and black ribbon, all expressions and hair/ear/tail silhouettes and directions.\nReplace only old dress/apron, long sleeves, wrist cuffs, tights and boots with a WHITE zip-front school sports shirt with chestnut brown upper-arm SHORT SLEEVES/shoulder panels, warm orange piping and small orange sun chest motif; chestnut brown athletic SHORTS ending well ABOVE knees with narrow white side stripes; white ankle socks and small white-orange low-top sneakers at the original ankle/sole positions. Keep neckline modest and zipped. Bare forearms, knees and lower legs. NO long sleeves, trousers, gloves or leftover wrist frills. Keep headband and hair accessories even if they are frilly. Keep original hand contacts and ALL existing props, fingers and gesture shapes; do not invent an extra ball, hammer, sparkle or particle.\nIMPORTANT: preserve the source's exact head and limb coordinates, original folded seated legs, original small margins at canvas edge, and full figure heights. No longer dangling seated legs and no shortening adult legs to fit a raised arm. Genuine transparent alpha outside characters and held objects. No painted backdrop, gradient, glow, grid, label or extra shadow.",
+  "tool": "built-in image_gen",
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-c4e47ad7-1be1-479e-ae51-db1e8c5ef6de.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-08",
+    "passed": true,
+    "summary": "四帧抬掌、向前击掌、回落与原图对应，头身比例和长腿保持；1px画布取整只用单一等比倍率。",
+    "evidence": [
+      ".artifacts/sports-identity-review/claude-adult-five-highfive-v1-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "934df598e8649af490fe3ae84314296ce62779430ab2e2e68dfcdd06a2ffbe72",
+    "originalSha256": "d7b500a58e5b8f6b26cd7bd759c53841fc87cd03de5e28874625a8e4c1c02577",
+    "comparisonFingerprint": "bc03dce21891cbf63b1930522da4354077e2ccd7fe64d1ac94c0cbb8c65bd280"
+  }
+}

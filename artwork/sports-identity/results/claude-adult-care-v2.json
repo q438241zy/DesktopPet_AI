@@ -1,0 +1,34 @@
+{
+  "key": "claude-adult-care-v2",
+  "id": "claude-adult",
+  "style": "realistic",
+  "kind": "care",
+  "columns": 4,
+  "rows": 2,
+  "source": "artwork/sports-identity/claude-adult-care-v2.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/claude-adult/motions/cloud-care-original.png"
+  ],
+  "generationReferences": [
+    "artwork/sports-identity/claude-adult-care-v1.png"
+  ],
+  "prompt": "Local prop repair ONLY in figure 5 (bottom row left, first wiping pose) of this 4-column 2-row atlas. She must hold the SAME small cream/white square face towel visible in figure 8 between her two fingertips at chest height, with a visible cloth outline and soft folds. Her hands are holding a cloth, NOT pinching the zipper. Keep the remaining seven figures unchanged. Preserve all faces, heads, full legs, foot coordinates and canvas. No extra hands. Transparent background.",
+  "tool": "built-in image_gen",
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-de5db193-31a9-4d41-9364-a830c9702e04.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-08",
+    "passed": true,
+    "summary": "擦脸首帧补回完整毛巾，四帧手持与贴脸一致；原头身及长腿位置保持。",
+    "evidence": [
+      ".artifacts/sports-identity-review/claude-adult-care-v2-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "2aba68fa6104fd86ed01ef4e5d9a5d4224ae1127f81cc912859b51635f2a7f3a",
+    "originalSha256": "d4d6bec287048484c858e3db73e5da73cb3f2731e66b648a2d387b089dc5da0b",
+    "comparisonFingerprint": "950c7f7416614a0d648d62411a61d90d117adb3da61eb5da8218a5ac00d12dd5"
+  }
+}

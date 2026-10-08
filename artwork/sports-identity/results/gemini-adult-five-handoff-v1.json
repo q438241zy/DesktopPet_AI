@@ -1,0 +1,34 @@
+{
+  "key": "gemini-adult-five-handoff-v1",
+  "id": "gemini-adult",
+  "style": "realistic",
+  "kind": "five-handoff",
+  "columns": 4,
+  "rows": 1,
+  "source": "artwork/sports-identity/gemini-adult-five-handoff-v1.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/gemini-adult/interactions/original/gemini-adult-original-handoff-v1.png"
+  ],
+  "generationReferences": [
+    "src/DesktopPet.App/Assets/Characters/gemini-adult/interactions/original/gemini-adult-original-handoff-v1.png"
+  ],
+  "prompt": "Precise clothing-only EDIT of this original Gemini photorealistic 3D ADULT woman with long adult legs action atlas. Keep EXACT source 2172x724 canvas, all original figure positions, pose order, cell spacing and camera. Never repack or rescale figures to fill margins. Preserve original face and head SIZE, head-body ratio, shoulders, torso, hips, knees, ankles, feet and hand/wrist/finger positions in EVERY pose, including sitting, lying, leaning, bent knees or raised hands. This is clothing on the SAME person, no redesign, no doll anatomy, no larger head, no shorter or thicker legs. Preserve blue-purple gradient hair, cat ears, pink and gold heterochromatic eyes, star hair clip and purple cat tail, all expressions and hair/ear/tail silhouettes and directions.\nReplace only old dress/apron, long sleeves, wrist cuffs, tights and boots with a WHITE zip-front school sports shirt with navy upper-arm SHORT SLEEVES/shoulder panels, violet piping and small violet four-point star chest motif; navy athletic SHORTS ending well ABOVE knees with narrow white side stripes; white ankle socks and small white-blue-violet low-top sneakers at the original ankle/sole positions. Keep neckline modest and zipped. Bare forearms, knees and lower legs. NO long sleeves, trousers, gloves or leftover wrist frills. Keep headband and hair accessories even if they are frilly. Keep original hand contacts and ALL existing props, fingers and gesture shapes; do not invent an extra ball, hammer, sparkle or particle.\nIMPORTANT: preserve the source's exact head and limb coordinates, original folded seated legs, original small margins at canvas edge, and full figure heights. No longer dangling seated legs and no shortening adult legs to fit a raised arm. Genuine transparent alpha outside characters and held objects. No painted backdrop, gradient, glow, grid, label or extra shadow.",
+  "tool": "built-in image_gen",
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-576bd1d2-ad5a-4a82-9350-9559e79a1afe.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-08",
+    "passed": true,
+    "summary": "保留递礼物及拆礼物的手部和道具位置、交叉腿姿势与足底。",
+    "evidence": [
+      ".artifacts/sports-identity-review/gemini-adult-five-handoff-v1-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "dc6db63ff1314c767fc706efc9af38dc5a9b768b31b166d2b68bfc3e171b4bf2",
+    "originalSha256": "d89e9a642dc12e22607c2861c5cb8f0ab7c6b8dfde92a0177f4f48ff118e554a",
+    "comparisonFingerprint": "5435981ed77bd4aabff48e36797d9fdeaba5ff551fa49ca93ec749bbd19be2e6"
+  }
+}

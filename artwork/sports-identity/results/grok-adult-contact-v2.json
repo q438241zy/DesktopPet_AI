@@ -1,0 +1,35 @@
+{
+  "key": "grok-adult-contact-v2",
+  "id": "grok-adult",
+  "style": "realistic",
+  "kind": "contact",
+  "columns": 3,
+  "rows": 3,
+  "source": "artwork/sports-identity/grok-adult-contact-v2.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/grok-adult/motions/contact.png",
+    "artwork/sports-identity/grok-adult-contact-v1.png"
+  ],
+  "generationReferences": [
+    "artwork/sports-identity/grok-adult-contact-v1.png"
+  ],
+  "prompt": "Precise local clothing correction of the attached sportswear atlas, preserve everything except the specified old sleeve remnants. In row 3 column 1 (the woman reaching both hands toward viewer), both outstretched arms still have BLACK LONG SLEEVES and WHITE CUFFS. Replace those with BARE natural skin from wrists through forearms to elbows, with short charcoal sleeves ending on upper arms only. Preserve all 10 fingers and their original coordinates. Keep all eight other poses exactly unchanged. Preserve exact mature head size, hair, face, torso, long legs, knee and ankle coordinates, above-knee shorts, sneakers, original full canvas and all figure sizes. Do not redraw the character or resize figures. Transparent alpha background.",
+  "tool": "built-in image_gen",
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-6e1edb73-6040-4fa5-aaae-6b3cecd8c747.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-08",
+    "passed": true,
+    "summary": "9帧原图共同缩放对照已查看。双手前伸的旧长袖/白袖口已清除，成年头身与膝踝位置、食物/碗/勺及手嘴接触保留。",
+    "evidence": [
+      ".artifacts/sports-identity-review/grok-adult-contact-v2-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "e3db7f2815734f99d676a6a3f657346670a648f1c1416e55cc787f57f67325f8",
+    "originalSha256": "7bd7b427ef40f3125fe28f7805c93005395338f08ee3739af5410860e01ceb76",
+    "comparisonFingerprint": "fd2c951597bbe3a957115e08190bbef45e187818cf05db2489e83cc7ca4f0dd6"
+  }
+}

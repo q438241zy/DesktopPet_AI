@@ -1,0 +1,35 @@
+{
+  "key": "gpt-eat-v4",
+  "id": "gpt",
+  "style": "chibi",
+  "kind": "eat",
+  "columns": 4,
+  "rows": 2,
+  "source": "artwork/sports-identity/gpt-eat-v4.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/gpt/motions/snack-continuity.png"
+  ],
+  "generationReferences": [
+    "src/DesktopPet.App/Assets/Characters/gpt/motions/snack-continuity.png",
+    "artwork/sports-identity/gpt-eat-v3.png"
+  ],
+  "prompt": "CLOTHING ONLY EDIT of FIRST attachment, the ORIGINAL 1536x1024 GPT seated cookie sprite sheet (4 columns x 2 rows). Preserve this FIRST sheet's EXACT anatomy and figure pixels: same face and head size, hair, hands, cookie, hip line, bent knees and forward-facing shoe soles at their original height. Do not copy the second sheet's elongated torso/legs: it is ONLY a green-white sports UNIFORM reference. Replace ONLY the original white dress, long sleeves and boots with the second reference's white zip-front school sports shirt with green upper-arm short sleeves, tiny green knot chest logo, green athletic shorts ending above knees, white ankle socks and green-white low-top sneakers. Keep the seat and knees in their ORIGINAL FIRST-image locations. In top row the entire soles must stay at y=470 (not y=500) and shorts waist at y=410; lower row soles at y=950 (not y=980). Keep hair and ahoge at original y positions. Soles face viewer exactly like original boots; do not lengthen the torso, dangle shins or add extra vertical height for sneakers. Bare forearms but exact original hand/cookie contacts. Do NOT enlarge heads or shrink figures. Keep 8 poses and original layout unchanged. Real transparent alpha background, no painted gradient or glow.",
+  "tool": "built-in image_gen",
+  "status": "not-selected-after-review",
+  "selected": false,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-af08efe2-91fb-4dac-88fb-45cc7ed0df97.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-08",
+    "passed": false,
+    "summary": "再次放大头部与坐姿整体，继续保留已选用的v3。",
+    "evidence": [
+      ".artifacts/sports-identity-review/gpt-eat-v4-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "75155a9b299380ed1e0d60b28fbe0e8f203db7d0c18f8934c19807ff89756f1a",
+    "originalSha256": "3c70a6eceb2cbd5f76a559cc7d2a9ef8b455cf7cac630ccf34e3f141b451737e",
+    "comparisonFingerprint": "5bcc87fcc511c952b566085c3b7643a5b8ec34690587fcb4a6cc40d087e16128"
+  }
+}

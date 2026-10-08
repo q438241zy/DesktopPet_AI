@@ -66,6 +66,44 @@ internal static class PolishVerification
         Require(Alpha(fringeRight,55,20)==255 && Alpha(fringeRight,5,20)==0,"both sides of a faint bridge retain only their own figure");
         Require(!ReferenceEquals(fringeLeft,pet.Art.Frame(fixtureCharacter,fringeClip with { SeparationAlpha=48 },0)),"alpha separation settings have independent cached frames");
         Require(fringeBytes.SequenceEqual(File.ReadAllBytes(fringePath)),"soft-edge isolation leaves source bytes unchanged");
+        // Generated alpha mattes may stop just below 255 even inside a figure.
+        // High seeds must separate a dense fringe and keep its original alpha.
+        var denseVisual=new DrawingVisual();
+        using(var dc=denseVisual.RenderOpen())
+        {
+            dc.DrawRectangle(new SolidColorBrush(Color.FromArgb(246,0,128,0)),null,new Rect(20,16,60,8));
+            dc.DrawRectangle(new SolidColorBrush(Color.FromArgb(253,0,128,0)),null,new Rect(10,10,20,20));
+            dc.DrawRectangle(new SolidColorBrush(Color.FromArgb(253,0,0,255)),null,new Rect(70,10,20,20));
+        }
+        var denseBitmap=new RenderTargetBitmap(100,40,96,96,PixelFormats.Pbgra32);denseBitmap.Render(denseVisual);
+        var densePng=new PngBitmapEncoder();densePng.Frames.Add(BitmapFrame.Create(denseBitmap));
+        string densePath=Path.Combine(output,"dense-cell-ownership.png");using(var file=File.Create(densePath))densePng.Save(file);
+        byte[] denseBytes=File.ReadAllBytes(densePath);
+        var denseClip=fringeClip with { File="dense-cell-ownership.png", SeparationAlpha=252 };
+        var denseLeft=pet.Art.Frame(fixtureCharacter,denseClip,0);var denseRight=pet.Art.Frame(fixtureCharacter,denseClip,1);
+        Require(Alpha(denseLeft,20,12)>=252&&Alpha(denseLeft,75,20)==0,"near-opaque seeds keep the first figure without its neighbour");
+        Require(Alpha(denseRight,55,12)>=252&&Alpha(denseRight,5,20)==0,"near-opaque seeds keep the second figure without its neighbour");
+        Require(Alpha(denseLeft,35,20)==246&&Alpha(denseRight,45,20)==246,"dense fringe alpha is preserved rather than thresholded away");
+        Require(denseBytes.SequenceEqual(File.ReadAllBytes(densePath)),"dense-fringe isolation preserves original image bytes");
+        // The lower figure's translucent curl is nearer the upper figure's foot
+        // across a faint matte, but connected to its own opaque head by dense hair.
+        var curlVisual=new DrawingVisual();
+        using(var dc=curlVisual.RenderOpen())
+        {
+            dc.DrawRectangle(new SolidColorBrush(Color.FromArgb(4,0,0,255)),null,new Rect(10,8,12,54));
+            dc.DrawRectangle(new SolidColorBrush(Color.FromArgb(240,0,0,255)),null,new Rect(10,14,12,50));
+            dc.DrawRectangle(Brushes.Green,null,new Rect(10,0,12,10));
+            dc.DrawRectangle(Brushes.Blue,null,new Rect(10,55,12,20));
+        }
+        var curlBitmap=new RenderTargetBitmap(40,80,96,96,PixelFormats.Pbgra32);curlBitmap.Render(curlVisual);
+        var curlPng=new PngBitmapEncoder();curlPng.Frames.Add(BitmapFrame.Create(curlBitmap));
+        string curlPath=Path.Combine(output,"row-curl-ownership.png");using(var file=File.Create(curlPath))curlPng.Save(file);
+        byte[] curlBytes=File.ReadAllBytes(curlPath);
+        var curlClip=new Sprite("row-curl-ownership.png",1,2,Cells:[new(0,0,40,45),new(0,12,40,68)],IsolateCells:true,SeparationAlpha:252);
+        var curlUpper=pet.Art.Frame(fixtureCharacter,curlClip,0);var curlLower=pet.Art.Frame(fixtureCharacter,curlClip,1);
+        Require(Alpha(curlUpper,15,16)==0,"the upper frame cannot steal the next row's translucent hair curl");
+        Require(Alpha(curlLower,15,4)>=240,"the lower frame retains its complete translucent curl");
+        Require(curlBytes.SequenceEqual(File.ReadAllBytes(curlPath)),"row isolation preserves original PNG bytes");
         void Save(BitmapSource bitmap, string file)
         {
             var png = new PngBitmapEncoder(); png.Frames.Add(BitmapFrame.Create(bitmap));

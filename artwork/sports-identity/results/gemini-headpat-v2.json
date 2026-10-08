@@ -1,0 +1,34 @@
+{
+  "key": "gemini-headpat-v2",
+  "id": "gemini",
+  "style": "chibi",
+  "kind": "headpat",
+  "columns": 3,
+  "rows": 2,
+  "source": "artwork/sports-identity/gemini-headpat-v2.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/gemini/motions/headpat.webp"
+  ],
+  "generationReferences": [
+    "src/DesktopPet.App/Assets/Characters/gemini/motions/headpat.webp"
+  ],
+  "prompt": "Precise clothing-only EDIT of this original Gemini Q/chibi original character action atlas. Keep EXACT source 1536x1024 canvas, all original figure positions, pose order, cell spacing and camera. Never repack or rescale figures to fill margins. Preserve original face and head SIZE, head-body ratio, shoulders, torso, hips, knees, ankles, feet and hand/wrist/finger positions in EVERY pose, including sitting, lying, leaning, bent knees or raised hands. This is clothing on the SAME person, no redesign, no doll anatomy, no larger head, no shorter or thicker legs. Preserve blue-purple gradient hair, cat ears, pink and gold heterochromatic eyes, star hair clip and purple cat tail, all expressions and hair/ear/tail silhouettes and directions.\nReplace only old dress/apron, long sleeves, wrist cuffs, tights and boots with a WHITE zip-front school sports shirt with navy upper-arm SHORT SLEEVES/shoulder panels, violet piping and small violet four-point star chest motif; navy athletic SHORTS ending well ABOVE knees with narrow white side stripes; white ankle socks and small white-blue-violet low-top sneakers at the original ankle/sole positions. Keep neckline modest and zipped. Bare forearms, knees and lower legs. NO long sleeves, trousers, gloves or leftover wrist frills. Keep headband and hair accessories even if they are frilly. Keep original hand contacts and ALL existing props, fingers and gesture shapes; do not invent an extra ball, hammer, sparkle or particle.\nIMPORTANT: preserve the source's exact head and limb coordinates, original folded seated legs, original small margins at canvas edge, and full figure heights. No longer dangling seated legs and no shortening adult legs to fit a raised arm. Genuine transparent alpha outside characters and held objects. No painted backdrop, gradient, glow, grid, label or extra shadow. Original reference is the ONLY pose and coordinate authority. Source global frame bounds (left,top,right,bottom) are [[73, 57, 456, 448], [576, 60, 962, 448], [1082, 66, 1469, 448], [61, 575, 456, 960], [565, 574, 965, 960], [1089, 570, 1478, 959]]. Keep every original head top, chin, hip, knee, ankle and sole at the same source position. Preserve deliberately smaller source poses. Wherever the original seated boots show SOLES toward the camera, the new sneaker SOLES must face the camera too, with the same foreshortened shins; do not replace this with a dangling-leg or toes-up pose. Preserve crossed arms, bent elbows and each individual finger gesture exactly. Changing clothing must not turn a sequence into repeated hands-in-lap poses. Crucial: trace original bent legs, boot sole planes and exposed hand silhouettes. No forward dangling knees, no front laces replacing shoe sole tread. Reveal the original anatomy formerly hidden inside the dress, without moving or enlarging it.",
+  "tool": "built-in image_gen",
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-8c7c14e8-6dd6-4d70-8888-6d198a22931d.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-08",
+    "passed": true,
+    "summary": "逐帧对照六姿势，保留闭眼与双手托脸，坐姿鞋底朝前，短袖短裤。",
+    "evidence": [
+      ".artifacts/sports-identity-review/gemini-headpat-v2-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "511481d8c87db25bf023075a7a67926411fd433a8c5f7efbad64db5ac57442bf",
+    "originalSha256": "1760c121041ad331b3e0c654ad996d6003aa1d0a6c1c273c800d6722aa0e6b83",
+    "comparisonFingerprint": "65d8ea7b2365b0c0494aea091a4a8fcd0a78219e10317237e84bbfd9b73469f3"
+  }
+}

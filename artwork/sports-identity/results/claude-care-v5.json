@@ -1,0 +1,34 @@
+{
+  "key": "claude-care-v5",
+  "id": "claude",
+  "style": "chibi",
+  "kind": "care",
+  "columns": 4,
+  "rows": 6,
+  "source": "artwork/sports-identity/claude-care-v5.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/claude/motions/cloud-care-wardrobe.png"
+  ],
+  "generationReferences": [
+    "artwork/sports-identity/claude-care-v4.png"
+  ],
+  "prompt": "Extract the existing 24 character cutouts from this exact 1024x1536, 4-column 6-row sheet. Keep EXACT canvas size, ALL 24 original positions, character sizes, orange hair and loop above each head, glasses, clothes, brush/towel props and poses. Make ALL space outside each person's own complete silhouette PURE ALPHA ZERO, especially the narrow gap between the sneakers of row 1 and the hair loop of row 2, and between sneakers of row 2 and the hair loop of row 3. Do NOT paint any background color, gradient, glow, ground shadow or translucent matte. Do NOT connect a shoe above to a hair loop below. Do NOT add a tiny orange hair curl below a person's shoes; that curl belongs only to the NEXT character's head. Keep the top two rows in their existing white-and-brown short-sleeve shirt and shorts; remaining outfits unchanged. Precisely clean up transparency edges, no redesign, no rescaling, no body repaint.",
+  "tool": "built-in image_gen",
+  "status": "not-selected-after-review",
+  "selected": false,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-ee81cad5-a032-4a64-be47-18a0dc0c7eec.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-08",
+    "passed": false,
+    "summary": "实际渲染发现脚下混入下一行发丝；新鞋底位置偏低造成与下一行发环重叠，单独透明修订不能解决，退回原图修正坐姿鞋底。",
+    "evidence": [
+      ".artifacts/sports-identity-review/claude-care-v5-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "a3848749c9041f1cffdbb1af22b5af9620f59840ac9cf149f9b352894be75406",
+    "originalSha256": "174b482f491cd6657113a82798f37463e5745fa0d9f0ed624cf16410a4aad70e",
+    "comparisonFingerprint": "00e6331750c49d887abba8e596c146418d638d64e7450d214fbba68336537035"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "key": "claude-care-v7",
+  "id": "claude",
+  "style": "chibi",
+  "kind": "care",
+  "columns": 4,
+  "rows": 6,
+  "source": "artwork/sports-identity/claude-care-v7.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/claude/motions/cloud-care-wardrobe.png"
+  ],
+  "generationReferences": [
+    "artwork/sports-identity/claude-care-v6.png"
+  ],
+  "prompt": "Local garment cleanup only. Exact same 1024x1536, 24 figures at identical positions, sizes, and poses. Change only the TOP EIGHT figures. Preserve their new orange sneaker SOLES facing directly toward the camera; keep the feet at exactly the same coordinates (bottoms y244 and y489). Preserve heads, orange hair loops, glasses, hair ornaments, brush and towel in all existing hand contacts. Replace leftover frilly wrist cuffs on ALL top eight figures with natural BARE WRISTS. Remove remaining skirt/frilly hem around thighs; replace ONLY that cloth with brown above-knee athletic SHORTS with simple white side stripes and small bare knees. No skirt, lace or ruffles on their sports clothing. Keep existing white zipped shirt, brown upper-arm short sleeves and orange sun motif. DO NOT change head accessories or the cloth face TOWEL props. DO NOT touch the sixteen figures in the lower four rows. No resizing, no extending or hanging legs, no moving shoes, no changing poses. True transparent alpha in clear gaps between figures. No background or glow.",
+  "tool": "built-in image_gen",
+  "status": "not-selected-after-review",
+  "selected": false,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-62cad4c2-5a94-4bd6-8aea-c8145d415a3d.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-08",
+    "passed": false,
+    "summary": "原生梳头/擦脸543项通过，实际脚下发丝残影已消失，但梳头抬手仍有旧白袖口，需v8局部清除，不可仅凭自动通过发布。",
+    "evidence": [
+      ".artifacts/sports-identity-review/claude-care-v7-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "af25a543fcc910a5208c72d5b7131ff127e7cb687f278c149444f7a2be6718f8",
+    "originalSha256": "174b482f491cd6657113a82798f37463e5745fa0d9f0ed624cf16410a4aad70e",
+    "comparisonFingerprint": "d9aa5822edb19cc7e79562e4499267d95db2b65bec7fa0d319f556b828875745"
+  }
+}

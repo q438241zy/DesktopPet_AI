@@ -22,7 +22,7 @@
   "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-4143e6b6-9a3c-4e26-93af-e0bdfcf97097.png",
   "visualReview": {
     "reviewer": "assistant",
-    "date": "2026-10-07",
+    "date": "2026-10-08",
     "passed": false,
     "summary": "表情和衣服参考正确，但底部三个姿势被截腿，不能采用。",
     "evidence": [
@@ -32,6 +32,6 @@
     "runtimeVerified": false,
     "candidateSha256": "9805ebc4483159bb13db5c2a5e5dd45f61ac30b5565ba9d28f0dc84c86bc3277",
     "originalSha256": "57996e8c1d7b34ec0c5828be49e5c97ae834349d72b6b568590e3f3f728198d7",
-    "comparisonFingerprint": "91e1dc7ca1656a5d67ea1935e0d2b007495495a969809f7b40a5e649c30487cf"
+    "comparisonFingerprint": "3b0aa1d28f6e7aea637dcaba08c2ccd82d40f1bc7b2dd93a3f8ace3e2042e85a"
   }
 }

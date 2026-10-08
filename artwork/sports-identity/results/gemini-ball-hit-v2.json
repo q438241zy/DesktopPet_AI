@@ -1,0 +1,34 @@
+{
+  "key": "gemini-ball-hit-v2",
+  "id": "gemini",
+  "style": "chibi",
+  "kind": "ball-hit",
+  "columns": 3,
+  "rows": 2,
+  "source": "artwork/sports-identity/gemini-ball-hit-v2.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/gemini/motions/ball-hit.webp"
+  ],
+  "generationReferences": [
+    "src/DesktopPet.App/Assets/Characters/gemini/motions/ball-hit.webp"
+  ],
+  "prompt": "Precise clothing-only EDIT of this original Gemini Q/chibi original character action atlas. Keep EXACT source 1536x1024 canvas, all original figure positions, pose order, cell spacing and camera. Never repack or rescale figures to fill margins. Preserve original face and head SIZE, head-body ratio, shoulders, torso, hips, knees, ankles, feet and hand/wrist/finger positions in EVERY pose, including sitting, lying, leaning, bent knees or raised hands. This is clothing on the SAME person, no redesign, no doll anatomy, no larger head, no shorter or thicker legs. Preserve blue-purple gradient hair, cat ears, pink and gold heterochromatic eyes, star hair clip and purple cat tail, all expressions and hair/ear/tail silhouettes and directions.\nReplace only old dress/apron, long sleeves, wrist cuffs, tights and boots with a WHITE zip-front school sports shirt with navy upper-arm SHORT SLEEVES/shoulder panels, violet piping and small violet four-point star chest motif; navy athletic SHORTS ending well ABOVE knees with narrow white side stripes; white ankle socks and small white-blue-violet low-top sneakers at the original ankle/sole positions. Keep neckline modest and zipped. Bare forearms, knees and lower legs. NO long sleeves, trousers, gloves or leftover wrist frills. Keep headband and hair accessories even if they are frilly. Keep original hand contacts and ALL existing props, fingers and gesture shapes; do not invent an extra ball, hammer, sparkle or particle.\nIMPORTANT: preserve the source's exact head and limb coordinates, original folded seated legs, original small margins at canvas edge, and full figure heights. No longer dangling seated legs and no shortening adult legs to fit a raised arm. Genuine transparent alpha outside characters and held objects. No painted backdrop, gradient, glow, grid, label or extra shadow. Original reference is the ONLY pose and coordinate authority. Source global frame bounds (left,top,right,bottom) are [[71, 63, 447, 449], [599, 71, 970, 449], [1108, 57, 1489, 449], [70, 571, 454, 960], [584, 574, 968, 961], [1095, 572, 1471, 961]]. Keep every original head top, chin, hip, knee, ankle and sole at the same source position. Preserve deliberately smaller source poses. Wherever the original seated boots show SOLES toward the camera, the new sneaker SOLES must face the camera too, with the same foreshortened shins; do not replace this with a dangling-leg or toes-up pose. Preserve crossed arms, bent elbows and each individual finger gesture exactly. Changing clothing must not turn a sequence into repeated hands-in-lap poses. Frame 2 MUST keep one forearm folded across her chest after impact, not both hands on the lap.",
+  "tool": "built-in image_gen",
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-0e7453cb-c0d1-42f9-aafd-ef2633ea803c.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-08",
+    "passed": true,
+    "summary": "惊讶、收手抱臂、揉头及恢复连续，鞋底方向恢复。 静态通过，待原生验证。",
+    "evidence": [
+      ".artifacts/sports-identity-review/gemini-ball-hit-v2-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "8f6fcf361d762a3bcd4b0b265b2ec7ac71a5687dbe92308be096aa08cff5a632",
+    "originalSha256": "f4e2d88485fb7378544f56dcfbd2eb48a96ec39bfa90c422b64d2bb8ccaab8ac",
+    "comparisonFingerprint": "7d5ffc8b4c07c1a5c2dda32c0ef1e5823f583b682d0bfcc77996ad10a07a35e9"
+  }
+}

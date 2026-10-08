@@ -1,0 +1,34 @@
+{
+  "key": "grok-build-v1",
+  "id": "grok",
+  "style": "chibi",
+  "kind": "build",
+  "columns": 3,
+  "rows": 4,
+  "source": "artwork/sports-identity/grok-build-v1.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/grok/motions/build-smooth.png"
+  ],
+  "generationReferences": [
+    "src/DesktopPet.App/Assets/Characters/grok/motions/build-smooth.png"
+  ],
+  "prompt": "Precise clothing-only EDIT of this original Grok Q/chibi original character action atlas. Keep EXACT source 1024x1536 canvas, all original figure positions, pose order, cell spacing and camera. Never repack or rescale figures to fill margins. Preserve original face and head SIZE, head-body ratio, shoulders, torso, hips, knees, ankles, feet and hand/wrist/finger positions in EVERY pose, including sitting, lying, leaning, bent knees or raised hands. This is clothing on the SAME person, no redesign, no doll anatomy, no larger head, no shorter or thicker legs. Preserve golden blonde flowing twin tails, blue eyes, black/gold ribbons and ringed-planet hair clip, all expressions and hair/ear/tail silhouettes and directions.\nReplace only old dress/apron, long sleeves, wrist cuffs, tights and boots with a WHITE zip-front school sports shirt with charcoal black upper-arm SHORT SLEEVES/shoulder panels, gold piping and small gray ringed planet chest motif; charcoal black athletic SHORTS ending well ABOVE knees with narrow white side stripes; white ankle socks and small white-gold low-top sneakers at the original ankle/sole positions. Keep neckline modest and zipped. Bare forearms, knees and lower legs. NO long sleeves, trousers, gloves or leftover wrist frills. Keep headband and hair accessories even if they are frilly. Keep original hand contacts and ALL existing props, fingers and gesture shapes; do not invent an extra ball, hammer, sparkle or particle.\nIMPORTANT: preserve the source's exact head and limb coordinates, original folded seated legs, original small margins at canvas edge, and full figure heights. No longer dangling seated legs and no shortening adult legs to fit a raised arm. Genuine transparent alpha outside characters and held objects. No painted backdrop, gradient, glow, grid, label or extra shadow. Keep every food, spoon, bowl, cookie, block and actual fingertip-to-object or mouth contact unchanged. Do not replace eating with waving or add a second utensil. Original reference is the ONLY pose and coordinate authority. Source global frame bounds (left,top,right,bottom) are [[3, 20, 335, 373], [343, 29, 682, 373], [682, 20, 1007, 366], [5, 396, 334, 746], [342, 411, 672, 748], [682, 415, 1009, 748], [9, 784, 341, 1152], [341, 777, 682, 1152], [682, 785, 1010, 1152], [4, 1152, 335, 1484], [343, 1152, 682, 1483], [682, 1152, 1016, 1484]]. Keep every original head top, chin, hip, knee, ankle and sole at the same source position. Preserve deliberately smaller source poses. Wherever the original seated boots show SOLES toward the camera, the new sneaker SOLES must face the camera too, with the same foreshortened shins; do not replace this with a dangling-leg or toes-up pose. Preserve crossed arms, bent elbows and each individual finger gesture exactly. Changing clothing must not turn a sequence into repeated hands-in-lap poses.",
+  "tool": "built-in image_gen",
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-a96455ac-7987-479b-ad7b-25abaae16507.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-08",
+    "passed": true,
+    "summary": "12帧保留坐地姿势、块的位置与真正拿起叠放接触；头发及原尺度保留，短袖短裤。",
+    "evidence": [
+      ".artifacts/sports-identity-review/grok-build-v1-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "912988479c340125f435eaecbeb78b565d8863f71c38d92f5835b8ffbe14ba23",
+    "originalSha256": "a0c516acd3435b382047ab2a72d190b038aa74444fe72d738c71239d52832026",
+    "comparisonFingerprint": "ac7aab4e3308bd7055827fcac17db89168e8f2b5fc7463d6309ffc8324489025"
+  }
+}

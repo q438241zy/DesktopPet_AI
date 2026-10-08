@@ -15,7 +15,21 @@
   ],
   "prompt": "Precise small-area EDIT of the FIRST attached sprite sheet. Preserve its canvas dimensions, all figure positions, exact head sizes, identity, silver/lavender hair, horns, ears, hair ornament, facial expressions, existing short-sleeve emerald/white sports shirt and above-knee shorts. Do not resize or shift figures. Keep genuine transparent alpha outside figures, no background or glow. The SECOND attachment is the original pose guide. Repair ONLY lower legs and shoes in the first image: match the original's SITTING posture, both shins pointing forward toward viewer, shoe soles facing camera, not dangling downward. Original top row soles end near y=471 on 1536x1024 source canvas; second-row soles near y=950. Current edited soles dangle about 35 pixels too low. Draw anatomically correct bent sitting legs with near-horizontal shins, keeping hips and knees and ALL HEADS, hair, torso, hands and cookies unchanged at the first image's exact scale. Keep the emerald sneakers (their soles face forward like the second guide's boot soles), short white ankle socks and short trousers. Do not shrink the person or shorten the anatomy; change lower-leg projection to match the original seated pose. Exactly 4 columns x 2 rows, same eight facial/cookie stages.",
   "tool": "built-in image_gen",
-  "status": "generated-awaiting-visual-review",
-  "selected": false,
-  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-844f32d3-e77e-40b1-9f1d-40c02107b63c.png"
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-844f32d3-e77e-40b1-9f1d-40c02107b63c.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-08",
+    "passed": true,
+    "summary": "头部保持原图尺度，恢复向前的坐姿鞋底投影；短袖短裤和持饼干顺序一致，实际显示还需运行复核。",
+    "evidence": [
+      ".artifacts/sports-identity-review/gpt-eat-v3-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "b9e53ac8edb95f84161234216809bea19b225a599cb2b549aab7fb14dbc0ed18",
+    "originalSha256": "3c70a6eceb2cbd5f76a559cc7d2a9ef8b455cf7cac630ccf34e3f141b451737e",
+    "comparisonFingerprint": "1c42971f5fb51499e65f1e98b0e027ead5a3be4f63ab4afe28031bf54bab3e6f"
+  }
 }

@@ -1,0 +1,34 @@
+{
+  "key": "grok-chat-v1",
+  "id": "grok",
+  "style": "chibi",
+  "kind": "chat",
+  "columns": 3,
+  "rows": 2,
+  "source": "artwork/sports-identity/grok-chat-v1.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/grok/motions/chat.webp"
+  ],
+  "generationReferences": [
+    "src/DesktopPet.App/Assets/Characters/grok/motions/chat.webp"
+  ],
+  "prompt": "Precise clothing-only EDIT of this original Grok Q/chibi original character action atlas. Keep EXACT source 1536x1024 canvas, all original figure positions, pose order, cell spacing and camera. Never repack or rescale figures to fill margins. Preserve original face and head SIZE, head-body ratio, shoulders, torso, hips, knees, ankles, feet and hand/wrist/finger positions in EVERY pose, including sitting, lying, leaning, bent knees or raised hands. This is clothing on the SAME person, no redesign, no doll anatomy, no larger head, no shorter or thicker legs. Preserve golden blonde flowing twin tails, blue eyes, black/gold ribbons and ringed-planet hair clip, all expressions and hair/ear/tail silhouettes and directions.\nReplace only old dress/apron, long sleeves, wrist cuffs, tights and boots with a WHITE zip-front school sports shirt with charcoal black upper-arm SHORT SLEEVES/shoulder panels, gold piping and small gray ringed planet chest motif; charcoal black athletic SHORTS ending well ABOVE knees with narrow white side stripes; white ankle socks and small white-gold low-top sneakers at the original ankle/sole positions. Keep neckline modest and zipped. Bare forearms, knees and lower legs. NO long sleeves, trousers, gloves or leftover wrist frills. Keep headband and hair accessories even if they are frilly. Keep original hand contacts and ALL existing props, fingers and gesture shapes; do not invent an extra ball, hammer, sparkle or particle.\nIMPORTANT: preserve the source's exact head and limb coordinates, original folded seated legs, original small margins at canvas edge, and full figure heights. No longer dangling seated legs and no shortening adult legs to fit a raised arm. Genuine transparent alpha outside characters and held objects. No painted backdrop, gradient, glow, grid, label or extra shadow. Original reference is the ONLY pose and coordinate authority. Source global frame bounds (left,top,right,bottom) are [[79, 85, 427, 448], [592, 84, 941, 448], [1105, 85, 1455, 448], [75, 594, 436, 960], [589, 595, 942, 960], [1105, 596, 1454, 960]]. Keep every original head top, chin, hip, knee, ankle and sole at the same source position. Preserve deliberately smaller source poses. Wherever the original seated boots show SOLES toward the camera, the new sneaker SOLES must face the camera too, with the same foreshortened shins; do not replace this with a dangling-leg or toes-up pose. Preserve crossed arms, bent elbows and each individual finger gesture exactly. Changing clothing must not turn a sequence into repeated hands-in-lap poses.",
+  "tool": "built-in image_gen",
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-e00cf60c-0168-4a8a-b2f7-f1050cbc1b5c.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-08",
+    "passed": true,
+    "summary": "6帧保持原图表情、说话手势和坐姿尺度，鞋底向前，短袖短裤。",
+    "evidence": [
+      ".artifacts/sports-identity-review/grok-chat-v1-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "786d0803a72334a89d57071666f709ee27eb2d7674a7e908901ff67c2fd516e5",
+    "originalSha256": "94f073f1ea22140cdc3541cf14ac17995741bfec08029c3421792ffc9c8a65b1",
+    "comparisonFingerprint": "03da344b89f978f2df284df4d978f5fd72fe7b15af5b24705525bda2bd1e152a"
+  }
+}

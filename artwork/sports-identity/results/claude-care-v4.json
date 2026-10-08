@@ -1,0 +1,36 @@
+{
+  "key": "claude-care-v4",
+  "id": "claude",
+  "style": "chibi",
+  "kind": "care",
+  "columns": 4,
+  "rows": 6,
+  "source": "artwork/sports-identity/claude-care-v4.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/claude/motions/cloud-care-wardrobe.png"
+  ],
+  "generationReferences": [
+    "artwork/sports-identity/claude-care-v3.png"
+  ],
+  "prompt": "ALPHA EXTRACTION ONLY of this exact 4-column 6-row 1024x1536 sprite atlas. Preserve every existing painted character pixel, every head, body, costume, glasses, hand, brush, towel and all exact source positions. Do not redraw or reposition or rescale anything. Make the space between ALL 24 sprites fully transparent with clear alpha-zero gaps. Remove only the translucent orange/brown background bridges, halos and tiny stray hair fragments that connect a figure to the next row. Keep each character COMPLETE with all its own fine hair strands, hair loop, shoes, brush and towel. Top two rows stay white/chestnut SHORT SLEEVES and shorts; remaining four rows stay exactly as shown. No background of any kind. Export genuine transparent PNG cutouts, smooth clean edges without glow.",
+  "tool": "built-in image_gen",
+  "status": "not-selected-after-review",
+  "selected": false,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-dc6f9b7d-75e3-4ee7-bf8c-27d360f5299f.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-08",
+    "passed": false,
+    "summary": "实际渲染发现脚下混入下一行发丝；新鞋底位置偏低造成与下一行发环重叠，单独透明修订不能解决，退回原图修正坐姿鞋底。",
+    "evidence": [
+      ".artifacts/sports-identity-review/claude-care-v4-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "234c458b8cf7c9bba153b799469b0b357caf9c5e4e5c305d9b1a7be45eca8dce",
+    "originalSha256": "174b482f491cd6657113a82798f37463e5745fa0d9f0ed624cf16410a4aad70e",
+    "comparisonFingerprint": "fe1c58a2aa4c767d3d393ba5e8a0777c7b3d21fc38fe4d3a1fd2a8acf5a2b29e"
+  },
+  "separationMinAlpha": 253,
+  "separationNote": "Native comb inspection: alpha-252 cores include part of the following row curl. Require 253 interiors and restore the original alpha contour in bands; verify both comb and wipe visually."
+}

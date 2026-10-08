@@ -1,0 +1,34 @@
+{
+  "key": "claude-care-v1",
+  "id": "claude",
+  "style": "chibi",
+  "kind": "care",
+  "columns": 4,
+  "rows": 6,
+  "source": "artwork/sports-identity/claude-care-v1.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/claude/motions/cloud-care-wardrobe.png"
+  ],
+  "generationReferences": [
+    "src/DesktopPet.App/Assets/Characters/claude/motions/cloud-care-wardrobe.png"
+  ],
+  "prompt": "Precise clothing-only EDIT of this original Claude Q/chibi original character action atlas. Keep EXACT source 1024x1536 canvas, all original figure positions, pose order, cell spacing and camera. Never repack or rescale figures to fill margins. Preserve original face and head SIZE, head-body ratio, shoulders, torso, hips, knees, ankles, feet and hand/wrist/finger positions in EVERY pose, including sitting, lying, leaning, bent knees or raised hands. This is clothing on the SAME person, no redesign, no doll anatomy, no larger head, no shorter or thicker legs. Preserve copper-orange hair, eyeglasses, warm brown eyes, sunflower hair clip and black ribbon, all expressions and hair/ear/tail silhouettes and directions.\nReplace only old dress/apron, long sleeves, wrist cuffs, tights and boots with a WHITE zip-front school sports shirt with chestnut brown upper-arm SHORT SLEEVES/shoulder panels, warm orange piping and small orange sun chest motif; chestnut brown athletic SHORTS ending well ABOVE knees with narrow white side stripes; white ankle socks and small white-orange low-top sneakers at the original ankle/sole positions. Keep neckline modest and zipped. Bare forearms, knees and lower legs. NO long sleeves, trousers, gloves or leftover wrist frills. Keep headband and hair accessories even if they are frilly. Keep original hand contacts and ALL existing props, fingers and gesture shapes; do not invent an extra ball, hammer, sparkle or particle.\nIMPORTANT: preserve the source's exact head and limb coordinates, original folded seated legs, original small margins at canvas edge, and full figure heights. No longer dangling seated legs and no shortening adult legs to fit a raised arm. Genuine transparent alpha outside characters and held objects. No painted backdrop, gradient, glow, grid, label or extra shadow. Edit ONLY the first TWO rows (8 care poses) to sportswear. The lower FOUR rows show other outfits and must remain unchanged; these lower rows will not be used for sports. Keep cream face towels held in BOTH the opening and closing wipe poses, as well as against the cheek; do not mistake the towel for a sleeve. Keep the hairbrush. In row TWO the four sports wiping poses hold the same pale cream towel throughout: folded in lap, at one cheek, wiping opposite cheek, back to lap. Remove any mistaken brush in this towel row. ROW ONE retains its hairbrush. Only rows 1 and 2 become sports; rows 3-6 remain unchanged and are unused by sports.",
+  "tool": "built-in image_gen",
+  "status": "not-selected-after-review",
+  "selected": false,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-01885355-a29e-4dbe-ab6c-b2f3bbd78841.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-08",
+    "passed": false,
+    "summary": "梳子在首尾帧消失，腕部残留旧袖口；部分人物透明边缘相连，退回修正。",
+    "evidence": [
+      ".artifacts/sports-identity-review/claude-care-v1-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "926923d259ab04c91b0acc8ae310eb1e41899e694bf7896084d3067122d016fd",
+    "originalSha256": "174b482f491cd6657113a82798f37463e5745fa0d9f0ed624cf16410a4aad70e",
+    "comparisonFingerprint": "f1a294ec64de4ef1cd58fc436fa840b5cddd4dbb189f20ba4e14a7983ca78dc6"
+  }
+}

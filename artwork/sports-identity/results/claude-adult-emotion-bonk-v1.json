@@ -1,0 +1,57 @@
+{
+  "key": "claude-adult-emotion-bonk-v1",
+  "id": "claude-adult",
+  "style": "realistic",
+  "kind": "emotion-bonk",
+  "columns": 4,
+  "rows": 1,
+  "source": "artwork/sports-identity/claude-adult-emotion-bonk-v1.png",
+  "references": [
+    "artwork/sports-identity/claude-adult-five-photo-v1.png",
+    "src/DesktopPet.App/Assets/Characters/claude-adult/interactions/original/claude-adult-original-photo-v1.png"
+  ],
+  "generationReferences": [
+    "artwork/sports-identity/claude-adult-five-photo-v1.png"
+  ],
+  "prompt": "Precise upper-body pose EDIT of this exact 1536x1024, 4-column 1-row sprite sheet. Keep the SAME adult Claude woman and the SAME approved short-sleeve white/chestnut brown sports shirt and above-knee chestnut brown shorts. Keep the original face, mature small head size, copper-orange hair, eyeglasses, warm brown eyes, sunflower hair clip and black ribbon, clean 3D rendering, and all clothing details. Preserve the complete hips, long thighs, knees, shins, ankles, sneakers and ground position at EXACT original scale and coordinates in ALL four poses. Do not redesign the person or shorten/thicken legs, enlarge heads, resize individual figures or crop feet. Modify ONLY expressions and arms/hands, left to right: 1 relaxed neutral smile; 2 raise a small soft warm orange toy hammer with a proper hand grip just beside the head; 3 gently tap the top of the head with the SAME toy hammer, eyes squeezed shut in playful surprise; 4 lower the SAME hammer and smile; keep the hammer fully inside each source cell. Preserve the original canvas, original figure positions, margins, camera and order of 4 full figures. True transparent alpha outside figures and held props. No background, gradient, glow, text, frame or extra people.",
+  "tool": "built-in image_gen",
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
+  "comparisonRole": "approved-sports-pose-edit",
+  "sourceAtlas": "photo",
+  "physicalOrder": true,
+  "clips": {
+    "bonk": {
+      "frames": [
+        0,
+        1,
+        2,
+        3,
+        0
+      ],
+      "frameMs": [
+        400,
+        650,
+        400,
+        600,
+        450
+      ],
+      "loop": false
+    }
+  },
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-8b99a801-e105-4b32-925d-4cb3f1c812dd.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-08",
+    "passed": true,
+    "summary": "四帧玩具锤握持、轻敲与收回完整，腿部与参考保持一致；不额外叠程序锤子。",
+    "evidence": [
+      ".artifacts/sports-identity-review/claude-adult-emotion-bonk-v1-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "52a0ff13c8bd36408f02a1830031120ed96da8ccee86be55308b2025ca6bc44d",
+    "originalSha256": "ebdbd8fc76125806f802d31645d0f83ce0007dd86cc8dd3082e673e167c80d4c",
+    "comparisonFingerprint": "1296ab6a493b946dc4135f6aba11dbd6805f3f8ab52733f93956d26579e657c4"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "key": "claude-meal-v2",
+  "id": "claude",
+  "style": "chibi",
+  "kind": "meal",
+  "columns": 3,
+  "rows": 2,
+  "source": "artwork/sports-identity/claude-meal-v2.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/claude/motions/eat.webp"
+  ],
+  "generationReferences": [
+    "artwork/sports-identity/claude-meal-v1.png"
+  ],
+  "prompt": "Precise local correction EDIT of the attached Claude short-sleeve school sports atlas. Preserve canvas dimensions, all head/face/hair sizes, every pose and hand coordinate, sports shirt/shorts, seated folded legs and shoe positions. Preserve transparent background. Remove leftover WHITE WRIST FRILLY CUFFS: replace only that wrist/forearm fabric with continuous natural bare skin; fingers, cheeks and objects stay at the exact coordinates. No head enlargement or longer seated legs. In the FINAL frame (bottom right), remove the remaining dark brown original dress/chest flower and replace ONLY with the same white sports shirt and tiny orange sun emblem as the preceding five frames. Preserve all six bowls, rice, spoons and mouth contact exactly.",
+  "tool": "built-in image_gen",
+  "status": "not-selected-after-review",
+  "selected": false,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-8f6ee81e-e87f-4bf4-8960-5c2ec11bc4b0.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-08",
+    "passed": false,
+    "summary": "衣领修好但整个人物和头部被重新放大，退回只修改首稿最后一帧衣领。",
+    "evidence": [
+      ".artifacts/sports-identity-review/claude-meal-v2-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "4fcf7131031a9ceb8753dfc1eccf0586f6b283f75e4e1b3db1aff554f5123775",
+    "originalSha256": "b3de1044bc6cbf324841061d336e1dfa221f54d62cee0f538313070006468938",
+    "comparisonFingerprint": "73ec44954694cf86b11332b86689dab7f2c459ffb40bab798b8d6ccaa240b09f"
+  }
+}

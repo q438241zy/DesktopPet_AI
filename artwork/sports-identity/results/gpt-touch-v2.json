@@ -14,7 +14,57 @@
   ],
   "prompt": "Precise small-area EDIT of the FIRST attached sprite sheet. Preserve its canvas dimensions, all figure positions, exact head sizes, identity, silver/lavender hair, horns, ears, hair ornament, facial expressions, existing short-sleeve emerald/white sports shirt and above-knee shorts. Do not resize or shift figures. Keep genuine transparent alpha outside figures, no background or glow. Repair ONLY the leftover WHITE FOREARM SLEEVES / FRILLY CUFFS. Every arm must be bare skin from short sleeve hem at the upper arm to the fingers. Specifically row 1 columns 2 and 3, and row 2 columns 1, 2, 3 have white fabric around the wrists/forearms; replace this fabric with continuous natural bare forearms. Retain hands, fingers, all 12 original poses, feet, knees, clothing elsewhere and all their coordinates unchanged. Row 3 open-palmed gestures must be unchanged.",
   "tool": "built-in image_gen",
-  "status": "generated-awaiting-visual-review",
+  "status": "not-selected-after-review",
   "selected": false,
-  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-35ec69f9-ca7d-4d32-aba6-11f20019a509.png"
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-35ec69f9-ca7d-4d32-aba6-11f20019a509.png",
+  "measurementPixels": {
+    "hands": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      [
+        114,
+        963,
+        46
+      ],
+      [
+        482,
+        951,
+        46
+      ],
+      [
+        907,
+        967,
+        46
+      ],
+      [
+        1206,
+        953,
+        46
+      ]
+    ]
+  },
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-08",
+    "passed": false,
+    "summary": "裸前臂已修正，但相邻人物的透明边缘连续，不能作为完整独立帧接入，撤销选用。",
+    "evidence": [
+      ".artifacts/sports-identity-review/gpt-touch-v2-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "69d76634ad1dbd668d3c4e46d975db2240253370df8ea8067733f7cc3ebb7b8e",
+    "originalSha256": "600f0e86a63d6a8ae0997e22333e4a3121eaeb3ade496e81198c80fff211736a",
+    "comparisonFingerprint": "ab9ce625a5e13d5a05732340e3da6b4e9c86920f5cfc45e652379f4665e490c5"
+  },
+  "contactReview": {
+    "method": "assistant visual review of source-pixel marker crops",
+    "evidence": ".artifacts/sports-identity-review/gpt-touch-v2-anchors.png"
+  }
 }

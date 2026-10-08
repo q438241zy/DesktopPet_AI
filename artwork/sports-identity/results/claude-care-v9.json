@@ -1,0 +1,21 @@
+{
+  "key": "claude-care-v9",
+  "id": "claude",
+  "style": "chibi",
+  "kind": "care",
+  "columns": 4,
+  "rows": 6,
+  "source": "artwork/sports-identity/claude-care-v9.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/claude/motions/cloud-care-wardrobe.png",
+    "artwork/sports-identity/claude-care-v7.png"
+  ],
+  "generationReferences": [
+    "artwork/sports-identity/claude-care-v7.png"
+  ],
+  "prompt": "Make ONE TINY localized fix in the attached 1024x1536 image. In the FIRST ROW, SECOND figure from left, center approximately x=335 y=155: there is a white ruffled bracelet/cuff encircling her raised wrist, just below the hand holding the comb. REMOVE this white bracelet, filling that very small area with peach SKIN matching the hand and bare forearm. Show uninterrupted skin from hand to arm. Do not touch any other region. In particular, do NOT remove the cream towels held in row 2 column 1 and column 4: KEEP BOTH TOWELS EXACTLY. Keep all shoes, soles, hair, clothing, scale and figure positions pixel-aligned to the reference. Keep exactly 4 columns and 6 rows. Only first-row second-figure wrist fix. True transparent alpha exterior.",
+  "tool": "built-in image_gen",
+  "status": "generated-awaiting-visual-review",
+  "selected": false,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-81a017ec-a9eb-461d-aca6-209164ffb7f3.png"
+}

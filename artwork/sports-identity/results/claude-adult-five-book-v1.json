@@ -1,0 +1,34 @@
+{
+  "key": "claude-adult-five-book-v1",
+  "id": "claude-adult",
+  "style": "realistic",
+  "kind": "five-book",
+  "columns": 4,
+  "rows": 1,
+  "source": "artwork/sports-identity/claude-adult-five-book-v1.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/claude-adult/interactions/original/claude-adult-original-book-v1.png"
+  ],
+  "generationReferences": [
+    "src/DesktopPet.App/Assets/Characters/claude-adult/interactions/original/claude-adult-original-book-v1.png"
+  ],
+  "prompt": "Precise clothing-only EDIT of this original Claude photorealistic 3D ADULT woman with long adult legs action atlas. Keep EXACT source 1774x887 canvas, all original figure positions, pose order, cell spacing and camera. Never repack or rescale figures to fill margins. Preserve original face and head SIZE, head-body ratio, shoulders, torso, hips, knees, ankles, feet and hand/wrist/finger positions in EVERY pose, including sitting, lying, leaning, bent knees or raised hands. This is clothing on the SAME person, no redesign, no doll anatomy, no larger head, no shorter or thicker legs. Preserve copper-orange hair, eyeglasses, warm brown eyes, sunflower hair clip and black ribbon, all expressions and hair/ear/tail silhouettes and directions.\nReplace only old dress/apron, long sleeves, wrist cuffs, tights and boots with a WHITE zip-front school sports shirt with chestnut brown upper-arm SHORT SLEEVES/shoulder panels, warm orange piping and small orange sun chest motif; chestnut brown athletic SHORTS ending well ABOVE knees with narrow white side stripes; white ankle socks and small white-orange low-top sneakers at the original ankle/sole positions. Keep neckline modest and zipped. Bare forearms, knees and lower legs. NO long sleeves, trousers, gloves or leftover wrist frills. Keep headband and hair accessories even if they are frilly. Keep original hand contacts and ALL existing props, fingers and gesture shapes; do not invent an extra ball, hammer, sparkle or particle.\nIMPORTANT: preserve the source's exact head and limb coordinates, original folded seated legs, original small margins at canvas edge, and full figure heights. No longer dangling seated legs and no shortening adult legs to fit a raised arm. Genuine transparent alpha outside characters and held objects. No painted backdrop, gradient, glow, grid, label or extra shadow.",
+  "tool": "built-in image_gen",
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-62eaecca-1fbb-4646-9350-51218c8f7872.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-08",
+    "passed": true,
+    "summary": "开盒、读书、翻页和合书四帧实物手部接触保持，短袖短裤且头身同尺度。",
+    "evidence": [
+      ".artifacts/sports-identity-review/claude-adult-five-book-v1-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "f7a7603d318c6fd763d96cc22d5972ae7e3d5bb2f5a8ffce52f7bc1f672d503f",
+    "originalSha256": "664f4177fc57b0a0401dc38a6c03f1722c9018553db0bfe0d9fb5e67be7e5667",
+    "comparisonFingerprint": "d85fe991c0c01ca190ad6ec3fc81751e105b458f47c5689669113a93ab4d12c6"
+  }
+}

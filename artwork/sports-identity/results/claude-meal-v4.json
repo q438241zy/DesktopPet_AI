@@ -1,0 +1,34 @@
+{
+  "key": "claude-meal-v4",
+  "id": "claude",
+  "style": "chibi",
+  "kind": "meal",
+  "columns": 3,
+  "rows": 2,
+  "source": "artwork/sports-identity/claude-meal-v4.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/claude/motions/eat.webp"
+  ],
+  "generationReferences": [
+    "artwork/sports-identity/claude-meal-v3.png"
+  ],
+  "prompt": "Background extraction ONLY. This sprite sheet already has the correct people, clothes and poses. Remove ALL brown/orange gradient background, halos, haze and square patches between and around every figure, including the translucent background contamination. Deliver clean cutout figures on genuine transparent alpha (alpha zero in empty space), preserving soft anti-aliasing only on the actual hair/skin/clothing edges. Do not paint white/black/checkerboard behind them. Preserve EVERY figure and held object exactly at the same coordinates and size. Do not change faces, expressions, head size, proportions, clothing, hand poses, shoes, frame arrangement or canvas dimensions. No glow, shadow, outlines or colored veil around cutouts.",
+  "tool": "built-in image_gen",
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-9bd589d0-0bd4-442d-af4c-b30795b6f239.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-08",
+    "passed": true,
+    "summary": "透明底恢复，六帧碗勺持握及送入口接触连续，保留原头部及坐姿尺度；待原生验证。",
+    "evidence": [
+      ".artifacts/sports-identity-review/claude-meal-v4-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "8eafd5a7bce31e7abc01f83ce57a5bfc30fda152d2927e503c2461ae8830e167",
+    "originalSha256": "b3de1044bc6cbf324841061d336e1dfa221f54d62cee0f538313070006468938",
+    "comparisonFingerprint": "93544fcfe31fce81434ffcde0074c9bf3104bba9ac02b918757edceb068ce9fe"
+  }
+}

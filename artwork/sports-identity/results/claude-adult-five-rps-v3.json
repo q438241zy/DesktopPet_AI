@@ -1,0 +1,34 @@
+{
+  "key": "claude-adult-five-rps-v3",
+  "id": "claude-adult",
+  "style": "realistic",
+  "kind": "five-rps",
+  "columns": 4,
+  "rows": 1,
+  "source": "artwork/sports-identity/claude-adult-five-rps-v3.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/claude-adult/interactions/original/claude-adult-original-rps-v1.png"
+  ],
+  "generationReferences": [
+    "artwork/sports-identity/claude-adult-five-rps-v2.png"
+  ],
+  "prompt": "Background extraction ONLY. This sprite sheet already has the correct people, clothes and poses. Remove ALL brown/orange gradient background, halos, haze and square patches between and around every figure, including the translucent background contamination. Deliver clean cutout figures on genuine transparent alpha (alpha zero in empty space), preserving soft anti-aliasing only on the actual hair/skin/clothing edges. Do not paint white/black/checkerboard behind them. Preserve EVERY figure and held object exactly at the same coordinates and size. Do not change faces, expressions, head size, proportions, clothing, hand poses, shoes, frame arrangement or canvas dimensions. No glow, shadow, outlines or colored veil around cutouts.",
+  "tool": "built-in image_gen",
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-3d4c21a8-b8c1-4336-a63e-6da892c2e367.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-08",
+    "passed": true,
+    "summary": "棕色背景残影移除，四帧出拳手势、成人腿长和鞋底位置延续原图，无旧袖口。",
+    "evidence": [
+      ".artifacts/sports-identity-review/claude-adult-five-rps-v3-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "fd18cb42556717434135e9076ea84fdb7cd9cecf498bed015375a2d94b97494a",
+    "originalSha256": "6bc30d8c4c269a7d97c3985cd3220fc7bf0e6d25da386d8dd477605c258586ac",
+    "comparisonFingerprint": "41b9473e2742afe28f8f83c6045dbd85e854c0a1d6d6571efb7ec41a213c20ad"
+  }
+}

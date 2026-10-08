@@ -1,0 +1,34 @@
+{
+  "key": "gemini-think-v2",
+  "id": "gemini",
+  "style": "chibi",
+  "kind": "think",
+  "columns": 3,
+  "rows": 2,
+  "source": "artwork/sports-identity/gemini-think-v2.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/gemini/motions/think.webp"
+  ],
+  "generationReferences": [
+    "src/DesktopPet.App/Assets/Characters/gemini/motions/think.webp"
+  ],
+  "prompt": "Precise clothing-only EDIT of this original Gemini Q/chibi original character action atlas. Keep EXACT source 1536x1024 canvas, all original figure positions, pose order, cell spacing and camera. Never repack or rescale figures to fill margins. Preserve original face and head SIZE, head-body ratio, shoulders, torso, hips, knees, ankles, feet and hand/wrist/finger positions in EVERY pose, including sitting, lying, leaning, bent knees or raised hands. This is clothing on the SAME person, no redesign, no doll anatomy, no larger head, no shorter or thicker legs. Preserve blue-purple gradient hair, cat ears, pink and gold heterochromatic eyes, star hair clip and purple cat tail, all expressions and hair/ear/tail silhouettes and directions.\nReplace only old dress/apron, long sleeves, wrist cuffs, tights and boots with a WHITE zip-front school sports shirt with navy upper-arm SHORT SLEEVES/shoulder panels, violet piping and small violet four-point star chest motif; navy athletic SHORTS ending well ABOVE knees with narrow white side stripes; white ankle socks and small white-blue-violet low-top sneakers at the original ankle/sole positions. Keep neckline modest and zipped. Bare forearms, knees and lower legs. NO long sleeves, trousers, gloves or leftover wrist frills. Keep headband and hair accessories even if they are frilly. Keep original hand contacts and ALL existing props, fingers and gesture shapes; do not invent an extra ball, hammer, sparkle or particle.\nIMPORTANT: preserve the source's exact head and limb coordinates, original folded seated legs, original small margins at canvas edge, and full figure heights. No longer dangling seated legs and no shortening adult legs to fit a raised arm. Genuine transparent alpha outside characters and held objects. No painted backdrop, gradient, glow, grid, label or extra shadow. Original reference is the ONLY pose and coordinate authority. Source global frame bounds (left,top,right,bottom) are [[70, 60, 445, 447], [587, 86, 927, 445], [1099, 83, 1439, 442], [75, 595, 415, 954], [587, 598, 927, 957], [1094, 572, 1469, 959]]. Keep every original head top, chin, hip, knee, ankle and sole at the same source position. Preserve deliberately smaller source poses. Wherever the original seated boots show SOLES toward the camera, the new sneaker SOLES must face the camera too, with the same foreshortened shins; do not replace this with a dangling-leg or toes-up pose. Preserve crossed arms, bent elbows and each individual finger gesture exactly. Changing clothing must not turn a sequence into repeated hands-in-lap poses. Crucial: trace original bent legs, boot sole planes and exposed hand silhouettes. No forward dangling knees, no front laces replacing shoe sole tread. Reveal the original anatomy formerly hidden inside the dress, without moving or enlarging it.",
+  "tool": "built-in image_gen",
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-9722ca73-707b-40bb-8d55-582ad26193c6.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-08",
+    "passed": true,
+    "summary": "保留手指靠嘴及原稿不同大小的思考帧，换衣前后头部轮廓一致。",
+    "evidence": [
+      ".artifacts/sports-identity-review/gemini-think-v2-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "c073a40f73a6e314b9629ebf23a192400fcfda2a7786150d01b657fdf0f48a86",
+    "originalSha256": "a4c8114156339e6395a5f7060ed8ea25926c24dcf4910586882d4c4932832e47",
+    "comparisonFingerprint": "cb91e1c7773bfdac5295845813aa2803f8898f91652f938936cda00dab51eca2"
+  }
+}

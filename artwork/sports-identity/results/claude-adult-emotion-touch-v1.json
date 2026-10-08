@@ -1,0 +1,71 @@
+{
+  "key": "claude-adult-emotion-touch-v1",
+  "id": "claude-adult",
+  "style": "realistic",
+  "kind": "emotion-touch",
+  "columns": 4,
+  "rows": 1,
+  "source": "artwork/sports-identity/claude-adult-emotion-touch-v1.png",
+  "references": [
+    "artwork/sports-identity/claude-adult-five-photo-v1.png",
+    "src/DesktopPet.App/Assets/Characters/claude-adult/interactions/original/claude-adult-original-photo-v1.png"
+  ],
+  "generationReferences": [
+    "artwork/sports-identity/claude-adult-five-photo-v1.png"
+  ],
+  "prompt": "Precise upper-body pose EDIT of this exact 1536x1024, 4-column 1-row sprite sheet. Keep the SAME adult Claude woman and the SAME approved short-sleeve white/chestnut brown sports shirt and above-knee chestnut brown shorts. Keep the original face, mature small head size, copper-orange hair, eyeglasses, warm brown eyes, sunflower hair clip and black ribbon, clean 3D rendering, and all clothing details. Preserve the complete hips, long thighs, knees, shins, ankles, sneakers and ground position at EXACT original scale and coordinates in ALL four poses. Do not redesign the person or shorten/thicken legs, enlarge heads, resize individual figures or crop feet. Modify ONLY expressions and arms/hands, left to right: 1 gently close eyes and smile while being petted, relaxed hands; 2 right hand softly cups right cheek; 3 left hand softly cups left cheek; 4 laugh with shoulders slightly raised and both hands open near chest as if tickled. Preserve the original canvas, original figure positions, margins, camera and order of 4 full figures. True transparent alpha outside figures and held props. No background, gradient, glow, text, frame or extra people.",
+  "tool": "built-in image_gen",
+  "status": "not-selected-after-review",
+  "selected": false,
+  "comparisonRole": "approved-sports-pose-edit",
+  "sourceAtlas": "photo",
+  "physicalOrder": true,
+  "clips": {
+    "headpat": {
+      "frames": [
+        0
+      ],
+      "frameMs": [
+        5000
+      ],
+      "loop": false
+    },
+    "poke": {
+      "frames": [
+        1,
+        2,
+        1
+      ],
+      "frameMs": [
+        500,
+        650,
+        500
+      ],
+      "loop": false
+    },
+    "tickle": {
+      "frames": [
+        3
+      ],
+      "frameMs": [
+        5000
+      ],
+      "loop": false
+    }
+  },
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-f21d1c01-dea8-4f08-8072-c86695e7808e.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-08",
+    "passed": false,
+    "summary": "摸头首帧多出外来的人手，局部去除后重新复核。",
+    "evidence": [
+      ".artifacts/sports-identity-review/claude-adult-emotion-touch-v1-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "bb2ec9676e7649b59f485a47c3b5cfa25bdb7c035aec9bd03780f29cc950db31",
+    "originalSha256": "ebdbd8fc76125806f802d31645d0f83ce0007dd86cc8dd3082e673e167c80d4c",
+    "comparisonFingerprint": "43e75e3db618de6b75eb87940208a60f6ec4d5b580047fc492f6ac433add91b9"
+  }
+}

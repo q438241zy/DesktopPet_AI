@@ -1,0 +1,34 @@
+{
+  "key": "gemini-angry-v2",
+  "id": "gemini",
+  "style": "chibi",
+  "kind": "angry",
+  "columns": 3,
+  "rows": 2,
+  "source": "artwork/sports-identity/gemini-angry-v2.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/gemini/motions/angry.webp"
+  ],
+  "generationReferences": [
+    "src/DesktopPet.App/Assets/Characters/gemini/motions/angry.webp"
+  ],
+  "prompt": "Precise clothing-only EDIT of this original Gemini Q/chibi original character action atlas. Keep EXACT source 1536x1024 canvas, all original figure positions, pose order, cell spacing and camera. Never repack or rescale figures to fill margins. Preserve original face and head SIZE, head-body ratio, shoulders, torso, hips, knees, ankles, feet and hand/wrist/finger positions in EVERY pose, including sitting, lying, leaning, bent knees or raised hands. This is clothing on the SAME person, no redesign, no doll anatomy, no larger head, no shorter or thicker legs. Preserve blue-purple gradient hair, cat ears, pink and gold heterochromatic eyes, star hair clip and purple cat tail, all expressions and hair/ear/tail silhouettes and directions.\nReplace only old dress/apron, long sleeves, wrist cuffs, tights and boots with a WHITE zip-front school sports shirt with navy upper-arm SHORT SLEEVES/shoulder panels, violet piping and small violet four-point star chest motif; navy athletic SHORTS ending well ABOVE knees with narrow white side stripes; white ankle socks and small white-blue-violet low-top sneakers at the original ankle/sole positions. Keep neckline modest and zipped. Bare forearms, knees and lower legs. NO long sleeves, trousers, gloves or leftover wrist frills. Keep headband and hair accessories even if they are frilly. Keep original hand contacts and ALL existing props, fingers and gesture shapes; do not invent an extra ball, hammer, sparkle or particle.\nIMPORTANT: preserve the source's exact head and limb coordinates, original folded seated legs, original small margins at canvas edge, and full figure heights. No longer dangling seated legs and no shortening adult legs to fit a raised arm. Genuine transparent alpha outside characters and held objects. No painted backdrop, gradient, glow, grid, label or extra shadow. Original reference is the ONLY pose and coordinate authority. Source global frame bounds (left,top,right,bottom) are [[66, 64, 448, 448], [578, 64, 961, 449], [1092, 63, 1472, 448], [65, 570, 450, 960], [587, 571, 969, 961], [1089, 571, 1473, 961]]. Keep every original head top, chin, hip, knee, ankle and sole at the same source position. Preserve deliberately smaller source poses. Wherever the original seated boots show SOLES toward the camera, the new sneaker SOLES must face the camera too, with the same foreshortened shins; do not replace this with a dangling-leg or toes-up pose. Preserve crossed arms, bent elbows and each individual finger gesture exactly. Changing clothing must not turn a sequence into repeated hands-in-lap poses. Frames 3, 4 and 5 MUST keep the original arms folded across chest, not on the lap.",
+  "tool": "built-in image_gen",
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-fea20f3b-20c4-4fe3-96e8-b74f0325c2c9.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-08",
+    "passed": true,
+    "summary": "抱臂和鼓嘴帧已恢复，鞋底朝前，与原头部、发尾大小一致。 静态通过，待原生验证。",
+    "evidence": [
+      ".artifacts/sports-identity-review/gemini-angry-v2-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "35332916b55edf8477568cf8e7e88ce584fbb9d18e6e7353683b5b4f54e8df1e",
+    "originalSha256": "4141f6a5aef47b097943591e83a61ddf3e49eef1c555212fc72069f4d52aa4e7",
+    "comparisonFingerprint": "bc5149ad1daed00aa226e790d3f972c70037edbfe8a83264d5e0a1257de44102"
+  }
+}

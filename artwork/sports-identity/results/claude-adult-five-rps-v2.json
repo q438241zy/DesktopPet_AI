@@ -1,0 +1,34 @@
+{
+  "key": "claude-adult-five-rps-v2",
+  "id": "claude-adult",
+  "style": "realistic",
+  "kind": "five-rps",
+  "columns": 4,
+  "rows": 1,
+  "source": "artwork/sports-identity/claude-adult-five-rps-v2.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/claude-adult/interactions/original/claude-adult-original-rps-v1.png"
+  ],
+  "generationReferences": [
+    "artwork/sports-identity/claude-adult-five-rps-v1.png"
+  ],
+  "prompt": "Make ONE SMALL LOCAL EDIT only: in the FOURTH rightmost figure, remove the leftover dark fabric CUFF under the fist that is pointing toward the camera. Replace that small wrist cuff with continuous natural bare forearm skin, connecting the unchanged fist to the existing short upper-arm sleeve. The first three figures and all heads, faces, hair, legs, uniforms, shoes and coordinates must remain exactly unchanged. Same 1536x1024 canvas, true transparent alpha. Do not redraw, enlarge, crop or normalize the characters.",
+  "tool": "built-in image_gen",
+  "status": "not-selected-after-review",
+  "selected": false,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-97951361-91cf-4f01-ace4-2a32208ab6ea.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-08",
+    "passed": false,
+    "summary": "旧袖口修正但背景出现棕色半透明块，需要保持干净透明边缘。",
+    "evidence": [
+      ".artifacts/sports-identity-review/claude-adult-five-rps-v2-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "5813272a8fc2514b07f50ef03ec79d282d1c5a652d7ac315889acb6c88a566c9",
+    "originalSha256": "6bc30d8c4c269a7d97c3985cd3220fc7bf0e6d25da386d8dd477605c258586ac",
+    "comparisonFingerprint": "2784d3e54757c116c1bed88d33b059497bec81382b697dde339e58b82b0d30b8"
+  }
+}

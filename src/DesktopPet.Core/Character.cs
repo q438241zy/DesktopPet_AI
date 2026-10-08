@@ -73,7 +73,7 @@ public sealed class Character
         {
             if (s is null || string.IsNullOrWhiteSpace(s.File) || s.Columns < 1 || s.Rows < 1
                 || s.Columns > 6 || s.Rows > 6 || s.Columns * s.Rows > 24 || s.Facing is not ("left" or "right")
-                || s.SeparationAlpha is < 16 or > 240 || !double.IsFinite(s.ReferenceHeightPixels) || s.ReferenceHeightPixels is < 0 or > 6144
+                || s.SeparationAlpha is < 16 or > 255 || !double.IsFinite(s.ReferenceHeightPixels) || s.ReferenceHeightPixels is < 0 or > 6144
                 || !double.IsFinite(s.WalkStride) || (s.WalkStride != 0 && s.WalkStride is < .1 or > 1.2)
                 || (s.Frames is { } order && (order.Length is < 1 or > 48 || order.Any(i => i < 0 || i >= s.Columns * s.Rows)))
                 || (s.Cells is { } cells && (cells.Length != s.Columns * s.Rows || cells.Any(c => c is null || c.X < 0 || c.Y < 0

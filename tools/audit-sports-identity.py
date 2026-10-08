@@ -22,6 +22,13 @@ def rel(path):
     return path.relative_to(ROOT).as_posix()
 
 
+def canvas_resolution(original_size, candidate_size):
+    # The image service can round a requested canvas edge by one pixel. Keep
+    # ONE uniform pixel scale, never stretch x/y independently to hide that.
+    ratio = candidate_size[0] / original_size[0]
+    return ratio if abs(candidate_size[1] - original_size[1] * ratio) <= 2 else None
+
+
 def geometry(path, columns, rows):
     with Image.open(path) as image:
         alpha = image.convert('RGBA').getchannel('A')
@@ -46,15 +53,18 @@ def comparison_windows(original, candidate, columns, rows, source_cells=None):
     ordered = []
     source_size = Image.open(original).size
     candidate_size=Image.open(candidate).size
-    resolution=candidate_size[0]/source_size[0]
-    if abs(candidate_size[1]/source_size[1]-resolution)>1e-6:
+    resolution=canvas_resolution(source_size,candidate_size)
+    if resolution is None:
         return None
     for path in [original, candidate]:
         rgba = np.asarray(Image.open(path).convert('RGBA'))
         height, width = rgba.shape[:2]
-        _, _, stats, _ = cv2.connectedComponentsWithStats((rgba[:, :, 3] >= 80).astype('uint8'), 8)
-        parts = sorted([s for s in stats[1:] if s[4] > width * height * .0003], key=lambda s: int(s[4]), reverse=True)
-        if len(parts) < count:
+        for threshold in [80,120,180,220,240,248,252,253,254,255]:
+            _, _, stats, _ = cv2.connectedComponentsWithStats((rgba[:, :, 3] >= threshold).astype('uint8'), 8)
+            parts = sorted([s for s in stats[1:] if s[4] > width * height * .0003], key=lambda s: int(s[4]), reverse=True)
+            if len(parts)>=count and parts[count-1][4]>width*height*.0015:
+                break
+        else:
             return None
         coord_scale=resolution if path==candidate else 1
         # Higher output resolution is allowed only as a single uniform canvas
@@ -134,7 +144,7 @@ def audit():
         review_current=bool(review and review.get('candidateSha256')==candidate_sha and review.get('originalSha256')==original_sha)
         candidate_geometry, original_geometry = geometry(source, columns, rows), geometry(original, columns, rows)
         ca,oa=candidate_geometry['size'],original_geometry['size']
-        resolution=ca[0]/oa[0] if abs(ca[0]/oa[0]-ca[1]/oa[1])<1e-6 else None
+        resolution=canvas_resolution(oa,ca)
         diffs = []
         if candidate_geometry['size'] == original_geometry['size']:
             for i, (a, b) in enumerate(zip(original_geometry['cells'], candidate_geometry['cells'])):

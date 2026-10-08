@@ -41,10 +41,14 @@ def crop_geometry(rgba,cell):
  weights=head.sum(axis=0,dtype=np.float64);anchor=float(np.sum(weights*(np.arange(w)+.5))/weights.sum())
  return dict(top=top,bottom=bottom,height=bottom-top,extent=max(w,h),anchor=anchor,visible=(bottom-top)/max(w,h))
 
-def components(rgba,count,expected):
+def components(rgba,count,expected,min_alpha=80):
  h,w=rgba.shape[:2]
  if (rgba[:,:,3]==0).mean()<.2:raise ValueError('Background is not transparent')
- for threshold in [80,120,180,220]:
+ # Some generated alpha mattes have opaque interiors at 252/253 and broad
+ # translucent fringes. Seed complete figures from those interiors; the native
+ # loader restores their original antialiasing alpha without altering the PNG.
+ for threshold in [80,120,180,220,240,248,252,253,254,255]:
+  if threshold<min_alpha:continue
   _,labels,stats,_=cv2.connectedComponentsWithStats((rgba[:,:,3]>=threshold).astype('uint8'),8)
   parts=sorted([(i,[int(v) for v in s]) for i,s in enumerate(stats) if i and s[4]>w*h*.0005],key=lambda r:r[1][4],reverse=True)
   if len(parts)>=count and parts[count-1][1][4]>w*h*.0015:break
@@ -68,6 +72,27 @@ def components(rgba,count,expected):
    labels[labels==label]=own
    l,t,r,b=min(x,mx),min(y,my),max(x+bw,mx+mw),max(y+bh,my+mh)
    ordered[i]=(own,[l,t,r-l,b-t,ma+area])
+ # Expand the selected interiors through the source alpha, just as ArtCache
+ # does at runtime. A fixed two-pixel dilation would clip a dense soft fringe
+ # when a sheet needs a high separation threshold. This is ownership metadata,
+ # not a replacement alpha channel, and no source image is ever written.
+ owners=np.where(np.isin(labels,[item[0] for item in ordered]),labels,0).astype('float32')
+ # Follow denser hair contours before faint bridges can cross to the next row.
+ # Use the same alpha bands as the native loader, preserving all source pixels.
+ for level in sorted({v for v in [threshold-1,248,240,220,180,120,80,48,16,1] if 0<v<threshold},reverse=True):
+  foreground=rgba[:,:,3]>=level
+  while True:
+   neighbours=cv2.erode(np.where(owners>0,owners,16777216).astype('float32'),np.ones((3,3),np.uint8))
+   fill=foreground&(owners==0)&(neighbours<16777216)
+   if not np.any(fill):break
+   owners[fill]=neighbours[fill]
+ labels=owners.astype('int32')
+ expanded=[]
+ for owner,_ in ordered:
+  ys,xs=np.where((labels==owner)&(rgba[:,:,3]>=48))
+  x,y=int(xs.min()),int(ys.min());bw,bh=int(xs.max())+1-x,int(ys.max())+1-y
+  expanded.append((owner,[x,y,bw,bh,len(xs)]))
+ ordered=expanded
  cells=[]
  for _,(x,y,bw,bh,_) in ordered:
   l,t=max(0,x-3),max(0,y-3);r,b=min(w,x+bw+3),min(h,y+bh+3)
@@ -80,7 +105,7 @@ def authored(rgba,analysis,definitions,scales,source_hash):
  for i,((owner,(x,y,w,h,_)),cell,scale) in enumerate(zip(ordered,cells,scales)):
   l,t,cw,ch=(cell[k] for k in ('x','y','width','height'))
   mask=labels==owner;local=rgba[t:t+ch,l:l+cw].copy()
-  ownership=cv2.dilate(mask[t:t+ch,l:l+cw].astype('uint8'),np.ones((5,5),np.uint8))
+  ownership=mask[t:t+ch,l:l+cw].astype('uint8')
   local[:,:,3]*=ownership
   g=crop_geometry(local,dict(x=0,y=0,width=cw,height=ch))
   factor=scale*SIZE;dx=.5*SIZE-g['anchor']*factor;dy=.92*SIZE-g['bottom']*factor
@@ -125,7 +150,7 @@ def owned_geometry(rgba,analysis,index):
  cell=analysis[2][index];l,t,w,h=(cell[k] for k in ('x','y','width','height'))
  owner=analysis[0][index][0]
  local=rgba[t:t+h,l:l+w].copy()
- local[:,:,3]*=cv2.dilate((analysis[1][t:t+h,l:l+w]==owner).astype('uint8'),np.ones((5,5),np.uint8))
+ local[:,:,3]*=(analysis[1][t:t+h,l:l+w]==owner).astype('uint8')
  return crop_geometry(local,dict(x=0,y=0,width=w,height=h))
 
 def measured_contacts(job,rgba,analysis):
@@ -171,6 +196,7 @@ def stage_five(folder,pet,jobs,out,original_visible,neutral_visible):
   if len(matching)!=1:missing.append(name);continue
   job=matching[0];original=np.asarray(Image.open(folder/sprite['file']).convert('RGBA'));rgba=np.asarray(Image.open(ROOT/job['source']).convert('RGBA'))
   ratio=rgba.shape[1]/original.shape[1];count=job['columns']*job['rows'];old_cells=rectangles(original,sprite)
+  if abs(rgba.shape[0]-original.shape[0]*ratio)>2:raise ValueError('Canvas edge difference exceeds two pixels: '+job['key'])
   if len(old_cells)==count and len({tuple(c.values()) for c in old_cells})==count:
    physical=old_cells;mapping=list(range(count))
   else:
@@ -227,7 +253,7 @@ def stage(cid,destination):
   if j['kind'].startswith('five-'):continue
   original=ROOT/j['references'][0];source_rgba=np.asarray(Image.open(original).convert('RGBA'));rgba=np.asarray(Image.open(ROOT/j['source']).convert('RGBA'))
   resolution=rgba.shape[1]/source_rgba.shape[1]
-  if abs(rgba.shape[0]/source_rgba.shape[0]-resolution)>1e-6:raise ValueError('Canvas aspect changed: '+j['key'])
+  if abs(rgba.shape[0]-source_rgba.shape[0]*resolution)>2:raise ValueError('Canvas edge difference exceeds two pixels: '+j['key'])
   count=j['columns']*j['rows'];definitions={}
   if j==base:
    sprite=pet['atlas'];definitions={'idle':dict(frames=[0],frameMs=[5000],loop=False),'listen':dict(frames=[0],frameMs=[5000],loop=False)}
@@ -257,7 +283,8 @@ def stage(cid,destination):
    if 'jump' in definitions and pet.get('category','chibi')=='chibi':definitions['land']=dict(frames=[count-1],frameMs=[400],loop=False)
   source_cells=rectangles(source_rgba,sprite)
   expected=[{k:round(v*resolution) for k,v in c.items()} for c in source_cells]
-  analysis=base_analysis if j==base else components(rgba,count,expected)
+  try:analysis=base_analysis if j==base else components(rgba,count,expected,j.get('separationMinAlpha',80))
+  except ValueError as error:raise ValueError(f'{j["key"]}: {error}') from error
   if j['kind']=='emotions':
    # New emotion drawings are authored from the approved long-legged portrait,
    # not calibrated back to the rejected short-bodied pose guide.
@@ -295,7 +322,8 @@ def stage(cid,destination):
    source_sprite=next(s for s in pet['interactionFive']['atlases'].values() if folder/s['file']==ROOT/candidate['references'][0])
    cells=next(s['cells'] for s in five['atlases'].values() if s['file'].endswith('identity-five-highfive.png'))
    analysis=components(rgba,4,cells)
-   scale=.7*original_visible/(neutral_visible*source_sprite['referenceHeightPixels'])
+   resolution=rgba.shape[1]/Image.open(ROOT/candidate['references'][0]).width
+   scale=.7*original_visible/(neutral_visible*source_sprite['referenceHeightPixels']*resolution)
    definitions={'farewell':dict(frames=[0,1,3,0],frameMs=[300,700,700,350],loop=False)}
    digest=hashlib.sha256(source.read_bytes()).hexdigest();data,measured,threshold=authored(rgba,analysis,definitions,[scale]*4,digest)
    relative='outfits/sports/identity-farewell.png';target=out/relative;shutil.copyfile(source,target);target.with_suffix('.json').write_text(json.dumps(data,separators=(',',':')),encoding='utf-8')

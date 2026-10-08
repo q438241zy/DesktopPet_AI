@@ -476,7 +476,9 @@ try
         { c.Atlas = c.Atlas with { FrameScaleFactors=factors }; Write(); Reject(() => Character.Load(root)); }
         c.Atlas = new Sprite("atlas.png", 4, 6, SeparationAlpha: 200, ReferenceHeightPixels: 280); Write();
         Equal(200, Character.Load(root).Atlas.SeparationAlpha); Equal(280d, Character.Load(root).Atlas.ReferenceHeightPixels);
-        c.Atlas = c.Atlas with { SeparationAlpha=255 }; Write(); Reject(() => Character.Load(root));
+        foreach(int alpha in new[]{248,252,255})
+        { c.Atlas = c.Atlas with { SeparationAlpha=alpha }; Write(); Equal(alpha, Character.Load(root).Atlas.SeparationAlpha); }
+        c.Atlas = c.Atlas with { SeparationAlpha=256 }; Write(); Reject(() => Character.Load(root));
         c.Atlas = c.Atlas with { SeparationAlpha=48, ReferenceHeightPixels=-1 }; Write(); Reject(() => Character.Load(root));
         foreach(double stride in new[]{0d,.1,.48,1.2})
         { c.Atlas=new Sprite("atlas.png",1,1,WalkStride:stride);Write();Equal(stride,Character.Load(root).Atlas.WalkStride); }

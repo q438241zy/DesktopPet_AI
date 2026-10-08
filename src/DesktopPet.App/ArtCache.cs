@@ -114,17 +114,23 @@ public sealed class ArtCache
             }
             for(int i=0;i<end;i++)owners[queue[i]]=owner;
         }
-        // Extend ownership into the low-alpha antialiasing fringe without changing
-        // any retained pixel's colour or alpha. Fully transparent space stays empty.
-        int head=0,tail=0;for(int i=0;i<count;i++)if(owners[i]>0)queue[tail++]=i;
-        while(head<tail)
+        // Restore dense hair edges before crossing faint background bridges. A
+        // single distance flood lets the preceding row's shoes steal the next
+        // figure's translucent hair curl. This only assigns source pixels; their
+        // colour and alpha remain unchanged.
+        int[] levels=[separationAlpha-1,248,240,220,180,120,80,48,16,1];
+        foreach(int level in levels.Where(a=>a>0&&a<separationAlpha).Distinct().OrderDescending())
         {
-            int at=queue[head++],x=at%width,y=at/width;
-            for(int dy=-1;dy<=1;dy++)for(int dx=-1;dx<=1;dx++)
+            int head=0,tail=0;for(int i=0;i<count;i++)if(owners[i]>0)queue[tail++]=i;
+            while(head<tail)
             {
-                int nx=x+dx,ny=y+dy;if(nx<0||nx>=width||ny<0||ny>=height)continue;
-                int next=ny*width+nx;
-                if(owners[next]==0&&pixels[next*4+3]>0){owners[next]=owners[at];queue[tail++]=next;}
+                int at=queue[head++],x=at%width,y=at/width;
+                for(int dy=-1;dy<=1;dy++)for(int dx=-1;dx<=1;dx++)
+                {
+                    int nx=x+dx,ny=y+dy;if(nx<0||nx>=width||ny<0||ny>=height)continue;
+                    int next=ny*width+nx;
+                    if(owners[next]==0&&pixels[next*4+3]>=level){owners[next]=owners[at];queue[tail++]=next;}
+                }
             }
         }
         return owners;

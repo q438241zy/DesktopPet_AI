@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "date": "2026-10-07",
+  "date": "2026-10-08",
   "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
   "decisions": [
     {
@@ -637,6 +637,696 @@
       "key": "gpt-eat-v2",
       "passed": false,
       "summary": "头部比例已恢复，但坐姿鞋底比原图垂低，需恢复向前的原小腿投影。"
+    },
+    {
+      "key": "gpt-touch-v2",
+      "passed": false,
+      "summary": "裸前臂已修正，但相邻人物的透明边缘连续，不能作为完整独立帧接入，撤销选用。"
+    },
+    {
+      "key": "gpt-care-v2",
+      "passed": true,
+      "summary": "运动服擦脸四帧均使用同一毛巾，梳头四帧仍为梳子；仅采用上方八帧。"
+    },
+    {
+      "key": "gpt-eat-v3",
+      "passed": true,
+      "summary": "头部保持原图尺度，恢复向前的坐姿鞋底投影；短袖短裤和持饼干顺序一致，实际显示还需运行复核。"
+    },
+    {
+      "key": "claude-angry-v1",
+      "passed": false,
+      "summary": "交叉抱臂的帧被改成双手放膝，坐姿鞋底向前的投影也变为下垂，退回。"
+    },
+    {
+      "key": "claude-ball-hit-v1",
+      "passed": true,
+      "summary": "躲球、护头与恢复表情保留；换衣后头部和手部位置与原稿基本对齐，待原生接触复核。"
+    },
+    {
+      "key": "claude-ball-miss-v1",
+      "passed": true,
+      "summary": "转头、倾斜躲避和摊手次序保留，未重新生成头部比例，待原生复核。"
+    },
+    {
+      "key": "claude-bonk-v1",
+      "passed": true,
+      "summary": "沿用原蓝色槌子与敲打顺序，未另加槌子；头部、护头手势保持，待原生检查。"
+    },
+    {
+      "key": "claude-build-v1",
+      "passed": true,
+      "summary": "十二帧伸手、抓取、叠放与三层积木过程保留，坐姿腿与原图对照；待原生接触检查。"
+    },
+    {
+      "key": "claude-care-v1",
+      "passed": false,
+      "summary": "梳子在首尾帧消失，腕部残留旧袖口；部分人物透明边缘相连，退回修正。"
+    },
+    {
+      "key": "claude-chat-v1",
+      "passed": false,
+      "summary": "坐姿腿和运动鞋向下垂，偏离原图朝前的鞋底投影，需局部修正。"
+    },
+    {
+      "key": "claude-club-v1",
+      "passed": true,
+      "summary": "数星星八手势、泡泡棒送嘴八帧、伸展八帧保留；头身比例未归一化，出口待手动核对。"
+    },
+    {
+      "key": "claude-curl-v1",
+      "passed": true,
+      "summary": "抱膝由坐起到低头收拢，保持原弯膝姿势和相对头部大小，不拉高蜷起帧。"
+    },
+    {
+      "key": "claude-dizzy-v1",
+      "passed": true,
+      "summary": "保留单眼漩涡、扶额和倾坐，原图与候选共同缩放比对通过。"
+    },
+    {
+      "key": "claude-eat-v1",
+      "passed": false,
+      "summary": "饼干过程保留，但腕部仍有白色袖口形状，先局部修正。"
+    },
+    {
+      "key": "claude-farewell-v1",
+      "passed": false,
+      "summary": "下肢朝下而非原图朝前坐姿，造成动作切换外轮廓过高，退回。"
+    },
+    {
+      "key": "claude-five-main-v1",
+      "passed": true,
+      "summary": "二十帧击掌、猜拳、礼物、读书与合照的手指/道具保持，头部与原图对照通过；待原生锚点检查。"
+    },
+    {
+      "key": "claude-headpat-v1",
+      "passed": true,
+      "summary": "惊讶、眯眼、侧头和双手靠脸次序保留，头部大小与原图一致。"
+    },
+    {
+      "key": "claude-jump-v1",
+      "passed": true,
+      "summary": "保留原图跳起的小比例中间姿势与弯腿动作，未把举手帧缩到同高；待原生明示倍率验证。"
+    },
+    {
+      "key": "claude-meal-v1",
+      "passed": false,
+      "summary": "最后一帧胸前残留原衣领/花饰，影响运动服连续性，退回。"
+    },
+    {
+      "key": "claude-peek-v1",
+      "passed": true,
+      "summary": "六帧边缘探头的头部、肩胯和足部位置保持，短袖短裤清楚。"
+    },
+    {
+      "key": "claude-pickup-v1",
+      "passed": true,
+      "summary": "六帧悬腿角度与提起表情保留，未放大原稿中较小的姿势。"
+    },
+    {
+      "key": "claude-shaken-v1",
+      "passed": false,
+      "summary": "部分倾斜帧腿部方向偏离原稿，并丢失原摆动符号，需修正。"
+    },
+    {
+      "key": "claude-shaken-strong-v1",
+      "passed": true,
+      "summary": "大幅左右倾斜、屈膝与漩涡眼保留，头部比例按原稿未独立归一化；原生仍需验收。"
+    },
+    {
+      "key": "claude-think-v1",
+      "passed": false,
+      "summary": "中间小姿势头部被放大，腿部也朝下延长，退回按原图各帧坐标修正。"
+    },
+    {
+      "key": "claude-touch-v1",
+      "passed": false,
+      "summary": "画布变为1447×1087且透明边缘连成多帧，无法准确同尺度裁帧。"
+    },
+    {
+      "key": "gpt-touch-v3",
+      "passed": false,
+      "summary": "间隔修复未成功，仍连成一个大图块，保持不选用。"
+    },
+    {
+      "key": "gpt-eat-v4",
+      "passed": false,
+      "summary": "再次放大头部与坐姿整体，继续保留已选用的v3。"
+    },
+    {
+      "key": "claude-adult-five-photo-v1",
+      "passed": true,
+      "summary": "四帧脸、长腿、肩胯、合照手势与原图一同等比对照，短袖和膝上短裤保持；待原生验收。"
+    },
+    {
+      "key": "gpt-touch-v4",
+      "passed": true,
+      "summary": "裸前臂、头身与银色结饰保留；第7帧一手回落仍为笑的挠痒过渡。完整12帧可从高透明度内核分离。画布边缘有不足2px的取整差，始终只用一个等比像素倍率；待原生图像验收。"
+    },
+    {
+      "key": "claude-touch-v2",
+      "passed": true,
+      "summary": "十二帧头、眼镜、发饰与掌心姿势保持；裸前臂与短袖已分开。允许不足2px画布边缘取整，未拉伸或逐帧缩放，待原生验收。"
+    },
+    {
+      "key": "claude-eat-v2",
+      "passed": true,
+      "summary": "八帧饼干到嘴、咬食和收手保留，短袖到腕部为裸前臂，头身与原图对照保持；待原生食品接触检查。"
+    },
+    {
+      "key": "claude-meal-v2",
+      "passed": false,
+      "summary": "衣领修好但整个人物和头部被重新放大，退回只修改首稿最后一帧衣领。"
+    },
+    {
+      "key": "claude-angry-v2",
+      "passed": true,
+      "summary": "六帧抱臂与坐姿脚底方向恢复，头部与原图同尺度，短袖短裤及裸前臂保持。"
+    },
+    {
+      "key": "claude-chat-v2",
+      "passed": true,
+      "summary": "聊天口型、抬手和倾头保持，坐姿鞋底前向，头与头发轮廓同尺度。"
+    },
+    {
+      "key": "claude-farewell-v2",
+      "passed": true,
+      "summary": "挥手、合掌和擦眼的六姿势保持，双腿不再下垂；短袖和短裤与原比例相符。"
+    },
+    {
+      "key": "claude-shaken-v2",
+      "passed": true,
+      "summary": "六帧左右倾斜、摆腿方向与摇晃符号恢复，眼镜发饰一致。"
+    },
+    {
+      "key": "claude-think-v2",
+      "passed": true,
+      "summary": "按原图六姿势共同缩放，中间小姿势保持原始比例并继续使用原明示倍率，未统一放大头部。"
+    },
+    {
+      "key": "claude-adult-body-v1",
+      "passed": true,
+      "summary": "16姿势对照原图，成年头身、弯膝跳起、抱膝侧卧、积木到手均保持；短袖短裤不改变长腿。"
+    },
+    {
+      "key": "claude-adult-five-highfive-v1",
+      "passed": true,
+      "summary": "四帧抬掌、向前击掌、回落与原图对应，头身比例和长腿保持；1px画布取整只用单一等比倍率。"
+    },
+    {
+      "key": "claude-adult-five-handoff-v1",
+      "passed": true,
+      "summary": "剪刀布手势、捧手、握礼物与原图一致；腕部无旧袖口，长腿与面容保持。"
+    },
+    {
+      "key": "claude-adult-five-book-v1",
+      "passed": true,
+      "summary": "开盒、读书、翻页和合书四帧实物手部接触保持，短袖短裤且头身同尺度。"
+    },
+    {
+      "key": "claude-adult-emotion-mood-v1",
+      "passed": true,
+      "summary": "以已复核运动服为参考修改笑、失落、抱臂、揉额表情，头身与腿部保留原比例；待原生动态验收。"
+    },
+    {
+      "key": "claude-adult-emotion-bonk-v1",
+      "passed": true,
+      "summary": "四帧玩具锤握持、轻敲与收回完整，腿部与参考保持一致；不额外叠程序锤子。"
+    },
+    {
+      "key": "claude-adult-emotion-touch-v1",
+      "passed": false,
+      "summary": "摸头首帧多出外来的人手，局部去除后重新复核。"
+    },
+    {
+      "key": "claude-adult-care-v1",
+      "passed": false,
+      "summary": "擦脸起手毛巾不完整，动作中出现变化，需恢复同一块毛巾。"
+    },
+    {
+      "key": "claude-care-v2",
+      "passed": false,
+      "summary": "起手与收手毛巾不清楚且整张线条明显软化；从清晰原图重做顶部8帧。"
+    },
+    {
+      "key": "claude-meal-v3",
+      "passed": false,
+      "summary": "人物尺寸较首稿接近，但出现有色半透明背景块，不选用。"
+    },
+    {
+      "key": "claude-adult-five-rps-v1",
+      "passed": false,
+      "summary": "第四帧伸拳腕部残留深色旧袖口。"
+    },
+    {
+      "key": "claude-adult-five-rps-v2",
+      "passed": false,
+      "summary": "旧袖口修正但背景出现棕色半透明块，需要保持干净透明边缘。"
+    },
+    {
+      "key": "claude-adult-care-v2",
+      "passed": true,
+      "summary": "擦脸首帧补回完整毛巾，四帧手持与贴脸一致；原头身及长腿位置保持。"
+    },
+    {
+      "key": "claude-adult-contact-v1",
+      "passed": true,
+      "summary": "9姿势零食、勺碗与掌心接触保留，短袖短裤且与原图成年比例相符；掌心坐标另作人工标记核对。"
+    },
+    {
+      "key": "claude-adult-club-v1",
+      "passed": true,
+      "summary": "24姿势的指点、举吹环、吹气、收手和伸展顺序完整，原图成年头身和腿长保持。"
+    },
+    {
+      "key": "claude-adult-emotion-touch-v2",
+      "passed": false,
+      "summary": "外来手已移除，但毛发周围出现棕色半透明矩形底，继续修透明背景。"
+    },
+    {
+      "key": "gemini-angry-v1",
+      "passed": false,
+      "summary": "换衣保留发色和脸，但坐姿鞋子改成鞋面朝前、腿下垂，未保持原投影；部分手臂姿势简化，需要按原图姿态修正。"
+    },
+    {
+      "key": "gemini-ball-hit-v1",
+      "passed": false,
+      "summary": "换衣保留发色和脸，但坐姿鞋子改成鞋面朝前、腿下垂，未保持原投影；部分手臂姿势简化，需要按原图姿态修正。"
+    },
+    {
+      "key": "gemini-ball-miss-v1",
+      "passed": false,
+      "summary": "换衣保留发色和脸，但坐姿鞋子改成鞋面朝前、腿下垂，未保持原投影；部分手臂姿势简化，需要按原图姿态修正。"
+    },
+    {
+      "key": "gemini-bonk-v1",
+      "passed": false,
+      "summary": "换衣保留发色和脸，但坐姿鞋子改成鞋面朝前、腿下垂，未保持原投影；部分手臂姿势简化，需要按原图姿态修正。"
+    },
+    {
+      "key": "gemini-chat-v1",
+      "passed": false,
+      "summary": "换衣保留发色和脸，但坐姿鞋子改成鞋面朝前、腿下垂，未保持原投影；部分手臂姿势简化，需要按原图姿态修正。"
+    },
+    {
+      "key": "gemini-curl-v1",
+      "passed": false,
+      "summary": "换衣保留发色和脸，但坐姿鞋子改成鞋面朝前、腿下垂，未保持原投影；部分手臂姿势简化，需要按原图姿态修正。"
+    },
+    {
+      "key": "gemini-eat-v1",
+      "passed": false,
+      "summary": "换衣保留发色和脸，但坐姿鞋子改成鞋面朝前、腿下垂，未保持原投影；部分手臂姿势简化，需要按原图姿态修正。"
+    },
+    {
+      "key": "gemini-farewell-v1",
+      "passed": false,
+      "summary": "换衣保留发色和脸，但坐姿鞋子改成鞋面朝前、腿下垂，未保持原投影；部分手臂姿势简化，需要按原图姿态修正。"
+    },
+    {
+      "key": "claude-meal-v4",
+      "passed": true,
+      "summary": "透明底恢复，六帧碗勺持握及送入口接触连续，保留原头部及坐姿尺度；待原生验证。"
+    },
+    {
+      "key": "claude-adult-five-rps-v3",
+      "passed": true,
+      "summary": "棕色背景残影移除，四帧出拳手势、成人腿长和鞋底位置延续原图，无旧袖口。"
+    },
+    {
+      "key": "claude-adult-emotion-touch-v3",
+      "passed": true,
+      "summary": "移除头顶额外手和棕色边缘，轻笑摸头、左右揉脸及挠痒表情与原长腿立姿一致。"
+    },
+    {
+      "key": "gemini-peek-v1",
+      "passed": true,
+      "summary": "边缘探头六帧沿用原侧倾、手掌及头身比例，短袖短裤，脚踝与原位置一致。"
+    },
+    {
+      "key": "gemini-headpat-v1",
+      "passed": false,
+      "summary": "坐姿脚尖与脚底朝向被改变，部分腿段伸长；按原始脚踝、脚底与弯膝位置重绘，不以缩放修正。"
+    },
+    {
+      "key": "gemini-jump-v1",
+      "passed": false,
+      "summary": "坐姿脚尖与脚底朝向被改变，部分腿段伸长；按原始脚踝、脚底与弯膝位置重绘，不以缩放修正。"
+    },
+    {
+      "key": "gemini-pickup-v1",
+      "passed": false,
+      "summary": "坐姿脚尖与脚底朝向被改变，部分腿段伸长；按原始脚踝、脚底与弯膝位置重绘，不以缩放修正。"
+    },
+    {
+      "key": "gemini-shaken-v1",
+      "passed": false,
+      "summary": "坐姿脚尖与脚底朝向被改变，部分腿段伸长；按原始脚踝、脚底与弯膝位置重绘，不以缩放修正。"
+    },
+    {
+      "key": "gemini-shaken-strong-v1",
+      "passed": false,
+      "summary": "坐姿脚尖与脚底朝向被改变，部分腿段伸长；按原始脚踝、脚底与弯膝位置重绘，不以缩放修正。"
+    },
+    {
+      "key": "gemini-think-v1",
+      "passed": false,
+      "summary": "坐姿脚尖与脚底朝向被改变，部分腿段伸长；按原始脚踝、脚底与弯膝位置重绘，不以缩放修正。"
+    },
+    {
+      "key": "gemini-angry-v2",
+      "passed": true,
+      "summary": "抱臂和鼓嘴帧已恢复，鞋底朝前，与原头部、发尾大小一致。 静态通过，待原生验证。"
+    },
+    {
+      "key": "gemini-ball-hit-v2",
+      "passed": true,
+      "summary": "惊讶、收手抱臂、揉头及恢复连续，鞋底方向恢复。 静态通过，待原生验证。"
+    },
+    {
+      "key": "gemini-bonk-v2",
+      "passed": true,
+      "summary": "保留原槌子位置与接触，不再外加道具；六帧头手姿势一致。 静态通过，待原生验证。"
+    },
+    {
+      "key": "gemini-chat-v2",
+      "passed": true,
+      "summary": "开口、抬手及伸掌等原姿势对应，短袖与短裤连续。 静态通过，待原生验证。"
+    },
+    {
+      "key": "gemini-curl-v2",
+      "passed": true,
+      "summary": "坐姿逐渐抱膝，膝盖收近下巴，未强拉成站立高度。 静态通过，待原生验证。"
+    },
+    {
+      "key": "gemini-eat-v2",
+      "passed": true,
+      "summary": "八帧饼干双手持握到嘴边再收回连续，鞋底方向恢复。 静态通过，待原生验证。"
+    },
+    {
+      "key": "gemini-farewell-v2",
+      "passed": true,
+      "summary": "告别伸手、挥手、揉眼和合掌连贯，保留原头发与尾巴轮廓。 静态通过，待原生验证。"
+    },
+    {
+      "key": "gemini-ball-miss-v2",
+      "passed": false,
+      "summary": "六帧鞋子仍画成鞋面朝前，与原鞋底平面相反；保留上半身，继续修正脚掌姿态。"
+    },
+    {
+      "key": "gemini-build-v1",
+      "passed": true,
+      "summary": "十二帧手掌接触红蓝黄积木并逐一堆叠，短袖短裤且原坐姿比例一致。"
+    },
+    {
+      "key": "gemini-touch-v1",
+      "passed": true,
+      "summary": "揉脸、挠痒和伸掌十二帧保持原顺序与姿态，待测量真实手掌接触点。"
+    },
+    {
+      "key": "gemini-club-v1",
+      "passed": true,
+      "summary": "数星抬手、泡泡棒送嘴、伸懒腰完整24帧，坐姿头身稳定，待标定泡泡圈。"
+    },
+    {
+      "key": "gemini-meal-v1",
+      "passed": false,
+      "summary": "第四帧原本较小的俯身姿势被放大，人物在切换时可能跳变；需固定该帧原头部与身体坐标。"
+    },
+    {
+      "key": "gemini-care-v1",
+      "passed": false,
+      "summary": "首末梳头帧梳子消失，擦脸准备帧缺毛巾，需补完整手持道具与脚底姿势。"
+    },
+    {
+      "key": "gemini-dizzy-v1",
+      "passed": true,
+      "summary": "螺旋眼、扶头及侧坐双脚姿势保持原图方向，头身及猫尾一致。"
+    },
+    {
+      "key": "gemini-five-main-v1",
+      "passed": true,
+      "summary": "二十帧击掌、猜拳、拆礼物、读书及拍照姿势完整；站立与蹲姿保留原腿长，待原生接触点验证。"
+    },
+    {
+      "key": "claude-care-v3",
+      "passed": false,
+      "summary": "原生运行发现脚下混入相邻帧发丝；自动检查通过不构成美术验收，改用透明边缘修订稿。"
+    },
+    {
+      "key": "gemini-adult-five-photo-v1",
+      "passed": true,
+      "summary": "四帧原成人头部、肩腰胯及长腿立姿保留，短袖短裤及配色统一。"
+    },
+    {
+      "key": "gemini-adult-five-highfive-v1",
+      "passed": true,
+      "summary": "击掌四帧从抬手到伸掌，保留原左右腿交叉、脚踝位置与头身比例。"
+    },
+    {
+      "key": "gemini-headpat-v2",
+      "passed": true,
+      "summary": "逐帧对照六姿势，保留闭眼与双手托脸，坐姿鞋底朝前，短袖短裤。"
+    },
+    {
+      "key": "gemini-jump-v2",
+      "passed": true,
+      "summary": "逐帧保持原稿各帧头部大小、腾空屈膝与举手方向；坐姿鞋底朝前。"
+    },
+    {
+      "key": "gemini-pickup-v2",
+      "passed": true,
+      "summary": "保留原稿双手提起反应、左右脚与尾巴方向，未补成长裤。"
+    },
+    {
+      "key": "gemini-think-v2",
+      "passed": true,
+      "summary": "保留手指靠嘴及原稿不同大小的思考帧，换衣前后头部轮廓一致。"
+    },
+    {
+      "key": "gemini-shaken-v2",
+      "passed": true,
+      "summary": "保留摇晃倾斜、闭眼与螺旋眼，裙摆替换为短裤。"
+    },
+    {
+      "key": "gemini-shaken-strong-v2",
+      "passed": true,
+      "summary": "保留原稿强摇晃的手臂展开、腿脚朝向与尾巴方向。"
+    },
+    {
+      "key": "gemini-ball-miss-v3",
+      "passed": true,
+      "summary": "已恢复前向鞋底，躲球倾斜与挥手、收手均有对应原姿势。"
+    },
+    {
+      "key": "gemini-meal-v2",
+      "passed": true,
+      "summary": "逐帧保留饭碗、汤匙与嘴部接触，小头部第4帧未再强行放大；仍须原生确认道具不叠加。"
+    },
+    {
+      "key": "gemini-care-v2",
+      "passed": true,
+      "summary": "前8帧梳子与毛巾起止姿势、脸颊接触已恢复；仅这8帧用于运动服，后16帧不接入。"
+    },
+    {
+      "key": "gemini-adult-five-rps-v1",
+      "passed": true,
+      "summary": "对照原稿猜拳手型与上下臂，长腿及成熟头部比例未矮化，去除原袖口。"
+    },
+    {
+      "key": "gemini-adult-five-handoff-v1",
+      "passed": true,
+      "summary": "保留递礼物及拆礼物的手部和道具位置、交叉腿姿势与足底。"
+    },
+    {
+      "key": "gemini-adult-five-book-v1",
+      "passed": true,
+      "summary": "逐帧书本握持、翻页与双手接触及成年腿长一致。"
+    },
+    {
+      "key": "gemini-adult-body-v1",
+      "passed": true,
+      "summary": "16姿势对照含躺卧、蜷起、腾空、堆积木，短裤遮挡合理且保持原稿头部与肢体位置。"
+    },
+    {
+      "key": "gemini-adult-contact-v1",
+      "passed": true,
+      "summary": "饼干、饭碗汤匙及接球三姿势手掌保留，成年头身与腿长一致，接球坐标待原生核对。"
+    },
+    {
+      "key": "gemini-adult-club-v1",
+      "passed": true,
+      "summary": "24姿势逐帧对照星星指向、泡泡圈到嘴及伸展，保留原稿成年头身比例；接触点另外人工核对。"
+    },
+    {
+      "key": "gemini-adult-care-v1",
+      "passed": true,
+      "summary": "梳头8姿势含原有梳子、毛巾和脸颊接触，短袖短裤、原交叉腿与成年比例一致。"
+    },
+    {
+      "key": "gemini-adult-emotion-touch-v1",
+      "passed": true,
+      "summary": "以已审核真人运动服为底，保留四帧长腿，只改闭眼摸头、左右托脸与笑脸挠痒，没有额外手。"
+    },
+    {
+      "key": "gemini-adult-emotion-mood-v1",
+      "passed": true,
+      "summary": "保持审核通过的脸、头身、腿长与运动服，仅更换开心、失落、自我拥抱和头晕。"
+    },
+    {
+      "key": "gemini-adult-emotion-bonk-v1",
+      "passed": true,
+      "summary": "四帧成年人形体一致，单一紫色玩具槌有握持、举起、轻敲与收回过程，无额外叠加槌。"
+    },
+    {
+      "key": "claude-care-v4",
+      "passed": false,
+      "summary": "实际渲染发现脚下混入下一行发丝；新鞋底位置偏低造成与下一行发环重叠，单独透明修订不能解决，退回原图修正坐姿鞋底。"
+    },
+    {
+      "key": "claude-care-v5",
+      "passed": false,
+      "summary": "实际渲染发现脚下混入下一行发丝；新鞋底位置偏低造成与下一行发环重叠，单独透明修订不能解决，退回原图修正坐姿鞋底。"
+    },
+    {
+      "key": "grok-adult-body-v1",
+      "passed": false,
+      "summary": "保留原头身和姿态，但跳跃、堆积木等帧仍有旧白腕袖，需去除并统一运动衫拉链领。"
+    },
+    {
+      "key": "claude-care-v6",
+      "passed": false,
+      "summary": "鞋底已回到原位置，但还残留裙边与腕袖，由v7清理。"
+    },
+    {
+      "key": "grok-adult-body-v2",
+      "passed": true,
+      "summary": "16原姿态与成年头部、腿长保持；清除跳跃和积木等旧腕袖，保留积木与手部接触。"
+    },
+    {
+      "key": "grok-adult-five-photo-v1",
+      "passed": true,
+      "summary": "四姿势保留原脸、头部大小、长腿和手型，短袖短裤未改变角色体型。"
+    },
+    {
+      "key": "grok-adult-club-v1",
+      "passed": true,
+      "summary": "逐帧对照原图，24帧数星/吹泡泡/伸懒腰的成年头身、长腿和手持道具保留；袖口在上臂，短裤膝上；泡泡圈坐标待测。"
+    },
+    {
+      "key": "grok-adult-care-v1",
+      "passed": true,
+      "summary": "8帧与原图相同比例，梳子、毛巾及手脸接触保留，腕部干净、短袖短裤正确。"
+    },
+    {
+      "key": "grok-adult-five-highfive-v1",
+      "passed": true,
+      "summary": "4帧原图同尺度对照，举掌的手形位置和成熟长腿保留，短袖短裤、手腕干净。"
+    },
+    {
+      "key": "grok-adult-five-handoff-v1",
+      "passed": true,
+      "summary": "4帧剪刀/布/接礼动作保留，手与礼盒真实接触，成年头身、膝踝位置协调，袖口干净。"
+    },
+    {
+      "key": "grok-adult-five-book-v1",
+      "passed": true,
+      "summary": "4帧开礼物/读书/翻页/合书与原图一致，手握书本，成年长腿及头部尺寸保留。"
+    },
+    {
+      "key": "grok-adult-five-rps-v1",
+      "passed": false,
+      "summary": "第4帧向前出拳仍残留黑色长袖与腕部旧衣边，需局部修订。"
+    },
+    {
+      "key": "grok-adult-contact-v1",
+      "passed": false,
+      "summary": "第7帧双手向前仍残留黑色长袖及白袖口，需换成裸前臂。"
+    },
+    {
+      "key": "claude-care-v7",
+      "passed": false,
+      "summary": "原生梳头/擦脸543项通过，实际脚下发丝残影已消失，但梳头抬手仍有旧白袖口，需v8局部清除，不可仅凭自动通过发布。"
+    },
+    {
+      "key": "grok-adult-contact-v2",
+      "passed": true,
+      "summary": "9帧原图共同缩放对照已查看。双手前伸的旧长袖/白袖口已清除，成年头身与膝踝位置、食物/碗/勺及手嘴接触保留。"
+    },
+    {
+      "key": "grok-adult-five-rps-v2",
+      "passed": true,
+      "summary": "4帧共同缩放对照已查看，向前出拳的白袖口已去除，保留原拳头的透视位置、成熟头身与交叉双腿。"
+    },
+    {
+      "key": "grok-adult-emotion-touch-v1",
+      "passed": true,
+      "summary": "对照已复核的运动服原姿势，四帧只调整表情/上肢，摸头/双侧揉脸/挠痒手形清楚，腰线及长腿不变，无外部多余手。"
+    },
+    {
+      "key": "grok-adult-emotion-bonk-v1",
+      "passed": true,
+      "summary": "四帧站姿、成熟头身和长腿与参考一致，软槌举起/接触头顶/放下由本人握持，无第二把槌。"
+    },
+    {
+      "key": "grok-angry-v1",
+      "passed": false,
+      "summary": "同尺度并排显示候选头部和整体坐姿扩大，不符合只换衣的比例要求，退回原图重做。"
+    },
+    {
+      "key": "grok-ball-miss-v1",
+      "passed": false,
+      "summary": "原图并排中鞋底与手掌下移，坐姿被拉长，需按原位置恢复。"
+    },
+    {
+      "key": "grok-ball-hit-v1",
+      "passed": true,
+      "summary": "6帧原图同尺度对照，头部、摸额/抱拳/剪刀手及鞋底朝向保持，短袖短裤。"
+    },
+    {
+      "key": "grok-bonk-v1",
+      "passed": true,
+      "summary": "6帧保持原图头身和原槌路径、抱头动作，鞋底正面、短袖短裤正确。"
+    },
+    {
+      "key": "grok-build-v1",
+      "passed": true,
+      "summary": "12帧保留坐地姿势、块的位置与真正拿起叠放接触；头发及原尺度保留，短袖短裤。"
+    },
+    {
+      "key": "grok-chat-v1",
+      "passed": true,
+      "summary": "6帧保持原图表情、说话手势和坐姿尺度，鞋底向前，短袖短裤。"
+    },
+    {
+      "key": "grok-curl-v1",
+      "passed": false,
+      "summary": "后3帧抱膝时头部上移、蜷缩程度与原图不符；需保留原图逐帧姿势及大小。"
+    },
+    {
+      "key": "grok-eat-v1",
+      "passed": false,
+      "summary": "8帧候选整体和头部明显放大，不能沿用原图倍率，需原画布重做。"
+    },
+    {
+      "key": "grok-dizzy-v1",
+      "passed": true,
+      "summary": "单姿势共同缩放对照，保留原坐姿重心、头部与脚位置、螺旋眼，短袖短裤。"
+    },
+    {
+      "key": "grok-farewell-v1",
+      "passed": true,
+      "summary": "6帧保留原图挥手/擦泪表情、头身比例、鞋底前向，短袖短裤正确。"
+    },
+    {
+      "key": "grok-five-main-v1",
+      "passed": true,
+      "summary": "20帧原图共同缩放全部查看，击掌/猜拳/送礼/读书及头腿比例保留，短袖膝上短裤，物品由手持握。"
+    },
+    {
+      "key": "grok-headpat-v1",
+      "passed": true,
+      "summary": "6帧原图共同缩放对照，原头身、轻侧头表情和原坐姿尺度保留，短袖短裤。"
     }
   ]
 }

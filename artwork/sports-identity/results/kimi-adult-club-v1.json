@@ -1,0 +1,92 @@
+{
+  "key": "kimi-adult-club-v1",
+  "id": "kimi-adult",
+  "style": "realistic",
+  "kind": "club",
+  "columns": 4,
+  "rows": 6,
+  "source": "artwork/sports-identity/kimi-adult-club-v1.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/kimi-adult/motions/cloud-club-original.png"
+  ],
+  "generationReferences": [
+    "src/DesktopPet.App/Assets/Characters/kimi-adult/motions/cloud-club-original.png"
+  ],
+  "prompt": "Precise clothing-only EDIT of this original Kimi photorealistic 3D ADULT woman with long adult legs action atlas. Keep EXACT source 1536x1024 canvas, all original figure positions, pose order, cell spacing and camera. Never repack or rescale figures to fill margins. Preserve original face and head SIZE, head-body ratio, shoulders, torso, hips, knees, ankles, feet and hand/wrist/finger positions in EVERY pose, including sitting, lying, leaning, bent knees or raised hands. This is clothing on the SAME person, no redesign, no doll anatomy, no larger head, no shorter or thicker legs. Preserve silver lavender hair, purple eyes, white frilly headband, silver crescent ornament, navy ribbon and pearl dangles, all expressions and hair/ear/tail silhouettes and directions.\nReplace only old dress/apron, long sleeves, wrist cuffs, tights and boots with a WHITE zip-front school sports shirt with navy upper-arm SHORT SLEEVES/shoulder panels, silver lavender piping and small crescent moon chest motif; navy athletic SHORTS ending well ABOVE knees with narrow white side stripes; white ankle socks and small white-lavender-blue low-top sneakers at the original ankle/sole positions. Keep neckline modest and zipped. Bare forearms, knees and lower legs. NO long sleeves, trousers, gloves or leftover wrist frills. Keep headband and hair accessories even if they are frilly. Keep original hand contacts and ALL existing props, fingers and gesture shapes; do not invent an extra ball, hammer, sparkle or particle.\nIMPORTANT: preserve the source's exact head and limb coordinates, original folded seated legs, original small margins at canvas edge, and full figure heights. No longer dangling seated legs and no shortening adult legs to fit a raised arm. Genuine transparent alpha outside characters and held objects. No painted backdrop, gradient, glow, grid, label or extra shadow. Preserve the original physical layout even if uneven. Keep all 8 counting-star gestures, 8 bubble bottle/wand poses, and 8 stretching poses. Preserve mouth-to-ring and hand-to-bottle contacts.",
+  "tool": "built-in image_gen",
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-db47a9e7-8942-4eed-8fcc-3a638adf2ce6.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-09",
+    "passed": true,
+    "summary": "二十四帧数星、泡泡和伸展保留成年腿长，八个泡泡帧均有蓝圈棒和瓶子；手指及圈口待定位复核。",
+    "evidence": [
+      ".artifacts/sports-identity-review/kimi-adult-club-v1-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "78f306c4610f16a9a1d8e463d1515034a3adee678dec431765175870698e56d8",
+    "originalSha256": "5bba45c153780669fecbf4eb14384d65757de6c1fcb7947bfe765ab87a30b95a",
+    "comparisonFingerprint": "06b64eda80ae645ee16eac7eed9f77cd9720fe5c4fa5db31347e97844f26175a"
+  },
+  "measurementPixels": {
+    "bubbleSources": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      [
+        53,
+        542
+      ],
+      [
+        257,
+        430
+      ],
+      [
+        472,
+        420
+      ],
+      [
+        661,
+        420
+      ],
+      [
+        839,
+        423
+      ],
+      [
+        1009,
+        411
+      ],
+      [
+        1200,
+        440
+      ],
+      [
+        1379,
+        541
+      ],
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ]
+  },
+  "contactReview": {
+    "date": "2026-10-09",
+    "reviewer": "assistant",
+    "method": "Manual source-pixel hand or wand-ring anchors verified in browser composite",
+    "evidence": ".artifacts/sports-identity-review/kimi-adult-club-v1-anchors.png"
+  }
+}

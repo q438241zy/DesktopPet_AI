@@ -1,0 +1,86 @@
+{
+  "key": "zhipu-adult-club-v3",
+  "id": "zhipu-adult",
+  "style": "realistic",
+  "kind": "club",
+  "columns": 4,
+  "rows": 6,
+  "source": "artwork/sports-identity/zhipu-adult-club-v3.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/zhipu-adult/motions/cloud-club-original.png"
+  ],
+  "generationReferences": [
+    "artwork/sports-identity/zhipu-adult-club-v2.png"
+  ],
+  "prompt": "Use case: precise-object-edit. Input is target sportswear GLM adult 24-pose sprite atlas, exactly 1536x1024 pixels, physical 8 columns x3 rows. Preserve every character face, body, limb position, hair, ears, tail, shorts, shoes, scale and position exactly. ONLY repair missing bubble wands in physical frames10,11,12,13,14,15 (middle row columns2 through7). Each already has fingers holding an invisible wand. Paint ONE clearly visible silver-gray circular bubble ring diameter12 pixels and slender short handle physically held in that hand, like the existing rings in middle-row columns1 and8. Ring centers approximately (256,431),(471,419),(663,426),(822,432),(1000,434),(1227,441), respectively. Handle extends into the existing holding fingers below each circle. Make each circular hole fully see-through, silver outer rim clearly visible on both dark and white backgrounds. Keep existing blue bottle in the other hand. All eight middle row frames must now have one visible circular wand AND one blue bottle. Do NOT replace hands or change wrist, pose, clothing, anatomy, face, legs or character size. Do NOT erase any existing wands. Preserve all 24 sprites at identical coordinates. Transparent background, no grid, no text, no added particles, no shadow matte.",
+  "tool": "built-in image_gen",
+  "status": "not-selected-after-review",
+  "selected": false,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-3a3d8f39-2209-435c-b890-bd418aa69648.png",
+  "measurementPixels": {
+    "bubbleSources": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      [
+        61,
+        427
+      ],
+      [
+        256,
+        427
+      ],
+      [
+        471,
+        418
+      ],
+      [
+        663,
+        425
+      ],
+      [
+        824,
+        420
+      ],
+      [
+        1002,
+        428
+      ],
+      [
+        1227,
+        441
+      ],
+      [
+        1392,
+        427
+      ],
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ]
+  },
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-09",
+    "passed": false,
+    "summary": "圈棒10–14已补齐，但15放大仍无完整环口，继续单帧修复。",
+    "evidence": [
+      ".artifacts/sports-identity-review/zhipu-adult-club-v3-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "a9c0a019acd8ac5619a6046f3f1bbbdfd534d9a59a40890d81d8a4b3fb467416",
+    "originalSha256": "6a75ec14a87a8239a69b3780828e81b414174762c0d17f89d8e78c39c94e64d9",
+    "comparisonFingerprint": "dc893a175ee043df361c6e64a0efdc3a1c1529dd730816903383a18b9134189f"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "key": "zhipu-adult-care-v1",
+  "id": "zhipu-adult",
+  "style": "realistic",
+  "kind": "care",
+  "columns": 4,
+  "rows": 2,
+  "source": "artwork/sports-identity/zhipu-adult-care-v1.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/zhipu-adult/motions/cloud-care-original.png"
+  ],
+  "generationReferences": [
+    "src/DesktopPet.App/Assets/Characters/zhipu-adult/motions/cloud-care-original.png"
+  ],
+  "prompt": "Precise clothing-only EDIT of this original GLM photorealistic 3D ADULT woman with long adult legs action atlas. Keep EXACT source 1536x1024 canvas, all original figure positions, pose order, cell spacing and camera. Never repack or rescale figures to fill margins. Preserve original face and head SIZE, head-body ratio, shoulders, torso, hips, knees, ankles, feet and hand/wrist/finger positions in EVERY pose, including sitting, lying, leaning, bent knees or raised hands. This is clothing on the SAME person, no redesign, no doll anatomy, no larger head, no shorter or thicker legs. Preserve black/blue-gray hair, blue eyes, black cat ears and tail, white frilly headband, black eyelash sleep-mask ornament on head, Z tag and blue tassels, all expressions and hair/ear/tail silhouettes and directions.\nReplace only old dress/apron, long sleeves, wrist cuffs, tights and boots with a WHITE zip-front school sports shirt with navy upper-arm SHORT SLEEVES/shoulder panels, pale blue piping and small gray emblem chest motif; navy athletic SHORTS ending well ABOVE knees with narrow white side stripes; white ankle socks and small white-blue low-top sneakers at the original ankle/sole positions. Keep neckline modest and zipped. Bare forearms, knees and lower legs. NO long sleeves, trousers, gloves or leftover wrist frills. Keep headband and hair accessories even if they are frilly. Keep original hand contacts and ALL existing props, fingers and gesture shapes; do not invent an extra ball, hammer, sparkle or particle.\nIMPORTANT: preserve the source's exact head and limb coordinates, original folded seated legs, original small margins at canvas edge, and full figure heights. No longer dangling seated legs and no shortening adult legs to fit a raised arm. Genuine transparent alpha outside characters and held objects. No painted backdrop, gradient, glow, grid, label or extra shadow. Preserve every cream face towel, brush and exact hand/cheek contact. Cloth held in the hands is a PROP, not a sleeve.",
+  "tool": "built-in image_gen",
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-2d649b84-fc04-4926-bf35-711edccdbd38.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-09",
+    "passed": true,
+    "summary": "八帧梳头擦脸保持成人脸、长腿、交叉站姿与尾巴；梳子毛巾起止均在手中，原白袖口已去除。",
+    "evidence": [
+      ".artifacts/sports-identity-review/zhipu-adult-care-v1-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "093645829faace18ae76ae8e1f61e132a0e6198614a0efa1c5fc66d8358788d8",
+    "originalSha256": "89bf5134ab0f45009203caa0239691f7af6fa35376b54de93ea53e225dcb9aa6",
+    "comparisonFingerprint": "21a7703e81d83c1fb6dc865a7019c38287cac2ca3571ca9b502c7e483c9906ec"
+  }
+}

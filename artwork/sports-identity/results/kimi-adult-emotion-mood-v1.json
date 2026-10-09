@@ -1,0 +1,76 @@
+{
+  "key": "kimi-adult-emotion-mood-v1",
+  "id": "kimi-adult",
+  "style": "realistic",
+  "kind": "emotion-mood",
+  "columns": 4,
+  "rows": 1,
+  "source": "artwork/sports-identity/kimi-adult-emotion-mood-v1.png",
+  "references": [
+    "artwork/sports-identity/kimi-adult-five-photo-v1.png",
+    "src/DesktopPet.App/Assets/Characters/kimi-adult/interactions/original/kimi-adult-original-photo-v1.png"
+  ],
+  "generationReferences": [
+    "artwork/sports-identity/kimi-adult-five-photo-v1.png"
+  ],
+  "prompt": "Precise upper-body pose EDIT of this exact 2172x724, 4-column 1-row sprite sheet. Keep the SAME adult Kimi woman and the SAME approved short-sleeve white/navy sports shirt and above-knee navy shorts. Keep the original face, mature small head size, silver lavender hair, purple eyes, white frilly headband, silver crescent ornament, navy ribbon and pearl dangles, clean 3D rendering, and all clothing details. Preserve the complete hips, long thighs, knees, shins, ankles, sneakers and ground position at EXACT original scale and coordinates in ALL four poses. Do not redesign the person or shorten/thicken legs, enlarge heads, resize individual figures or crop feet. Modify ONLY expressions and arms/hands, left to right: 1 warm happy smile with relaxed hands; 2 a slightly disappointed pout with relaxed hands; 3 a gentle self-hug with hands around opposite upper arms; 4 dizzy expression with eyes shut and one hand resting against the temple, without changing the legs. Preserve the original canvas, original figure positions, margins, camera and order of 4 full figures. True transparent alpha outside figures and held props. No background, gradient, glow, text, frame or extra people. Show only her own two arms and hands. No external petting hand above her head, no second person, no detached third hand. Keep a clear fully transparent gap between figures. Keep the existing crescent motif and lavender piping from the reference.",
+  "tool": "built-in image_gen",
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
+  "comparisonRole": "approved-sports-pose-edit",
+  "sourceAtlas": "photo",
+  "physicalOrder": true,
+  "clips": {
+    "happy": {
+      "frames": [
+        0
+      ],
+      "frameMs": [
+        5000
+      ],
+      "loop": false
+    },
+    "sad": {
+      "frames": [
+        1
+      ],
+      "frameMs": [
+        5000
+      ],
+      "loop": false
+    },
+    "faint": {
+      "frames": [
+        2
+      ],
+      "frameMs": [
+        5000
+      ],
+      "loop": false
+    },
+    "dizzy": {
+      "frames": [
+        3
+      ],
+      "frameMs": [
+        5000
+      ],
+      "loop": false
+    }
+  },
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-e930720b-020d-4fb3-adba-293686697765.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-09",
+    "passed": true,
+    "summary": "四帧微笑、失落、抱臂与扶额保持成人比例、腿长和脚位，原人物一致。",
+    "evidence": [
+      ".artifacts/sports-identity-review/kimi-adult-emotion-mood-v1-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "a18e2137247ee92b323643b0a1e5d09a3cb071d0df0589e82b321d570a70294c",
+    "originalSha256": "3e060da5c0f5af111ec621a1785230f97c7a0eab3d6b2e439311b2caa740a7f9",
+    "comparisonFingerprint": "134c0b23b09817aad973d6ffe30766cd50a80aa88686e9c8bb08873de4daccf3"
+  }
+}

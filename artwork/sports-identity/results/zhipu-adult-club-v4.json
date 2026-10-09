@@ -1,0 +1,86 @@
+{
+  "key": "zhipu-adult-club-v4",
+  "id": "zhipu-adult",
+  "style": "realistic",
+  "kind": "club",
+  "columns": 4,
+  "rows": 6,
+  "source": "artwork/sports-identity/zhipu-adult-club-v4.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/zhipu-adult/motions/cloud-club-original.png"
+  ],
+  "generationReferences": [
+    "artwork/sports-identity/zhipu-adult-club-v3.png"
+  ],
+  "prompt": "Precise local object edit of the attached 1536x1024 transparent sprite atlas. Change ONLY the SEVENTH WOMAN IN THE MIDDLE ROW (physical pose15, region x1160-1350,y345-690). Her left-on-screen hand is near her collar x1227,y462 and currently holds NOTHING. Add a clearly visible SILVER CIRCULAR BUBBLE WAND with ring outer diameter14 pixels centered x1227,y437, a fully transparent hollow center and a silver short stem reaching down into her existing holding fingers at x1227,y460. The wand MUST be visible above her hand against her dark hair. Match the existing clearly drawn wand in the eighth woman of the same middle row. Keep her blue bottle, all hands, face, hair and clothes intact. All OTHER23 women and every existing wand are already correct and MUST remain unchanged. Do not touch any pose, figure proportions, head/body sizes, limb positions, shorts or shoes. EXACT1536x1024 canvas. Actual transparent background preserved.",
+  "tool": "built-in image_gen",
+  "status": "not-selected-after-review",
+  "selected": false,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-8b561f80-fb7a-4673-b512-66e13f13758a.png",
+  "measurementPixels": {
+    "bubbleSources": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      [
+        61,
+        427
+      ],
+      [
+        256,
+        427
+      ],
+      [
+        471,
+        418
+      ],
+      [
+        663,
+        425
+      ],
+      [
+        824,
+        420
+      ],
+      [
+        1002,
+        428
+      ],
+      [
+        1227,
+        437
+      ],
+      [
+        1392,
+        427
+      ],
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ]
+  },
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-09",
+    "passed": false,
+    "summary": "第15帧手势变了但圈棒仍缺，放大接触点不通过，继续仅补道具。",
+    "evidence": [
+      ".artifacts/sports-identity-review/zhipu-adult-club-v4-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "8484d843752fe82c9abdd421684b68676cc9f74161245354d44c6e30a93c8b1b",
+    "originalSha256": "6a75ec14a87a8239a69b3780828e81b414174762c0d17f89d8e78c39c94e64d9",
+    "comparisonFingerprint": "1b28132ba65eaa00814da4d750e1fb799e23296e4093998a94772f36a4a7f31d"
+  }
+}

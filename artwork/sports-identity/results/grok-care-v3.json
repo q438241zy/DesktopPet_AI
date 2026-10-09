@@ -1,0 +1,34 @@
+{
+  "key": "grok-care-v3",
+  "id": "grok",
+  "style": "chibi",
+  "kind": "care",
+  "columns": 4,
+  "rows": 2,
+  "source": "artwork/sports-identity/grok-care-v3.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/grok/motions/cloud-care-original.png"
+  ],
+  "generationReferences": [
+    "src/DesktopPet.App/Assets/Characters/grok/motions/cloud-care-original.png"
+  ],
+  "prompt": "Clothing-only edit of this ORIGINAL Grok chibi girl care sprite atlas, exactly 1536x1024, 4columns x2rows, eight poses. Treat the original face/head/hair silhouette and coordinates as locked. KEEP ORIGINAL HEAD SIZE and shoe sole locations, do not make the girl larger or higher in her cell. Keep her same bent seated legs with soles facing us, head-body proportions, blonde twin-tails, planet clip and black-gold ribbons. Replace the black long-sleeved dress with white zip-front school sports shirt, black shoulder SHORT SLEEVES, gold piping, tiny gray planet emblem, black above-knee SHORTS, white ankle socks and small white-gold sneakers with soles occupying the source boot-sole positions. Bare arms and knees, no frilled wrist cuffs. ONLY change clothing. All first four poses hold exactly the same brown COMB in the same hands: first and fourth resting across lap, second raised comb held beside hair, third comb pulling through hair with other hand holding the strand. Last four poses hold exactly the same white TOWEL in their original fingers/rest/left cheek/right cheek/rest locations. Never discard a prop in rest or return poses. Preserve exact original clothing-independent pose and original transparent gaps. True transparent background with no particles or text.",
+  "tool": "built-in image_gen",
+  "status": "not-selected-after-review",
+  "selected": false,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-5baca433-5617-413e-983b-0cf8d9e9c1d8.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-09",
+    "passed": false,
+    "summary": "头部尺寸及梳子/毛巾完整，但新鞋与前伸小腿仍向下增加过多，改为只修正膝下区域回原脚底位置，不改变上身。",
+    "evidence": [
+      ".artifacts/sports-identity-review/grok-care-v3-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "07302519fea7e594cc27f20708bc66ebaf477a61e5551106983f53e01e754572",
+    "originalSha256": "b9424aec10e31ff484c93affcd348d78a46ad4f0c734a6b9d707bf49b3a88c72",
+    "comparisonFingerprint": "0bf3e5784e7b6234d032887bc0271f6b4362a6cb811fb6aec1cc64f9b6b168f5"
+  }
+}

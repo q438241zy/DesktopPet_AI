@@ -15,7 +15,21 @@
   ],
   "prompt": "Localized garment correction to this exact sprite sheet. ONLY edit arms in the first TWO rows (8 poses). The raised hand holding the comb in row 1 still has a thick white ruffled cuff and white forearm sleeve: replace all those old sleeve/cuff pixels with smooth bare peach skin continuous from the hand across the wrist and forearm to the brown short sleeve on UPPER ARM. Same for the other first 8 poses: completely bare forearms, no wristbands. Keep the cream towel as a held PROP. No change to any pixel of head, hair, glasses, body shape, shoes, shoe soles, shorts, brush/towel, pose coordinates or figure scale. Keep all lower FOUR rows intact. Exact source canvas and positions. Transparent outside figures; no background. Do NOT move shoes or extend dangling legs.",
   "tool": "built-in image_gen",
-  "status": "generated-awaiting-visual-review",
+  "status": "not-selected-after-review",
   "selected": false,
-  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-73dc26bb-6a73-43da-a120-c75a5afe56d7.png"
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-73dc26bb-6a73-43da-a120-c75a5afe56d7.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-09",
+    "passed": false,
+    "summary": "首两行旧白腕边未全部修好，并丢失擦脸休止帧的毛巾，不采用。",
+    "evidence": [
+      ".artifacts/sports-identity-review/claude-care-v8-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "76714dff83e525dc760bbdfeb412bb4c8db9dc427c9e9e848ecff14a8dd9cec1",
+    "originalSha256": "174b482f491cd6657113a82798f37463e5745fa0d9f0ed624cf16410a4aad70e",
+    "comparisonFingerprint": "d4a2189ffd0eedfc6e0a2dc4ac9d06de752abf29ff563452649b1d4cad3e9d80"
+  }
 }

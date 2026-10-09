@@ -1,0 +1,35 @@
+{
+  "key": "grok-care-v4",
+  "id": "grok",
+  "style": "chibi",
+  "kind": "care",
+  "columns": 4,
+  "rows": 2,
+  "source": "artwork/sports-identity/grok-care-v4.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/grok/motions/cloud-care-original.png"
+  ],
+  "generationReferences": [
+    "artwork/sports-identity/grok-care-v3.png",
+    "src/DesktopPet.App/Assets/Characters/grok/motions/cloud-care-original.png"
+  ],
+  "prompt": "Use case: precise-object-edit. Edit FIRST Grok sports care sprite sheet ONLY below the knees. SECOND sheet is original pose reference. Preserve FIRST face, head size, hair, all upper body poses, bare short-sleeved arms and exactly the same comb/towel gripped in every hand. Keep 1536x1024 canvas, 4 columns 2 rows. In all eight figures, make the forward-pointing foreshortened lower legs/sneakers match the compact ORIGINAL seated pose: soles face camera, almost no visible shin length. Source original sole bottom y coordinates in order: 466,468,468,466,962,964,963,962. FIRST soles currently extend too far downward. Correct only the knee-to-shoe anatomy so shoes end at those original positions. Do not move heads, enlarge heads or shrink whole characters. Preserve white black gold short sleeve school sports jacket and above-knee shorts. All background outside the eight cutout figures must be true transparent alpha, including every gap around hair. No brown gradient, rectangles, black halo or ground shadows. Crisp natural edges. Keep all eight poses and all props.",
+  "tool": "built-in image_gen",
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-74904fad-97de-4d63-ad9e-681fdd2bd4fa.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-09",
+    "passed": true,
+    "summary": "八帧前伸鞋底已收回紧凑坐姿，头脸与上身保持，梳子毛巾全程保留，透明底无原先矩形阴影。",
+    "evidence": [
+      ".artifacts/sports-identity-review/grok-care-v4-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "309dae142fe63f93c0e5655762319b598a265db676388490575dbb39da0b98aa",
+    "originalSha256": "b9424aec10e31ff484c93affcd348d78a46ad4f0c734a6b9d707bf49b3a88c72",
+    "comparisonFingerprint": "c0f922afe1e6ec6fa0dee4f7c138066d8f1c8847f609b67be526b1dc49159964"
+  }
+}

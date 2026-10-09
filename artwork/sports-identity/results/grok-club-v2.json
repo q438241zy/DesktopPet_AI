@@ -1,0 +1,35 @@
+{
+  "key": "grok-club-v2",
+  "id": "grok",
+  "style": "chibi",
+  "kind": "club",
+  "columns": 4,
+  "rows": 6,
+  "source": "artwork/sports-identity/grok-club-v2.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/grok/motions/cloud-club-original.png"
+  ],
+  "generationReferences": [
+    "artwork/sports-identity/grok-club-v1.png",
+    "src/DesktopPet.App/Assets/Characters/grok/motions/cloud-club-original.png"
+  ],
+  "prompt": "Local prop-only edit of FIRST reference, preserve EXACT existing sportswear, every head/leg scale and positions, canvas and transparent alpha. SECOND image is original prop authority. Restore the SAME pink bubble wand in the lowered right hand in physical frame 15 and 16 (row2 columns7 and8), where it disappeared. The bottle must stay in the left hand. All other 22 poses and props unchanged. True transparent background, no painted backdrop or glow.",
+  "tool": "built-in image_gen",
+  "status": "not-selected-after-review",
+  "selected": false,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-564d9a23-708f-4612-a013-5317b335514e.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-09",
+    "passed": false,
+    "summary": "泡泡棒在第9、15、16帧仍缺失，原图收手时仍持棒，不能用只有瓶子的画面作为完整吹泡泡动画。",
+    "evidence": [
+      ".artifacts/sports-identity-review/grok-club-v2-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "e514ab09afc6d4b14bca1ae9c680a57ba51511889fd6caec8366f9e4f93b24ce",
+    "originalSha256": "eecc69a8720213789352fe1d1ff87f37714306a0dcaa2fce12acb530d0a37a10",
+    "comparisonFingerprint": "62a31dae9897c58b11b4792d2de92870ff9acfa0714d15b7a6a09ef209c4f28f"
+  }
+}

@@ -1,0 +1,87 @@
+{
+  "key": "qwen-adult-club-v2",
+  "id": "qwen-adult",
+  "style": "realistic",
+  "kind": "club",
+  "columns": 4,
+  "rows": 6,
+  "source": "artwork/sports-identity/qwen-adult-club-v2.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/qwen-adult/motions/cloud-club-original.png"
+  ],
+  "generationReferences": [
+    "artwork/sports-identity/qwen-adult-club-v1.png",
+    "src/DesktopPet.App/Assets/Characters/qwen-adult/motions/cloud-club-original.png"
+  ],
+  "prompt": "LOCAL bubble wand correction to FIRST transparent atlas. Preserve all24 Qwen adult sports figures exactly: same clothes, blue purple braids, face, head size, original long adult legs, poses, coordinates and1536x1024 canvas8COLUMNS x3ROWS. SECOND original image guides the two missing ring positions ONLY. In physical frame15 (ROW2 COL7; global grip at1232,503), the left-on-screen hand must hold a thin golden stem topped by a clearly OPEN golden CIRCULAR BUBBLE RING centered approx1234,484. Remove the second small blue BOTTLE/cap from that hand and substitute this wand; keep the single normal blue bottle in her other hand. In physical frame16 (ROW2 COL8; lowered left-on-screen hand global1395,570), restore the dangling thin golden wand and open golden CIRCULAR RING below/left of hand, center approx1382,582, same as SECOND. Keep ring/bottle in all eight poses9-16; keep other22poses and all anatomy/clothing unchanged. No extra hands, bubbles, glow, text or backdrop. True transparent alpha.",
+  "tool": "built-in image_gen",
+  "status": "not-selected-after-review",
+  "selected": false,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-c4cfe47d-9cee-4dc3-a2c9-3d8d4cc80bb2.png",
+  "measurementPixels": {
+    "bubbleSources": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      [
+        25,
+        580
+      ],
+      [
+        278,
+        453
+      ],
+      [
+        477,
+        449
+      ],
+      [
+        667,
+        447
+      ],
+      [
+        842,
+        468
+      ],
+      [
+        1007,
+        435
+      ],
+      [
+        1234,
+        484
+      ],
+      [
+        1382,
+        582
+      ],
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ]
+  },
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-09",
+    "passed": false,
+    "summary": "局部补15/16圈棒后又丢失14帧圈棒，接触点放大复核发现，撤销选用并仅修复14帧。",
+    "evidence": [
+      ".artifacts/sports-identity-review/qwen-adult-club-v2-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "7b31cdb8d871fc4f9fc1c7a91e4e2a5b8231dde4daaaf3fac74a14d7d5014cbf",
+    "originalSha256": "3bd49ea7c5cd4d6618fd630b3f70a81158be8c93d54428b9c283bd8fdbdfa835",
+    "comparisonFingerprint": "d3e3c43a0c37642009b5f1f77dfbd019f8c07f3b7ad046d70d0cf8717e05f97f"
+  }
+}

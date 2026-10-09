@@ -1,0 +1,57 @@
+{
+  "key": "qwen-adult-emotion-bonk-v1",
+  "id": "qwen-adult",
+  "style": "realistic",
+  "kind": "emotion-bonk",
+  "columns": 4,
+  "rows": 1,
+  "source": "artwork/sports-identity/qwen-adult-emotion-bonk-v1.png",
+  "references": [
+    "artwork/sports-identity/qwen-adult-five-photo-v1.png",
+    "src/DesktopPet.App/Assets/Characters/qwen-adult/interactions/original/qwen-adult-original-photo-v1.png"
+  ],
+  "generationReferences": [
+    "artwork/sports-identity/qwen-adult-five-photo-v1.png"
+  ],
+  "prompt": "Precise upper-body pose EDIT of this exact 2172x724, 4-column 1-row sprite sheet. Keep the SAME adult Qwen woman and the SAME approved short-sleeve white/navy sports shirt and above-knee navy shorts. Keep the original face, mature small head size, blue-lavender hair, twin braids, purple eyes, tilted dark-blue hat with flower and tassels, bow earrings, clean 3D rendering, and all clothing details. Preserve the complete hips, long thighs, knees, shins, ankles, sneakers and ground position at EXACT original scale and coordinates in ALL four poses. Do not redesign the person or shorten/thicken legs, enlarge heads, resize individual figures or crop feet. Modify ONLY expressions and arms/hands, left to right: 1 relaxed neutral smile; 2 raise a small soft light blue toy hammer with a proper hand grip just beside the head; 3 gently tap the top of the head with the SAME toy hammer, eyes squeezed shut in playful surprise; 4 lower the SAME hammer and smile; keep the hammer fully inside each source cell. Preserve the original canvas, original figure positions, margins, camera and order of 4 full figures. True transparent alpha outside figures and held props. No background, gradient, glow, text, frame or extra people. Show only her own two arms and hands. No external petting hand above her head, no second person, no detached third hand. Keep a clear fully transparent gap between figures.",
+  "tool": "built-in image_gen",
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
+  "comparisonRole": "approved-sports-pose-edit",
+  "sourceAtlas": "photo",
+  "physicalOrder": true,
+  "clips": {
+    "bonk": {
+      "frames": [
+        0,
+        1,
+        2,
+        3,
+        0
+      ],
+      "frameMs": [
+        400,
+        650,
+        400,
+        600,
+        450
+      ],
+      "loop": false
+    }
+  },
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-ec587e26-7aba-46ec-b890-0c6f1fa92b0f.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-09",
+    "passed": true,
+    "summary": "四帧保持原运动服成年比例，软槌从拿起到头顶轻敲再放下的接触由角色手持，只有两条手臂，腿长未缩。",
+    "evidence": [
+      ".artifacts/sports-identity-review/qwen-adult-emotion-bonk-v1-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "bc6cf55473075da228518d52fda515af2fad29adbe1c69bacfbc71953e4c0157",
+    "originalSha256": "aa549ec01b1ea6a0f0c94ea76f7739137d24da7807821e688339eeab5aefaf33",
+    "comparisonFingerprint": "3a3a59816e9ba268496edc01be35497ac22f9858fd897ecfa35c44d1e72eebcc"
+  }
+}

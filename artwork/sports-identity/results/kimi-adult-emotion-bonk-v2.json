@@ -1,0 +1,57 @@
+{
+  "key": "kimi-adult-emotion-bonk-v2",
+  "id": "kimi-adult",
+  "style": "realistic",
+  "kind": "emotion-bonk",
+  "columns": 4,
+  "rows": 1,
+  "source": "artwork/sports-identity/kimi-adult-emotion-bonk-v2.png",
+  "references": [
+    "artwork/sports-identity/kimi-adult-five-photo-v1.png",
+    "src/DesktopPet.App/Assets/Characters/kimi-adult/interactions/original/kimi-adult-original-photo-v1.png"
+  ],
+  "generationReferences": [
+    "artwork/sports-identity/kimi-adult-emotion-bonk-v1.png"
+  ],
+  "prompt": "Use case: precise-object-edit. Repair ONLY the cropped toy hammer in THIRD figure of this2172x724canvas, four figures one row. Keep all four adult Kimi women at exact same head, hip, knee, ankle coordinates and same long legs and clothing. Move third figure toy hammer downward and slightly LEFT so the full hammer head and handle are INSIDE the canvas with at least10pixels clear margin at the top, gently touching upper left forehead/temple. Adjust only that hand grip and elbow enough to keep a natural wrist. Hammer small, similar size as second/fourth, not above canvas. Remaining3poses unchanged. Transparent alpha outside all figures, no extra hand, shadow or backdrop.",
+  "tool": "built-in image_gen",
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
+  "comparisonRole": "approved-sports-pose-edit",
+  "sourceAtlas": "photo",
+  "physicalOrder": true,
+  "clips": {
+    "bonk": {
+      "frames": [
+        0,
+        1,
+        2,
+        3,
+        0
+      ],
+      "frameMs": [
+        400,
+        650,
+        400,
+        600,
+        450
+      ],
+      "loop": false
+    }
+  },
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-ee9248c0-42c2-448e-be37-c3b157291cda.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-09",
+    "passed": true,
+    "summary": "第三帧槌子完整并与头部接触，无顶部裁切，四帧保持原身形和腿长。",
+    "evidence": [
+      ".artifacts/sports-identity-review/kimi-adult-emotion-bonk-v2-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "9dd29647e4209398db5c750991faf2aeed9b1b7724bd16b0535948ff11b14f74",
+    "originalSha256": "3e060da5c0f5af111ec621a1785230f97c7a0eab3d6b2e439311b2caa740a7f9",
+    "comparisonFingerprint": "0806cbd56807f779f1e3e5c1e99e1707abee901aa62d39e0284f60e7b981cbd0"
+  }
+}

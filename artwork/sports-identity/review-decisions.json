@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "date": "2026-10-08",
+  "date": "2026-10-09",
   "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
   "decisions": [
     {
@@ -1327,6 +1327,756 @@
       "key": "grok-headpat-v1",
       "passed": true,
       "summary": "6帧原图共同缩放对照，原头身、轻侧头表情和原坐姿尺度保留，短袖短裤。"
+    },
+    {
+      "key": "grok-adult-emotion-mood-v1",
+      "passed": true,
+      "summary": "逐帧对照已审运动服立绘，头部、躯干和长腿比例保持；微笑、失落、自抱及扶额四种表情姿态清楚。"
+    },
+    {
+      "key": "grok-jump-v1",
+      "passed": false,
+      "summary": "离地帧头部和全身比原图放大，腿部朝向被改成双脚并排，需按原坐跳姿势重做。"
+    },
+    {
+      "key": "grok-meal-v1",
+      "passed": false,
+      "summary": "头部与碗勺接触保留，但坐姿鞋底下移拉长，需保持原始屈腿坐姿和鞋底位置。"
+    },
+    {
+      "key": "grok-peek-v1",
+      "passed": true,
+      "summary": "六帧探头倾斜、扶边掌位、头部大小和脚位置对照原图保持。"
+    },
+    {
+      "key": "grok-pickup-v1",
+      "passed": true,
+      "summary": "六帧提起的双手、垂腿和倾斜与原图一致，身份和头部比例稳定。"
+    },
+    {
+      "key": "grok-shaken-v1",
+      "passed": true,
+      "summary": "六帧倾斜、发尾朝向及头晕表情保留，短袖短裤、鞋底方向符合对应原姿势。"
+    },
+    {
+      "key": "grok-shaken-strong-v1",
+      "passed": true,
+      "summary": "六帧身体旋转、腿部开合和头晕表情对照原图保持。"
+    },
+    {
+      "key": "grok-think-v1",
+      "passed": true,
+      "summary": "六帧思考的头部倾斜和下巴手势保留，前后原姿势大小一致。"
+    },
+    {
+      "key": "grok-touch-v1",
+      "passed": true,
+      "summary": "十二帧揉脸、挠痒的手势、面部接触与原图保持，未改为新的坐姿。"
+    },
+    {
+      "key": "grok-club-v1",
+      "passed": false,
+      "summary": "数星星和伸懒腰动作保持，泡泡收手帧15/16丢失原圈棒，需要恢复道具连续性。"
+    },
+    {
+      "key": "grok-care-v1",
+      "passed": false,
+      "summary": "梳头第1/4帧丢失梳子，无法保持取梳与收梳连续，需补回。"
+    },
+    {
+      "key": "grok-angry-v2",
+      "passed": true,
+      "summary": "六帧原脸型大小恢复，生气表情与交叉手臂保持，衣服仅替换。"
+    },
+    {
+      "key": "grok-ball-miss-v2",
+      "passed": true,
+      "summary": "六帧转头、摆手与收手对照原图保持，头部大小和腿部位置一致。"
+    },
+    {
+      "key": "grok-curl-v2",
+      "passed": true,
+      "summary": "六帧逐渐抱膝埋头的变化与原图一致，最后三帧恢复原蜷缩程度。"
+    },
+    {
+      "key": "grok-eat-v2",
+      "passed": false,
+      "summary": "八帧饼干接触正确，但所有人物明显放大，需整体恢复原小姿势画布坐标。"
+    },
+    {
+      "key": "claude-care-v8",
+      "passed": false,
+      "summary": "首两行旧白腕边未全部修好，并丢失擦脸休止帧的毛巾，不采用。"
+    },
+    {
+      "key": "claude-care-v9",
+      "passed": false,
+      "summary": "保留毛巾与间距，但梳头抬手仍有白色旧腕边，继续局部修订。"
+    },
+    {
+      "key": "qwen-adult-five-photo-v1",
+      "passed": true,
+      "summary": "四帧合照原脸型、小头与成年腿长保持，运动服只更换衣着。"
+    },
+    {
+      "key": "qwen-adult-five-highfive-v1",
+      "passed": true,
+      "summary": "四帧击掌的抬臂、前伸掌及收手与原图保持，腿长、脚位置一致。"
+    },
+    {
+      "key": "qwen-adult-five-rps-v1",
+      "passed": true,
+      "summary": "四帧猜拳前后拳位与原图保持，前臂裸露、短裤与成年比例符合。"
+    },
+    {
+      "key": "qwen-adult-five-handoff-v1",
+      "passed": true,
+      "summary": "四帧接礼的掌心开合、礼盒握持与原图保持，腿长、脚位及头部比例一致。"
+    },
+    {
+      "key": "qwen-adult-five-book-v1",
+      "passed": true,
+      "summary": "四帧拆礼物、捧书、翻页和抱书姿势及手指接触保持，成年比例与原图一致。"
+    },
+    {
+      "key": "qwen-adult-body-v1",
+      "passed": true,
+      "summary": "十六帧原坐姿、弯膝、跳跃、躺卧与积木手持接触保持，裸露前臂、短裤膝上，脸与腿长匹配原图。"
+    },
+    {
+      "key": "qwen-adult-contact-v1",
+      "passed": true,
+      "summary": "九帧面包、碗勺进食和接球双掌形状对照原图保持；原成年腿长及脸型稳定。"
+    },
+    {
+      "key": "qwen-adult-care-v1",
+      "passed": true,
+      "summary": "八帧梳头、拉发梳理、擦两侧脸及收毛巾均保持原接触与道具，原比例、短袖短裤符合。"
+    },
+    {
+      "key": "qwen-angry-v1",
+      "passed": true,
+      "summary": "六帧逐一对照原姿势，表情、头部大小和手臂方向保持，运动服短袖短裤、鞋底位置相符。"
+    },
+    {
+      "key": "qwen-ball-hit-v1",
+      "passed": true,
+      "summary": "六帧逐一对照原姿势，表情、头部大小和手臂方向保持，运动服短袖短裤、鞋底位置相符。"
+    },
+    {
+      "key": "qwen-ball-miss-v1",
+      "passed": true,
+      "summary": "六帧逐一对照原姿势，表情、头部大小和手臂方向保持，运动服短袖短裤、鞋底位置相符。"
+    },
+    {
+      "key": "qwen-bonk-v1",
+      "passed": true,
+      "summary": "六帧保留原绘制槌子路径、抬手护头和表情，头部大小保持；使用短袖短裤。"
+    },
+    {
+      "key": "qwen-build-v1",
+      "passed": true,
+      "summary": "十二帧保留原抓取、捧积木、堆叠及庆祝接触。"
+    },
+    {
+      "key": "qwen-chat-v1",
+      "passed": true,
+      "summary": "逐帧对照原姿势，头部大小、表情、手臂方向和弯腿程度保持，短袖短裤与身份符合。"
+    },
+    {
+      "key": "qwen-curl-v1",
+      "passed": true,
+      "summary": "逐帧对照原姿势，头部大小、表情、手臂方向和弯腿程度保持，短袖短裤与身份符合。"
+    },
+    {
+      "key": "qwen-dizzy-v1",
+      "passed": true,
+      "summary": "逐帧对照原姿势，头部大小、表情、手臂方向和弯腿程度保持，短袖短裤与身份符合。"
+    },
+    {
+      "key": "qwen-eat-v1",
+      "passed": true,
+      "summary": "八帧饼干原握持、进嘴、咬口与吞咽连续保持，头部大小和坐姿比例一致。"
+    },
+    {
+      "key": "qwen-farewell-v1",
+      "passed": true,
+      "summary": "逐帧对照原姿势，头部大小、表情、手臂方向和弯腿程度保持，短袖短裤与身份符合。"
+    },
+    {
+      "key": "qwen-five-main-v1",
+      "passed": true,
+      "summary": "二十帧击掌、猜拳、礼物及翻书的手部接触与原图保持，立姿腿长和头部比例一致。"
+    },
+    {
+      "key": "qwen-headpat-v1",
+      "passed": true,
+      "summary": "六帧原图与候选同倍率查看，头部、双辫、鞋底朝前坐姿和倾头顺序一致，短袖短裤覆盖正常。"
+    },
+    {
+      "key": "qwen-jump-v1",
+      "passed": false,
+      "summary": "腾空帧人物变大、鞋底下降，原图一脚前伸一脚屈膝被改成双脚齐向前，不保持原姿势坐标，退回修订。"
+    },
+    {
+      "key": "grok-jump-v2",
+      "passed": true,
+      "summary": "与原图逐帧同倍率对照，腾空帧保持较小头部和非对称屈膝，换成短袖短裤与鞋底，六帧顺序完整；仍需原生尺寸/跳跃复核。"
+    },
+    {
+      "key": "grok-eat-v3",
+      "passed": true,
+      "summary": "八帧饼干接触和逐口食用表情保持，头身比已恢复至原图相近，座姿仍为鞋底朝前，候选画布位置略上移，需原生吃零食尺寸与脚底位置复核。"
+    },
+    {
+      "key": "grok-care-v2",
+      "passed": false,
+      "summary": "补齐梳子和毛巾，但与原图同倍率对照人物头部有所放大、原坐姿位置上移，退回保留原人物坐标的换衣版本。"
+    },
+    {
+      "key": "grok-club-v2",
+      "passed": false,
+      "summary": "泡泡棒在第9、15、16帧仍缺失，原图收手时仍持棒，不能用只有瓶子的画面作为完整吹泡泡动画。"
+    },
+    {
+      "key": "claude-care-v10",
+      "passed": true,
+      "summary": "短袖短裤前8帧保留四帧梳子和四帧毛巾，抬手裸前臂形状已平滑；头部、原脚底和人物间隔保持。选用仅前8帧，其余服装行不接入；需原生放大查看手腕与相邻发丝。"
+    },
+    {
+      "key": "qwen-meal-v1",
+      "passed": false,
+      "summary": "六帧碗、勺与嘴接触保持，但鞋底比原图向下多伸、原短小前伸坐姿被改为更长的垂腿，需缩回原脚底位置，不接受以换衣加长小腿。"
+    },
+    {
+      "key": "qwen-peek-v1",
+      "passed": true,
+      "summary": "六帧边缘侧身探头保留原手扶边缘和双腿站姿，人物没有压矮，服装为短袖短裤，发型和头部朝向一致。"
+    },
+    {
+      "key": "qwen-adult-emotion-touch-v1",
+      "passed": true,
+      "summary": "四帧以已复核运动服人物对照，头部、腿长、交叉站姿和衣服维持，摸脸和挠痒为自身双手，未产生额外手臂。"
+    },
+    {
+      "key": "qwen-adult-emotion-mood-v1",
+      "passed": true,
+      "summary": "四帧站立骨架和头身比保持，疑惑、抱臂、闭眼安抚有明确表情手势，短袖短裤连续一致。"
+    },
+    {
+      "key": "qwen-adult-emotion-bonk-v1",
+      "passed": true,
+      "summary": "四帧保持原运动服成年比例，软槌从拿起到头顶轻敲再放下的接触由角色手持，只有两条手臂，腿长未缩。"
+    },
+    {
+      "key": "qwen-pickup-v1",
+      "passed": true,
+      "summary": "六帧与原图同倍率对照，握拳胸前、悬空、伸腿和回复姿势保持，头部与躯干大小没有改变，短袖短裤鞋底连续。"
+    },
+    {
+      "key": "qwen-shaken-v1",
+      "passed": true,
+      "summary": "六帧摇晃角度、双辫摆动和眩晕螺旋眼与原图相符，大小及坐姿鞋底方向保持，裸前臂与短裤正确。"
+    },
+    {
+      "key": "qwen-shaken-strong-v1",
+      "passed": true,
+      "summary": "六帧大幅摆动及交替方向、头部倾角保持，前伸鞋底没有改为站姿，原蓝紫双辫方向相符。"
+    },
+    {
+      "key": "qwen-think-v1",
+      "passed": true,
+      "summary": "六帧保留原托腮和左右微偏头，较小思考帧保持原头身比例，坐姿没有拉长或变成真人。"
+    },
+    {
+      "key": "qwen-touch-v1",
+      "passed": true,
+      "summary": "十二帧原揉脸、挠痒和接球伸手顺序完整，原头部大小和鞋底位置保持，手掌张合与朝向可对齐球落点。"
+    },
+    {
+      "key": "qwen-club-v1",
+      "passed": true,
+      "summary": "24帧数星、泡泡和伸展对照原图，坐姿和头部保持；八帧泡泡棒和瓶子完整保留在原手中，包括开始/收手，不丢失道具。"
+    },
+    {
+      "key": "qwen-care-v1",
+      "passed": true,
+      "summary": "八帧梳头与擦脸道具保持四帧各一组，梳子顺着原双辫位置，毛巾贴左右脸，短袖裸前臂没有旧袖口，头身比与鞋底相近。"
+    },
+    {
+      "key": "zhipu-adult-five-photo-v1",
+      "passed": true,
+      "summary": "四帧与原GLM成年角色同倍率并排，猫耳、睡眠眼罩、黑发尾巴及原腿长保持，短袖膝上短裤正确，手势同原合照。"
+    },
+    {
+      "key": "zhipu-adult-five-highfive-v1",
+      "passed": true,
+      "summary": "四帧抬掌、前伸击掌和收回保留原双手位置与成年腿长，只有更换衣物，裸前臂无旧长袖或袖口。"
+    },
+    {
+      "key": "zhipu-adult-five-rps-v1",
+      "passed": true,
+      "summary": "四帧握拳预备、下降、前伸出拳与原图对齐，裸腕与短袖连接自然，腿长和头部保持。"
+    },
+    {
+      "key": "zhipu-adult-five-handoff-v1",
+      "passed": true,
+      "summary": "四帧剪刀、布、双掌接礼物与持礼物保持，礼盒贴着双掌，无旧袖口，头身比和腿长不变。"
+    },
+    {
+      "key": "zhipu-adult-five-book-v1",
+      "passed": true,
+      "summary": "四帧开礼盒、持书、翻页、合书保持真实手指与道具接触，站立腿长与鞋底对照原图相近，没有裁切缩短。"
+    },
+    {
+      "key": "qwen-adult-club-v1",
+      "passed": false,
+      "summary": "放大泡泡圈标记发现第15帧收手时把圈棒画成第二个小瓶，第16帧低手位置未保留原金色圈，需局部恢复圈棒，保留身形服装。"
+    },
+    {
+      "key": "grok-meal-v2",
+      "passed": true,
+      "summary": "六帧持碗与勺送嘴顺序完整，头部大小、双马尾、原坐姿鞋底位置与原图相近，短袖短裤正确；需原生检查吃饭接触与动作尺寸。"
+    },
+    {
+      "key": "qwen-jump-v2",
+      "passed": true,
+      "summary": "六帧重新对照，腾空头部尺寸恢复为原图较小帧，保留一脚前伸一脚屈膝而非双脚齐伸，原身体协调与顺序保持。"
+    },
+    {
+      "key": "zhipu-adult-body-v1",
+      "passed": true,
+      "summary": "16帧站立、起跳、抱膝、趴睡和坐地积木保持原成年脸型、头部大小与腿长；三帧积木手指接触保留，短袖短裤裸腕，没有变回Q版。"
+    },
+    {
+      "key": "zhipu-adult-contact-v1",
+      "passed": true,
+      "summary": "九帧面包与碗勺入口、接球张掌及双掌收回均与原图同倍率对照，脸和成人腿长保持；帧间上方鞋缘需在原生所有权分帧中检查。"
+    },
+    {
+      "key": "zhipu-angry-v1",
+      "passed": true,
+      "summary": "六帧生气表情与抱臂姿势对照保持，猫耳/尾巴/睡眠眼罩不变，裸腕短袖短裤一致。"
+    },
+    {
+      "key": "zhipu-ball-hit-v1",
+      "passed": true,
+      "summary": "六帧迎球、保护脸部、扶头及恢复顺序保持，身形和头部对照原图相近，无衣服回退。"
+    },
+    {
+      "key": "zhipu-ball-miss-v1",
+      "passed": true,
+      "summary": "六帧左右侧视、挥手、双手收至胸前保持，坐姿和原猫尾方向一致，短袖短裤正确。"
+    },
+    {
+      "key": "zhipu-bonk-v1",
+      "passed": true,
+      "summary": "六帧软槌与头部接触及双手护头与原图一致，沿用原槌子美术，没有新增第二个槌子，头部大小稳定。"
+    },
+    {
+      "key": "qwen-meal-v2",
+      "passed": true,
+      "summary": "六帧同倍率复核，前伸鞋底已缩回原坐姿相近位置，不再长垂腿；头部和双辫大小、碗勺入口时序保持，服装为短袖短裤。"
+    },
+    {
+      "key": "grok-care-v3",
+      "passed": false,
+      "summary": "头部尺寸及梳子/毛巾完整，但新鞋与前伸小腿仍向下增加过多，改为只修正膝下区域回原脚底位置，不改变上身。"
+    },
+    {
+      "key": "grok-club-v3",
+      "passed": false,
+      "summary": "三个低手帧的圈棒已补齐，但新增矩形浅底/黑色虚影，不能发布带发虚阴影的素材；仅清理背景和外部光晕。"
+    },
+    {
+      "key": "kimi-adult-five-photo-v1",
+      "passed": true,
+      "summary": "四帧合照服装编辑与原成年Kimi同倍率对照，银紫发、月饰、脸型和成年腿长保持，短袖膝上短裤和鞋底位置相近。"
+    },
+    {
+      "key": "zhipu-build-v1",
+      "passed": true,
+      "summary": "十二帧积木搬起、握住和落叠接触保持，头部与分腿坐姿对应原图，短袖短裤一致。"
+    },
+    {
+      "key": "zhipu-chat-v1",
+      "passed": true,
+      "summary": "六帧嘴形、招手、歪头与闭眼对应原图，头身比例和尾巴方向保持。"
+    },
+    {
+      "key": "zhipu-curl-v1",
+      "passed": true,
+      "summary": "六帧收腿、抱膝到闭眼连续，对照原图头部与膝位相符，运动鞋替换旧鞋未改变整体坐姿。"
+    },
+    {
+      "key": "zhipu-dizzy-v1",
+      "passed": true,
+      "summary": "保持原图歪坐、扶额、旋涡眼和尾巴，短袖裸臂与运动鞋清楚，无额外肢体。"
+    },
+    {
+      "key": "zhipu-eat-v1",
+      "passed": true,
+      "summary": "八帧饼干从胸前送嘴、咬口到回落，双手接触保留，头部及脸形稳定；鞋底较旧软鞋略厚，原生再检查基线。"
+    },
+    {
+      "key": "zhipu-farewell-v1",
+      "passed": true,
+      "summary": "挥手、擦眼和回坐六帧对应原姿势，衣服连续，头部大小与尾巴方向稳定。"
+    },
+    {
+      "key": "zhipu-five-main-v1",
+      "passed": true,
+      "summary": "二十帧击掌、猜拳、礼物与读书的手势和道具保持，头身与站姿稳定；原图带相邻格碎片，原生须确认分帧去除。"
+    },
+    {
+      "key": "zhipu-headpat-v1",
+      "passed": true,
+      "summary": "六帧耳朵、歪头与害羞手势对应原图，头身大小稳定，运动服连续。"
+    },
+    {
+      "key": "zhipu-jump-v1",
+      "passed": false,
+      "summary": "腾空帧把原本不对称屈膝改成双脚向前并排，必须恢复原跳跃腿部姿势。"
+    },
+    {
+      "key": "zhipu-meal-v1",
+      "passed": true,
+      "summary": "六帧碗、勺与嘴接触顺序保持，肩颈、头型与坐姿一致，没有第二份饭或漂浮道具。"
+    },
+    {
+      "key": "zhipu-peek-v1",
+      "passed": true,
+      "summary": "六帧探头身体倾斜和抓边手势保持，头部大小及脚踝位置对应原图。"
+    },
+    {
+      "key": "zhipu-pickup-v1",
+      "passed": true,
+      "summary": "提起的垂腿与左右偏斜六帧保持，没有替换成站姿，头身与服装稳定。"
+    },
+    {
+      "key": "zhipu-shaken-v1",
+      "passed": true,
+      "summary": "抱猫摇晃与旋涡眼六帧对应原图，头部、尾巴及猫的位置保持。"
+    },
+    {
+      "key": "zhipu-shaken-strong-v1",
+      "passed": true,
+      "summary": "六帧大幅摆动的头部倾斜、双臂、尾巴方向保持，运动服裸臂与裸腿没有残留长袖。"
+    },
+    {
+      "key": "zhipu-think-v1",
+      "passed": true,
+      "summary": "托腮思考六帧按原坐姿和手脸接触保留，比例与表情一致。"
+    },
+    {
+      "key": "zhipu-touch-v1",
+      "passed": true,
+      "summary": "十二帧捏脸、挠痒和接球双手保持原手势，比例一致；原生接球再量掌心位置。"
+    },
+    {
+      "key": "zhipu-care-v1",
+      "passed": true,
+      "summary": "八帧均保留原梳子和毛巾，包括起止帧，手握位置与头脸接触正确，短袖裸臂和坐姿稳定。"
+    },
+    {
+      "key": "zhipu-club-v1",
+      "passed": false,
+      "summary": "二十四帧道具齐全，但人物周围出现大片灰色不透明底，必须清理透明背景。"
+    },
+    {
+      "key": "zhipu-adult-care-v1",
+      "passed": true,
+      "summary": "八帧梳头擦脸保持成人脸、长腿、交叉站姿与尾巴；梳子毛巾起止均在手中，原白袖口已去除。"
+    },
+    {
+      "key": "zhipu-adult-club-v1",
+      "passed": false,
+      "summary": "数星和伸展比例良好，泡泡起止帧9与16缺圈棒，需仅修复手中道具。"
+    },
+    {
+      "key": "qwen-adult-club-v2",
+      "passed": false,
+      "summary": "局部补15/16圈棒后又丢失14帧圈棒，接触点放大复核发现，撤销选用并仅修复14帧。"
+    },
+    {
+      "key": "zhipu-adult-emotion-touch-v1",
+      "passed": true,
+      "summary": "四帧摸头、捏脸与挠痒保留已复核站姿、长腿与成人脸，两只自身手臂，无额外手。"
+    },
+    {
+      "key": "zhipu-adult-emotion-mood-v1",
+      "passed": true,
+      "summary": "笑、失落、抱臂与扶额四帧只改上身表情，长腿和脚位保持。"
+    },
+    {
+      "key": "zhipu-adult-emotion-bonk-v1",
+      "passed": true,
+      "summary": "手持软槌从抬起到轻敲再放下，接触明确；成年比例与双腿保持。"
+    },
+    {
+      "key": "kimi-adult-body-v1",
+      "passed": true,
+      "summary": "十六帧站立、起跳、蜷缩、睡眠、积木和提起对应原身体姿势，腿长成人比例保持，全部短袖短裤。"
+    },
+    {
+      "key": "kimi-adult-contact-v1",
+      "passed": true,
+      "summary": "九帧面包、碗勺与接球手势对应原图，食物在手与嘴之间，保留长腿及原脸；掌心另行量取。"
+    },
+    {
+      "key": "kimi-adult-care-v1",
+      "passed": true,
+      "summary": "八帧保留梳子、毛巾及手指接触，起止均有道具；成人头身与交叉腿站姿保持。"
+    },
+    {
+      "key": "kimi-adult-five-highfive-v1",
+      "passed": true,
+      "summary": "四帧击掌手指与掌心朝向保持，原长腿交叉站姿和成年头身稳定。"
+    },
+    {
+      "key": "kimi-adult-five-handoff-v1",
+      "passed": true,
+      "summary": "剪刀、布、接礼物与捧盒四帧保持手势与道具接触，短袖短裤与腿长一致。"
+    },
+    {
+      "key": "kimi-adult-five-book-v1",
+      "passed": true,
+      "summary": "开礼盒、翻书、阅读与抱书四帧保持道具及手指接触，脸部与腿长未变。"
+    },
+    {
+      "key": "kimi-adult-club-v1",
+      "passed": true,
+      "summary": "二十四帧数星、泡泡和伸展保留成年腿长，八个泡泡帧均有蓝圈棒和瓶子；手指及圈口待定位复核。"
+    },
+    {
+      "key": "grok-care-v4",
+      "passed": true,
+      "summary": "八帧前伸鞋底已收回紧凑坐姿，头脸与上身保持，梳子毛巾全程保留，透明底无原先矩形阴影。"
+    },
+    {
+      "key": "grok-club-v4",
+      "passed": true,
+      "summary": "灰底与光晕已移除，八帧泡泡圈棒和液瓶完整，数星及伸展头身与坐姿保持。"
+    },
+    {
+      "key": "zhipu-jump-v2",
+      "passed": true,
+      "summary": "恢复四个腾空帧不对称屈膝和脚掌角度，保留原图腾空小帧尺寸，坐姿与落地帧稳定。"
+    },
+    {
+      "key": "kimi-adult-five-rps-v1",
+      "passed": false,
+      "summary": "前三帧比例与猜拳手势正确，出拳帧仍带旧深色袖口圈；需仅修复该腕部为裸露前臂。"
+    },
+    {
+      "key": "kimi-angry-v1",
+      "passed": true,
+      "summary": "六帧叉臂生气手势和脸形、月饰、发型保持，衣服短袖短裤连续。"
+    },
+    {
+      "key": "kimi-ball-hit-v1",
+      "passed": true,
+      "summary": "六帧受惊、闭眼和摸头反应保留原图位置，头部未放大，鞋与裸腿原生再检查基线。"
+    },
+    {
+      "key": "kimi-ball-miss-v1",
+      "passed": true,
+      "summary": "六帧转头追球与招手保持原姿势，头部和坐姿稳定，短袖短裤一致。"
+    },
+    {
+      "key": "kimi-bonk-v1",
+      "passed": true,
+      "summary": "六帧保留原软槌与头顶接触、护头反应和结束笑脸，运动服连续，头身保持。"
+    },
+    {
+      "key": "kimi-build-v1",
+      "passed": true,
+      "summary": "十二帧握块、搬起、堆叠与结束保留手物接触，腿部折坐和头部大小与原图相符。"
+    },
+    {
+      "key": "kimi-chat-v1",
+      "passed": true,
+      "summary": "六帧说话、手势与倾头保持原脸和坐姿，短袖短裤一致。"
+    },
+    {
+      "key": "kimi-curl-v1",
+      "passed": true,
+      "summary": "六帧从坐到抱膝闭眼保持收拢的身体轮廓与原膝盖位置，无半蹲替代。"
+    },
+    {
+      "key": "kimi-adult-emotion-touch-v1",
+      "passed": false,
+      "summary": "手脸接触与腿长正确，但输出画布2167×726偏离2172×724，超出共同等比画布约束，重出相同画布。"
+    },
+    {
+      "key": "kimi-adult-emotion-mood-v1",
+      "passed": true,
+      "summary": "四帧微笑、失落、抱臂与扶额保持成人比例、腿长和脚位，原人物一致。"
+    },
+    {
+      "key": "kimi-adult-emotion-bonk-v1",
+      "passed": false,
+      "summary": "手持软槌姿势与人物保持，但第三帧槌顶触及画布边缘，局部下移保留完整轮廓。"
+    },
+    {
+      "key": "kimi-dizzy-v1",
+      "passed": true,
+      "summary": "保持原斜坐扶额旋涡眼与长发轮廓，短袖短裤替换没有改变头部与姿势。"
+    },
+    {
+      "key": "kimi-eat-v1",
+      "passed": true,
+      "summary": "八帧饼干从握住到嘴边咀嚼再放下，物手接触清楚，保留原头型与坐姿。"
+    },
+    {
+      "key": "kimi-farewell-v1",
+      "passed": true,
+      "summary": "六帧挥手、擦眼与回坐保持原表情手势和头部大小，服装连续。"
+    },
+    {
+      "key": "kimi-five-main-v1",
+      "passed": false,
+      "summary": "前十六帧基本保持，但17–20被换成坐姿，17帧丢了抱书道具；必须按原图恢复四帧站姿与书。"
+    },
+    {
+      "key": "kimi-headpat-v1",
+      "passed": true,
+      "summary": "六帧闭眼与歪头保持月饰、脸部和原坐姿，短袖短裤连续。"
+    },
+    {
+      "key": "kimi-jump-v1",
+      "passed": true,
+      "summary": "六帧保留原本较小腾空姿势及两腿不同屈曲角度，起落与头部大小对应原图。"
+    },
+    {
+      "key": "kimi-meal-v1",
+      "passed": true,
+      "summary": "碗勺舀起、送嘴、回落六帧接触保持，脸形头部稳定；鞋底较原鞋略厚，原生检查坐姿基线。"
+    },
+    {
+      "key": "kimi-peek-v1",
+      "passed": false,
+      "summary": "探头六帧新增双手交叠在身前，却保留原抓边手，形成多余手并残留白腕袖；须恢复原图两只手。"
+    },
+    {
+      "key": "kimi-pickup-v1",
+      "passed": true,
+      "summary": "六帧垂腿、左右摆动和双手位置保持原提起姿势，头脸与服装连续。"
+    },
+    {
+      "key": "kimi-shaken-v1",
+      "passed": true,
+      "summary": "六帧摆动方向与头晕旋涡眼保持，短袖、短裤和四肢没有额外复制。"
+    },
+    {
+      "key": "kimi-shaken-strong-v1",
+      "passed": true,
+      "summary": "六帧大幅左右摆动对应原姿势，头身与挥动发丝方向保持。"
+    },
+    {
+      "key": "kimi-think-v1",
+      "passed": true,
+      "summary": "六帧托腮与返回坐姿保留手脸接触和原头部大小，短袖短裤一致。"
+    },
+    {
+      "key": "kimi-touch-v1",
+      "passed": true,
+      "summary": "十二帧捏脸、挠痒与伸掌保留原脸和手势，短袖裸臂连贯，掌心后续定位。"
+    },
+    {
+      "key": "kimi-care-v1",
+      "passed": true,
+      "summary": "八帧梳子、毛巾及手中接触完整，起止帧道具存在，头部大小与原坐姿保持。"
+    },
+    {
+      "key": "kimi-club-v1",
+      "passed": false,
+      "summary": "数星与多数泡泡帧正常，但23/24帧把回落手势改成举手，泡泡低手帧圈口也需明确，局部修复。"
+    },
+    {
+      "key": "zhipu-club-v2",
+      "passed": true,
+      "summary": "24帧透明背景恢复，原图头脸、尾巴、数星与伸展姿势对应，八帧圈棒和瓶子均连续。"
+    },
+    {
+      "key": "zhipu-adult-club-v2",
+      "passed": false,
+      "summary": "第9/16帧圈棒恢复，但放大接触点发现第10–15帧银色圈棒消失，需局部补齐六个圈棒，不能以全身缩略图通过。"
+    },
+    {
+      "key": "kimi-five-main-v2",
+      "passed": true,
+      "summary": "20帧逐帧原图对比，17–20恢复站姿，17抱书完整，腿长和头部大小与原角色对应。"
+    },
+    {
+      "key": "kimi-peek-v2",
+      "passed": false,
+      "summary": "仍为三个手（抓边、托腮、低手），且身体加大，需从原始探头图重新仅换衣。"
+    },
+    {
+      "key": "kimi-club-v2",
+      "passed": false,
+      "summary": "局部修订破坏了19–22伸展帧，9举棒过高，12圈棒丢失，需保留v1动作仅修3帧。"
+    },
+    {
+      "key": "kimi-adult-emotion-touch-v2",
+      "passed": true,
+      "summary": "画布回到2172×724，摸头、双侧手脸接触、挠痒保持成人脸、腿长和脚位。"
+    },
+    {
+      "key": "kimi-adult-emotion-bonk-v2",
+      "passed": true,
+      "summary": "第三帧槌子完整并与头部接触，无顶部裁切，四帧保持原身形和腿长。"
+    },
+    {
+      "key": "kimi-adult-five-rps-v2",
+      "passed": false,
+      "summary": "第四帧伸拳腕后仍有深蓝旧长袖筒，前三帧短袖正常，需局部裸臂修正。"
+    },
+    {
+      "key": "zhipu-adult-club-v3",
+      "passed": false,
+      "summary": "圈棒10–14已补齐，但15放大仍无完整环口，继续单帧修复。"
+    },
+    {
+      "key": "qwen-adult-club-v3",
+      "passed": true,
+      "summary": "修复14帧后八帧金色圈棒和蓝瓶都可见，已逐个放大检查；24姿势保持原脸与成人腿长，原有邻格碎片交由分帧所有权裁出并继续原生验收。"
+    },
+    {
+      "key": "kimi-adult-five-rps-v3",
+      "passed": true,
+      "summary": "第四帧腕后旧长袖筒已移除，裸臂连接原拳头；四帧保持原成人头部、身形、脚位及短袖短裤。"
+    },
+    {
+      "key": "kimi-peek-v3",
+      "passed": false,
+      "summary": "已消除第三只手，但六帧人物整体加大，逐帧共同缩放对照不匹配，须保持原图像素尺寸重修。"
+    },
+    {
+      "key": "kimi-club-v3",
+      "passed": false,
+      "summary": "23/24回落姿势已修，19却新增两只低手形成四臂，退回仅修该帧。"
+    },
+    {
+      "key": "zhipu-adult-club-v4",
+      "passed": false,
+      "summary": "第15帧手势变了但圈棒仍缺，放大接触点不通过，继续仅补道具。"
+    },
+    {
+      "key": "kimi-peek-v4",
+      "passed": true,
+      "summary": "六帧回到原像素位置和大小，头脸/膝鞋基线与原图对应，两手为低手与抓边手，不再出现托腮第三手。"
+    },
+    {
+      "key": "kimi-club-v4",
+      "passed": false,
+      "summary": "19帧四臂已修，但同时误改15泡泡帧为伸展，退回仅恢复该帧。"
+    },
+    {
+      "key": "zhipu-adult-club-v5",
+      "passed": false,
+      "summary": "指定15帧圈棒仍未画出，且肤色偏暖，返回v3并以标记定位修复。"
     }
   ]
 }

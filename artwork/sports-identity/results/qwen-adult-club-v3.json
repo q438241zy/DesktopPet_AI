@@ -1,0 +1,92 @@
+{
+  "key": "qwen-adult-club-v3",
+  "id": "qwen-adult",
+  "style": "realistic",
+  "kind": "club",
+  "columns": 4,
+  "rows": 6,
+  "source": "artwork/sports-identity/qwen-adult-club-v3.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/qwen-adult/motions/cloud-club-original.png"
+  ],
+  "generationReferences": [
+    "artwork/sports-identity/qwen-adult-club-v2.png"
+  ],
+  "prompt": "Use case: precise-object-edit. Only repair PHYSICAL FRAME14, second row sixth column, in this1536x1024 8x3sprite atlas. In that one figure she is missing the bubble wand and her left-on-screen arm is down. Bend that arm upward so the fingers firmly hold a small GOLD CIRCULAR BUBBLE WAND at (1007,435), hand around (1020,459), near her shoulder. Keep one blue liquid bottle in the other hand. All remaining23figures must stay unchanged, especially frame15 gold wand raised and frame16 gold wand down. Same adult long legs, face, blue hair, short sleeves and shorts. Do not move or resize any figure or change canvas. Fully transparent background, no particles.",
+  "tool": "built-in image_gen",
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-31870b60-1af2-43f0-b42f-93660a31432f.png",
+  "measurementPixels": {
+    "bubbleSources": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      [
+        25,
+        581
+      ],
+      [
+        278,
+        449
+      ],
+      [
+        477,
+        444
+      ],
+      [
+        668,
+        444
+      ],
+      [
+        842,
+        459
+      ],
+      [
+        1033,
+        445
+      ],
+      [
+        1198,
+        435
+      ],
+      [
+        1377,
+        604
+      ],
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ]
+  },
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-09",
+    "passed": true,
+    "summary": "修复14帧后八帧金色圈棒和蓝瓶都可见，已逐个放大检查；24姿势保持原脸与成人腿长，原有邻格碎片交由分帧所有权裁出并继续原生验收。",
+    "evidence": [
+      ".artifacts/sports-identity-review/qwen-adult-club-v3-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "42a81d8e933f30c3d3a5d04deea9cf0487d317cd03ccdb99aeda2755b0a90283",
+    "originalSha256": "3bd49ea7c5cd4d6618fd630b3f70a81158be8c93d54428b9c283bd8fdbdfa835",
+    "comparisonFingerprint": "fb705cb33c03a02d5c6966fb4210fc8e94e1c355fe19543bdf9a4fc7de99deb6"
+  },
+  "contactReview": {
+    "date": "2026-10-09",
+    "reviewer": "assistant",
+    "method": "Manual source-pixel wand-ring anchors verified in browser composite",
+    "evidence": ".artifacts/sports-identity-review/qwen-adult-club-v3-anchors.png"
+  }
+}

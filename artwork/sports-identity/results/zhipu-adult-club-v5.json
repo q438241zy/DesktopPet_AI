@@ -1,0 +1,34 @@
+{
+  "key": "zhipu-adult-club-v5",
+  "id": "zhipu-adult",
+  "style": "realistic",
+  "kind": "club",
+  "columns": 4,
+  "rows": 6,
+  "source": "artwork/sports-identity/zhipu-adult-club-v5.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/zhipu-adult/motions/cloud-club-original.png"
+  ],
+  "generationReferences": [
+    "artwork/sports-identity/zhipu-adult-club-v4.png"
+  ],
+  "prompt": "Edit target atlas locally: middle row SEVENTH character is missing her bubble wand. Please give her a clearly visible WHITE/SILVER hollow circular bubble wand with thin dark outline, held by her existing raised hand in front of her left-on-screen collar. A white circular ring about16pixels wide must be visible ABOVE her fingertips against her dark hair, same as eighth character's wand. Copy the eighth character's circle-and-stick wand design to seventh, connected to her fingers. This is the ONLY modification; do NOT change any other of the 24 characters. Preserve exact1536x1024 canvas, every pose, body proportions, legs, shorts, hair, ears, tails, face, bottle and all already present wands. Background transparent. The requested object must be clearly visible, not an invisible transparent outline or blue line lost in the hair. Do not draw a gesture without a wand.",
+  "tool": "built-in image_gen",
+  "status": "not-selected-after-review",
+  "selected": false,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-2253dd1e-870f-49a2-96dd-28b66924d863.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-09",
+    "passed": false,
+    "summary": "指定15帧圈棒仍未画出，且肤色偏暖，返回v3并以标记定位修复。",
+    "evidence": [
+      ".artifacts/sports-identity-review/zhipu-adult-club-v5-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "b1064dfbe1552e4a12c1734a52888a523882842da9bfd599af71876fbad1a30f",
+    "originalSha256": "6a75ec14a87a8239a69b3780828e81b414174762c0d17f89d8e78c39c94e64d9",
+    "comparisonFingerprint": "a6e507d063bba19dd1a042bca9de72c5581529cf4dd1b587e2972451d77150cd"
+  }
+}

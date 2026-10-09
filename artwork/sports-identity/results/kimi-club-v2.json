@@ -1,0 +1,35 @@
+{
+  "key": "kimi-club-v2",
+  "id": "kimi",
+  "style": "chibi",
+  "kind": "club",
+  "columns": 4,
+  "rows": 6,
+  "source": "artwork/sports-identity/kimi-club-v2.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/kimi/motions/cloud-club-original.png"
+  ],
+  "generationReferences": [
+    "artwork/sports-identity/kimi-club-v1.png",
+    "src/DesktopPet.App/Assets/Characters/kimi/motions/cloud-club-original.png"
+  ],
+  "prompt": "Precise LOCAL EDIT to FIRST sports-clothed Kimi Q sprite atlas; SECOND is original pose authority. Preserve FIRST face, head size, hair, silver crescent ornament, navy ribbon, short sleeved white/navy sports shirt and navy above-knee shorts. True transparent alpha outside all figures, no extra shadow or background. Exactly1024x1536canvas,4columns6rows. Fix ONLY physical9(row3col1) and23,24(row6col3,col4). Frame9 currently incorrectly holds a second blue bottle in left-on-screen hand: replace ONLY that object with a small circular silver-blue bubble WAND and stem, ring near(91,705), hand gripping near(96,725), keep one liquid bottle in other hand. Existing bubbles10-16 unchanged including low wands15,16. Restore23 to original OPEN-EYED calm face with both hands just under chin, elbows DOWN; restore24 OPEN-EYED neutral calm face with both hands resting in lap. Original24-frame action ordering, every head/foot coordinate unchanged. Do not modify other21poses or add any external hands.",
+  "tool": "built-in image_gen",
+  "status": "not-selected-after-review",
+  "selected": false,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-bde832b5-5601-436b-aea3-cb5b0c96e607.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-09",
+    "passed": false,
+    "summary": "局部修订破坏了19–22伸展帧，9举棒过高，12圈棒丢失，需保留v1动作仅修3帧。",
+    "evidence": [
+      ".artifacts/sports-identity-review/kimi-club-v2-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "79cdb8e5cd6dc25726c98fcf8c2e30b780e456fb8555d21dff5bdefbebeb0f69",
+    "originalSha256": "d4f92185ad3779a37413d1f536610617ab947279703429df35c525cf2a89e0e0",
+    "comparisonFingerprint": "88605784c7de574218099c6c9ecabdc16c187457bd600455648c4dffc9ec6ba8"
+  }
+}

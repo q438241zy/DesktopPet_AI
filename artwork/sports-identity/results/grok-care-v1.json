@@ -14,7 +14,21 @@
   ],
   "prompt": "Precise clothing-only EDIT of this original Grok Q/chibi original character action atlas. Keep EXACT source 1536x1024 canvas, all original figure positions, pose order, cell spacing and camera. Never repack or rescale figures to fill margins. Preserve original face and head SIZE, head-body ratio, shoulders, torso, hips, knees, ankles, feet and hand/wrist/finger positions in EVERY pose, including sitting, lying, leaning, bent knees or raised hands. This is clothing on the SAME person, no redesign, no doll anatomy, no larger head, no shorter or thicker legs. Preserve golden blonde flowing twin tails, blue eyes, black/gold ribbons and ringed-planet hair clip, all expressions and hair/ear/tail silhouettes and directions.\nReplace only old dress/apron, long sleeves, wrist cuffs, tights and boots with a WHITE zip-front school sports shirt with charcoal black upper-arm SHORT SLEEVES/shoulder panels, gold piping and small gray ringed planet chest motif; charcoal black athletic SHORTS ending well ABOVE knees with narrow white side stripes; white ankle socks and small white-gold low-top sneakers at the original ankle/sole positions. Keep neckline modest and zipped. Bare forearms, knees and lower legs. NO long sleeves, trousers, gloves or leftover wrist frills. Keep headband and hair accessories even if they are frilly. Keep original hand contacts and ALL existing props, fingers and gesture shapes; do not invent an extra ball, hammer, sparkle or particle.\nIMPORTANT: preserve the source's exact head and limb coordinates, original folded seated legs, original small margins at canvas edge, and full figure heights. No longer dangling seated legs and no shortening adult legs to fit a raised arm. Genuine transparent alpha outside characters and held objects. No painted backdrop, gradient, glow, grid, label or extra shadow. Edit all EIGHT original poses in this 4-column 2-row sheet to sportswear. Keep exactly two rows; do not invent any other outfits or rows. Keep cream face towels held in BOTH the opening and closing wipe poses, as well as against the cheek; do not mistake the towel for a sleeve. Keep the hairbrush. Original reference is the ONLY pose and coordinate authority. Source global frame bounds (left,top,right,bottom) are [[15, 73, 367, 467], [403, 73, 758, 469], [796, 71, 1145, 468], [1181, 70, 1527, 467], [17, 569, 371, 963], [416, 571, 762, 965], [783, 575, 1141, 964], [1169, 564, 1526, 963]]. Keep every original head top, chin, hip, knee, ankle and sole at the same source position. Preserve deliberately smaller source poses. Wherever the original seated boots show SOLES toward the camera, the new sneaker SOLES must face the camera too, with the same foreshortened shins; do not replace this with a dangling-leg or toes-up pose. Preserve crossed arms, bent elbows and each individual finger gesture exactly. Changing clothing must not turn a sequence into repeated hands-in-lap poses.",
   "tool": "built-in image_gen",
-  "status": "generated-awaiting-visual-review",
+  "status": "not-selected-after-review",
   "selected": false,
-  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-539705ca-9860-4b16-8c30-c49dccf6b271.png"
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-539705ca-9860-4b16-8c30-c49dccf6b271.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-09",
+    "passed": false,
+    "summary": "梳头第1/4帧丢失梳子，无法保持取梳与收梳连续，需补回。",
+    "evidence": [
+      ".artifacts/sports-identity-review/grok-care-v1-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "094d87523072b1604eafac6638aa1f7db23580218b20e1be5fd93e4c3c5a4fde",
+    "originalSha256": "b9424aec10e31ff484c93affcd348d78a46ad4f0c734a6b9d707bf49b3a88c72",
+    "comparisonFingerprint": "2b1f64e026cfdca1653beda3872b288cb77aa664fc2dfc4ed957532bfcc57dbf"
+  }
 }

@@ -1,0 +1,34 @@
+{
+  "key": "kimi-club-v4",
+  "id": "kimi",
+  "style": "chibi",
+  "kind": "club",
+  "columns": 4,
+  "rows": 6,
+  "source": "artwork/sports-identity/kimi-club-v4.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/kimi/motions/cloud-club-original.png"
+  ],
+  "generationReferences": [
+    "artwork/sports-identity/kimi-club-v3.png"
+  ],
+  "prompt": "Precise single-frame anatomy repair. Target is1024x1536transparent24pose Kimi chibi atlas,4columns6rows. ONLY change ROW FIVE, COLUMN THREE (physical19, figurecenter x640,y1167): she currently has FOUR ARMS. Remove ONLY the two EXTRA LOWER fists and their arms next to her collar/chin; reconstruct the smooth white/navy short-sleeve shirt beneath those removed lower arms. KEEP her TWO UPPER raised arms, original left fist nearx580,y1152 and right fist nearx700,y1152, from shoulders up to the fists. Her only two hands should be raised beside her head. Close her eyes in a cheerful stretch smile like neighboring physical20. This is one standing? No, keep same seated legs and shoes exactly. All OTHER23poses including 9–16 bubble props and23/24 lowered recovery poses are correct: preserve unchanged. Same wholecanvas1024x1536, every face/head/hair/body coordinate unchanged, transparency retained. No extra hands or arms.",
+  "tool": "built-in image_gen",
+  "status": "not-selected-after-review",
+  "selected": false,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-2752e195-11e7-4e02-a3d4-e41f95532873.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-09",
+    "passed": false,
+    "summary": "19帧四臂已修，但同时误改15泡泡帧为伸展，退回仅恢复该帧。",
+    "evidence": [
+      ".artifacts/sports-identity-review/kimi-club-v4-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "afb14eec7600581ca7c069b23e82e585cc78fc425bdb3979afef41219faba5f0",
+    "originalSha256": "d4f92185ad3779a37413d1f536610617ab947279703429df35c525cf2a89e0e0",
+    "comparisonFingerprint": "5940cb927de14039d55394bd48af2ea49c299825cbf6a223c7808ab379ebc760"
+  }
+}

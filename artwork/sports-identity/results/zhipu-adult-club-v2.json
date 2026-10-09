@@ -1,0 +1,87 @@
+{
+  "key": "zhipu-adult-club-v2",
+  "id": "zhipu-adult",
+  "style": "realistic",
+  "kind": "club",
+  "columns": 4,
+  "rows": 6,
+  "source": "artwork/sports-identity/zhipu-adult-club-v2.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/zhipu-adult/motions/cloud-club-original.png"
+  ],
+  "generationReferences": [
+    "artwork/sports-identity/zhipu-adult-club-v1.png",
+    "src/DesktopPet.App/Assets/Characters/zhipu-adult/motions/cloud-club-original.png"
+  ],
+  "prompt": "Use case: precise-object-edit. FIRST is the target GLM adult sports24pose atlas1536x1024,8columns3rows. SECOND original is only prop reference. Keep FIRST complete artwork, poses, face, cat ears/tail, long adult legs and canvas coordinates UNCHANGED. Restore ONLY the missing silver-gray circular bubble wand with short stem into the LEFT-ON-SCREEN HAND in physical frame9(row2col1, hand near x74,y546) and frame16(row2col8, hand near x1427,y516). Copy corresponding SECOND original wand hand position and pose. Keep existing blue liquid bottle in her other hand. Keep other22poses and all sports clothes unchanged. Exactly one wand and one bottle in each of frames9-16. Fully transparent background around every figure, no halos or added particles.",
+  "tool": "built-in image_gen",
+  "status": "not-selected-after-review",
+  "selected": false,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-2bbcbc3b-5956-4da5-96ec-002909101c0c.png",
+  "measurementPixels": {
+    "bubbleSources": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      [
+        61,
+        427
+      ],
+      [
+        256,
+        431
+      ],
+      [
+        471,
+        419
+      ],
+      [
+        663,
+        426
+      ],
+      [
+        822,
+        432
+      ],
+      [
+        1000,
+        434
+      ],
+      [
+        1227,
+        441
+      ],
+      [
+        1392,
+        427
+      ],
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ]
+  },
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-09",
+    "passed": false,
+    "summary": "第9/16帧圈棒恢复，但放大接触点发现第10–15帧银色圈棒消失，需局部补齐六个圈棒，不能以全身缩略图通过。",
+    "evidence": [
+      ".artifacts/sports-identity-review/zhipu-adult-club-v2-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "f6bc0695c21a042358a318124186e40816e5bea8bfe41d21892c642a6b89635f",
+    "originalSha256": "6a75ec14a87a8239a69b3780828e81b414174762c0d17f89d8e78c39c94e64d9",
+    "comparisonFingerprint": "fb70bc82aaaf2522d2e09827c8d624ac58cd6ad2cb62841afd49d09928f55032"
+  }
+}

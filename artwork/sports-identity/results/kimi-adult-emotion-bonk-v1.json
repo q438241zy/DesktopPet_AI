@@ -1,0 +1,57 @@
+{
+  "key": "kimi-adult-emotion-bonk-v1",
+  "id": "kimi-adult",
+  "style": "realistic",
+  "kind": "emotion-bonk",
+  "columns": 4,
+  "rows": 1,
+  "source": "artwork/sports-identity/kimi-adult-emotion-bonk-v1.png",
+  "references": [
+    "artwork/sports-identity/kimi-adult-five-photo-v1.png",
+    "src/DesktopPet.App/Assets/Characters/kimi-adult/interactions/original/kimi-adult-original-photo-v1.png"
+  ],
+  "generationReferences": [
+    "artwork/sports-identity/kimi-adult-five-photo-v1.png"
+  ],
+  "prompt": "Precise upper-body pose EDIT of this exact 2172x724, 4-column 1-row sprite sheet. Keep the SAME adult Kimi woman and the SAME approved short-sleeve white/navy sports shirt and above-knee navy shorts. Keep the original face, mature small head size, silver lavender hair, purple eyes, white frilly headband, silver crescent ornament, navy ribbon and pearl dangles, clean 3D rendering, and all clothing details. Preserve the complete hips, long thighs, knees, shins, ankles, sneakers and ground position at EXACT original scale and coordinates in ALL four poses. Do not redesign the person or shorten/thicken legs, enlarge heads, resize individual figures or crop feet. Modify ONLY expressions and arms/hands, left to right: 1 relaxed neutral smile; 2 raise a small soft light blue toy hammer with a proper hand grip just beside the head; 3 gently tap the top of the head with the SAME toy hammer, eyes squeezed shut in playful surprise; 4 lower the SAME hammer and smile; keep the hammer fully inside each source cell. Preserve the original canvas, original figure positions, margins, camera and order of 4 full figures. True transparent alpha outside figures and held props. No background, gradient, glow, text, frame or extra people. Show only her own two arms and hands. No external petting hand above her head, no second person, no detached third hand. Keep a clear fully transparent gap between figures. Keep the existing crescent motif and lavender piping from the reference.",
+  "tool": "built-in image_gen",
+  "status": "not-selected-after-review",
+  "selected": false,
+  "comparisonRole": "approved-sports-pose-edit",
+  "sourceAtlas": "photo",
+  "physicalOrder": true,
+  "clips": {
+    "bonk": {
+      "frames": [
+        0,
+        1,
+        2,
+        3,
+        0
+      ],
+      "frameMs": [
+        400,
+        650,
+        400,
+        600,
+        450
+      ],
+      "loop": false
+    }
+  },
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-1134b63e-8d93-4a0f-9b79-f94cb3826d68.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-09",
+    "passed": false,
+    "summary": "手持软槌姿势与人物保持，但第三帧槌顶触及画布边缘，局部下移保留完整轮廓。",
+    "evidence": [
+      ".artifacts/sports-identity-review/kimi-adult-emotion-bonk-v1-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "68025a323be83c6f4c01614f7ba7b5d8bb73c00a8c8b24c1fa4a03f95675ce42",
+    "originalSha256": "3e060da5c0f5af111ec621a1785230f97c7a0eab3d6b2e439311b2caa740a7f9",
+    "comparisonFingerprint": "ca707ffcbbbb268d3223660be92fbabd1ae546534b1f5428e07abfeaed5c68d6"
+  }
+}

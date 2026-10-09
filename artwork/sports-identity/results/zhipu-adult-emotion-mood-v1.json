@@ -1,0 +1,76 @@
+{
+  "key": "zhipu-adult-emotion-mood-v1",
+  "id": "zhipu-adult",
+  "style": "realistic",
+  "kind": "emotion-mood",
+  "columns": 4,
+  "rows": 1,
+  "source": "artwork/sports-identity/zhipu-adult-emotion-mood-v1.png",
+  "references": [
+    "artwork/sports-identity/zhipu-adult-five-photo-v1.png",
+    "src/DesktopPet.App/Assets/Characters/zhipu-adult/interactions/original/zhipu-adult-original-photo-v1.png"
+  ],
+  "generationReferences": [
+    "artwork/sports-identity/zhipu-adult-five-photo-v1.png"
+  ],
+  "prompt": "Precise upper-body pose EDIT of this exact 2172x724, 4-column 1-row sprite sheet. Keep the SAME adult GLM woman and the SAME approved short-sleeve white/navy sports shirt and above-knee navy shorts. Keep the original face, mature small head size, black/blue-gray hair, blue eyes, black cat ears and tail, white frilly headband, black eyelash sleep-mask ornament on head, Z tag and blue tassels, clean 3D rendering, and all clothing details. Preserve the complete hips, long thighs, knees, shins, ankles, sneakers and ground position at EXACT original scale and coordinates in ALL four poses. Do not redesign the person or shorten/thicken legs, enlarge heads, resize individual figures or crop feet. Modify ONLY expressions and arms/hands, left to right: 1 warm happy smile with relaxed hands; 2 a slightly disappointed pout with relaxed hands; 3 a gentle self-hug with hands around opposite upper arms; 4 dizzy expression with eyes shut and one hand resting against the temple, without changing the legs. Preserve the original canvas, original figure positions, margins, camera and order of 4 full figures. True transparent alpha outside figures and held props. No background, gradient, glow, text, frame or extra people. Show only her own two arms and hands. No external petting hand above her head, no second person, no detached third hand. Keep a clear fully transparent gap between figures.",
+  "tool": "built-in image_gen",
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
+  "comparisonRole": "approved-sports-pose-edit",
+  "sourceAtlas": "photo",
+  "physicalOrder": true,
+  "clips": {
+    "happy": {
+      "frames": [
+        0
+      ],
+      "frameMs": [
+        5000
+      ],
+      "loop": false
+    },
+    "sad": {
+      "frames": [
+        1
+      ],
+      "frameMs": [
+        5000
+      ],
+      "loop": false
+    },
+    "faint": {
+      "frames": [
+        2
+      ],
+      "frameMs": [
+        5000
+      ],
+      "loop": false
+    },
+    "dizzy": {
+      "frames": [
+        3
+      ],
+      "frameMs": [
+        5000
+      ],
+      "loop": false
+    }
+  },
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-6e690f56-ee8f-4a8e-900f-e4f4d633b711.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-09",
+    "passed": true,
+    "summary": "笑、失落、抱臂与扶额四帧只改上身表情，长腿和脚位保持。",
+    "evidence": [
+      ".artifacts/sports-identity-review/zhipu-adult-emotion-mood-v1-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "223666030afdf6a1dbc203b568bdbd1447191ec4991ae4e2f64d461d44ff9f8e",
+    "originalSha256": "75527a9ddd0637980c09a5fe8dcbed83977152e4171e69d59a6ca5ca603682c3",
+    "comparisonFingerprint": "59599d0416107edfda6a008ede83fb30e87fba2b401ef967d37ff14e9deae0cd"
+  }
+}

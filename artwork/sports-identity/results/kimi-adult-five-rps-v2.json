@@ -1,0 +1,34 @@
+{
+  "key": "kimi-adult-five-rps-v2",
+  "id": "kimi-adult",
+  "style": "realistic",
+  "kind": "five-rps",
+  "columns": 4,
+  "rows": 1,
+  "source": "artwork/sports-identity/kimi-adult-five-rps-v2.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/kimi-adult/interactions/original/kimi-adult-original-rps-v1.png"
+  ],
+  "generationReferences": [
+    "artwork/sports-identity/kimi-adult-five-rps-v1.png"
+  ],
+  "prompt": "Use case: precise-object-edit. Change ONLY wrist/forearm in FOURTH RIGHTMOST figure of this2172x724 four-pose atlas. The forward punching hand has an incorrect long navy sleeve tube around its wrist. Remove that old cuff/sleeve tube; show natural bare wrist and foreshortened bare forearm leading back to an upper-arm short navy sleeve. Keep hand/finger/fist orientation and exact knuckle positions, face, hips, long legs, shoes and all other artwork unchanged. First3figures unchanged. Same adult Kimi, same short-sleeved white/navy sports jacket and above-knee shorts. Exact2172x724canvas and original transparent alpha, no glow or backdrop.",
+  "tool": "built-in image_gen",
+  "status": "not-selected-after-review",
+  "selected": false,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-7d427e06-c90a-4298-8645-e4828e74e820.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-09",
+    "passed": false,
+    "summary": "第四帧伸拳腕后仍有深蓝旧长袖筒，前三帧短袖正常，需局部裸臂修正。",
+    "evidence": [
+      ".artifacts/sports-identity-review/kimi-adult-five-rps-v2-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "41074532831d5284d0d5f17c5234bc31d7a8fc4cc46bc1503d78372c3316b7c3",
+    "originalSha256": "00f89367c1bdf257c71e07740abfa815f71beeae5897b5e22aed1a9d4e0b542e",
+    "comparisonFingerprint": "cc44d0e219e495ee78f2251ff44a498292d22c68e9a7d642391e22f55ab53b2b"
+  }
+}

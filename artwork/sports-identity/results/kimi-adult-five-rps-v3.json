@@ -1,0 +1,34 @@
+{
+  "key": "kimi-adult-five-rps-v3",
+  "id": "kimi-adult",
+  "style": "realistic",
+  "kind": "five-rps",
+  "columns": 4,
+  "rows": 1,
+  "source": "artwork/sports-identity/kimi-adult-five-rps-v3.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/kimi-adult/interactions/original/kimi-adult-original-rps-v1.png"
+  ],
+  "generationReferences": [
+    "artwork/sports-identity/kimi-adult-five-rps-v2.png"
+  ],
+  "prompt": "Precise local sleeve correction. Target2172x724transparent4frame Kimi adult sports rockpaper scissors atlas. ONLY edit the fourth/rightmost character's forward punching arm. Remove the dark navy fabric cylinder and hem that circles her punching wrist/fist. Replace that fabric with natural bare forearm skin continuous behind the same fist toward her elbow. The navy shirt sleeve must end high at upper arm near shoulder, and the foreshortened FOREARM must be visibly BARE skin around and behind fist. No dark/navy cuff touching fist. Preserve fist size/position, fingers, face, hair, legs, shorts, all other clothes, canvas and character placements exactly. First three figures already correct: do not change them. Do not enlarge or reposition fourth figure. Transparent background, no extra images.",
+  "tool": "built-in image_gen",
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-9bc51866-2c88-4758-a881-051b3d1e5f98.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-09",
+    "passed": true,
+    "summary": "第四帧腕后旧长袖筒已移除，裸臂连接原拳头；四帧保持原成人头部、身形、脚位及短袖短裤。",
+    "evidence": [
+      ".artifacts/sports-identity-review/kimi-adult-five-rps-v3-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "d18c7fb21dcdbac73b3ad5ec441296a5c4dc2db9c2990342f5b3a79e12bbea71",
+    "originalSha256": "00f89367c1bdf257c71e07740abfa815f71beeae5897b5e22aed1a9d4e0b542e",
+    "comparisonFingerprint": "9f04358466485c9bc90a4eda2e074b4600b07c6937aca6dfca71724f1b417377"
+  }
+}

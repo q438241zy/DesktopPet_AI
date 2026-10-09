@@ -1,0 +1,34 @@
+{
+  "key": "kimi-peek-v3",
+  "id": "kimi",
+  "style": "chibi",
+  "kind": "peek",
+  "columns": 3,
+  "rows": 2,
+  "source": "artwork/sports-identity/kimi-peek-v3.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/kimi/motions/peek.webp"
+  ],
+  "generationReferences": [
+    "src/DesktopPet.App/Assets/Characters/kimi/motions/peek.webp"
+  ],
+  "prompt": "Use case: identity-preserve clothing edit. Edit attached ORIGINAL six-frame Kimi chibi peek atlas1536x1024,3columns2rows. Change ONLY maid dress, long sleeves and shoes into white/navy athletic short-sleeve shirt + navy above-knee shorts + lavender sneakers and ankle socks. Everything else unchanged. Exact original head size and placement, hair outlines, face, headband, moon hair ornament, head tilts, shoulder positions, body length, knees and shoe sole baseline. CRITICAL there are only TWO ARMS in each pose: original left-on-screen hand rests at waist x330,y344 (for first frame); original right-on-screen hand at x378,y237 grips an invisible vertical edge next to head. Keep those EXACT TWO HAND positions for each respective frame. One bare forearm from original left elbow to low waist hand; one bare forearm from original right elbow to raised gripping hand. NO third arm, NO hand supporting cheek, NO crossed additional hands, NO sleeve cuff at the raised wrist. Sleeves stop at upper arms. Do not shift, enlarge, stand straighter or change original body length. Every frame retains original peeking tilt. Transparent background, original6figures only, no edges or props added.",
+  "tool": "built-in image_gen",
+  "status": "not-selected-after-review",
+  "selected": false,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-0db6f921-1e6c-4d20-9e69-71d6b5fbe4cf.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-09",
+    "passed": false,
+    "summary": "已消除第三只手，但六帧人物整体加大，逐帧共同缩放对照不匹配，须保持原图像素尺寸重修。",
+    "evidence": [
+      ".artifacts/sports-identity-review/kimi-peek-v3-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "d5fa7e2e0659dfb6d3e00f1ed56514358983526589b44ea9b22f0539b4a2b2ac",
+    "originalSha256": "ae7edf701d3507b74fcededfdeea44e1c1a9cc34714c4a58139ab21327106368",
+    "comparisonFingerprint": "89aefd21c38bfa1f8942b70e3df191dc941bf23b27cbfd0264ec115004e58d67"
+  }
+}

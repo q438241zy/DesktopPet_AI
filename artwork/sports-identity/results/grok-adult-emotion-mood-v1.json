@@ -15,8 +15,8 @@
   ],
   "prompt": "Precise upper-body pose EDIT of this exact 2172x724, 4-column 1-row sprite sheet. Keep the SAME adult Grok woman and the SAME approved short-sleeve white/charcoal black sports shirt and above-knee charcoal black shorts. Keep the original face, mature small head size, golden blonde flowing twin tails, blue eyes, black/gold ribbons and ringed-planet hair clip, clean 3D rendering, and all clothing details. Preserve the complete hips, long thighs, knees, shins, ankles, sneakers and ground position at EXACT original scale and coordinates in ALL four poses. Do not redesign the person or shorten/thicken legs, enlarge heads, resize individual figures or crop feet. Modify ONLY expressions and arms/hands, left to right: 1 warm happy smile with relaxed hands; 2 a slightly disappointed pout with relaxed hands; 3 a gentle self-hug with hands around opposite upper arms; 4 dizzy expression with eyes shut and one hand resting against the temple, without changing the legs. Preserve the original canvas, original figure positions, margins, camera and order of 4 full figures. True transparent alpha outside figures and held props. No background, gradient, glow, text, frame or extra people. Show only her own two arms and hands. No external petting hand above her head, no second person, no detached third hand. Keep a clear fully transparent gap between figures.",
   "tool": "built-in image_gen",
-  "status": "generated-awaiting-visual-review",
-  "selected": false,
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
   "comparisonRole": "approved-sports-pose-edit",
   "sourceAtlas": "photo",
   "physicalOrder": true,
@@ -58,5 +58,19 @@
       "loop": false
     }
   },
-  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-e7ce5f47-3209-456d-8db5-c12c46fa39f8.png"
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-e7ce5f47-3209-456d-8db5-c12c46fa39f8.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-09",
+    "passed": true,
+    "summary": "逐帧对照已审运动服立绘，头部、躯干和长腿比例保持；微笑、失落、自抱及扶额四种表情姿态清楚。",
+    "evidence": [
+      ".artifacts/sports-identity-review/grok-adult-emotion-mood-v1-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "430ed384a2b0174e2f2cd7791628c76086ecc7bbec8dfda685bcc525c838c1a4",
+    "originalSha256": "fa7dbbe569ee7ad8823929d9752748903984c27c35333fec5a15ea5cb2183f20",
+    "comparisonFingerprint": "6d259ead2acc8463e1e229e25e93e215202d809b7f16b0f8c1714d5ab4cc9869"
+  }
 }

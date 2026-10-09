@@ -1,0 +1,92 @@
+{
+  "key": "grok-club-v4",
+  "id": "grok",
+  "style": "chibi",
+  "kind": "club",
+  "columns": 4,
+  "rows": 6,
+  "source": "artwork/sports-identity/grok-club-v4.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/grok/motions/cloud-club-original.png"
+  ],
+  "generationReferences": [
+    "artwork/sports-identity/grok-club-v3.png"
+  ],
+  "prompt": "Use case: background-extraction. Remove ONLY all background, gradient, matte and external shadows from this exact Grok sports sprite atlas. True transparent alpha outside the24figures and props. Preserve ALL existing artwork pixels inside figures, hair, hands and props without repainting, resizing or shifting. Exact1024x1536canvas,4columns6rows. The eight bubble poses physical9-16 must keep both pink circular wand with handle and pink liquid bottle in their original hands, including low wands in9,15,16. Keep existing short sleeves, shorts, blonde hair, head-body proportions and all24poses. Crisp cutout edges with no white/black halo, no fuzzy shadows, no brown matte. Do not draw a checkerboard. No background color at all.",
+  "tool": "built-in image_gen",
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-20c023ed-7314-4a7c-80c7-36b7a3083e37.png",
+  "measurementPixels": {
+    "bubbleSources": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      [
+        95,
+        714
+      ],
+      [
+        332,
+        652
+      ],
+      [
+        620,
+        668
+      ],
+      [
+        877,
+        668
+      ],
+      [
+        92,
+        902
+      ],
+      [
+        316,
+        886
+      ],
+      [
+        596,
+        958
+      ],
+      [
+        851,
+        958
+      ],
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ]
+  },
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-09",
+    "passed": true,
+    "summary": "灰底与光晕已移除，八帧泡泡圈棒和液瓶完整，数星及伸展头身与坐姿保持。",
+    "evidence": [
+      ".artifacts/sports-identity-review/grok-club-v4-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "39cc20db25389c913ab25fb0b4aeb4c2b485c9c4072316ef83682a982996baea",
+    "originalSha256": "eecc69a8720213789352fe1d1ff87f37714306a0dcaa2fce12acb530d0a37a10",
+    "comparisonFingerprint": "e9dbb515290b3ea0d1e3615bcbef3daffc4dc744832ad621ce424724736ec201"
+  },
+  "contactReview": {
+    "date": "2026-10-09",
+    "reviewer": "assistant",
+    "method": "Manual source-pixel palm / bubble-ring markers viewed on browser composite",
+    "evidence": ".artifacts/sports-identity-review/grok-club-v4-anchors.png"
+  }
+}

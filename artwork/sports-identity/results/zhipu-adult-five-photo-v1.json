@@ -1,0 +1,34 @@
+{
+  "key": "zhipu-adult-five-photo-v1",
+  "id": "zhipu-adult",
+  "style": "realistic",
+  "kind": "five-photo",
+  "columns": 4,
+  "rows": 1,
+  "source": "artwork/sports-identity/zhipu-adult-five-photo-v1.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/zhipu-adult/interactions/original/zhipu-adult-original-photo-v1.png"
+  ],
+  "generationReferences": [
+    "src/DesktopPet.App/Assets/Characters/zhipu-adult/interactions/original/zhipu-adult-original-photo-v1.png"
+  ],
+  "prompt": "Precise clothing-only EDIT of this original GLM photorealistic 3D ADULT woman with long adult legs action atlas. Keep EXACT source 2172x724 canvas, all original figure positions, pose order, cell spacing and camera. Never repack or rescale figures to fill margins. Preserve original face and head SIZE, head-body ratio, shoulders, torso, hips, knees, ankles, feet and hand/wrist/finger positions in EVERY pose, including sitting, lying, leaning, bent knees or raised hands. This is clothing on the SAME person, no redesign, no doll anatomy, no larger head, no shorter or thicker legs. Preserve black/blue-gray hair, blue eyes, black cat ears and tail, white frilly headband, black eyelash sleep-mask ornament on head, Z tag and blue tassels, all expressions and hair/ear/tail silhouettes and directions.\nReplace only old dress/apron, long sleeves, wrist cuffs, tights and boots with a WHITE zip-front school sports shirt with navy upper-arm SHORT SLEEVES/shoulder panels, pale blue piping and small gray emblem chest motif; navy athletic SHORTS ending well ABOVE knees with narrow white side stripes; white ankle socks and small white-blue low-top sneakers at the original ankle/sole positions. Keep neckline modest and zipped. Bare forearms, knees and lower legs. NO long sleeves, trousers, gloves or leftover wrist frills. Keep headband and hair accessories even if they are frilly. Keep original hand contacts and ALL existing props, fingers and gesture shapes; do not invent an extra ball, hammer, sparkle or particle.\nIMPORTANT: preserve the source's exact head and limb coordinates, original folded seated legs, original small margins at canvas edge, and full figure heights. No longer dangling seated legs and no shortening adult legs to fit a raised arm. Genuine transparent alpha outside characters and held objects. No painted backdrop, gradient, glow, grid, label or extra shadow.",
+  "tool": "built-in image_gen",
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-64cf8d91-92d2-4022-9220-c9922b48fd59.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-09",
+    "passed": true,
+    "summary": "四帧与原GLM成年角色同倍率并排，猫耳、睡眠眼罩、黑发尾巴及原腿长保持，短袖膝上短裤正确，手势同原合照。",
+    "evidence": [
+      ".artifacts/sports-identity-review/zhipu-adult-five-photo-v1-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "75527a9ddd0637980c09a5fe8dcbed83977152e4171e69d59a6ca5ca603682c3",
+    "originalSha256": "4e0eca9be3bd212f15a169de94931d88bd314fb3158fd6fc0269b8a07e0cae3d",
+    "comparisonFingerprint": "f9fe8547e628660fb157cc188651844ca7e4d5d5109d690c3bcbd743c636d476"
+  }
+}

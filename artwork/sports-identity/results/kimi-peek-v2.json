@@ -1,0 +1,35 @@
+{
+  "key": "kimi-peek-v2",
+  "id": "kimi",
+  "style": "chibi",
+  "kind": "peek",
+  "columns": 3,
+  "rows": 2,
+  "source": "artwork/sports-identity/kimi-peek-v2.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/kimi/motions/peek.webp"
+  ],
+  "generationReferences": [
+    "artwork/sports-identity/kimi-peek-v1.png",
+    "src/DesktopPet.App/Assets/Characters/kimi/motions/peek.webp"
+  ],
+  "prompt": "Precise LOCAL EDIT to FIRST sports-clothed Kimi Q sprite atlas; SECOND is original pose authority. Preserve FIRST face, head size, hair, silver crescent ornament, navy ribbon, short sleeved white/navy sports shirt and navy above-knee shorts. True transparent alpha outside all figures, no extra shadow or background. Exactly1536x1024,3columns2rows. All6figures currently have three hands: two crossed in front plus one grabbing edge. Correct EVERY figure to exactly TWO anatomically attached arms/hands matching SECOND original: right-on-screen arm bends up with hand near edge by the face; left-on-screen arm bends down with single hand near waist. Remove extra right-on-screen downward arm/hand crossed in front. Restore bare raised wrist with NO white frilly cuff, keep short navy sleeve only at shoulder. All6face/head/hair/legs/lean angles and figure coordinates untouched. All source hands in original positions.",
+  "tool": "built-in image_gen",
+  "status": "not-selected-after-review",
+  "selected": false,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-bf14e86f-5440-4793-be44-ad59336ad12d.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-09",
+    "passed": false,
+    "summary": "仍为三个手（抓边、托腮、低手），且身体加大，需从原始探头图重新仅换衣。",
+    "evidence": [
+      ".artifacts/sports-identity-review/kimi-peek-v2-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "7003d44497f87e26b70f5339fc73d7858f63b1d5f1716eba4d8b240f8982db68",
+    "originalSha256": "ae7edf701d3507b74fcededfdeea44e1c1a9cc34714c4a58139ab21327106368",
+    "comparisonFingerprint": "88dd57a11810ebba86b49bb50f85fbb19ad2cabcebecb5dcc03d8cd28a1e2685"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "key": "kimi-club-v5",
+  "id": "kimi",
+  "style": "chibi",
+  "kind": "club",
+  "columns": 4,
+  "rows": 6,
+  "source": "artwork/sports-identity/kimi-club-v5.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/kimi/motions/cloud-club-original.png"
+  ],
+  "generationReferences": [
+    "artwork/sports-identity/kimi-club-v4.png",
+    "artwork/sports-identity/references/kimi-club-pose-guide.png",
+    "artwork/sports-identity/kimi-club-v3.png"
+  ],
+  "prompt": "Precise single-pose correction. FIRST image is current target24pose Kimi sports atlas1024x1536. SECOND annotation tells exact pose to edit: red-box woman ONLY, fourth row third column. THIRD image contains the CORRECT pose for that same fourth row third column: OPEN eyes, BOTH HANDS LOW near waist, left-on-screen hand holds silverblue circular bubble wand, other hand holds blue bottle. Restore exactly that THIRD image pose INSIDE ONLY RED BOX in FIRST. Her raised arms must become the two low hands holding wand and bottle. Keep face/head/hair/legs/shoes positions. All23OTHER poses in FIRST must remain EXACTLY intact: in particular fifth row third column must KEEP exactlyTWO raised arms and closed happy eyes, and sixth row third/fourth must KEEP lowered hands and OPEN eyes. Output complete1024x1536 transparent24pose atlas. No guide marks,text,red box or flat background. Do not edit any other frame.",
+  "tool": "built-in image_gen",
+  "status": "generated-awaiting-visual-review",
+  "selected": false,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-4f707850-aa18-4598-8ecb-d8fd6684e121.png"
+}

@@ -1,0 +1,35 @@
+{
+  "key": "grok-club-v3",
+  "id": "grok",
+  "style": "chibi",
+  "kind": "club",
+  "columns": 4,
+  "rows": 6,
+  "source": "artwork/sports-identity/grok-club-v3.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/grok/motions/cloud-club-original.png"
+  ],
+  "generationReferences": [
+    "artwork/sports-identity/grok-club-v2.png",
+    "src/DesktopPet.App/Assets/Characters/grok/motions/cloud-club-original.png"
+  ],
+  "prompt": "Tiny LOCAL prop restoration to FIRST atlas. FIRST is a 1024x1536 transparent 4COLUMN x6ROW Grok Q sports-clothed girl atlas with24physical poses. Keep ALL character artwork, positions, size, clothes, faces and poses of FIRST unchanged. SECOND original atlas is prop-position reference ONLY. Restore the missing pink circular BUBBLE WAND with its short handle into the left-on-screen lowered hand in EXACT THREE frames: physical frame9 ROW3 COL1 (global hand approx93,704); physical frame15 ROW4 COL3 (global hand approx604,960); physical frame16 ROW4 COL4 (global hand approx860,960). These are lowered rest/start/finish positions, wand ring stays low near hand just as SECOND. Keep the pink bubble liquid BOTTLE in the other hand in all eight bubble poses9-16. Existing raised wand poses10-14 unchanged. No redesign, rescale, extra hand or change in other21poses. Genuine transparency, no background or particles.",
+  "tool": "built-in image_gen",
+  "status": "not-selected-after-review",
+  "selected": false,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-28e9a3a2-e950-432b-8be9-f49c064be830.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-09",
+    "passed": false,
+    "summary": "三个低手帧的圈棒已补齐，但新增矩形浅底/黑色虚影，不能发布带发虚阴影的素材；仅清理背景和外部光晕。",
+    "evidence": [
+      ".artifacts/sports-identity-review/grok-club-v3-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "371520e204445c3de7f15f5667f33579646fbfb2a856c21fbb54b4bd5f302e5e",
+    "originalSha256": "eecc69a8720213789352fe1d1ff87f37714306a0dcaa2fce12acb530d0a37a10",
+    "comparisonFingerprint": "8d20d6b0b4c84e858c4a0e6dd5ba9c1826c47ca6ddb50967503749781fa6ee0d"
+  }
+}

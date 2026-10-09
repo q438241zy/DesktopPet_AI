@@ -1,0 +1,35 @@
+{
+  "key": "grok-eat-v3",
+  "id": "grok",
+  "style": "chibi",
+  "kind": "eat",
+  "columns": 4,
+  "rows": 2,
+  "source": "artwork/sports-identity/grok-eat-v3.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/grok/motions/snack-continuity.png"
+  ],
+  "generationReferences": [
+    "artwork/sports-identity/grok-eat-v2.png",
+    "src/DesktopPet.App/Assets/Characters/grok/motions/snack-continuity.png"
+  ],
+  "prompt": "Correct the scale of FIRST sprite sheet to match SECOND original atlas. Keep FIRST sports clothing and expressions/cookie bites, but reduce EVERY whole seated figure including hair/head/hands/legs/cookie by the SAME approximate factor0.82 and place it exactly over each SECOND original figure. Match original head top, chin, waist and shoe bottoms. Do not stretch or redesign anatomy. Keep exact1536x1024 canvas, 4columns2rows8poses, original larger transparent margins and empty gaps. Same blonde Grok Q girl white black gold short-sleeve zip sports shirt and above-knee shorts/small sneakers. No text/background/glow. True alpha transparency.",
+  "tool": "built-in image_gen",
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-ac9cdfee-0d47-42a7-8a34-0cb8167c055d.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-09",
+    "passed": true,
+    "summary": "八帧饼干接触和逐口食用表情保持，头身比已恢复至原图相近，座姿仍为鞋底朝前，候选画布位置略上移，需原生吃零食尺寸与脚底位置复核。",
+    "evidence": [
+      ".artifacts/sports-identity-review/grok-eat-v3-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "46639f0dde881afdd7d848c359e69d29e06a007e2ec2c844209e9ac74bc5d82d",
+    "originalSha256": "e2d7dd1b137ae92cb741fbedf88b5a72a0b907aecca9414a507766a3841fd4a4",
+    "comparisonFingerprint": "9b78b91a7e92d1641631efb8e23bdcfcdc3a48a06ce216a8a05fe4cd06b1f0ae"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "key": "kimi-five-main-v1",
+  "id": "kimi",
+  "style": "chibi",
+  "kind": "five-main",
+  "columns": 4,
+  "rows": 5,
+  "source": "artwork/sports-identity/kimi-five-main-v1.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/kimi/interactions/original/kimi-original-v2.png"
+  ],
+  "generationReferences": [
+    "src/DesktopPet.App/Assets/Characters/kimi/interactions/original/kimi-original-v2.png"
+  ],
+  "prompt": "Precise clothing-only EDIT of this original Kimi Q/chibi original character action atlas. Keep EXACT source 1122x1402 canvas, all original figure positions, pose order, cell spacing and camera. Never repack or rescale figures to fill margins. Preserve original face and head SIZE, head-body ratio, shoulders, torso, hips, knees, ankles, feet and hand/wrist/finger positions in EVERY pose, including sitting, lying, leaning, bent knees or raised hands. This is clothing on the SAME person, no redesign, no doll anatomy, no larger head, no shorter or thicker legs. Preserve silver lavender hair, purple eyes, white frilly headband, silver crescent ornament, navy ribbon and pearl dangles, all expressions and hair/ear/tail silhouettes and directions.\nReplace only old dress/apron, long sleeves, wrist cuffs, tights and boots with a WHITE zip-front school sports shirt with navy upper-arm SHORT SLEEVES/shoulder panels, silver lavender piping and small crescent moon chest motif; navy athletic SHORTS ending well ABOVE knees with narrow white side stripes; white ankle socks and small white-lavender-blue low-top sneakers at the original ankle/sole positions. Keep neckline modest and zipped. Bare forearms, knees and lower legs. NO long sleeves, trousers, gloves or leftover wrist frills. Keep headband and hair accessories even if they are frilly. Keep original hand contacts and ALL existing props, fingers and gesture shapes; do not invent an extra ball, hammer, sparkle or particle.\nIMPORTANT: preserve the source's exact head and limb coordinates, original folded seated legs, original small margins at canvas edge, and full figure heights. No longer dangling seated legs and no shortening adult legs to fit a raised arm. Genuine transparent alpha outside characters and held objects. No painted backdrop, gradient, glow, grid, label or extra shadow. Original reference is the ONLY pose and coordinate authority. Keep every original head top, chin, hip, knee, ankle and sole at the same source position. Preserve deliberately smaller source poses. Wherever the original seated boots show SOLES toward the camera, the new sneaker SOLES must face the camera too, with the same foreshortened shins; do not replace this with a dangling-leg or toes-up pose. Preserve crossed arms, bent elbows and each individual finger gesture exactly. Changing clothing must not turn a sequence into repeated hands-in-lap poses.",
+  "tool": "built-in image_gen",
+  "status": "not-selected-after-review",
+  "selected": false,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-8ff980da-7124-4769-8d3f-17d9e5e9dc64.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-09",
+    "passed": false,
+    "summary": "前十六帧基本保持，但17–20被换成坐姿，17帧丢了抱书道具；必须按原图恢复四帧站姿与书。",
+    "evidence": [
+      ".artifacts/sports-identity-review/kimi-five-main-v1-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "693013752f7c731276ace7ff676a0f564e2bd1eafd0a0b56b2de351cce02dcc1",
+    "originalSha256": "e1501a10f8867e0db04ae11c770907b851107a79a82327def5a192aa39f30366",
+    "comparisonFingerprint": "cd5cbb88739651aa816db691ec42d1baf07f9e65274bb043f04c4740ccc7860d"
+  }
+}

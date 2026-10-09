@@ -1,0 +1,92 @@
+{
+  "key": "zhipu-club-v2",
+  "id": "zhipu",
+  "style": "chibi",
+  "kind": "club",
+  "columns": 4,
+  "rows": 6,
+  "source": "artwork/sports-identity/zhipu-club-v2.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/zhipu/motions/cloud-club-original.png"
+  ],
+  "generationReferences": [
+    "artwork/sports-identity/zhipu-club-v1.png"
+  ],
+  "prompt": "Use case: background-extraction. Remove ONLY all gray rectangular matte, background and outside shadows from this exact24-pose GLM black cat girl sports atlas. Keep4columns6rows on1024x1536canvas. Do not repaint or move characters: preserve faces, cat ears/tail, head-body ratios, hair and all poses. All24figures wear existing short-sleeved shirt and above-knee shorts. Preserve every gesture including counting,8bubble poses with a gray circular wand and blue liquid bottle, and overhead stretching. All space outside figures and held objects must have real transparent alpha. Clean cutout edges with no gray/black/white halo and no drop shadow. No color backdrop, gradient or checkerboard. All props unchanged.",
+  "tool": "built-in image_gen",
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-07f8f2df-3aa2-4030-ac73-76d85a1d88f5.png",
+  "measurementPixels": {
+    "bubbleSources": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      [
+        79,
+        685
+      ],
+      [
+        341,
+        657
+      ],
+      [
+        625,
+        659
+      ],
+      [
+        866,
+        652
+      ],
+      [
+        75,
+        912
+      ],
+      [
+        318,
+        902
+      ],
+      [
+        584,
+        925
+      ],
+      [
+        857,
+        942
+      ],
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ]
+  },
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-09",
+    "passed": true,
+    "summary": "24帧透明背景恢复，原图头脸、尾巴、数星与伸展姿势对应，八帧圈棒和瓶子均连续。",
+    "evidence": [
+      ".artifacts/sports-identity-review/zhipu-club-v2-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "cc8a5a8696976b6eaad16f1cb93f9864112ad7ae8700d0aef2489968866c9ba2",
+    "originalSha256": "09b38b3c52cf8a9115ea645ed36fcbd930733e9c5f475c185f8e05fb56a56727",
+    "comparisonFingerprint": "fc7c4bcefd8388d27f82a79f0cccd178f3c90fb1930a3c3e4edba9ffbee8a09d"
+  },
+  "contactReview": {
+    "date": "2026-10-09",
+    "reviewer": "assistant",
+    "method": "Manual source-pixel wand-ring anchors verified in browser composite",
+    "evidence": ".artifacts/sports-identity-review/zhipu-club-v2-anchors.png"
+  }
+}

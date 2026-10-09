@@ -1,0 +1,34 @@
+{
+  "key": "zhipu-eat-v1",
+  "id": "zhipu",
+  "style": "chibi",
+  "kind": "eat",
+  "columns": 4,
+  "rows": 2,
+  "source": "artwork/sports-identity/zhipu-eat-v1.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/zhipu/motions/snack-continuity.png"
+  ],
+  "generationReferences": [
+    "src/DesktopPet.App/Assets/Characters/zhipu/motions/snack-continuity.png"
+  ],
+  "prompt": "Precise clothing-only EDIT of this original GLM Q/chibi original character action atlas. Keep EXACT source 1536x1024 canvas, all original figure positions, pose order, cell spacing and camera. Never repack or rescale figures to fill margins. Preserve original face and head SIZE, head-body ratio, shoulders, torso, hips, knees, ankles, feet and hand/wrist/finger positions in EVERY pose, including sitting, lying, leaning, bent knees or raised hands. This is clothing on the SAME person, no redesign, no doll anatomy, no larger head, no shorter or thicker legs. Preserve black/blue-gray hair, blue eyes, black cat ears and tail, white frilly headband, black eyelash sleep-mask ornament on head, Z tag and blue tassels, all expressions and hair/ear/tail silhouettes and directions.\nReplace only old dress/apron, long sleeves, wrist cuffs, tights and boots with a WHITE zip-front school sports shirt with navy upper-arm SHORT SLEEVES/shoulder panels, pale blue piping and small gray emblem chest motif; navy athletic SHORTS ending well ABOVE knees with narrow white side stripes; white ankle socks and small white-blue low-top sneakers at the original ankle/sole positions. Keep neckline modest and zipped. Bare forearms, knees and lower legs. NO long sleeves, trousers, gloves or leftover wrist frills. Keep headband and hair accessories even if they are frilly. Keep original hand contacts and ALL existing props, fingers and gesture shapes; do not invent an extra ball, hammer, sparkle or particle.\nIMPORTANT: preserve the source's exact head and limb coordinates, original folded seated legs, original small margins at canvas edge, and full figure heights. No longer dangling seated legs and no shortening adult legs to fit a raised arm. Genuine transparent alpha outside characters and held objects. No painted backdrop, gradient, glow, grid, label or extra shadow. Keep every food, spoon, bowl, cookie, block and actual fingertip-to-object or mouth contact unchanged. Do not replace eating with waving or add a second utensil. Original reference is the ONLY pose and coordinate authority. Source global frame bounds (left,top,right,bottom) are [[11, 51, 384, 489], [384, 53, 768, 489], [768, 60, 1152, 489], [1152, 64, 1522, 489], [9, 545, 384, 982], [384, 546, 768, 982], [768, 540, 1152, 982], [1152, 546, 1520, 982]]. Keep every original head top, chin, hip, knee, ankle and sole at the same source position. Preserve deliberately smaller source poses. Wherever the original seated boots show SOLES toward the camera, the new sneaker SOLES must face the camera too, with the same foreshortened shins; do not replace this with a dangling-leg or toes-up pose. Preserve crossed arms, bent elbows and each individual finger gesture exactly. Changing clothing must not turn a sequence into repeated hands-in-lap poses.",
+  "tool": "built-in image_gen",
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-e8d4433e-2abf-4b01-a922-f7cfcb39118a.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-09",
+    "passed": true,
+    "summary": "八帧饼干从胸前送嘴、咬口到回落，双手接触保留，头部及脸形稳定；鞋底较旧软鞋略厚，原生再检查基线。",
+    "evidence": [
+      ".artifacts/sports-identity-review/zhipu-eat-v1-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "275ad32bc4222f2ef059ca4eae8cfb9231631b8d9f590733277b1cb562390aee",
+    "originalSha256": "8221120e79be554d0f94367c77f41a506637a5be8a4e1b0c0db7997fcbe98674",
+    "comparisonFingerprint": "98197417aa1753081b31f12dd31233d1955154d7619b9699900c265207f2603d"
+  }
+}

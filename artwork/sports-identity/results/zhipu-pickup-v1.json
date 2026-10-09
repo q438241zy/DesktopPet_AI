@@ -1,0 +1,34 @@
+{
+  "key": "zhipu-pickup-v1",
+  "id": "zhipu",
+  "style": "chibi",
+  "kind": "pickup",
+  "columns": 3,
+  "rows": 2,
+  "source": "artwork/sports-identity/zhipu-pickup-v1.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/zhipu/motions/pickup.webp"
+  ],
+  "generationReferences": [
+    "src/DesktopPet.App/Assets/Characters/zhipu/motions/pickup.webp"
+  ],
+  "prompt": "Precise clothing-only EDIT of this original GLM Q/chibi original character action atlas. Keep EXACT source 1536x1024 canvas, all original figure positions, pose order, cell spacing and camera. Never repack or rescale figures to fill margins. Preserve original face and head SIZE, head-body ratio, shoulders, torso, hips, knees, ankles, feet and hand/wrist/finger positions in EVERY pose, including sitting, lying, leaning, bent knees or raised hands. This is clothing on the SAME person, no redesign, no doll anatomy, no larger head, no shorter or thicker legs. Preserve black/blue-gray hair, blue eyes, black cat ears and tail, white frilly headband, black eyelash sleep-mask ornament on head, Z tag and blue tassels, all expressions and hair/ear/tail silhouettes and directions.\nReplace only old dress/apron, long sleeves, wrist cuffs, tights and boots with a WHITE zip-front school sports shirt with navy upper-arm SHORT SLEEVES/shoulder panels, pale blue piping and small gray emblem chest motif; navy athletic SHORTS ending well ABOVE knees with narrow white side stripes; white ankle socks and small white-blue low-top sneakers at the original ankle/sole positions. Keep neckline modest and zipped. Bare forearms, knees and lower legs. NO long sleeves, trousers, gloves or leftover wrist frills. Keep headband and hair accessories even if they are frilly. Keep original hand contacts and ALL existing props, fingers and gesture shapes; do not invent an extra ball, hammer, sparkle or particle.\nIMPORTANT: preserve the source's exact head and limb coordinates, original folded seated legs, original small margins at canvas edge, and full figure heights. No longer dangling seated legs and no shortening adult legs to fit a raised arm. Genuine transparent alpha outside characters and held objects. No painted backdrop, gradient, glow, grid, label or extra shadow. Original reference is the ONLY pose and coordinate authority. Source global frame bounds (left,top,right,bottom) are [[85, 73, 428, 446], [604, 72, 939, 447], [1122, 76, 1454, 447], [85, 579, 416, 959], [604, 580, 934, 959], [1129, 578, 1434, 959]]. Keep every original head top, chin, hip, knee, ankle and sole at the same source position. Preserve deliberately smaller source poses. Wherever the original seated boots show SOLES toward the camera, the new sneaker SOLES must face the camera too, with the same foreshortened shins; do not replace this with a dangling-leg or toes-up pose. Preserve crossed arms, bent elbows and each individual finger gesture exactly. Changing clothing must not turn a sequence into repeated hands-in-lap poses.",
+  "tool": "built-in image_gen",
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-6648a64d-2458-4b02-8bf5-1c535388f78d.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-09",
+    "passed": true,
+    "summary": "提起的垂腿与左右偏斜六帧保持，没有替换成站姿，头身与服装稳定。",
+    "evidence": [
+      ".artifacts/sports-identity-review/zhipu-pickup-v1-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "cc4d66287c828fe3dc40584879b23a2b08a8353d344641f71caf36fb6f6049f6",
+    "originalSha256": "bdeaacaefd4d041bbd519ff4fdc5dd51c08407c28cc5f58cfc97268f6b926a5c",
+    "comparisonFingerprint": "be6fcc6f89ca72e91aa921cebda3f378d55a0f2d9f6e94f3e05ea941b5b247c9"
+  }
+}

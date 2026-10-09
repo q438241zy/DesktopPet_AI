@@ -1,0 +1,21 @@
+{
+  "key": "zhipu-adult-club-v6",
+  "id": "zhipu-adult",
+  "style": "realistic",
+  "kind": "club",
+  "columns": 4,
+  "rows": 6,
+  "source": "artwork/sports-identity/zhipu-adult-club-v6.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/zhipu-adult/motions/cloud-club-original.png"
+  ],
+  "generationReferences": [
+    "artwork/sports-identity/zhipu-adult-club-v3.png",
+    "artwork/sports-identity/references/zhipu-club-ring-guide.png"
+  ],
+  "prompt": "Precise object edit. FIRST image is the target atlas; preserve its original colors, proportions,24figures and all pixels outside the correction. SECOND image is an ANNOTATED LOCATION GUIDE ONLY. In the red-box woman, add ONE clearly visible silver WHITE circle-and-stick BUBBLE WAND in her raised hand at the RED CIRCLE location. The loop is held by the existing fingertips, circular hollow ring above fingers, matching the ring held by the neighbor immediately to her right. Only this red-box character is modified and only the small handheld wand added. Other23figures untouched. First image skin/face color unchanged. Output complete original1536x1024 transparent24pose atlas, not a crop. No red rectangle/circle, no text, no guide background in output. Character must visibly hold the bubble wand.",
+  "tool": "built-in image_gen",
+  "status": "generated-awaiting-visual-review",
+  "selected": false,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-88c8695e-5775-4091-a043-b496682e4c4c.png"
+}

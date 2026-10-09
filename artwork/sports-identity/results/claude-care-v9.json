@@ -15,7 +15,21 @@
   ],
   "prompt": "Make ONE TINY localized fix in the attached 1024x1536 image. In the FIRST ROW, SECOND figure from left, center approximately x=335 y=155: there is a white ruffled bracelet/cuff encircling her raised wrist, just below the hand holding the comb. REMOVE this white bracelet, filling that very small area with peach SKIN matching the hand and bare forearm. Show uninterrupted skin from hand to arm. Do not touch any other region. In particular, do NOT remove the cream towels held in row 2 column 1 and column 4: KEEP BOTH TOWELS EXACTLY. Keep all shoes, soles, hair, clothing, scale and figure positions pixel-aligned to the reference. Keep exactly 4 columns and 6 rows. Only first-row second-figure wrist fix. True transparent alpha exterior.",
   "tool": "built-in image_gen",
-  "status": "generated-awaiting-visual-review",
+  "status": "not-selected-after-review",
   "selected": false,
-  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-81a017ec-a9eb-461d-aca6-209164ffb7f3.png"
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-81a017ec-a9eb-461d-aca6-209164ffb7f3.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-09",
+    "passed": false,
+    "summary": "保留毛巾与间距，但梳头抬手仍有白色旧腕边，继续局部修订。",
+    "evidence": [
+      ".artifacts/sports-identity-review/claude-care-v9-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "aff7615087cf96c0a269cafcaac574a85f7bc752c31e66eb0cf02ad7e88e005a",
+    "originalSha256": "174b482f491cd6657113a82798f37463e5745fa0d9f0ed624cf16410a4aad70e",
+    "comparisonFingerprint": "27d244fec8450ebc95a18e3eaae718a30e2aa24dec65aba476084ed8f9f541af"
+  }
 }

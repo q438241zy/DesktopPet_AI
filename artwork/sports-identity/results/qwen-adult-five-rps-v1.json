@@ -1,0 +1,34 @@
+{
+  "key": "qwen-adult-five-rps-v1",
+  "id": "qwen-adult",
+  "style": "realistic",
+  "kind": "five-rps",
+  "columns": 4,
+  "rows": 1,
+  "source": "artwork/sports-identity/qwen-adult-five-rps-v1.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/qwen-adult/interactions/original/qwen-adult-original-rps-v1.png"
+  ],
+  "generationReferences": [
+    "src/DesktopPet.App/Assets/Characters/qwen-adult/interactions/original/qwen-adult-original-rps-v1.png"
+  ],
+  "prompt": "Precise clothing-only EDIT of this original Qwen photorealistic 3D ADULT woman with long adult legs action atlas. Keep EXACT source 2172x724 canvas, all original figure positions, pose order, cell spacing and camera. Never repack or rescale figures to fill margins. Preserve original face and head SIZE, head-body ratio, shoulders, torso, hips, knees, ankles, feet and hand/wrist/finger positions in EVERY pose, including sitting, lying, leaning, bent knees or raised hands. This is clothing on the SAME person, no redesign, no doll anatomy, no larger head, no shorter or thicker legs. Preserve blue-lavender hair, twin braids, purple eyes, tilted dark-blue hat with flower and tassels, bow earrings, all expressions and hair/ear/tail silhouettes and directions.\nReplace only old dress/apron, long sleeves, wrist cuffs, tights and boots with a WHITE zip-front school sports shirt with navy upper-arm SHORT SLEEVES/shoulder panels, light blue piping and small blue flower chest motif; navy athletic SHORTS ending well ABOVE knees with narrow white side stripes; white ankle socks and small white-blue low-top sneakers at the original ankle/sole positions. Keep neckline modest and zipped. Bare forearms, knees and lower legs. NO long sleeves, trousers, gloves or leftover wrist frills. Keep headband and hair accessories even if they are frilly. Keep original hand contacts and ALL existing props, fingers and gesture shapes; do not invent an extra ball, hammer, sparkle or particle.\nIMPORTANT: preserve the source's exact head and limb coordinates, original folded seated legs, original small margins at canvas edge, and full figure heights. No longer dangling seated legs and no shortening adult legs to fit a raised arm. Genuine transparent alpha outside characters and held objects. No painted backdrop, gradient, glow, grid, label or extra shadow.",
+  "tool": "built-in image_gen",
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-75a646bd-0956-40ba-9888-c7540c2875b2.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-09",
+    "passed": true,
+    "summary": "四帧猜拳前后拳位与原图保持，前臂裸露、短裤与成年比例符合。",
+    "evidence": [
+      ".artifacts/sports-identity-review/qwen-adult-five-rps-v1-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "6d4f9560781ca3de908255aab0ec1eab3e9ac6a52d14c6cd9ce0c82cc2ec06dd",
+    "originalSha256": "6c7faa6bf76461baefb60010c6e792cedefa47e0f2b2e08f631ee64a33d41c84",
+    "comparisonFingerprint": "53fc958df065f8d089c6e31e1aeec495eaadaa9e9281f06f456cfaf0f5023604"
+  }
+}

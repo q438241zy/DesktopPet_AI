@@ -1,0 +1,34 @@
+{
+  "key": "kimi-club-v3",
+  "id": "kimi",
+  "style": "chibi",
+  "kind": "club",
+  "columns": 4,
+  "rows": 6,
+  "source": "artwork/sports-identity/kimi-club-v3.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/kimi/motions/cloud-club-original.png"
+  ],
+  "generationReferences": [
+    "artwork/sports-identity/kimi-club-v1.png"
+  ],
+  "prompt": "Precise local edit of this target 1024x1536 transparent 4column6row Kimi chibi sports24pose atlas. Preserve all24figure positions, faces, hair, limbs, clothing and props EXCEPT ONLY THREE LOCAL CHANGES: (1) row3col1 physical9: replace bottle in LEFT-ON-SCREEN hand with silver-blue circular bubble wand ring center x91,y705,stem held atx96,y725. Keep that hand LOW AT WAIST, not raised, and keep blue bottle in other hand. All other seven bubble poses physical10-16 are ALREADY correct and must remain exactly unchanged. (2) last row col3 physical23: lower both arms from overhead to fists just below chin, elbows pointing DOWN; face eyes OPEN, small calm smile. (3) last row col4 physical24: lower both hands to rest together on lap, eyes OPEN calm neutral smile. DO NOT change physical19-22: the four stretch poses (row5col3,row5col4,row6col1,row6col2) must KEEP raised arms and closed smiling eyes. DO NOT remove any wand in frames10-16. Keep original proportions, seated legs, shoes and exact cell positions. Actual transparent background, canvas1024x1536.",
+  "tool": "built-in image_gen",
+  "status": "not-selected-after-review",
+  "selected": false,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-2718aca7-8db7-4d4b-b0a0-f8fc3f147bfd.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-09",
+    "passed": false,
+    "summary": "23/24回落姿势已修，19却新增两只低手形成四臂，退回仅修该帧。",
+    "evidence": [
+      ".artifacts/sports-identity-review/kimi-club-v3-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "f609d02508a3ac691f13ab6d79ee952f81b26698068c41594685d1b4884a357c",
+    "originalSha256": "d4f92185ad3779a37413d1f536610617ab947279703429df35c525cf2a89e0e0",
+    "comparisonFingerprint": "cdea0bc63dd3a51ee3a2f5c77d28a6274966bf3a65d3432759fd830b88dd569e"
+  }
+}

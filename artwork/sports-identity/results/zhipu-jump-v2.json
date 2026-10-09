@@ -1,0 +1,34 @@
+{
+  "key": "zhipu-jump-v2",
+  "id": "zhipu",
+  "style": "chibi",
+  "kind": "jump",
+  "columns": 3,
+  "rows": 2,
+  "source": "artwork/sports-identity/zhipu-jump-v2.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/zhipu/motions/jump.webp"
+  ],
+  "generationReferences": [
+    "src/DesktopPet.App/Assets/Characters/zhipu/motions/jump.webp"
+  ],
+  "prompt": "Precise clothing-only EDIT of this original GLM Q/chibi original character action atlas. Keep EXACT source 1536x1024 canvas, all original figure positions, pose order, cell spacing and camera. Never repack or rescale figures to fill margins. Preserve original face and head SIZE, head-body ratio, shoulders, torso, hips, knees, ankles, feet and hand/wrist/finger positions in EVERY pose, including sitting, lying, leaning, bent knees or raised hands. This is clothing on the SAME person, no redesign, no doll anatomy, no larger head, no shorter or thicker legs. Preserve black/blue-gray hair, blue eyes, black cat ears and tail, white frilly headband, black eyelash sleep-mask ornament on head, Z tag and blue tassels, all expressions and hair/ear/tail silhouettes and directions.\nReplace only old dress/apron, long sleeves, wrist cuffs, tights and boots with a WHITE zip-front school sports shirt with navy upper-arm SHORT SLEEVES/shoulder panels, pale blue piping and small gray emblem chest motif; navy athletic SHORTS ending well ABOVE knees with narrow white side stripes; white ankle socks and small white-blue low-top sneakers at the original ankle/sole positions. Keep neckline modest and zipped. Bare forearms, knees and lower legs. NO long sleeves, trousers, gloves or leftover wrist frills. Keep headband and hair accessories even if they are frilly. Keep original hand contacts and ALL existing props, fingers and gesture shapes; do not invent an extra ball, hammer, sparkle or particle.\nIMPORTANT: preserve the source's exact head and limb coordinates, original folded seated legs, original small margins at canvas edge, and full figure heights. No longer dangling seated legs and no shortening adult legs to fit a raised arm. Genuine transparent alpha outside characters and held objects. No painted backdrop, gradient, glow, grid, label or extra shadow. Original reference is the ONLY pose and coordinate authority. Source global frame bounds (left,top,right,bottom) are [[74, 112, 438, 456], [614, 82, 895, 394], [1126, 44, 1407, 356], [102, 545, 383, 857], [614, 590, 895, 902], [1104, 601, 1457, 963]]. Keep every original head top, chin, hip, knee, ankle and sole at the same source position. Preserve deliberately smaller source poses. Wherever the original seated boots show SOLES toward the camera, the new sneaker SOLES must face the camera too, with the same foreshortened shins; do not replace this with a dangling-leg or toes-up pose. Preserve crossed arms, bent elbows and each individual finger gesture exactly. Changing clothing must not turn a sequence into repeated hands-in-lap poses. PRIORITY: the earlier sports draft incorrectly replaced the deliberately asymmetrical bent airborne knees with two identical legs pointing forward. In middle four airborne poses COPY ORIGINAL individual knee, ankle and sole coordinates, with one leg bent more than the other. Keep original smaller airborne head scale. No straight double forward legs. Preserve all original body coordinates and the original black cat tail. Change only clothing; correct SHORT sleeves and above-knee shorts. True transparent alpha, no backdrop.",
+  "tool": "built-in image_gen",
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-35850d21-170a-4f27-b8d3-86e469c13a71.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-09",
+    "passed": true,
+    "summary": "恢复四个腾空帧不对称屈膝和脚掌角度，保留原图腾空小帧尺寸，坐姿与落地帧稳定。",
+    "evidence": [
+      ".artifacts/sports-identity-review/zhipu-jump-v2-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "3586bc0b41137a6d60ecb3e73fddd8aeeb99cf08da1898c87f74278698a0883c",
+    "originalSha256": "c44a486a36a9c9668f2635bfd40e14b55935da8ba75371506112c3605408a06a",
+    "comparisonFingerprint": "70daf73ceeb30a75cc9f3978af36dba12c5a7bcf3f7bece101d58f5f0774c03b"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "key": "grok-care-v2",
+  "id": "grok",
+  "style": "chibi",
+  "kind": "care",
+  "columns": 4,
+  "rows": 2,
+  "source": "artwork/sports-identity/grok-care-v2.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/grok/motions/cloud-care-original.png"
+  ],
+  "generationReferences": [
+    "artwork/sports-identity/grok-care-v1.png",
+    "src/DesktopPet.App/Assets/Characters/grok/motions/cloud-care-original.png"
+  ],
+  "prompt": "Local prop-only edit of FIRST reference, preserve EXACT existing sportswear, every head/leg scale and positions, canvas and transparent alpha. SECOND image is original prop authority. Restore original small wooden comb held horizontally in her two hands over her lap in FIRST row column1 and column4. Do not change the other6 poses: raised comb must touch hair and all4 white towels stay visible in her own hands. Bare forearms, same seated short-legged Q anatomy. True transparent background, no painted backdrop or glow.",
+  "tool": "built-in image_gen",
+  "status": "not-selected-after-review",
+  "selected": false,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-4886bc2f-985e-4b2c-bd3b-30ad77e98c91.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-09",
+    "passed": false,
+    "summary": "补齐梳子和毛巾，但与原图同倍率对照人物头部有所放大、原坐姿位置上移，退回保留原人物坐标的换衣版本。",
+    "evidence": [
+      ".artifacts/sports-identity-review/grok-care-v2-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "c7649efa810baee2edbd89bff623b33a71a5e4d2b2232ee0e5f5dc4b81da2939",
+    "originalSha256": "b9424aec10e31ff484c93affcd348d78a46ad4f0c734a6b9d707bf49b3a88c72",
+    "comparisonFingerprint": "056d2d46fd4a3a27005d18026576b5907f542ca627837556ae55912e73e831a6"
+  }
+}

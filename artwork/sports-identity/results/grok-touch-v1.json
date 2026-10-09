@@ -14,7 +14,59 @@
   ],
   "prompt": "Precise clothing-only EDIT of this original Grok Q/chibi original character action atlas. Keep EXACT source 1448x1086 canvas, all original figure positions, pose order, cell spacing and camera. Never repack or rescale figures to fill margins. Preserve original face and head SIZE, head-body ratio, shoulders, torso, hips, knees, ankles, feet and hand/wrist/finger positions in EVERY pose, including sitting, lying, leaning, bent knees or raised hands. This is clothing on the SAME person, no redesign, no doll anatomy, no larger head, no shorter or thicker legs. Preserve golden blonde flowing twin tails, blue eyes, black/gold ribbons and ringed-planet hair clip, all expressions and hair/ear/tail silhouettes and directions.\nReplace only old dress/apron, long sleeves, wrist cuffs, tights and boots with a WHITE zip-front school sports shirt with charcoal black upper-arm SHORT SLEEVES/shoulder panels, gold piping and small gray ringed planet chest motif; charcoal black athletic SHORTS ending well ABOVE knees with narrow white side stripes; white ankle socks and small white-gold low-top sneakers at the original ankle/sole positions. Keep neckline modest and zipped. Bare forearms, knees and lower legs. NO long sleeves, trousers, gloves or leftover wrist frills. Keep headband and hair accessories even if they are frilly. Keep original hand contacts and ALL existing props, fingers and gesture shapes; do not invent an extra ball, hammer, sparkle or particle.\nIMPORTANT: preserve the source's exact head and limb coordinates, original folded seated legs, original small margins at canvas edge, and full figure heights. No longer dangling seated legs and no shortening adult legs to fit a raised arm. Genuine transparent alpha outside characters and held objects. No painted backdrop, gradient, glow, grid, label or extra shadow. Original reference is the ONLY pose and coordinate authority. Source global frame bounds (left,top,right,bottom) are [[20, 10, 351, 355], [373, 16, 724, 355], [724, 15, 1056, 355], [1096, 10, 1426, 355], [18, 368, 353, 714], [376, 375, 713, 714], [732, 375, 1071, 714], [1096, 368, 1433, 715], [22, 725, 355, 1069], [381, 729, 714, 1069], [736, 731, 1072, 1070], [1098, 726, 1432, 1070]]. Keep every original head top, chin, hip, knee, ankle and sole at the same source position. Preserve deliberately smaller source poses. Wherever the original seated boots show SOLES toward the camera, the new sneaker SOLES must face the camera too, with the same foreshortened shins; do not replace this with a dangling-leg or toes-up pose. Preserve crossed arms, bent elbows and each individual finger gesture exactly. Changing clothing must not turn a sequence into repeated hands-in-lap poses.",
   "tool": "built-in image_gen",
-  "status": "generated-awaiting-visual-review",
-  "selected": false,
-  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-4b39ed6a-f9d2-4d23-86fe-56bf3903a577.png"
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-4b39ed6a-f9d2-4d23-86fe-56bf3903a577.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-09",
+    "passed": true,
+    "summary": "十二帧揉脸、挠痒的手势、面部接触与原图保持，未改为新的坐姿。",
+    "evidence": [
+      ".artifacts/sports-identity-review/grok-touch-v1-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "2626a758a89ca5575e1638ae0cf997147b8bd6de149869f96ffe3c70785fa265",
+    "originalSha256": "d005832d81640919197cb6881ae958e265dec3c7fa16b43abc0e169be5d51ddb",
+    "comparisonFingerprint": "d2b2ab9011a14d82cfd524a9cb953ce10af38137f820f41db2de9418f18c0c4d"
+  },
+  "measurementPixels": {
+    "hands": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      [
+        120,
+        934,
+        46
+      ],
+      [
+        482,
+        934,
+        46
+      ],
+      [
+        831,
+        942,
+        46
+      ],
+      [
+        1199,
+        934,
+        46
+      ]
+    ]
+  },
+  "contactReview": {
+    "date": "2026-10-09",
+    "reviewer": "assistant",
+    "method": "Manual source-pixel palm / bubble-ring markers viewed on browser composite",
+    "evidence": ".artifacts/sports-identity-review/grok-touch-v1-anchors.png"
+  }
 }

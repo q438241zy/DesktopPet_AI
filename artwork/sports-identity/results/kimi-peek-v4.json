@@ -1,0 +1,34 @@
+{
+  "key": "kimi-peek-v4",
+  "id": "kimi",
+  "style": "chibi",
+  "kind": "peek",
+  "columns": 3,
+  "rows": 2,
+  "source": "artwork/sports-identity/kimi-peek-v4.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/kimi/motions/peek.webp"
+  ],
+  "generationReferences": [
+    "src/DesktopPet.App/Assets/Characters/kimi/motions/peek.webp"
+  ],
+  "prompt": "Exact-layout costume-only editing of input sprite atlas. Canvas1536x1024transparent,3columns2rows. Preserve the original character PIXEL SIZE and POSITION; six original occupied figure boxes are approx (160,100)-(393,448), (649,98)-(900,448), (1150,88)-(1401,448), (143,611)-(393,960), (630,611)-(887,960), (1186,611)-(1443,960). Do not make them larger; keep all the large transparent margins of the input. Each original face, headband, hair silhouette, head tilt, body skeleton and soles must retain exact source coordinates. ONLY replace the black/white maid dress, long sleeves, stockings and boots with white short-sleeve navy-panel sports tee, navy above-knee shorts, white ankle socks, lavender sneakers. Sleeves end high at biceps. Keep exactly TWO original hands, raised hand grips the invisible right edge, other hand held low at waist. Do not add a hand at cheek. Bare forearm connects each original elbow to its original hand. Keep original Q figure short stature, the same original head/body/leg lengths, do not stand her straighter or stretch. No new graphics, no text, no fill of empty margins. Costume redraw in place, not recreation or enlarged illustration.",
+  "tool": "built-in image_gen",
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-a2088704-ff98-4e58-a750-3caadce797f4.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-09",
+    "passed": true,
+    "summary": "六帧回到原像素位置和大小，头脸/膝鞋基线与原图对应，两手为低手与抓边手，不再出现托腮第三手。",
+    "evidence": [
+      ".artifacts/sports-identity-review/kimi-peek-v4-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "ffed93871bccbc31d0b3949c421e3ce2dfe132339de7ee2fabe961916c658634",
+    "originalSha256": "ae7edf701d3507b74fcededfdeea44e1c1a9cc34714c4a58139ab21327106368",
+    "comparisonFingerprint": "edc936d509e8bd3e6813a3a03bd1bafe8b14d8f2120dfa4efb7414ec70760e12"
+  }
+}

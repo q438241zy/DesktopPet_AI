@@ -1,0 +1,76 @@
+{
+  "key": "qwen-adult-emotion-mood-v1",
+  "id": "qwen-adult",
+  "style": "realistic",
+  "kind": "emotion-mood",
+  "columns": 4,
+  "rows": 1,
+  "source": "artwork/sports-identity/qwen-adult-emotion-mood-v1.png",
+  "references": [
+    "artwork/sports-identity/qwen-adult-five-photo-v1.png",
+    "src/DesktopPet.App/Assets/Characters/qwen-adult/interactions/original/qwen-adult-original-photo-v1.png"
+  ],
+  "generationReferences": [
+    "artwork/sports-identity/qwen-adult-five-photo-v1.png"
+  ],
+  "prompt": "Precise upper-body pose EDIT of this exact 2172x724, 4-column 1-row sprite sheet. Keep the SAME adult Qwen woman and the SAME approved short-sleeve white/navy sports shirt and above-knee navy shorts. Keep the original face, mature small head size, blue-lavender hair, twin braids, purple eyes, tilted dark-blue hat with flower and tassels, bow earrings, clean 3D rendering, and all clothing details. Preserve the complete hips, long thighs, knees, shins, ankles, sneakers and ground position at EXACT original scale and coordinates in ALL four poses. Do not redesign the person or shorten/thicken legs, enlarge heads, resize individual figures or crop feet. Modify ONLY expressions and arms/hands, left to right: 1 warm happy smile with relaxed hands; 2 a slightly disappointed pout with relaxed hands; 3 a gentle self-hug with hands around opposite upper arms; 4 dizzy expression with eyes shut and one hand resting against the temple, without changing the legs. Preserve the original canvas, original figure positions, margins, camera and order of 4 full figures. True transparent alpha outside figures and held props. No background, gradient, glow, text, frame or extra people. Show only her own two arms and hands. No external petting hand above her head, no second person, no detached third hand. Keep a clear fully transparent gap between figures.",
+  "tool": "built-in image_gen",
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
+  "comparisonRole": "approved-sports-pose-edit",
+  "sourceAtlas": "photo",
+  "physicalOrder": true,
+  "clips": {
+    "happy": {
+      "frames": [
+        0
+      ],
+      "frameMs": [
+        5000
+      ],
+      "loop": false
+    },
+    "sad": {
+      "frames": [
+        1
+      ],
+      "frameMs": [
+        5000
+      ],
+      "loop": false
+    },
+    "faint": {
+      "frames": [
+        2
+      ],
+      "frameMs": [
+        5000
+      ],
+      "loop": false
+    },
+    "dizzy": {
+      "frames": [
+        3
+      ],
+      "frameMs": [
+        5000
+      ],
+      "loop": false
+    }
+  },
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-3f5989a6-fef7-49a9-90cb-e0cd8391a3d2.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-09",
+    "passed": true,
+    "summary": "四帧站立骨架和头身比保持，疑惑、抱臂、闭眼安抚有明确表情手势，短袖短裤连续一致。",
+    "evidence": [
+      ".artifacts/sports-identity-review/qwen-adult-emotion-mood-v1-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "dd628fc9567a17dbf94cfd9a584ed40e7e2710bd1499b10ea4d4f9ca5b04c1d1",
+    "originalSha256": "aa549ec01b1ea6a0f0c94ea76f7739137d24da7807821e688339eeab5aefaf33",
+    "comparisonFingerprint": "c991b8a9d6e46bcf836c595327ea5c3c386a4a2e778bfd4897c6682552818c30"
+  }
+}

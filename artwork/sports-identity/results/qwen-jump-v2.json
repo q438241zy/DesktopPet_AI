@@ -1,0 +1,34 @@
+{
+  "key": "qwen-jump-v2",
+  "id": "qwen",
+  "style": "chibi",
+  "kind": "jump",
+  "columns": 3,
+  "rows": 2,
+  "source": "artwork/sports-identity/qwen-jump-v2.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/qwen/motions/jump.webp"
+  ],
+  "generationReferences": [
+    "src/DesktopPet.App/Assets/Characters/qwen/motions/jump.webp"
+  ],
+  "prompt": "Precise clothing-only EDIT of this original Qwen Q/chibi original character action atlas. Keep EXACT source 1536x1024 canvas, all original figure positions, pose order, cell spacing and camera. Never repack or rescale figures to fill margins. Preserve original face and head SIZE, head-body ratio, shoulders, torso, hips, knees, ankles, feet and hand/wrist/finger positions in EVERY pose, including sitting, lying, leaning, bent knees or raised hands. This is clothing on the SAME person, no redesign, no doll anatomy, no larger head, no shorter or thicker legs. Preserve blue-lavender hair, twin braids, purple eyes, tilted dark-blue hat with flower and tassels, bow earrings, all expressions and hair/ear/tail silhouettes and directions.\nReplace only old dress/apron, long sleeves, wrist cuffs, tights and boots with a WHITE zip-front school sports shirt with navy upper-arm SHORT SLEEVES/shoulder panels, light blue piping and small blue flower chest motif; navy athletic SHORTS ending well ABOVE knees with narrow white side stripes; white ankle socks and small white-blue low-top sneakers at the original ankle/sole positions. Keep neckline modest and zipped. Bare forearms, knees and lower legs. NO long sleeves, trousers, gloves or leftover wrist frills. Keep headband and hair accessories even if they are frilly. Keep original hand contacts and ALL existing props, fingers and gesture shapes; do not invent an extra ball, hammer, sparkle or particle.\nIMPORTANT: preserve the source's exact head and limb coordinates, original folded seated legs, original small margins at canvas edge, and full figure heights. No longer dangling seated legs and no shortening adult legs to fit a raised arm. Genuine transparent alpha outside characters and held objects. No painted backdrop, gradient, glow, grid, label or extra shadow. Original reference is the ONLY pose and coordinate authority. Source global frame bounds (left,top,right,bottom) are [[71, 110, 440, 455], [614, 83, 941, 407], [1126, 45, 1453, 369], [102, 546, 429, 870], [614, 591, 941, 915], [1101, 598, 1459, 962]]. Keep every original head top, chin, hip, knee, ankle and sole at the same source position. Preserve deliberately smaller source poses. Wherever the original seated boots show SOLES toward the camera, the new sneaker SOLES must face the camera too, with the same foreshortened shins; do not replace this with a dangling-leg or toes-up pose. Preserve crossed arms, bent elbows and each individual finger gesture exactly. Changing clothing must not turn a sequence into repeated hands-in-lap poses.\nPRIORITY correction: an earlier attempt wrongly ENLARGED airborne poses and replaced the bent leg with two symmetrical forward legs. Copy every original face/head and shoesole coordinate. Airborne poses 2-5 are deliberately SMALLER, MUST remain the same size as original reference, and preserve the one-knee bent, asymmetrical feet original pose. Do NOT normalize character height across the atlas. No stretched shins. Change only fabrics, keep source pose anatomy. Source black boot soles must become sneaker soles in exactly same locations.",
+  "tool": "built-in image_gen",
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-a6ae80f5-2beb-4594-94e8-c187a846954c.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-09",
+    "passed": true,
+    "summary": "六帧重新对照，腾空头部尺寸恢复为原图较小帧，保留一脚前伸一脚屈膝而非双脚齐伸，原身体协调与顺序保持。",
+    "evidence": [
+      ".artifacts/sports-identity-review/qwen-jump-v2-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "c9baf49a46a50a4a6ce7e5029ea8de7481640b6ef506a03453814adf7fec8b05",
+    "originalSha256": "5fd727c805c918d2eef7aaaa319a603ba52e4b6844be5f67fea9b5155ca0d0a3",
+    "comparisonFingerprint": "2bf65d75926152294b6fc57ee03c9b87a1b46d89fe8d07906b74b4df323f6916"
+  }
+}

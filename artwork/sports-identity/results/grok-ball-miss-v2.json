@@ -14,7 +14,21 @@
   ],
   "prompt": "STRICT SOURCE-ALIGNED CLOTHES EDIT. The attached original artwork is the only authority. Previous attempts wrongly enlarged the head/figure or lengthened the seated body. DO NOT reproduce that. Keep EXACT original head dimensions, forehead/chin and shoe coordinates, figure scale and all margins. Edit ONLY fabric covering the torso and limbs. Do not fill available empty space. Precise clothing-only EDIT of this original Grok Q/chibi original character action atlas. Keep EXACT source 1536x1024 canvas, all original figure positions, pose order, cell spacing and camera. Never repack or rescale figures to fill margins. Preserve original face and head SIZE, head-body ratio, shoulders, torso, hips, knees, ankles, feet and hand/wrist/finger positions in EVERY pose, including sitting, lying, leaning, bent knees or raised hands. This is clothing on the SAME person, no redesign, no doll anatomy, no larger head, no shorter or thicker legs. Preserve golden blonde flowing twin tails, blue eyes, black/gold ribbons and ringed-planet hair clip, all expressions and hair/ear/tail silhouettes and directions.\nReplace only old dress/apron, long sleeves, wrist cuffs, tights and boots with a WHITE zip-front school sports shirt with charcoal black upper-arm SHORT SLEEVES/shoulder panels, gold piping and small gray ringed planet chest motif; charcoal black athletic SHORTS ending well ABOVE knees with narrow white side stripes; white ankle socks and small white-gold low-top sneakers at the original ankle/sole positions. Keep neckline modest and zipped. Bare forearms, knees and lower legs. NO long sleeves, trousers, gloves or leftover wrist frills. Keep headband and hair accessories even if they are frilly. Keep original hand contacts and ALL existing props, fingers and gesture shapes; do not invent an extra ball, hammer, sparkle or particle.\nIMPORTANT: preserve the source's exact head and limb coordinates, original folded seated legs, original small margins at canvas edge, and full figure heights. No longer dangling seated legs and no shortening adult legs to fit a raised arm. Genuine transparent alpha outside characters and held objects. No painted backdrop, gradient, glow, grid, label or extra shadow. Original reference is the ONLY pose and coordinate authority. Source global frame bounds (left,top,right,bottom) are [[85, 80, 421, 448], [576, 80, 917, 448], [1101, 78, 1452, 448], [73, 600, 426, 961], [588, 600, 931, 960], [1106, 599, 1447, 960]]. Keep every original head top, chin, hip, knee, ankle and sole at the same source position. Preserve deliberately smaller source poses. Wherever the original seated boots show SOLES toward the camera, the new sneaker SOLES must face the camera too, with the same foreshortened shins; do not replace this with a dangling-leg or toes-up pose. Preserve crossed arms, bent elbows and each individual finger gesture exactly. Changing clothing must not turn a sequence into repeated hands-in-lap poses. CRITICAL: absolutely preserve the original drawn figure size and placement relative to the FULL image boundaries. For the curled figures, preserve the tight folded posture and exact lowered head/chin position. Seated knees and hands must stay where they are in original; sneakers replace boot soles at the same location, with no extra exposed dangling shin length.",
   "tool": "built-in image_gen",
-  "status": "generated-awaiting-visual-review",
-  "selected": false,
-  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-7f6e53a0-6d69-4cf1-aad1-f9b5477a7364.png"
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-7f6e53a0-6d69-4cf1-aad1-f9b5477a7364.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-09",
+    "passed": true,
+    "summary": "六帧转头、摆手与收手对照原图保持，头部大小和腿部位置一致。",
+    "evidence": [
+      ".artifacts/sports-identity-review/grok-ball-miss-v2-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "5019a6f02a28196df157837b18f1de0b8d46d84b743199085b5af30a6d5f709e",
+    "originalSha256": "5ae23ee8a6232abf15914a9b22d061480a5583c8d709a20ae2b730ced21d00a0",
+    "comparisonFingerprint": "a4bc7036879fb0c691defcdc86ea32eec27fcf1b9bed96c36bb5b5b15a40c84a"
+  }
 }

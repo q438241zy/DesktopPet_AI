@@ -1,0 +1,72 @@
+{
+  "key": "kimi-touch-v1",
+  "id": "kimi",
+  "style": "chibi",
+  "kind": "touch",
+  "columns": 4,
+  "rows": 3,
+  "source": "artwork/sports-identity/kimi-touch-v1.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/kimi/motions/touch-continuity.png"
+  ],
+  "generationReferences": [
+    "src/DesktopPet.App/Assets/Characters/kimi/motions/touch-continuity.png"
+  ],
+  "prompt": "Precise clothing-only EDIT of this original Kimi Q/chibi original character action atlas. Keep EXACT source 1448x1086 canvas, all original figure positions, pose order, cell spacing and camera. Never repack or rescale figures to fill margins. Preserve original face and head SIZE, head-body ratio, shoulders, torso, hips, knees, ankles, feet and hand/wrist/finger positions in EVERY pose, including sitting, lying, leaning, bent knees or raised hands. This is clothing on the SAME person, no redesign, no doll anatomy, no larger head, no shorter or thicker legs. Preserve silver lavender hair, purple eyes, white frilly headband, silver crescent ornament, navy ribbon and pearl dangles, all expressions and hair/ear/tail silhouettes and directions.\nReplace only old dress/apron, long sleeves, wrist cuffs, tights and boots with a WHITE zip-front school sports shirt with navy upper-arm SHORT SLEEVES/shoulder panels, silver lavender piping and small crescent moon chest motif; navy athletic SHORTS ending well ABOVE knees with narrow white side stripes; white ankle socks and small white-lavender-blue low-top sneakers at the original ankle/sole positions. Keep neckline modest and zipped. Bare forearms, knees and lower legs. NO long sleeves, trousers, gloves or leftover wrist frills. Keep headband and hair accessories even if they are frilly. Keep original hand contacts and ALL existing props, fingers and gesture shapes; do not invent an extra ball, hammer, sparkle or particle.\nIMPORTANT: preserve the source's exact head and limb coordinates, original folded seated legs, original small margins at canvas edge, and full figure heights. No longer dangling seated legs and no shortening adult legs to fit a raised arm. Genuine transparent alpha outside characters and held objects. No painted backdrop, gradient, glow, grid, label or extra shadow. Original reference is the ONLY pose and coordinate authority. Source global frame bounds (left,top,right,bottom) are [[33, 28, 357, 362], [393, 28, 719, 362], [735, 29, 1065, 362], [1110, 28, 1434, 362], [36, 362, 361, 715], [401, 362, 723, 716], [751, 362, 1078, 715], [1109, 362, 1434, 717], [30, 726, 356, 1065], [390, 725, 714, 1065], [741, 727, 1073, 1066], [1111, 725, 1437, 1066]]. Keep every original head top, chin, hip, knee, ankle and sole at the same source position. Preserve deliberately smaller source poses. Wherever the original seated boots show SOLES toward the camera, the new sneaker SOLES must face the camera too, with the same foreshortened shins; do not replace this with a dangling-leg or toes-up pose. Preserve crossed arms, bent elbows and each individual finger gesture exactly. Changing clothing must not turn a sequence into repeated hands-in-lap poses.",
+  "tool": "built-in image_gen",
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-8a2efaef-8bca-41a4-ae91-f5812ccea184.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-09",
+    "passed": true,
+    "summary": "十二帧捏脸、挠痒与伸掌保留原脸和手势，短袖裸臂连贯，掌心后续定位。",
+    "evidence": [
+      ".artifacts/sports-identity-review/kimi-touch-v1-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "9ba2fe458824e9f5575f418b9ffb17d467f1996b78180988dfc54e988d44efe4",
+    "originalSha256": "0e1f29380dc288ace453eb7986140698d22ea37f0741a6329072ac1a571168bf",
+    "comparisonFingerprint": "17db97f1fe867fa2c5e74046b0db07d64e6ebf31169fc73498d775a4b8c0e381"
+  },
+  "measurementPixels": {
+    "hands": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      [
+        133,
+        939,
+        42
+      ],
+      [
+        490,
+        938,
+        46
+      ],
+      [
+        862,
+        948,
+        46
+      ],
+      [
+        1225,
+        943,
+        46
+      ]
+    ]
+  },
+  "contactReview": {
+    "date": "2026-10-09",
+    "reviewer": "assistant",
+    "method": "Manual source-pixel hand or wand-ring anchors verified in browser composite",
+    "evidence": ".artifacts/sports-identity-review/kimi-touch-v1-anchors.png"
+  }
+}

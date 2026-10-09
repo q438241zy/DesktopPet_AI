@@ -1,0 +1,34 @@
+{
+  "key": "qwen-shaken-v1",
+  "id": "qwen",
+  "style": "chibi",
+  "kind": "shaken",
+  "columns": 3,
+  "rows": 2,
+  "source": "artwork/sports-identity/qwen-shaken-v1.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/qwen/motions/shaken.webp"
+  ],
+  "generationReferences": [
+    "src/DesktopPet.App/Assets/Characters/qwen/motions/shaken.webp"
+  ],
+  "prompt": "Precise clothing-only EDIT of this original Qwen Q/chibi original character action atlas. Keep EXACT source 1536x1024 canvas, all original figure positions, pose order, cell spacing and camera. Never repack or rescale figures to fill margins. Preserve original face and head SIZE, head-body ratio, shoulders, torso, hips, knees, ankles, feet and hand/wrist/finger positions in EVERY pose, including sitting, lying, leaning, bent knees or raised hands. This is clothing on the SAME person, no redesign, no doll anatomy, no larger head, no shorter or thicker legs. Preserve blue-lavender hair, twin braids, purple eyes, tilted dark-blue hat with flower and tassels, bow earrings, all expressions and hair/ear/tail silhouettes and directions.\nReplace only old dress/apron, long sleeves, wrist cuffs, tights and boots with a WHITE zip-front school sports shirt with navy upper-arm SHORT SLEEVES/shoulder panels, light blue piping and small blue flower chest motif; navy athletic SHORTS ending well ABOVE knees with narrow white side stripes; white ankle socks and small white-blue low-top sneakers at the original ankle/sole positions. Keep neckline modest and zipped. Bare forearms, knees and lower legs. NO long sleeves, trousers, gloves or leftover wrist frills. Keep headband and hair accessories even if they are frilly. Keep original hand contacts and ALL existing props, fingers and gesture shapes; do not invent an extra ball, hammer, sparkle or particle.\nIMPORTANT: preserve the source's exact head and limb coordinates, original folded seated legs, original small margins at canvas edge, and full figure heights. No longer dangling seated legs and no shortening adult legs to fit a raised arm. Genuine transparent alpha outside characters and held objects. No painted backdrop, gradient, glow, grid, label or extra shadow. Original reference is the ONLY pose and coordinate authority. Source global frame bounds (left,top,right,bottom) are [[65, 66, 457, 461], [589, 71, 967, 459], [1094, 66, 1481, 462], [60, 577, 470, 930], [579, 575, 979, 943], [1103, 569, 1483, 947]]. Keep every original head top, chin, hip, knee, ankle and sole at the same source position. Preserve deliberately smaller source poses. Wherever the original seated boots show SOLES toward the camera, the new sneaker SOLES must face the camera too, with the same foreshortened shins; do not replace this with a dangling-leg or toes-up pose. Preserve crossed arms, bent elbows and each individual finger gesture exactly. Changing clothing must not turn a sequence into repeated hands-in-lap poses.",
+  "tool": "built-in image_gen",
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-ab77fe80-cb2e-4f4e-9d98-3a49837116b3.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-09",
+    "passed": true,
+    "summary": "六帧摇晃角度、双辫摆动和眩晕螺旋眼与原图相符，大小及坐姿鞋底方向保持，裸前臂与短裤正确。",
+    "evidence": [
+      ".artifacts/sports-identity-review/qwen-shaken-v1-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "00722660fc51ff99a1f4eef1d9bdfcf4eedc7ea603f62211d2c75dc14a622609",
+    "originalSha256": "e4c6e42657eedf679b6fe84ffa8835554ae66b4aabea75d3556b93a3f1e4617b",
+    "comparisonFingerprint": "a7bf0aae0c12f88e3c3221c822f9eabef2b510aab3304177ad88ab4f29ad5507"
+  }
+}

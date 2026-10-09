@@ -1,6 +1,20 @@
 # 运动服换衣复核进度（未全量发布）
 
-更新至2026-10-08。W2 拓展授权有效，现行日常程序为 v0.4。日常 exe SHA256 为 `B0F270274AD8BDB43098DDA0EB3F91D5D93C553E60F4C367AFC7C0FC201FDDE0`；本轮仅在 D 盘隔离目录验证，没有替换日常角色资产、修改用户存档或制作正式安装包。
+更新至2026-10-09。W2 拓展授权有效，现行日常程序为 v0.4。日常 exe SHA256 为 `B0F270274AD8BDB43098DDA0EB3F91D5D93C553E60F4C367AFC7C0FC201FDDE0`；本轮仅在 D 盘隔离目录验证，没有替换日常角色资产、修改用户存档或制作正式安装包。
+
+## 10月9日续作进度（覆盖下方历史待办）
+
+DeepSeek、GPT、Claude、Gemini、Grok、Qwen两版和GLM Q版、Kimi真人共14套通过隔离原生检查并查看实际动作图。Claude Q采用care-v10，旧袖口和脚下相邻发丝问题已解决；有效证据是`sports-native-claude-care10b-20261008`，不是提前运行的care10目录。
+
+| 新增原生复核 | 结果 | 本地证据 |
+|---|---:|---|
+| Grok Q / 3D真人 | 543 / 547 | `.artifacts/sports-native-grok-20261009`、`sports-native-grok-adult-20261008` |
+| Qwen Q / 3D真人 | 543 / 547 | `.artifacts/sports-native-qwen-20261009`、`sports-native-qwen-adult-20261009` |
+| GLM Q | 543 | `.artifacts/sports-native-zhipu-20261009` |
+
+Kimi真人的猜拳腕袖已在rps-v3修正，touch-v2恢复原画布，bonk-v2槌子完整，已通过547项原生检查并查看18动作总览（`.artifacts/sports-native-kimi-adult-20261009`）。剩余GLM真人泡泡第15帧圈棒和Kimi Q探头、伸展局部尚在修订。静态候选发生丢失道具、多手、整个人物变大时明确退回，不以自动检查通过选用。每条结果记录保留源哈希、逐帧对照及选用理由；掌心、圈棒使用人工测量坐标并放大检查实际接触。完整16套后的全量矩阵、长期实际帧Demo、发布与版本更新仍未完成。
+
+新增`tools/render-sports-native.cjs`只将原生截图排成检查页，不修改角色图片。下方10月8日矩阵是当时8套新运动服的历史结果，不能代表本次全量接入完成。
 
 ## 10月8日隔离进度
 

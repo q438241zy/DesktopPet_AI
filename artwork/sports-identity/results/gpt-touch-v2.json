@@ -51,7 +51,7 @@
   },
   "visualReview": {
     "reviewer": "assistant",
-    "date": "2026-10-08",
+    "date": "2026-10-09",
     "passed": false,
     "summary": "裸前臂已修正，但相邻人物的透明边缘连续，不能作为完整独立帧接入，撤销选用。",
     "evidence": [

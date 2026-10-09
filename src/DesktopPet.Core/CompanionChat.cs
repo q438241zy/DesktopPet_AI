@@ -24,9 +24,9 @@ public static class CompanionChat
     }
     public static Uri Endpoint(string value) => CompanionProviders.Endpoint(value);
 
-    public static string LocalReply(IReadOnlyList<ChatMessage> messages, string name)
+    public static string LocalReply(IReadOnlyList<ChatMessage> messages, string name, int affinity = 0)
     {
-        return WantsStory(messages) ? LegacyStoryReply(messages, CompanionPersonas.Text(name, "name")) : CompanionPersonas.Reply(name, messages);
+        return WantsStory(messages) ? LegacyStoryReply(messages, CompanionPersonas.Text(name, "name")) : CompanionPersonas.Reply(name, messages, affinity);
     }
     private static bool WantsStory(IReadOnlyList<ChatMessage> messages)
     {

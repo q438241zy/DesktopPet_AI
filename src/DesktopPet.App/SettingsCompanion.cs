@@ -25,7 +25,8 @@ public sealed partial class SettingsWindow
         var today = DateOnly.FromDateTime(DateTime.Now); if (today == calendarToday) return;
         bool week = pet.State.CalendarView == "week";
         if (CompanionCalendar.Start(calendarDate, week) == CompanionCalendar.Start(calendarToday, week)) calendarDate = today;
-        calendarToday = today; if (page == "life") Rebuild();
+        if (agendaDate == calendarToday) agendaDate = today;
+        calendarToday = today; if (page is "life" or "agenda") Rebuild();
     }
     private static string CompanionName(Character character) => character.Name.Split('·')[0].Trim();
     private static string TogetherTime(double seconds)

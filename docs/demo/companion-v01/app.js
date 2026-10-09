@@ -9,7 +9,8 @@
   let offset=0;const now=()=>Date.now()+offset;
   const runtime=M.createRuntime(now()),images=new Map(),photoImages=new Map(),pendingPhotos=new Map(),errors=[];
   let page='partners',detailId=state.selected,detailTab='bond',collectionTab='balls',apiKey='',session=null,authMode='login',chatTicket=0,chatAbort=null,chatStarted=0,chatFinished=0,photoStamp='',photoBusy=false,photoTicket=0,story=null,storyLine=0,storyFinished=false,lastTick=performance.now(),lastSave=now(),touches=[],saveFailed=false;
-  const postureStates=new Map(M.families.map((id,i)=>[id,{pose:i%2?'sit':'stand',next:now()+12000+i*1000}]));
+  const postureInterval=30000;
+  const postureStates=new Map(M.families.map((id,i)=>[id,{pose:i%2?'sit':'stand',next:now()+postureInterval,running:true}]));
   let photoMembers=[],lastPhotoLayout=null;
   const chats=Object.fromEntries(M.families.map(id=>[id,[]]));
   let viewStamp='',lastPose=null,toastTimer,reminderTimer,reminderTicket=0,reminderAbort=null,reminderIndex=0,apiTestTicket=0,apiTestAbort=null;
@@ -38,11 +39,16 @@
   }
   function posture(family=state.selected){const mode=state.postures[family]||'auto';return mode==='auto'?postureStates.get(family).pose:mode;}
   function postureButtons(){$$('[data-posture]').forEach(el=>el.setAttribute('aria-pressed',String(el.dataset.posture===(state.postures[state.selected]||'auto'))));}
-  function setPosture(value){state.postures[state.selected]=value;postureStates.get(state.selected).next=now()+14000;touch();save();postureButtons();drawStatic();drawPet();}
+  function setPosture(value){state.postures[state.selected]=value;touch();save();postureButtons();drawStatic();drawPet();}
+  function resetPostures(){for(const p of postureStates.values()){p.next=now()+postureInterval;p.running=false;}}
   function updatePostures(){
-    if(runtime.paused||document.hidden||state.settings.reducedMotion||document.querySelector('dialog[open]'))return;
+    const blocked=runtime.paused||document.hidden||state.settings.reducedMotion||document.querySelector('dialog[open]');
     let changed=false;
-    for(const [id,p] of postureStates){if((state.postures[id]||'auto')!=='auto'||(id===state.selected&&runtime.action!=='idle'))continue;if(now()>=p.next){p.pose=p.pose==='stand'?'sit':'stand';p.next=now()+12000+Math.random()*6000;changed=true;}}
+    for(const [id,p] of postureStates){
+      if(blocked||(state.postures[id]||'auto')!=='auto'||id===state.selected&&(runtime.action!=='idle'||!$('#pet-menu').hidden||$('#chat-input').value.trim()||agenda?.blocksHide())){p.next=now()+postureInterval;p.running=false;continue;}
+      if(!p.running){p.next=now()+postureInterval;p.running=true;continue;}
+      if(now()>=p.next){p.pose=p.pose==='stand'?'sit':'stand';p.next=now()+postureInterval;changed=true;}
+    }
     if(changed)drawStatic();
   }
   function drawCanvas(canvas,family,style,clothes,pose=null,elapsed=0){
@@ -64,7 +70,7 @@
   function affect(delta,label,key,cooldown){const result=M.affect(state,state.selected,delta,label,now(),key,cooldown);save();if(page==='detail')renderBond();return result;}
   function speak(text,pose='talk',duration=4600){$('#bubble-text').textContent=text;if(!['hidden','hiding'].includes(runtime.action)){runtime.action=pose;runtime.started=now();runtime.until=now()+duration;}syncStage(true);}
   function cancelChat(){chatTicket++;chatAbort?.abort();chatAbort=null;agenda?.invalidate();if(runtime.action==='thinking'){runtime.action='idle';runtime.started=now();runtime.idleSince=now();}$('#chat-send').disabled=false;$('#chat-input').disabled=runtime.paused;$('#pet-stage').classList.remove('thinking');$('.thinking-dots').hidden=true;}
-  function touch(){runtime.idleSince=now();}
+  function touch(){runtime.idleSince=now();const p=postureStates.get(state.selected);p.next=now()+postureInterval;}
   function navigate(next){
     page=next;$$('.page').forEach(el=>el.hidden=el.id!=='page-'+next);$$('[data-page]').forEach(el=>el.classList.toggle('active',el.dataset.page===(['detail','interaction'].includes(next)?'partners':next)));
     $('#page-title').textContent={partners:'我的伙伴',daily:'陪伴日常',member:'会员中心',settings:'设定',detail:'伙伴档案',interaction:'陪伴预览',agenda:'宠物行事历'}[next];touch();$('#pet-menu').hidden=true;
@@ -355,8 +361,8 @@
   function tick(){
     const p=performance.now(),elapsed=(p-lastTick)/1000;lastTick=p;
     if(!runtime.paused&&!document.hidden&&elapsed<2)M.companion(state,state.selected,elapsed,now());
-    updatePostures();
     const events=M.tick(runtime,state,now(),{canHide:page==='interaction'&&!document.hidden&&!document.querySelector('dialog[open]')&&$('#pet-menu').hidden&&!$('#chat-input').value.trim()&&!agenda?.blocksHide()});
+    updatePostures();
     if(events.includes('reminder'))remind();syncStage();syncWork();if(page==='detail'&&detailTab==='bond'){$('#companion-time').textContent=displayTime(state.relations[detailId].seconds);}
     if(page==='daily'&&dailyDate!==M.day(now()))renderCalendar();
     if(page==='partners'){const relation=state.relations[state.selected];$('#hero-bond').textContent=M.label(relation.score)+' · 相伴 '+displayTime(relation.seconds);}
@@ -368,13 +374,13 @@
   $('#details-open').onclick=()=>openDetail(state.selected);$('#detail-back').onclick=()=>navigate('partners');$('#interaction-back').onclick=()=>navigate('partners');$$('[data-detail]').forEach(el=>el.onclick=()=>{detailTab=el.dataset.detail;renderDetail();});$('#voice-chat').onclick=()=>{select(detailId);navigate('interaction');$('#chat-input').focus();};
   $('#pet-body').onclick=pat;$('#find-left').onclick=find;$('#find-right').onclick=find;$('#pet-stage').oncontextmenu=event=>{event.preventDefault();$('#pet-menu').hidden=!$('#pet-menu').hidden;};
   $('#inline-chat').onsubmit=event=>{event.preventDefault();reply();};
-  $('#presence').onclick=()=>{M.pause(runtime,now());cancelChat();if(runtime.paused)dismissReminder();if(runtime.action==='thinking')runtime.action='idle';save();syncStage(true);syncWork();};
+  $('#presence').onclick=()=>{M.pause(runtime,now());cancelChat();resetPostures();if(runtime.paused)dismissReminder();if(runtime.action==='thinking')runtime.action='idle';save();syncStage(true);syncWork();};
   $$('[data-calendar-view]').forEach(el=>el.onclick=()=>{state.settings.calendarView=el.dataset.calendarView;renderCalendar();save();});
   $('#calendar-prev').onclick=()=>moveCalendar(-1);$('#calendar-next').onclick=()=>moveCalendar(1);$('#calendar-today').onclick=()=>{calendarDate=dateAtNoon(now());renderCalendar();};
   $('#makeup-confirm').onclick=()=>{const success=M.makeup(state,makeupDate,now());$('#makeup-dialog').close();if(success){save();renderCalendar();toast('已补签');}else toast('这一天无法补签，请检查补签卡余量。');makeupDate='';};
   $$('[data-collection]').forEach(el=>el.onclick=()=>{collectionTab=el.dataset.collection;renderDaily();});$('#story-next').onclick=nextStory;
   $('#work-open').onclick=()=>{navigate('settings');$(runtime.workActive?'#work-minutes':'#work-enabled').focus();};$('#work-enabled').onchange=workToggle;$('#work-form').onsubmit=workStart;$('#work-try').onclick=()=>remind();$('#reminder-dismiss').onclick=dismissReminder;
-  $('#auto-hide').onchange=event=>{state.settings.autoHide=event.target.checked;touch();save();};$('#reduced-motion').onchange=event=>{state.settings.reducedMotion=event.target.checked;document.body.classList.toggle('reduced-motion',event.target.checked);save();};
+  $('#auto-hide').onchange=event=>{state.settings.autoHide=event.target.checked;touch();save();};$('#reduced-motion').onchange=event=>{state.settings.reducedMotion=event.target.checked;document.body.classList.toggle('reduced-motion',event.target.checked);resetPostures();save();};
   $('#api-provider').onchange=()=>{cancelApiTest();const provider=$('#api-provider').value;$('#api-endpoint').value=A.catalog[provider]?.base||'';$('#api-key').value='';$('#api-workspace').value='';$('#api-model').value=provider==='deepseek'?'deepseek-flash':'';$('#api-status').textContent='尚未保存';apiFields();};$('#api-form').onsubmit=apiSave;$('#api-test').onclick=apiTest;
   $('#api-form').oninput=event=>{cancelApiTest();if(event.target.id==='api-endpoint')$('#api-key').value='';$('#api-status').textContent='尚未保存';};
   $('#login-tab').onclick=()=>authTabs('login');$('#register-tab').onclick=()=>authTabs('register');$('#auth-form').onsubmit=auth;$('#sign-out').onclick=()=>{session=null;apiKey='';cancelChat();dismissReminder();cancelApiTest();for(const id of M.families)chats[id]=[];$('#api-key').value='';$('#account-session').hidden=true;$('#auth-form').hidden=false;$('.auth-card [role=tablist]').hidden=false;authTabs('login');toast('已退出登录');};
@@ -388,7 +394,7 @@
   $('#review-idle').onclick=()=>{cancelChat();runtime.action='idle';runtime.idleSince=now()-60001;$('#review-dialog').close();navigate('interaction');runtime.idleSince=now()-60001;document.activeElement.blur();tick();};
   $('#review-work').onclick=()=>{if(!runtime.workActive){toast('请先开启工作模式');return;}offset+=Math.max(0,runtime.nextReminder-now())+1;$('#review-dialog').close();tick();};
   $('#review-affinity').oninput=event=>{state.relations[event.target.dataset.family].score=Number(event.target.value);$('#review-score').textContent=event.target.value;save();if(page==='detail')renderDetail();};
-  document.addEventListener('pointerdown',event=>{if(!event.target.closest('#review-dialog'))touch();});document.addEventListener('keydown',event=>{touch();if(event.key==='Escape')$('#pet-menu').hidden=true;});document.addEventListener('visibilitychange',()=>{lastTick=performance.now();save();});window.addEventListener('pagehide',()=>{save();cancelChat();dismissReminder();cancelApiTest();});window.addEventListener('resize',()=>{drawStatic();drawPet();});
+  document.addEventListener('pointerdown',event=>{if(!event.target.closest('#review-dialog'))touch();});document.addEventListener('keydown',event=>{touch();if(event.key==='Escape')$('#pet-menu').hidden=true;});document.addEventListener('visibilitychange',()=>{lastTick=performance.now();resetPostures();save();});window.addEventListener('pagehide',()=>{save();cancelChat();dismissReminder();cancelApiTest();});window.addEventListener('resize',()=>{drawStatic();drawPet();});
   $('.brand').onclick=event=>{event.preventDefault();navigate('partners');};
   globalThis.companionDemo={snapshot:()=>({page,selected:state.selected,style:state.style,outfit:outfit(),runtime:{...runtime},relations:structuredClone(state.relations),checkins:[...state.checkins],makeupCards:state.makeupCards,makeupCheckins:[...state.makeupCheckins],collection:{...state.collection},stories:{...state.stories},pose:lastPose,posture:posture(),postureMode:state.postures[state.selected]||'auto',photoReady:!!photoStamp,photoBusy,photoMembers:[...photoMembers],photoLayout:lastPhotoLayout,chatCount:chats[state.selected].length,chatDuration:chatFinished-chatStarted,errors:[...errors],version:D.version,agenda:agenda.snapshot()}),advance:ms=>{offset+=ms;tick();agenda.poll();},select,style,navigate,openDetail,render:tick};
   if(state.work.enabled)M.workStart(runtime,state,now());renderSettings();renderCards();select(state.selected);chatSource();setInterval(tick,100);tick();

@@ -1,7 +1,7 @@
 /* Exercise the real Demo controls and export, with an isolated browser profile. */
-const {chromium}=require('C:/Users/99000256/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
 const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict'),crypto=require('node:crypto'),{pathToFileURL}=require('node:url');
-const root=path.resolve(__dirname,'..'),target=path.join(root,'Release/win-x64/Demo/CompanionV01/index.html'),out=path.join(root,'.artifacts/companion-v06-review');fs.mkdirSync(out,{recursive:true});
+let chromium;try{({chromium}=require('playwright'));}catch{({chromium}=require(path.join(process.env.USERPROFILE,'.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright')));}
+const root=path.resolve(__dirname,'..'),target=path.join(root,'Release/win-x64/Demo/CompanionV01/index.html'),out=process.env.COMPANION_POSTURE_REVIEW_DIRECTORY?path.resolve(process.env.COMPANION_POSTURE_REVIEW_DIRECTORY):path.join(root,'.artifacts/companion-v06-review');fs.mkdirSync(out,{recursive:true});
 const families=['whale','gpt','claude','gemini','grok','qwen','zhipu','kimi'],outfits=['original','sports','swim','wedding'],styles=['chibi','realistic'];
 const hash=p=>crypto.createHash('sha256').update(fs.readFileSync(p)).digest('hex'),exe=path.join(root,'Release/win-x64/DesktopPet.exe'),before=hash(exe);
 (async()=>{const browser=await chromium.launch({executablePath:'C:/Program Files/Google/Chrome/Application/chrome.exe',headless:true});const page=await browser.newPage({viewport:{width:1440,height:1100},acceptDownloads:true});const errors=[],checks=[],postures=[];page.on('pageerror',e=>errors.push(e.message));page.on('requestfailed',r=>errors.push(r.url()));
@@ -9,7 +9,7 @@ const snap=()=>page.evaluate(()=>companionDemo.snapshot());const shot=async name
 try{
  await page.goto(pathToFileURL(target).href);await page.waitForFunction(()=>globalThis.companionDemo);await page.waitForTimeout(500);
  assert.equal(new Set(await page.locator('.partner-card canvas').evaluateAll(xs=>xs.map(x=>x.dataset.pose))).size,2);await shot('01-mixed-home');
- const first=(await snap()).posture;await page.evaluate(()=>companionDemo.advance(19000));assert.notEqual((await snap()).posture,first);
+ const first=(await snap()).posture;await page.evaluate(()=>companionDemo.advance(30000));assert.notEqual((await snap()).posture,first);
  await page.locator('[data-posture=sit]').click();await page.evaluate(()=>companionDemo.advance(30000));assert.equal((await snap()).posture,'sit');await page.reload();await page.waitForFunction(()=>globalThis.companionDemo);assert.equal((await snap()).postureMode,'sit');
  await page.locator('[data-posture=auto]').click();await page.locator('#presence').click();const frozen=(await snap()).posture;await page.evaluate(()=>companionDemo.advance(30000));assert.equal((await snap()).posture,frozen);await page.locator('#presence').click();checks.push('Automatic stand/sit, explicit posture persistence and pause.');
  for(const style of styles){await page.locator(`[data-style=${style}]`).click();for(const clothes of outfits){for(const family of families){await page.locator(`.partner-card[data-family=${family}]`).click();await page.locator(`[data-hero-outfit=${clothes}]`).click();const signatures=[];

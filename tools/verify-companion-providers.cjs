@@ -54,7 +54,8 @@ function response(provider,text){return provider==='claude'?{content:[{type:'thi
       const req=route.request();if(req.method()==='OPTIONS'){await route.fulfill({status:204,headers});return;}
       if(req.url()!==cases[active].url){unexpected.push(req.url());await route.abort();return;}
       seen.push({provider:active,url:req.url(),headers:req.headers(),body:req.postDataJSON()});const provider=active,failed=fail,ms=delay;if(ms)await new Promise(r=>setTimeout(r,ms));
-      try{await route.fulfill({status:failed?401:200,headers,contentType:'application/json',body:JSON.stringify(failed?{error:{message:'authorization failed'}}:response(provider,'模拟回复 · '+provider))});}catch{/* The UI may have cancelled this request. */}
+      const text='模拟回复 · '+provider,content=req.postData().includes('只输出一个 JSON 对象')?JSON.stringify({kind:'chat',reply:text,event:null}):text;
+      try{await route.fulfill({status:failed?401:200,headers,contentType:'application/json',body:JSON.stringify(failed?{error:{message:'authorization failed'}}:response(provider,content))});}catch{/* The UI may have cancelled this request. */}
     });
     await page.goto(pathToFileURL(target).href);await page.waitForFunction(()=>globalThis.companionDemo);const snap=()=>page.evaluate(()=>companionDemo.snapshot());
     await group('header has no Demo tag, footer tools remain reachable, daily gift entry removed',async()=>{

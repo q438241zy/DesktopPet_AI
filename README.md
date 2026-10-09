@@ -2,6 +2,8 @@
 
 **v1.0 · 重要版本**　|　Windows x64　|　8 位伙伴 · 2 种风格 · 4 套服装
 
+当前源码与待审 HTML Demo 为 **v1.1**：新增[宠物行事历方案](docs/pet-agenda-plan.md)，在聊天中通过 AI 整理事件、确认后记入日历，再由宠物到点提醒。未接入原生；v1.0 重要版本标签及下方展示图保留。
+
 住在桌边的云朵伙伴。摸摸头、玩玩球、一起读故事，也可以安静陪你工作。暖粉云朵界面，透明圆盘菜单，基础陪伴无需登录。
 
 [重要版本说明](docs/releases/v1.0.md) · [v1.0 Release](https://github.com/q438241zy/DesktopPet_AI/releases/tag/v1.0) · [Demo 使用说明](docs/demo/companion-v01/README.md) · [个人非商业许可](LICENSE)

@@ -21,6 +21,9 @@ public sealed partial class SettingsWindow : Window
     private readonly Dictionary<string, Button> navigation = [];
     private readonly Brush muted = CloudTheme.Muted;
     private readonly Brush peach = CloudTheme.Pale;
+    private readonly List<(Canvas Stage, Image Image, Character Character, string Outfit)> posturePreviews = [];
+    internal void RefreshIdlePostures()
+    { foreach (var p in posturePreviews) pet.DrawPosturePreview(p.Stage, p.Image, p.Character, p.Outfit); }
     public SettingsWindow(PetWindow pet)
     {
         this.pet = pet; category = pet.Character.Category;
@@ -79,21 +82,27 @@ public sealed partial class SettingsWindow : Window
     }
     private void Rebuild()
     {
-        content.Children.Clear(); ClearCompanionBindings();
+        content.Children.Clear(); ClearCompanionBindings(); posturePreviews.Clear();
         foreach (var (id, b) in navigation) { b.Background = id == (page == "profile" ? "partners" : page) ? CloudTheme.Brush("#F3DCE5") : Brushes.Transparent; b.Foreground = id == (page == "profile" ? "partners" : page) ? CloudTheme.Blue : CloudTheme.Ink; b.FontWeight = id == (page == "profile" ? "partners" : page) ? FontWeights.SemiBold : FontWeights.Normal; }
         switch (page) { case "agenda": BuildAgenda(); break; case "members": Members(); break; case "profile": BuildCompanionProfile(); break; case "life": Life(); break; case "preferences": Preferences(); break; default: Partners(); break; }
     }
-    private Grid Stage(Character character, double height, string outfit = "original")
+    private Grid Stage(Character character, double height, string outfit = "original", bool idlePosture = false)
     {
         var stage = new Grid { Height = height, ClipToBounds = true }; stage.Children.Add(new CloudScenery());
-        var frame = character.Resolve(outfit, "idle", 0);
-        stage.Children.Add(new Image { Source = pet.Art.Frame(character, frame.Sprite, frame.Frame), Stretch = Stretch.Uniform, Margin = new Thickness(12, 4, 12, 2) }); return stage;
+        if (!idlePosture)
+        {
+            var frame = character.Resolve(outfit, "idle", 0);
+            stage.Children.Add(new Image { Source = pet.Art.Frame(character, frame.Sprite, frame.Frame), Stretch = Stretch.Uniform, Margin = new Thickness(12, 4, 12, 2) }); return stage;
+        }
+        var canvas = new Canvas { ClipToBounds = true }; var image = new Image { Stretch = Stretch.Uniform };
+        canvas.Children.Add(image); stage.Children.Add(canvas); posturePreviews.Add((canvas, image, character, outfit));
+        canvas.SizeChanged += (_, _) => pet.DrawPosturePreview(canvas, image, character, outfit); return stage;
     }
     private void Partners()
     {
         Heading("", "我的伙伴", "");
         var hero = new Grid(); hero.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(236) }); hero.ColumnDefinitions.Add(new ColumnDefinition());
-        hero.Children.Add(Stage(pet.Character, 182, pet.State.Outfit));
+        hero.Children.Add(Stage(pet.Character, 182, pet.State.Outfit, true));
         var intro = new StackPanel { VerticalAlignment = VerticalAlignment.Center, Margin = new Thickness(18, 0, 0, 0) }; Grid.SetColumn(intro, 1); hero.Children.Add(intro);
         var badges = new WrapPanel(); badges.Children.Add(CloudTheme.Badge("正在陪伴")); badges.Children.Add(CloudTheme.Badge(CloudTheme.CategoryName(pet.Character.Category))); intro.Children.Add(badges);
         var name = Text(CompanionName(pet.Character), 25); name.FontWeight = FontWeights.SemiBold; name.Margin = new Thickness(0, 10, 0, 4); intro.Children.Add(name);
@@ -110,6 +119,16 @@ public sealed partial class SettingsWindow : Window
             intro.Children.Add(outfits);
         }
         else intro.Children.Add(Text("当前使用你导入的角色。", 11, true));
+        var postures = new WrapPanel();
+        foreach (var (id, label) in new[] { ("auto", "自动 · 30秒"), ("stand", "站立"), ("sit", "坐下") })
+        {
+            bool selected = pet.PostureMode(pet.Character.FamilyId) == id;
+            var b = MakeButton(label, () => { pet.SetPostureMode(id); Rebuild(); });
+            b.Padding = new Thickness(11, 6, 11, 6); b.Margin = new Thickness(0, 5, 5, 0);
+            b.Background = selected ? CloudTheme.Pale : Brushes.White; b.Foreground = selected ? CloudTheme.Blue : CloudTheme.Ink;
+            AutomationProperties.SetName(b, "待机姿态 " + label); postures.Children.Add(b);
+        }
+        intro.Children.Add(postures);
         var heroCard = Card(hero, CloudTheme.Sky()); heroCard.Padding = new Thickness(15, 12, 18, 12);
         var categoryRow = new DockPanel { Margin = new Thickness(0, 0, 0, 11) };
         var compare = MakeButton("伙伴档案", () => ShowProfile(pet.Character.FamilyId)); compare.Background = Brushes.Transparent; compare.BorderThickness = new Thickness(0); compare.FontSize = 11; DockPanel.SetDock(compare, Dock.Right); categoryRow.Children.Add(compare);
@@ -125,7 +144,7 @@ public sealed partial class SettingsWindow : Window
         {
             bool selected = character.Id == pet.State.Character;
             var tile = new Grid(); tile.RowDefinitions.Add(new RowDefinition()); tile.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
-            tile.Children.Add(Stage(character, 112, pet.State.Outfits.GetValueOrDefault(character.Id, "original")));
+            tile.Children.Add(Stage(character, 112, pet.State.Outfits.GetValueOrDefault(character.Id, "original"), true));
             var label = new StackPanel { Orientation = Orientation.Horizontal, HorizontalAlignment = HorizontalAlignment.Center }; label.Children.Add(new TextBlock { Text = character.Name, FontSize = 12, FontWeight = selected ? FontWeights.SemiBold : FontWeights.Normal });
             if (selected) label.Children.Add(new TextBlock { Text = "  ✓", Foreground = CloudTheme.Blue }); Grid.SetRow(label, 1); tile.Children.Add(label);
             var b = MakeButton("选择角色 " + character.Name, () => { pet.SelectCharacter(character.Id); Rebuild(); }); b.Content = tile; b.Height = 154; b.Padding = new Thickness(6, 5, 6, 12); b.Margin = new Thickness(0, 0, 10, 10); b.HorizontalContentAlignment = HorizontalAlignment.Stretch;

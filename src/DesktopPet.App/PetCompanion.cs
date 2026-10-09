@@ -16,13 +16,13 @@ public sealed partial class PetWindow
     private int workReminderIndex, reminderGeneration;
     private Window? workReminder, photoWindow;
     private CancellationTokenSource? workRequest;
-    internal void CompanionActivity() => lastCompanionActivity = Now;
+    internal void CompanionActivity() { lastCompanionActivity = Now; ResetIdlePosture(); }
     internal void InitializeCompanion()
     {
         CompanionActivity(); nextCompanionSave = Now + 5000;
         if (State.WorkModeEnabled) workClock.Start(Now, State.WorkMinutes);
         Closed += (_, _) => { DismissWorkReminder(); photoWindow?.Close(); };
-        IsVisibleChanged += (_, _) => { if (IsVisible) workClock.Resume(Now); else { workClock.Pause(Now); DismissWorkReminder(); } CompanionActivity(); settings?.RefreshPresence(); };
+        IsVisibleChanged += (_, _) => { if (IsVisible) workClock.Resume(Now); else { workClock.Pause(Now); DismissWorkReminder(); } CompanionActivity(); ResetAllIdlePostures(); settings?.RefreshPresence(); };
     }
     internal int AwardCompanion(int amount, string label, string key, int cooldownSeconds = 30)
     {

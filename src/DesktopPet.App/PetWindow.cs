@@ -238,6 +238,7 @@ public sealed partial class PetWindow : Window
         CancelInput(); ClearTransient(keepChat); resting = false;
         sprite.Visibility = Visibility.Visible;
         State.Character = selected.Id; ApplySettings(false); Save();
+        ResetIdlePosture();
         chatWindow?.SetCompanion();
         if (keepChat) { conversationActive = true; SetAction(Chat.IsThinking ? "thinking" : "listen"); Render(); }
         else Play("chat", $"你好，我是{Character.Name}。", 2600);
@@ -255,6 +256,7 @@ public sealed partial class PetWindow : Window
     public void ApplySettings(bool save = true)
     {
         State.Validate(); Topmost = State.Topmost;
+        ResetIdlePosture();
         sprite.Width = sprite.Height = State.Size; sprite.Opacity = State.Opacity;
         Canvas.SetLeft(sprite, CenterX - State.Size / 2); Canvas.SetTop(sprite, PetTop);
         Canvas.SetLeft(bubble, CenterX - 119); Canvas.SetTop(bubble, Math.Max(8, PetTop - 78));
@@ -318,7 +320,7 @@ public sealed partial class PetWindow : Window
     private void Say(string message, double duration = 2800)
     { speech.Text = message; speechUntil = Now + duration; bubble.Visibility = Visibility.Visible; }
     private void SetAction(string next, double duration = 0, Action? completed = null)
-    { action = next; actionStarted = Now; actionUntil = duration > 0 ? Now + duration : 0; onMotionEnd = completed; if (next == "walk") walkPlayback.Reset(); timer.Interval = TimeSpan.FromMilliseconds(16); }
+    { action = next; actionStarted = Now; actionUntil = duration > 0 ? Now + duration : 0; onMotionEnd = completed; ResetIdlePosture(); if (next == "walk") walkPlayback.Reset(); timer.Interval = TimeSpan.FromMilliseconds(16); }
     private void UpdateWalkClock()
     {
         bool useRendering = !closing && previewClock is null && IsVisible && (five is not null || roaming || hideJourney is not null || clubAction is not null || authoredVisual is not null && actionUntil>0 && !State.ReducedMotion);
@@ -864,7 +866,7 @@ public sealed partial class PetWindow : Window
             if (now - ballStarted > 4000) { flyingBall = false; ball.Visibility = Visibility.Collapsed; if (!ballHit) Play("ball-miss", "没碰到我，再试试。", 1600); }
             PlaceBall();
         }
-        Render();
+        TickIdlePostures(); Render();
         if (App.MotionLog is not null && now - lastMotionTrace >= 1000) { lastMotionTrace = now; TraceMotion("tick"); }
         bool moving = five is not null || dragging || liftActive || dropping || holdingBall || flyingBall || roaming || hideJourney is not null || prop is not null || actionUntil > 0 || motionVisual is not null || action == "thinking";
         timer.Interval = TimeSpan.FromMilliseconds(action == "sleep" ? 80 : moving ? 16 : 200);
@@ -887,8 +889,10 @@ public sealed partial class PetWindow : Window
     }
     private void Render()
     {
+        IsRenderingIdlePosture = false;
         if(RenderFivePose()) { UpdatePetInput();return; }
         if (RenderClubPose()) { UpdatePetInput();return; }
+        if (RenderIdlePosture()) return;
         double elapsed = roaming ? walkPlayback.Milliseconds : (Now - actionStarted) * (hideJourney is not null && foundStarted is null && action == "walk" ? 1.7 : 1);
         string renderAction=clubAction=="butterfly" ? Math.Abs(butterflyTarget-(Left+walkOffset.X+CenterX))>2 && !State.ReducedMotion ? "walk" : "ball-ready" : action;
         if (clubAction=="butterfly" && renderAction=="walk") elapsed=walkPlayback.Milliseconds;

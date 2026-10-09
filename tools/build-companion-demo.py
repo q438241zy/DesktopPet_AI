@@ -47,7 +47,7 @@ def descriptor(cid, sprite, frame=None, anchor=None):
     width,height=im.size
     cells=sprite.get('cells') or [dict(x=i%cols*(width//cols),y=i//cols*(height//rows),width=width//cols,height=height//rows) for i in range(cols*rows)]
     measured=[]
-    masks=owned_cells(file,sprite)
+    masks=owned_cells(file,{**sprite,'cells':cells})
     for i,c in enumerate(cells):
         x,y,w,h=[c[k] for k in ['x','y','width','height']]
         if x<0 or y<0 or x+w>width or y+h>height:
@@ -67,7 +67,7 @@ def descriptor(cid, sprite, frame=None, anchor=None):
                 a=px[xx,yy]
                 if a>=48:mass+=a;weighted+=(xx+.5)*a
         pivot=weighted/mass if mass else w/2
-        measured.append(dict(**c,footX=pivot,footY=bottom,visibleHeight=bottom-top,scale=(sprite.get('frameScaleFactors') or [1]*(cols*rows))[i]))
+        measured.append(dict(**c,footX=pivot,footY=bottom,visibleHeight=bottom-top,bounds=list(box),scale=(sprite.get('frameScaleFactors') or [1]*(cols*rows))[i]))
         if mask is not None:measured[-1]['ownership']=encode(mask)
     reference=sprite.get('referenceHeightPixels') or max(c['visibleHeight']*c['scale'] for c in measured)
     if anchor and frame is not None:
@@ -98,10 +98,24 @@ for family,name,adult in FAMILIES:
             photo=idle
             smile=descriptor(cid,atlas,min(1,len(idle['cells'])-1))
             if five:
-                p=five['poses']['photo'];photo=descriptor(cid,five['atlases'][p['atlas']],p['frame'],p)
+                p=five['poses']['photo'];photo_atlas=five['atlases'][p['atlas']]
+                if style=='realistic':
+                    photo_atlas={**photo_atlas,'isolateCells':True,'exportOwnership':True}
+                photo=descriptor(cid,photo_atlas,p['frame'],p)
                 if style=='realistic':
                     p=five['poses']['happy'];smile=descriptor(cid,five['atlases'][p['atlas']],p['frame'],p)
-            look=dict(idle=idle,smile=smile,photo=photo,photoData=photo_module(cid,photo))
+            stand=idle
+            sit=idle
+            if style=='chibi' and five:
+                p=five['poses']['neutral'];stand=descriptor(cid,five['atlases'][p['atlas']],p['frame'],p)
+                # These old neutral drawings still sit with knees forward. Reuse
+                # the upright close-foot support pose, held still without gait.
+                if outfit=='wedding' or (outfit=='swim' and family in ['gemini','qwen','zhipu','kimi']) or (outfit=='sports' and family in ['gpt','claude','qwen']):
+                    walk=motions['walk'];stand=descriptor(cid,walk,walk.get('frames',list(range(12)))[7])
+            elif style=='realistic':
+                # The first curl pose is awake and seated; the next one is asleep.
+                curl={**motions['curl'],'isolateCells':True,'exportOwnership':True};sit=descriptor(cid,curl,curl.get('frames',[6])[0])
+            look=dict(idle=idle,stand=stand,sit=sit,smile=smile,photo=photo,photoData=photo_module(cid,photo))
             for key,native in [('think','think'),('talk','chat'),('pat','headpat'),('walk','walk'),('peek','peek')]:
                 look[key]=descriptor(cid,motions[native]) if native in motions else idle
             looks[outfit]=look
@@ -117,7 +131,7 @@ for id,title,body in re.findall(r'new CompanionStory\("([^"]+)","([^"]+)",new\[\
 assert len(data['items'])==20 and len(data['stories'])==3
 
 if target!=SOURCE:
-    for name in ['index.html','style.css','icons.js','personas.js','providers.js','model.js','app.js']:
+    for name in ['index.html','style.css','icons.js','personas.js','providers.js','model.js','photo-layout.js','app.js']:
         shutil.copyfile(SOURCE/name,target/name)
 shutil.copyfile(ROOT/'docs/demo/interaction-five/items.js',target/'items.js')
 (target/'data.js').write_text('globalThis.CLOUD_DATA='+json.dumps(data,ensure_ascii=False,separators=(',',':'))+';\n',encoding='utf-8')

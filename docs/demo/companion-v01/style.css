@@ -90,3 +90,27 @@ dialog{color:var(--ink);background:#fffcfd;border:1px solid var(--line);border-r
   .calendar-day{min-height:51px;border-radius:11px;gap:1px}.calendar-day>span{font-size:13px}.calendar-day small{font-size:8px}
   .character-about{padding:22px 19px}.character-about h3{font-size:19px}.profile-likes{grid-template-columns:1fr;gap:9px}
 }
+
+/* Stand/sit controls and group invitations keep the existing companion card. */
+.hero-tools{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:14px}
+.posture-options{display:flex;gap:3px;padding:3px;background:#eee6ee;border-radius:12px}
+.posture-options button{font-size:11px;padding:6px 10px;border:0;background:transparent;border-radius:9px;color:var(--muted)}
+.posture-options button[aria-pressed=true]{background:#fff;color:var(--rose);box-shadow:0 2px 5px #ac85951a}
+#hero-photo{font-size:11px;padding:8px 12px}
+#photo-dialog{width:min(1080px,calc(100vw - 40px))}
+.photo-layout{grid-template-columns:minmax(0,1.35fr) minmax(280px,1fr);align-items:start}
+.photo-preview{min-width:0;min-height:300px;align-self:stretch}
+.photo-preview[data-stale=true] canvas{opacity:.32}
+.photo-people{min-width:0}
+.photo-people legend{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+#photo-count{font-size:11px;color:var(--muted);font-weight:400}
+.photo-members{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:7px}
+.photo-member{position:relative;display:flex;flex-direction:column;align-items:center;gap:3px;padding:6px 3px 8px;background:#fff;border:1px solid var(--line);border-radius:13px;cursor:pointer;color:var(--muted);font-size:10px;min-width:0}
+.photo-member:has(input:checked){background:#fbecf3;border-color:#d6a9bf;color:#9a5574}
+.photo-member:has(input:focus-visible){outline:2px solid #b87096;outline-offset:2px}
+.photo-member input{position:absolute;top:7px;right:6px;accent-color:#bc789a;width:13px;height:13px;margin:0}
+.photo-member canvas{display:block;width:100%;height:62px;margin-top:4px;pointer-events:none}
+.photo-member small{font-size:9px;line-height:1;color:var(--muted)}
+.photo-selection-actions{display:flex;justify-content:flex-end;gap:13px;margin-top:10px}
+.photo-selection-actions button{padding:0;background:none;border:0;font-size:11px;color:#a06684}
+@media(max-width:760px){#photo-dialog{width:calc(100vw - 24px);padding:18px}.photo-layout{grid-template-columns:1fr}.photo-preview{max-width:none;width:100%;min-height:0;padding:10px}.photo-preview canvas{max-height:330px;object-fit:contain}.photo-member canvas{height:62px}.hero-tools{gap:8px}.posture-options button{padding:6px 8px}}

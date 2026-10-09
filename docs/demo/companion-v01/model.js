@@ -9,9 +9,11 @@
   const relation=()=>({score:0,seconds:0,interactions:0,history:[],awards:{},daily:{},companionshipAwarded:0});
   function create(saved){
     const s={schema:1,selected:'whale',style:'chibi',outfits:{},relations:Object.fromEntries(families.map(id=>[id,relation()])),checkins:[],makeupCards:0,makeupCheckins:[],collection:{},stories:{},settings:{autoHide:true,reducedMotion:false,calendarView:'month'},api:A.cleanConfig(),work:{enabled:false,minutes:10}};
+    s.postures={};
     if(!saved||saved.schema!==1)return s;
     if(families.includes(saved.selected))s.selected=saved.selected;if(saved.style==='realistic')s.style='realistic';
     for(const id of families){
+      if(['auto','stand','sit'].includes(saved.postures?.[id]))s.postures[id]=saved.postures[id];
       const r=saved.relations?.[id];if(r&&typeof r==='object')s.relations[id]={...relation(),score:clamp(Number(r.score),-100,100),seconds:clamp(Number(r.seconds),0,315360000),interactions:clamp(Number(r.interactions),0,10000000),history:Array.isArray(r.history)?r.history.filter(e=>typeof e.label==='string'&&Number.isFinite(e.at)&&Number.isFinite(e.delta)).slice(-40):[],awards:r.awards&&typeof r.awards==='object'?r.awards:{},daily:r.daily&&typeof r.daily==='object'?r.daily:{},companionshipAwarded:clamp(Number(r.companionshipAwarded),0,1000000)};
       for(const style of ['chibi','realistic']){const k=id+'/'+style;if(Object.hasOwn(outfits,saved.outfits?.[k]))s.outfits[k]=saved.outfits[k];}
     }

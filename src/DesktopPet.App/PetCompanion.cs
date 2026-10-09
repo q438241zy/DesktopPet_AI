@@ -67,7 +67,7 @@ public sealed partial class PetWindow
     }
     internal async void ShowWorkReminder()
     {
-        if (!State.WorkModeEnabled || closing || !IsVisible) return;
+        if (!State.WorkModeEnabled || closing || !IsVisible || agendaNotice is not null) return;
         DismissWorkReminder(); int generation = reminderGeneration, index = workReminderIndex++; string family = Character.FamilyId;
         string preset = CompanionPersonas.Reminder(family, index);
         var message = new TextBlock { Text = preset, TextWrapping = TextWrapping.Wrap, FontSize = 13, LineHeight = 22, Foreground = CloudTheme.Ink, MaxWidth = 230 };

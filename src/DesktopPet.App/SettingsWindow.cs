@@ -49,7 +49,7 @@ public sealed partial class SettingsWindow : Window
         var foot = new StackPanel { Margin = new Thickness(12, 0, 0, 0) }; foot.Children.Add(PresenceControl()); foot.Children.Add(new TextBlock { Text = $"云朵伙伴 / DesktopPet v{version}", FontSize = 10, Foreground = muted, Margin = new Thickness(0, 8, 0, 0) });
         DockPanel.SetDock(foot, Dock.Bottom); sidebar.Children.Add(foot);
         var nav = new StackPanel(); sidebar.Children.Add(nav);
-        foreach (var (id, label, icon) in new[] { ("partners", "我的伙伴", "heart"), ("life", "陪伴日常", "sun"), ("members", "会员中心", "member"), ("preferences", "设定", "settings") })
+        foreach (var (id, label, icon) in new[] { ("partners", "我的伙伴", "heart"), ("agenda", "宠物行事历", "calendar"), ("life", "陪伴日常", "sun"), ("members", "会员中心", "member"), ("preferences", "设定", "settings") })
         {
             var b = MakeButton(label, () => Navigate(id), icon); b.HorizontalContentAlignment = HorizontalAlignment.Left; b.Padding = new Thickness(12, 11, 6, 11); b.Margin = new Thickness(0, 0, 0, 5); b.BorderThickness = new Thickness(0); navigation[id] = b; nav.Children.Add(b);
         }
@@ -81,7 +81,7 @@ public sealed partial class SettingsWindow : Window
     {
         content.Children.Clear(); ClearCompanionBindings();
         foreach (var (id, b) in navigation) { b.Background = id == (page == "profile" ? "partners" : page) ? CloudTheme.Brush("#F3DCE5") : Brushes.Transparent; b.Foreground = id == (page == "profile" ? "partners" : page) ? CloudTheme.Blue : CloudTheme.Ink; b.FontWeight = id == (page == "profile" ? "partners" : page) ? FontWeights.SemiBold : FontWeights.Normal; }
-        switch (page) { case "members": Members(); break; case "profile": BuildCompanionProfile(); break; case "life": Life(); break; case "preferences": Preferences(); break; default: Partners(); break; }
+        switch (page) { case "agenda": BuildAgenda(); break; case "members": Members(); break; case "profile": BuildCompanionProfile(); break; case "life": Life(); break; case "preferences": Preferences(); break; default: Partners(); break; }
     }
     private Grid Stage(Character character, double height, string outfit = "original")
     {
@@ -98,6 +98,7 @@ public sealed partial class SettingsWindow : Window
         var badges = new WrapPanel(); badges.Children.Add(CloudTheme.Badge("正在陪伴")); badges.Children.Add(CloudTheme.Badge(CloudTheme.CategoryName(pet.Character.Category))); intro.Children.Add(badges);
         var name = Text(CompanionName(pet.Character), 25); name.FontWeight = FontWeights.SemiBold; name.Margin = new Thickness(0, 10, 0, 4); intro.Children.Add(name);
         heroBond = Text("", 12, true); intro.Children.Add(heroBond); RefreshCompanion();
+        intro.Children.Add(MakeButton("聊聊天 / 记日程", () => { if (!pet.IsVisible) pet.ToggleVisible(); pet.OpenChat(); }));
         if (pet.Character.Outfits.Count > 0)
         {
             var outfits = new WrapPanel();

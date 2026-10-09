@@ -12,6 +12,7 @@ void Reject(Action run) { try { run(); } catch (InvalidDataException) { return; 
 MembershipTests.Run(Test);
 FiveTests.Run(Test);
 CompanionTests.Run(Test);
+AgendaTests.Run(Test);
 
 Test("care tolerates a delayed frame and sleep belongs only to lullaby", () =>
 {

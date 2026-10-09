@@ -10,7 +10,7 @@ using DesktopPet.Core;
 namespace DesktopPet.App;
 
 /// <summary>The composer and reply are children of the pet surface, never another HWND.</summary>
-internal sealed class InlineChat : Border, IDisposable
+internal sealed partial class InlineChat : Border, IDisposable
 {
     private readonly PetWindow pet;
     private readonly List<ChatMessage> history = [];
@@ -28,7 +28,7 @@ internal sealed class InlineChat : Border, IDisposable
     internal IReadOnlyList<ChatMessage> History => history;
     internal bool IsThinking => pending is { IsCancellationRequested: false };
     internal string ReplyText => reply.Text;
-    internal bool HasDraft => !string.IsNullOrWhiteSpace(input.Text);
+    internal bool HasDraft => !string.IsNullOrWhiteSpace(input.Text) || agendaEditor.Visibility == Visibility.Visible;
     internal bool CanGenerate => !Options.IsLocal && (!string.IsNullOrWhiteSpace(apiKey) || Uri.TryCreate(Options.Endpoint, UriKind.Absolute, out var uri) && uri.IsLoopback);
     private string OptionsPath => Path.Combine(App.DataRoot, "chat-settings.json");
 
@@ -38,14 +38,16 @@ internal sealed class InlineChat : Border, IDisposable
         Width = 306; Padding = new Thickness(13); CornerRadius = new CornerRadius(18);
         Background = CloudTheme.Cream; BorderBrush = CloudTheme.Line; BorderThickness = new Thickness(1);
         Visibility = Visibility.Collapsed;
-        var root = new StackPanel(); Child = root;
+        var root = new StackPanel(); Child = new ScrollViewer { Content = root, VerticalScrollBarVisibility = ScrollBarVisibility.Auto, HorizontalScrollBarVisibility = ScrollBarVisibility.Disabled, MaxHeight = 360 }; root.Children.Add(chatConversation);
         var row = new DockPanel();
         var close = new Button { Content = CloudTheme.Icon("close", 13), Width = 24, Height = 24, Padding = new Thickness(0), Background = Brushes.Transparent, BorderThickness = new Thickness(0), ToolTip = "收起聊天" };
         AutomationProperties.SetName(close, "收起聊天"); DockPanel.SetDock(close, Dock.Right); row.Children.Add(close);
-        row.Children.Add(new ScrollViewer { Content = reply, MaxHeight = 110, VerticalScrollBarVisibility = ScrollBarVisibility.Auto, Margin = new Thickness(0, 0, 5, 10) }); root.Children.Add(row);
-        var composer = new DockPanel(); root.Children.Add(composer);
+        row.Children.Add(new ScrollViewer { Content = reply, MaxHeight = 110, VerticalScrollBarVisibility = ScrollBarVisibility.Auto, Margin = new Thickness(0, 0, 5, 10) }); chatConversation.Children.Add(row);
+        var composer = new DockPanel(); chatConversation.Children.Add(composer);
         var buttons = new StackPanel { Margin = new Thickness(7, 0, 0, 0) }; buttons.Children.Add(send); buttons.Children.Add(stop);
         DockPanel.SetDock(buttons, Dock.Right); composer.Children.Add(buttons); composer.Children.Add(input);
+        var calendar = new Button { Content = "宠物行事历", HorizontalAlignment = HorizontalAlignment.Left, FontSize = 11, Margin = new Thickness(0, 8, 0, 0), Padding = new Thickness(8, 4, 8, 4) };
+        AutomationProperties.SetName(calendar, "打开宠物行事历"); calendar.Click += (_, _) => pet.OpenAgenda(); chatConversation.Children.Add(calendar); root.Children.Add(agendaEditor);
         AutomationProperties.SetName(this, "角色头顶聊天"); AutomationProperties.SetName(input, "聊天内容"); AutomationProperties.SetName(send, "发送聊天");
         close.Click += (_, _) => pet.StopInteraction();
         stop.Click += (_, _) => pending?.Cancel();
@@ -57,6 +59,9 @@ internal sealed class InlineChat : Border, IDisposable
         try { if (File.Exists(OptionsPath)) Options = JsonSerializer.Deserialize<ChatOptions>(File.ReadAllText(OptionsPath)) ?? new(); }
         catch (Exception ex) when (ex is IOException or JsonException) { reply.Text = "聊天设置读取失败，请到设定重新填写。"; }
         input.TextChanged += (_, _) => pet.CompanionActivity();
+        // The confirmation card is laid out after async replies. Re-anchor after
+        // its actual height changes, including when the user changes pet size.
+        SizeChanged += (_, _) => Dispatcher.BeginInvoke(() => { if (!disposed && Visibility == Visibility.Visible) pet.LayoutChat(true); });
         SetCompanion();
     }
     internal void Open()
@@ -72,7 +77,7 @@ internal sealed class InlineChat : Border, IDisposable
     }
     internal void CancelResponse()
     {
-        sessionGeneration++; pending?.Cancel(); pending = null; send.Visibility = Visibility.Visible; stop.Visibility = Visibility.Collapsed;
+        sessionGeneration++; pending?.Cancel(); pending = null; send.Visibility = Visibility.Visible; stop.Visibility = Visibility.Collapsed; ClearAgendaDraft();
     }
     internal void ResetSession()
     {
@@ -122,7 +127,7 @@ internal sealed class InlineChat : Border, IDisposable
             CancelTest(); var cancellation = new CancellationTokenSource(); testing = cancellation; int turn = generation; test.IsEnabled = false; status.Text = "正在连接…";
             try { await CompanionProviders.SendAsync(client, Read(), key.Password, [new("user", "请只回复：连接成功")], "这是连接测试，只回复连接成功。", cancellation.Token); if (generation == turn) status.Text = "连接成功"; }
             catch (OperationCanceledException) { if (generation == turn) status.Text = "连接超时，请重试。"; }
-            catch (Exception ex) when (ex is HttpRequestException or JsonException or IOException or ArgumentException or FormatException) { if (generation == turn) status.Text = ex.Message; }
+            catch (Exception ex) when (ex is HttpRequestException or JsonException or InvalidDataException or IOException or ArgumentException or FormatException) { if (generation == turn) status.Text = ex.Message; }
             finally { if (ReferenceEquals(testing, cancellation)) { testing = null; test.IsEnabled = true; } cancellation.Dispose(); }
         };
         panel.Unloaded += (_, _) => CancelTest(); Fields(); return panel;
@@ -135,19 +140,21 @@ internal sealed class InlineChat : Border, IDisposable
         if (!pet.AccessTo("chat").Allowed || pending is not null || disposed || Visibility != Visibility.Visible || string.IsNullOrWhiteSpace(text)) return;
         text = text.Trim(); if (text.Length > 4000) text = text[..4000];
         string turnFamily = family; int turnSession = sessionGeneration; var turnOptions = Options; string turnKey = apiKey;
-        history.Add(new("user", text)); input.Clear(); reply.Text = "…";
+        ClearAgendaDraft(); history.Add(new("user", text)); input.Clear(); reply.Text = "…";
         var cancellation = new CancellationTokenSource(); pending = cancellation;
         send.Visibility = Visibility.Collapsed; stop.Visibility = Visibility.Visible; pet.ConversationThinking();
         try
         {
-            string answer = await CompanionChat.ReplyAfterThinkingAsync(client, turnOptions, turnKey, history.ToArray(), pet.Character.FamilyId, cancellation.Token, pet.State.Companion(pet.Character.FamilyId).Score);
+            var result = await PetAgenda.ReplyAsync(client, turnOptions, turnKey, history.ToArray(), pet.Character.FamilyId, pet.State.Companion(pet.Character.FamilyId).Score, cancellation.Token);
+            string answer = result.Reply;
             if (disposed || turnFamily != family || turnSession != sessionGeneration || cancellation.IsCancellationRequested || Visibility != Visibility.Visible) return;
             history.Add(new("assistant", answer)); if (history.Count > 48) history.RemoveRange(0, history.Count - 48);
             reply.Text = answer; pet.AwardCompanion(1, "聊了几句", "chat", 60); pet.ConversationReply(answer);
+            if (result.Event is { } draft) ShowAgendaDraft(draft);
         }
         catch (OperationCanceledException) { if (!disposed && turnFamily == family && turnSession == sessionGeneration) { reply.Text = cancellation.IsCancellationRequested ? "已停止" : "回复超时，请重试。"; pet.ConversationListen(); } }
         catch (ObjectDisposedException) when (disposed) { }
-        catch (Exception ex) when (ex is HttpRequestException or JsonException or IOException or ArgumentException or FormatException)
+        catch (Exception ex) when (ex is HttpRequestException or JsonException or InvalidDataException or IOException or ArgumentException or FormatException)
         { if (!disposed && turnFamily == family && turnSession == sessionGeneration) { reply.Text = ex.Message; pet.ConversationListen(); } }
         finally
         {

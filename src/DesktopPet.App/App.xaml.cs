@@ -56,6 +56,12 @@ public partial class App : Application
         if (e.Args.Contains("--ui-test")) pet.ShowInTaskbar = true;
         MainWindow = pet;
         pet.Show();
+        if (e.Args.Contains("--verify-agenda"))
+        {
+            try { await AgendaVerification.Run(pet, DataRoot, e.Args.Contains("--agenda-reload")); Shutdown(0); }
+            catch (Exception ex) { Directory.CreateDirectory(DataRoot); File.WriteAllText(Path.Combine(DataRoot, "agenda-error.txt"), ex.ToString()); Shutdown(1); }
+            return;
+        }
         if (e.Args.Contains("--verify-companion"))
         {
             try { await CompanionVerification.Run(pet, DataRoot); Shutdown(0); }

@@ -189,6 +189,7 @@ public sealed partial class PetWindow : Window
         day = DateOnly.FromDateTime(DateTime.Now);
         ApplySettings(false);
         InitializeCompanion();
+        InitializeAgenda();
         TraceMotion("created");
     }
     private void InitializeDesktop()
@@ -293,10 +294,11 @@ public sealed partial class PetWindow : Window
     internal void LayoutChat(bool makeRoom = false)
     {
         if (ActiveChat is not { } chat) return;
+        if (chat.Child is ScrollViewer chatScroll) chatScroll.MaxHeight = Math.Max(120, Math.Min(390, PetTop - AirborneOffset - 32));
         chat.Measure(new Size(chat.Width, double.PositiveInfinity));
         double height = chat.DesiredSize.Height, head = PetTop - AirborneOffset;
         var area = WorkArea;
-        if (makeRoom) Top = Math.Min(area.Bottom - FloorY, Math.Max(Top, area.Top + height + 14 - head));
+        if (makeRoom || chat.HasAgendaDraft) Top = Math.Min(area.Bottom - FloorY, Math.Max(Top, area.Top + height + 14 - head));
         Canvas.SetLeft(chat, Math.Clamp(CenterX - chat.Width / 2, Math.Max(4, area.Left - Left + 4), Math.Max(4, Math.Min(Width - chat.Width - 4, area.Right - Left - chat.Width - 4))));
         Canvas.SetTop(chat, Math.Max(Math.Max(4, area.Top - Top + 4), head - height - 12));
     }

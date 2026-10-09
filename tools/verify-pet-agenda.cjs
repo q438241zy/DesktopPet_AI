@@ -2,7 +2,7 @@
 const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),{pathToFileURL}=require('node:url');
 let chromium;try{({chromium}=require('playwright'));}catch{({chromium}=require(path.join(process.env.USERPROFILE,'.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright')));}
 const G=require('../docs/demo/companion-v01/agenda.js'),Providers=require('../docs/demo/companion-v01/providers.js');
-const root=path.resolve(__dirname,'..'),out=path.join(root,'.artifacts/agenda-v11-review'),target=path.join(root,'Release/win-x64/Demo/CompanionV01/index.html');fs.mkdirSync(out,{recursive:true});
+const root=path.resolve(__dirname,'..'),out=process.env.AGENDA_REVIEW_DIRECTORY?path.resolve(process.env.AGENDA_REVIEW_DIRECTORY):path.join(root,'.artifacts/agenda-v11-review'),target=path.join(root,'Release/win-x64/Demo/CompanionV01/index.html');fs.mkdirSync(out,{recursive:true});
 const groups=[],errors=[],network=[];let requests=0;
 async function check(name,fn){await fn();groups.push(name);console.log('PASS '+name);}
 const start=new Date(2026,9,9,10,0,0).getTime(),draft={title:'项目会议',startLocal:'2026-10-10T15:00',leadMinutes:10,repeat:'none',zone:G.zone(),reminder:'会议记在这里啦，我们从容地开始。'};
@@ -39,7 +39,8 @@ const start=new Date(2026,9,9,10,0,0).getTime(),draft={title:'项目会议',star
     async function send(message){await page.locator('#chat-input').fill(message);await page.locator('#chat-send').click();await page.waitForFunction(()=>companionDemo.snapshot().runtime.action!=='thinking');}
     async function config(provider){await page.evaluate(()=>companionDemo.navigate('settings'));await page.locator('#api-provider').selectOption(provider);await page.locator('#api-model').fill(provider==='gemini'?'demo-model':'demo-model');await page.locator('#api-key').fill('DEMO_ONLY_NOT_A_REAL_KEY');await page.locator('#api-save').click();await page.evaluate(()=>companionDemo.navigate('interaction'));}
     await check('calendar is empty, no API calls; samples think for one second and clarify',async()=>{
-      assert.equal((await snap()).version,'1.1');assert.equal((await snap()).page,'agenda');assert.equal(requests,0);await page.waitForTimeout(600);await shot('01-empty-calendar');
+      const versionXml=fs.readFileSync(path.join(root,'Version.props'),'utf8'),version=['Major','Minor'].map(k=>versionXml.match(new RegExp(`<DesktopPet${k}>([^<]+)</DesktopPet${k}>`))[1]).join('.');
+      assert.equal((await snap()).version,version);assert.equal((await snap()).page,'agenda');assert.equal(requests,0);await page.waitForTimeout(600);await shot('01-empty-calendar');
       await page.locator('[data-agenda-sample="unclear"]').click();assert.equal((await snap()).runtime.action,'thinking');await page.waitForTimeout(500);assert.equal((await snap()).runtime.action,'thinking');await page.waitForFunction(()=>companionDemo.snapshot().runtime.action!=='thinking');assert.match(await page.locator('#agenda-question').innerText(),/几点/);assert.equal((await snap()).agenda.events.length,0);await page.locator('#agenda-answer-sample').click();assert.equal(await page.locator('#agenda-title').inputValue(),'买牛奶');assert.equal((await snap()).agenda.events.length,0);await shot('02-confirm-card');
       await page.locator('#agenda-confirm').click();await page.waitForFunction(()=>companionDemo.snapshot().agenda.events.length===1);assert.equal((await snap()).agenda.events[0].source,'demo');assert.equal(requests,0);await page.locator('#agenda-saved-open').click();assert.equal(await page.locator('.agenda-event').count(),1);
     });

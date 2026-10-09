@@ -2004,11 +2004,6 @@
       "summary": "第9/16帧圈棒恢复，但放大接触点发现第10–15帧银色圈棒消失，需局部补齐六个圈棒，不能以全身缩略图通过。"
     },
     {
-      "key": "kimi-five-main-v2",
-      "passed": true,
-      "summary": "20帧逐帧原图对比，17–20恢复站姿，17抱书完整，腿长和头部大小与原角色对应。"
-    },
-    {
       "key": "kimi-peek-v2",
       "passed": false,
       "summary": "仍为三个手（抓边、托腮、低手），且身体加大，需从原始探头图重新仅换衣。"
@@ -2077,6 +2072,51 @@
       "key": "zhipu-adult-club-v5",
       "passed": false,
       "summary": "指定15帧圈棒仍未画出，且肤色偏暖，返回v3并以标记定位修复。"
+    },
+    {
+      "key": "kimi-club-v5",
+      "passed": false,
+      "summary": "修复第15泡泡帧和伸展序列，但9的圈棒与瓶子握手相反，需交换以保持八帧道具连续。"
+    },
+    {
+      "key": "kimi-club-v6",
+      "passed": true,
+      "summary": "24姿势逐帧对照，探星/伸展恢复原动作，泡泡圈棒始终同手且瓶子始终另一手，八圈口放大测量通过。"
+    },
+    {
+      "key": "zhipu-adult-club-v6",
+      "passed": false,
+      "summary": "仍有15无圈棒，未采用。"
+    },
+    {
+      "key": "zhipu-adult-club-v7",
+      "passed": false,
+      "summary": "15圈棒恢复，近嘴11/12圈口不清，继续修正。"
+    },
+    {
+      "key": "zhipu-adult-club-v8",
+      "passed": false,
+      "summary": "八帧圈棒已连贯，近嘴两帧为侧向圈口；多次局部重绘使肤色明显偏红，需恢复同角色原浅肤色再做原生验证。"
+    },
+    {
+      "key": "kimi-five-main-v2",
+      "passed": false,
+      "summary": "原生暂存发现鞋底与下一行头饰连接，无法可靠分出20个角色；撤销选用，不把旧清单的提前验证算作本稿通过。"
+    },
+    {
+      "key": "kimi-five-main-v3",
+      "passed": true,
+      "summary": "20帧与原图共同缩放逐项对照，身份、站姿腿长、礼物与书保留，鞋底间隔修订后20个完整主体可分离，待原生查看残影。"
+    },
+    {
+      "key": "zhipu-adult-club-v9",
+      "passed": false,
+      "summary": "肤色及全部8圈棒恢复，但候选alpha没有全透明背景，不能作为桌面角色素材选用。"
+    },
+    {
+      "key": "zhipu-adult-club-v10",
+      "passed": true,
+      "summary": "24帧原图同源比例对照，短袖膝上短裤保留原成年头身及腿长；肤色恢复，背景已全透明。中间8帧圈棒均存在并随同一手至嘴边，已放大检查侧面圈及测量点。"
     }
   ]
 }

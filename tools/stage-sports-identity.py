@@ -218,8 +218,17 @@ def stage_five(folder,pet,jobs,out,original_visible,neutral_visible):
    for anchor,p in old['anchors'].items():
     px,py=mapper(ox+p['x'],oy+p['y']);anchors[anchor]=dict(x=round(px-fx,3),y=round(py-fy,3))
    front=mapper(ox,oy+old.get('frontY',0))[1]-fy if old.get('frontY') else 0
-   art['poses'][pose_name]=dict(atlas=name,frame=index,footX=round(fx-cell['x'],3),footY=round(fy-cell['y'],3),anchors=anchors,frontY=round(front,3),boxWidth=round(old.get('boxWidth',0)*ratio,3))
-  reports.append(dict(key=job['key'],file=relative,sha256=hashlib.sha256(target.read_bytes()).hexdigest(),anchorMethod='original anchor optical correspondence; native visual review required'))
+   measured=job.get('fiveMeasurementPixels',{}).get(pose_name,{})
+   for anchor,p in measured.get('anchors',{}).items():
+    if anchor not in old['anchors'] or not(cell['x']<=p[0]<=cell['x']+cell['width'] and cell['y']<=p[1]<=cell['y']+cell['height']):raise ValueError(f'{job["key"]}/{pose_name}: measured anchor outside its source crop')
+    anchors[anchor]=dict(x=round(p[0]-fx,3),y=round(p[1]-fy,3))
+   if 'frontY' in measured:
+    if not cell['y']<=measured['frontY']<=cell['y']+cell['height']:raise ValueError('Measured box wall outside its source crop')
+    front=measured['frontY']-fy
+   box_width=measured.get('boxWidth',old.get('boxWidth',0)*ratio)
+   if not 0<=box_width<=cell['width']:raise ValueError('Measured box width outside its source crop')
+   art['poses'][pose_name]=dict(atlas=name,frame=index,footX=round(fx-cell['x'],3),footY=round(fy-cell['y'],3),anchors=anchors,frontY=round(front,3),boxWidth=round(box_width,3))
+  reports.append(dict(key=job['key'],file=relative,sha256=hashlib.sha256(target.read_bytes()).hexdigest(),anchorMethod='visually measured source-pixel overrides where recorded; otherwise original optical correspondence; native visual review required'))
  return art,reports,missing
 
 def stage(cid,destination):

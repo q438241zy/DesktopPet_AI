@@ -4,6 +4,8 @@ $projectRoot = Split-Path -Parent $PSScriptRoot
 $demoRoot = if ($DemoDirectory) { [IO.Path]::GetFullPath($DemoDirectory) } else { Join-Path $projectRoot 'Release/win-x64/Demo' }
 $source = Join-Path $projectRoot 'docs/demo/interaction-five'
 $target = Join-Path $demoRoot 'InteractionFive'
+New-Item -ItemType Directory -Path $demoRoot -Force | Out-Null
+Copy-Item -LiteralPath (Join-Path $projectRoot 'docs/demo/sprite-cells.js') -Destination $demoRoot -Force
 $names = @('index.html','style.css','review.css','model.js','items.js','app.js','art.js','roster.js','README.md',
     'art/deepseek-chibi-v1.png','art/geometry.json',
     'art/provenance.json','art/chibi-prompt.txt','art/realistic-prompt.txt','art/realistic-framing-repair.txt',

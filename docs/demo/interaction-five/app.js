@@ -94,7 +94,8 @@
   }
   function drawPose(out, style, pose, x, floor, height) {
     const styleArt=A.styles[style], p=styleArt.poses[pose], k=height/styleArt.referenceHeight*(p.unit||1);
-    out.drawImage(images[p.atlas||style],...p.rect,x+(p.rect[0]-p.foot[0])*k,floor+(p.rect[1]-p.foot[1])*k,p.rect[2]*k,p.rect[3]*k);
+    const image=images[p.atlas||style],isolated=SpriteCells.crop(image,p.rect,p.ownership),source=isolated?[0,0,p.rect[2],p.rect[3]]:p.rect;
+    out.drawImage(isolated||image,...source,x+(p.rect[0]-p.foot[0])*k,floor+(p.rect[1]-p.foot[1])*k,p.rect[2]*k,p.rect[3]*k);
   }
   const ease=t=>{t=clamp(t,0,1);return t*t*(3-2*t);},lerp=(a,b,t)=>a+(b-a)*t;
   function handRest(){return{x:Math.max(64,W*.18),y:H-110};}

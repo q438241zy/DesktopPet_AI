@@ -3,6 +3,7 @@ import argparse,base64,json,mimetypes,os
 from pathlib import Path
 from PIL import Image
 import numpy as np
+from sprite_ownership import owned_cells, encode
 ROOT=Path(__file__).resolve().parents[1]
 PACKS=ROOT/'src/DesktopPet.App/Assets/Characters'
 NAMES={'whale':'DeepSeek','gpt':'GPT','claude':'Claude','gemini':'Gemini','grok':'Grok','qwen':'Qwen','zhipu':'GLM','kimi':'Kimi'}
@@ -24,10 +25,15 @@ def collect():
           node=data if outfit=='original' else data['outfits'][outfit];art=node.get('interactionFive')
           if not art:continue
           ref=art['atlases'][art['poses']['neutral']['atlas']]['referenceHeightPixels'];poses={};images={}
-          for key,atlas in art['atlases'].items():images[char+'/'+outfit+'/'+key]=char+'/'+atlas['file']
+          masks={}
+          for key,atlas in art['atlases'].items():
+            images[char+'/'+outfit+'/'+key]=char+'/'+atlas['file']
+            masks[key]=owned_cells(folder/atlas['file'],atlas)
           for name,p in art['poses'].items():
             atlas=art['atlases'][p['atlas']];cell=atlas['cells'][p['frame']];x,y,w,h=[cell[k] for k in ['x','y','width','height']]
             poses[name]=dict(atlas=char+'/'+outfit+'/'+p['atlas'],rect=[x,y,w,h],foot=[x+p['footX'],y+p['footY']],anchors={k:[v['x'],v['y']] for k,v in p['anchors'].items()},unit=ref/atlas['referenceHeightPixels'],frontY=p.get('frontY',0),boxWidth=p.get('boxWidth',0))
+            mask=masks[p['atlas']][p['frame']] if masks[p['atlas']] else None
+            if mask is not None:poses[name]['ownership']=encode(mask)
           out.append(dict(id=char+'/'+outfit,family=family,name=label,style=style,outfit=outfit,outfitName=outfit_label,images=images,art=dict(referenceHeight=ref,poses=poses),reference=reference(folder,data['atlas'] if outfit=='original' else node['idle'])))
     return out
 if __name__=='__main__':

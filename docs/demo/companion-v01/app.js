@@ -5,6 +5,7 @@
   const storageKey='cloud-companions.demo.v01.state',accountKey='cloud-companions.demo.v01.accounts';
   const read=key=>{try{return JSON.parse(localStorage.getItem(key)||'null');}catch{return null;}};
   const state=M.create(read(storageKey));
+  let agenda=null;
   let offset=0;const now=()=>Date.now()+offset;
   const runtime=M.createRuntime(now()),images=new Map(),photoImages=new Map(),pendingPhotos=new Map(),errors=[];
   let page='partners',detailId=state.selected,detailTab='bond',collectionTab='balls',apiKey='',session=null,authMode='login',chatTicket=0,chatAbort=null,chatStarted=0,chatFinished=0,photoStamp='',photoBusy=false,photoTicket=0,story=null,storyLine=0,storyFinished=false,lastTick=performance.now(),lastSave=now(),touches=[],saveFailed=false;
@@ -62,11 +63,12 @@
   function displayTime(seconds){if(seconds<60)return `${Math.floor(seconds)} 秒`;if(seconds<3600)return `${Math.floor(seconds/60)} 分钟`;return `${Math.floor(seconds/3600)} 小时 ${Math.floor(seconds%3600/60)} 分钟`;}
   function affect(delta,label,key,cooldown){const result=M.affect(state,state.selected,delta,label,now(),key,cooldown);save();if(page==='detail')renderBond();return result;}
   function speak(text,pose='talk',duration=4600){$('#bubble-text').textContent=text;if(!['hidden','hiding'].includes(runtime.action)){runtime.action=pose;runtime.started=now();runtime.until=now()+duration;}syncStage(true);}
-  function cancelChat(){chatTicket++;chatAbort?.abort();chatAbort=null;if(runtime.action==='thinking'){runtime.action='idle';runtime.started=now();runtime.idleSince=now();}$('#chat-send').disabled=false;$('#chat-input').disabled=runtime.paused;$('#pet-stage').classList.remove('thinking');$('.thinking-dots').hidden=true;}
+  function cancelChat(){chatTicket++;chatAbort?.abort();chatAbort=null;agenda?.invalidate();if(runtime.action==='thinking'){runtime.action='idle';runtime.started=now();runtime.idleSince=now();}$('#chat-send').disabled=false;$('#chat-input').disabled=runtime.paused;$('#pet-stage').classList.remove('thinking');$('.thinking-dots').hidden=true;}
   function touch(){runtime.idleSince=now();}
   function navigate(next){
     page=next;$$('.page').forEach(el=>el.hidden=el.id!=='page-'+next);$$('[data-page]').forEach(el=>el.classList.toggle('active',el.dataset.page===(['detail','interaction'].includes(next)?'partners':next)));
-    $('#page-title').textContent={partners:'我的伙伴',daily:'陪伴日常',member:'会员中心',settings:'设定',detail:'伙伴档案',interaction:'陪伴预览'}[next];touch();$('#pet-menu').hidden=true;
+    $('#page-title').textContent={partners:'我的伙伴',daily:'陪伴日常',member:'会员中心',settings:'设定',detail:'伙伴档案',interaction:'陪伴预览',agenda:'宠物行事历'}[next];touch();$('#pet-menu').hidden=true;
+    if(next==='agenda')agenda?.render();
     if(next==='partners')renderHero();if(next==='daily')renderDaily();if(next==='detail')renderDetail();if(next==='settings')renderSettings();drawStatic();syncStage(true);window.scrollTo({top:0,behavior:'instant'});
   }
   function select(family){
@@ -87,6 +89,7 @@
     $('#hero-outfits').replaceChildren(...Object.entries(M.outfits).map(([key,value])=>{const el=document.createElement('button');el.textContent=value.name;el.dataset.heroOutfit=key;el.className=outfit()===key?'selected':'';el.setAttribute('aria-pressed',String(outfit()===key));el.onclick=()=>{cancelChat();dismissReminder();state.outfits[state.selected+'/'+state.style]=key;runtime.action='idle';runtime.started=now();touch();save();renderHero();drawStatic();};return el;}));
   }
   function drawStatic(){
+    agenda?.draw();
     if(page==='partners'){
       $$('.partner-card').forEach(el=>drawCanvas(el.querySelector('canvas'),el.dataset.family,state.style,outfit(el.dataset.family)));
       const pose=drawCanvas($('#hero-canvas'),state.selected,state.style,outfit());if(pose)$('#hero-canvas').dataset.file=pose.file;
@@ -137,18 +140,18 @@
   async function reply(){
     const text=$('#chat-input').value.trim();if(!text||runtime.paused||runtime.action==='thinking')return;
     if(['hidden','hiding'].includes(runtime.action))return;
-    touch();const id=state.selected,ticket=++chatTicket;chatAbort?.abort();chatAbort=new AbortController();const controller=chatAbort;
+    agenda?.invalidate();touch();const id=state.selected,ticket=++chatTicket;chatAbort?.abort();chatAbort=new AbortController();const controller=chatAbort;
     chats[id].push({role:'user',content:text});chats[id]=chats[id].slice(-24);$('#chat-input').value='';$('#chat-send').disabled=true;
     runtime.action='thinking';runtime.started=now();chatStarted=performance.now();$('#bubble-text').textContent='让我想一想';syncStage(true);
     try{
       const fetchReply=async()=>{
-        if(state.api.provider==='local'||!state.api.endpoint.trim())return P.reply(id,chats[id],state.relations[id].score);
-        return A.send({...state.api},apiKey,chats[id],P.prompt(id,state.relations[id].score),{signal:controller.signal});
+        if(state.api.provider==='local'||!state.api.endpoint.trim())return /提醒|行事历|日程|记一下|幫我記|帮我记|記下|记下/.test(text)?'记日程需要先在设定中接入 AI。也可以点下方「体验记日程」，先看看我怎么帮你记。':P.reply(id,chats[id],state.relations[id].score);
+        return agenda.ask(chats[id],P.prompt(id,state.relations[id].score),{signal:controller.signal});
       };
       const result=await Promise.allSettled([fetchReply(),new Promise(resolve=>setTimeout(resolve,1000))]);
       if(ticket!==chatTicket||state.selected!==id)return;
       if(result[0].status==='rejected')throw result[0].reason;
-      const answer=result[0].value;chats[id].push({role:'assistant',content:answer});chatFinished=performance.now();affect(1,'聊了几句','chat',60000);speak(answer,'talk',Math.max(3600,Math.min(9000,answer.length*75)));
+      const payload=result[0].value,answer=typeof payload==='string'?payload:payload.reply;if(typeof payload!=='string')agenda.receive(payload,text);chats[id].push({role:'assistant',content:answer});chatFinished=performance.now();affect(1,'聊了几句','chat',60000);speak(answer,'talk',Math.max(3600,Math.min(9000,answer.length*75)));
     }catch(error){if(ticket===chatTicket){runtime.action='idle';runtime.started=now();runtime.idleSince=now();$('#bubble-text').textContent=error.name==='AbortError'?'这次回复超时了，请再试一次。':error instanceof TypeError?'连接没有成功，浏览器可能限制此接口。请检查地址或使用本机对话。':error.message;syncStage(true);}}
     finally{if(ticket===chatTicket){$('#chat-send').disabled=false;chatAbort=null;syncStage(true);}}
   }
@@ -353,12 +356,13 @@
     const p=performance.now(),elapsed=(p-lastTick)/1000;lastTick=p;
     if(!runtime.paused&&!document.hidden&&elapsed<2)M.companion(state,state.selected,elapsed,now());
     updatePostures();
-    const events=M.tick(runtime,state,now(),{canHide:page==='interaction'&&!document.hidden&&!document.querySelector('dialog[open]')&&$('#pet-menu').hidden&&!$('#chat-input').value.trim()});
+    const events=M.tick(runtime,state,now(),{canHide:page==='interaction'&&!document.hidden&&!document.querySelector('dialog[open]')&&$('#pet-menu').hidden&&!$('#chat-input').value.trim()&&!agenda?.blocksHide()});
     if(events.includes('reminder'))remind();syncStage();syncWork();if(page==='detail'&&detailTab==='bond'){$('#companion-time').textContent=displayTime(state.relations[detailId].seconds);}
     if(page==='daily'&&dailyDate!==M.day(now()))renderCalendar();
     if(page==='partners'){const relation=state.relations[state.selected];$('#hero-bond').textContent=M.label(relation.score)+' · 相伴 '+displayTime(relation.seconds);}
     if(now()-lastSave>=5000){save();lastSave=now();}
   }
+  agenda=CompanionAgendaUI.create({now,select,family:()=>state.selected,api:()=>({...state.api}),key:()=>apiKey,go:navigate,speak,toast,paused:()=>runtime.paused,cancelChat,draw:(canvas,id,pose)=>drawCanvas(canvas,id,state.style,outfit(id),pose),think:()=>{runtime.action='thinking';runtime.started=now();$('#chat-send').disabled=true;$('#bubble-text').textContent='让我想一想';syncStage(true);},endThinking:()=>{$('#chat-send').disabled=false;syncStage(true);}});
   icons();$$('[data-version]').forEach(el=>el.textContent='v'+D.version);document.title='云朵伙伴 · v'+D.version+' Demo';document.body.classList.toggle('reduced-motion',state.settings.reducedMotion);
   $$('[data-page]').forEach(el=>el.onclick=()=>navigate(el.dataset.page));$$('[data-style]').forEach(el=>el.onclick=()=>style(el.dataset.style));$$('[data-act]').forEach(el=>el.onclick=()=>action(el.dataset.act));$$('[data-close]').forEach(el=>el.onclick=()=>$('#'+el.dataset.close).close());
   $('#details-open').onclick=()=>openDetail(state.selected);$('#detail-back').onclick=()=>navigate('partners');$('#interaction-back').onclick=()=>navigate('partners');$$('[data-detail]').forEach(el=>el.onclick=()=>{detailTab=el.dataset.detail;renderDetail();});$('#voice-chat').onclick=()=>{select(detailId);navigate('interaction');$('#chat-input').focus();};
@@ -386,7 +390,8 @@
   $('#review-affinity').oninput=event=>{state.relations[event.target.dataset.family].score=Number(event.target.value);$('#review-score').textContent=event.target.value;save();if(page==='detail')renderDetail();};
   document.addEventListener('pointerdown',event=>{if(!event.target.closest('#review-dialog'))touch();});document.addEventListener('keydown',event=>{touch();if(event.key==='Escape')$('#pet-menu').hidden=true;});document.addEventListener('visibilitychange',()=>{lastTick=performance.now();save();});window.addEventListener('pagehide',()=>{save();cancelChat();dismissReminder();cancelApiTest();});window.addEventListener('resize',()=>{drawStatic();drawPet();});
   $('.brand').onclick=event=>{event.preventDefault();navigate('partners');};
-  globalThis.companionDemo={snapshot:()=>({page,selected:state.selected,style:state.style,outfit:outfit(),runtime:{...runtime},relations:structuredClone(state.relations),checkins:[...state.checkins],makeupCards:state.makeupCards,makeupCheckins:[...state.makeupCheckins],collection:{...state.collection},stories:{...state.stories},pose:lastPose,posture:posture(),postureMode:state.postures[state.selected]||'auto',photoReady:!!photoStamp,photoBusy,photoMembers:[...photoMembers],photoLayout:lastPhotoLayout,chatCount:chats[state.selected].length,chatDuration:chatFinished-chatStarted,errors:[...errors],version:D.version}),advance:ms=>{offset+=ms;tick();},select,style,navigate,openDetail,render:tick};
+  globalThis.companionDemo={snapshot:()=>({page,selected:state.selected,style:state.style,outfit:outfit(),runtime:{...runtime},relations:structuredClone(state.relations),checkins:[...state.checkins],makeupCards:state.makeupCards,makeupCheckins:[...state.makeupCheckins],collection:{...state.collection},stories:{...state.stories},pose:lastPose,posture:posture(),postureMode:state.postures[state.selected]||'auto',photoReady:!!photoStamp,photoBusy,photoMembers:[...photoMembers],photoLayout:lastPhotoLayout,chatCount:chats[state.selected].length,chatDuration:chatFinished-chatStarted,errors:[...errors],version:D.version,agenda:agenda.snapshot()}),advance:ms=>{offset+=ms;tick();agenda.poll();},select,style,navigate,openDetail,render:tick};
   if(state.work.enabled)M.workStart(runtime,state,now());renderSettings();renderCards();select(state.selected);chatSource();setInterval(tick,100);tick();
+  if(location.hash==='#agenda')navigate('agenda');
   function animate(){if(!document.hidden&&!runtime.paused&&page==='interaction'&&['hiding','thinking','talk','pat'].includes(runtime.action)&&!state.settings.reducedMotion)drawPet();requestAnimationFrame(animate);}requestAnimationFrame(animate);
 })();

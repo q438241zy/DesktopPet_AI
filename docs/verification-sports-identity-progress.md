@@ -1,8 +1,16 @@
-# 运动服换衣复核进度（未全量发布）
+# 运动服换衣复核进度（v0.5已完成）
+
+当前状态：2026-10-09，全16套运动服已经接入并运行，305份选用源稿、593份原生文件。全部最终原生检查、启动后的存档保留检查与长期Demo刷新完成；证据及发布信息见 [v0.5验证记录](verification-v05.md)。最终原生目录为 `.artifacts/sports-final-r2-20261009`，下文保留较早阶段的过程，不代表当前仍未完成。
+
+## 历史过程
 
 更新至2026-10-09。W2 拓展授权有效，现行日常程序为 v0.4。日常 exe SHA256 为 `B0F270274AD8BDB43098DDA0EB3F91D5D93C553E60F4C367AFC7C0FC201FDDE0`；本轮仅在 D 盘隔离目录验证，没有替换日常角色资产、修改用户存档或制作正式安装包。
 
 ## 10月9日续作进度（覆盖下方历史待办）
+
+闪退续作已补齐Kimi Q与GLM真人最后两套，各自543/547项原生检查通过，18动作画面已查看。有效证据分别为`.artifacts/sports-native-kimi-final-20261009`和`.artifacts/sports-native-zhipu-adult-final-20261009`。Kimi选用five-main-v3（修正行间鞋底连接）、club-v6；GLM真人选用club-v10（圈棒/肤色/透明背景）。旧Kimi提前运行目录已标INVALID；GLM club-v9没有透明背景，不能选用。
+
+当前完整隔离集为16套、305份已目视选用源稿、593份运行文件，指纹记录在`.artifacts/sports-final-20261009/stage-pins.json`。全量矩阵、五项互动、行走中断与素材解码串行验证中；尚未发布v0.5。下方14套及10月8日数据为阶段历史。
 
 DeepSeek、GPT、Claude、Gemini、Grok、Qwen两版和GLM Q版、Kimi真人共14套通过隔离原生检查并查看实际动作图。Claude Q采用care-v10，旧袖口和脚下相邻发丝问题已解决；有效证据是`sports-native-claude-care10b-20261008`，不是提前运行的care10目录。
 
@@ -60,7 +68,7 @@ care-v3/v4/v5虽然通过静态对照及自动动作检查，原生脚下仍带�
 
 失败的初次结果保存在 `.artifacts/sports-native-scale-walk-pilot`；有效复跑结果是上表的 `sports-native-scale-walk-calibration`，两者不能混报。
 
-## 未完成项
+## 历史待办（已在v0.5完成）
 
 - Claude Q梳头最终修订、Grok全组及Qwen/GLM/Kimi完整动作图的逐帧目视复核。
 - 后续新图的手部及道具接触点核对和原生验收。

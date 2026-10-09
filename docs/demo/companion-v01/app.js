@@ -30,7 +30,8 @@
   function draw(out,img,desc,frame,x,floor,height,flip=false){
     if(!img.complete||!img.naturalWidth)return false;
     const c=desc.cells[frame],k=height/desc.reference*c.scale;
-    out.save();out.translate(x,floor);if(flip)out.scale(-1,1);out.imageSmoothingEnabled=true;out.imageSmoothingQuality='high';out.drawImage(img,c.x,c.y,c.width,c.height,-c.footX*k,-c.footY*k,c.width*k,c.height*k);out.restore();return true;
+    const isolated=SpriteCells.crop(img,[c.x,c.y,c.width,c.height],c.ownership),rect=isolated?[0,0,c.width,c.height]:[c.x,c.y,c.width,c.height];
+    out.save();out.translate(x,floor);if(flip)out.scale(-1,1);out.imageSmoothingEnabled=true;out.imageSmoothingQuality='high';out.drawImage(isolated||img,...rect,-c.footX*k,-c.footY*k,c.width*k,c.height*k);out.restore();return true;
   }
   function drawCanvas(canvas,family,style,clothes,pose='idle',elapsed=0){
     if(!canvas||!canvas.isConnected||!canvas.getBoundingClientRect().width)return;

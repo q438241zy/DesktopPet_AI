@@ -30,5 +30,39 @@
     "candidateSha256": "5eae765bde2283f202795193020c1dcce8bd7e7144b02f5b99a40b648876b982",
     "originalSha256": "87b1fece070c072ae72cef249e7a68708342e978fd883a7b10ae3a49f6d51b70",
     "comparisonFingerprint": "62cabffc02b113489114c59cc5b00ab117c5be4812c747441826a167725e1fa9"
+  },
+  "fiveMeasurementPixels": {
+    "receive": {
+      "anchors": {
+        "receive": [
+          964,
+          723
+        ]
+      }
+    },
+    "gift": {
+      "anchors": {
+        "gift": [
+          159,
+          964
+        ]
+      }
+    },
+    "gift-empty": {
+      "anchors": {
+        "giftSlot": [
+          428,
+          950
+        ]
+      },
+      "frontY": 958,
+      "boxWidth": 46
+    }
+  },
+  "fiveContactReview": {
+    "date": "2026-10-09",
+    "reviewer": "assistant",
+    "evidence": ".artifacts/sports-identity-review/claude-five-guide.png",
+    "reason": "Native capture exposed inherited gift anchors below the box. Hand center, closed gift center, empty-box slot/front-wall measured on unchanged source pixels."
   }
 }

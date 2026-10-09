@@ -1,0 +1,87 @@
+{
+  "key": "zhipu-adult-club-v8",
+  "id": "zhipu-adult",
+  "style": "realistic",
+  "kind": "club",
+  "columns": 4,
+  "rows": 6,
+  "source": "artwork/sports-identity/zhipu-adult-club-v8.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/zhipu-adult/motions/cloud-club-original.png"
+  ],
+  "generationReferences": [
+    "artwork/sports-identity/zhipu-adult-club-v7.png",
+    "artwork/sports-identity/references/zhipu-bubble-mouth-guide.png"
+  ],
+  "prompt": "Precise tiny prop correction. FIRST image target1536x1024 transparent24pose GLM adult atlas. SECOND annotated image marks ONLY TWO poses to edit. In each of the two RED BOXES (middle row columns3and4) the woman holds bare fingers near her mouth but lacks visible bubble wand. Add one CLEAR WHITE SILVER CIRCULAR BUBBLE WAND held between her existing fingers and mouth. The ring must be visibly hollow and outlined white with dark edge, diameter16 pixels, like the clearly visible loops held by the other six women of the same row. Pose11 ringnear(480,427), pose12 ringnear(673,433), short handle reaches into her existing hand. She should visibly blow through that circle near lips, not just touch cheek with bare fingers. Preserve existing blue bottle, all anatomy, hand locations, face/hair/body/legs/clothes. All22OTHER figures and all other six bubble rings are already correct and MUST remain unchanged. Entire1536x1024canvas, transparent background, no redbox/text/annotation. No change to overall skin color, no reposing.",
+  "tool": "built-in image_gen",
+  "status": "not-selected-after-review",
+  "selected": false,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-86afca89-918d-43d7-9edb-08118e0437ec.png",
+  "measurementPixels": {
+    "bubbleSources": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      [
+        61,
+        427
+      ],
+      [
+        256,
+        427
+      ],
+      [
+        489,
+        429
+      ],
+      [
+        682,
+        430
+      ],
+      [
+        824,
+        420
+      ],
+      [
+        1002,
+        428
+      ],
+      [
+        1209,
+        428
+      ],
+      [
+        1392,
+        427
+      ],
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ]
+  },
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-09",
+    "passed": false,
+    "summary": "八帧圈棒已连贯，近嘴两帧为侧向圈口；多次局部重绘使肤色明显偏红，需恢复同角色原浅肤色再做原生验证。",
+    "evidence": [
+      ".artifacts/sports-identity-review/zhipu-adult-club-v8-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "222a96d01fdd2830dd4b44644b1ddd5c3549a086f9fc77a7dad0cf6b43f12ca7",
+    "originalSha256": "6a75ec14a87a8239a69b3780828e81b414174762c0d17f89d8e78c39c94e64d9",
+    "comparisonFingerprint": "0e967fa5c757dcaa1a54b37349833e995ab34918becc6eccda2cc269bfff082f"
+  }
+}

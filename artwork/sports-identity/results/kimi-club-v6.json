@@ -1,0 +1,93 @@
+{
+  "key": "kimi-club-v6",
+  "id": "kimi",
+  "style": "chibi",
+  "kind": "club",
+  "columns": 4,
+  "rows": 6,
+  "source": "artwork/sports-identity/kimi-club-v6.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/kimi/motions/cloud-club-original.png"
+  ],
+  "generationReferences": [
+    "artwork/sports-identity/kimi-club-v5.png",
+    "artwork/sports-identity/references/kimi-bubble-hands-guide.png"
+  ],
+  "prompt": "Precise local props edit. FIRST image is the target24pose1024x1536transparentatlas. SECOND annotated reference locates ONLY ONE figure: red box, row3col1. In THIS ONE figure, SWAP the two objects between her two hands. LEFT-ON-SCREEN hand nearx96,y725 must hold SILVERBLUE CIRCULAR BUBBLE WAND (ring centered x95,y702). RIGHT-ON-SCREEN hand nearx150,y722 must hold the BLUE BUBBLE BOTTLE. Keep both hands LOW at their current waist positions. Presently they are reversed; fix to match remaining seven bubble poses. One wand, one bottle, no extra props. All23OTHER figures, poses, limbs, facial expressions, clothes and head/body proportions MUST stay EXACTLY unchanged. Do not edit other frames. Complete1024x1536output, transparent background, no redbox,label or guide.",
+  "tool": "built-in image_gen",
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-5db88b88-8ca1-4ca2-8ba1-38d628f4f608.png",
+  "measurementPixels": {
+    "bubbleSources": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      [
+        98,
+        694
+      ],
+      [
+        331,
+        670
+      ],
+      [
+        618,
+        671
+      ],
+      [
+        874,
+        678
+      ],
+      [
+        90,
+        930
+      ],
+      [
+        307,
+        915
+      ],
+      [
+        595,
+        934
+      ],
+      [
+        880,
+        971
+      ],
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ]
+  },
+  "contactReview": {
+    "date": "2026-10-09",
+    "reviewer": "assistant",
+    "method": "Eight source-pixel wand-ring anchors and same-hand prop continuity verified in enlarged browser composite",
+    "evidence": ".artifacts/sports-identity-review/kimi-club-v6-anchors.png"
+  },
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-09",
+    "passed": true,
+    "summary": "24姿势逐帧对照，探星/伸展恢复原动作，泡泡圈棒始终同手且瓶子始终另一手，八圈口放大测量通过。",
+    "evidence": [
+      ".artifacts/sports-identity-review/kimi-club-v6-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "1a0bbb7d88f38f62f0453adba5725f2a9b9a74e87e9c256570c33c8cada6095e",
+    "originalSha256": "d4f92185ad3779a37413d1f536610617ab947279703429df35c525cf2a89e0e0",
+    "comparisonFingerprint": "05dd8b05f9912843995b964c293594e0712a412f4e1483a0e985fe15e5515af8"
+  }
+}

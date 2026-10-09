@@ -15,14 +15,14 @@
   ],
   "prompt": "Precise LOCAL EDIT to FIRST sports-clothed Kimi Q sprite atlas; SECOND is original pose authority. Preserve FIRST face, head size, hair, silver crescent ornament, navy ribbon, short sleeved white/navy sports shirt and navy above-knee shorts. True transparent alpha outside all figures, no extra shadow or background. Exactly1122x1402canvas,4columns5rows. Fix ONLY bottom row physical17,18,19,20. They MUST be STANDING like original and like upper16figures, not sitting. Restore original hip,knee,ankle positions and forward standing sneakers; do not enlarge their heads or shrink torso. Frame17 hugs original CLOSED NAVY BOOK against chest, both hands holding its lower corners. Frame18 has one hand making V sign by cheek, other down. Frame19 has one fist by cheek and other down. Frame20 arms relaxed down. All four have original short upright legs, source ground positions. Preserve upper16poses without modification, including book, gift and hand poses. No extra hands.",
   "tool": "built-in image_gen",
-  "status": "visually-reviewed-pending-runtime",
-  "selected": true,
+  "status": "not-selected-after-review",
+  "selected": false,
   "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-11cea7b1-488c-4452-9d4e-af591c562495.png",
   "visualReview": {
     "reviewer": "assistant",
     "date": "2026-10-09",
-    "passed": true,
-    "summary": "20帧逐帧原图对比，17–20恢复站姿，17抱书完整，腿长和头部大小与原角色对应。",
+    "passed": false,
+    "summary": "原生暂存发现鞋底与下一行头饰连接，无法可靠分出20个角色；撤销选用，不把旧清单的提前验证算作本稿通过。",
     "evidence": [
       ".artifacts/sports-identity-review/kimi-five-main-v2-pairs.png"
     ],

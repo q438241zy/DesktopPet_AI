@@ -1,0 +1,35 @@
+{
+  "key": "kimi-five-main-v3",
+  "id": "kimi",
+  "style": "chibi",
+  "kind": "five-main",
+  "columns": 4,
+  "rows": 5,
+  "source": "artwork/sports-identity/kimi-five-main-v3.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/kimi/interactions/original/kimi-original-v2.png"
+  ],
+  "generationReferences": [
+    "artwork/sports-identity/kimi-five-main-v2.png",
+    "src/DesktopPet.App/Assets/Characters/kimi/interactions/original/kimi-original-v2.png"
+  ],
+  "prompt": "Precise identity-preserving sprite repair. FIRST image is edit target in approved short-sleeve white/navy sports shirt and above-knee shorts. SECOND is original source for scale, anatomy and foot baseline. Keep exact 1122x1402 canvas with 4 columns and 5 rows, all20poses and all props, facial expressions, hair, headband, original body/leg proportions, pixel positions and scale. Critical defect: sneaker soles in FIRST are a few pixels too thick/low and are touching the maid headband of the figure in next row. Restore the original foot/shoe-bottom baselines from SECOND, thinning only excess sneaker sole height so each sprite has a small REAL transparent air gap before next row's headband (as SECOND). Carefully preserve complete headband and all hair of lower figure. Do not shift, shrink, lengthen, or squash any whole body, torso, leg, or head; this is only restoring shoe sole contour and cleaning faint connecting pixels in the empty inter-row gap. All20figures must be separate connected cutouts with clean true transparency. Retain the gift, book, hand poses and standing positions. No new props, no colored backdrop, no shadow, no text. Preserve every other existing feature. Do not recolor or simplify hair. Output same atlas with clean alpha and physically separated shoes/headbands.",
+  "tool": "built-in image_gen",
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-d78c5093-dd3d-493b-a98b-3033f8ae85d9.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-09",
+    "passed": true,
+    "summary": "20帧与原图共同缩放逐项对照，身份、站姿腿长、礼物与书保留，鞋底间隔修订后20个完整主体可分离，待原生查看残影。",
+    "evidence": [
+      ".artifacts/sports-identity-review/kimi-five-main-v3-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "09e8c370eeed7b55ee4a5e321015bf11d903b85095566c617e57915abcadcd2f",
+    "originalSha256": "e1501a10f8867e0db04ae11c770907b851107a79a82327def5a192aa39f30366",
+    "comparisonFingerprint": "7f29ef0282b0e7d52afb7fa4f8152d7db3c4f3bf762f4a9473b018a216b1fc50"
+  }
+}

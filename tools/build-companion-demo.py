@@ -13,6 +13,7 @@ import re
 import shutil
 import xml.etree.ElementTree as ET
 from PIL import Image
+from sprite_ownership import owned_cells, encode
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / 'docs/demo/companion-v01'
@@ -46,11 +47,16 @@ def descriptor(cid, sprite, frame=None, anchor=None):
     width,height=im.size
     cells=sprite.get('cells') or [dict(x=i%cols*(width//cols),y=i//cols*(height//rows),width=width//cols,height=height//rows) for i in range(cols*rows)]
     measured=[]
+    masks=owned_cells(file,sprite)
     for i,c in enumerate(cells):
         x,y,w,h=[c[k] for k in ['x','y','width','height']]
         if x<0 or y<0 or x+w>width or y+h>height:
             raise ValueError(f'Out-of-bounds art cell {file}: {c}')
         alpha=im.getchannel('A').crop((x,y,x+w,y+h))
+        mask=masks[i] if masks else None
+        if mask is not None:
+            import numpy as np
+            alpha=Image.fromarray(np.asarray(alpha)*mask)
         box=alpha.point(lambda a:255 if a>=48 else 0).getbbox() or (0,0,w,h)
         # Keep one source-pixel scale across the complete clip, never fit each pose.
         top,bottom=box[1],box[3]
@@ -62,6 +68,7 @@ def descriptor(cid, sprite, frame=None, anchor=None):
                 if a>=48:mass+=a;weighted+=(xx+.5)*a
         pivot=weighted/mass if mass else w/2
         measured.append(dict(**c,footX=pivot,footY=bottom,visibleHeight=bottom-top,scale=(sprite.get('frameScaleFactors') or [1]*(cols*rows))[i]))
+        if mask is not None:measured[-1]['ownership']=encode(mask)
     reference=sprite.get('referenceHeightPixels') or max(c['visibleHeight']*c['scale'] for c in measured)
     if anchor and frame is not None:
         measured[frame].update(footX=anchor['footX'],footY=anchor['footY'])

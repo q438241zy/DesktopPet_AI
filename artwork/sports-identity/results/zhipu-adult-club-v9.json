@@ -1,0 +1,87 @@
+{
+  "key": "zhipu-adult-club-v9",
+  "id": "zhipu-adult",
+  "style": "realistic",
+  "kind": "club",
+  "columns": 4,
+  "rows": 6,
+  "source": "artwork/sports-identity/zhipu-adult-club-v9.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/zhipu-adult/motions/cloud-club-original.png"
+  ],
+  "generationReferences": [
+    "artwork/sports-identity/zhipu-adult-club-v8.png",
+    "artwork/sports-identity/zhipu-adult-club-v3.png"
+  ],
+  "prompt": "Color correction only. FIRST is target1536x1024transparent24pose GLM adult sports atlas; all poses and props now correct. Repeated editing made skin overly red/orange. Restore ONLY all skin color to the natural pale peach skin of SECOND reference. Keep neutral skin highlights, remove orange/red cast and excessive saturation from faces,arms,legs. Do not change face features, body proportions, shapes, size, anatomy, locations or any pose. Crucially retain EVERY white/silver bubble wand currently in all8 middle-row figures of FIRST, especially the rings near mouth in columns3/4 and the ring in column7. Those objects were corrected and must not disappear. Do not copy missing props from SECOND; SECOND is for skin hue/luminance ONLY. Preserve navy/white clothes, hair and ears, tail, shoes, transparency and entirecanvas1536x1024. Output same atlas with skin tones corrected, no other changes.",
+  "tool": "built-in image_gen",
+  "status": "not-selected-after-review",
+  "selected": false,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-01cd11d9-ef11-4e55-bdc6-abe34fd5e978.png",
+  "measurementPixels": {
+    "bubbleSources": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      [
+        61,
+        427
+      ],
+      [
+        256,
+        427
+      ],
+      [
+        489,
+        429
+      ],
+      [
+        682,
+        430
+      ],
+      [
+        824,
+        420
+      ],
+      [
+        1002,
+        428
+      ],
+      [
+        1209,
+        428
+      ],
+      [
+        1392,
+        427
+      ],
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ]
+  },
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-09",
+    "passed": false,
+    "summary": "肤色及全部8圈棒恢复，但候选alpha没有全透明背景，不能作为桌面角色素材选用。",
+    "evidence": [
+      ".artifacts/sports-identity-review/zhipu-adult-club-v9-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "73fa9a33b0db90997de8de6d3070801568143f041cbf8e7986501ef33379ce32",
+    "originalSha256": "6a75ec14a87a8239a69b3780828e81b414174762c0d17f89d8e78c39c94e64d9",
+    "comparisonFingerprint": "b12c0051203522b2c8940bd213c624b98194927cd8eea63dee7800c2a21a0a91"
+  }
+}

@@ -58,10 +58,10 @@ internal static class FiveVerification
                 Check(ReferenceEquals(expected,actor.Source)&&pet.State.Outfit==outfit,label+"/"+key+"@"+time+": exact same-outfit pose");
                 Check(Math.Abs(Canvas.GetTop(actor)+pose.FootY*actor.Height/expected.PixelHeight-468)<.01,label+"/"+key+"@"+time+": fixed floor");
                 Check(pet.ActiveMotion is null && pet.ActiveAuthoredVisual is null,label+": no unrelated rig or hand warping");
-                if(c.FamilyId is "whale" or "gpt" && time==times.Last())Capture(c.Id+"-"+outfit+"-"+key);
+                if((outfit=="sports" || c.FamilyId is "whale" or "gpt") && time==times.Last())Capture(c.Id+"-"+outfit+"-"+key);
             }
             pet.PreviewFive("photo",3500);var photo=pet.CreateFivePhoto();Check(photo.PixelWidth==720&&photo.PixelHeight==880,label+": photo export");
-            if(c.FamilyId is "whale" or "gpt")Capture(c.Id+"-"+outfit+"-photo-card",photo);
+            if(outfit=="sports" || c.FamilyId is "whale" or "gpt")Capture(c.Id+"-"+outfit+"-photo-card",photo);
             pet.StopInteraction();Check(pet.ActiveFive is null&&pet.FivePanel.Visibility==Visibility.Collapsed,label+": cancellation removes inline controls");
         }
         pet.EndPreview();pet.Save();var restored=new StateStore(output).Load();Check(restored.Treasures.Count==pet.State.Treasures.Count,"collection survives state reload");

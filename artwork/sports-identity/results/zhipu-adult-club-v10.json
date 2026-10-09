@@ -1,0 +1,92 @@
+{
+  "key": "zhipu-adult-club-v10",
+  "id": "zhipu-adult",
+  "style": "realistic",
+  "kind": "club",
+  "columns": 4,
+  "rows": 6,
+  "source": "artwork/sports-identity/zhipu-adult-club-v10.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/zhipu-adult/motions/cloud-club-original.png"
+  ],
+  "generationReferences": [
+    "artwork/sports-identity/zhipu-adult-club-v9.png"
+  ],
+  "prompt": "Background extraction only: remove ALL grey/brown blurred backdrop and replace with actual fully transparent alpha (alpha 0) around and between all24figures. Input image is the complete1536x1024sprite atlas, 8columns×3rows, every figure already correct. Preserve every character pixel, same1536x1024canvas, exact positions, proportions, face, hair, ears, tail, shoes, short-sleeve sports clothes, pale skin tones, all poses and EVERY small white bubble-wand ring and stem in the entire middle row. The thin ring at the mouths of middle-row columns3/4 and ring above hand ofcolumn7 must stay; don't mistake white/silver ring for background. Do not add any background, ground, shadow, white rectangle, checkerboard or glow. This is a clean transparent cutout operation ONLY; no redesign/recolor/reposition. Preserve full hair and clothing edges with fine antialiasing, clean alpha0in empty gaps.",
+  "tool": "built-in image_gen",
+  "status": "visually-reviewed-pending-runtime",
+  "selected": true,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-3473c67d-57a4-4256-958a-d5a699496eb5.png",
+  "measurementPixels": {
+    "bubbleSources": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      [
+        61,
+        427
+      ],
+      [
+        256,
+        427
+      ],
+      [
+        489,
+        429
+      ],
+      [
+        682,
+        430
+      ],
+      [
+        824,
+        420
+      ],
+      [
+        1002,
+        428
+      ],
+      [
+        1209,
+        428
+      ],
+      [
+        1392,
+        427
+      ],
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ]
+  },
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-09",
+    "passed": true,
+    "summary": "24帧原图同源比例对照，短袖膝上短裤保留原成年头身及腿长；肤色恢复，背景已全透明。中间8帧圈棒均存在并随同一手至嘴边，已放大检查侧面圈及测量点。",
+    "evidence": [
+      ".artifacts/sports-identity-review/zhipu-adult-club-v10-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "3a412c151c414af81f96693f7a163b61823de6f96b8478369df7a8063a0cb713",
+    "originalSha256": "6a75ec14a87a8239a69b3780828e81b414174762c0d17f89d8e78c39c94e64d9",
+    "comparisonFingerprint": "5bf70469ad372a31b360a0120762beb7f559771508d7b998922a4914559a9ff0"
+  },
+  "contactReview": {
+    "date": "2026-10-09",
+    "reviewer": "assistant",
+    "method": "Eight source-pixel wand-ring anchors and same-hand prop continuity verified in enlarged browser composite; transparent edges reviewed against light background.",
+    "evidence": ".artifacts/sports-identity-review/zhipu-adult-club-v10-anchors.png"
+  }
+}

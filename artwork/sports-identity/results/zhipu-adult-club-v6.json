@@ -15,7 +15,21 @@
   ],
   "prompt": "Precise object edit. FIRST image is the target atlas; preserve its original colors, proportions,24figures and all pixels outside the correction. SECOND image is an ANNOTATED LOCATION GUIDE ONLY. In the red-box woman, add ONE clearly visible silver WHITE circle-and-stick BUBBLE WAND in her raised hand at the RED CIRCLE location. The loop is held by the existing fingertips, circular hollow ring above fingers, matching the ring held by the neighbor immediately to her right. Only this red-box character is modified and only the small handheld wand added. Other23figures untouched. First image skin/face color unchanged. Output complete original1536x1024 transparent24pose atlas, not a crop. No red rectangle/circle, no text, no guide background in output. Character must visibly hold the bubble wand.",
   "tool": "built-in image_gen",
-  "status": "generated-awaiting-visual-review",
+  "status": "not-selected-after-review",
   "selected": false,
-  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-88c8695e-5775-4091-a043-b496682e4c4c.png"
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-88c8695e-5775-4091-a043-b496682e4c4c.png",
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-09",
+    "passed": false,
+    "summary": "仍有15无圈棒，未采用。",
+    "evidence": [
+      ".artifacts/sports-identity-review/zhipu-adult-club-v6-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "883a1f65b6a03356d2eba27f8ef6493dc0e0312a7821b6a8cb9b90c5180776e2",
+    "originalSha256": "6a75ec14a87a8239a69b3780828e81b414174762c0d17f89d8e78c39c94e64d9",
+    "comparisonFingerprint": "57302a8b4211518e0856759f45208dcd7afe404abfe65d879fbfccc620903ffb"
+  }
 }

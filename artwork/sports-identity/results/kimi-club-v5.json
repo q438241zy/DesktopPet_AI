@@ -16,7 +16,73 @@
   ],
   "prompt": "Precise single-pose correction. FIRST image is current target24pose Kimi sports atlas1024x1536. SECOND annotation tells exact pose to edit: red-box woman ONLY, fourth row third column. THIRD image contains the CORRECT pose for that same fourth row third column: OPEN eyes, BOTH HANDS LOW near waist, left-on-screen hand holds silverblue circular bubble wand, other hand holds blue bottle. Restore exactly that THIRD image pose INSIDE ONLY RED BOX in FIRST. Her raised arms must become the two low hands holding wand and bottle. Keep face/head/hair/legs/shoes positions. All23OTHER poses in FIRST must remain EXACTLY intact: in particular fifth row third column must KEEP exactlyTWO raised arms and closed happy eyes, and sixth row third/fourth must KEEP lowered hands and OPEN eyes. Output complete1024x1536 transparent24pose atlas. No guide marks,text,red box or flat background. Do not edit any other frame.",
   "tool": "built-in image_gen",
-  "status": "generated-awaiting-visual-review",
+  "status": "not-selected-after-review",
   "selected": false,
-  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-4f707850-aa18-4598-8ecb-d8fd6684e121.png"
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-4f707850-aa18-4598-8ecb-d8fd6684e121.png",
+  "measurementPixels": {
+    "bubbleSources": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      [
+        147,
+        700
+      ],
+      [
+        331,
+        670
+      ],
+      [
+        618,
+        671
+      ],
+      [
+        874,
+        678
+      ],
+      [
+        90,
+        930
+      ],
+      [
+        307,
+        915
+      ],
+      [
+        595,
+        934
+      ],
+      [
+        880,
+        971
+      ],
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ]
+  },
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-09",
+    "passed": false,
+    "summary": "修复第15泡泡帧和伸展序列，但9的圈棒与瓶子握手相反，需交换以保持八帧道具连续。",
+    "evidence": [
+      ".artifacts/sports-identity-review/kimi-club-v5-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "b1f22da65721a35ef3f67e41be407e95a96eafaa2dcb99cac983c3dceb6db90c",
+    "originalSha256": "d4f92185ad3779a37413d1f536610617ab947279703429df35c525cf2a89e0e0",
+    "comparisonFingerprint": "030882f2b3b07dacc3a601eb19a12710e55963be686c2c4dd93d169012875387"
+  }
 }

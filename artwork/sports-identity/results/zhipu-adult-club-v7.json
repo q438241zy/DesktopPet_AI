@@ -1,0 +1,87 @@
+{
+  "key": "zhipu-adult-club-v7",
+  "id": "zhipu-adult",
+  "style": "realistic",
+  "kind": "club",
+  "columns": 4,
+  "rows": 6,
+  "source": "artwork/sports-identity/zhipu-adult-club-v7.png",
+  "references": [
+    "src/DesktopPet.App/Assets/Characters/zhipu-adult/motions/cloud-club-original.png"
+  ],
+  "generationReferences": [
+    "artwork/sports-identity/zhipu-adult-club-v6.png",
+    "artwork/sports-identity/references/zhipu-club-ring-guide.png"
+  ],
+  "prompt": "Fix the one missing prop in the sprite sheet. In the MIDDLE ROW, every woman must be holding a VISIBLE white circular bubble wand with one hand and a blue bubble bottle in the other. One woman near the right edge, directly LEFT of the rightmost woman, is pointing her bare finger with NO wand. Change that ONE woman's bare pointing-finger gesture into the SAME circle-wand gripping gesture as her immediate RIGHT NEIGHBOR: silver-white hollow ring prominently visible to left of her cheek, stem held by closed fingers at chest height. Use the second image red box ONLY to locate the woman. Her face, body, legs, shoes, clothes, hair, canvas location stay unchanged. Everyone else stays unchanged. Make the wand unmistakable; the ring should be the same visible white loop and thickness as the immediate right neighbor, not a subtle hair-colored line. Whole1536x1024atlas output, transparent background, no guides or text. Exactly eight visible circles in middle row, one per woman, one blue bottle each.",
+  "tool": "built-in image_gen",
+  "status": "not-selected-after-review",
+  "selected": false,
+  "generatedFile": "C:\\Users\\99000256\\.codex\\generated_images\\01a0e159-1c2b-7643-8517-9ec7beebfed3\\exec-04d9c534-f41f-4ecb-bef2-79c1e2d6707c.png",
+  "measurementPixels": {
+    "bubbleSources": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      [
+        61,
+        427
+      ],
+      [
+        256,
+        427
+      ],
+      [
+        471,
+        418
+      ],
+      [
+        663,
+        425
+      ],
+      [
+        824,
+        420
+      ],
+      [
+        1002,
+        428
+      ],
+      [
+        1209,
+        428
+      ],
+      [
+        1392,
+        427
+      ],
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ]
+  },
+  "visualReview": {
+    "reviewer": "assistant",
+    "date": "2026-10-09",
+    "passed": false,
+    "summary": "15圈棒恢复，近嘴11/12圈口不清，继续修正。",
+    "evidence": [
+      ".artifacts/sports-identity-review/zhipu-adult-club-v7-pairs.png"
+    ],
+    "scope": "助手目视审阅；不等于用户新增批准或原生安装完成。",
+    "runtimeVerified": false,
+    "candidateSha256": "0e521d9ebb1bb8c9dc445f1be16dbdb630c2eaf0094a257cf103c36bf89527be",
+    "originalSha256": "6a75ec14a87a8239a69b3780828e81b414174762c0d17f89d8e78c39c94e64d9",
+    "comparisonFingerprint": "ae8059751521cf36ad1c1b499e77b1575ed7ba13f05ff578debbc167453c06a5"
+  }
+}

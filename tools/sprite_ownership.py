@@ -13,7 +13,7 @@ _spec.loader.exec_module(_stage)
 
 def owned_cells(path, sprite):
     cells = sprite.get('cells', [])
-    if not sprite.get('isolateCells') or '/identity-' not in sprite['file']:
+    if not sprite.get('isolateCells') or ('/identity-' not in sprite['file'] and not sprite.get('exportOwnership')):
         return [None] * len(cells)
     key = (str(path), json.dumps(cells, sort_keys=True), sprite.get('separationAlpha', 80))
     if key not in _cache:

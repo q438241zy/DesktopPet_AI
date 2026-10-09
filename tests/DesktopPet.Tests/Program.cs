@@ -13,6 +13,7 @@ MembershipTests.Run(Test);
 FiveTests.Run(Test);
 CompanionTests.Run(Test);
 AgendaTests.Run(Test);
+IdlePostureTests.Run(Test);
 
 Test("care tolerates a delayed frame and sleep belongs only to lullaby", () =>
 {

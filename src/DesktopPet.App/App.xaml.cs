@@ -56,6 +56,12 @@ public partial class App : Application
         if (e.Args.Contains("--ui-test")) pet.ShowInTaskbar = true;
         MainWindow = pet;
         pet.Show();
+        if (e.Args.Contains("--verify-idle-postures"))
+        {
+            try { await IdlePostureVerification.Run(pet, DataRoot); Shutdown(0); }
+            catch (Exception ex) { Directory.CreateDirectory(DataRoot); File.WriteAllText(Path.Combine(DataRoot, "idle-posture-error.txt"), ex.ToString()); Shutdown(1); }
+            return;
+        }
         if (e.Args.Contains("--verify-idle-hide"))
         {
             try { await IdleHideVerification.Run(pet, DataRoot); Shutdown(0); }

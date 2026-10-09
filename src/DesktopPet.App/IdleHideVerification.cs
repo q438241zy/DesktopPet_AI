@@ -29,15 +29,18 @@ internal static class IdleHideVerification
         {
             pet.State.AutoHide = true; pet.State.Wander = true; pet.SelectCharacter(id); pet.State.Outfits[id] = "sports"; pet.ApplySettings();
             pet.Left = pet.WorkArea.Left + pet.WorkArea.Width / 2 - 280; pet.Top = pet.WorkArea.Bottom - 468;
-            pet.StopInteraction(); var watch = Stopwatch.StartNew(); bool walked = false;
+            pet.StopInteraction(); pet.SetPostureMode("auto"); var watch = Stopwatch.StartNew(); bool walked = false;
+            string initialPosture = pet.CurrentPosture; double? postureChanged = null;
             // No clock rewriting in this section: the application receives an uninterrupted real minute.
             while (watch.Elapsed.TotalSeconds < 58)
             {
                 if (pet.CurrentAction == "walk") walked = true;
+                if (pet.CurrentPosture != initialPosture && postureChanged is null) postureChanged = watch.Elapsed.TotalSeconds;
                 if (pet.HideStage is not null) throw new InvalidOperationException("Hide began before a full minute: " + id);
                 await Task.Delay(100);
             }
             Require(walked, id + ": ordinary autonomous walking does not reset the user-idle clock");
+            Require(postureChanged is >= 29.5 and < 32, id + ": real 30-second posture change precedes automatic walking and hiding");
             await Until(() => pet.HideStage is not null, 6, "real minute trigger " + id);
             double began = watch.Elapsed.TotalSeconds; Require(began is >= 59.5 and < 64, id + ": auto-hide begins after a real minute");
             await Until(() => pet.HideStage == HidePhase.Peek, 50, "walk to edge " + id);
@@ -49,7 +52,7 @@ internal static class IdleHideVerification
             Require(pet.HideStage == HidePhase.Return, id + ": left click finds hidden pet");
             await Until(() => pet.HideStage is null, 6, "return after found " + id);
             Require(pet.CurrentSpeech == "被你找到啦！", id + ": returns with found greeting");
-            timings.Add(new { character = id, triggerSeconds = began, edgeSeconds = arrived, heldSeconds = 12 });
+            timings.Add(new { character = id, postureSeconds = postureChanged, triggerSeconds = began, edgeSeconds = arrived, heldSeconds = 12 });
         }
         File.WriteAllText(Path.Combine(output, "idle-hide-timing.json"), System.Text.Json.JsonSerializer.Serialize(timings, Json.Options));
         File.AppendAllText(Path.Combine(output, "idle-hide-check.txt"), $"PASS {checks.Count} idle-hide checks with two real-minute trials.\n");

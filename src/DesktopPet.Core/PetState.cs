@@ -8,6 +8,7 @@ public sealed partial class PetState
     public int Version { get; set; } = 1;
     public string Character { get; set; } = "whale";
     public Dictionary<string, string> Outfits { get; set; } = [];
+    public Dictionary<string, string> Postures { get; set; } = [];
     public double Size { get; set; } = 200;
     public double Opacity { get; set; } = 1;
     public double? Left { get; set; }
@@ -70,6 +71,8 @@ public sealed partial class PetState
         if (Left is { } x && !double.IsFinite(x)) Left = null;
         if (Top is { } y && !double.IsFinite(y)) Top = null;
         ReadStories ??= [];
+        Postures ??= [];
+        foreach (string family in Postures.Keys.ToArray()) Postures[family] = IdlePosture.Normalize(Postures[family]);
         foreach(string id in ReadStories.Keys.ToArray())
             if(StoryLibrary.Find(id) is null || ReadStories[id] is <1 or >100000) ReadStories.Remove(id);
         if(GiftDrawRemaining is null || GiftDrawRemaining.Count>20 || GiftDrawRemaining.Distinct().Count()!=GiftDrawRemaining.Count

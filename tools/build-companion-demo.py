@@ -11,6 +11,7 @@ import os
 from pathlib import Path
 import re
 import shutil
+import sys
 import xml.etree.ElementTree as ET
 from PIL import Image
 from sprite_ownership import owned_cells, encode
@@ -21,6 +22,7 @@ ASSETS = ROOT / 'src/DesktopPet.App/Assets/Characters'
 FAMILIES = [('whale', 'DeepSeek', 'deepseek-adult')] + [(s, n, s+'-adult') for s, n in [('gpt','GPT'),('claude','Claude'),('gemini','Gemini'),('grok','Grok'),('qwen','Qwen'),('zhipu','GLM'),('kimi','Kimi')]]
 parser = argparse.ArgumentParser()
 parser.add_argument('--target', type=Path, default=SOURCE)
+parser.add_argument('--idle-only', action='store_true', help='Export only existing idle gesture geometry; keep other generated data and photo payloads.')
 args = parser.parse_args()
 target = args.target.resolve()
 if not target.is_relative_to(ROOT):
@@ -84,6 +86,38 @@ def photo_module(cid,desc):
         payloads[name]=file
     return {'module':'.generated/photos/'+name,'key':sha}
 
+
+def export_idle_art():
+    # Reuse the approved outfit's complete stretch sequence. No pixel edits,
+    # cross-outfit fallback, generated photo copies, or new image payloads.
+    idle_art = {}
+    for family, name, adult in FAMILIES:
+        idle_art[family] = {}
+        for style, cid in [('chibi', family), ('realistic', adult)]:
+            pet = json.loads((ASSETS/cid/'pet.json').read_text(encoding='utf-8-sig'))
+            idle_art[family][style] = {}
+            for outfit in ['original', 'sports', 'swim', 'wedding']:
+                clothes = pet if outfit == 'original' else pet['outfits'][outfit]
+                def compact(desc):
+                    return {**desc, 'cells': [c if i in desc['frames'] else None for i, c in enumerate(desc['cells'])]}
+                gestures = {'stretch': compact(descriptor(cid, clothes['motions']['stretch']))}
+                if style == 'chibi' and outfit in ['swim', 'wedding']:
+                    # These older atlases overlap their neighboring cells. Export
+                    # native ownership for a clean ponder clip. Their one-frame
+                    # outfit portrait is not a smile: use the existing happy pose.
+                    gestures['think'] = compact(descriptor(cid, {**clothes['motions']['think'], 'exportOwnership': True}))
+                    five = clothes['interactionFive']
+                    pose = five['poses']['happy']
+                    gestures['smile'] = compact(descriptor(cid, {**five['atlases'][pose['atlas']], 'isolateCells': True, 'exportOwnership': True}, pose['frame'], pose))
+                idle_art[family][style][outfit] = gestures
+    (target/'idle-art.js').write_text('globalThis.CLOUD_IDLE_ART='+json.dumps(idle_art,ensure_ascii=False,separators=(',',':'))+';\n',encoding='utf-8')
+
+
+export_idle_art()
+if args.idle_only:
+    print(json.dumps(dict(target=str(target),idleAppearances=64,pixelChanges=0),ensure_ascii=False))
+    sys.exit(0)
+
 for family,name,adult in FAMILIES:
     entry=dict(name=name,styles={})
     for style,cid in [('chibi',family),('realistic',adult)]:
@@ -131,7 +165,7 @@ for id,title,body in re.findall(r'new CompanionStory\("([^"]+)","([^"]+)",new\[\
 assert len(data['items'])==20 and len(data['stories'])==3
 
 if target!=SOURCE:
-    for name in ['index.html','style.css','icons.js','personas.js','providers.js','model.js','photo-layout.js','agenda.js','agenda-ui.js','agenda.css','app.js','preview-art.js','claude-review.html']:
+    for name in ['index.html','style.css','icons.js','personas.js','providers.js','model.js','photo-layout.js','agenda.js','agenda-ui.js','agenda.css','idle-postures.js','app.js','preview-art.js','claude-review.html']:
         shutil.copyfile(SOURCE/name,target/name)
     (target/'art').mkdir(exist_ok=True)
     for file in (SOURCE/'art').glob('claude-sports-stand-v2*'):

@@ -1,7 +1,7 @@
 /* Fresh file:// browser, synthetic API replies, no personal profiles or desktop capture. */
 const fs=require('node:fs'),path=require('node:path'),vm=require('node:vm'),crypto=require('node:crypto'),assert=require('node:assert/strict'),{pathToFileURL}=require('node:url');
 let chromium;try{({chromium}=require('playwright'));}catch{({chromium}=require(path.join(process.env.USERPROFILE,'.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright')));}
-const root=path.resolve(__dirname,'..'),target=path.join(root,'Release/win-x64/Demo/CompanionV01'),out=path.join(root,'.artifacts/companion-v15-review'),A=require('../docs/demo/companion-v01/providers.js'),P=require('../docs/demo/companion-v01/personas.js');
+const root=path.resolve(__dirname,'..'),target=path.join(root,'Release/win-x64/Demo/CompanionV01'),out=process.env.CHAT_REVIEW_DIRECTORY||path.join(root,'.artifacts/companion-v15-review'),A=require('../docs/demo/companion-v01/providers.js'),P=require('../docs/demo/companion-v01/personas.js');
 fs.mkdirSync(out,{recursive:true});const checks=[],errors=[],requests=[],sha=p=>crypto.createHash('sha256').update(fs.readFileSync(p)).digest('hex'),exe=path.join(root,'Release/win-x64/DesktopPet.exe'),nativeBefore=sha(exe);
 (async()=>{
  const browser=await chromium.launch({executablePath:path.join(process.env.ProgramFiles,'Google/Chrome/Application/chrome.exe'),headless:true});

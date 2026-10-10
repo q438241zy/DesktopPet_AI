@@ -1,7 +1,7 @@
 (() => {
   'use strict';
   const $=selector=>document.querySelector(selector), $$=selector=>[...document.querySelectorAll(selector)];
-  const M=CompanionModel,P=PetPersonas,D=CLOUD_DATA,A=CompanionProviders;
+  const M=CompanionModel,P=PetPersonas,D=CLOUD_DATA,A=CompanionProviders,I=CompanionIdlePostures;
   const storageKey='cloud-companions.demo.v01.state',accountKey='cloud-companions.demo.v01.accounts';
   const read=key=>{try{return JSON.parse(localStorage.getItem(key)||'null');}catch{return null;}};
   const state=M.create(read(storageKey));
@@ -9,8 +9,8 @@
   let offset=0;const now=()=>Date.now()+offset;
   const runtime=M.createRuntime(now()),images=new Map(),photoImages=new Map(),pendingPhotos=new Map(),errors=[];
   let page='partners',detailId=state.selected,detailTab='bond',collectionTab='balls',apiKey='',session=null,authMode='login',chatTicket=0,chatAbort=null,chatStarted=0,chatFinished=0,photoStamp='',photoBusy=false,photoTicket=0,story=null,storyLine=0,storyFinished=false,lastTick=performance.now(),lastSave=now(),touches=[],saveFailed=false;
-  const postureInterval=30000;
-  const postureStates=new Map(M.families.map((id,i)=>[id,{pose:i%2?'sit':'stand',next:now()+postureInterval,running:true}]));
+  const postureStates=new Map(M.families.map((id,i)=>[id,new I.Clock(i%2?'sit':'stand')]));
+  const appearanceCache=new Map(),postureBounds=new WeakMap();
   let photoMembers=[],lastPhotoLayout=null;
   const chats=Object.fromEntries(M.families.map(id=>[id,[]]));
   let viewStamp='',lastPose=null,toastTimer,reminderTimer,reminderTicket=0,reminderAbort=null,reminderIndex=0,apiTestTicket=0,apiTestAbort=null;
@@ -18,7 +18,11 @@
   const calendarStart=time=>{const date=dateAtNoon(time);if(state.settings.calendarView==='week')date.setDate(date.getDate()-(date.getDay()+6)%7);else date.setDate(1);return date;};
   let calendarDate=dateAtNoon(now()),dailyDate=M.day(now()),makeupDate='';
   const outfit=(family=state.selected,style=state.style)=>state.outfits[family+'/'+style]||'original';
-  const look=(family=state.selected,style=state.style,clothes=outfit(family,style))=>D.families[family].styles[style].looks[clothes];
+  const look=(family=state.selected,style=state.style,clothes=outfit(family,style))=>{
+    const key=family+'/'+style+'/'+clothes;
+    if(!appearanceCache.has(key))appearanceCache.set(key,{...D.families[family].styles[style].looks[clothes],...CLOUD_IDLE_ART[family][style][clothes]});
+    return appearanceCache.get(key);
+  };
   const icon=name=>`<svg viewBox="0 0 24 24" aria-hidden="true"><path d="${CompanionIcons[name]||CompanionIcons.cloud}"></path></svg>`;
   function icons(root=document){root.querySelectorAll('[data-icon]').forEach(el=>el.innerHTML=icon(el.dataset.icon));}
   function save(){try{localStorage.setItem(storageKey,JSON.stringify(state));saveFailed=false;}catch{if(!saveFailed)toast('浏览器存储不可用，本次记录只保留到关页。');saveFailed=true;}}
@@ -40,42 +44,46 @@
   function posture(family=state.selected){const mode=state.postures[family]||'auto';return mode==='auto'?postureStates.get(family).pose:mode;}
   function postureButtons(){$$('[data-posture]').forEach(el=>el.setAttribute('aria-pressed',String(el.dataset.posture===(state.postures[state.selected]||'auto'))));}
   function setPosture(value){state.postures[state.selected]=value;touch();save();postureButtons();drawStatic();drawPet();}
-  function resetPostures(){for(const p of postureStates.values()){p.next=now()+postureInterval;p.running=false;}}
+  function resetPostures(){for(const p of postureStates.values())p.suspend(now());}
   function updatePostures(){
     const blocked=runtime.paused||document.hidden||state.settings.reducedMotion||document.querySelector('dialog[open]');
     let changed=false;
     for(const [id,p] of postureStates){
-      if(blocked||(state.postures[id]||'auto')!=='auto'||id===state.selected&&(runtime.action!=='idle'||!$('#pet-menu').hidden||$('#chat-input').value.trim()||agenda?.blocksHide())){p.next=now()+postureInterval;p.running=false;continue;}
-      if(!p.running){p.next=now()+postureInterval;p.running=true;continue;}
-      if(now()>=p.next){p.pose=p.pose==='stand'?'sit':'stand';p.next=now()+postureInterval;changed=true;}
+      const eligible=!blocked&&(state.postures[id]||'auto')==='auto'&&!(id===state.selected&&(runtime.action!=='idle'||!$('#pet-menu').hidden||$('#chat-input').value.trim()||agenda?.blocksHide()));
+      if(p.tick(now(),eligible))changed=true;
     }
     if(changed)drawStatic();
   }
   function postureHeight(appearance,w,h,requested){
-    let height=requested;
-    for(const candidate of [appearance.stand,appearance.sit]){const cell=candidate.cells[candidate.frames[0]],b=cell.bounds||[0,0,cell.width,cell.height],half=Math.max(cell.footX-b[0],b[2]-cell.footX);height=Math.min(height,w*.47*candidate.reference/(half*cell.scale),h*.88*candidate.reference/(cell.visibleHeight*cell.scale));}
-    return height;
+    if(!postureBounds.has(appearance)){
+      let width=0,height=0;
+      for(const pose of I.poses){const candidate=appearance[pose];for(const frame of candidate.frames){const c=candidate.cells[frame],b=c.bounds||[0,0,c.width,c.height];width=Math.max(width,Math.max(c.footX-b[0],b[2]-c.footX)*c.scale/candidate.reference);height=Math.max(height,c.visibleHeight*c.scale/candidate.reference);}}
+      postureBounds.set(appearance,{width,height});
+    }
+    const bounds=postureBounds.get(appearance);
+    return Math.min(requested,w*.47/bounds.width,h*.88/bounds.height);
   }
   function drawCanvas(canvas,family,style,clothes,pose=null,elapsed=0){
     if(!canvas||!canvas.isConnected||!canvas.getBoundingClientRect().width)return;
     const box=canvas.getBoundingClientRect(),dpr=Math.min(3,devicePixelRatio||1),w=Math.round(box.width*dpr),h=Math.round(box.height*dpr);
     if(canvas.width!==w||canvas.height!==h){canvas.width=w;canvas.height=h;}
-    const ctx=canvas.getContext('2d');ctx.clearRect(0,0,w,h);
-    pose=pose||posture(family);const appearance=look(family,style,clothes),desc=appearance[pose]||appearance.idle;
+    const automatic=!pose;pose=pose||posture(family);const appearance=look(family,style,clothes),desc=appearance[pose]||appearance.idle;
+    if(automatic&&(state.postures[family]||'auto')==='auto')elapsed=postureStates.get(family).elapsed(now(),desc);
     const frame=frameAt(desc,state.settings.reducedMotion?0:elapsed),img=loadedImage(source(family,style,desc));
-    let height=postureHeight(appearance,w,h,h*.86);
-    // Both postures reserve the same stage scale; no per-pose fitting on switches.
-    const cell=desc.cells[desc.frames[0]],bounds=cell.bounds||[0,0,cell.width,cell.height],half=Math.max(cell.footX-bounds[0],bounds[2]-cell.footX);height=Math.min(height,w*.47*desc.reference/(half*cell.scale),h*.88*desc.reference/(cell.visibleHeight*cell.scale));
-    if(canvas.dataset.pose&&canvas.dataset.pose!==pose&&!state.settings.reducedMotion)canvas.animate([{opacity:.4},{opacity:1}],{duration:240});
+    if(!img.complete||!img.naturalWidth)return;
+    const height=postureHeight(appearance,w,h,h*.86),key=[img.src,frame,w,h,height].join('|');
     canvas.dataset.pose=pose;canvas.dataset.file=desc.file;canvas.dataset.frame=String(frame);
-    draw(ctx,img,desc,frame,w*.5,h*.95,height);
+    if(canvas.dataset.drawKey===key)return {file:desc.file,frame,reference:desc.reference};
+    // Reserve one body scale across all idle poses; do not flash or shrink on changes.
+    const ctx=canvas.getContext('2d');ctx.clearRect(0,0,w,h);
+    if(draw(ctx,img,desc,frame,w*.5,h*.95,height))canvas.dataset.drawKey=key;
     return {file:desc.file,frame,reference:desc.reference};
   }
   function displayTime(seconds){if(seconds<60)return `${Math.floor(seconds)} 秒`;if(seconds<3600)return `${Math.floor(seconds/60)} 分钟`;return `${Math.floor(seconds/3600)} 小时 ${Math.floor(seconds%3600/60)} 分钟`;}
   function affect(delta,label,key,cooldown){const result=M.affect(state,state.selected,delta,label,now(),key,cooldown);save();if(page==='detail')renderBond();return result;}
   function speak(text,pose='talk',duration=4600){$('#bubble-text').textContent=text;if(!['hidden','hiding'].includes(runtime.action)){runtime.action=pose;runtime.started=now();runtime.until=now()+duration;}syncStage(true);}
   function cancelChat(){chatTicket++;chatAbort?.abort();chatAbort=null;agenda?.invalidate();if(runtime.action==='thinking'){runtime.action='idle';runtime.started=now();runtime.idleSince=now();}$('#chat-send').disabled=false;$('#chat-input').disabled=runtime.paused;$('#pet-stage').classList.remove('thinking');$('.thinking-dots').hidden=true;}
-  function touch(){runtime.idleSince=now();const p=postureStates.get(state.selected);p.next=now()+postureInterval;}
+  function touch(){runtime.idleSince=now();postureStates.get(state.selected).reset(now());}
   function navigate(next){
     if(page==='agenda'&&next!=='agenda')agenda?.invalidate();
     page=next;$$('.page').forEach(el=>el.hidden=el.id!=='page-'+next);$$('[data-page]').forEach(el=>el.classList.toggle('active',el.dataset.page===(['detail','interaction'].includes(next)?'partners':next)));
@@ -136,8 +144,12 @@
     body.style.left=x+'px';body.style.opacity=runtime.paused?'.65':'1';
     const b=canvas.getBoundingClientRect(),dpr=Math.min(3,devicePixelRatio||1),cw=Math.round(b.width*dpr),ch=Math.round(b.height*dpr);
     if(!cw||!ch)return;if(canvas.width!==cw||canvas.height!==ch){canvas.width=cw;canvas.height=ch;}
-    const ctx=canvas.getContext('2d');ctx.clearRect(0,0,cw,ch);const desc=look()[pose]||look().idle;const frame=frameAt(desc,state.settings.reducedMotion?0:elapsed);
-    draw(ctx,loadedImage(source(state.selected,state.style,desc)),desc,frame,cw*.5,ch*.96,postureHeight(look(),cw,ch,ch*.88),flip&&(desc.facing!=='left'));
+    const desc=look()[pose]||look().idle,img=loadedImage(source(state.selected,state.style,desc));
+    if(!img.complete||!img.naturalWidth)return;
+    const ctx=canvas.getContext('2d');ctx.clearRect(0,0,cw,ch);
+    const poseElapsed=runtime.action==='idle'&&(state.postures[state.selected]||'auto')==='auto'?postureStates.get(state.selected).elapsed(now(),desc):elapsed;
+    const frame=frameAt(desc,state.settings.reducedMotion?0:poseElapsed);
+    draw(ctx,img,desc,frame,cw*.5,ch*.96,postureHeight(look(),cw,ch,ch*.88),flip&&(desc.facing!=='left'));
     lastPose={family:state.selected,style:state.style,outfit:outfit(),pose,file:desc.file,frame};
     const bubbleHeight=$('#pet-bubble').offsetHeight;$('#inline-chat').style.top=Math.min(115,27+bubbleHeight)+'px';
   }
@@ -402,8 +414,16 @@
   $('#review-affinity').oninput=event=>{state.relations[event.target.dataset.family].score=Number(event.target.value);$('#review-score').textContent=event.target.value;save();if(page==='detail')renderDetail();};
   document.addEventListener('pointerdown',event=>{if(!event.target.closest('#review-dialog'))touch();});document.addEventListener('keydown',event=>{touch();if(event.key==='Escape')$('#pet-menu').hidden=true;});document.addEventListener('visibilitychange',()=>{lastTick=performance.now();resetPostures();save();});window.addEventListener('pagehide',()=>{save();cancelChat();dismissReminder();cancelApiTest();});window.addEventListener('resize',()=>{drawStatic();drawPet();});
   $('.brand').onclick=event=>{event.preventDefault();navigate('partners');};
-  globalThis.companionDemo={snapshot:()=>({page,selected:state.selected,style:state.style,outfit:outfit(),runtime:{...runtime},relations:structuredClone(state.relations),checkins:[...state.checkins],makeupCards:state.makeupCards,makeupCheckins:[...state.makeupCheckins],collection:{...state.collection},stories:{...state.stories},pose:lastPose,posture:posture(),postureMode:state.postures[state.selected]||'auto',photoReady:!!photoStamp,photoBusy,photoMembers:[...photoMembers],photoLayout:lastPhotoLayout,chatCount:chats[state.selected].length,chatDuration:chatFinished-chatStarted,errors:[...errors],version:D.version,agenda:agenda.snapshot()}),advance:ms=>{offset+=ms;tick();agenda.poll();},select,style,navigate,openDetail,render:tick};
+  globalThis.companionDemo={snapshot:()=>({page,selected:state.selected,style:state.style,outfit:outfit(),runtime:{...runtime},relations:structuredClone(state.relations),checkins:[...state.checkins],makeupCards:state.makeupCards,makeupCheckins:[...state.makeupCheckins],collection:{...state.collection},stories:{...state.stories},pose:lastPose,posture:posture(),postureMode:state.postures[state.selected]||'auto',idleClock:postureStates.get(state.selected).snapshot(now()),photoReady:!!photoStamp,photoBusy,photoMembers:[...photoMembers],photoLayout:lastPhotoLayout,chatCount:chats[state.selected].length,chatDuration:chatFinished-chatStarted,errors:[...errors],version:D.version,agenda:agenda.snapshot()}),advance:ms=>{offset+=ms;tick();agenda.poll();},select,style,navigate,openDetail,render:tick};
   if(state.work.enabled)M.workStart(runtime,state,now());renderSettings();renderCards();select(state.selected);chatSource();setInterval(tick,100);tick();
   if(['#agenda','#interaction'].includes(location.hash))navigate(location.hash.slice(1));
-  function animate(){if(!document.hidden&&!runtime.paused&&page==='interaction'&&['hiding','thinking','talk','pat'].includes(runtime.action)&&!state.settings.reducedMotion)drawPet();requestAnimationFrame(animate);}requestAnimationFrame(animate);
+  let lastAnimation=0;
+  function animate(time){
+    if(!document.hidden&&!runtime.paused&&!state.settings.reducedMotion&&time-lastAnimation>=40){
+      lastAnimation=time;
+      if(page==='interaction'&&['idle','hiding','thinking','talk','pat'].includes(runtime.action))drawPet();
+      else if(['partners','detail'].includes(page))drawStatic();
+    }
+    requestAnimationFrame(animate);
+  }requestAnimationFrame(animate);
 })();

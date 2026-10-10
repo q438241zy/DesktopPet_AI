@@ -2,7 +2,7 @@
   <PropertyGroup>
     <!-- The user controls the major number; each delivered update advances the minor number. -->
     <DesktopPetMajor>1</DesktopPetMajor>
-    <DesktopPetMinor>4</DesktopPetMinor>
+    <DesktopPetMinor>5</DesktopPetMinor>
     <Version>$(DesktopPetMajor).$(DesktopPetMinor).0</Version>
     <AssemblyVersion>$(DesktopPetMajor).$(DesktopPetMinor).0.0</AssemblyVersion>
     <FileVersion>$(DesktopPetMajor).$(DesktopPetMinor).0.0</FileVersion>

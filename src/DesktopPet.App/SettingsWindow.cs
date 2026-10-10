@@ -27,6 +27,7 @@ public sealed partial class SettingsWindow : Window
     public SettingsWindow(PetWindow pet)
     {
         this.pet = pet; category = pet.Character.Category;
+        Closed += (_, _) => { agendaComposer?.Close(); agendaComposer?.Dispose(); };
         var dayClock = new System.Windows.Threading.DispatcherTimer { Interval = TimeSpan.FromSeconds(30) };
         dayClock.Tick += (_, _) => RefreshCalendarDate(); dayClock.Start(); Closed += (_, _) => dayClock.Stop();
         KeyDown += (_, e) => { if (e.Key == Key.Escape) { pet.StopInteraction(); e.Handled = true; } };
@@ -82,8 +83,11 @@ public sealed partial class SettingsWindow : Window
     }
     private void Rebuild()
     {
+        if (page != "agenda") agendaComposer?.Close();
         content.Children.Clear(); ClearCompanionBindings(); posturePreviews.Clear();
         foreach (var (id, b) in navigation) { b.Background = id == (page == "profile" ? "partners" : page) ? CloudTheme.Brush("#F3DCE5") : Brushes.Transparent; b.Foreground = id == (page == "profile" ? "partners" : page) ? CloudTheme.Blue : CloudTheme.Ink; b.FontWeight = id == (page == "profile" ? "partners" : page) ? FontWeights.SemiBold : FontWeights.Normal; }
+        foreach (var (id, b) in navigation)
+            if (b.Content is Panel row) foreach (var icon in row.Children.OfType<LineIcon>()) icon.Selected = id == (page == "profile" ? "partners" : page);
         switch (page) { case "agenda": BuildAgenda(); break; case "members": Members(); break; case "profile": BuildCompanionProfile(); break; case "life": Life(); break; case "preferences": Preferences(); break; default: Partners(); break; }
     }
     private Grid Stage(Character character, double height, string outfit = "original", bool idlePosture = false)
@@ -107,7 +111,7 @@ public sealed partial class SettingsWindow : Window
         var badges = new WrapPanel(); badges.Children.Add(CloudTheme.Badge("正在陪伴")); badges.Children.Add(CloudTheme.Badge(CloudTheme.CategoryName(pet.Character.Category))); intro.Children.Add(badges);
         var name = Text(CompanionName(pet.Character), 25); name.FontWeight = FontWeights.SemiBold; name.Margin = new Thickness(0, 10, 0, 4); intro.Children.Add(name);
         heroBond = Text("", 12, true); intro.Children.Add(heroBond); RefreshCompanion();
-        intro.Children.Add(MakeButton("聊聊天 / 记日程", () => { if (!pet.IsVisible) pet.ToggleVisible(); pet.OpenChat(); }));
+        intro.Children.Add(MakeButton("聊聊天", () => { if (!pet.IsVisible) pet.ToggleVisible(); pet.OpenChat(); }));
         if (pet.Character.Outfits.Count > 0)
         {
             var outfits = new WrapPanel();
@@ -120,7 +124,7 @@ public sealed partial class SettingsWindow : Window
         }
         else intro.Children.Add(Text("当前使用你导入的角色。", 11, true));
         var postures = new WrapPanel();
-        foreach (var (id, label) in new[] { ("auto", "自动 · 30秒"), ("stand", "站立"), ("sit", "坐下") })
+        foreach (var (id, label) in new[] { ("auto", "自动 · 1–2秒"), ("stand", "站立"), ("sit", "坐下") })
         {
             bool selected = pet.PostureMode(pet.Character.FamilyId) == id;
             var b = MakeButton(label, () => { pet.SetPostureMode(id); Rebuild(); });

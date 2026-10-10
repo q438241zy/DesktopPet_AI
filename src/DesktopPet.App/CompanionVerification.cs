@@ -27,7 +27,7 @@ internal static class CompanionVerification
         { var timer = Stopwatch.StartNew(); while (!predicate()) { if (timer.Elapsed.TotalSeconds > seconds) throw new TimeoutException(name); await Task.Delay(40); } }
         void Capture(FrameworkElement view, string name)
         {
-            view.UpdateLayout(); var bitmap = new RenderTargetBitmap((int)Math.Ceiling(view.ActualWidth), (int)Math.Ceiling(view.ActualHeight), 96, 96, PixelFormats.Pbgra32); bitmap.Render(view); PetWindow.SaveCompanionPhoto(bitmap, Path.Combine(output, name + ".png"));
+            view.UpdateLayout(); var bitmap = new RenderTargetBitmap((int)Math.Ceiling(view.ActualWidth), (int)Math.Ceiling(view.ActualHeight), 96, 96, PixelFormats.Pbgra32); bitmap.Render(view); VerificationImages.Save(bitmap, Path.Combine(output, name + ".png"));
         }
         pet.Accounts.Logout(); pet.IsHitTestVisible = false; pet.State.AutoHide = false; pet.State.Wander = false; pet.State.ReducedMotion = false; pet.State.CheckIns.Clear(); pet.State.MakeupCards = 0;
         pet.SelectCharacter("gpt"); pet.State.Outfits["gpt"] = "original"; pet.ApplySettings(); pet.StopInteraction(); pet.OpenSettings();
@@ -94,14 +94,7 @@ internal static class CompanionVerification
         pet.SelectCharacter("gpt"); pet.OpenChat(); Require(pet.Chat.History.Count == previousHistory + 1, "cancelled request never adds an assistant answer"); Capture(pet, "gpt-inline-chat"); pet.StopInteraction();
         for (int i = 0; i < 6; i++) pet.Touch(.4);
         Require(pet.State.Companion("gpt").History.Last() is { Label: "连续逗弄", Delta: -2 } && pet.CurrentSpeech == CompanionPersonas.Text("gpt", "distant"), "six rapid touches lower affinity and express a gentle boundary"); pet.StopInteraction();
-        foreach (string style in CharacterStyles.All)
-        foreach (string outfit in Catalog.BuiltInOutfits)
-        {
-            var first = pet.Catalog.Find(Catalog.VariantId("gpt", style)); var second = pet.Catalog.Find(Catalog.VariantId("whale", style));
-            var photo = pet.CreateCompanionPhoto(first, outfit, second, outfit, "今天也一起，收集一朵温柔的云", style == CharacterStyles.Chibi ? 1 : 2);
-            Require(photo.PixelWidth == 1200 && photo.PixelHeight == 1400, "framed dual photo " + style + "/" + outfit); PetWindow.SaveCompanionPhoto(photo, Path.Combine(output, $"photo-{style}-{outfit}.png"));
-        }
-        pet.RunInteraction("photo"); await Until(() => Application.Current.Windows.OfType<Window>().Any(w => w.Title == "云朵伙伴 · 合照"), "photo window"); var photoWindow = Application.Current.Windows.OfType<Window>().Single(w => w.Title == "云朵伙伴 · 合照"); Require(Find<ComboBox>(photoWindow).First(b => AutomationProperties.GetName(b) == "合照伙伴").Items.Count == 7, "photo permits seven other companions"); Capture(photoWindow, "photo-dialog"); photoWindow.Close();
+        Require(!PetActions.Daily.Any(a => a.Key == "photo"), "photo entry removed");
         Click("陪伴日常"); Click("周历"); pet.Save(); var restored = new StateStore(output).Load(); Require(restored.CalendarView == "week" && restored.MakeupCards == 0 && restored.CheckedIn(old) && restored.Treasures.Contains("贝壳") && restored.ReadStories["cloud-post"] == 1, "all progress survives reload");
         window.Close(); pet.SelectCharacter("gpt"); pet.State.Outfits["gpt"] = "original"; pet.ApplySettings(); pet.StopInteraction();
         var workClock = (WorkReminderClock)typeof(PetWindow).GetField("workClock", BindingFlags.NonPublic | BindingFlags.Instance)!.GetValue(pet)!;

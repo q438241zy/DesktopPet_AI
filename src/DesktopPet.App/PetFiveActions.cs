@@ -14,7 +14,7 @@ public sealed partial class PetWindow
     private readonly FiveFeedback fiveFeedback=new();
     private readonly Border fivePanel=new(){Width=276,Padding=new Thickness(12),CornerRadius=new CornerRadius(18),Background=CloudTheme.Cream,BorderBrush=CloudTheme.Line,BorderThickness=new Thickness(1),Visibility=Visibility.Collapsed};
     private readonly TextBlock fiveSpeech=new(){TextWrapping=TextWrapping.Wrap,FontSize=12,LineHeight=19,Foreground=CloudTheme.Ink};
-    private string fiveControlState="", photoName="我";
+    private string fiveControlState="";
     private int fiveSavedRevision;
     internal FiveInteraction? ActiveFive=>five;
     internal FiveFeedback FiveEffects=>fiveFeedback;
@@ -26,7 +26,7 @@ public sealed partial class PetWindow
         fiveFeedback.Selected+=FiveCommand;
         fiveFeedback.MouseRightButtonUp+=(_,e)=>{HandleRightClick();e.Handled=true;};
         fivePanel.MouseRightButtonUp+=(_,e)=>{HandleRightClick();e.Handled=true;};
-        AutomationProperties.SetName(fiveFeedback,"互动手掌或礼物：点击、拖到角色手心，或按空格");
+        AutomationProperties.SetName(fiveFeedback,"击掌手掌：点击、拖到角色手心，或按空格");
     }
     private void StartFive(string key)
     {
@@ -50,14 +50,8 @@ public sealed partial class PetWindow
         {
             case "highfive":fiveFeedback.PrepareApproach();five.HighFive();break;
             case "rock":case "paper":case "scissors":five.Choose(command);break;
-            case "deliver":fiveFeedback.PrepareApproach();five.Deliver();break;
-            case "unwrap":five.Unwrap();break;
-            case "begin":five.BeginRead();break;
             case "pause":five.PauseRead();break;
-            case "next":five.NextSentence();break;
-            case "shutter":five.Shutter();break;
             case "again":five.Start(five.Key);break;
-            case "save-photo":SaveFivePhoto();break;
         }
         lastInteraction=Now;Render();
     }
@@ -68,6 +62,7 @@ public sealed partial class PetWindow
         while(milliseconds>0){double step=Math.Min(100,milliseconds);five.Advance(step);milliseconds-=step;}
         if(five.Revision!=fiveSavedRevision)
         {fiveSavedRevision=five.Revision;if(five.Key is "read" or "gift")AwardCompanion(2,five.Key=="read"?"一起读完故事":"一起拆礼物",five.Key,60);Save();settings?.RefreshLife();}
+        if (five.Finished) { ClearFive(); SetAction("idle"); lastInteraction=Now; Save(); }
     }
     private bool RenderFivePose()
     {
@@ -102,7 +97,7 @@ public sealed partial class PetWindow
     private void BuildFiveControls()
     {
         if(five is null)return;
-        string state=five.Key+"/"+five.Phase+"/"+five.Story.Id;
+        string state=five.Key+"/"+five.Phase+"/"+five.Story.Id+"/"+five.Sentence;
         if(fiveControlState==state)return;fiveControlState=state;
         if(fiveSpeech.Parent is Panel old)old.Children.Remove(fiveSpeech);
         var stack=new StackPanel();fivePanel.Child=stack;
@@ -118,26 +113,9 @@ public sealed partial class PetWindow
                 if(five.Phase=="choose")foreach(string hand in FiveInteraction.Hands)B(FiveInteraction.HandName(hand),hand,hand=="scissors"?"rps":"highfive");
                 else if(five.Phase=="revealed")B("再猜一次","again");
                 break;
-            case "gift":
-                if(five.Phase=="receive")B("递出礼物","deliver","gift");
-                else if(five.Phase=="holding")B("一起拆开","unwrap","gift");
-                else if(five.Phase=="opened")B("再送一份","again","gift");
-                break;
             case "read":
-                var select=new ComboBox{ItemsSource=StoryLibrary.All,DisplayMemberPath="Title",SelectedItem=five.Story,Width=242,Margin=new Thickness(0,0,0,6)};
-                select.SelectionChanged+=(_,_)=>{if(select.SelectedItem is CompanionStory story&&five?.Story.Id!=story.Id){five?.SelectStory(story.Id);Render();}};
-                AutomationProperties.SetName(select,"选择共读故事");stack.Children.Insert(stack.Children.Count-1,select);
-                if(five.Phase is "ready" or "finished")B(five.Phase=="finished"?"再读一遍":"开始共读","begin","read");
-                else if(five.Phase is "reading" or "turning" or "paused")
-                {B(five.Phase=="paused"?"继续":"暂停","pause");if(five.Phase!="turning")B(five.Sentence==five.Story.Sentences.Count-1?"读完":"下一句","next");}
-                break;
-            case "photo":
-                if(five.Phase is "compose" or "saved")
-                {
-                    var name=new TextBox{Text=photoName,MaxLength=20,Width=110,Margin=new Thickness(0,2,6,2),Padding=new Thickness(6)};
-                    name.TextChanged+=(_,_)=>photoName=name.Text.Trim();AutomationProperties.SetName(name,"合照昵称");row.Children.Add(name);B("拍合照","shutter","photo");
-                }
-                else if(five.Phase=="capture") {B("保存合照","save-photo","photo");B("重拍","again");}
+                stack.Children.Insert(1,new TextBlock { Text=$"{five.Story.Title} · {five.Sentence+1}/{five.Story.Sentences.Count}", FontSize=11, Foreground=CloudTheme.Muted, Margin=new Thickness(0,5,0,0) });
+                if(five.Phase is "reading" or "turning" or "paused") B(five.Phase=="paused"?"继续":"暂停","pause");
                 break;
         }
     }
@@ -149,33 +127,6 @@ public sealed partial class PetWindow
         var b=new Button{Content=row,Padding=new Thickness(8,5,8,5),Margin=new Thickness(0,2,5,2),FontSize=11};
         AutomationProperties.SetName(b,label);b.Click+=(_,_)=>clicked();return b;
     }
-    internal BitmapSource CreateFivePhoto()
-    {
-        if(five?.Key!="photo" || Character.FiveFor(State.Outfit) is not {} art)throw new InvalidOperationException("尚未进入合照。");
-        var pose=art.Poses["photo"];var sheet=art.Atlases[pose.Atlas];var frame=Art.Frame(Character,sheet,pose.Frame);
-        double k=595/sheet.ReferenceHeightPixels;
-        var visual=new DrawingVisual();using(var dc=visual.RenderOpen())
-        {
-            dc.DrawRectangle(ItemArt.Brush("#FAF4F6"),null,new Rect(0,0,720,880));
-            dc.DrawRoundedRectangle(Brushes.White,null,new Rect(30,30,660,820),28,28);
-            dc.DrawImage(frame,new Rect(250-pose.FootX*k,725-pose.FootY*k,frame.PixelWidth*k,frame.PixelHeight*k));
-            dc.PushTransform(new TranslateTransform(456,350));dc.PushTransform(new ScaleTransform(7,7));
-            dc.DrawGeometry(ItemArt.Brush("#E2EEF2"),new Pen(ItemArt.Brush("#B1CBD5"),.4),ItemArt.Path("M4,17 C-1,17 0,9 5,9 C5,1 17,1 18,9 C24,9 24,17 18,17 Z"));dc.DrawEllipse(ItemArt.Brush("#77939F"),null,new Point(8,11),.6,.8);dc.DrawEllipse(ItemArt.Brush("#77939F"),null,new Point(15,11),.6,.8);dc.Pop();dc.Pop();
-            void Label(string value,double x,double y,double size){var t=new FormattedText(value,CultureInfo.GetCultureInfo("zh-CN"),FlowDirection.LeftToRight,new Typeface("Microsoft YaHei UI"),size,CloudTheme.Ink,1);dc.DrawText(t,new Point(x-t.Width/2,y));}
-            Label("今天也一起",360,65,29);Label(string.IsNullOrWhiteSpace(photoName)?"我":photoName,540,500,22);
-            Label(Character.Name+"  ♡  "+(string.IsNullOrWhiteSpace(photoName)?"我":photoName),360,768,21);Label(DateTime.Now.ToString("yyyy.MM.dd"),360,808,15);
-        }
-        var bmp=new RenderTargetBitmap(720,880,96,96,PixelFormats.Pbgra32);bmp.Render(visual);bmp.Freeze();return bmp;
-    }
-    private void SaveFivePhoto()
-    {
-        if(five?.Phase!="capture")return;
-        var dialog=new Microsoft.Win32.SaveFileDialog{Filter="PNG 图片|*.png",FileName="一起-"+DateTime.Now.ToString("yyyyMMdd-HHmmss")+".png",InitialDirectory=Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory)};
-        if(dialog.ShowDialog(this)!=true)return;
-        try{var encoder=new PngBitmapEncoder();encoder.Frames.Add(BitmapFrame.Create(CreateFivePhoto()));using(var file=File.Create(dialog.FileName))encoder.Save(file);five.PhotoSaved();}
-        catch(Exception ex)when(ex is IOException or UnauthorizedAccessException){MessageBox.Show(this,"图片未保存："+ex.Message);}
-        Render();
-    }
     internal void PreviewFive(string key,double elapsed)
     {
         ClearTransient();previewClock=elapsed;five=new FiveInteraction(new PetState(),new Random(9));five.Start(key);SetAction(key);fiveSavedRevision=0;
@@ -183,9 +134,6 @@ public sealed partial class PetWindow
         {
             if(key=="highfive"&&at>=1000)five.HighFive();
             if(key=="rps"&&at>=400)five.Choose("paper");
-            if(key=="gift"){if(at>=400)five.Deliver();if(at>=1400)five.Unwrap();}
-            if(key=="read"&&at>=200){five.BeginRead();if(at>=1600&&five.Sentence==0)five.NextSentence();}
-            if(key=="photo"&&at>=200)five.Shutter();
             five.Advance(Math.Min(20,elapsed-at));
         }
         fiveControlState="";Render();

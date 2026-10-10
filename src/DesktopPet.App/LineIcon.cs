@@ -9,6 +9,19 @@ internal sealed class LineIcon : Control
 {
     public string Glyph { get; init; } = "cloud";
     public bool Soft { get; init; }
+    public static readonly DependencyProperty SelectedProperty = DependencyProperty.Register(nameof(Selected), typeof(bool), typeof(LineIcon), new FrameworkPropertyMetadata(false, FrameworkPropertyMetadataOptions.AffectsRender));
+    public bool Selected { get => (bool)GetValue(SelectedProperty); set => SetValue(SelectedProperty, value); }
+    private static readonly Dictionary<string, Geometry> SolidShapes = new Dictionary<string, string>
+    {
+        ["heart"]="M12 20C8 17.5 3 13 3 8.7 3 3 9.7 2.7 12 7c2.3-4.3 9-4 9 1.7C21 13 16 17.5 12 20Z",
+        ["chat"]="M5 3h14a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3h-8l-6 4v-4a3 3 0 0 1-3-3V6a3 3 0 0 1 3-3ZM7 9v2h2V9Zm4 0v2h2V9Zm4 0v2h2V9Z",
+        ["calendar"]="M5 4h1V2h2v2h8V2h2v2h1a3 3 0 0 1 3 3v12a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3Zm-1 5h16V7H4Zm3 6 4 4 6-6-1.5-1.5L11 16l-2.5-2.5Z",
+        ["member"]="M3 6 8 9 12 2 16 9 21 6 19 19H5ZM7 20h10v2H7Z",
+        ["settings"]="M9 3h6l1 3 3 1 2 5-2 4-3 2-1 3H9l-1-3-3-2-2-4 2-5 3-1 1-3Zm0 9a3 3 0 1 0 6 0 3 3 0 0 0-6 0Z",
+        ["ball"]="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20ZM5 7q4 2 6 5l-6 4-1-2 5-3-5-3Zm4-3q6 4 6 9t-4 7l-2-1q4-3 4-6T8 5Zm4 5q4-2 7-1v2q-3-1-7 1Z",
+        ["gift"]="M3 9h18v4h-8V9h-2v4H3Zm2 6h6v7H5Zm8 0h6v7h-6ZM12 8C0 9 3-3 12 6 21-3 24 9 12 8Zm-2-2C4 0 5 7 10 6Zm4 0c5 1 6-6 0 0Z",
+        ["read"]="M2 4Q7 2 11 5v17Q7 18 2 20Zm11 1q4-3 9-1v16q-5-2-9 2ZM5 8v2l4 1V9Zm0 5v2l4 1v-2Zm10-4v2l4-1V8Zm0 5v2l4-1v-2Z"
+    }.ToDictionary(p => p.Key, p => { var shape=Geometry.Parse(p.Value); shape.Freeze(); return shape; });
     private static readonly Dictionary<string, Geometry> Shapes = new Dictionary<string, string>
     {
         ["highfive"]="M7,21 Q3,17 3,12 Q3,10 5,11 L7,14 V6 Q7,3 9,6 V12 V3 Q11,1 12,4 V12 V5 Q14,3 15,6 V13 L17,8 Q20,7 19,11 L17,19 Q15,23 7,21 Z M4,4 L2,2 M19,3 L21,1",
@@ -94,13 +107,15 @@ internal sealed class LineIcon : Control
             : Soft && SoftShapes.TryGetValue(Glyph, out var rounded) ? rounded : Shapes.GetValueOrDefault(Glyph, Shapes["cloud"]);
         var pen = new Pen(Foreground ?? CloudTheme.Ink, Soft ? 1.8 : 1.65) { StartLineCap = PenLineCap.Round, EndLineCap = PenLineCap.Round, LineJoin = PenLineJoin.Round };
         dc.PushTransform(new ScaleTransform(ActualWidth / 24, ActualHeight / 24));
+        if (Selected && SolidShapes.TryGetValue(Glyph, out var solid))
+        { dc.DrawGeometry(Foreground ?? CloudTheme.Blue, null, solid); dc.Pop(); return; }
         if (Soft)
         {
             // A narrow halo follows only the stroke, keeping it readable over wallpaper without adding a button plate.
             var halo = new Pen(CloudTheme.Brush("#A6FFFCFA"), 3.6) { StartLineCap = PenLineCap.Round, EndLineCap = PenLineCap.Round, LineJoin = PenLineJoin.Round };
             dc.DrawGeometry(null, halo, shape);
         }
-        dc.DrawGeometry(null, pen, shape);
+        dc.DrawGeometry(Selected ? Foreground ?? CloudTheme.Blue : null, pen, shape);
         dc.Pop();
     }
 }

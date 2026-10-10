@@ -14,15 +14,21 @@ namespace DesktopPet.App;
 internal static class DemoExporter
 {
     private const int SampleMs = 40, Width = 560, Height = 680;
-    internal static async Task Run(PetWindow pet, string output)
+    internal static CoverageRow[] WriteCoverage(Catalog catalog, string output)
     {
         Directory.CreateDirectory(output);
-        Directory.CreateDirectory(Path.Combine(output,"frames"));
-        var coverage = ActionCoverage.All(pet.Catalog);
+        var coverage = ActionCoverage.All(catalog);
         File.WriteAllText(Path.Combine(output,"action-coverage.json"),JsonSerializer.Serialize(coverage,Json.Options));
+        File.WriteAllText(Path.Combine(output,"actions.json"),JsonSerializer.Serialize(ActionCoverage.Actions,Json.Options));
         var markdown = new List<string> { "# 動作覆蓋清單", "", "自動讀取目前角色清單。近似動作和缺少動作不視為完成；靜態姿勢需配合使用情境閱讀。", "", "| 角色 | 風格 | 服裝 | 動作 | 狀態 | 說明 |", "|---|---|---|---|---|---|" };
         markdown.AddRange(coverage.Select(r=>$"| {r.Character} | {r.Category} | {r.Outfit} | {r.Title} | {r.Status} | {r.Detail} |"));
         File.WriteAllLines(Path.Combine(output,"動作清單.md"),markdown);
+        return coverage;
+    }
+    internal static async Task Run(PetWindow pet, string output)
+    {
+        var coverage = WriteCoverage(pet.Catalog,output);
+        Directory.CreateDirectory(Path.Combine(output,"frames"));
         pet.State.Size=240; pet.State.Wander=pet.State.ReducedMotion=false; pet.State.Opacity=1; pet.State.CheckIn(DateOnly.FromDateTime(DateTime.Now));
         pet.BeginPreview();
         var frames = new List<string>(); var hashes = new Dictionary<string,int>();

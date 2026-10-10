@@ -6,7 +6,7 @@
 @media(max-width:860px){.cards{grid-template-columns:1fr}.arena{height:420px}main{padding:20px 14px 40px}.card{max-width:560px;width:100%;margin:auto}header{align-items:flex-start}.meta{max-width:150px}h1{font-size:24px}.audit{padding:16px}.steps{flex-wrap:wrap}}
 </style></head><body><main>
 <header><div class="brand"><svg class="cloud" viewBox="0 0 64 64"><path d="M16 49C8 49 3 44 3 37C3 30 8 25 15 25C14 18 20 12 27 13C31 5 45 9 46 20C53 18 58 23 58 29C66 36 61 49 51 49Z"/><path d="M22 33q3 3 6 0m9 0q3 3 6 0m-13 6q2 2 5 0" fill="none" stroke="#ad526f" stroke-linecap="round"/><ellipse cx="21" cy="38" rx="4" ry="2" fill="#f2bbcb" stroke="none"/><ellipse cx="44" cy="38" rx="4" ry="2" fill="#f2bbcb" stroke="none"/><path d="M42 17Q36 9 34 15Q34 20 42 21Q48 12 51 17Q51 23 42 21Z" fill="#f2c3d3"/></svg><div><div class="eyebrow">雲朵伙伴 · 持續更新</div><h1>DeepSeek 動作實驗室</h1></div></div><div class="meta" id="version"></div></header>
-<p class="intro">並排比較 Q版與3D真人。動作畫面由桌面程式的渲染器匯出；換裝、拖曳放置、自然落下與頭頂聊天可以在這裡反覆試看。五項新互動可在<a href="InteractionFive/index.html?review=I3">全角色互動頁</a>實際操作，故事與礼物都有收藏。</p>
+<p class="intro">並排比較 Q版與3D真人。<a href="CompanionV01/index.html">打開目前版本的互動控制面板</a>，體驗自動送禮、十篇故事、追蝴蝶與 1–2 秒待機。下方保留桌面渲染器的既有逐幀回放與完整動作清單；新版流程請以上述互動頁為準。</p>
 <div class="alert" id="gaps"></div>
 <div class="toolbar"><span>服裝</span><div class="segment" id="outfits"></div><button class="pill" id="reset">回到工作列</button><label><input id="loop" type="checkbox"> 循環播放</label><div class="steps"><button class="pill" id="pause">暫停</button><input id="timeline" aria-label="動作時間軸" type="range" min="0" max="100" value="0"><span id="timeLabel" class="meta">0.0 秒</span></div></div>
 <div class="membership-preview"><label>會員預覽 <select id="memberTier" aria-label="會員預覽等級"><option value="4">黑金</option><option value="3">白金</option><option value="2">黃金</option><option value="1">白銀</option><option value="0">黃銅</option></select></label><span id="memberNote" class="meta">測試期間全部開放。這裡只預覽會員，註冊與登入請到程式主頁。</span></div>
@@ -17,7 +17,7 @@
 <div class="notes"><details><summary>這份 Demo 如何更新，以及它能驗證什麼</summary><p>每次執行 <code>pwsh -File tools/demo.ps1</code>，都會重新讀取當前的角色包、動作清單和桌面渲染器，更新這份 HTML 及完整清單。圖像由同目錄的 frames 資料夾按動作載入，可離線開啟；移動時請保留完整 Demo 資料夾。</p><p>「專用逐幀／專用姿勢」表示本外觀有對應美術；「程序動作」使用骨骼或特效；「近似動作」及「缺少動作」屬於待補。待機、聆聽和手動放置本來就可以保持安靜姿勢。</p><p>网页中的拖曳、球反應選擇與本機對話是展示邏輯，不能代替 Windows 滑鼠、跨螢幕或真實 API 驗收。此頁不會連接 API，也不收集金鑰。</p></details></div>
 </main><script id="data" type="application/json">__DEMO_DATA__</script><script>
 const D=JSON.parse(document.getElementById('data').textContent), $=id=>document.getElementById(id);
-const visibleActions=D.actions;
+const visibleActions=D.actions.filter(a=>!['photo',...(D.interactiveUpdates||[])].includes(a.key));
 const styles=[['chibi','Q版'],['realistic','3D真人']], clothes=[['original','原服'],['swim','泳裝'],['wedding','婚紗'],['sports','短袖運動服']].filter(([key])=>styles.every(([style])=>D.clips[style+'-'+key]));
 const requestedOutfit=new URLSearchParams(location.search).get('outfit');
 let outfit=clothes.some(([key])=>key===requestedOutfit)?requestedOutfit:'original',action='idle',paused=false,sequence=0;const states=[];

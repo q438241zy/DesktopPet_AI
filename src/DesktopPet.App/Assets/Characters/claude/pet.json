@@ -4446,6 +4446,7 @@
     "sports": {
       "name": "短袖运动服",
       "motions": {
+        "idle-stand": { "file": "outfits/sports/idle-stand-v18.png", "columns": 1, "rows": 1, "frameMs": [5000], "referenceHeightPixels": 990 },
         "angry": {
           "file": "outfits/sports/identity-angry.png",
           "columns": 3,

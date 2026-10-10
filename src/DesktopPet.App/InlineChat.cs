@@ -13,6 +13,7 @@ namespace DesktopPet.App;
 internal sealed partial class InlineChat : Border, IDisposable
 {
     private readonly PetWindow pet;
+    private readonly bool agendaMode;
     private readonly List<ChatMessage> history = [];
     private readonly Dictionary<string, List<ChatMessage>> conversations = [];
     private readonly TextBox input = new() { MinHeight = 36, MaxHeight = 70, AcceptsReturn = true, TextWrapping = TextWrapping.Wrap, MaxLength = 4000, VerticalScrollBarVisibility = ScrollBarVisibility.Auto };
@@ -32,9 +33,9 @@ internal sealed partial class InlineChat : Border, IDisposable
     internal bool CanGenerate => !Options.IsLocal && (!string.IsNullOrWhiteSpace(apiKey) || Uri.TryCreate(Options.Endpoint, UriKind.Absolute, out var uri) && uri.IsLoopback);
     private string OptionsPath => Path.Combine(App.DataRoot, "chat-settings.json");
 
-    public InlineChat(PetWindow pet)
+    public InlineChat(PetWindow pet, bool agendaMode = false)
     {
-        this.pet = pet;
+        this.pet = pet; this.agendaMode = agendaMode;
         Width = 306; Padding = new Thickness(13); CornerRadius = new CornerRadius(18);
         Background = CloudTheme.Cream; BorderBrush = CloudTheme.Line; BorderThickness = new Thickness(1);
         Visibility = Visibility.Collapsed;
@@ -46,9 +47,9 @@ internal sealed partial class InlineChat : Border, IDisposable
         var composer = new DockPanel(); chatConversation.Children.Add(composer);
         var buttons = new StackPanel { Margin = new Thickness(7, 0, 0, 0) }; buttons.Children.Add(send); buttons.Children.Add(stop);
         DockPanel.SetDock(buttons, Dock.Right); composer.Children.Add(buttons); composer.Children.Add(input);
-        var calendar = new Button { Content = "宠物行事历", HorizontalAlignment = HorizontalAlignment.Left, FontSize = 11, Margin = new Thickness(0, 8, 0, 0), Padding = new Thickness(8, 4, 8, 4) };
-        AutomationProperties.SetName(calendar, "打开宠物行事历"); calendar.Click += (_, _) => pet.OpenAgenda(); chatConversation.Children.Add(calendar); root.Children.Add(agendaEditor);
-        AutomationProperties.SetName(this, "角色头顶聊天"); AutomationProperties.SetName(input, "聊天内容"); AutomationProperties.SetName(send, "发送聊天");
+        if (agendaMode) root.Children.Add(agendaEditor);
+        AutomationProperties.SetName(this, agendaMode ? "行事历专用输入" : "角色头顶聊天"); AutomationProperties.SetName(input, agendaMode ? "日程内容" : "聊天内容"); AutomationProperties.SetName(send, agendaMode ? "整理日程" : "发送聊天");
+        if (agendaMode) { close.Visibility = Visibility.Collapsed; send.Content = "整理"; }
         close.Click += (_, _) => pet.StopInteraction();
         stop.Click += (_, _) => pending?.Cancel();
         send.Click += async (_, _) => await SendText(input.Text);
@@ -68,12 +69,12 @@ internal sealed partial class InlineChat : Border, IDisposable
     {
         if (!pet.AccessTo("chat").Allowed) return;
         SetCompanion(); Visibility = Visibility.Visible;
-        if (pet.IsHitTestVisible) { pet.Activate(); input.Focus(); Keyboard.Focus(input); }
+        if (pet.IsHitTestVisible && !agendaMode) { pet.Activate(); input.Focus(); Keyboard.Focus(input); }
     }
     internal void Close()
     {
         CancelResponse(); Visibility = Visibility.Collapsed;
-        pet.EndConversation();
+        if (!agendaMode || pet.ActiveChat is null) pet.EndConversation();
     }
     internal void CancelResponse()
     {
@@ -88,7 +89,7 @@ internal sealed partial class InlineChat : Border, IDisposable
         if (family == pet.Character.FamilyId) return;
         CancelResponse(); if (family.Length > 0) conversations[family] = history.ToList(); family = pet.Character.FamilyId; history.Clear();
         if (conversations.TryGetValue(family, out var saved)) history.AddRange(saved);
-        input.Clear(); reply.Text = history.LastOrDefault(m => m.Role == "assistant")?.Content ?? CompanionPersonas.Text(family, "hello");
+        input.Clear(); reply.Text = history.LastOrDefault(m => m.Role == "assistant")?.Content ?? (agendaMode ? "把事情和时间告诉我。" : CompanionPersonas.Text(family, "hello"));
     }
     internal string? SaveOptions(ChatOptions options, string key)
     {
@@ -139,18 +140,22 @@ internal sealed partial class InlineChat : Border, IDisposable
     {
         if (!pet.AccessTo("chat").Allowed || pending is not null || disposed || Visibility != Visibility.Visible || string.IsNullOrWhiteSpace(text)) return;
         text = text.Trim(); if (text.Length > 4000) text = text[..4000];
-        string turnFamily = family; int turnSession = sessionGeneration; var turnOptions = Options; string turnKey = apiKey;
+        SetCompanion();
+        string turnFamily = family; int turnSession = sessionGeneration, sharedSession = pet.Chat.sessionGeneration;
+        var service = agendaMode ? pet.Chat : this; var turnOptions = service.Options; string turnKey = service.apiKey;
         ClearAgendaDraft(); history.Add(new("user", text)); input.Clear(); reply.Text = "…";
         var cancellation = new CancellationTokenSource(); pending = cancellation;
         send.Visibility = Visibility.Collapsed; stop.Visibility = Visibility.Visible; pet.ConversationThinking();
         try
         {
-            var result = await PetAgenda.ReplyAsync(client, turnOptions, turnKey, history.ToArray(), pet.Character.FamilyId, pet.State.Companion(pet.Character.FamilyId).Score, cancellation.Token);
-            string answer = result.Reply;
-            if (disposed || turnFamily != family || turnSession != sessionGeneration || cancellation.IsCancellationRequested || Visibility != Visibility.Visible) return;
+            AgendaReply? result = null;
+            string answer;
+            if (agendaMode) { result = await PetAgenda.ReplyAsync(client, turnOptions, turnKey, history.ToArray(), turnFamily, pet.State.Companion(turnFamily).Score, cancellation.Token); answer = result.Reply; }
+            else answer = await CompanionChat.ReplyAfterThinkingAsync(client, turnOptions, turnKey, history.ToArray(), turnFamily, cancellation.Token, pet.State.Companion(turnFamily).Score);
+            if (disposed || turnFamily != family || turnFamily != pet.Character.FamilyId || turnSession != sessionGeneration || sharedSession != pet.Chat.sessionGeneration || cancellation.IsCancellationRequested || Visibility != Visibility.Visible) return;
             history.Add(new("assistant", answer)); if (history.Count > 48) history.RemoveRange(0, history.Count - 48);
             reply.Text = answer; pet.AwardCompanion(1, "聊了几句", "chat", 60); pet.ConversationReply(answer);
-            if (result.Event is { } draft) ShowAgendaDraft(draft);
+            if (result?.Event is { } draft) ShowAgendaDraft(draft);
         }
         catch (OperationCanceledException) { if (!disposed && turnFamily == family && turnSession == sessionGeneration) { reply.Text = cancellation.IsCancellationRequested ? "已停止" : "回复超时，请重试。"; pet.ConversationListen(); } }
         catch (ObjectDisposedException) when (disposed) { }

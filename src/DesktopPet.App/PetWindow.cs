@@ -216,7 +216,7 @@ public sealed partial class PetWindow : Window
         State.LastSeen = day.ToString("yyyy-MM-dd"); Save();
         if (away >= 3) { prop = "blocks"; propStart = Now; Play("pounce", $"{Character.Name}等到你啦，欢迎回来。", 3100); }
         else if (anniversary is not null && State.LastCelebration != State.LastSeen) { State.LastCelebration = State.LastSeen; Celebrate(anniversary); Save(); }
-        else if (!State.CheckedIn(day)) { SetAction("idle"); Render(); Say("右键照顾，一起吃早饭 ☀", 5500); }
+        else if (!State.CheckedIn(day)) { SetAction("idle"); Render(); Say("右键互动，一起吃饭 ☀", 5500); }
         else Play("chat", "今天也陪你一起。右键找我玩。", 2600);
         if (actionUntil > 0) onMotionEnd += ResumeFloorWalk;
         else ResumeFloorWalk();
@@ -240,6 +240,7 @@ public sealed partial class PetWindow : Window
         State.Character = selected.Id; ApplySettings(false); Save();
         ResetIdlePosture();
         chatWindow?.SetCompanion();
+        settings?.ResetAgendaComposer();
         if (keepChat) { conversationActive = true; SetAction(Chat.IsThinking ? "thinking" : "listen"); Render(); }
         else Play("chat", $"你好，我是{Character.Name}。", 2600);
     }
@@ -290,7 +291,7 @@ public sealed partial class PetWindow : Window
     private void AccountChanged()
     {
         if (!Dispatcher.CheckAccess()) { Dispatcher.Invoke(AccountChanged); return; }
-        StopInteraction(); DismissWorkReminder(); chatWindow?.ResetSession(); settings?.RefreshMembership();
+        StopInteraction(); DismissWorkReminder(); chatWindow?.ResetSession(); settings?.ResetAgendaComposer(true); settings?.RefreshMembership();
     }
     private InlineChat CreateChat() { var chat = new InlineChat(this); surface.Children.Add(chat); Panel.SetZIndex(chat, 30); return chat; }
     internal void LayoutChat(bool makeRoom = false)
@@ -619,6 +620,14 @@ public sealed partial class PetWindow : Window
             var button = new Button { Content = MemberVisual.ActionIcon(entry.Icon, !access.Allowed, 25), ToolTip = access.Allowed ? entry.Title : entry.Title + " · " + access.Hint,
                 Style = (Style)FindResource("RadialAction") };
             AutomationProperties.SetName(button, entry.Title);
+            if (button.Content is Grid iconGrid && iconGrid.Children.OfType<LineIcon>().FirstOrDefault() is { } icon)
+            {
+                bool current = entry.Key == action || entry.Key == "group:play" && PetActions.Games.Any(a => a.Key == action)
+                    || entry.Key == "group:interact" && PetActions.Interactions.Any(a => a.Key == action);
+                void UpdateSelection() => icon.Selected = current || button.IsMouseOver || button.IsKeyboardFocusWithin;
+                button.MouseEnter += (_, _) => UpdateSelection(); button.MouseLeave += (_, _) => UpdateSelection();
+                button.GotKeyboardFocus += (_, _) => UpdateSelection(); button.LostKeyboardFocus += (_, _) => UpdateSelection(); UpdateSelection();
+            }
             if (!access.Allowed) AutomationProperties.SetHelpText(button, access.Hint);
             ToolTipService.SetInitialShowDelay(button, 300); ToolTipService.SetShowDuration(button, 2500);
             button.Click += (_, _) =>
@@ -655,7 +664,7 @@ public sealed partial class PetWindow : Window
         switch (key)
         {
             case "highfive":case "rps":case "gift":case "read":StartFive(key);break;
-            case "photo": OpenCompanionPhoto(); break;
+            case "photo": break; // Removed action: old external callers cannot create a photo.
             case "checkin": CheckIn(); break;
             case "snack": Snack(); break;
             case "headpat": case "poke": case "tickle": RunTouch(key); break;
@@ -869,7 +878,7 @@ public sealed partial class PetWindow : Window
         TickIdlePostures(); Render();
         if (App.MotionLog is not null && now - lastMotionTrace >= 1000) { lastMotionTrace = now; TraceMotion("tick"); }
         bool moving = five is not null || dragging || liftActive || dropping || holdingBall || flyingBall || roaming || hideJourney is not null || prop is not null || actionUntil > 0 || motionVisual is not null || action == "thinking";
-        timer.Interval = TimeSpan.FromMilliseconds(action == "sleep" ? 80 : moving ? 16 : 200);
+        timer.Interval = TimeSpan.FromMilliseconds(action == "sleep" ? 80 : moving ? 16 : !State.ReducedMotion && CurrentPosture is "stretch" or "think" ? 32 : 80);
     }
     private void TraceMotion(string eventName)
     {
@@ -894,9 +903,10 @@ public sealed partial class PetWindow : Window
         if (RenderClubPose()) { UpdatePetInput();return; }
         if (RenderIdlePosture()) return;
         double elapsed = roaming ? walkPlayback.Milliseconds : (Now - actionStarted) * (hideJourney is not null && foundStarted is null && action == "walk" ? 1.7 : 1);
-        string renderAction=clubAction=="butterfly" ? Math.Abs(butterflyTarget-(Left+walkOffset.X+CenterX))>2 && !State.ReducedMotion ? "walk" : "ball-ready" : action;
+        string renderAction=clubAction=="butterfly" ? Now-butterflyStarted < ButterflyPursuit.MovingDuration && !State.ReducedMotion ? "walk" : "idle-stand" : action;
         if (clubAction=="butterfly" && renderAction=="walk") elapsed=walkPlayback.Milliseconds;
         var art = Character.Resolve(State.Outfit, renderAction, elapsed, State.ReducedMotion);
+        if (renderAction == "idle-stand") { var stand = IdlePosture.Resolve(Character, State.Outfit, "stand"); art = (stand.Sprite, stand.Frame); }
         var frame = Art.Frame(Character, art.Sprite, art.Frame);
         sprite.Source = frame;
         UsingDrawnAction = renderAction != "walk" && Character.MotionFor(State.Outfit, renderAction) is not null;

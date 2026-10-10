@@ -11,6 +11,7 @@ public sealed partial class PetWindow
     private readonly ClubFeedback clubFeedback=new() { Width=560, Height=680 };
     private string? clubAction;
     private double clubStarted, butterflyTarget, butterflyStarted;
+    private ButterflyPursuit? butterflyPursuit;
     private int clubScore;
     internal string? CurrentClub => clubAction;
     internal ClubPoseVisual? ActiveClubVisual => clubVisual;
@@ -46,24 +47,24 @@ public sealed partial class PetWindow
         var area=WorkArea;double pad=State.Size*.5;
         butterflyTarget=Math.Clamp(target,area.Left+pad,area.Right-pad);
         butterflyStarted=Now;walkCenter=Left+walkOffset.X+CenterX;walkPlayback.Reset();
+        int side = butterflyTarget < walkCenter ? -1 : 1;
+        direction = side;
+        butterflyPursuit = new(walkCenter, Math.Min(105, State.Size * .47), area.Left + pad, area.Right - pad, side);
         clubStarted=Now;actionStarted=Now;actionUntil=Now+ClubMotion.Duration("butterfly");
     }
     private void TickClub(double dt)
     {
-        if(clubAction!="butterfly" || State.ReducedMotion || !CanWalk) return;
-        double delta=butterflyTarget-walkCenter;
-        if(Math.Abs(delta)<.5) return;
-        direction=Math.Sign(delta);
+        if(clubAction!="butterfly" || State.ReducedMotion || !CanWalk || butterflyPursuit is null) return;
+        double next = butterflyPursuit.Center(Now - butterflyStarted), delta = next - walkCenter;
+        if (Math.Abs(delta) > .00001) direction = Math.Sign(delta);
         var clip=Character.MotionFor(State.Outfit,"walk")!;
-        double speed=DesktopWalk.Speed(State.Size,clip);
-        var step=walkPlayback.Advance(walkCenter,direction,Math.Min(dt,Math.Abs(delta)/speed),State.Size,clip,WorkArea.Left+State.Size*.46,WorkArea.Right-State.Size*.46);
-        double moved=Math.Min(Math.Abs(delta),Math.Abs(step.Center-walkCenter));
-        walkCenter+=direction*moved;PlaceWalk(walkCenter);
+        walkPlayback.Travel(delta, State.Size, clip);
+        walkCenter = next; PlaceWalk(walkCenter);
         Top=WorkArea.Bottom-FloorY;
     }
     private void ClearClub()
     {
-        clubAction=null;clubScore=0;clubFeedback.Reset();
+        clubAction=null;clubScore=0;butterflyPursuit=null;clubFeedback.Reset();
         if(clubVisual is not null) { surface.Children.Remove(clubVisual);clubVisual=null; }
     }
     private bool RenderClubPose()
@@ -112,9 +113,10 @@ public sealed partial class PetWindow
                     :new Point(mouth.X-height*(chibi?.17:.055),mouth.Y);
             };
         }
-        double remaining=Math.Abs(butterflyTarget-(Left+walkOffset.X+CenterX));
+        bool finished = Now - butterflyStarted >= ButterflyPursuit.MovingDuration;
+        var ahead = new Point(CenterX + direction * Math.Clamp(height * .43, 64, 105), FloorY - height * .92);
         clubFeedback.Update(key,elapsed,height,new Point(CenterX,FloorY),mouth,palm,chibi,State.ReducedMotion,
-            remaining>2?new Point(butterflyTarget-Left-walkOffset.X,mouth.Y-24):palm,remaining<=2 && Now-butterflyStarted>1200,bakedProps,bubbleSource);
+            ahead,finished,bakedProps,bubbleSource);
         clubFeedback.Opacity=State.Opacity;
         if(key=="stars") clubScore=ClubMotion.Sample("stars",elapsed).Count;
     }

@@ -10,15 +10,21 @@ public sealed partial class SettingsWindow
 {
     private DateOnly agendaDate = DateOnly.FromDateTime(DateTime.Now);
     private bool agendaWeek = true, agendaAll = true, agendaDone;
+    private InlineChat? agendaComposer;
+    internal InlineChat EventChat => agendaComposer ??= new InlineChat(pet, true) { Width = double.NaN, BorderThickness = new Thickness(0), Padding = new Thickness(0) };
+    internal void ResetAgendaComposer(bool reset = false) { if (reset) agendaComposer?.ResetSession(); else { agendaComposer?.CancelResponse(); agendaComposer?.SetCompanion(); } }
+    internal void EditAgendaDraft(AgendaDraft draft, string id) { Navigate("agenda"); EventChat.ShowAgendaDraft(draft, id); }
     internal void ShowAgenda() => Navigate("agenda");
     internal void RefreshAgenda() { if (page == "agenda") Rebuild(); }
     private void BuildAgenda()
     {
         Heading("", "宠物行事历", "");
         var top = new DockPanel();
-        var chat = MakeButton("告诉宠物", () => { if (!pet.IsVisible) pet.ToggleVisible(); pet.OpenChat(); }); DockPanel.SetDock(chat, Dock.Right); top.Children.Add(chat);
         var api = MakeButton(pet.Chat.CanGenerate ? "AI 接口已设定" : "接入 AI", () => Navigate("preferences")); DockPanel.SetDock(api, Dock.Right); api.Margin = new Thickness(0, 0, 10, 0); top.Children.Add(api);
-        top.Children.Add(Text("先聊一聊，确认后再记下。", 13, true)); content.Children.Add(top);
+        top.Children.Add(Text("告诉我事情和时间，确认后记下。", 13, true)); content.Children.Add(top);
+        if (EventChat.Parent is Panel previous) previous.Children.Remove(EventChat);
+        else if (EventChat.Parent is Border previousCard) previousCard.Child = null;
+        EventChat.Open(); content.Children.Add(Card(EventChat));
         if (pet.AgendaError is { } error) content.Children.Add(Text(error, 13));
         var active = pet.Agenda.Events.Where(e => e.Active).OrderBy(e => e.RemindAt).ToArray();
         var next = active.FirstOrDefault();

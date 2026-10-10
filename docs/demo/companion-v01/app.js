@@ -29,7 +29,7 @@
     const img=new Image();images.set(src,img);if(images.size>48)images.delete(images.keys().next().value);img.onload=()=>{drawStatic();drawPet();};img.onerror=()=>errorMessage(new Error('图片读取失败：'+src.split('/').at(-1)));img.src=src;
     return img;
   }
-  function source(family,style,desc){return new URL(D.assetRoot+D.families[family].styles[style].id+'/'+desc.file,location.href).href;}
+  function source(family,style,desc){return new URL(desc.demoFile||D.assetRoot+D.families[family].styles[style].id+'/'+desc.file,location.href).href;}
   function frameAt(desc,elapsed){const duration=desc.frameMs.reduce((a,b)=>a+b,0);let time=Math.max(0,elapsed)%duration;for(let i=0;i<desc.frames.length;i++){if(time<desc.frameMs[i])return desc.frames[i];time-=desc.frameMs[i];}return desc.frames.at(-1);}
   function draw(out,img,desc,frame,x,floor,height,flip=false){
     if(!img.complete||!img.naturalWidth)return false;
@@ -51,6 +51,11 @@
     }
     if(changed)drawStatic();
   }
+  function postureHeight(appearance,w,h,requested){
+    let height=requested;
+    for(const candidate of [appearance.stand,appearance.sit]){const cell=candidate.cells[candidate.frames[0]],b=cell.bounds||[0,0,cell.width,cell.height],half=Math.max(cell.footX-b[0],b[2]-cell.footX);height=Math.min(height,w*.47*candidate.reference/(half*cell.scale),h*.88*candidate.reference/(cell.visibleHeight*cell.scale));}
+    return height;
+  }
   function drawCanvas(canvas,family,style,clothes,pose=null,elapsed=0){
     if(!canvas||!canvas.isConnected||!canvas.getBoundingClientRect().width)return;
     const box=canvas.getBoundingClientRect(),dpr=Math.min(3,devicePixelRatio||1),w=Math.round(box.width*dpr),h=Math.round(box.height*dpr);
@@ -58,9 +63,9 @@
     const ctx=canvas.getContext('2d');ctx.clearRect(0,0,w,h);
     pose=pose||posture(family);const appearance=look(family,style,clothes),desc=appearance[pose]||appearance.idle;
     const frame=frameAt(desc,state.settings.reducedMotion?0:elapsed),img=loadedImage(source(family,style,desc));
-    let height=h*.86;
+    let height=postureHeight(appearance,w,h,h*.86);
     // Both postures reserve the same stage scale; no per-pose fitting on switches.
-    for(const candidate of [appearance.stand,appearance.sit,desc]){const cell=candidate.cells[candidate.frames[0]],b=cell.bounds||[0,0,cell.width,cell.height],half=Math.max(cell.footX-b[0],b[2]-cell.footX);height=Math.min(height,w*.47*candidate.reference/(half*cell.scale),h*.88*candidate.reference/(cell.visibleHeight*cell.scale));}
+    const cell=desc.cells[desc.frames[0]],bounds=cell.bounds||[0,0,cell.width,cell.height],half=Math.max(cell.footX-bounds[0],bounds[2]-cell.footX);height=Math.min(height,w*.47*desc.reference/(half*cell.scale),h*.88*desc.reference/(cell.visibleHeight*cell.scale));
     if(canvas.dataset.pose&&canvas.dataset.pose!==pose&&!state.settings.reducedMotion)canvas.animate([{opacity:.4},{opacity:1}],{duration:240});
     canvas.dataset.pose=pose;canvas.dataset.file=desc.file;canvas.dataset.frame=String(frame);
     draw(ctx,img,desc,frame,w*.5,h*.95,height);
@@ -72,6 +77,7 @@
   function cancelChat(){chatTicket++;chatAbort?.abort();chatAbort=null;agenda?.invalidate();if(runtime.action==='thinking'){runtime.action='idle';runtime.started=now();runtime.idleSince=now();}$('#chat-send').disabled=false;$('#chat-input').disabled=runtime.paused;$('#pet-stage').classList.remove('thinking');$('.thinking-dots').hidden=true;}
   function touch(){runtime.idleSince=now();const p=postureStates.get(state.selected);p.next=now()+postureInterval;}
   function navigate(next){
+    if(page==='agenda'&&next!=='agenda')agenda?.invalidate();
     page=next;$$('.page').forEach(el=>el.hidden=el.id!=='page-'+next);$$('[data-page]').forEach(el=>el.classList.toggle('active',el.dataset.page===(['detail','interaction'].includes(next)?'partners':next)));
     $('#page-title').textContent={partners:'我的伙伴',daily:'陪伴日常',member:'会员中心',settings:'设定',detail:'伙伴档案',interaction:'陪伴预览',agenda:'宠物行事历'}[next];touch();$('#pet-menu').hidden=true;
     if(next==='agenda')agenda?.render();
@@ -131,7 +137,7 @@
     const b=canvas.getBoundingClientRect(),dpr=Math.min(3,devicePixelRatio||1),cw=Math.round(b.width*dpr),ch=Math.round(b.height*dpr);
     if(!cw||!ch)return;if(canvas.width!==cw||canvas.height!==ch){canvas.width=cw;canvas.height=ch;}
     const ctx=canvas.getContext('2d');ctx.clearRect(0,0,cw,ch);const desc=look()[pose]||look().idle;const frame=frameAt(desc,state.settings.reducedMotion?0:elapsed);
-    draw(ctx,loadedImage(source(state.selected,state.style,desc)),desc,frame,cw*.5,ch*.96,ch*.88,flip&&(desc.facing!=='left'));
+    draw(ctx,loadedImage(source(state.selected,state.style,desc)),desc,frame,cw*.5,ch*.96,postureHeight(look(),cw,ch,ch*.88),flip&&(desc.facing!=='left'));
     lastPose={family:state.selected,style:state.style,outfit:outfit(),pose,file:desc.file,frame};
     const bubbleHeight=$('#pet-bubble').offsetHeight;$('#inline-chat').style.top=Math.min(115,27+bubbleHeight)+'px';
   }
@@ -151,13 +157,13 @@
     runtime.action='thinking';runtime.started=now();chatStarted=performance.now();$('#bubble-text').textContent='让我想一想';syncStage(true);
     try{
       const fetchReply=async()=>{
-        if(state.api.provider==='local'||!state.api.endpoint.trim())return /提醒|行事历|日程|记一下|幫我記|帮我记|記下|记下/.test(text)?'记日程需要先在设定中接入 AI。也可以点下方「体验记日程」，先看看我怎么帮你记。':P.reply(id,chats[id],state.relations[id].score);
-        return agenda.ask(chats[id],P.prompt(id,state.relations[id].score),{signal:controller.signal});
+        if(state.api.provider==='local'||!state.api.endpoint.trim())return P.reply(id,chats[id],state.relations[id].score);
+        return A.send(state.api,apiKey,chats[id],P.prompt(id,state.relations[id].score)+' 这里只进行日常聊天。直接用自然语言回应，不输出 JSON 或日程卡，不承诺已创建提醒。问候用简短的一句话。',{signal:controller.signal});
       };
       const result=await Promise.allSettled([fetchReply(),new Promise(resolve=>setTimeout(resolve,1000))]);
       if(ticket!==chatTicket||state.selected!==id)return;
       if(result[0].status==='rejected')throw result[0].reason;
-      const payload=result[0].value,answer=typeof payload==='string'?payload:payload.reply;if(typeof payload!=='string')agenda.receive(payload,text);chats[id].push({role:'assistant',content:answer});chatFinished=performance.now();affect(1,'聊了几句','chat',60000);speak(answer,'talk',Math.max(3600,Math.min(9000,answer.length*75)));
+      const answer=result[0].value;chats[id].push({role:'assistant',content:answer});chatFinished=performance.now();affect(1,'聊了几句','chat',60000);speak(answer,'talk',Math.max(3600,Math.min(9000,answer.length*75)));
     }catch(error){if(ticket===chatTicket){runtime.action='idle';runtime.started=now();runtime.idleSince=now();$('#bubble-text').textContent=error.name==='AbortError'?'这次回复超时了，请再试一次。':error instanceof TypeError?'连接没有成功，浏览器可能限制此接口。请检查地址或使用本机对话。':error.message;syncStage(true);}}
     finally{if(ticket===chatTicket){$('#chat-send').disabled=false;chatAbort=null;syncStage(true);}}
   }
@@ -368,7 +374,7 @@
     if(page==='partners'){const relation=state.relations[state.selected];$('#hero-bond').textContent=M.label(relation.score)+' · 相伴 '+displayTime(relation.seconds);}
     if(now()-lastSave>=5000){save();lastSave=now();}
   }
-  agenda=CompanionAgendaUI.create({now,select,family:()=>state.selected,api:()=>({...state.api}),key:()=>apiKey,go:navigate,speak,toast,paused:()=>runtime.paused,cancelChat,draw:(canvas,id,pose)=>drawCanvas(canvas,id,state.style,outfit(id),pose),think:()=>{runtime.action='thinking';runtime.started=now();$('#chat-send').disabled=true;$('#bubble-text').textContent='让我想一想';syncStage(true);},endThinking:()=>{$('#chat-send').disabled=false;syncStage(true);}});
+  agenda=CompanionAgendaUI.create({now,select,family:()=>state.selected,affinity:()=>state.relations[state.selected].score,api:()=>({...state.api}),key:()=>apiKey,go:navigate,toast,paused:()=>runtime.paused,cancelChat,draw:(canvas,id,pose)=>drawCanvas(canvas,id,state.style,outfit(id),pose)});
   icons();$$('[data-version]').forEach(el=>el.textContent='v'+D.version);document.title='云朵伙伴 · v'+D.version+' Demo';document.body.classList.toggle('reduced-motion',state.settings.reducedMotion);
   $$('[data-page]').forEach(el=>el.onclick=()=>navigate(el.dataset.page));$$('[data-style]').forEach(el=>el.onclick=()=>style(el.dataset.style));$$('[data-act]').forEach(el=>el.onclick=()=>action(el.dataset.act));$$('[data-close]').forEach(el=>el.onclick=()=>$('#'+el.dataset.close).close());
   $('#details-open').onclick=()=>openDetail(state.selected);$('#detail-back').onclick=()=>navigate('partners');$('#interaction-back').onclick=()=>navigate('partners');$$('[data-detail]').forEach(el=>el.onclick=()=>{detailTab=el.dataset.detail;renderDetail();});$('#voice-chat').onclick=()=>{select(detailId);navigate('interaction');$('#chat-input').focus();};
@@ -383,7 +389,7 @@
   $('#auto-hide').onchange=event=>{state.settings.autoHide=event.target.checked;touch();save();};$('#reduced-motion').onchange=event=>{state.settings.reducedMotion=event.target.checked;document.body.classList.toggle('reduced-motion',event.target.checked);resetPostures();save();};
   $('#api-provider').onchange=()=>{cancelApiTest();const provider=$('#api-provider').value;$('#api-endpoint').value=A.catalog[provider]?.base||'';$('#api-key').value='';$('#api-workspace').value='';$('#api-model').value=provider==='deepseek'?'deepseek-flash':'';$('#api-status').textContent='尚未保存';apiFields();};$('#api-form').onsubmit=apiSave;$('#api-test').onclick=apiTest;
   $('#api-form').oninput=event=>{cancelApiTest();if(event.target.id==='api-endpoint')$('#api-key').value='';$('#api-status').textContent='尚未保存';};
-  $('#login-tab').onclick=()=>authTabs('login');$('#register-tab').onclick=()=>authTabs('register');$('#auth-form').onsubmit=auth;$('#sign-out').onclick=()=>{session=null;apiKey='';cancelChat();dismissReminder();cancelApiTest();for(const id of M.families)chats[id]=[];$('#api-key').value='';$('#account-session').hidden=true;$('#auth-form').hidden=false;$('.auth-card [role=tablist]').hidden=false;authTabs('login');toast('已退出登录');};
+  $('#login-tab').onclick=()=>authTabs('login');$('#register-tab').onclick=()=>authTabs('register');$('#auth-form').onsubmit=auth;$('#sign-out').onclick=()=>{session=null;apiKey='';cancelChat();dismissReminder();cancelApiTest();for(const id of M.families)chats[id]=[];agenda.resetConversation();$('#api-key').value='';$('#account-session').hidden=true;$('#auth-form').hidden=false;$('.auth-card [role=tablist]').hidden=false;authTabs('login');toast('已退出登录');};
   $('#photo-form').onsubmit=generatePhoto;$('#photo-save').onclick=savePhoto;$('#hero-photo').onclick=openPhoto;$$('[data-posture]').forEach(el=>el.onclick=()=>setPosture(el.dataset.posture));
   $('#photo-select-all').onclick=()=>{photoMembers=[state.selected,...M.families.filter(id=>id!==state.selected)];renderPhotoMembers();invalidatePhoto();};
   $('#photo-clear').onclick=()=>{photoMembers=[state.selected];renderPhotoMembers();invalidatePhoto();};
@@ -398,6 +404,6 @@
   $('.brand').onclick=event=>{event.preventDefault();navigate('partners');};
   globalThis.companionDemo={snapshot:()=>({page,selected:state.selected,style:state.style,outfit:outfit(),runtime:{...runtime},relations:structuredClone(state.relations),checkins:[...state.checkins],makeupCards:state.makeupCards,makeupCheckins:[...state.makeupCheckins],collection:{...state.collection},stories:{...state.stories},pose:lastPose,posture:posture(),postureMode:state.postures[state.selected]||'auto',photoReady:!!photoStamp,photoBusy,photoMembers:[...photoMembers],photoLayout:lastPhotoLayout,chatCount:chats[state.selected].length,chatDuration:chatFinished-chatStarted,errors:[...errors],version:D.version,agenda:agenda.snapshot()}),advance:ms=>{offset+=ms;tick();agenda.poll();},select,style,navigate,openDetail,render:tick};
   if(state.work.enabled)M.workStart(runtime,state,now());renderSettings();renderCards();select(state.selected);chatSource();setInterval(tick,100);tick();
-  if(location.hash==='#agenda')navigate('agenda');
+  if(['#agenda','#interaction'].includes(location.hash))navigate(location.hash.slice(1));
   function animate(){if(!document.hidden&&!runtime.paused&&page==='interaction'&&['hiding','thinking','talk','pat'].includes(runtime.action)&&!state.settings.reducedMotion)drawPet();requestAnimationFrame(animate);}requestAnimationFrame(animate);
 })();

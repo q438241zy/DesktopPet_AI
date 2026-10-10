@@ -131,8 +131,11 @@ for id,title,body in re.findall(r'new CompanionStory\("([^"]+)","([^"]+)",new\[\
 assert len(data['items'])==20 and len(data['stories'])==3
 
 if target!=SOURCE:
-    for name in ['index.html','style.css','icons.js','personas.js','providers.js','model.js','photo-layout.js','agenda.js','agenda-ui.js','agenda.css','app.js']:
+    for name in ['index.html','style.css','icons.js','personas.js','providers.js','model.js','photo-layout.js','agenda.js','agenda-ui.js','agenda.css','app.js','preview-art.js','claude-review.html']:
         shutil.copyfile(SOURCE/name,target/name)
+    (target/'art').mkdir(exist_ok=True)
+    for file in (SOURCE/'art').glob('claude-sports-stand-v2*'):
+        shutil.copyfile(file,target/'art'/file.name)
 shutil.copyfile(ROOT/'docs/demo/interaction-five/items.js',target/'items.js')
 (target/'data.js').write_text('globalThis.CLOUD_DATA='+json.dumps(data,ensure_ascii=False,separators=(',',':'))+';\n',encoding='utf-8')
 photo_dir=target/'.generated/photos'

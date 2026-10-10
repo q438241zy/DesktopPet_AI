@@ -1,7 +1,7 @@
 /* Isolated browser exercise: 30-second posture cadence must not postpone idle hiding. */
 const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict'),crypto=require('node:crypto'),{pathToFileURL}=require('node:url');
 let chromium;try{({chromium}=require('playwright'));}catch{({chromium}=require(path.join(process.env.USERPROFILE,'.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright')));}
-const root=path.resolve(__dirname,'..'),out=path.join(root,'.artifacts/idle-v13-browser'),target=path.join(root,'Release/win-x64/Demo/CompanionV01/index.html');fs.mkdirSync(out,{recursive:true});
+const root=path.resolve(__dirname,'..'),out=process.env.IDLE_REVIEW_DIRECTORY||path.join(root,'.artifacts/idle-v13-browser'),target=path.join(root,'Release/win-x64/Demo/CompanionV01/index.html');fs.mkdirSync(out,{recursive:true});
 const hash=p=>crypto.createHash('sha256').update(fs.readFileSync(p)).digest('hex'),exe=path.join(root,'Release/win-x64/DesktopPet.exe'),before=hash(exe);
 (async()=>{
  const browser=await chromium.launch({executablePath:path.join(process.env.ProgramFiles,'Google/Chrome/Application/chrome.exe'),headless:true});
@@ -38,7 +38,7 @@ const hash=p=>crypto.createHash('sha256').update(fs.readFileSync(p)).digest('hex
    await go('settings');await page.locator('#auto-hide').check();await go('interaction');await render();await advance(29000);await page.locator('#chat-input').fill('还没发送');await render();const p=(await snap()).posture;await advance(90000);assert.equal((await snap()).posture,p);assert.equal((await snap()).runtime.action,'idle');
    await page.locator('#chat-input').fill('');await page.locator('#pet-body').click();await render();assert.equal((await snap()).runtime.action,'pat');await advance(1000);assert.equal((await snap()).runtime.action,'pat');assert.equal((await snap()).posture,p);await advance(1500);assert.equal((await snap()).runtime.action,'idle');await advance(30000);assert.notEqual((await snap()).posture,p);assert.equal((await snap()).runtime.action,'idle');
   });
-  await check('all 64 appearances alternate their own unmodified standing and sitting frames',async()=>{
+  await check('all 64 appearances alternate their own standing and sitting frames',async()=>{
    await home();let count=0;
    for(const style of ['chibi','realistic'])for(const family of ['whale','gpt','claude','gemini','grok','qwen','zhipu','kimi'])for(const clothes of ['original','swim','wedding','sports']){
     await page.evaluate(({family,style})=>{companionDemo.select(family);companionDemo.style(style);},{family,style});await page.locator(`[data-hero-outfit=${clothes}]`).click();await page.locator('[data-posture=auto]').click();await render();await page.waitForTimeout(70);
@@ -50,6 +50,6 @@ const hash=p=>crypto.createHash('sha256').update(fs.readFileSync(p)).digest('hex
   await check('phone layout stays readable and native executable is unchanged',async()=>{
    await page.setViewportSize({width:390,height:844});await page.waitForTimeout(250);assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1),false);await capture('04-phone');assert.equal(hash(exe),before);assert.deepEqual(errors,[]);
   });
-  fs.writeFileSync(path.join(out,'report.json'),JSON.stringify({passed:checks.length,checks,errors,nativeExeSha256:before,artworkChanged:false},null,2));
+  fs.writeFileSync(path.join(out,'report.json'),JSON.stringify({passed:checks.length,checks,errors,nativeExeSha256:before,nativeExeUnchanged:true},null,2));
  }catch(e){await page.screenshot({path:path.join(out,'failure.png'),fullPage:true}).catch(()=>{});throw e;}finally{await browser.close();}
 })().catch(e=>{console.error(e);process.exitCode=1;});

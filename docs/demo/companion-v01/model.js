@@ -1,6 +1,7 @@
 (function(root,factory){const value=factory();if(typeof module==='object'&&module.exports)module.exports=value;else root.CompanionModel=value;})(globalThis,function(){
   'use strict';
   const A=typeof module==='object'&&module.exports?require('./providers.js'):globalThis.CompanionProviders;
+  const stories=typeof module==='object'&&module.exports?require('./story-library.js'):globalThis.CompanionStories;
   const families=['whale','gpt','claude','gemini','grok','qwen','zhipu','kimi'];
   const outfits={original:{name:'原装',score:0},sports:{name:'运动服',score:20},swim:{name:'泳装',score:50},wedding:{name:'婚纱',score:80}};
   const clamp=(n,a,b)=>Math.max(a,Math.min(b,Number.isFinite(n)?n:0));
@@ -21,7 +22,7 @@
     s.makeupCards=Math.floor(clamp(Number(saved.makeupCards),0,99999));
     s.makeupCheckins=Array.isArray(saved.makeupCheckins)?[...new Set(saved.makeupCheckins.filter(date=>s.checkins.includes(date)))].sort():[];
     for(const [key,value] of Object.entries(saved.collection||{}))if(/^[a-z-]+$/.test(key)&&Number.isFinite(value))s.collection[key]=clamp(value,1,99999);
-    for(const [key,value] of Object.entries(saved.stories||{}))if(['cloud-post','little-bell','star-seed'].includes(key)&&Number.isFinite(value))s.stories[key]=clamp(value,1,99999);
+    for(const [key,value] of Object.entries(saved.stories||{}))if(stories.some(story=>story.id===key)&&Number.isFinite(value))s.stories[key]=clamp(value,1,99999);
     if(saved.settings){s.settings.autoHide=saved.settings.autoHide!==false;s.settings.reducedMotion=!!saved.settings.reducedMotion;s.settings.calendarView=saved.settings.calendarView==='week'?'week':'month';}
     s.api=A.cleanConfig(saved.api);
     s.work.minutes=Math.round(clamp(Number(saved.work?.minutes)||10,1,180));s.work.enabled=saved.work?.enabled===true;

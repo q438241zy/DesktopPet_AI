@@ -14,14 +14,14 @@ public sealed partial class PetWindow
     private readonly Queue<double> recentTouches = new();
     private double lastCompanionActivity, nextCompanionSave;
     private int workReminderIndex, reminderGeneration;
-    private Window? workReminder, photoWindow;
+    private Window? workReminder;
     private CancellationTokenSource? workRequest;
     internal void CompanionActivity() { lastCompanionActivity = Now; ResetIdlePosture(); }
     internal void InitializeCompanion()
     {
         CompanionActivity(); nextCompanionSave = Now + 5000;
         if (State.WorkModeEnabled) workClock.Start(Now, State.WorkMinutes);
-        Closed += (_, _) => { DismissWorkReminder(); photoWindow?.Close(); };
+        Closed += (_, _) => { DismissWorkReminder(); };
         IsVisibleChanged += (_, _) => { if (IsVisible) workClock.Resume(Now); else { workClock.Pause(Now); DismissWorkReminder(); } CompanionActivity(); ResetAllIdlePostures(); settings?.RefreshPresence(); };
     }
     internal int AwardCompanion(int amount, string label, string key, int cooldownSeconds = 30)
@@ -56,7 +56,7 @@ public sealed partial class PetWindow
         if (workClock.Tick(Now)) ShowWorkReminder();
         if (Now >= nextCompanionSave) { nextCompanionSave = Now + 5000; Save(); settings?.RefreshCompanion(); }
         if (State.AutoHide && Now - lastCompanionActivity >= 60000 && IsVisible && !clickThrough && settings?.IsVisible != true
-            && photoWindow?.IsVisible != true && ActiveChat is null && !pressed && !dragging && !resting && !dropping
+            && ActiveChat is null && !pressed && !dragging && !resting && !dropping
             && hideJourney is null && menu.Children.Count == 0 && (action == "idle" || roaming && !exploring))
         { CompanionActivity(); BeginHide(); }
     }

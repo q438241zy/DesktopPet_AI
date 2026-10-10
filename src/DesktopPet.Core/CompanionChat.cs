@@ -76,6 +76,6 @@ public static class CompanionChat
         {
             return Task.FromResult(WantsStory(messages) ? LegacyStoryReply(messages, CompanionPersonas.Text(name, "name")) : CompanionPersonas.Reply(name, messages, affinity));
         }
-        return CompanionProviders.SendAsync(client, options, apiKey, messages, CompanionPersonas.Prompt(name, affinity), cancellationToken);
+        return CompanionProviders.SendAsync(client, options, apiKey, messages, CompanionPersonas.Prompt(name, affinity) + "这里只进行日常聊天。直接用自然语言回应，不输出 JSON 或日程卡，不承诺已创建提醒。", cancellationToken);
     }
 }

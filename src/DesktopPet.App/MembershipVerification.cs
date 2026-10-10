@@ -99,7 +99,7 @@ internal static class MembershipVerification
             {
                 pet.OpenChat(); var response = pet.Chat.SendText("你好"); await Task.Delay(250);
                 Require(pet.Chat.IsThinking && pet.CurrentAction == "thinking", tier + ": entitled chat still thinks for a second");
-                await response; Require(pet.Chat.History.Count >= 2 && pet.Chat.ReplyText.Length > 4, tier + ": entitled local chat returns a real reply");
+                await response; Require(pet.Chat.History.Count >= 2 && pet.Chat.ReplyText.Length > 0, tier + ": entitled local chat returns a real reply");
                 pet.StopInteraction();
             }
             else
@@ -111,7 +111,7 @@ internal static class MembershipVerification
         fixture.SetTier(MembershipTier.Gold); pet.OpenChat(); var pending = pet.Chat.SendText("晚安"); await Task.Delay(100); fixture.Logout(); await pending;
         Require(pet.ActiveChat is null && pet.Chat.History.Count == 0 && !pet.Chat.IsThinking, "logout cancels pending chat and clears account conversation");
         pet.OpenChat();Require(pet.Accounts.CurrentAccount is null && pet.ActiveChat is not null,"guest chat is available during testing without creating an account");
-        await pet.Chat.SendText("你好");Require(pet.Chat.History.Count==2 && pet.Chat.ReplyText.Length>4,"guest receives the default local conversation");pet.StopInteraction();
+        await pet.Chat.SendText("你好");Require(pet.Chat.History.Count==2 && pet.Chat.ReplyText==CompanionPersonas.Text(pet.Character.FamilyId,"hello"),"guest receives the brief companion greeting");pet.StopInteraction();
         fixture.UseFullAccess(); window.ShowMembership(); Capture(window, "membership-blackgold");
         window.Close(); pet.StopInteraction();
         File.WriteAllLines(Path.Combine(output, "membership-check.txt"), checks.Append($"PASS {checks.Count} membership, actual registration/login, tier access and account isolation checks."));

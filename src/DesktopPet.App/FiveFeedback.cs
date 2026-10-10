@@ -42,8 +42,7 @@ internal sealed class FiveFeedback : FrameworkElement
     }
     internal void Activate()
     {
-        if(Model is null)return;
-        Selected?.Invoke(Model.Key=="highfive"?"highfive":Model.Phase=="receive"?"deliver":"unwrap");
+        if(Model?.Key == "highfive") Selected?.Invoke("highfive");
     }
     protected override HitTestResult? HitTestCore(PointHitTestParameters p)=>HitRegion.Contains(p.HitPoint)?new PointHitTestResult(this,p.HitPoint):null;
     private static Point Mix(Point a,Point b,double t)=>a+(b-a)*Math.Clamp(t,0,1);
@@ -67,16 +66,16 @@ internal sealed class FiveFeedback : FrameworkElement
         }
         else if(m.Key=="gift")
         {
-            if(m.Phase is "receive" or "delivering")
+            if(m.Phase == "delivering")
             {
-                Point p=m.Phase=="delivering"?Mix(approach,Target,m.Time/650):dragging?dragged:Origin;
-                DrawGift(dc,p,size*.84);
-                if(m.Phase=="receive")HitRegion=new Rect(p.X-size/2,p.Y-size/2,size,size);
+                double t = Math.Clamp(m.Time / 1150, 0, 1), eased = t*t*(3-2*t);
+                Point p = Mix(Origin, Target, eased);
+                DrawHand(dc,p+new Vector(0,size*.25),size*.8,"paper");
+                DrawGift(dc,p,Math.Max(size*.7,BoxWidth*.85));
             }
-            else if(m.Phase=="holding")HitRegion=new Rect(Target.X-size/2,Target.Y-size/2,size,size);
-            else if(m.VisiblePrize is {} prize && (m.Phase=="opened" || m.Phase=="opening"&&m.Time>=420))
+            else if(m.VisiblePrize is {} prize && (m.Phase=="opened" && m.Time<1750 || m.Phase=="opening"&&m.Time>=350))
             {
-                double w=BoxWidth*.7,progress=m.Phase=="opened"?1:Math.Clamp((m.Time-420)/580,0,1);
+                double w=BoxWidth*.7,progress=m.Phase=="opened"?1:Math.Clamp((m.Time-350)/550,0,1);
                 dc.PushClip(new RectangleGeometry(new Rect(Target.X-BoxWidth/2,Target.Y-w,BoxWidth,w*2)));
                 ItemArt.Draw(dc,Collectibles.Get(prize),new Rect(Target.X-w/2,Target.Y-w*progress,w,w));
                 dc.Pop();

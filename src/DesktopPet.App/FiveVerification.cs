@@ -36,7 +36,7 @@ internal static class FiveVerification
             pet.StopInteraction();pet.RunInteraction("rps");pet.FiveCommand("paper");await Task.Delay(1100);
             Check(pet.ActiveFive?.Phase=="countdown"&&pet.ActiveFive.Pet is null,id+": both fists count before reveal");
             await WaitFor(()=>pet.ActiveFive?.Phase=="revealed");Check(pet.ActiveFive?.Phase=="revealed"&&pet.ActiveFive.Outcome is not null,id+": realtime reveal completes");
-            pet.RunInteraction("gift");pet.FiveCommand("deliver");await Task.Delay(750);pet.FiveCommand("unwrap");int before=pet.State.Treasures.Count;
+            pet.RunInteraction("gift");await Task.Delay(2250);int before=pet.State.Treasures.Count;
             await Task.Delay(350);pet.StopInteraction();await Task.Delay(900);Check(pet.State.Treasures.Count==before,id+": stopping an open cancels reward");
         }
         var appearances=(from c in pet.Catalog.Characters from o in Catalog.BuiltInOutfits where !available||c.FiveFor(o)!=null select(c,o)).ToArray();
@@ -50,7 +50,7 @@ internal static class FiveVerification
                 var atlas=data.Atlases[p.Atlas];var frame=pet.Art.Frame(c,atlas,p.Frame);
                 Check(frame.PixelHeight>=200 && p.FootY<=frame.PixelHeight && p.FootX<=frame.PixelWidth,label+"/"+name+": measured crop and foot in bounds");
             }
-            foreach(var(key,times) in new[]{("highfive",new[]{0,900,1400,1600}), ("rps",new[]{0,600,900,1200,2500,3100}), ("gift",new[]{0,600,1300,1900,2700}), ("read",new[]{0,1000,1800,2900}), ("photo",new[]{0,450,1800,3500})})
+            foreach(var(key,times) in new[]{("highfive",new[]{0,900,1400,1600}), ("rps",new[]{0,600,900,1200,2500,3100}), ("gift",new[]{0,600,1500,2500,3500,5200}), ("read",new[]{0,1000,5000,8000})})
             foreach(int time in times)
             {
                 pet.PreviewFive(key,time);var pose=data.Poses[pet.ActiveFive!.Pose];var sheet=data.Atlases[pose.Atlas];var expected=pet.Art.Frame(c,sheet,pose.Frame);
@@ -60,8 +60,6 @@ internal static class FiveVerification
                 Check(pet.ActiveMotion is null && pet.ActiveAuthoredVisual is null,label+": no unrelated rig or hand warping");
                 if((outfit=="sports" || c.FamilyId is "whale" or "gpt") && time==times.Last())Capture(c.Id+"-"+outfit+"-"+key);
             }
-            pet.PreviewFive("photo",3500);var photo=pet.CreateFivePhoto();Check(photo.PixelWidth==720&&photo.PixelHeight==880,label+": photo export");
-            if(outfit=="sports" || c.FamilyId is "whale" or "gpt")Capture(c.Id+"-"+outfit+"-photo-card",photo);
             pet.StopInteraction();Check(pet.ActiveFive is null&&pet.FivePanel.Visibility==Visibility.Collapsed,label+": cancellation removes inline controls");
         }
         pet.EndPreview();pet.Save();var restored=new StateStore(output).Load();Check(restored.Treasures.Count==pet.State.Treasures.Count,"collection survives state reload");

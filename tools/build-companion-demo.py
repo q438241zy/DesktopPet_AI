@@ -171,6 +171,8 @@ for family,name,adult in FAMILIES:
             elif style=='realistic':
                 # The first curl pose is awake and seated; the next one is asleep.
                 curl={**motions['curl'],'isolateCells':True,'exportOwnership':True};sit=descriptor(cid,curl,curl.get('frames',[6])[0])
+            if 'idle-stand' in motions:
+                standing=motions['idle-stand'];stand=descriptor(cid,standing,standing.get('frames',[0])[0])
             look=dict(idle=idle,stand=stand,sit=sit,smile=smile)
             for key,native in [('think','think'),('talk','chat'),('pat','headpat'),('walk','walk'),('peek','peek')]:
                 look[key]=descriptor(cid,motions[native]) if native in motions else idle

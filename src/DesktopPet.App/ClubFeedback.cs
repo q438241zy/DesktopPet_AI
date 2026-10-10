@@ -106,10 +106,9 @@ internal sealed class ClubFeedback : FrameworkElement
             var at=butterfly;
             if(!landed)at+=new Vector(Math.Sin(t*2.4)*16,Math.Sin(t*3.2)*13-20);
             double wing=reduced?.8:.35+.65*Math.Abs(Math.Sin(t*(landed?5:12)));
-            dc.PushTransform(new TranslateTransform(at.X,at.Y));dc.PushTransform(new ScaleTransform(wing,1));
+            dc.PushTransform(new TranslateTransform(at.X,at.Y));dc.PushTransform(new ScaleTransform(wing*.7,.7));
             dc.DrawGeometry(CloudTheme.Brush("#D7C7EE"),Pen("#A58DBF"),Geometry.Parse("M0,0 C-23,-24 -24,6 -4,8 C-18,21 0,21 0,5 C18,21 23,9 4,7 C27,-8 15,-24 0,0 Z"));dc.Pop();
             dc.DrawLine(Pen("#957DAD",2),new Point(0,-3),new Point(0,10));dc.Pop();
-            Label(landed?"停在手心了":"点空处引它过来",new Point(feet.X+height*.32,mouth.Y-26),11);
         }
     }
 }

@@ -9,6 +9,7 @@ public sealed partial class PetWindow
 {
     private readonly Dictionary<string, IdlePostureClock> postureClocks = [];
     private readonly Dictionary<string, PostureGeometry> postureGeometry = [];
+    private readonly Dictionary<string, double> posturePreviewHeight = [];
     private sealed record PostureGeometry(IdlePostureFrame Art, double Reference, double FootX, double FootY, Rect Bounds);
 
     private IdlePostureClock PostureClock(string family)
@@ -24,6 +25,7 @@ public sealed partial class PetWindow
     internal string PostureMode(string family) => IdlePosture.Normalize(State.Postures.GetValueOrDefault(family));
     internal string PostureFor(string family) => PostureMode(family) is "auto" ? PostureClock(family).Pose : PostureMode(family);
     internal string CurrentPosture => PostureFor(Character.FamilyId);
+    internal IdlePostureClock CurrentPostureClock => PostureClock(Character.FamilyId);
     internal bool IsRenderingIdlePosture { get; private set; }
     internal void SetPostureMode(string mode)
     {
@@ -40,18 +42,18 @@ public sealed partial class PetWindow
         bool changed = false;
         foreach (string family in Catalog.Characters.Select(c => c.FamilyId).Distinct())
         {
-            bool eligible = IsVisible && !State.ReducedMotion && photoWindow?.IsVisible != true
+            bool eligible = IsVisible && !State.ReducedMotion
                 && PostureMode(family) == "auto"
                 && (family != Character.FamilyId || IdlePostureEligible && menu.Children.Count == 0 && agendaNotice is null && workReminder is null);
             changed |= PostureClock(family).Tick(Now, eligible);
         }
-        if (changed) settings?.RefreshIdlePostures();
+        if (changed || IsVisible && !State.ReducedMotion) settings?.RefreshIdlePostures();
     }
-    private PostureGeometry MeasurePosture(Character character, string outfit, string pose)
+    private PostureGeometry MeasurePosture(Character character, string outfit, string pose, double progress = 0)
     {
-        string key = character.Root + "/" + outfit + "/" + pose;
+        var art = IdlePosture.Resolve(character, outfit, pose, progress); var sheet = art.Sprite;
+        string key = character.Root + "/" + outfit + "/" + pose + "/" + art.Frame;
         if (postureGeometry.TryGetValue(key, out var measured)) return measured;
-        var art = IdlePosture.Resolve(character, outfit, pose); var sheet = art.Sprite;
         double reference = sheet.ReferenceHeightPixels;
         if (reference <= 0)
             for (int i = 0; i < sheet.Columns * sheet.Rows; i++)
@@ -67,12 +69,12 @@ public sealed partial class PetWindow
         for (int y = 0; y < frame.PixelHeight; y++) for (int x = 0; x < frame.PixelWidth; x++)
             if (pixels[(y * frame.PixelWidth + x) * 4 + 3] >= 48) { left = Math.Min(left, x); right = Math.Max(right, x + 1); top = Math.Min(top, y); bottom = y + 1; }
         var bounds = right > left ? new Rect(left, top, right - left, bottom - top) : new Rect(0, 0, frame.PixelWidth, frame.PixelHeight);
-        if (postureGeometry.Count >= 256) postureGeometry.Clear();
+        if (postureGeometry.Count >= 2048) postureGeometry.Clear();
         return postureGeometry[key] = new(art, Math.Max(1, reference), footX, footY, bounds);
     }
-    private void DrawPosture(Image target, Character character, string outfit, string pose, double center, double floor, double height)
+    private void DrawPosture(Image target, Character character, string outfit, string pose, double center, double floor, double height, double progress = 0)
     {
-        var drawing = MeasurePosture(character, outfit, pose);
+        var drawing = MeasurePosture(character, outfit, pose, progress);
         var frame = Art.Frame(character, drawing.Art.Sprite, drawing.Art.Frame);
         double scale = height / drawing.Reference * (drawing.Art.Sprite.FrameScaleFactors?[drawing.Art.Frame] ?? 1);
         double extent = Math.Max(frame.PixelWidth, frame.PixelHeight), size = extent * scale;
@@ -83,14 +85,19 @@ public sealed partial class PetWindow
     internal void DrawPosturePreview(Canvas stage, Image image, Character character, string outfit)
     {
         if (stage.ActualWidth <= 0 || stage.ActualHeight <= 0) return;
-        double height = stage.ActualHeight * .86;
-        foreach (string pose in new[] { "stand", "sit" })
+        string key = character.Id + "/" + outfit + "/" + stage.ActualWidth + "/" + stage.ActualHeight;
+        if (!posturePreviewHeight.TryGetValue(key, out double height))
         {
-            var p = MeasurePosture(character, outfit, pose); double scale = p.Art.Sprite.FrameScaleFactors?[p.Art.Frame] ?? 1;
-            double half = Math.Max(p.FootX - p.Bounds.Left, p.Bounds.Right - p.FootX);
-            height = Math.Min(height, Math.Min(stage.ActualWidth * .47 * p.Reference / Math.Max(1, half * scale), stage.ActualHeight * .88 * p.Reference / Math.Max(1, p.Bounds.Height * scale)));
+            height = stage.ActualHeight * .86;
+            foreach (string pose in IdlePostureClock.Poses) for (int i = 0; i < (pose is "stretch" or "think" ? 8 : 1); i++)
+            {
+                var p = MeasurePosture(character, outfit, pose, i / 8d); double scale = p.Art.Sprite.FrameScaleFactors?[p.Art.Frame] ?? 1;
+                double half = Math.Max(p.FootX - p.Bounds.Left, p.Bounds.Right - p.FootX);
+                height = Math.Min(height, Math.Min(stage.ActualWidth * .47 * p.Reference / Math.Max(1, half * scale), stage.ActualHeight * .88 * p.Reference / Math.Max(1, p.Bounds.Height * scale)));
+            }
+            posturePreviewHeight[key] = height;
         }
-        DrawPosture(image, character, outfit, PostureFor(character.FamilyId), stage.ActualWidth / 2, stage.ActualHeight * .95, height);
+        DrawPosture(image, character, outfit, PostureFor(character.FamilyId), stage.ActualWidth / 2, stage.ActualHeight * .95, height, PostureClock(character.FamilyId).Progress(Now));
     }
     private bool RenderIdlePosture()
     {
@@ -100,8 +107,9 @@ public sealed partial class PetWindow
         if (motionVisual is not null) { surface.Children.Remove(motionVisual); motionVisual = null; }
         var idle = Character.Resolve(State.Outfit, "idle", 0, true);
         double height = State.Size * Art.VisibleHeight(Art.Frame(Character, idle.Sprite, idle.Frame));
-        var drawing = MeasurePosture(Character, State.Outfit, CurrentPosture);
-        DrawPosture(sprite, Character, State.Outfit, CurrentPosture, CenterX, FloorY, height);
+        double progress = State.ReducedMotion ? .45 : PostureClock(Character.FamilyId).Progress(Now);
+        var drawing = MeasurePosture(Character, State.Outfit, CurrentPosture, progress);
+        DrawPosture(sprite, Character, State.Outfit, CurrentPosture, CenterX, FloorY, height, progress);
         var frame = (BitmapSource)sprite.Source;
         // The desktop floor follows visible source pixels; authored preview anchors
         // can differ by a pixel and must not make a dropped pet float above the taskbar.

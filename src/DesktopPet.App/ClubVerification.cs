@@ -71,8 +71,8 @@ internal static class ClubVerification
                 Require(ReferenceEquals(canvas.InputHitTest(new Point(280,400)),pet.InputSurface),"butterfly effects leave the pet available for dragging");
                 pet.IsHitTestVisible=false;
                 var landingDeadline=System.Diagnostics.Stopwatch.StartNew();
-                while(!pet.ClubEffects.ButterflyLanded && landingDeadline.ElapsedMilliseconds<4000)await Task.Delay(20);
-                Require(pet.ClubEffects.ButterflyLanded,$"{id}: butterfly reaches the palm after walking");pet.StopInteraction();
+                while(!pet.ClubEffects.ButterflyLanded && landingDeadline.ElapsedMilliseconds<13000)await Task.Delay(20);
+                Require(pet.ClubEffects.ButterflyLanded,$"{id}: butterfly settles after the full nearby stroll");pet.StopInteraction();
             }
             pet.SelectCharacter("whale");pet.State.Outfits["whale"]="original";pet.ApplySettings();pet.RunInteraction("stars");
             await Task.Delay(850);pet.HandleRightClick();var before=pet.ActiveClubVisual!.Current;await Task.Delay(450);

@@ -9,12 +9,12 @@ internal sealed record CoverageRow(string Character, string Family, string Categ
 internal static class ActionCoverage
 {
     internal static readonly DemoAction[] Actions = [
-        .. PetActions.Five.Select(a=>new DemoAction(a.Key,a.Title,a.Key,4000)),
+        .. PetActions.Five.Select(a=>new DemoAction(a.Key,a.Title,a.Key,a.Key=="gift"?6100:4000)),
         new("idle","待机","idle"), new("listen","聆听","listen"), new("thinking","思考 1 秒","thinking",1200),
-        new("chat","聊天","chat"), new("checkin","早餐","meal",4200), new("snack","零食","eat",3000),
+        new("chat","聊天","chat"), new("checkin","吃饭","meal",4200), new("snack","吃零食","eat",3000),
         new("headpat","摸头","headpat"), new("poke","揉脸","poke"), new("tickle","挠痒","tickle",2200),
         .. CareRoutine.All.Select(routine => new DemoAction(routine.Key,routine.Title,"idle",routine.Duration)),
-        .. ClubMotion.Actions.Select(key => new DemoAction(key,ClubMotion.Title(key),ClubMotion.HasPoses(key)?key:key=="butterfly"?"ball-ready":"idle",ClubMotion.Duration(key))),
+        .. ClubMotion.Actions.Select(key => new DemoAction(key,ClubMotion.Title(key),ClubMotion.HasPoses(key)?key:key=="butterfly"?"walk":"idle",ClubMotion.Duration(key))),
         new("think","发呆","think",3200), new("jump","跳跃与落地","jump",1400), new("curl","抱膝","curl",3000),
         new("rest","休息","sleep",3200), new("blocks","堆积木","build",4400), new("ball","等待投球","ball-ready"),
         new("ball-hit","球命中","ball-hit",1500), new("ball-miss","球未命中","ball-miss",1800),
@@ -32,9 +32,9 @@ internal static class ActionCoverage
             string fiveDetail=action.Key switch {
                 "highfive"=>"递出或拖动手掌，与角色掌心接触才计数",
                 "rps"=>"双方三轮摇拳，同时亮出石头、剪刀或布",
-                "gift"=>"递到双手、打开实体礼盒；20种随机物品，完成拆开才收藏",
-                "read"=>"三篇7—8句故事、实际翻页、暂停与结束；读完收藏并可重读",
-                _=>"角色举手准备与合照姿势，昵称云朵头像，可保存PNG"};
+                "gift"=>"使用者送礼后连续接过、拆开；20种随机物品，打开才收藏一次",
+                "read"=>"十篇原创故事随机自动文字阅读、自动翻页、可暂停；读完收藏，完整体验见CompanionV01",
+                _=>"当前服装的专用互动图稿"};
             return new(c.Id,c.FamilyId,c.Category,outfit,action.Key,action.Title,five is null?"缺少动作":"专用互动",fiveDetail,
                 five is null?"":string.Join(";",five.Atlases.Values.Select(x=>x.File)),five?.Poses.Count??0);
         }
@@ -52,7 +52,7 @@ internal static class ActionCoverage
                 "stretch"=>$"{count} 张独立准备、举手、上伸与放松姿势，身体与脚底比例固定",
                 "comb"=>clip?.BakedProps==true?$"{count} 张握梳、贴发、向下梳理与收手姿势，手和梳子画在同一帧":"梳头道具编排，尚未接入专用手部画稿",
                 "wipe"=>clip?.BakedProps==true?$"{count} 张拿毛巾、贴脸擦拭与放下姿势，手和毛巾画在同一帧":"擦脸道具编排，尚未接入专用手部画稿",
-                _=>"走向点击处的蝴蝶，停下后蝴蝶落在手心" };
+                _=>"主动小范围双向追蝶，转向与脚步跟随位移，结束后站定；点击可改变追逐方向" };
         }
         else if (CareRoutine.Find(action.Key) is { } routine)
         {
@@ -63,7 +63,9 @@ internal static class ActionCoverage
         }
         else if (action.Key == "found")
         { status = "组合动作"; detail = "左键找到后走回桌面并开心回应；右键仅开关菜单，躲藏继续"; }
-        else if (action.Key is "idle" or "listen" or "place")
+        else if (action.Key == "idle")
+        { status = "组合动作"; detail = "自动模式每1–2秒轮换站、坐、托腮、伸展和笑脸；固定站坐仍可选，完整体验见CompanionV01"; }
+        else if (action.Key is "listen" or "place")
         { status = "静态姿势"; detail = action.Key == "place" ? "普通松手停留在用户指定的位置，距底部 24px 内吸附；拖动速度和停留时间不影响结果" : clip is null ? "使用本外观的安静待机姿势" : "本外观专用聆听姿势"; }
         else if (action.Key == "dizzy")
         { status = "程序动作"; detail = c.Category == "chibi" ? "当前服装的晕眩姿势与头顶环绕星星，3 秒内恢复" : "当前服装轻微晕眩动作与头顶环绕星星，3 秒内恢复"; }

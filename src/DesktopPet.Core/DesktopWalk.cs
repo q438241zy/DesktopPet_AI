@@ -27,6 +27,8 @@ public sealed class WalkPlayback
     public double TurnRemaining { get; private set; }
     private int nextDirection;
     public void Reset() { Milliseconds = TurnRemaining = 0; nextDirection = 0; }
+    public void Travel(double distance, double size, Sprite clip)
+    { double speed = DesktopWalk.Speed(size, clip); if (speed > 0 && double.IsFinite(distance)) Milliseconds += Math.Abs(distance) / speed * 1000; }
     public (double Center, int Direction) Advance(double center, int direction, double seconds, double size, Sprite clip, double left, double right)
     {
         double speed = DesktopWalk.Speed(size, clip);

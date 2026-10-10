@@ -24,6 +24,7 @@ public sealed partial class PetState
     public Dictionary<string,int> ReadStories { get; set; } = [];
     public List<string> GiftDrawRemaining { get; set; } = Collectibles.All.Select(x=>x.Id).ToList();
     public string? LastGift { get; set; }
+    public string? LastReadStory { get; set; }
 
     public static readonly int[] BondDays = [0, 3, 7, 14, 30, 60, 100, 200, 365];
     public static readonly string[] BondNames = ["初次相遇", "渐渐熟悉", "桌边伙伴", "默契朋友", "亲密搭档", "心有灵犀", "长久陪伴", "不可替代", "一生挚友"];
@@ -71,6 +72,7 @@ public sealed partial class PetState
         if (Left is { } x && !double.IsFinite(x)) Left = null;
         if (Top is { } y && !double.IsFinite(y)) Top = null;
         ReadStories ??= [];
+        if (StoryLibrary.Find(LastReadStory) is null) LastReadStory = null;
         Postures ??= [];
         foreach (string family in Postures.Keys.ToArray()) Postures[family] = IdlePosture.Normalize(Postures[family]);
         foreach(string id in ReadStories.Keys.ToArray())

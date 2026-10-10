@@ -49,7 +49,7 @@ public sealed partial class PetWindow
     {
         if (!e.Active) return;
         if (!IsVisible) ToggleVisible();
-        SelectCharacter(Catalog.VariantId(e.Family, Character.Category)); OpenChat(); Chat.ShowAgendaDraft(PetAgenda.Edit(e), e.Id);
+        SelectCharacter(Catalog.VariantId(e.Family, Character.Category)); OpenAgenda(); settings!.EditAgendaDraft(PetAgenda.Edit(e), e.Id);
     }
     internal void PollAgenda()
     {

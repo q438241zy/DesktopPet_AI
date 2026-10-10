@@ -40,7 +40,7 @@ internal static class IdleHideVerification
                 await Task.Delay(100);
             }
             Require(walked, id + ": ordinary autonomous walking does not reset the user-idle clock");
-            Require(postureChanged is >= 29.5 and < 32, id + ": real 30-second posture change precedes automatic walking and hiding");
+            Require(postureChanged is >= .95 and < 2.8, id + ": real 1–2 second posture change precedes automatic walking and hiding");
             await Until(() => pet.HideStage is not null, 6, "real minute trigger " + id);
             double began = watch.Elapsed.TotalSeconds; Require(began is >= 59.5 and < 64, id + ": auto-hide begins after a real minute");
             await Until(() => pet.HideStage == HidePhase.Peek, 50, "walk to edge " + id);

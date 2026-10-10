@@ -53,12 +53,12 @@ internal static class InteractionVerification
         pet.State.ReducedMotion = false; pet.ApplySettings();
         foreach (double size in new[] { 120d, 280 })
             foreach (int side in new[] { -1, 1 })
-            foreach (string edgeGroup in new[] { "root", "care", "play", "motions" })
+            foreach (string edgeGroup in new[] { "root", "interact", "interact:1", "play", "play:1", "play:2" })
             {
                 pet.State.Size = size; pet.ApplySettings(); var area = pet.WorkArea;
                 pet.Left = (side < 0 ? area.Left + size * .46 : area.Right - size * .46) - 280;
                 pet.ShowMenu(edgeGroup); pet.UpdateLayout();
-                Capture((FrameworkElement)pet.Content, $"menu-edge-{size}-{side}-{edgeGroup}");
+                Capture((FrameworkElement)pet.Content, $"menu-edge-{size}-{side}-{edgeGroup.Replace(':','-')}");
                 foreach (var button in Find<Button>(pet).Where(b => b.IsVisible))
                 {
                     var point = button.TranslatePoint(new Point(), pet);
@@ -66,12 +66,12 @@ internal static class InteractionVerification
                 }
             }
         pet.State.Size = 200; pet.ApplySettings(); pet.SelectCharacter("whale"); pet.Left = pet.WorkArea.Left + pet.WorkArea.Width / 2 - 280;
-        foreach (string group in new[] { "root", "care", "play", "motions" })
+        foreach (string group in new[] { "root", "interact", "interact:1", "play", "play:1", "play:2" })
         {
-            pet.ShowMenu(group); pet.UpdateLayout(); Capture((FrameworkElement)pet.Content, "menu-" + group);
+            pet.ShowMenu(group); pet.UpdateLayout(); Capture((FrameworkElement)pet.Content, "menu-" + group.Replace(':','-'));
             var labels = Find<Button>(pet).Select(AutomationProperties.GetName).ToArray();
             Require(labels.Contains("聊天") == (group == "root"), "chat is a first-level action only: " + group);
-            if (group == "care") Require(new[] {"夸夸", "安抚", "哄睡"}.All(labels.Contains), "three additional care actions in the radial menu");
+            if (group == "interact:1") Require(new[] {"安抚", "哄睡", "休息"}.All(labels.Contains), "merged rest and care actions remain reachable");
             Require(labels.Contains(group == "root" ? "收起" : "返回"), "radial menu has accessible navigation: " + group);
             Require(!Find<Button>(pet).SelectMany(Find<TextBlock>).Any(t => t.IsVisible && t.Text.Length > 0), "menu buttons have no permanent text: " + group);
         }

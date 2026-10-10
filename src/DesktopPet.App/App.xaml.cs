@@ -22,8 +22,14 @@ public partial class App : Application
         if (dataIndex >= 0 && dataIndex + 1 < e.Args.Length) DataRoot = Path.GetFullPath(e.Args[dataIndex + 1]);
         int motionLogIndex = Array.IndexOf(e.Args, "--motion-log");
         if (motionLogIndex >= 0 && motionLogIndex + 1 < e.Args.Length) MotionLog = Path.GetFullPath(e.Args[motionLogIndex + 1]);
-        if ((e.Args.Any(a => a.StartsWith("--verify-")) || e.Args.Contains("--export-demo")) && (dataIndex < 0 || dataIndex + 1 >= e.Args.Length))
+        if ((e.Args.Any(a => a.StartsWith("--verify-")) || e.Args.Contains("--export-demo") || e.Args.Contains("--export-coverage")) && (dataIndex < 0 || dataIndex + 1 >= e.Args.Length))
         { MessageBox.Show("--verify-ui 必须指定独立的 --data-dir。"); Shutdown(1); return; }
+        if (e.Args.Contains("--export-coverage"))
+        {
+            try { DemoExporter.WriteCoverage(new Catalog(DataRoot),DataRoot); Shutdown(0); }
+            catch(Exception ex) { Directory.CreateDirectory(DataRoot); File.WriteAllText(Path.Combine(DataRoot,"coverage-error.txt"),ex.ToString()); Shutdown(1); }
+            return;
+        }
         if (e.Args.Contains("--verify-assets"))
         {
             try
@@ -56,6 +62,12 @@ public partial class App : Application
         if (e.Args.Contains("--ui-test")) pet.ShowInTaskbar = true;
         MainWindow = pet;
         pet.Show();
+        if (e.Args.Contains("--verify-play-update"))
+        {
+            try { await PlayUpdateVerification.Run(pet, DataRoot); Shutdown(0); }
+            catch (Exception ex) { Directory.CreateDirectory(DataRoot); File.WriteAllText(Path.Combine(DataRoot, "play-update-error.txt"), ex.ToString()); Shutdown(1); }
+            return;
+        }
         if (e.Args.Contains("--verify-idle-postures"))
         {
             try { await IdlePostureVerification.Run(pet, DataRoot); Shutdown(0); }

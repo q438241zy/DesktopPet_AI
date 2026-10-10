@@ -6,18 +6,19 @@ internal static class IdlePostureTests
     internal static void Run(Action<string, Action> test)
     {
         void Check(bool ok) { if (!ok) throw new Exception("Idle posture assertion failed"); }
-        test("idle pose waits a full 30 seconds and does not catch up after a delayed tick", () =>
+        test("five idle poses change every 1–2 seconds, avoid repeats and delayed tick bursts", () =>
         {
-            var clock = new IdlePostureClock(); clock.Reset(10);
-            Check(!clock.Tick(30009, true) && clock.Pose == "stand"); Check(clock.Tick(30010, true) && clock.Pose == "sit");
-            Check(!clock.Tick(60009, true)); Check(clock.Tick(150010, true) && clock.Pose == "stand");
-            Check(!clock.Tick(150011, true)); Check(clock.Tick(180010, true));
+            var clock = new IdlePostureClock("stand", new Random(3)); clock.Reset(10); var poses = new HashSet<string>{clock.Pose};
+            for(int i=0;i<20;i++)
+            { double next=clock.Next; string before=clock.Pose; Check(clock.Duration is >=1000 and <=2000); Check(!clock.Tick(next-1,true)); Check(clock.Tick(next,true)&&clock.Pose!=before); Check(!clock.Tick(next,true)); poses.Add(clock.Pose); }
+            Check(poses.SetEquals(IdlePostureClock.Poses)); Check(clock.Tick(150010,true)); Check(!clock.Tick(150011,true));
         });
         test("interaction and suspension require a fresh idle interval", () =>
         {
-            var clock = new IdlePostureClock("sit"); clock.Reset(0); Check(!clock.Tick(29000, false));
-            Check(!clock.Tick(120000, true)); Check(!clock.Tick(149999, true)); Check(clock.Tick(150000, true));
-            clock.Reset(170000); Check(!clock.Tick(199999, true)); Check(clock.Tick(200000, true));
+            var clock = new IdlePostureClock("sit", new Random(8)); clock.Reset(0); Check(!clock.Tick(500, false));
+            double held=clock.Progress(500); Check(held>0&&held<1&&clock.Progress(110000)==held);
+            Check(!clock.Tick(120000, true)); Check(!clock.Tick(clock.Next-1, true)); Check(clock.Tick(clock.Next, true));
+            clock.Reset(170000); Check(!clock.Tick(clock.Next-1, true)); Check(clock.Tick(clock.Next, true));
         });
         test("legacy save adds posture preferences without discarding companionship or collections", () =>
         {

@@ -9,7 +9,7 @@ public static class ClubMotion
     public static bool HasPoses(string action) => action is "stars" or "bubbles" or "stretch" or "comb" or "wipe";
     public static bool HasPoses(string action, Sprite? sheet) => HasPoses(action) && sheet is not null;
     public static int Duration(string action) => action switch
-    { "comb" => 4800, "wipe" => 4200, "stretch" => 5200, "bubbles" => 14400, "stars" => 9600, "butterfly" => 11500, _ => 2600 };
+    { "comb" => 4800, "wipe" => 4200, "stretch" => 5200, "bubbles" => 14400, "stars" => 9600, "butterfly" => (int)ButterflyPursuit.Duration, _ => 2600 };
     public static string Title(string action) => action switch
     { "comb" => "梳头", "wipe" => "擦脸", "stretch" => "伸懒腰", "bubbles" => "吹泡泡", "stars" => "数星星", "butterfly" => "捉蝴蝶", _ => action };
     /// <summary>Keep the approved gesture clock while selecting this sheet's actual cells.</summary>

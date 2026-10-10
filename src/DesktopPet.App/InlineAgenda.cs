@@ -14,6 +14,7 @@ internal sealed partial class InlineChat
     private void ClearAgendaDraft() { agendaEditor.Children.Clear(); agendaEditor.Visibility = Visibility.Collapsed; chatConversation.Visibility = Visibility.Visible; }
     internal void ShowAgendaDraft(AgendaDraft draft, string? id = null)
     {
+        if (!agendaMode) return;
         ClearAgendaDraft(); agendaEditor.Visibility = Visibility.Visible; chatConversation.Visibility = Visibility.Collapsed;
         agendaEditor.Children.Add(new TextBlock { Text = id is null ? "确认日程" : "修改日程", FontWeight = FontWeights.SemiBold, Margin = new Thickness(0, 0, 0, 6) });
         TextBox Box(string value, int max) => new() { Text = value, MaxLength = max, MinHeight = 0, Height = 31, Padding = new Thickness(8, 4, 8, 4), Margin = new Thickness(0) };
@@ -42,7 +43,7 @@ internal sealed partial class InlineChat
         {
             try
             {
-                if (!HasAgendaDraft || owner != family || !pet.AccessTo("chat").Allowed) return;
+                if (!HasAgendaDraft || owner != family || owner != pet.Character.FamilyId || !pet.AccessTo("chat").Allowed) return;
                 if (!int.TryParse(lead.Text, out int minutes)) throw new InvalidDataException("提前分钟需要填写整数。");
                 var changed = draft with { Title = title.Text, StartLocal = date.Text.Trim().Replace(' ', 'T'), LeadMinutes = minutes, Repeat = (string)((ComboBoxItem)repeat.SelectedItem).Tag, Zone = PetAgenda.Zone };
                 var saved = pet.Agenda.Put(changed, owner, DateTimeOffset.UtcNow, id);

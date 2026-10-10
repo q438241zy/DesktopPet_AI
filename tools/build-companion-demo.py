@@ -1,16 +1,11 @@
-"""Export declarative art geometry and unmodified photo sources for the v0.1 review.
-
-No image pixels are edited. Browser-only photo modules embed the existing PNG bytes
-so a file:// page can export a clean canvas without relaxing browser security.
-"""
+"""Export review-only whole-body geometry. Original image bytes stay unchanged."""
 import argparse
-import base64
-import hashlib
 import json
 import os
 from pathlib import Path
 import re
 import shutil
+import subprocess
 import sys
 import xml.etree.ElementTree as ET
 from PIL import Image
@@ -22,7 +17,8 @@ ASSETS = ROOT / 'src/DesktopPet.App/Assets/Characters'
 FAMILIES = [('whale', 'DeepSeek', 'deepseek-adult')] + [(s, n, s+'-adult') for s, n in [('gpt','GPT'),('claude','Claude'),('gemini','Gemini'),('grok','Grok'),('qwen','Qwen'),('zhipu','GLM'),('kimi','Kimi')]]
 parser = argparse.ArgumentParser()
 parser.add_argument('--target', type=Path, default=SOURCE)
-parser.add_argument('--idle-only', action='store_true', help='Export only existing idle gesture geometry; keep other generated data and photo payloads.')
+parser.add_argument('--idle-only', action='store_true', help='Export only existing idle gesture geometry; keep other generated review data.')
+parser.add_argument('--play-only', action='store_true', help='Export existing full-body play frames and anchors without changing other geometry or pixels.')
 args = parser.parse_args()
 target = args.target.resolve()
 if not target.is_relative_to(ROOT):
@@ -35,12 +31,19 @@ version = '.'.join(version_xml.findtext('.//DesktopPet'+key) for key in ['Major'
 data = dict(version=version, assetRoot=os.path.relpath(asset_root,target).replace('\\','/')+'/', families={}, items=[], stories=[])
 images = {}
 descriptors = {}
-payloads = {}
 
 def descriptor(cid, sprite, frame=None, anchor=None):
     cache_key = (cid, json.dumps(sprite,sort_keys=True), frame, json.dumps(anchor,sort_keys=True))
     if cache_key in descriptors:
         return descriptors[cache_key]
+    if frame is not None:
+        base=descriptor(cid,sprite)
+        cells=list(base['cells'])
+        if anchor:
+            cells[frame]={**cells[frame],'footX':anchor['footX'],'footY':anchor['footY']}
+        result={**base,'cells':cells,'frames':[frame],'frameMs':[5000]}
+        descriptors[cache_key]=result
+        return result
     file = ASSETS/cid/sprite['file']
     if file not in images:
         images[file] = Image.open(file).convert('RGBA')
@@ -62,12 +65,10 @@ def descriptor(cid, sprite, frame=None, anchor=None):
         box=alpha.point(lambda a:255 if a>=48 else 0).getbbox() or (0,0,w,h)
         # Keep one source-pixel scale across the complete clip, never fit each pose.
         top,bottom=box[1],box[3]
-        mass=weighted=0
-        px=alpha.load()
-        for yy in range(top,min(bottom,top+max(1,int((bottom-top)*.3)))):
-            for xx in range(w):
-                a=px[xx,yy]
-                if a>=48:mass+=a;weighted+=(xx+.5)*a
+        import numpy as np
+        band=np.asarray(alpha,dtype=np.float64)[top:min(bottom,top+max(1,int((bottom-top)*.3)))]
+        column_mass=np.where(band>=48,band,0).sum(axis=0)
+        mass=float(column_mass.sum());weighted=float((column_mass*(np.arange(w)+.5)).sum())
         pivot=weighted/mass if mass else w/2
         measured.append(dict(**c,footX=pivot,footY=bottom,visibleHeight=bottom-top,bounds=list(box),scale=(sprite.get('frameScaleFactors') or [1]*(cols*rows))[i]))
         if mask is not None:measured[-1]['ownership']=encode(mask)
@@ -77,15 +78,6 @@ def descriptor(cid, sprite, frame=None, anchor=None):
     result=dict(file=sprite['file'],cells=measured,reference=reference,frames=[frame] if frame is not None else sprite.get('frames',list(range(len(cells)))),frameMs=[5000] if frame is not None else sprite.get('frameMs',[160]*len(sprite.get('frames',cells))),facing=sprite.get('facing','right'))
     descriptors[cache_key]=result
     return result
-
-def photo_module(cid,desc):
-    file=ASSETS/cid/desc['file']
-    sha=hashlib.sha256(file.read_bytes()).hexdigest()[:20]
-    name=sha+'.js'
-    if name not in payloads:
-        payloads[name]=file
-    return {'module':'.generated/photos/'+name,'key':sha}
-
 
 def export_idle_art():
     # Reuse the approved outfit's complete stretch sequence. No pixel edits,
@@ -113,6 +105,41 @@ def export_idle_art():
     (target/'idle-art.js').write_text('globalThis.CLOUD_IDLE_ART='+json.dumps(idle_art,ensure_ascii=False,separators=(',',':'))+';\n',encoding='utf-8')
 
 
+def export_play_art():
+    result={}
+    motion_keys=['walk','peek','headpat','poke','tickle','meal','feed','eat','listen','anticipate','build','ball-ready','ball-hit','ball-miss','stars','bubbles','stretch','comb','wipe','think','jump','curl','bonk']
+    pose_keys=['receive','gift','gift-empty','read','page','read-finish','happy','high-prep','high-ready','high-contact','high-recoil','fist-up','fist-mid','fist-down','reveal-rock','reveal-scissors','reveal-paper']
+    for family,name,adult in FAMILIES:
+        result[family]={}
+        for style,cid in [('chibi',family),('realistic',adult)]:
+            pet=json.loads((ASSETS/cid/'pet.json').read_text(encoding='utf-8-sig'))
+            result[family][style]={}
+            for outfit in ['original','sports','swim','wedding']:
+                clothes=pet if outfit=='original' else pet['outfits'][outfit]
+                five=clothes['interactionFive'];looks={}
+                for key in pose_keys:
+                    p=five['poses'][key]
+                    desc=descriptor(cid,{**five['atlases'][p['atlas']], 'exportOwnership':True},p['frame'],p)
+                    looks[key]={**desc,'cells':[c if i in desc['frames'] else None for i,c in enumerate(desc['cells'])], 'anchors':p.get('anchors',{}),'frontY':p.get('frontY',0),'boxWidth':p.get('boxWidth',0)}
+                for key in motion_keys:
+                    if key not in clothes['motions']:
+                        continue
+                    sprite=clothes['motions'][key]
+                    desc=descriptor(cid,{**sprite,'exportOwnership':True})
+                    looks[key]={**desc,'cells':[c if i in desc['frames'] else None for i,c in enumerate(desc['cells'])]}
+                result[family][style][outfit]=looks
+            for im in images.values():im.close()
+            images.clear();descriptors.clear()
+        print('Play geometry: '+name,flush=True)
+    from compact_play_masks import compact
+    compact(result)
+    (target/'play-art.js').write_text('globalThis.CLOUD_PLAY_ART='+json.dumps(result,ensure_ascii=False,separators=(',',':'))+';\n',encoding='utf-8')
+
+if args.play_only:
+    export_play_art()
+    print(json.dumps(dict(appearances=64,pixelChanges=0,bytes=(target/'play-art.js').stat().st_size)))
+    sys.exit(0)
+
 export_idle_art()
 if args.idle_only:
     print(json.dumps(dict(target=str(target),idleAppearances=64,pixelChanges=0),ensure_ascii=False))
@@ -129,13 +156,8 @@ for family,name,adult in FAMILIES:
             motions=clothes.get('motions',{})
             idle=descriptor(cid,atlas,0)
             five=clothes.get('interactionFive')
-            photo=idle
             smile=descriptor(cid,atlas,min(1,len(idle['cells'])-1))
             if five:
-                p=five['poses']['photo'];photo_atlas=five['atlases'][p['atlas']]
-                if style=='realistic':
-                    photo_atlas={**photo_atlas,'isolateCells':True,'exportOwnership':True}
-                photo=descriptor(cid,photo_atlas,p['frame'],p)
                 if style=='realistic':
                     p=five['poses']['happy'];smile=descriptor(cid,five['atlases'][p['atlas']],p['frame'],p)
             stand=idle
@@ -149,7 +171,7 @@ for family,name,adult in FAMILIES:
             elif style=='realistic':
                 # The first curl pose is awake and seated; the next one is asleep.
                 curl={**motions['curl'],'isolateCells':True,'exportOwnership':True};sit=descriptor(cid,curl,curl.get('frames',[6])[0])
-            look=dict(idle=idle,stand=stand,sit=sit,smile=smile,photo=photo,photoData=photo_module(cid,photo))
+            look=dict(idle=idle,stand=stand,sit=sit,smile=smile)
             for key,native in [('think','think'),('talk','chat'),('pat','headpat'),('walk','walk'),('peek','peek')]:
                 look[key]=descriptor(cid,motions[native]) if native in motions else idle
             looks[outfit]=look
@@ -159,34 +181,16 @@ for family,name,adult in FAMILIES:
 items=(ROOT/'src/DesktopPet.Core/Collectibles.cs').read_text(encoding='utf-8-sig')
 for id,name,kind,tail in re.findall(r'new\("([a-z-]+)", "([^"]+)", ItemKind\.(\w+)([^\n]*)',items):
     data['items'].append(dict(id=id,name=name,kind='balls' if kind=='Sport' else 'food' if ', true' in tail else 'keepsakes'))
-stories=(ROOT/'src/DesktopPet.Core/StoryLibrary.cs').read_text(encoding='utf-8-sig')
-for id,title,body in re.findall(r'new CompanionStory\("([^"]+)","([^"]+)",new\[\] \{(.*?)\}\)',stories,re.S):
-    data['stories'].append(dict(id=id,title=title,sentences=re.findall(r'"([^"\n]+)"',body)))
-assert len(data['items'])==20 and len(data['stories'])==3
+data['stories']=json.loads(subprocess.check_output(['node','-e','process.stdout.write(JSON.stringify(require(process.argv[1])))',str(SOURCE/'story-library.js')],encoding='utf-8'))
+assert len(data['items'])==20 and len(data['stories'])==10
+export_play_art()
 
 if target!=SOURCE:
-    for name in ['index.html','style.css','icons.js','personas.js','providers.js','model.js','photo-layout.js','agenda.js','agenda-ui.js','agenda.css','idle-postures.js','app.js','preview-art.js','claude-review.html']:
+    for name in ['index.html','style.css','icons.js','personas.js','providers.js','model.js','agenda.js','agenda-ui.js','agenda.css','idle-postures.js','story-library.js','play-model.js','play-ui.js','play.css','app.js','preview-art.js','claude-review.html']:
         shutil.copyfile(SOURCE/name,target/name)
     (target/'art').mkdir(exist_ok=True)
     for file in (SOURCE/'art').glob('claude-sports-stand-v2*'):
         shutil.copyfile(file,target/'art'/file.name)
 shutil.copyfile(ROOT/'docs/demo/interaction-five/items.js',target/'items.js')
 (target/'data.js').write_text('globalThis.CLOUD_DATA='+json.dumps(data,ensure_ascii=False,separators=(',',':'))+';\n',encoding='utf-8')
-photo_dir=target/'.generated/photos'
-photo_dir.mkdir(parents=True,exist_ok=True)
-for name,file in payloads.items():
-    key=name[:-3];mime='image/webp' if file.suffix=='.webp' else 'image/png'
-    body='globalThis.receivePhotoSource('+json.dumps(key)+','+json.dumps('data:'+mime+';base64,'+base64.b64encode(file.read_bytes()).decode())+');\n'
-    destination=photo_dir/name
-    if not destination.exists() or destination.read_text(encoding='utf-8')!=body:
-        cached=SOURCE/'.generated/photos'/name
-        if target!=SOURCE and cached.exists() and cached.read_text(encoding='utf-8')==body:
-            if destination.exists():
-                destination.unlink()
-            try:
-                os.link(cached,destination)
-            except OSError:
-                destination.write_text(body,encoding='utf-8')
-        else:
-            destination.write_text(body,encoding='utf-8')
-print(json.dumps(dict(target=str(target),version=version,families=len(FAMILIES),appearances=64,photoModules=len(payloads),photoBytes=sum((photo_dir/n).stat().st_size for n in payloads),items=len(data['items']),stories=len(data['stories'])),ensure_ascii=False))
+print(json.dumps(dict(target=str(target),version=version,families=len(FAMILIES),appearances=64,items=len(data['items']),stories=len(data['stories']),pixelChanges=0),ensure_ascii=False))

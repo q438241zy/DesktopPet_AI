@@ -188,9 +188,11 @@ assert len(data['items'])==20 and len(data['stories'])==10
 export_play_art()
 
 if target!=SOURCE:
-    for name in ['index.html','style.css','icons.js','personas.js','providers.js','model.js','agenda.js','agenda-ui.js','agenda.css','idle-postures.js','story-library.js','play-model.js','play-ui.js','play.css','app.js','preview-art.js','claude-review.html']:
+    for name in ['index.html','refresh-v19.css','style.css','icons.js','personas.js','providers.js','model.js','agenda.js','agenda-ui.js','agenda.css','idle-postures.js','story-library.js','play-model.js','play-ui.js','play.css','app.js','preview-art.js','claude-review.html']:
         shutil.copyfile(SOURCE/name,target/name)
     (target/'art').mkdir(exist_ok=True)
+    for name in ['cloud-pet-v19.svg','cloud-pet-v19-small.svg']:
+        shutil.copyfile(SOURCE/'art'/name,target/'art'/name)
     for file in (SOURCE/'art').glob('claude-sports-stand-v2*'):
         shutil.copyfile(file,target/'art'/file.name)
 shutil.copyfile(ROOT/'docs/demo/interaction-five/items.js',target/'items.js')

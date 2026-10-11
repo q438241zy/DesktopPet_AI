@@ -11,12 +11,12 @@
   const runtime=M.createRuntime(now()),images=new Map(),errors=[];
   let page='partners',detailId=state.selected,detailTab='bond',collectionTab='balls',apiKey='',session=null,authMode='login',chatTicket=0,chatAbort=null,chatStarted=0,chatFinished=0,lastTick=performance.now(),lastSave=now(),touches=[],saveFailed=false;
   const postureStates=new Map(M.families.map((id,i)=>[id,new I.Clock(i%2?'sit':'stand')]));
+  const cardPostureStates=new Map(M.families.map((id,i)=>[id,new I.Clock(I.poses[i%I.poses.length])]));
+  let cardPreviewPaused=false,settingsTab='companion',dailyTab='actions';
   const appearanceCache=new Map(),postureBounds=new WeakMap();
   const chats=Object.fromEntries(M.families.map(id=>[id,[]]));
   let viewStamp='',lastPose=null,toastTimer,reminderTimer,reminderTicket=0,reminderAbort=null,reminderIndex=0,apiTestTicket=0,apiTestAbort=null;
-  const dateAtNoon=time=>{const date=new Date(time);date.setHours(12,0,0,0);return date;};
-  const calendarStart=time=>{const date=dateAtNoon(time);if(state.settings.calendarView==='week')date.setDate(date.getDate()-(date.getDay()+6)%7);else date.setDate(1);return date;};
-  let calendarDate=dateAtNoon(now()),dailyDate=M.day(now()),makeupDate='';
+  let makeupDate='';
   const outfit=(family=state.selected,style=state.style)=>state.outfits[family+'/'+style]||'original';
   const look=(family=state.selected,style=state.style,clothes=outfit(family,style))=>{
     const key=family+'/'+style+'/'+clothes;
@@ -44,7 +44,7 @@
   function posture(family=state.selected){const mode=state.postures[family]||'auto';return mode==='auto'?postureStates.get(family).pose:mode;}
   function postureButtons(){$$('[data-posture]').forEach(el=>el.setAttribute('aria-pressed',String(el.dataset.posture===(state.postures[state.selected]||'auto'))));}
   function setPosture(value){state.postures[state.selected]=value;touch();save();postureButtons();drawStatic();drawPet();}
-  function resetPostures(){for(const p of postureStates.values())p.suspend(now());}
+  function resetPostures(){for(const p of [...postureStates.values(),...cardPostureStates.values()])p.suspend(now());}
   function updatePostures(){
     const blocked=runtime.paused||document.hidden||state.settings.reducedMotion||document.querySelector('dialog[open]');
     let changed=false;
@@ -52,6 +52,7 @@
       const eligible=!blocked&&(state.postures[id]||'auto')==='auto'&&!(id===state.selected&&(runtime.action!=='idle'||!$('#pet-menu').hidden||$('#chat-input').value.trim()||agenda?.blocksHide()));
       if(p.tick(now(),eligible))changed=true;
     }
+    for(const clock of cardPostureStates.values())if(clock.tick(now(),!blocked&&!cardPreviewPaused&&page==='partners'))changed=true;
     if(changed)drawStatic();
   }
   function postureHeight(appearance,w,h,requested){
@@ -63,12 +64,12 @@
     const bounds=postureBounds.get(appearance);
     return Math.min(requested,w*.47/bounds.width,h*.88/bounds.height);
   }
-  function drawCanvas(canvas,family,style,clothes,pose=null,elapsed=0){
+  function drawCanvas(canvas,family,style,clothes,pose=null,elapsed=0,{card=false}={}){
     if(!canvas||!canvas.isConnected||!canvas.getBoundingClientRect().width)return;
     const box=canvas.getBoundingClientRect(),dpr=Math.min(3,devicePixelRatio||1),w=Math.round(box.width*dpr),h=Math.round(box.height*dpr);
     if(canvas.width!==w||canvas.height!==h){canvas.width=w;canvas.height=h;}
-    const automatic=!pose;pose=pose||posture(family);const appearance=look(family,style,clothes),desc=appearance[pose]||appearance.idle;
-    if(automatic&&(state.postures[family]||'auto')==='auto')elapsed=postureStates.get(family).elapsed(now(),desc);
+    const automatic=!pose;pose=pose||(card?cardPostureStates.get(family).pose:posture(family));const appearance=look(family,style,clothes),desc=appearance[pose]||appearance.idle;
+    if(automatic&&(card||(state.postures[family]||'auto')==='auto'))elapsed=(card?cardPostureStates:postureStates).get(family).elapsed(now(),desc);
     const frame=frameAt(desc,state.settings.reducedMotion?0:elapsed),img=loadedImage(source(family,style,desc));
     if(!img.complete||!img.naturalWidth)return;
     const height=postureHeight(appearance,w,h,h*.86),key=[img.src,frame,w,h,height].join('|');
@@ -85,10 +86,11 @@
   function cancelChat(){chatTicket++;chatAbort?.abort();chatAbort=null;agenda?.invalidate();if(runtime.action==='thinking'){runtime.action='idle';runtime.started=now();runtime.idleSince=now();}$('#chat-send').disabled=false;$('#chat-input').disabled=runtime.paused;$('#pet-stage').classList.remove('thinking');$('.thinking-dots').hidden=true;}
   function touch(){runtime.idleSince=now();postureStates.get(state.selected).reset(now());}
   function navigate(next){
+    if(next==='member'){setSettingsTab('account');next='settings';}
     if(page!==next)play?.clear();
     if(page==='agenda'&&next!=='agenda')agenda?.invalidate();
     page=next;$$('.page').forEach(el=>el.hidden=el.id!=='page-'+next);$$('[data-page]').forEach(el=>el.classList.toggle('active',el.dataset.page===(['detail','interaction'].includes(next)?'partners':next)));
-    $('#page-title').textContent={partners:'我的伙伴',daily:'陪伴日常',member:'会员中心',settings:'设定',detail:'伙伴档案',interaction:'陪伴预览',agenda:'宠物行事历'}[next];touch();$('#pet-menu').hidden=true;
+    $('#page-title').textContent={partners:'我的伙伴',daily:'陪伴日常',member:'会员中心',settings:'设定',detail:'伙伴档案',interaction:'陪伴预览',agenda:'行事历'}[next];touch();$('#pet-menu').hidden=true;
     if(next==='agenda')agenda?.render();
     if(next==='partners')renderHero();if(next==='daily')renderDaily();if(next==='detail')renderDetail();if(next==='settings')renderSettings();drawStatic();syncStage(true);window.scrollTo({top:0,behavior:'instant'});
   }
@@ -113,7 +115,7 @@
   function drawStatic(){
     agenda?.draw();
     if(page==='partners'){
-      $$('.partner-card').forEach(el=>drawCanvas(el.querySelector('canvas'),el.dataset.family,state.style,outfit(el.dataset.family)));
+      $$('.partner-card').forEach(el=>drawCanvas(el.querySelector('canvas'),el.dataset.family,state.style,outfit(el.dataset.family),null,0,{card:true}));
       const pose=drawCanvas($('#hero-canvas'),state.selected,state.style,outfit());if(pose)$('#hero-canvas').dataset.file=pose.file;
     }
     if(page==='detail'){
@@ -211,34 +213,7 @@
     $('#profile-likes').replaceChildren(...profile.likes.map(([name,note])=>{const li=document.createElement('li'),title=document.createElement('strong'),description=document.createElement('span');title.textContent=name;description.textContent=note;li.append(title,description);return li;}));
     $('#profile-together').textContent=profile.together;
   }
-  function renderCalendar(){
-    const t=now(),today=M.day(t),date=new Date(t),week=state.settings.calendarView==='week',currentStart=calendarStart(t),oldStart=calendarStart(dailyDate+'T12:00:00');
-    if(dailyDate!==today&&calendarStart(calendarDate).getTime()===oldStart.getTime())calendarDate=dateAtNoon(t);
-    dailyDate=today;
-    const start=calendarStart(calendarDate),end=new Date(start);end.setDate(start.getDate()+6);
-    $('#today-date').textContent=date.toLocaleDateString('zh-CN',{month:'long',day:'numeric',weekday:'long'});
-    $('#calendar-month').textContent=week?start.toLocaleDateString('zh-CN',{year:'numeric',month:'long',day:'numeric'})+' – '+end.toLocaleDateString('zh-CN',{...(start.getFullYear()!==end.getFullYear()?{year:'numeric'}:{}),month:'long',day:'numeric'}):start.toLocaleDateString('zh-CN',{year:'numeric',month:'long'});
-    $('#calendar-month').classList.toggle('week-title',week);
-    $$('[data-calendar-view]').forEach(el=>{const active=el.dataset.calendarView===state.settings.calendarView;el.classList.toggle('selected',active);el.setAttribute('aria-pressed',String(active));});
-    $('#makeup-count').textContent=state.makeupCards;$('#streak-count').textContent=M.streak(state,t);$('#total-count').textContent=state.checkins.length;
-    $('#calendar-prev').setAttribute('aria-label',week?'上一周':'上一个月');$('#calendar-next').setAttribute('aria-label',week?'下一周':'下一个月');
-    $('#calendar-next').disabled=start>=currentStart;$('#calendar-today').disabled=start.getTime()===currentStart.getTime();
-    const grid=$('#checkin-calendar');grid.replaceChildren();grid.classList.toggle('week-view',week);
-    const first=week?0:(start.getDay()+6)%7,days=week?7:new Date(start.getFullYear(),start.getMonth()+1,0).getDate();
-    for(let i=0;i<(week?7:Math.ceil((first+days)/7)*7);i++){
-      const n=i-first+1;if(n<1||n>days){const blank=document.createElement('span');blank.className='calendar-empty';blank.setAttribute('aria-hidden','true');grid.append(blank);continue;}
-      const d=new Date(start);d.setDate(start.getDate()+n-1);const key=M.day(d),checked=state.checkins.includes(key),isToday=key===today,isMakeup=state.makeupCheckins.includes(key),future=key>today;
-      const cell=document.createElement('button');cell.type='button';cell.className='calendar-day'+(isToday?' today':'')+(checked?' done':'')+(future?' future':'');cell.dataset.date=key;
-      const number=document.createElement('span'),mark=document.createElement('small');number.textContent=d.getDate();mark.textContent=checked?(isMakeup?'补签':'已打卡'):isToday?'打卡':'';cell.append(number,mark);
-      cell.setAttribute('aria-label',d.toLocaleDateString('zh-CN',{month:'long',day:'numeric'})+(isToday?'，今天':'')+'，'+(checked?(isMakeup?'已补签':'已打卡'):future?'尚未到来':isToday?'点击打卡':'补签'));
-      if(isToday){cell.id='check-in';cell.setAttribute('aria-current','date');}cell.disabled=checked||future;cell.onclick=()=>calendarCheckin(key);grid.append(cell);
-    }
-  }
-  function moveCalendar(direction){
-    const start=calendarStart(calendarDate),currentStart=calendarStart(now());if(direction>0&&start>=currentStart)return;
-    if(state.settings.calendarView==='week')start.setDate(start.getDate()+direction*7);else start.setMonth(start.getMonth()+direction);
-    calendarDate=start.getTime()===currentStart.getTime()?dateAtNoon(now()):start;renderCalendar();
-  }
+  function renderCalendar(){agenda?.render();}
   function calendarCheckin(date){
     if(date===M.day(now())){if(M.checkin(state,now())){save();renderCalendar();toast('今日已打卡');}return;}
     if(date>=M.day(now())||state.checkins.includes(date))return;
@@ -246,7 +221,10 @@
     makeupDate=date;$('#makeup-date').textContent=new Date(date+'T12:00:00').toLocaleDateString('zh-CN',{year:'numeric',month:'long',day:'numeric'});$('#makeup-dialog').showModal();
   }
   function renderDaily(){
-    renderCalendar();
+    setDailyTab(dailyTab);
+    $('#daily-partner-name').textContent=P.all[state.selected].name+' · '+(state.style==='chibi'?'Q版':'3D真人');
+    $('#collection-progress').textContent=(D.items.filter(x=>state.collection[x.id]).length+D.stories.filter(x=>state.stories[x.id]).length)+' / '+(D.items.length+D.stories.length)+' 已收集';
+    renderDailyActions();
     for(const kind of ['balls','food']){const entries=D.items.filter(x=>x.kind===kind);$('#'+kind+'-count').textContent=entries.filter(x=>state.collection[x.id]).length+'/'+entries.length;}
     $('#stories-count').textContent=Object.keys(state.stories).length+'/'+D.stories.length;
     $$('[data-collection]').forEach(el=>el.classList.toggle('selected',el.dataset.collection===collectionTab));
@@ -256,7 +234,29 @@
   }
   function itemCard(item){const el=document.createElement('div');el.className='collection-card'+(state.collection[item.id]?' earned':' unearned');el.innerHTML=FiveItems.svg(item.id)+'<span></span><small></small>';el.querySelector('span').textContent=item.name;el.querySelector('small').textContent=state.collection[item.id]?`已收藏 ×${state.collection[item.id]}`:'还没遇见';return el;}
   function openStory(id){navigate('interaction');play.start('read',{storyId:id});}
+  function setSettingsTab(tab){
+    if(!['companion','api','account'].includes(tab))return;settingsTab=tab;
+    $$('[data-settings-tab]').forEach(el=>{const on=el.dataset.settingsTab===tab;el.classList.toggle('selected',on);el.setAttribute('aria-selected',String(on));el.tabIndex=on?0:-1;$('#settings-'+el.dataset.settingsTab).hidden=!on;});
+  }
+  function setDailyTab(tab){
+    dailyTab=tab;
+    $$('[data-daily-tab]').forEach(el=>{const on=el.dataset.dailyTab===tab;el.classList.toggle('selected',on);el.setAttribute('aria-selected',String(on));el.tabIndex=on?0:-1;$('#daily-'+el.dataset.dailyTab).hidden=!on;});
+  }
+  function bindTabs(selector,select){
+    const tabs=$$(selector);tabs.forEach((el,i)=>{el.onclick=()=>select(el);el.onkeydown=event=>{let n=i;if(['ArrowRight','ArrowDown'].includes(event.key))n=(i+1)%tabs.length;else if(['ArrowLeft','ArrowUp'].includes(event.key))n=(i+tabs.length-1)%tabs.length;else if(event.key==='Home')n=0;else if(event.key==='End')n=tabs.length-1;else return;event.preventDefault();select(tabs[n]);tabs[n].focus();};});
+  }
+  function renderDailyActions(){
+    const host=$('#daily-action-groups');if(host.childElementCount)return;
+    for(const [group,keys] of Object.entries(CompanionPlay.groups)){
+      const section=document.createElement('section');section.className='daily-action-section';
+      const heading=document.createElement('h2');heading.textContent=group==='play'?'玩耍':'互动';
+      const grid=document.createElement('div');grid.className='daily-action-grid';
+      for(const key of keys){const button=document.createElement('button');button.className='daily-action';button.dataset.dailyAction=key;button.innerHTML='<span class="action-symbol">'+icon(({read:'book',highfive:'hand',rps:'scissors'})[key]||key)+'</span><span></span>';button.lastElementChild.textContent=CompanionPlay.titles[key];button.onclick=()=>{navigate('interaction');action(key);};grid.append(button);}
+      section.append(heading,grid);host.append(section);
+    }
+  }
   function renderSettings(){
+    setSettingsTab(settingsTab);
     $('#auto-hide').checked=state.settings.autoHide;$('#reduced-motion').checked=state.settings.reducedMotion;$('#work-minutes').value=state.work.minutes;$('#api-provider').value=state.api.provider;$('#api-endpoint').value=state.api.endpoint;$('#api-model').value=state.api.model;$('#api-key').value=apiKey;$('#api-workspace').value=state.api.workspace||'';apiFields();syncWork();
   }
   function apiFields(){
@@ -340,11 +340,10 @@
     const events=M.tick(runtime,state,now(),{canHide:page==='interaction'&&!document.hidden&&!document.querySelector('dialog[open]')&&$('#pet-menu').hidden&&!$('#chat-input').value.trim()&&!agenda?.blocksHide()});
     updatePostures();
     if(events.includes('reminder'))remind();syncStage();syncWork();if(page==='detail'&&detailTab==='bond'){$('#companion-time').textContent=displayTime(state.relations[detailId].seconds);}
-    if(page==='daily'&&dailyDate!==M.day(now()))renderCalendar();
     if(page==='partners'){const relation=state.relations[state.selected];$('#hero-bond').textContent=M.label(relation.score)+' · 相伴 '+displayTime(relation.seconds);}
     if(now()-lastSave>=5000){save();lastSave=now();}
   }
-  agenda=CompanionAgendaUI.create({now,select,family:()=>state.selected,affinity:()=>state.relations[state.selected].score,api:()=>({...state.api}),key:()=>apiKey,go:navigate,toast,paused:()=>runtime.paused,cancelChat,draw:(canvas,id,pose)=>drawCanvas(canvas,id,state.style,outfit(id),pose)});
+  agenda=CompanionAgendaUI.create({now,select,family:()=>state.selected,affinity:()=>state.relations[state.selected].score,api:()=>({...state.api}),key:()=>apiKey,go:navigate,openApi:()=>{setSettingsTab('api');navigate('settings');},checkins:()=>({dates:state.checkins,makeupDates:state.makeupCheckins,makeupCards:state.makeupCards,streak:M.streak(state,now()),total:state.checkins.length}),checkin:day=>calendarCheckin(day),calendarView:()=>state.settings.calendarView,setCalendarView:view=>{state.settings.calendarView=view;save();},toast,paused:()=>runtime.paused,cancelChat,draw:(canvas,id,pose)=>drawCanvas(canvas,id,state.style,outfit(id),pose)});
   play=CompanionPlayUI.create({items:D.items,touch,art:playArt,action,settings:()=>navigate('settings'),render:()=>syncStage(true),
     begin:()=>{cancelChat();runtime.action='play';runtime.started=now();touch();syncStage(true);},
     clear:()=>{if(runtime.action==='play'){runtime.action='idle';runtime.started=now();runtime.idleSince=now();}$$('.room-actions button').forEach(b=>b.setAttribute('aria-pressed','false'));},
@@ -360,11 +359,13 @@
   $('#pet-body').onclick=pat;$('#find-left').onclick=find;$('#find-right').onclick=find;$('#pet-stage').oncontextmenu=event=>{event.preventDefault();play.toggle();};
   $('#inline-chat').onsubmit=event=>{event.preventDefault();reply();};
   $('#presence').onclick=()=>{M.pause(runtime,now());cancelChat();resetPostures();if(runtime.paused)dismissReminder();if(runtime.action==='thinking')runtime.action='idle';save();syncStage(true);syncWork();};
-  $$('[data-calendar-view]').forEach(el=>el.onclick=()=>{state.settings.calendarView=el.dataset.calendarView;renderCalendar();save();});
-  $('#calendar-prev').onclick=()=>moveCalendar(-1);$('#calendar-next').onclick=()=>moveCalendar(1);$('#calendar-today').onclick=()=>{calendarDate=dateAtNoon(now());renderCalendar();};
+  $('#cards-motion').onclick=()=>{cardPreviewPaused=!cardPreviewPaused;for(const clock of cardPostureStates.values())clock.suspend(now());$('#cards-motion').textContent=cardPreviewPaused?'继续预览':'暂停预览';$('#cards-motion').setAttribute('aria-pressed',String(cardPreviewPaused));drawStatic();};
+  bindTabs('[data-settings-tab]',el=>setSettingsTab(el.dataset.settingsTab));
+  bindTabs('[data-daily-tab]',el=>setDailyTab(el.dataset.dailyTab));
+  $('#daily-partner').onclick=()=>navigate('partners');
   $('#makeup-confirm').onclick=()=>{const success=M.makeup(state,makeupDate,now());$('#makeup-dialog').close();if(success){save();renderCalendar();toast('已补签');}else toast('这一天无法补签，请检查补签卡余量。');makeupDate='';};
   $$('[data-collection]').forEach(el=>el.onclick=()=>{collectionTab=el.dataset.collection;renderDaily();});
-  $('#work-open').onclick=()=>{navigate('settings');$(runtime.workActive?'#work-minutes':'#work-enabled').focus();};$('#work-enabled').onchange=workToggle;$('#work-form').onsubmit=workStart;$('#work-try').onclick=()=>remind();$('#reminder-dismiss').onclick=dismissReminder;
+  $('#work-open').onclick=()=>{setSettingsTab('companion');navigate('settings');$(runtime.workActive?'#work-minutes':'#work-enabled').focus();};$('#work-enabled').onchange=workToggle;$('#work-form').onsubmit=workStart;$('#work-try').onclick=()=>remind();$('#reminder-dismiss').onclick=dismissReminder;
   $('#auto-hide').onchange=event=>{state.settings.autoHide=event.target.checked;touch();save();};$('#reduced-motion').onchange=event=>{state.settings.reducedMotion=event.target.checked;document.body.classList.toggle('reduced-motion',event.target.checked);resetPostures();save();};
   $('#api-provider').onchange=()=>{cancelApiTest();const provider=$('#api-provider').value;$('#api-endpoint').value=A.catalog[provider]?.base||'';$('#api-key').value='';$('#api-workspace').value='';$('#api-model').value=provider==='deepseek'?'deepseek-flash':'';$('#api-status').textContent='尚未保存';apiFields();};$('#api-form').onsubmit=apiSave;$('#api-test').onclick=apiTest;
   $('#api-form').oninput=event=>{cancelApiTest();if(event.target.id==='api-endpoint')$('#api-key').value='';$('#api-status').textContent='尚未保存';};
@@ -377,9 +378,9 @@
   $('#review-affinity').oninput=event=>{state.relations[event.target.dataset.family].score=Number(event.target.value);$('#review-score').textContent=event.target.value;save();if(page==='detail')renderDetail();};
   document.addEventListener('pointerdown',event=>{if(!event.target.closest('#review-dialog'))touch();});document.addEventListener('keydown',event=>{touch();if(event.key==='Escape')$('#pet-menu').hidden=true;});document.addEventListener('visibilitychange',()=>{lastTick=performance.now();resetPostures();save();});window.addEventListener('pagehide',()=>{play.clear();save();cancelChat();dismissReminder();cancelApiTest();});window.addEventListener('resize',()=>{drawStatic();drawPet();});
   $('.brand').onclick=event=>{event.preventDefault();navigate('partners');};
-  globalThis.companionDemo={snapshot:()=>({page,selected:state.selected,style:state.style,outfit:outfit(),runtime:{...runtime},relations:structuredClone(state.relations),checkins:[...state.checkins],makeupCards:state.makeupCards,makeupCheckins:[...state.makeupCheckins],collection:{...state.collection},stories:{...state.stories},pose:lastPose,posture:posture(),postureMode:state.postures[state.selected]||'auto',idleClock:postureStates.get(state.selected).snapshot(now()),play:play.snapshot(),chatCount:chats[state.selected].length,chatDuration:chatFinished-chatStarted,errors:[...errors],version:D.version,agenda:agenda.snapshot()}),advance:ms=>{offset+=ms;tick();agenda.poll();},select,style,navigate,openDetail,action,playStep:ms=>{play.advance(ms);syncStage(true);},render:tick};
+  globalThis.companionDemo={snapshot:()=>({page,settingsTab,dailyTab,gallery:{paused:cardPreviewPaused,clocks:Object.fromEntries([...cardPostureStates].map(([id,c])=>[id,c.snapshot(now())]))},selected:state.selected,style:state.style,outfit:outfit(),runtime:{...runtime},relations:structuredClone(state.relations),checkins:[...state.checkins],makeupCards:state.makeupCards,makeupCheckins:[...state.makeupCheckins],collection:{...state.collection},stories:{...state.stories},pose:lastPose,posture:posture(),postureMode:state.postures[state.selected]||'auto',idleClock:postureStates.get(state.selected).snapshot(now()),play:play.snapshot(),chatCount:chats[state.selected].length,chatDuration:chatFinished-chatStarted,errors:[...errors],version:D.version,agenda:agenda.snapshot()}),advance:ms=>{offset+=ms;tick();agenda.poll();},select,style,navigate,openDetail,action,playStep:ms=>{play.advance(ms);syncStage(true);},render:tick};
   if(state.work.enabled)M.workStart(runtime,state,now());renderSettings();renderCards();select(state.selected);chatSource();setInterval(tick,100);tick();
-  if(['#agenda','#interaction'].includes(location.hash))navigate(location.hash.slice(1));
+  if(['#agenda','#interaction','#daily','#settings'].includes(location.hash))navigate(location.hash.slice(1));
   let lastAnimation=0,lastPlayAnimation=0;
   function animate(time){
     const playDelta=lastPlayAnimation?Math.min(100,Math.max(0,time-lastPlayAnimation)):0;lastPlayAnimation=time;

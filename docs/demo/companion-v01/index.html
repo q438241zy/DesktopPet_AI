@@ -6,14 +6,15 @@
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="agenda.css">
   <link rel="stylesheet" href="play.css">
+  <link rel="stylesheet" href="refresh-v19.css">
+  <link rel="icon" type="image/svg+xml" href="art/cloud-pet-v19-small.svg">
 </head>
 <body>
   <aside class="sidebar">
-    <a class="brand" href="#partners"><span class="cloud-logo" data-icon="cloud"></span><strong>云朵伙伴</strong></a>
+    <a class="brand" href="#partners"><picture class="cloud-logo"><source media="(max-width:760px)" srcset="art/cloud-pet-v19-small.svg"><img src="art/cloud-pet-v19.svg" alt="" width="88" height="88"></picture><strong>云朵伙伴</strong></a>
     <nav aria-label="主导航">
       <button data-page="partners" class="active"><span data-icon="heart"></span>我的伙伴</button>
-      <button data-page="daily"><span data-icon="calendar"></span>陪伴日常</button>
-      <button data-page="member"><span data-icon="crown"></span>会员中心</button>
+      <button data-page="daily"><span data-icon="play"></span>陪伴日常</button>
       <button data-page="settings"><span data-icon="settings"></span>设定</button>
     </nav>
     <div class="sidebar-bottom"><button id="presence" class="presence" aria-pressed="true" title="暂停或继续陪伴"><i class="status-light"></i><span>正在陪伴</span></button><button id="review-open" class="version" title="查看 Demo 测试工具">云朵伙伴 / DesktopPet <span data-version></span></button></div>
@@ -21,7 +22,7 @@
   <main>
     <header class="page-header"><h1 id="page-title">我的伙伴</h1></header>
     <section id="page-partners" class="page">
-      <div class="section-row"><div class="segmented" role="group" aria-label="角色风格"><button data-style="chibi" class="selected">Q版</button><button data-style="realistic">3D真人</button></div><button id="details-open" class="quiet"><span data-icon="profile"></span>伙伴档案</button></div>
+      <div class="section-row"><div class="segmented" role="group" aria-label="角色风格"><button data-style="chibi" class="selected">Q版</button><button data-style="realistic">3D真人</button></div><div class="partner-tools"><button id="cards-motion" class="quiet" aria-pressed="false">暂停预览</button><button id="details-open" class="quiet"><span data-icon="profile"></span>伙伴档案</button></div></div>
       <div id="partner-grid" class="partner-grid"></div>
       <section class="partner-hero" aria-label="此刻陪伴">
         <div class="hero-art"><canvas id="hero-canvas" width="472" height="364" aria-label="当前伙伴原图"></canvas></div>
@@ -49,28 +50,30 @@
       </section>
     </section>
     <section id="page-daily" class="page" hidden>
-      <section class="checkin-panel" aria-label="日历打卡">
-        <div class="calendar-heading"><div><span class="eyebrow" id="today-date"></span><h2 id="calendar-month"></h2></div><span class="makeup-balance"><span data-icon="calendar"></span>补签卡：<strong id="makeup-count">0</strong> 张</span></div>
-        <div class="calendar-toolbar"><div class="calendar-view-tools"><div class="segmented calendar-mode" role="group" aria-label="日历视图"><button data-calendar-view="month" class="selected" aria-pressed="true" aria-controls="checkin-calendar">月历</button><button data-calendar-view="week" aria-pressed="false" aria-controls="checkin-calendar">周历</button></div><span class="calendar-key"><i></i>今天</span></div><div class="calendar-navigation"><button id="calendar-prev" class="icon-button" aria-label="上一个月"><span data-icon="back"></span></button><button id="calendar-today" class="quiet">今天</button><button id="calendar-next" class="icon-button" aria-label="下一个月"><span data-icon="back"></span></button></div></div>
-        <div class="calendar-weekdays" aria-hidden="true"><span>一</span><span>二</span><span>三</span><span>四</span><span>五</span><span>六</span><span>日</span></div>
-        <div id="checkin-calendar" class="checkin-calendar" role="group" aria-label="点击今天打卡"></div>
-        <div class="checkin-stats"><div><strong id="streak-count">0</strong><span>连续天数</span></div><div><strong id="total-count">0</strong><span>累计打卡</span></div></div>
-      </section>
-      <div class="section-row collection-heading"><h2>收藏区</h2></div>
+      <div class="daily-toolbar"><div class="segmented" role="tablist" aria-label="陪伴日常"><button id="daily-tab-actions" data-daily-tab="actions" role="tab" aria-controls="daily-actions" aria-selected="true" class="selected">动作</button><button id="daily-tab-collection" data-daily-tab="collection" role="tab" aria-controls="daily-collection" aria-selected="false" tabindex="-1">图鉴收集</button></div><button id="daily-partner" class="quiet"><span data-icon="heart"></span><span id="daily-partner-name">DeepSeek</span></button></div>
+      <section id="daily-actions" role="tabpanel" aria-labelledby="daily-tab-actions"><div id="daily-action-groups"></div></section>
+      <section id="daily-collection" role="tabpanel" aria-labelledby="daily-tab-collection" hidden><div class="collection-heading section-row"><h2>相伴的收获</h2><span id="collection-progress" class="tiny-tag"></span></div>
       <div class="segmented collection-tabs" role="group" aria-label="收藏分类"><button data-collection="balls" class="selected">球区 <small id="balls-count">0/10</small></button><button data-collection="food">食物区 <small id="food-count">0/6</small></button><button data-collection="stories">故事区 <small id="stories-count">0/10</small></button></div>
       <div id="collection-grid" class="collection-grid"></div>
       <details id="keepsakes" class="keepsakes"><summary>其他小物</summary><div id="keepsake-grid" class="collection-grid"></div></details>
+      </section>
     </section>
-    <section id="page-member" class="page" hidden>
-      <div class="auth-card"><div class="auth-cloud" data-icon="cloud"></div><h2>云朵会员</h2><div class="segmented" role="tablist" aria-label="会员入口"><button id="login-tab" role="tab" aria-selected="true" aria-controls="auth-form" class="selected">登录</button><button id="register-tab" role="tab" aria-selected="false" aria-controls="auth-form">注册</button></div>
+    <section id="page-settings" class="page" hidden>
+      <div class="settings-layout"><div class="settings-tabs" role="tablist" aria-label="设定分类" aria-orientation="vertical">
+        <button id="settings-tab-companion" data-settings-tab="companion" role="tab" aria-controls="settings-companion" aria-selected="true" class="selected"><span data-icon="heart"></span>陪伴与提醒</button>
+        <button id="settings-tab-api" data-settings-tab="api" role="tab" aria-controls="settings-api" aria-selected="false" tabindex="-1"><span data-icon="chat"></span>AI 接口</button>
+        <button id="settings-tab-account" data-settings-tab="account" role="tab" aria-controls="settings-account" aria-selected="false" tabindex="-1"><span data-icon="profile"></span>账号与会员</button>
+      </div><div class="settings-content"><div id="settings-companion" role="tabpanel" aria-labelledby="settings-tab-companion">
+      <section class="settings-card"><h2>桌面陪伴</h2><label class="setting-row"><span>闲置一分钟后躲藏</span><input id="auto-hide" type="checkbox" role="switch" checked></label><label class="setting-row"><span>减少动态效果</span><input id="reduced-motion" type="checkbox" role="switch"></label></section>
+      <section class="settings-card"><div class="setting-heading"><h2>工作模式</h2><label class="setting-row work-switch"><input id="work-enabled" type="checkbox" role="switch" aria-label="工作模式" aria-controls="work-form" aria-expanded="false"></label></div><form id="work-form" hidden><div class="work-form-row"><label>提醒间隔<div class="unit-field"><input id="work-minutes" type="number" min="1" max="180" value="10" required disabled><span>分钟</span></div></label><div class="reminder-preview"><span id="work-preview-name"></span><p id="work-preview"></p></div></div><div class="button-row"><button id="work-start" class="primary" disabled>保存间隔</button><button type="button" id="work-try" class="quiet" disabled>试试提醒</button></div><p id="work-status" class="muted" role="status">未开启</p></form></section>
+      </div><div id="settings-api" role="tabpanel" aria-labelledby="settings-tab-api" hidden>
+      <section class="settings-card"><h2>AI 模型接口</h2><form id="api-form"><label>模型服务<select id="api-provider"><option value="local">本机对话</option><option value="openai">GPT · OpenAI</option><option value="claude">Claude · Anthropic</option><option value="gemini">Gemini · Google</option><option value="grok">Grok · xAI</option><option value="deepseek">DeepSeek</option><option value="qwen">Qwen · 阿里云百炼</option><option value="glm">GLM · 智谱</option><option value="kimi">Kimi · Moonshot</option></select></label><div id="api-fields" hidden><div class="api-guide"><span id="api-provider-note"></span><a id="api-doc" target="_blank" rel="noopener noreferrer">接入文档</a></div><label>API 地址<input id="api-endpoint" type="url" placeholder="https://api.openai.com/v1" autocomplete="off"></label><div class="two-fields"><label>模型名称<input id="api-model" placeholder="填写已开通的模型名称" autocomplete="off" maxlength="120"></label><label>API Key<input id="api-key" type="password" autocomplete="off" placeholder="仅用于本次会话"></label></div><label id="api-workspace-row" hidden>Workspace ID（可选）<input id="api-workspace" autocomplete="off" placeholder="多工作区密钥需要填写" maxlength="100"></label></div><div class="button-row"><button id="api-save" class="primary">保存设定</button><button id="api-test" type="button" class="quiet" hidden>测试连接</button></div><p id="api-status" class="muted" role="status">本机对话</p></form></section>
+      </div><div id="settings-account" role="tabpanel" aria-labelledby="settings-tab-account" hidden>
+      <div class="auth-card"><img class="account-mascot" src="art/cloud-pet-v19.svg" width="96" height="96" alt=""><h2>账号与会员</h2><p class="account-note">测试期全部开放</p><div class="segmented" role="tablist" aria-label="会员入口"><button id="login-tab" role="tab" aria-selected="true" aria-controls="auth-form" class="selected">登录</button><button id="register-tab" role="tab" aria-selected="false" aria-controls="auth-form">注册</button></div>
         <form id="auth-form" role="tabpanel"><label>账号<input id="account-name" autocomplete="username" minlength="3" maxlength="32" required></label><label>密码<input id="account-password" type="password" autocomplete="current-password" minlength="8" maxlength="128" required></label><label id="password-again-row" hidden>确认密码<input id="account-password-again" type="password" autocomplete="new-password" minlength="8" maxlength="128"></label><button class="primary" id="auth-submit">登录</button><p id="auth-result" role="status"></p><small class="muted">Demo 本机账号</small></form>
         <div id="account-session" hidden><p id="signed-name"></p><span class="tier bronze">黄铜</span><button id="sign-out" class="quiet">退出登录</button></div>
       </div>
-    </section>
-    <section id="page-settings" class="page" hidden>
-      <section class="settings-card"><h2>桌面陪伴</h2><label class="setting-row"><span>闲置一分钟后躲藏</span><input id="auto-hide" type="checkbox" role="switch" checked></label><label class="setting-row"><span>减少动态效果</span><input id="reduced-motion" type="checkbox" role="switch"></label></section>
-      <section class="settings-card"><div class="setting-heading"><h2>工作模式</h2><label class="setting-row work-switch"><input id="work-enabled" type="checkbox" role="switch" aria-label="工作模式" aria-controls="work-form" aria-expanded="false"></label></div><form id="work-form" hidden><div class="work-form-row"><label>提醒间隔<div class="unit-field"><input id="work-minutes" type="number" min="1" max="180" value="10" required disabled><span>分钟</span></div></label><div class="reminder-preview"><span id="work-preview-name"></span><p id="work-preview"></p></div></div><div class="button-row"><button id="work-start" class="primary" disabled>保存间隔</button><button type="button" id="work-try" class="quiet" disabled>试试提醒</button></div><p id="work-status" class="muted" role="status">未开启</p></form></section>
-      <section class="settings-card"><h2>AI 模型接口</h2><form id="api-form"><label>模型服务<select id="api-provider"><option value="local">本机对话</option><option value="openai">GPT · OpenAI</option><option value="claude">Claude · Anthropic</option><option value="gemini">Gemini · Google</option><option value="grok">Grok · xAI</option><option value="deepseek">DeepSeek</option><option value="qwen">Qwen · 阿里云百炼</option><option value="glm">GLM · 智谱</option><option value="kimi">Kimi · Moonshot</option></select></label><div id="api-fields" hidden><div class="api-guide"><span id="api-provider-note"></span><a id="api-doc" target="_blank" rel="noopener noreferrer">接入文档</a></div><label>API 地址<input id="api-endpoint" type="url" placeholder="https://api.openai.com/v1" autocomplete="off"></label><div class="two-fields"><label>模型名称<input id="api-model" placeholder="填写已开通的模型名称" autocomplete="off" maxlength="120"></label><label>API Key<input id="api-key" type="password" autocomplete="off" placeholder="仅用于本次会话"></label></div><label id="api-workspace-row" hidden>Workspace ID（可选）<input id="api-workspace" autocomplete="off" placeholder="多工作区密钥需要填写" maxlength="100"></label></div><div class="button-row"><button id="api-save" class="primary">保存设定</button><button id="api-test" type="button" class="quiet" hidden>测试连接</button></div><p id="api-status" class="muted" role="status">本机对话</p></form></section>
+      </div></div></div>
     </section>
     <section id="page-detail" class="page" hidden>
       <button id="detail-back" class="quiet back"><span data-icon="back"></span>我的伙伴</button><div class="detail-layout"><div class="profile-card"><canvas id="profile-canvas" width="600" height="700"></canvas><h2 id="profile-name"></h2><div id="profile-traits" class="trait-row"></div><p id="profile-description"></p></div><div class="profile-info"><div class="segmented" role="group" aria-label="伙伴档案"><button data-detail="bond" class="selected">我们的默契</button><button data-detail="style">风格预览</button><button data-detail="voice">说明</button></div>

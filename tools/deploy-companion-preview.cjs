@@ -2,8 +2,10 @@
 const fs=require('node:fs'),path=require('node:path'),vm=require('node:vm'),assert=require('node:assert/strict');
 const root=path.resolve(__dirname,'..'),src=path.join(root,'docs/demo/companion-v01'),dest=path.join(root,'Release/win-x64/Demo/CompanionV01');
 const xml=fs.readFileSync(path.join(root,'Version.props'),'utf8'),version=['Major','Minor'].map(k=>xml.match(new RegExp(`<DesktopPet${k}>([^<]+)</DesktopPet${k}>`))[1]).join('.');
-const names=['index.html','style.css','icons.js','personas.js','providers.js','model.js','agenda.js','agenda-ui.js','agenda.css','app.js','idle-art.js','idle-postures.js','preview-art.js','claude-review.html','story-library.js','play-model.js','play-ui.js','play.css','play-art.js'];
+const names=['index.html','refresh-v19.css','style.css','icons.js','personas.js','providers.js','model.js','agenda.js','agenda-ui.js','agenda.css','app.js','idle-art.js','idle-postures.js','preview-art.js','claude-review.html','story-library.js','play-model.js','play-ui.js','play.css','play-art.js'];
 for(const name of names)fs.copyFileSync(path.join(src,name),path.join(dest,name));
+fs.mkdirSync(path.join(dest,'art'),{recursive:true});
+for(const name of ['cloud-pet-v19.svg','cloud-pet-v19-small.svg'])fs.copyFileSync(path.join(src,'art',name),path.join(dest,'art',name));
 fs.copyFileSync(path.join(root,'docs/demo/sprite-cells.js'),path.join(dest,'../sprite-cells.js'));
 for(const folder of [src,dest]){
  const file=path.join(folder,'data.js'),box={};vm.runInNewContext(fs.readFileSync(file,'utf8'),box);const data=box.CLOUD_DATA;

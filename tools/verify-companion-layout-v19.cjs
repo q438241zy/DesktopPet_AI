@@ -1,0 +1,40 @@
+/* Isolated demo storage and intercepted network only. Never opens the native profile. */
+const {chromium}=require(require('os').homedir()+'/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
+const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict'),crypto=require('node:crypto'),{pathToFileURL}=require('node:url');
+const root=path.resolve(__dirname,'..'),out=path.join(root,'.artifacts/companion-v19-layout'),url=pathToFileURL(path.join(root,'Release/win-x64/Demo/CompanionV01/index.html')).href;
+const M=require('../docs/demo/companion-v01/model.js'),P=require('../docs/demo/companion-v01/play-model.js'),stories=require('../docs/demo/companion-v01/story-library.js');
+fs.mkdirSync(out,{recursive:true});const checks=[],errors=[],exe=path.join(root,'Release/win-x64/DesktopPet.exe'),hash=()=>crypto.createHash('sha256').update(fs.readFileSync(exe)).digest('hex'),before=hash();
+async function check(name,run){await run();checks.push(name);console.log('PASS '+name);}
+(async()=>{const browser=await chromium.launch({executablePath:'C:/Program Files/Google/Chrome/Application/chrome.exe',headless:true});try{
+const context=await browser.newContext({viewport:{width:1280,height:900},timezoneId:'Asia/Shanghai'}),page=await context.newPage();page.on('pageerror',e=>errors.push(e.message));await context.route(/^https?:/,r=>{errors.push('Unexpected remote request');return r.abort();});
+const old=M.create();old.selected='gpt';old.style='realistic';old.outfits['gpt/realistic']='sports';old.relations.gpt.score=23;old.collection.basketball=2;old.stories[stories[0].id]=2;old.makeupCards=1;old.checkins=['2026-10-09'];old.settings.calendarView='week';old.work.minutes=12;
+await page.addInitScript(s=>{if(sessionStorage.getItem('v19-fixture'))return;localStorage.setItem('cloud-companions.demo.v01.state',JSON.stringify(s));sessionStorage.setItem('v19-fixture','1');},old);
+await page.goto(url);await page.waitForFunction(()=>globalThis.companionDemo);const snap=()=>page.evaluate(()=>companionDemo.snapshot()),go=p=>page.evaluate(p=>companionDemo.navigate(p),p);
+await check('four primary pages, unique IDs, packaged cloud logo, preserved previous records',async()=>{
+assert.deepEqual(await page.locator('.sidebar nav button').allTextContents(),['我的伙伴','行事历','陪伴日常','设定']);assert.equal(await page.locator('#page-member').count(),0);
+assert.deepEqual(await page.evaluate(()=>{const ids=[...document.querySelectorAll('[id]')].map(e=>e.id);return ids.filter((id,i)=>ids.indexOf(id)!==i);}),[]);
+await page.waitForFunction(()=>document.querySelector('.cloud-logo img').naturalWidth>0);assert.equal((await snap()).selected,'gpt');assert.equal((await snap()).style,'realistic');assert.equal((await snap()).outfit,'sports');assert.equal((await snap()).relations.gpt.score,23);assert.equal((await snap()).collection.basketball,2);assert.equal((await snap()).stories[stories[0].id],2);assert.equal((await snap()).makeupCards,1);
+});
+await check('daily action catalogue connects all 27 existing actions, calendar has one home',async()=>{
+await go('daily');assert.equal(await page.locator('#page-daily .checkin-panel,#checkin-calendar').count(),0);assert.equal(await page.locator('[data-daily-action]').count(),27);
+assert.deepEqual(await page.locator('[data-daily-action]').evaluateAll(es=>es.map(e=>e.dataset.dailyAction)),Object.values(P.groups).flat());
+for(const key of Object.values(P.groups).flat()){await go('daily');await page.locator('[data-daily-tab=actions]').click();await page.locator(`[data-daily-action=${key}]`).click();const s=await snap();assert.equal(s.page,'interaction');if(key==='peek')assert.equal(s.runtime.action,'hiding');else assert.equal(s.play.key,key);}
+await go('daily');await page.locator('[data-daily-tab=collection]').click();assert.equal(await page.locator('#balls-count').innerText(),'1/10');await page.locator('[data-collection=stories]').click();assert.equal(await page.locator('.collection-card.story').count(),10);assert.equal(await page.locator('#stories-count').innerText(),'1/10');assert.equal(await page.locator('#collection-progress').innerText(),'2 / 30 已收集');
+await page.locator('.collection-card.story.earned').click();assert.equal((await snap()).play.key,'read');assert.equal((await snap()).play.story,stories[0].id);await page.evaluate(()=>companionDemo.playStep(100000));assert.equal((await snap()).stories[stories[0].id],3);await go('partners');
+});
+await check('settings tab keyboard navigation, API selection, work preferences and old member link',async()=>{
+await go('settings');assert.equal(await page.locator('#settings-companion').isVisible(),true);await page.locator('#settings-tab-companion').focus();await page.keyboard.press('ArrowDown');assert.equal(await page.locator('#settings-api').isVisible(),true);assert.equal(await page.locator('#api-provider option').count(),9);await page.keyboard.press('End');assert.equal(await page.locator('#settings-account').isVisible(),true);await page.keyboard.press('Home');assert.equal(await page.locator('#settings-companion').isVisible(),true);
+assert.equal(await page.locator('#work-minutes').inputValue(),'12');await page.locator('#work-enabled').check();await page.locator('#work-minutes').fill('8');await page.locator('#work-start').click();assert.equal((await snap()).runtime.workActive,true);await page.locator('#work-enabled').uncheck();await go('member');assert.equal((await snap()).page,'settings');assert.equal((await snap()).settingsTab,'account');
+});
+await check('local registration and login remain within settings with protected credentials',async()=>{
+await page.locator('#register-tab').click();await page.locator('#account-name').fill('DemoReview19');await page.locator('#account-password').fill('Example-only-19!');await page.locator('#account-password-again').fill('Example-only-19!');await page.locator('#auth-submit').click();await page.waitForFunction(()=>document.querySelector('#auth-result').textContent.includes('注册成功'));assert.equal(await page.locator('#account-password').inputValue(),'');
+const saved=await page.evaluate(()=>JSON.parse(localStorage.getItem('cloud-companions.demo.v01.accounts')).demoreview19);assert.equal(saved.hash.length,64);assert.equal(saved.salt.length,16);assert.equal(Object.hasOwn(saved,'password'),false);
+await page.locator('#account-password').fill('Example-only-19!');await page.locator('#auth-submit').click();await page.waitForFunction(()=>!document.querySelector('#account-session').hidden);assert.equal(await page.locator('#signed-name').innerText(),'DemoReview19');await go('daily');await go('member');assert.equal(await page.locator('#account-session').isVisible(),true);await page.locator('#sign-out').click();assert.equal(await page.locator('#auth-form').isVisible(),true);
+await page.reload();await page.waitForFunction(()=>globalThis.companionDemo);assert.equal((await snap()).collection.basketball,2);assert.equal((await snap()).stories[stories[0].id],3);assert.equal((await snap()).makeupCards,1);
+});
+await check('responsive pages and public view render without overflow or network requests',async()=>{
+for(const width of [1280,390,320]){await page.setViewportSize({width,height:900});for(const name of ['partners','daily','settings']){await go(name);if(name==='settings')await page.locator('[data-settings-tab=account]').click();assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false,`${name} ${width}`);if(width!==320)await page.screenshot({path:path.join(out,`${name}-${width}.png`),fullPage:true});}}
+assert.deepEqual(errors,[]);assert.deepEqual((await snap()).errors,[]);assert.equal(hash(),before);
+});
+fs.writeFileSync(path.join(out,'result.json'),JSON.stringify({passed:true,checks,errors,nativeUnchanged:true,nativeSHA256:before},null,2));
+}finally{await browser.close();}})().catch(e=>{fs.writeFileSync(path.join(out,'failure.json'),JSON.stringify({checks,errors,error:String(e.stack)},null,2));console.error(e);process.exitCode=1;});

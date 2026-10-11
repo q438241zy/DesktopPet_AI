@@ -2,7 +2,6 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Media.Effects;
-using System.Windows.Media.Imaging;
 using DesktopPet.Core;
 
 namespace DesktopPet.App;
@@ -22,37 +21,23 @@ internal static class CloudTheme
     public static string CategoryName(string category) => CharacterStyles.Name(category);
     public static Border Badge(string text, Brush? background = null) => new() { Background = background ?? Pale, CornerRadius = new CornerRadius(11), Padding = new Thickness(10, 4, 10, 4), Margin = new Thickness(0, 0, 7, 0), Child = new TextBlock { Text = text, Foreground = Blue, FontSize = 11 } };
 
-    public static ImageSource AppIcon
-    {
-        get
-        {
-            var drawing = new DrawingGroup();
-            using (var context = drawing.Open()) CloudIcon.Draw(context, "smile");
-            drawing.Freeze(); return new DrawingImage(drawing);
-        }
-    }
+    public static ImageSource AppIcon => CloudMascot.Image(compact: true);
 
-    /// <summary>The ICO contains a PNG so the executable, taskbar and tray use the same vector source.</summary>
-    public static void WriteIcon(string path)
-    {
-        var visual = new DrawingVisual();
-        using (var dc = visual.RenderOpen()) { dc.PushTransform(new ScaleTransform(4, 4)); CloudIcon.Draw(dc, "smile"); dc.Pop(); }
-        var bitmap = new RenderTargetBitmap(256, 256, 96, 96, PixelFormats.Pbgra32); bitmap.Render(visual);
-        var png = new PngBitmapEncoder(); png.Frames.Add(BitmapFrame.Create(bitmap)); using var bytes = new MemoryStream(); png.Save(bytes);
-        using var output = new BinaryWriter(File.Create(path));
-        output.Write((ushort)0); output.Write((ushort)1); output.Write((ushort)1);
-        output.Write((byte)0); output.Write((byte)0); output.Write((byte)0); output.Write((byte)0);
-        output.Write((ushort)1); output.Write((ushort)32); output.Write((uint)bytes.Length); output.Write(22u); output.Write(bytes.ToArray());
-    }
+    /// <summary>The executable, shortcut and tray share the approved mascot, with nine DPI sizes.</summary>
+    public static void WriteIcon(string path) => CloudMascot.WriteIcon(path);
 }
 
 internal sealed class CloudIcon : FrameworkElement
 {
     public string Glyph { get; init; } = "smile";
     protected override void OnRender(DrawingContext dc)
-    { dc.PushTransform(new ScaleTransform(ActualWidth / 64, ActualHeight / 64)); Draw(dc, Glyph); dc.Pop(); }
+    {
+        if (Glyph == "smile") { CloudMascot.Draw(dc, ActualWidth, ActualHeight, Math.Min(ActualWidth, ActualHeight) <= 40); return; }
+        dc.PushTransform(new ScaleTransform(ActualWidth / 64, ActualHeight / 64)); Draw(dc, Glyph); dc.Pop();
+    }
     internal static void Draw(DrawingContext dc, string glyph)
     {
+        if (glyph == "smile") { CloudMascot.Draw(dc, 64, 64); return; }
         var outline = new Pen(CloudTheme.Brush("#E4B8C8"), 1.4) { LineJoin = PenLineJoin.Round };
         dc.DrawGeometry(CloudTheme.Sky("#FFFDF7", "#FFE3EC"), outline, CloudTheme.Cloud);
         var pen = new Pen(CloudTheme.Blue, 2.6) { StartLineCap = PenLineCap.Round, EndLineCap = PenLineCap.Round, LineJoin = PenLineJoin.Round };

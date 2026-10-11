@@ -47,7 +47,15 @@ public static class IdlePosture
         if (pose == "smile")
         {
             if ((character.Category == CharacterStyles.Realistic || outfit is "swim" or "wedding") && character.FiveFor(outfit) is { } smiling)
-            { var happy = smiling.Poses["happy"]; return new(smiling.Atlases[happy.Atlas] with { IsolateCells = true }, happy.Frame, happy); }
+            {
+                var happy = smiling.Poses["happy"]; var atlas = smiling.Atlases[happy.Atlas];
+                // Only the overlapping chibi wardrobe portraits need the extra
+                // ownership mask. Realistic portraits use the authored crop;
+                // forcing component isolation can erase a figure that crosses
+                // the crop boundary (for example GPT's swimsuit smile).
+                if (character.Category == CharacterStyles.Chibi) atlas = atlas with { IsolateCells = true };
+                return new(atlas, happy.Frame, happy);
+            }
             return new(idle, Math.Min(1, idle.Columns * idle.Rows - 1));
         }
         if (character.Category == CharacterStyles.Chibi && pose == "stand" && character.FiveFor(outfit) is { } five)

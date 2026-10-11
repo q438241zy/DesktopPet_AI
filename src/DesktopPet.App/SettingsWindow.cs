@@ -46,19 +46,19 @@ public sealed partial class SettingsWindow : Window
         var sideSurface = new Border { Background = CloudTheme.Brush("#F9EEF1"), BorderBrush = CloudTheme.Line, BorderThickness = new Thickness(0, 0, 1, 0) }; layout.Children.Add(sideSurface);
         var sidebar = new DockPanel { Margin = new Thickness(15, 25, 15, 24) }; sideSurface.Child = sidebar;
         var brand = new StackPanel { Margin = new Thickness(12, 0, 0, 29) };
-        var mark = new CloudIcon { Width = 64, Height = 58, HorizontalAlignment = HorizontalAlignment.Left }; brand.Children.Add(mark);
+        var mark = new CloudIcon { Width = 82, Height = 82, HorizontalAlignment = HorizontalAlignment.Left }; brand.Children.Add(mark);
         brand.Children.Add(new TextBlock { Text = "云朵伙伴", FontSize = 21, FontWeight = FontWeights.SemiBold, Margin = new Thickness(0, 12, 0, 5) });
         DockPanel.SetDock(brand, Dock.Top); sidebar.Children.Add(brand);
         var version = typeof(SettingsWindow).Assembly.GetCustomAttribute<AssemblyInformationalVersionAttribute>()?.InformationalVersion.Split('+')[0] ?? "开发版";
         var foot = new StackPanel { Margin = new Thickness(12, 0, 0, 0) }; foot.Children.Add(PresenceControl()); foot.Children.Add(new TextBlock { Text = $"云朵伙伴 / DesktopPet v{version}", FontSize = 10, Foreground = muted, Margin = new Thickness(0, 8, 0, 0) });
         DockPanel.SetDock(foot, Dock.Bottom); sidebar.Children.Add(foot);
         var nav = new StackPanel(); sidebar.Children.Add(nav);
-        foreach (var (id, label, icon) in new[] { ("partners", "我的伙伴", "heart"), ("agenda", "宠物行事历", "calendar"), ("life", "陪伴日常", "sun"), ("members", "会员中心", "member"), ("preferences", "设定", "settings") })
+        foreach (var (id, label, icon) in new[] { ("partners", "我的伙伴", "heart"), ("agenda", "行事历", "calendar"), ("life", "陪伴日常", "ball"), ("preferences", "设定", "settings") })
         {
             var b = MakeButton(label, () => Navigate(id), icon); b.HorizontalContentAlignment = HorizontalAlignment.Left; b.Padding = new Thickness(12, 11, 6, 11); b.Margin = new Thickness(0, 0, 0, 5); b.BorderThickness = new Thickness(0); navigation[id] = b; nav.Children.Add(b);
         }
         var scroll = new ScrollViewer { Content = content, VerticalScrollBarVisibility = ScrollBarVisibility.Auto, HorizontalScrollBarVisibility = ScrollBarVisibility.Disabled, Margin = new Thickness(34, 20, 28, 20) };
-        Grid.SetColumn(scroll, 1); layout.Children.Add(scroll); Rebuild();
+        Grid.SetColumn(scroll, 1); layout.Children.Add(scroll); Rebuild(); InitializeCardPreviews();
     }
     private static Button MakeButton(string label, Action clicked, string icon = "")
     {
@@ -79,18 +79,19 @@ public sealed partial class SettingsWindow : Window
     private Border Card(UIElement child, Brush? background = null) => new() { Background = background ?? Brushes.White, BorderBrush = CloudTheme.Line, BorderThickness = new Thickness(1), CornerRadius = new CornerRadius(24), Padding = new Thickness(22), Margin = new Thickness(0, 12, 0, 20), Child = child };
     private void Navigate(string destination)
     {
+        if (destination == "members") { ShowPreferences("account"); return; }
         page = destination; Rebuild();
     }
     private void Rebuild()
     {
         if (page != "agenda") agendaComposer?.Close();
-        content.Children.Clear(); ClearCompanionBindings(); posturePreviews.Clear();
+        content.Children.Clear(); ClearCompanionBindings(); posturePreviews.Clear(); ClearCardPreviews();
         foreach (var (id, b) in navigation) { b.Background = id == (page == "profile" ? "partners" : page) ? CloudTheme.Brush("#F3DCE5") : Brushes.Transparent; b.Foreground = id == (page == "profile" ? "partners" : page) ? CloudTheme.Blue : CloudTheme.Ink; b.FontWeight = id == (page == "profile" ? "partners" : page) ? FontWeights.SemiBold : FontWeights.Normal; }
         foreach (var (id, b) in navigation)
             if (b.Content is Panel row) foreach (var icon in row.Children.OfType<LineIcon>()) icon.Selected = id == (page == "profile" ? "partners" : page);
-        switch (page) { case "agenda": BuildAgenda(); break; case "members": Members(); break; case "profile": BuildCompanionProfile(); break; case "life": Life(); break; case "preferences": Preferences(); break; default: Partners(); break; }
+        switch (page) { case "agenda": BuildAgenda(); break; case "profile": BuildCompanionProfile(); break; case "life": Life(); break; case "preferences": Preferences(); break; default: Partners(); break; }
     }
-    private Grid Stage(Character character, double height, string outfit = "original", bool idlePosture = false)
+    private Grid Stage(Character character, double height, string outfit = "original", bool idlePosture = false, bool galleryPreview = false)
     {
         var stage = new Grid { Height = height, ClipToBounds = true }; stage.Children.Add(new CloudScenery());
         if (!idlePosture)
@@ -99,8 +100,10 @@ public sealed partial class SettingsWindow : Window
             stage.Children.Add(new Image { Source = pet.Art.Frame(character, frame.Sprite, frame.Frame), Stretch = Stretch.Uniform, Margin = new Thickness(12, 4, 12, 2) }); return stage;
         }
         var canvas = new Canvas { ClipToBounds = true }; var image = new Image { Stretch = Stretch.Uniform };
-        canvas.Children.Add(image); stage.Children.Add(canvas); posturePreviews.Add((canvas, image, character, outfit));
-        canvas.SizeChanged += (_, _) => pet.DrawPosturePreview(canvas, image, character, outfit); return stage;
+        canvas.Children.Add(image); stage.Children.Add(canvas);
+        if (galleryPreview) RegisterCardPreview(canvas, image, character, outfit);
+        else { posturePreviews.Add((canvas, image, character, outfit)); canvas.SizeChanged += (_, _) => pet.DrawPosturePreview(canvas, image, character, outfit); }
+        return stage;
     }
     private void Partners()
     {
@@ -136,6 +139,7 @@ public sealed partial class SettingsWindow : Window
         var heroCard = Card(hero, CloudTheme.Sky()); heroCard.Padding = new Thickness(15, 12, 18, 12);
         var categoryRow = new DockPanel { Margin = new Thickness(0, 0, 0, 11) };
         var compare = MakeButton("伙伴档案", () => ShowProfile(pet.Character.FamilyId)); compare.Background = Brushes.Transparent; compare.BorderThickness = new Thickness(0); compare.FontSize = 11; DockPanel.SetDock(compare, Dock.Right); categoryRow.Children.Add(compare);
+        var previews = CardsPreviewButton(); DockPanel.SetDock(previews, Dock.Right); categoryRow.Children.Add(previews);
         var filters = new StackPanel { Orientation = Orientation.Horizontal }; categoryRow.Children.Add(new Border { Background = CloudTheme.Brush("#F3E6EB"), Padding = new Thickness(3), CornerRadius = new CornerRadius(11), HorizontalAlignment = HorizontalAlignment.Left, Child = filters });
         foreach (var (id, glyph) in new[] { (CharacterStyles.Chibi, "heart"), (CharacterStyles.Realistic, "person") })
         {
@@ -148,7 +152,7 @@ public sealed partial class SettingsWindow : Window
         {
             bool selected = character.Id == pet.State.Character;
             var tile = new Grid(); tile.RowDefinitions.Add(new RowDefinition()); tile.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
-            tile.Children.Add(Stage(character, 112, pet.State.Outfits.GetValueOrDefault(character.Id, "original"), true));
+            tile.Children.Add(Stage(character, 112, pet.State.Outfits.GetValueOrDefault(character.Id, "original"), true, true));
             var label = new StackPanel { Orientation = Orientation.Horizontal, HorizontalAlignment = HorizontalAlignment.Center }; label.Children.Add(new TextBlock { Text = character.Name, FontSize = 12, FontWeight = selected ? FontWeights.SemiBold : FontWeights.Normal });
             if (selected) label.Children.Add(new TextBlock { Text = "  ✓", Foreground = CloudTheme.Blue }); Grid.SetRow(label, 1); tile.Children.Add(label);
             var b = MakeButton("选择角色 " + character.Name, () => { pet.SelectCharacter(character.Id); Rebuild(); }); b.Content = tile; b.Height = 154; b.Padding = new Thickness(6, 5, 6, 12); b.Margin = new Thickness(0, 0, 10, 10); b.HorizontalContentAlignment = HorizontalAlignment.Stretch;
@@ -162,12 +166,29 @@ public sealed partial class SettingsWindow : Window
     }
 
     public void RefreshStatus() => RefreshCompanion();
-    public void RefreshLife() { if (page == "life") Rebuild(); else RefreshStatus(); }
+    public void RefreshLife() { if (page is "life" or "agenda") Rebuild(); else RefreshStatus(); }
     private void Life() => BuildCompanionLife();
+    private string preferenceTab = "companion";
+    internal void ShowApiSettings() => ShowPreferences("api");
+    internal void ShowPreferences(string tab)
+    { preferenceTab = tab is "api" or "account" ? tab : "companion"; Navigate("preferences"); }
     private void Preferences()
     {
         Heading("", "设定", "");
-        var panel = new StackPanel();
+        var layout = new Grid(); layout.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(154) }); layout.ColumnDefinitions.Add(new ColumnDefinition()); content.Children.Add(layout);
+        var tabs = new StackPanel { Margin = new Thickness(0, 12, 16, 0) }; layout.Children.Add(tabs);
+        var body = new StackPanel(); Grid.SetColumn(body, 1); layout.Children.Add(body);
+        foreach (var (id, label, icon) in new[] { ("companion", "陪伴与提醒", "heart"), ("api", "AI 接口", "chat"), ("account", "账号与会员", "person") })
+        {
+            var b = MakeButton(label, () => ShowPreferences(id), icon); b.HorizontalContentAlignment = HorizontalAlignment.Left;
+            b.Padding = new Thickness(11, 12, 7, 12); b.Margin = new Thickness(0, 0, 0, 7); b.BorderThickness = new Thickness(0);
+            b.Background = preferenceTab == id ? CloudTheme.Pale : Brushes.Transparent; b.Foreground = preferenceTab == id ? CloudTheme.Blue : muted;
+            if (b.Content is Panel row) foreach (var mark in row.Children.OfType<LineIcon>()) mark.Selected = preferenceTab == id;
+            tabs.Children.Add(b);
+        }
+        if (preferenceTab == "account") { Members(body); return; }
+        if (preferenceTab == "api") { body.Children.Add(Card(pet.Chat.SettingsPanel())); return; }
+        var panel = new StackPanel(); panel.Children.Add(Text("桌面陪伴", 18));
         void Slider(string label, double min, double max, double value, Action<double> change)
         {
             var caption = Text($"{label}  {value:0}", 14); panel.Children.Add(caption);
@@ -186,9 +207,6 @@ public sealed partial class SettingsWindow : Window
         Toggle("闲置一分钟后躲藏", pet.State.AutoHide, x => { pet.State.AutoHide = x; pet.Save(); });
         Toggle("减少动态效果", pet.State.ReducedMotion, x => { pet.State.ReducedMotion = x; pet.ApplySettings(); });
         Toggle("鼠标穿透（Ctrl+Alt+L 恢复）", pet.IsClickThrough, pet.SetClickThrough);
-        content.Children.Add(Card(panel));
-        content.Children.Add(Card(WorkSettingsPanel()));
-        content.Children.Add(Text("AI 模型接口", 17));
-        content.Children.Add(Card(pet.Chat.SettingsPanel()));
+        body.Children.Add(Card(panel)); body.Children.Add(Card(WorkSettingsPanel()));
     }
 }

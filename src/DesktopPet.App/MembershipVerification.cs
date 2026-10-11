@@ -59,7 +59,7 @@ internal static class MembershipVerification
         string Message() => Find<TextBlock>(window).Single(b => AutomationProperties.GetName(b) == "账号提示").Text;
         string savedProgress = JsonSerializer.Serialize(new { pet.State.Character, pet.State.Outfits, pet.State.CheckIns, pet.State.Treasures, pet.State.ReadStories }, Json.Options);
         Require(!Find<Button>(window).Any(b => AutomationProperties.GetName(b) == "注册 / 登录"), "home no longer contains membership upsell");
-        Capture(window, "membership-home"); Click("会员中心");
+        Capture(window, "membership-home"); Click("设定"); Click("账号与会员");
         Require(Find<Button>(window).Any(b => AutomationProperties.GetName(b) == "登录分页") && !Find<Border>(window).Any(b => AutomationProperties.GetName(b).Contains("会员权益")), "member center is a login/register form");
         Click("注册分页"); Capture(window, "membership-register");
         const string password = "native cloud account password 2026";

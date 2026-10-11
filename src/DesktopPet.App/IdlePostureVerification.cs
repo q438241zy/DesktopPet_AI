@@ -16,6 +16,18 @@ internal static class IdlePostureVerification
     internal static async Task Run(PetWindow pet, string output)
     {
         Directory.CreateDirectory(output); var checks = new List<string>();
+        var visibility = new List<object>(); var visibilityFailures = new List<string>(); var visibleCounts = new List<int>();
+        int VisiblePixels(BitmapSource source)
+        {
+            // Inspect the actual rendered Image.Source after ownership masking,
+            // not metadata bounds: a correctly sized image can be fully transparent.
+            BitmapSource readable = source.Format == PixelFormats.Bgra32 || source.Format == PixelFormats.Pbgra32
+                ? source : new FormatConvertedBitmap(source, PixelFormats.Bgra32, null, 0);
+            int stride = readable.PixelWidth * 4; var pixels = new byte[stride * readable.PixelHeight];
+            readable.CopyPixels(pixels, stride, 0); int visible = 0;
+            for (int alpha = 3; alpha < pixels.Length; alpha += 4) if (pixels[alpha] >= 48) visible++;
+            return visible;
+        }
         void Require(bool ok,string message){if(!ok)throw new InvalidOperationException(message);checks.Add("PASS "+message);}
         var approved=JsonDocument.Parse(File.ReadAllText(Path.Combine(output,"approved-demo.json"))).RootElement;
         var canvas=(Canvas)pet.Content;var image=canvas.Children.OfType<Image>().Single();
@@ -49,6 +61,13 @@ internal static class IdlePostureVerification
                             var art=IdlePosture.Resolve(c,outfit,pose,progress);
                             Require(art.Sprite.File==expected.GetProperty("file").GetString()&&art.Frame==frames[i],c.Id+"/"+outfit+"/"+pose+"/"+i+": approved source frame");
                             var frame=(BitmapSource)image.Source;double extent=Math.Max(frame.PixelWidth,frame.PixelHeight);
+                            int visiblePixels = VisiblePixels(frame); bool nonempty = visiblePixels >= 100;
+                            string visibilityPath = $"{c.Id}/{outfit}/{pose}/{i}: {art.Sprite.File} frame {art.Frame}";
+                            visibleCounts.Add(visiblePixels);
+                            visibility.Add(new { character = c.Id, style, outfit, pose, sample = i, file = art.Sprite.File, frame = art.Frame,
+                                width = frame.PixelWidth, height = frame.PixelHeight, alphaThreshold = 48, visiblePixels, minimumPixels = 100, passed = nonempty });
+                            checks.Add((nonempty ? "PASS " : "FAIL ") + visibilityPath + $": actual source has {visiblePixels} visible pixels (alpha >= 48)");
+                            if (!nonempty) visibilityFailures.Add(visibilityPath);
                             var idle=c.Resolve(outfit,"idle",0,true);double height=pet.State.Size*pet.Art.VisibleHeight(pet.Art.Frame(c,idle.Sprite,idle.Frame));
                             double scale=height/expected.GetProperty("reference").GetDouble()*expected.GetProperty("cells")[frames[i]].GetProperty("scale").GetDouble();
                             Require(Math.Abs(image.Width/extent-scale)<.005,c.Id+"/"+outfit+"/"+pose+"/"+i+": approved fixed anatomical scale");
@@ -62,6 +81,14 @@ internal static class IdlePostureVerification
             }
             var sheet=new RenderTargetBitmap(1500,2000,96,96,PixelFormats.Pbgra32);sheet.Render(gallery);VerificationImages.Save(sheet,Path.Combine(output,style+"-"+outfit+".png"));await Task.Delay(1);
         }
+        File.WriteAllText(Path.Combine(output, "idle-visibility.json"), JsonSerializer.Serialize(new
+        {
+            alphaThreshold = 48, minimumPixels = 100, framesChecked = visibleCounts.Count,
+            nonemptyFrames = visibleCounts.Count(value => value > 0), passedFrames = visibleCounts.Count(value => value >= 100),
+            failedFrames = visibilityFailures.Count, minimumVisiblePixels = visibleCounts.Count == 0 ? 0 : visibleCounts.Min(),
+            maximumVisiblePixels = visibleCounts.Count == 0 ? 0 : visibleCounts.Max(), totalVisiblePixels = visibleCounts.Sum(value => (long)value),
+            failures = visibilityFailures, frames = visibility
+        }, new JsonSerializerOptions { WriteIndented = true }));
         pet.BeginPreview();pet.SelectCharacter("gpt");pet.StopInteraction();pet.SetPostureMode("auto");string before=pet.CurrentPosture;
         pet.Play("headpat",duration:10000);pet.AdvancePreview(9999);Require(pet.CurrentAction=="headpat"&&pet.CurrentPosture==before,"interaction owns its pose");
         pet.AdvancePreview(10000);double next=pet.CurrentPostureClock.Next;pet.AdvancePreview(next-1);Require(pet.CurrentPosture==before,"fresh idle interval after interaction");pet.AdvancePreview(next);Require(pet.CurrentPosture!=before,"idle resumes");
@@ -71,6 +98,12 @@ internal static class IdlePostureVerification
         pet.State.ReducedMotion=false;pet.SetPostureMode("sit");pet.SelectStyle(CharacterStyles.Realistic);pet.StopInteraction();pet.AdvancePreview(120000);Require(pet.CurrentPosture=="sit"&&pet.PostureMode("gpt")=="sit","fixed preferences shared by family");
         pet.SelectCharacter("whale");pet.SetPostureMode("stand");var loaded=new StateStore(output).Load();Require(loaded.Postures["gpt"]=="sit"&&loaded.Postures["whale"]=="stand","per-family preferences survive disk reload");
         pet.OpenSettings();var window=Application.Current.Windows.OfType<SettingsWindow>().Single();window.UpdateLayout();Capture(window,"settings-q");window.Close();
-        pet.EndPreview();File.WriteAllLines(Path.Combine(output,"idle-posture-check.txt"),checks.Append($"PASS {checks.Count} native idle checks; 64 outfits and all five gestures."));
+        pet.EndPreview();
+        if (visibilityFailures.Count > 0)
+        {
+            File.WriteAllLines(Path.Combine(output, "idle-posture-check.txt"), checks.Append($"FAIL {visibilityFailures.Count}/{visibleCounts.Count} source frames have fewer than 100 visible pixels; see idle-visibility.json."));
+            throw new InvalidOperationException($"Idle source visibility failed for {visibilityFailures.Count}/{visibleCounts.Count} frames: " + string.Join("; ", visibilityFailures));
+        }
+        File.WriteAllLines(Path.Combine(output,"idle-posture-check.txt"),checks.Append($"PASS {checks.Count} native idle checks; 64 outfits and all five gestures; {visibleCounts.Count} visible source frames."));
     }
 }

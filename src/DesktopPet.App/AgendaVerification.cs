@@ -46,11 +46,11 @@ internal static class AgendaVerification
         }
         Require(pet.Agenda.Events.Count == 0, "new isolated calendar empty");
         pet.SelectCharacter("gpt"); pet.OpenAgenda(); var settings = Application.Current.Windows.OfType<SettingsWindow>().Single(); calendarInput = settings.EventChat; await Task.Delay(100);
-        Require(Find<Button>(settings).Any(b => AutomationProperties.GetName(b) == "宠物行事历"), "native sidebar has agenda");
-        Require(Find<Button>(settings).Count(b => AutomationProperties.GetName(b).StartsWith("日程 ")) == 7, "native week calendar");
-        Click(settings, "月历"); Require(Find<Button>(settings).Count(b => AutomationProperties.GetName(b).StartsWith("日程 ")) == DateTime.DaysInMonth(DateTime.Now.Year, DateTime.Now.Month), "native month calendar");
+        Require(Find<Button>(settings).Any(b => AutomationProperties.GetName(b) == "行事历"), "native sidebar has agenda");
+        Click(settings, "周历"); Require(Find<Button>(settings).Count(b => AutomationProperties.GetAutomationId(b).StartsWith("agenda-day-")) == 7, "native week calendar");
+        Click(settings, "月历"); Require(Find<Button>(settings).Count(b => AutomationProperties.GetAutomationId(b).StartsWith("agenda-day-")) == 42, "native month calendar");
         Click(settings, "周历"); Capture(settings, "01-agenda-empty");
-        pet.Chat.SaveOptions(new(), ""); settings.ShowAgenda(); calendarInput.Open(); var clock = Stopwatch.StartNew(); var off = calendarInput.SendText("明天提醒我开会"); await Task.Delay(200);
+        pet.Chat.SaveOptions(new(), ""); settings.ShowAgendaComposer(); calendarInput.Open(); var clock = Stopwatch.StartNew(); var off = calendarInput.SendText("明天提醒我开会"); await Task.Delay(200);
         Require(pet.CurrentAction == "thinking", "offline reminder request visibly thinks"); await off;
         Require(clock.ElapsedMilliseconds >= 980 && calendarInput.ReplyText.Contains("接入 AI") && !calendarInput.HasAgendaDraft && pet.Agenda.Events.Count == 0, "offline is explicit, no invented saved event");
         using var server = new Loopback(); Require(pet.Chat.SaveOptions(new(server.Address, "mock-model", "openai"), "test-only-key") is null, "loopback API configured");
@@ -75,12 +75,12 @@ internal static class AgendaVerification
         pet.SelectCharacter("kimi"); pet.EditAgenda(original); Require(pet.Character.FamilyId == "gpt" && calendarInput.HasAgendaDraft, "editing restores responsible family");
         Click(calendarInput, "暂不保存日程"); Require(pet.Agenda.Events.Single() == original, "edit cancel preserves event");
         Require(!pet.Chat.HasAgendaDraft && Window.GetWindow(calendarInput) == settings, "agenda confirmation stays in its own settings page");
-        pet.State.Size = 200; pet.ApplySettings(); settings.ShowAgenda(); calendarInput.Open();
+        pet.State.Size = 200; pet.ApplySettings(); settings.ShowAgendaComposer(); calendarInput.Open();
         server.Content = "malformed JSON"; await calendarInput.SendText("错误响应"); Require(!calendarInput.HasAgendaDraft && calendarInput.ReplyText.Contains("没有保存"), "malformed model response stays safe");
         server.Content = JsonSerializer.Serialize(new AgendaReply("event", "请确认", draft), Json.Options); server.Delay = 500;
         var cancelled = calendarInput.SendText("取消这次请求"); await Task.Delay(60); pet.SelectCharacter("whale"); await cancelled;
         Require(!calendarInput.HasAgendaDraft && pet.Agenda.Events.Count == 1, "switching pet cancels stale card"); server.Delay = 0;
-        settings.ShowAgenda(); calendarInput.Open(); await calendarInput.SendText("再整理一件"); Require(calendarInput.HasAgendaDraft, "new family can propose"); settings.ShowMembership(); Require(!calendarInput.HasAgendaDraft, "leaving calendar discards unconfirmed draft");
+        settings.ShowAgendaComposer(); calendarInput.Open(); await calendarInput.SendText("再整理一件"); Require(calendarInput.HasAgendaDraft, "new family can propose"); settings.ShowMembership(); Require(!calendarInput.HasAgendaDraft, "leaving calendar discards unconfirmed draft");
         // All unchanged art combinations must keep the responsible pet's current outfit smile.
         foreach (string family in Catalog.BuiltInFamilies)
         foreach (string style in CharacterStyles.All)

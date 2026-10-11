@@ -83,21 +83,27 @@ public sealed partial class PetWindow
         Canvas.SetTop(target, floor - (drawing.FootY + (extent - frame.PixelHeight) / 2) * scale);
     }
     internal void DrawPosturePreview(Canvas stage, Image image, Character character, string outfit)
+        => DrawPosturePreview(stage, image, character, outfit, PostureFor(character.FamilyId), PostureClock(character.FamilyId).Progress(Now));
+    // Gallery previews supply their own clock; the desktop pet and hero keep the
+    // saved per-family posture preference through the original overload above.
+    internal void DrawPosturePreview(Canvas stage, Image image, Character character, string outfit, string pose, double progress)
     {
         if (stage.ActualWidth <= 0 || stage.ActualHeight <= 0) return;
         string key = character.Id + "/" + outfit + "/" + stage.ActualWidth + "/" + stage.ActualHeight;
         if (!posturePreviewHeight.TryGetValue(key, out double height))
         {
             height = stage.ActualHeight * .86;
-            foreach (string pose in IdlePostureClock.Poses) for (int i = 0; i < (pose is "stretch" or "think" ? 8 : 1); i++)
+            foreach (string measuredPose in IdlePostureClock.Poses) for (int i = 0; i < (measuredPose is "stretch" or "think" ? 8 : 1); i++)
             {
-                var p = MeasurePosture(character, outfit, pose, i / 8d); double scale = p.Art.Sprite.FrameScaleFactors?[p.Art.Frame] ?? 1;
+                var p = MeasurePosture(character, outfit, measuredPose, i / 8d); double scale = p.Art.Sprite.FrameScaleFactors?[p.Art.Frame] ?? 1;
                 double half = Math.Max(p.FootX - p.Bounds.Left, p.Bounds.Right - p.FootX);
                 height = Math.Min(height, Math.Min(stage.ActualWidth * .47 * p.Reference / Math.Max(1, half * scale), stage.ActualHeight * .88 * p.Reference / Math.Max(1, p.Bounds.Height * scale)));
             }
             posturePreviewHeight[key] = height;
         }
-        DrawPosture(image, character, outfit, PostureFor(character.FamilyId), stage.ActualWidth / 2, stage.ActualHeight * .95, height, PostureClock(character.FamilyId).Progress(Now));
+        DrawPosture(image, character, outfit, pose, stage.ActualWidth / 2, stage.ActualHeight * .95, height, progress);
+        var art = IdlePosture.Resolve(character, outfit, pose, progress);
+        image.Tag = new PosturePreviewFrame(character.Id, outfit, pose, art.Sprite.File, art.Frame, progress);
     }
     private bool RenderIdlePosture()
     {
@@ -120,3 +126,5 @@ public sealed partial class PetWindow
         return true;
     }
 }
+
+internal sealed record PosturePreviewFrame(string Character, string Outfit, string Pose, string File, int Frame, double Progress);

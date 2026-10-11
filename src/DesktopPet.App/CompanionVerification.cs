@@ -34,7 +34,7 @@ internal static class CompanionVerification
         var window = Application.Current.Windows.OfType<SettingsWindow>().Single(); window.IsHitTestVisible = false; window.ShowActivated = false; window.UpdateLayout();
         void Click(string name) { window.UpdateLayout(); var b = Find<Button>(window).Single(b => AutomationProperties.GetName(b) == name); Require(b.IsEnabled, "enabled " + name); b.RaiseEvent(new RoutedEventArgs(Button.ClickEvent)); window.UpdateLayout(); }
         var labels = Find<Button>(window).Select(AutomationProperties.GetName).ToArray();
-        Require(new[] { "我的伙伴", "陪伴日常", "会员中心", "设定" }.All(labels.Contains) && !labels.Any(s => s is "角色工坊" or "桌面偏好" or "注册 / 登录"), "four approved navigation destinations, no workshop or home membership");
+        Require(new[] { "我的伙伴", "行事历", "陪伴日常", "设定" }.All(labels.Contains) && !labels.Any(s => s is "角色工坊" or "桌面偏好" or "注册 / 登录" or "会员中心"), "four approved navigation destinations, no workshop or home membership");
         Require(Find<Image>(window).Count() >= 9 && labels.Contains("选择服装 短袖运动服"), "original hero with outfits follows eight character cards"); Capture(window, "home");
         var card = Find<Button>(window).Single(b => AutomationProperties.GetName(b) == "选择角色 GPT"); card.RaiseEvent(new MouseButtonEventArgs(Mouse.PrimaryDevice, 0, MouseButton.Right) { RoutedEvent = UIElement.PreviewMouseRightButtonUpEvent }); window.UpdateLayout();
         Require(Find<Button>(window).Any(b => AutomationProperties.GetName(b) == "我们的默契"), "right click opens profile tabs");
@@ -56,20 +56,24 @@ internal static class CompanionVerification
         }
         window.ShowProfile("gpt"); window.UpdateLayout(); Capture(window, "profile-bond"); Click("说明"); Capture(window, "profile-about");
         pet.SelectCharacter("gpt"); pet.State.Outfits["gpt"] = "original"; pet.ApplySettings();
-        Click("陪伴日常"); var today = DateOnly.FromDateTime(DateTime.Now); Click($"{today:yyyy-MM-dd} 今天打卡");
+        Click("行事历"); var today = DateOnly.FromDateTime(DateTime.Now); Click($"{today:yyyy-MM-dd} 今天打卡");
         Require(pet.State.CheckedIn(today) && pet.State.Companion("gpt").Score >= 3, "calendar today grants only one check-in");
         Require(Find<Button>(window).Any(b => AutomationProperties.GetName(b) == $"{today:yyyy-MM-dd} 已打卡") && pet.CurrentAction == "happy", "calendar click immediately marks date and smiles");
         int count = pet.State.CheckIns.Count; pet.CheckIn(); Require(pet.State.CheckIns.Count == count, "duplicate day is idempotent");
-        Click("周历"); Require(pet.State.CalendarView == "week" && Find<Button>(window).Count(b => AutomationProperties.GetName(b).StartsWith(today.Year.ToString() + "-")) == 7, "week calendar has seven dates"); Capture(window, "calendar-week");
+        Click("周历"); Require(pet.State.CalendarView == "week" && Find<Button>(window).Count(b => AutomationProperties.GetAutomationId(b).StartsWith("agenda-day-")) == 7, "week calendar has seven dates"); Capture(window, "calendar-week");
         Click("上一周"); Click("月历"); Require(pet.State.CalendarView == "month", "month view switches on browsed date"); Click("今天"); Capture(window, "calendar-month");
         var old = today.AddDays(-1); pet.State.CheckIns.Remove(old.ToString("yyyy-MM-dd")); window.RefreshLife(); Click($"{old:yyyy-MM-dd} 补签"); Require(!pet.State.CheckedIn(old), "no-card calendar click cannot makeup");
         double beforeTime = pet.State.Companion("gpt").Seconds; int beforeScore = pet.State.Companion("gpt").Score; pet.State.MakeupCards = 1; Require(pet.MakeupCheckIn(old) && pet.State.MakeupCards == 0 && pet.State.Companion("gpt").Score == beforeScore && pet.State.Companion("gpt").Seconds == beforeTime, "confirmed makeup does not invent bond or time");
         pet.State.Treasures.AddRange(["篮球", "面包", "贝壳"]); pet.State.ReadStories["cloud-post"] = 1; window.RefreshLife();
-        Click("球区"); Click("玩收藏 篮球"); Require(pet.ActiveToy.Id == "basketball", "owned toy remains playable from collection");
-        Click("食物区"); Require(Find<TextBlock>(window).Any(t => t.Text.Contains("贝壳")), "legacy nonfood collection is retained"); Click("故事区"); Require(Find<Button>(window).Any(b => AutomationProperties.GetName(b) == "再读一次 · 云朵邮差"), "read story becomes a collectible");
-        Require(!Find<Button>(window).Any(b => AutomationProperties.GetName(b).Contains("礼物")), "daily page has no gift draw"); Capture(window, "collection-stories");
-        Click("会员中心"); Require(Find<Button>(window).Any(b => AutomationProperties.GetName(b) == "注册分页"), "membership login and register tabs"); Capture(window, "member-login");
-        Click("设定"); var provider = Find<ComboBox>(window).Single(b => AutomationProperties.GetName(b) == "模型服务"); Require(provider.Items.Count == 9, "eight APIs plus offline");
+        Click("陪伴日常");
+        var catalogue = Find<Button>(window).Where(b => b.Tag is string key && PetActions.Daily.Any(a => a.Key == key)).ToArray();
+        Require(catalogue.Length == 27 && catalogue.Select(b => (string)b.Tag).Distinct().Count() == 27, "daily offers all 27 approved actions once");
+        Require(!Find<Button>(window).Any(b => AutomationProperties.GetAutomationId(b).StartsWith("agenda-day-")), "daily no longer duplicates the calendar");
+        Capture(window, "daily-actions"); Click("图鉴收集"); Click("球区"); Click("玩收藏 篮球"); Require(pet.ActiveToy.Id == "basketball", "owned toy remains playable from collection");
+        Click("食物区"); foreach (var extra in Find<Expander>(window)) extra.IsExpanded = true; window.UpdateLayout(); Require(Find<TextBlock>(window).Any(t => t.Text.Contains("贝壳")), "legacy nonfood collection is retained"); Click("故事区"); Require(Find<Button>(window).Any(b => AutomationProperties.GetName(b) == "再读一次 · 云朵邮差"), "read story becomes a collectible");
+        Require(!Find<Button>(window).Any(b => AutomationProperties.GetName(b).Contains("礼物")), "collection page has no gift draw"); Capture(window, "collection-stories");
+        Click("设定"); Click("账号与会员"); Require(Find<Button>(window).Any(b => AutomationProperties.GetName(b) == "注册分页"), "membership login and register tabs"); Capture(window, "member-login");
+        Click("设定"); Click("AI 接口"); var provider = Find<ComboBox>(window).Single(b => AutomationProperties.GetName(b) == "模型服务"); Require(provider.Items.Count == 9, "eight APIs plus offline");
         foreach (var spec in CompanionProviders.All)
         {
             provider.SelectedItem = provider.Items.Cast<ComboBoxItem>().Single(i => (string)i.Tag == spec.Id); window.UpdateLayout();
@@ -77,6 +81,7 @@ internal static class CompanionVerification
             var secret = Find<PasswordBox>(window).Single(b => AutomationProperties.GetName(b) == "API Key（仅本次会话）"); secret.Password = "test-only-key"; address.Text += "/"; Require(secret.Password.Length == 0, spec.Id + " changed host clears key");
         }
         provider.SelectedIndex = 0; Click("保存接口设定"); Require(pet.Chat.Options.IsLocal && !File.ReadAllText(Path.Combine(output, "chat-settings.json")).Contains("test-only-key"), "local saved without key");
+        Click("陪伴与提醒");
         var toggle = Find<ToggleButton>(window).Single(b => AutomationProperties.GetName(b) == "工作模式开关"); Require(toggle.IsChecked != true && !pet.WorkReminderEnabled, "work mode starts off"); toggle.IsChecked = true; toggle.RaiseEvent(new RoutedEventArgs(Button.ClickEvent)); window.UpdateLayout();
         var minutes = Find<TextBox>(window).Single(b => AutomationProperties.GetName(b) == "提醒间隔分钟"); minutes.Text = "10"; Click("保存间隔"); Require(pet.WorkReminderEnabled && pet.State.WorkMinutes == 10, "work mode saves ten minutes");
         Click("试一下提醒"); await Until(() => Application.Current.Windows.OfType<Window>().Any(w => w.Title == "云朵伙伴 · 工作提醒"), "work reminder");
@@ -95,7 +100,7 @@ internal static class CompanionVerification
         for (int i = 0; i < 6; i++) pet.Touch(.4);
         Require(pet.State.Companion("gpt").History.Last() is { Label: "连续逗弄", Delta: -2 } && pet.CurrentSpeech == CompanionPersonas.Text("gpt", "distant"), "six rapid touches lower affinity and express a gentle boundary"); pet.StopInteraction();
         Require(!PetActions.Daily.Any(a => a.Key == "photo"), "photo entry removed");
-        Click("陪伴日常"); Click("周历"); pet.Save(); var restored = new StateStore(output).Load(); Require(restored.CalendarView == "week" && restored.MakeupCards == 0 && restored.CheckedIn(old) && restored.Treasures.Contains("贝壳") && restored.ReadStories["cloud-post"] == 1, "all progress survives reload");
+        Click("行事历"); Click("周历"); pet.Save(); var restored = new StateStore(output).Load(); Require(restored.CalendarView == "week" && restored.MakeupCards == 0 && restored.CheckedIn(old) && restored.Treasures.Contains("贝壳") && restored.ReadStories["cloud-post"] == 1, "all progress survives reload");
         window.Close(); pet.SelectCharacter("gpt"); pet.State.Outfits["gpt"] = "original"; pet.ApplySettings(); pet.StopInteraction();
         var workClock = (WorkReminderClock)typeof(PetWindow).GetField("workClock", BindingFlags.NonPublic | BindingFlags.Instance)!.GetValue(pet)!;
         pet.ConfigureWork(true, 1); workClock.Start(-60000, 1); await Until(() => Application.Current.Windows.OfType<Window>().Any(w => w.Title == "云朵伙伴 · 工作提醒"), "live timer reminder"); Require(true, "live WPF timer delivers due reminder"); pet.ConfigureWork(false, 10);
@@ -108,6 +113,6 @@ internal static class CompanionVerification
         pet.InputSurface.RaiseEvent(new MouseButtonEventArgs(Mouse.PrimaryDevice, 0, MouseButton.Right) { RoutedEvent = UIElement.MouseRightButtonUpEvent }); Require(pet.HideStage == HidePhase.Peek && pet.IsMenuOpen, "right click does not find hidden pet");
         pet.InputSurface.RaiseEvent(new MouseButtonEventArgs(Mouse.PrimaryDevice, 0, MouseButton.Left) { RoutedEvent = UIElement.MouseLeftButtonDownEvent }); Require(pet.HideStage == HidePhase.Return, "left click starts found return"); await Until(() => pet.HideStage is null, "found return");
         Require(pet.CurrentSpeech == "被你找到啦！", "found greeting after return");
-        File.WriteAllLines(Path.Combine(output, "companion-check.txt"), checks.Append($"PASS {checks.Count} native Companion v0.4 checks."));
+        File.WriteAllLines(Path.Combine(output, "companion-check.txt"), checks.Append($"PASS {checks.Count} native companion checks."));
     }
 }

@@ -62,6 +62,18 @@ public partial class App : Application
         if (e.Args.Contains("--ui-test")) pet.ShowInTaskbar = true;
         MainWindow = pet;
         pet.Show();
+        if (e.Args.Contains("--verify-card-previews"))
+        {
+            try { await CardPreviewVerification.Run(pet, DataRoot); Shutdown(0); }
+            catch (Exception ex) { Directory.CreateDirectory(DataRoot); File.WriteAllText(Path.Combine(DataRoot, "card-preview-error.txt"), ex.ToString()); Shutdown(1); }
+            return;
+        }
+        if (e.Args.Contains("--verify-calendar-layout"))
+        {
+            try { await SettingsAgendaLayoutVerification.Run(pet, DataRoot); Shutdown(0); }
+            catch (Exception ex) { Directory.CreateDirectory(DataRoot); File.WriteAllText(Path.Combine(DataRoot, "calendar-layout-error.txt"), ex.ToString()); Shutdown(1); }
+            return;
+        }
         if (e.Args.Contains("--verify-play-update"))
         {
             try { await PlayUpdateVerification.Run(pet, DataRoot); Shutdown(0); }
@@ -111,6 +123,20 @@ public partial class App : Application
             return;
         }
         if (e.Args.Contains("--settings")) pet.OpenSettings();
+        // Optional read-only observation of the normal desktop entry. No fixture account,
+        // forced animation clock, profile mutation, or app shutdown on this path.
+        string? cardReview = Environment.GetEnvironmentVariable("DESKTOPPET_CARD_REVIEW");
+        if (e.Args.Contains("--settings") && !e.Args.Any(a => a.StartsWith("--verify-"))
+            && !string.IsNullOrWhiteSpace(cardReview) && Path.IsPathFullyQualified(cardReview))
+        {
+            string output = Path.GetFullPath(cardReview);
+            if (!output.StartsWith(Path.GetFullPath(DataRoot) + Path.DirectorySeparatorChar, StringComparison.OrdinalIgnoreCase)
+                && !output.Equals(Path.GetFullPath(DataRoot), StringComparison.OrdinalIgnoreCase))
+            {
+                try { await CardPreviewVerification.RunLive(Current.Windows.OfType<SettingsWindow>().Single(), output); }
+                catch (Exception ex) { Directory.CreateDirectory(output); File.WriteAllText(Path.Combine(output, "live-card-error.txt"), ex.ToString()); }
+            }
+        }
         if(e.Args.Contains("--verify-five"))
         {
             try{await FiveVerification.Run(pet,DataRoot,e.Args.Contains("--five-available"));Shutdown(0);}

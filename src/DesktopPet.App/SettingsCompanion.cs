@@ -17,16 +17,13 @@ public sealed partial class SettingsWindow
     private (bool Visible, bool Reduced)? lastPresence;
     private ProgressBar? bondMeter;
     private StackPanel? bondHistory;
-    private string profileTab = "bond", collectionTab = "balls";
-    private DateOnly calendarDate = DateOnly.FromDateTime(DateTime.Now);
+    private string profileTab = "bond", collectionTab = "balls", lifeTab = "actions";
     private DateOnly calendarToday = DateOnly.FromDateTime(DateTime.Now);
     private void RefreshCalendarDate()
     {
         var today = DateOnly.FromDateTime(DateTime.Now); if (today == calendarToday) return;
-        bool week = pet.State.CalendarView == "week";
-        if (CompanionCalendar.Start(calendarDate, week) == CompanionCalendar.Start(calendarToday, week)) calendarDate = today;
-        if (agendaDate == calendarToday) agendaDate = today;
-        calendarToday = today; if (page is "life" or "agenda") Rebuild();
+        RefreshAgendaDate(today);
+        calendarToday = today; if (page == "agenda") Rebuild();
     }
     private static string CompanionName(Character character) => character.Name.Split('·')[0].Trim();
     private static string TogetherTime(double seconds)
@@ -136,47 +133,26 @@ public sealed partial class SettingsWindow
     }
     private void BuildCompanionLife()
     {
-        Heading("", "陪伴日常", ""); var today = DateOnly.FromDateTime(DateTime.Now); bool week = pet.State.CalendarView == "week";
-        var panel = new StackPanel(); var header = new DockPanel();
-        var cards = Text($"补签卡：{pet.State.MakeupCards} 张", 12, true); DockPanel.SetDock(cards, Dock.Right); header.Children.Add(cards); header.Children.Add(Text("打卡", 20)); panel.Children.Add(header);
-        var toolbar = new DockPanel();
-        var modes = Tabs([("month", "月历"), ("week", "周历")], pet.State.CalendarView, mode => { pet.State.CalendarView = mode; pet.Save(); Rebuild(); }); DockPanel.SetDock(modes, Dock.Right); toolbar.Children.Add(modes);
-        var start = CompanionCalendar.Start(calendarDate, week); string caption = week ? $"{start:yyyy.MM.dd} — {start.AddDays(6):MM.dd}" : $"{calendarDate:yyyy 年 M 月}";
-        toolbar.Children.Add(Text(caption, 18)); panel.Children.Add(toolbar);
-        var nav = new StackPanel { Orientation = Orientation.Horizontal, Margin = new Thickness(0, 0, 0, 12) };
-        var previous = MakeButton(week ? "上一周" : "上一月", () => { calendarDate = week ? calendarDate.AddDays(-7) : calendarDate.AddMonths(-1); Rebuild(); }); nav.Children.Add(previous);
-        var current = MakeButton("今天", () => { calendarDate = today; Rebuild(); }); current.Margin = new Thickness(6, 0, 6, 0); nav.Children.Add(current);
-        var next = MakeButton(week ? "下一周" : "下一月", () => { calendarDate = week ? calendarDate.AddDays(7) : calendarDate.AddMonths(1); Rebuild(); }); next.IsEnabled = start < CompanionCalendar.Start(today, week); nav.Children.Add(next); panel.Children.Add(nav);
-        var weekdays = new UniformGrid { Columns = 7, Height = 28 };
-        foreach (string label in new[] { "一", "二", "三", "四", "五", "六", "日" }) weekdays.Children.Add(new TextBlock { Text = label, Foreground = muted, HorizontalAlignment = HorizontalAlignment.Center });
-        panel.Children.Add(weekdays); var days = new UniformGrid { Columns = 7 };
-        var feedback = Text("", 11, true); feedback.Margin = new Thickness(0, 8, 0, 0);
-        foreach (DateOnly? item in CompanionCalendar.Days(calendarDate, week))
+        Heading("", "陪伴日常", "");
+        var top = new DockPanel();
+        var partner = MakeButton(CompanionName(pet.Character) + " · " + CloudTheme.CategoryName(pet.Character.Category), () => Navigate("partners"), "heart");
+        DockPanel.SetDock(partner, Dock.Right); top.Children.Add(partner);
+        top.Children.Add(Tabs([("actions", "动作"), ("collection", "图鉴收集")], lifeTab, id => { lifeTab = id; Rebuild(); })); content.Children.Add(top);
+        if (lifeTab == "actions")
         {
-            if (item is not { } date) { days.Children.Add(new Border()); continue; }
-            bool signed = pet.State.CheckedIn(date), makeup = pet.State.MakeupCheckIns.Contains(date.ToString("yyyy-MM-dd")), isToday = date == today;
-            var label = new StackPanel { VerticalAlignment = VerticalAlignment.Center };
-            label.Children.Add(new TextBlock { Text = date.Day.ToString(CultureInfo.InvariantCulture), FontSize = 17, FontWeight = isToday ? FontWeights.SemiBold : FontWeights.Normal, HorizontalAlignment = HorizontalAlignment.Center });
-            label.Children.Add(new TextBlock { Text = signed ? makeup ? "补签" : "✓" : isToday ? "今天" : "", FontSize = 10, HorizontalAlignment = HorizontalAlignment.Center, Margin = new Thickness(0, 3, 0, 0) });
-            var b = MakeButton($"{date:yyyy-MM-dd} " + (signed ? makeup ? "已补签" : "已打卡" : isToday ? "今天打卡" : date < today ? "补签" : "未到日期"), () =>
-            {
-                if (signed) return;
-                if (isToday) { pet.CheckIn(false); return; }
-                if (pet.State.MakeupCards < 1) { feedback.Text = "补签卡不足。"; return; }
-                if (MessageBox.Show(this, $"消耗 1 张补签卡，补签 {date:M 月 d 日}？", "补签", MessageBoxButton.OKCancel, MessageBoxImage.Question) == MessageBoxResult.OK) pet.MakeupCheckIn(date);
-            });
-            b.Content = label; b.Height = week ? 86 : 62; b.Margin = new Thickness(3); b.Padding = new Thickness(2); b.IsEnabled = date <= today;
-            b.Background = isToday ? CloudTheme.Brush("#F6D6E2") : signed ? CloudTheme.Brush("#E6F1EA") : Brushes.White;
-            if (isToday) b.BorderBrush = CloudTheme.Brush("#CA7997"); days.Children.Add(b);
+            BuildDailyActions("玩耍", ["gift", "read", "butterfly", "highfive", "rps", "ball", "blocks", "walk", "peek", "bubbles", "stars", "think", "jump", "curl", "bonk"]);
+            BuildDailyActions("互动", ["checkin", "snack", "headpat", "poke", "tickle", "praise", "comfort", "lullaby", "comb", "wipe", "stretch", "rest"]); return;
         }
-        panel.Children.Add(days); panel.Children.Add(feedback); panel.Children.Add(Text($"已打卡 {pet.State.CheckIns.Count} 天  ·  连续 {pet.State.Streak(today)} 天", 12, true)); content.Children.Add(Card(panel));
-        var collection = new StackPanel(); collection.Children.Add(Text("收藏", 20)); collection.Children.Add(Tabs([("balls", "球区"), ("food", "食物区"), ("stories", "故事区")], collectionTab, id => { collectionTab = id; Rebuild(); }));
+        var collection = new StackPanel(); collection.Children.Add(Text("图鉴收集", 20));
+        int collected = Collectibles.All.Count(item => pet.State.Treasures.Any(t => Collectibles.FromSavedName(t)?.Id == item.Id)) + StoryLibrary.All.Count(story => pet.State.ReadStories.GetValueOrDefault(story.Id) > 0);
+        collection.Children.Add(Text($"{collected} / {Collectibles.All.Count + StoryLibrary.All.Count} 已收集", 12, true)); collection.Children.Add(Tabs([("balls", "球区"), ("food", "食物区"), ("stories", "故事区")], collectionTab, id => { collectionTab = id; Rebuild(); }));
         if (collectionTab == "stories")
         {
             foreach (var story in StoryLibrary.All)
             {
                 int count = pet.State.ReadStories.GetValueOrDefault(story.Id); var row = new DockPanel { Margin = new Thickness(0, 8, 0, 8) };
-                var read = MakeButton(count > 0 ? "再读一次 · " + story.Title : "阅读 · " + story.Title, () => pet.ReadStory(story.Id)); DockPanel.SetDock(read, Dock.Right); row.Children.Add(read);
+                var read = MakeButton(count > 0 ? "再读一次" : "阅读", () => { if (!pet.IsVisible) pet.ToggleVisible(); pet.ReadStory(story.Id); });
+                AutomationProperties.SetName(read, (count > 0 ? "再读一次 · " : "阅读 · ") + story.Title); DockPanel.SetDock(read, Dock.Right); row.Children.Add(read);
                 row.Children.Add(Text(story.Title + (count > 0 ? $"  ·  已读 {count} 次" : "  ·  未收录"), 14)); collection.Children.Add(row);
             }
         }
@@ -186,21 +162,43 @@ public sealed partial class SettingsWindow
             foreach (var item in collectionTab == "balls" ? Collectibles.Sports : Collectibles.Food)
             {
                 int count = pet.State.Treasures.Count(t => Collectibles.FromSavedName(t)?.Id == item.Id);
-                var box = new StackPanel(); box.Children.Add(Text(item.Name, 16)); box.Children.Add(Text(count > 0 ? $"已收藏 × {count}" : "未收录", 12, true));
+                var box = new StackPanel(); box.Children.Add(new ItemVisual { Item = item, Width = 48, Height = 48, Opacity = count > 0 ? 1 : .4, Margin = new Thickness(0, 0, 0, 10) }); box.Children.Add(Text(item.Name, 16)); box.Children.Add(Text(count > 0 ? $"已收藏 × {count}" : "未收录", 12, true));
                 if (count > 0 && item.Kind == ItemKind.Sport)
                 {
-                    var play = MakeButton("玩收藏 " + item.Name, () => { pet.CompanionActivity(); pet.PlayWithToy(item.Id); }); play.Content = box; play.Background = CloudTheme.Brush("#FFF6F9"); play.HorizontalContentAlignment = HorizontalAlignment.Stretch; play.Padding = new Thickness(15); play.Margin = new Thickness(3); tiles.Children.Add(play);
+                    var play = MakeButton("玩收藏 " + item.Name, () => { if (!pet.IsVisible) pet.ToggleVisible(); pet.CompanionActivity(); pet.PlayWithToy(item.Id); }); play.Content = box; play.Background = CloudTheme.Brush("#FFF6F9"); play.HorizontalContentAlignment = HorizontalAlignment.Stretch; play.Padding = new Thickness(15); play.Margin = new Thickness(3); tiles.Children.Add(play);
                 }
                 else { var card = Card(box, count > 0 ? CloudTheme.Brush("#FFF6F9") : Brushes.White); card.Margin = new Thickness(3); card.Padding = new Thickness(15); tiles.Children.Add(card); }
             }
             collection.Children.Add(tiles);
-            if (collectionTab == "food")
+            var keepsakes = new StackPanel();
+            foreach (var item in Collectibles.All.Where(item => item.Kind != ItemKind.Sport && !item.Edible))
             {
-                var other = pet.State.Treasures.Where(t => Collectibles.FromSavedName(t) is not { Kind: ItemKind.Sport } and not { Edible: true }).GroupBy(t => t).Select(g => $"{g.Key} × {g.Count()}").ToArray();
-                if (other.Length > 0) { collection.Children.Add(Text("其他收藏", 14)); collection.Children.Add(Text(string.Join("　", other), 12, true)); }
+                int count = pet.State.Treasures.Count(t => Collectibles.FromSavedName(t)?.Id == item.Id);
+                var row = new StackPanel { Orientation = Orientation.Horizontal, Margin = new Thickness(0, 8, 0, 0) };
+                row.Children.Add(new ItemVisual { Item = item, Width = 32, Height = 32, Opacity = count > 0 ? 1 : .4, Margin = new Thickness(0, 0, 12, 0) });
+                row.Children.Add(Text(item.Name + (count > 0 ? $" × {count}" : " · 未收录"), 13, count == 0)); keepsakes.Children.Add(row);
             }
+            var legacy = pet.State.Treasures.Where(t => Collectibles.FromSavedName(t) is null).GroupBy(t => t).Select(g => $"{g.Key} × {g.Count()}").ToArray();
+            if (legacy.Length > 0) keepsakes.Children.Add(Text(string.Join("　", legacy), 12, true));
+            collection.Children.Add(new Expander { Header = "其他小物", Content = keepsakes, Margin = new Thickness(0, 18, 0, 0) });
         }
         content.Children.Add(Card(collection));
+    }
+    private void BuildDailyActions(string title, string[] keys)
+    {
+        content.Children.Add(new TextBlock { Text = title, FontSize = 18, FontWeight = FontWeights.SemiBold, Margin = new Thickness(0, 20, 0, 15) });
+        var grid = new UniformGrid { Columns = 5 };
+        foreach (string key in keys)
+        {
+            var action = PetActions.Daily.First(a => a.Key == key);
+            var symbol = CloudTheme.Icon(action.Icon, 25); var box = new StackPanel { VerticalAlignment = VerticalAlignment.Center };
+            symbol.HorizontalAlignment = HorizontalAlignment.Center;
+            box.Children.Add(new Border { Background = title == "玩耍" ? CloudTheme.Pale : CloudTheme.Brush("#EAF4EE"), CornerRadius = new CornerRadius(12), Padding = new Thickness(8), Child = symbol, HorizontalAlignment = HorizontalAlignment.Center, Margin = new Thickness(0, 0, 0, 9) });
+            box.Children.Add(new TextBlock { Text = key == "blocks" ? "堆积木" : action.Title, TextAlignment = TextAlignment.Center, FontSize = 13 });
+            var button = MakeButton("日常动作 " + action.Title, () => { if (!pet.IsVisible) pet.ToggleVisible(); pet.RunInteraction(key); }, action.Icon);
+            button.Tag = key; button.Content = box; button.Height = 108; button.Padding = new Thickness(6); button.Margin = new Thickness(0, 0, 9, 10); grid.Children.Add(button);
+        }
+        content.Children.Add(grid);
     }
     private UIElement WorkSettingsPanel()
     {

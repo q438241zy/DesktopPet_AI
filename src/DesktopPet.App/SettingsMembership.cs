@@ -9,23 +9,22 @@ namespace DesktopPet.App;
 public sealed partial class SettingsWindow
 {
     private bool registerAccount;
-    internal void ShowMembership() => Navigate("members");
+    internal void ShowMembership() => ShowPreferences("account");
     internal void RefreshMembership() { if (page is "members" or "partners" or "life" or "preferences") Rebuild(); }
-    private void Members()
+    private void Members(StackPanel host)
     {
-        Heading("", "会员中心", "");
         if (pet.Accounts.CurrentAccount is { } account)
         {
             var panel = new StackPanel { MaxWidth = 420, HorizontalAlignment = HorizontalAlignment.Center };
             panel.Children.Add(Text(account.Nickname, 22)); panel.Children.Add(Text(account.Username, 12, true));
             panel.Children.Add(CloudTheme.Badge(Membership.Name(account.Tier), MemberVisual.Colors(account.Tier).Surface));
-            panel.Children.Add(MakeButton("退出登录", () => pet.Accounts.Logout())); content.Children.Add(Card(panel));
+            panel.Children.Add(MakeButton("退出登录", () => pet.Accounts.Logout())); host.Children.Add(Card(panel));
         }
-        else AccountForm();
+        else AccountForm(host);
     }
-    private void AccountForm()
+    private void AccountForm(StackPanel host)
     {
-        var panel = new StackPanel { MaxWidth = 440, HorizontalAlignment = HorizontalAlignment.Center };
+        var panel = new StackPanel { MaxWidth = 400, HorizontalAlignment = HorizontalAlignment.Center };
         var tabs = new StackPanel { Orientation = Orientation.Horizontal, Margin = new Thickness(0, 0, 0, 14) };
         foreach (bool registration in new[] { false, true })
         {
@@ -33,8 +32,8 @@ public sealed partial class SettingsWindow
             AutomationProperties.SetName(tab, registration ? "注册分页" : "登录分页");
             tab.Background = registerAccount == registration ? CloudTheme.Pale : Brushes.Transparent; tab.BorderThickness = new Thickness(0); tab.Padding = new Thickness(13, 8, 13, 8); tab.Margin = new Thickness(0, 0, 8, 0); tabs.Children.Add(tab);
         }
-        panel.Children.Add(new CloudIcon { Width = 64, Height = 58, HorizontalAlignment = HorizontalAlignment.Center }); panel.Children.Add(Text("云朵会员", 22)); panel.Children.Add(tabs);
-        var username = new TextBox { MinWidth = 340, MaxLength = 24, Height = 40 };
+        panel.Children.Add(new CloudIcon { Width = 96, Height = 96, HorizontalAlignment = HorizontalAlignment.Center }); panel.Children.Add(Text("账号与会员", 22)); panel.Children.Add(Text("测试期全部开放", 12, true)); panel.Children.Add(tabs);
+        var username = new TextBox { MinWidth = 240, MaxLength = 24, Height = 40 };
         var nickname = new TextBox { MaxLength = 20, Height = 40 };
         var password = new PasswordBox { MaxLength = 128, Height = 40, Style = (Style)FindResource("MemberPasswordBox") };
         var confirmation = new PasswordBox { MaxLength = 128, Height = 40, Style = (Style)FindResource("MemberPasswordBox") };
@@ -64,6 +63,6 @@ public sealed partial class SettingsWindow
         submit.HorizontalAlignment = HorizontalAlignment.Left; submit.Padding = new Thickness(18, 10, 18, 10); panel.Children.Add(submit);
         password.KeyDown += async (_, e) => { if (e.Key == System.Windows.Input.Key.Enter && !registering && panel.IsEnabled) { e.Handled = true; await Submit(); } };
         confirmation.KeyDown += async (_, e) => { if (e.Key == System.Windows.Input.Key.Enter && panel.IsEnabled) { e.Handled = true; await Submit(); } };
-        content.Children.Add(Card(panel));
+        host.Children.Add(Card(panel));
     }
 }

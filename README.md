@@ -75,6 +75,7 @@ v1.0 曾提供多人相框合照，下列截图仅作历史留存。
 
 [v1.0 Release](https://github.com/q438241zy/DesktopPet_AI/releases/tag/v1.0) 保留源码里程碑与更新说明；本轮 v1.10 不附新的正式安装包。历史文件见 [Releases](https://github.com/q438241zy/DesktopPet_AI/releases)，历史包不代表最新源码版本。正式安装包目前采用解压即用 ZIP：保留整个目录及 `Assets`，双击 `DesktopPet.exe`，无需另装 .NET。
 
+- 默认启动只显示宠物，控制面板收起。桌面快捷方式不附加 `--settings`；需要时从托盘或 Ctrl+Alt+S 打开面板。显式使用 `--settings` 才在启动时打开面板。
 - 左键点击或拖动角色：互动、提起；普通松手停在当前位置，按住 Shift 松手才下落。
 - 右键角色：展开透明圆盘菜单，打开菜单不会取消当前动作。
 - 躲藏后等待左键找到；可在设定关闭闲置一分钟躲藏。控制面板、聊天或互动进行中会暂缓，关闭面板后重新计时。

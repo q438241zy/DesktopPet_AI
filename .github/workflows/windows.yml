@@ -1,5 +1,7 @@
 name: Windows build and behavior
-on: [push, pull_request]
+# Automatic execution is disabled at the user's request.
+on:
+  workflow_dispatch:
 jobs:
   verify:
     runs-on: windows-latest

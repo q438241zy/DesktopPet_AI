@@ -108,6 +108,8 @@ API Key 只保留在本次会话。只有配置服务并使用相关功能时，
 
 原生程序需要 Windows x64 和 .NET 10 SDK。
 
+当前工作树保留最新源码、16 个内置角色的全部现用美术图、动作配套数据和选用稿的原图参考。2026-10-15 移出退役素材、未采用试稿及可重建 Demo 缓存约 1.42 GB，详见[仓库清理记录](docs/maintenance/cleanup-20261015.md)。Git 历史与重要版本标签保留；只需要当前源码时可使用浅克隆。
+
 ```powershell
 dotnet run --project src/DesktopPet.App
 dotnet run --project tests/DesktopPet.Tests -c Release
@@ -123,6 +125,8 @@ Start-Process ./Release/win-x64/Demo/CompanionV01/index.html
 ```
 
 原生 `publish.ps1` 生成运行目录，正式安装包仅在需要时使用 `tools/package.ps1 -RuntimeOnly` 制作，不把用户存档或大型 Demo 带入包中。
+
+旧五互动页的嵌入图片包及换衣对照页的重复图片索引由部署脚本按需重建，不再重复提交到 Git。需要历史复核页时执行 `tools/install-interaction-five-demo.ps1` 或 `tools/install-wardrobe-identity-demo.ps1`；当前长期入口仍为 CompanionV01。
 
 - [v1.0 重要版本说明](docs/releases/v1.0.md)：版本基线、展示来源与本次范围。
 - [v1.10 原生验证与安装记录](docs/verification-v110-native.md)：独立角色卡预览、统一日历、日常动作与图鉴、设定分区及桌面入口。

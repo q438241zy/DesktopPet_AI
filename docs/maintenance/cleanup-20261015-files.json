@@ -1,0 +1,4056 @@
+{
+  "baseCommit": "71143c323837e7eb65ee221b9cc280acebed5e7e",
+  "beforeTrackedBytes": 4735201156,
+  "remove": [
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/claude-adult/interactions/sports/claude-adult-sports-book-v1.png",
+      "blob": "3b6ab80a543f530fdf5c7ca8f9ec3d5661168a56",
+      "bytes": 1640374,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/claude-adult/interactions/sports/claude-adult-sports-handoff-v1.png",
+      "blob": "4bb469a800c4391dba95f7793d0a3e1b1ef4a791",
+      "bytes": 2193560,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/claude-adult/interactions/sports/claude-adult-sports-highfive-v1.png",
+      "blob": "9c6f88efd1511dd9cdc80ca1a087cec527e8433c",
+      "bytes": 2230394,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/claude-adult/interactions/sports/claude-adult-sports-photo-v3.png",
+      "blob": "22c8d7b2a717bd937062d024f95b2aafa18ce791",
+      "bytes": 1006625,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/claude-adult/interactions/sports/claude-adult-sports-rps-v1.png",
+      "blob": "52a7a10625a62f365afdb8d302aea2071e2dd023",
+      "bytes": 2269771,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/claude-adult/interactions/wedding/claude-adult-wedding-highfive-v3.png",
+      "blob": "e3a9fecc5272deda3666362d015de15ff1c91f22",
+      "bytes": 1617051,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/claude-adult/outfits/sports/body.json",
+      "blob": "a0726695aa8aceecb2d5d14090190414bcced7a6",
+      "bytes": 55376,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/claude-adult/outfits/sports/bonk.json",
+      "blob": "fa2f06fa07809585ee8e64845ad261b802435da1",
+      "bytes": 12491,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/claude-adult/outfits/sports/care.json",
+      "blob": "30ebe9de88ef717b7618cdd11e1ab43424f35849",
+      "bytes": 12725,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/claude-adult/outfits/sports/catch.json",
+      "blob": "07d78006cff8e752718289f862e98746363155b0",
+      "bytes": 12974,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/claude-adult/outfits/sports/club.json",
+      "blob": "0bc0aeca9d8826e2d452f4e0c45a4bb81cc934af",
+      "bytes": 66572,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/claude-adult/outfits/sports/portrait.json",
+      "blob": "279be6af125809b10855d50e5d3d207f025ac165",
+      "bytes": 96591,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/claude-adult/outfits/sports/walk.json",
+      "blob": "6874c724935f220699098ed8269144a504795f39",
+      "bytes": 30910,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/claude/interactions/sports/claude-sports-v2.png",
+      "blob": "44323d14321d51b159bf88d5af4e6b59710ef4e3",
+      "bytes": 2216114,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/claude/motions/feed.webp",
+      "blob": "9eacc5b9491984d4d6d99d7d9c14b43bac61f5fd",
+      "bytes": 1101044,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/claude/outfits/sports/club.json",
+      "blob": "828853aab3c780853db91423e7f129b5ee558115",
+      "bytes": 87944,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/claude/outfits/sports/contact.json",
+      "blob": "908e79935e40e23b9b2042a438934051b26a5fd1",
+      "bytes": 85528,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/claude/outfits/sports/core.json",
+      "blob": "ed90f3e93fde6ed4ad730e0171566961d4aec55a",
+      "bytes": 231709,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/claude/outfits/sports/walk.json",
+      "blob": "9dc825f6b30a50ef0922bf0db3a21628dce3e0e3",
+      "bytes": 41079,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/claude/outfits/wedding/headpat.webp",
+      "blob": "a3c9afa709521b8884c134c9de19114de0ec1f2a",
+      "bytes": 417906,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/claude/outfits/wedding/walk.webp",
+      "blob": "c15b9cd01ecf15500338add8e11e4014d76e2ed2",
+      "bytes": 338476,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/deepseek-adult/interactions/sports/deepseek-adult-sports-book-v2.png",
+      "blob": "3fa88d4ac4a968bb08583682e2ac4b66eba79b73",
+      "bytes": 2127062,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/deepseek-adult/interactions/sports/deepseek-adult-sports-handoff-v2.png",
+      "blob": "4e451ac2c14c1e32678cf59283165ffeeb7c697f",
+      "bytes": 2050746,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/deepseek-adult/interactions/sports/deepseek-adult-sports-highfive-v2.png",
+      "blob": "5738c3fefbfa6c3e70298e0bb1f3c4fa0d7ba4b0",
+      "bytes": 1004635,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/deepseek-adult/interactions/sports/deepseek-adult-sports-photo-v2.png",
+      "blob": "81c933d7d8fa95b18e42230faa275efb97b09583",
+      "bytes": 2138734,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/deepseek-adult/interactions/sports/deepseek-adult-sports-rps-v2.png",
+      "blob": "955b49b43749512fe0d6e7ae69a7107dadef854e",
+      "bytes": 1311792,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/deepseek-adult/outfits/sports/body.json",
+      "blob": "1536c33e451e85738de773a2135b3edced4e9db7",
+      "bytes": 50666,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/deepseek-adult/outfits/sports/bonk.json",
+      "blob": "519af24f2b776d53a4c72802fc278c79ac1f6476",
+      "bytes": 14126,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/deepseek-adult/outfits/sports/care.json",
+      "blob": "4ac636813a9fb3132349def968d833f6cf43b379",
+      "bytes": 18493,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/deepseek-adult/outfits/sports/catch.json",
+      "blob": "9acd992631d335b810693159ab9d6f33f6bd9fba",
+      "bytes": 12793,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/deepseek-adult/outfits/sports/club.json",
+      "blob": "831f40b08fd3fbec5f9bf2e1d9e9c6de35e67f8f",
+      "bytes": 64873,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/deepseek-adult/outfits/sports/portrait.json",
+      "blob": "97cb63f4fa8c4399c8627ada34e54ce85b2de468",
+      "bytes": 87375,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/deepseek-adult/outfits/sports/walk.json",
+      "blob": "c79f3574ac5ab41c8df0efbf8fde32854021ba75",
+      "bytes": 31312,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/gemini-adult/interactions/sports/gemini-adult-sports-book-v1.png",
+      "blob": "17ca5744ebfd5f10a2f30f4a8f72c36342f54887",
+      "bytes": 982808,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/gemini-adult/interactions/sports/gemini-adult-sports-handoff-v1.png",
+      "blob": "b00aa7cab93a1c9289a87948bfefbdc65eaa2e01",
+      "bytes": 1049592,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/gemini-adult/interactions/sports/gemini-adult-sports-highfive-v1.png",
+      "blob": "46f5f6850e4994de998bc3d69723eebf3c4b72e7",
+      "bytes": 1099004,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/gemini-adult/interactions/sports/gemini-adult-sports-photo-v1.png",
+      "blob": "68fcc78de5e331b3fc0c3dc48fb810e5b9e678cf",
+      "bytes": 1070416,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/gemini-adult/interactions/sports/gemini-adult-sports-rps-v1.png",
+      "blob": "941c3ef173515f7e4936763d8baba4cb106636bb",
+      "bytes": 1063844,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/gemini-adult/motions/cloud-care-wardrobe.json",
+      "blob": "c6ff749e397d906ea3f107bbbc95fef94ab3f85f",
+      "bytes": 108241,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/gemini-adult/outfits/sports/body.json",
+      "blob": "1b8b2911e5e8b7588f63245183c3311f62fa993c",
+      "bytes": 59088,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/gemini-adult/outfits/sports/bonk.json",
+      "blob": "7541e25738b24ef4397ceffcc8a2dccbfd3ecdfb",
+      "bytes": 14582,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/gemini-adult/outfits/sports/care.json",
+      "blob": "bbe446e0ddeea4bbefa611878ffcd3dfa31a14f8",
+      "bytes": 22454,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/gemini-adult/outfits/sports/catch.json",
+      "blob": "fcb35b4933f447b27707dc28b9becf793dca3416",
+      "bytes": 12477,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/gemini-adult/outfits/sports/club.json",
+      "blob": "d8b5b9a4af00d575c5a7f68958167f1511fd9b98",
+      "bytes": 74994,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/gemini-adult/outfits/sports/portrait.json",
+      "blob": "dde664eaf3d6eb8bd69170511604b03cadc59b6f",
+      "bytes": 116555,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/gemini-adult/outfits/sports/walk.json",
+      "blob": "61d5236df28c8e6a480037ce23228c1e2073aa49",
+      "bytes": 36302,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/gemini/interactions/sports/gemini-sports-v2.png",
+      "blob": "271c72f63e1a42f859899d5826be343551e30c17",
+      "bytes": 2397102,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/gemini/motions/feed.webp",
+      "blob": "6434d29ae18d9b2cc1e2e6c4173699e0af27039e",
+      "bytes": 1324728,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/gemini/outfits/sports/club.json",
+      "blob": "ae193dd2473978bb6e298e6666711ce8f13f6aee",
+      "bytes": 76234,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/gemini/outfits/sports/contact.json",
+      "blob": "1f763e19654101230835436d1ae9fa9f19d6b00b",
+      "bytes": 64038,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/gemini/outfits/sports/core.json",
+      "blob": "277df84c0372166f936d74a05cd9bbc94b11fc70",
+      "bytes": 234224,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/gemini/outfits/sports/walk.json",
+      "blob": "e7de054b4bdb7ff38deb6b3d27c0c7a989894f0f",
+      "bytes": 42634,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/gemini/outfits/wedding/headpat.webp",
+      "blob": "d514597e94fc1c6ea63d2e1cef127cd2e8b2884c",
+      "bytes": 438412,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/gemini/outfits/wedding/walk.webp",
+      "blob": "4707d6df903ce99cca1729dc58206dfef21c8637",
+      "bytes": 384506,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/gpt-adult/interactions/sports/gpt-adult-sports-book-v1.png",
+      "blob": "4bfb697dc5bbc9467b62a5fbb1819741e39f953c",
+      "bytes": 1370036,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/gpt-adult/interactions/sports/gpt-adult-sports-handoff-v3.png",
+      "blob": "4c5a0b85b9c3185e5b842b904ad84b3a741a7d62",
+      "bytes": 1015468,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/gpt-adult/interactions/sports/gpt-adult-sports-highfive-v1.png",
+      "blob": "6fed170c0750ce9bb052a8ab542bc1549270293e",
+      "bytes": 1397298,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/gpt-adult/interactions/sports/gpt-adult-sports-photo-v1.png",
+      "blob": "5c8e19a483962509569f7264e1dedb827f12478b",
+      "bytes": 1555553,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/gpt-adult/interactions/sports/gpt-adult-sports-rps-v1.png",
+      "blob": "919436807f0b8db3d85ce41ab176832df7639f1d",
+      "bytes": 1440897,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/gpt-adult/outfits/sports/body.json",
+      "blob": "daf57dc9ed7e054cbf35bb1d0fe713fac917a228",
+      "bytes": 55338,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/gpt-adult/outfits/sports/bonk.json",
+      "blob": "e312080cfcc59bf4468d73ff4bcdf827bcee5906",
+      "bytes": 14319,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/gpt-adult/outfits/sports/care.json",
+      "blob": "599b1ae03e975b4373baa7852471f777f03a6832",
+      "bytes": 20392,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/gpt-adult/outfits/sports/catch.json",
+      "blob": "ed919a1c8adc05f1eb717fff7aa96100f24f3e45",
+      "bytes": 14715,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/gpt-adult/outfits/sports/club.json",
+      "blob": "242ebd6bf0c09858325c293d6cefbaa6dddd9ee4",
+      "bytes": 69889,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/gpt-adult/outfits/sports/portrait.json",
+      "blob": "a5e180ad65591d4af8e9bc847405de453a0c41a4",
+      "bytes": 114951,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/gpt-adult/outfits/sports/walk.json",
+      "blob": "4c7850afc9d73108708eac6f7234a953cc6136b5",
+      "bytes": 31043,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/gpt/interactions/sports/gpt-sports-v2.png",
+      "blob": "67a59043d4528523357bc0f41279b43cb656f974",
+      "bytes": 2312617,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/gpt/motions/feed.webp",
+      "blob": "9cb27a2dd3fdecb2ccacb2f121fd7ae4d34db268",
+      "bytes": 1004734,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/gpt/outfits/sports/club.json",
+      "blob": "118eb296987df7d5c58c9b74724b41f0f93a9123",
+      "bytes": 96177,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/gpt/outfits/sports/contact.json",
+      "blob": "f9391511fc8e348a85aada2fa23c7ea1e48ae54e",
+      "bytes": 92429,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/gpt/outfits/sports/core.json",
+      "blob": "02c299008a87751b3d259896d4ec1461a96f96f7",
+      "bytes": 247770,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/gpt/outfits/sports/walk.json",
+      "blob": "72d4b77cc9d36a718a74c64bcc16f031964b3986",
+      "bytes": 40088,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/gpt/outfits/wedding/headpat.webp",
+      "blob": "8d157ac2060febf1e22e6ef351f5dee7956797e3",
+      "bytes": 393688,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/gpt/outfits/wedding/walk.webp",
+      "blob": "e46f5088ae268509f052498ddc98d075e1c1ce88",
+      "bytes": 334292,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/grok-adult/interactions/sports/grok-adult-sports-book-v1.png",
+      "blob": "36c493379e8b1a5da1dce1e1120740a3c824f143",
+      "bytes": 972836,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/grok-adult/interactions/sports/grok-adult-sports-handoff-v1.png",
+      "blob": "82773d5c475b85caef682bc3167a8a9c771a4571",
+      "bytes": 986826,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/grok-adult/interactions/sports/grok-adult-sports-highfive-v1.png",
+      "blob": "1f1a02e32d7d0e692e80e9474caaf5e071e997d0",
+      "bytes": 1037768,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/grok-adult/interactions/sports/grok-adult-sports-photo-v1.png",
+      "blob": "de5caf5657a915375b299d3dcede313d11d20d7d",
+      "bytes": 1006461,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/grok-adult/interactions/sports/grok-adult-sports-rps-v1.png",
+      "blob": "b51c78a46e49058c544dcb5dd90bb33a3ac7ce93",
+      "bytes": 1042240,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/grok-adult/motions/cloud-care-wardrobe.json",
+      "blob": "1f2de888f1e7209324b5f8a61bf6ba735c730b6f",
+      "bytes": 89128,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/grok-adult/outfits/sports/body.json",
+      "blob": "ddb014d523ff464355dba5b1e47e8ebe9e02ac1a",
+      "bytes": 61048,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/grok-adult/outfits/sports/bonk.json",
+      "blob": "554ffac72188b587516e71effdec1fce24657ecd",
+      "bytes": 12542,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/grok-adult/outfits/sports/care.json",
+      "blob": "fa2a4b2674da9e28918d627bb4762c52afdbf87a",
+      "bytes": 16081,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/grok-adult/outfits/sports/catch.json",
+      "blob": "60f9f199db1e4e75f4dcd0c02b3d671e4d43e599",
+      "bytes": 12956,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/grok-adult/outfits/sports/club.json",
+      "blob": "1f413278551709df55a1465ac2cc1bb204a1008e",
+      "bytes": 69394,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/grok-adult/outfits/sports/portrait.json",
+      "blob": "9326bf7a65e4c16d8d9f795d7ca2d954a64f79c2",
+      "bytes": 94369,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/grok-adult/outfits/sports/walk.json",
+      "blob": "30e33ec0a9962edbfdfca62ef2036f503a865ff6",
+      "bytes": 34608,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/grok/interactions/sports/grok-sports-v2.png",
+      "blob": "cf6abadb433ca3fdf5ba3911d91b4296f34e9514",
+      "bytes": 2175803,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/grok/motions/feed.webp",
+      "blob": "7f73ac46a4266836af28492b8a09eb3922ba94f8",
+      "bytes": 884696,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/grok/outfits/sports/club.json",
+      "blob": "6d33adc6e5dea8ce10af8c45f1fd8bb9e23e36bc",
+      "bytes": 93466,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/grok/outfits/sports/contact.json",
+      "blob": "dc33f7ff81a895ebd2b692235c480457bd3cd7bd",
+      "bytes": 82407,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/grok/outfits/sports/core.json",
+      "blob": "cf26db95cca3f33363a1aa0662d75561bb53fe7a",
+      "bytes": 229188,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/grok/outfits/sports/walk.json",
+      "blob": "0efa8c236e712dc71dc0a9ba8cf2cc9e12ce3420",
+      "bytes": 39119,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/grok/outfits/wedding/headpat.webp",
+      "blob": "9458e931e4ad3bc73b0f62ec48368feaa8f090b8",
+      "bytes": 398684,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/grok/outfits/wedding/walk.webp",
+      "blob": "228c0c72160e6f26372aa45c6ef8d47b2f72d264",
+      "bytes": 383204,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/kimi-adult/interactions/sports/kimi-adult-sports-book-v1.png",
+      "blob": "c44a65b291982a3360482dd2271657f1e1aed5f5",
+      "bytes": 875361,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/kimi-adult/interactions/sports/kimi-adult-sports-handoff-v1.png",
+      "blob": "a1d3c00c17b54f1ad2604b6d9ff4fd7d7f8d0bb2",
+      "bytes": 933034,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/kimi-adult/interactions/sports/kimi-adult-sports-highfive-v1.png",
+      "blob": "6b3230b165bb72f146447a19948c62c8bdd1fe45",
+      "bytes": 888503,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/kimi-adult/interactions/sports/kimi-adult-sports-photo-v1.png",
+      "blob": "dbb506154c5e66bcc69719ec0bc527d65d551f01",
+      "bytes": 885432,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/kimi-adult/interactions/sports/kimi-adult-sports-rps-v1.png",
+      "blob": "8fccb8e43027597bddd496189ce63e1124983fd6",
+      "bytes": 1031814,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/kimi-adult/outfits/sports/body.json",
+      "blob": "5fb857b34eb5dec28e3dfc2a9e1d12ad844eefee",
+      "bytes": 53630,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/kimi-adult/outfits/sports/bonk.json",
+      "blob": "6b49413650e508434f4a6493862849dcd3d96ccd",
+      "bytes": 13975,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/kimi-adult/outfits/sports/care.json",
+      "blob": "6b509d3380e65ec2bf0b9902788908e9a4c33311",
+      "bytes": 13050,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/kimi-adult/outfits/sports/catch.json",
+      "blob": "f7101ee53ee62c249125e4996ac4f5169b098a8a",
+      "bytes": 12616,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/kimi-adult/outfits/sports/club.json",
+      "blob": "95839e2c274fd23f27bdf81fd2f90c1e565bd367",
+      "bytes": 68256,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/kimi-adult/outfits/sports/portrait.json",
+      "blob": "df0255a6d536a7bc9e49e1c9a377b2cf255a217d",
+      "bytes": 94091,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/kimi-adult/outfits/sports/walk.json",
+      "blob": "ee995d5ecaa16bcac90c2d8afac3cdadb6107297",
+      "bytes": 35553,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/kimi/interactions/sports/kimi-sports-v2.png",
+      "blob": "5e0b05fc446aa605244372fdb22f6694ca775e83",
+      "bytes": 2366712,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/kimi/motions/feed.webp",
+      "blob": "7e1fc3b9f20fb5a97bff345b6562dd4625867bb5",
+      "bytes": 1084954,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/kimi/outfits/sports/club.json",
+      "blob": "8095068c9fa316ce9c0bf0fdc6e3b6b61bfb073a",
+      "bytes": 114539,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/kimi/outfits/sports/contact.json",
+      "blob": "645304767395343576f459b1eac7001ae410cd0c",
+      "bytes": 109498,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/kimi/outfits/sports/core.json",
+      "blob": "e224a95faf54d883250a8a83d2402366e4dff338",
+      "bytes": 271182,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/kimi/outfits/sports/walk.json",
+      "blob": "38b0fc816b164fb33d930e14f9e04942853faded",
+      "bytes": 46011,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/kimi/outfits/wedding/headpat.webp",
+      "blob": "57185d83224a9c3fb7f0f3b1197b690a7c897471",
+      "bytes": 391942,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/kimi/outfits/wedding/walk.webp",
+      "blob": "fdd2d8e80fe70124c74d287cc8b943847b69d61d",
+      "bytes": 349048,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/qwen-adult/interactions/sports/qwen-adult-sports-book-v1.png",
+      "blob": "4de01e191d878a43fcece235f08b4764736845e4",
+      "bytes": 907936,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/qwen-adult/interactions/sports/qwen-adult-sports-handoff-v1.png",
+      "blob": "6cf50b5dfbf4a9d74dc00ad2a6f2657bbf764929",
+      "bytes": 894869,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/qwen-adult/interactions/sports/qwen-adult-sports-highfive-v1.png",
+      "blob": "33d59a916cd0487c87e9c2b42424f07fa12fec81",
+      "bytes": 961329,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/qwen-adult/interactions/sports/qwen-adult-sports-photo-v1.png",
+      "blob": "09f7f942699894a8c73db736b718537ffa2120f3",
+      "bytes": 886529,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/qwen-adult/interactions/sports/qwen-adult-sports-rps-v1.png",
+      "blob": "26b2a1cf250d29b0bd7ff5844ef8d3b54de5650a",
+      "bytes": 904772,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/qwen-adult/outfits/sports/body.json",
+      "blob": "6b0695b388fa917a7645cdf2f1bf854078eb023c",
+      "bytes": 55711,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/qwen-adult/outfits/sports/bonk.json",
+      "blob": "1125ef9771f4242ba963bcc9856fc0d4ff432165",
+      "bytes": 12414,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/qwen-adult/outfits/sports/care.json",
+      "blob": "073f5630011cd89f9bf99c232c29ab0b27333c16",
+      "bytes": 12766,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/qwen-adult/outfits/sports/catch.json",
+      "blob": "1fd5a7e9cdd59307688738ca9f9490600553ace0",
+      "bytes": 10785,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/qwen-adult/outfits/sports/club.json",
+      "blob": "c52525437383219bbb59077b498c3f97e4576c33",
+      "bytes": 73821,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/qwen-adult/outfits/sports/portrait.json",
+      "blob": "b453b8bc55141b283813bb704d469cccd6e15906",
+      "bytes": 86809,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/qwen-adult/outfits/sports/walk.json",
+      "blob": "a2ffdcd641118c11d42073eb24a02a062b46a4b6",
+      "bytes": 34288,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/qwen/interactions/original/qwen-original-v2.png",
+      "blob": "8a2250237a542469e9d492fb5b2129fcfa84080f",
+      "bytes": 2439803,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/qwen/interactions/sports/qwen-sports-v2.png",
+      "blob": "1ea8d50bca26980c3b4c751f238e1a70b1bf3465",
+      "bytes": 2013098,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/qwen/motions/feed.webp",
+      "blob": "7abbd0b0911b2cefa95a0dc10af54c1011728e9d",
+      "bytes": 1095744,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/qwen/outfits/sports/club.json",
+      "blob": "8c1cbcfb4fd6f964404925733ec8246bd7eb17e3",
+      "bytes": 104474,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/qwen/outfits/sports/contact.json",
+      "blob": "7a0fee5fd1c96e02db6f94e9f6f4e314b4674a44",
+      "bytes": 85035,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/qwen/outfits/sports/core.json",
+      "blob": "cec7b92641698a4bcfb939cf80eacdf49073cbb4",
+      "bytes": 217231,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/qwen/outfits/sports/walk.json",
+      "blob": "a3f0841514366fb206611f01593f7ec731c51459",
+      "bytes": 44100,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/qwen/outfits/wedding/headpat.webp",
+      "blob": "c99f55dd4edfc8eda51c1cd852d89a9109d99ace",
+      "bytes": 381128,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/qwen/outfits/wedding/walk.webp",
+      "blob": "c9dd5e67c205e418932f9b00855a32fac8425f08",
+      "bytes": 390678,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/whale/interactions/sports/whale-sports-v2.png",
+      "blob": "51376ad0bae685d7a25eb7f2621825c3381be99d",
+      "bytes": 2083967,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/whale/motions/feed.webp",
+      "blob": "9b965ef2927d0a589f92db60ec335d26080a38df",
+      "bytes": 1080276,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/whale/outfits/sports/club.json",
+      "blob": "ae1b78fd75c3e68f6100b3a0dc52f000b19eed7b",
+      "bytes": 72987,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/whale/outfits/sports/contact.json",
+      "blob": "13f29253fb685fab1c36fc745f588eea0f70d1f1",
+      "bytes": 78708,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/whale/outfits/sports/core.json",
+      "blob": "41e126171952465b2622dee68a9a2807b64a7ef9",
+      "bytes": 217328,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/whale/outfits/sports/walk.json",
+      "blob": "c91325479785a4d172c6235d6c31e18ada4afb06",
+      "bytes": 45471,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/whale/outfits/wedding/headpat.webp",
+      "blob": "ae3a33bc7d8e9f2e0c218de93d3f42a2e5945cc8",
+      "bytes": 461632,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/whale/outfits/wedding/walk.webp",
+      "blob": "6c25de5235dc34b7baf94db9529672aee488f388",
+      "bytes": 385056,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/zhipu-adult/interactions/sports/zhipu-adult-sports-book-v1.png",
+      "blob": "1ffeb3a5d5a8616ca1c35c7f7c7292beea55bb15",
+      "bytes": 981975,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/zhipu-adult/interactions/sports/zhipu-adult-sports-handoff-v1.png",
+      "blob": "aac1b6cb810c12050f676acce801276b0e66047f",
+      "bytes": 947146,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/zhipu-adult/interactions/sports/zhipu-adult-sports-highfive-v1.png",
+      "blob": "547aa1ef1a4217d60c59e2e0f44e915dd923bc68",
+      "bytes": 1017620,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/zhipu-adult/interactions/sports/zhipu-adult-sports-photo-v1.png",
+      "blob": "560e178653ac3fedfa731375e45a3365f01a0c06",
+      "bytes": 1005712,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/zhipu-adult/interactions/sports/zhipu-adult-sports-rps-v1.png",
+      "blob": "d2371c169d7411cd5b2eb65675cd61c5b1281da1",
+      "bytes": 1041815,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/zhipu-adult/outfits/sports/body.json",
+      "blob": "a2983835e7afd854e3a82494a55888f60ae26c56",
+      "bytes": 56678,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/zhipu-adult/outfits/sports/bonk.json",
+      "blob": "8daeba154044c93479bdedb94159bc2c1b416c25",
+      "bytes": 13067,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/zhipu-adult/outfits/sports/care.json",
+      "blob": "70bdfa69e7cc935364d86b2b3e553702f7d59659",
+      "bytes": 14779,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/zhipu-adult/outfits/sports/catch.json",
+      "blob": "ab447da3f0e37fe5fb401d1f078ac6a8b71d5d5c",
+      "bytes": 14749,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/zhipu-adult/outfits/sports/club.json",
+      "blob": "967646ebc9e1fcf08b2e8e37e64618f431282df7",
+      "bytes": 71113,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/zhipu-adult/outfits/sports/portrait.json",
+      "blob": "eb149e256663578b2260ba969dc350baadb3664e",
+      "bytes": 102222,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/zhipu-adult/outfits/sports/walk.json",
+      "blob": "e07b1cfee58cd0a7201e9dda02c0bef9adc4cb37",
+      "bytes": 34388,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/zhipu/interactions/sports/zhipu-sports-v2.png",
+      "blob": "9411b9d9637a5343062ed25ee70e971f97758cf3",
+      "bytes": 2199117,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/zhipu/motions/feed.webp",
+      "blob": "5968ee3c4a985209794cbe6b3dc0b98a667d7976",
+      "bytes": 919796,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/zhipu/outfits/sports/club.json",
+      "blob": "fc1f69000a520bee71c84f459178dcbb9a8e8b21",
+      "bytes": 110665,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/zhipu/outfits/sports/contact.json",
+      "blob": "4cf012ee5576da19e8648b95b6af110088aa0d85",
+      "bytes": 96384,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/zhipu/outfits/sports/core.json",
+      "blob": "940b57fb0877ba6994c6dd89e36229c5e83351f6",
+      "bytes": 288896,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/zhipu/outfits/sports/walk.json",
+      "blob": "97609cd7c1c4a8ebe24fb2be6e9c19a3a18e488b",
+      "bytes": 43421,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/zhipu/outfits/wedding/headpat.webp",
+      "blob": "d4ee04ca481de6dd19976f4bd9170d8d425ab695",
+      "bytes": 379456,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "src/DesktopPet.App/Assets/Characters/zhipu/outfits/wedding/walk.webp",
+      "blob": "9a3786521cd3bdf9744b709a680fe8b6f4c017f5",
+      "bytes": 327490,
+      "reason": "unused-runtime-file"
+    },
+    {
+      "path": "artwork/retired-3d/characters/claude-3d/motions/contact.png",
+      "blob": "5fde607e8a0247d80b9a9db369eeaf2078c7a355",
+      "bytes": 2197651,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/retired-3d/characters/claude-3d/motions/interaction.png",
+      "blob": "7b6f070151337c04ff69899f6acb52ae188f1435",
+      "bytes": 2667420,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/retired-3d/characters/claude-3d/motions/walk-smooth.png",
+      "blob": "5b3561197e96f94838ff1d360d662c6dd84b0e4a",
+      "bytes": 2220676,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/retired-3d/characters/claude-3d/motions/walk.png",
+      "blob": "fadd805f44cabd0fd990d9f0aebe8f58664e7ff1",
+      "bytes": 1985980,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/retired-3d/characters/claude-3d/outfits/swim.png",
+      "blob": "adfd05342e970216e1b402fbc32492a7aba7aa08",
+      "bytes": 1618933,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/retired-3d/characters/claude-3d/outfits/swim/contact.png",
+      "blob": "afe6dbe1007e95cba327b84f41a0fef64eea05a8",
+      "bytes": 2067387,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/retired-3d/characters/claude-3d/outfits/swim/interaction.png",
+      "blob": "febfac7b6bcb8c41122b49f83d5a031376204fd0",
+      "bytes": 2531994,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/retired-3d/characters/claude-3d/outfits/swim/walk-smooth.png",
+      "blob": "3556680bd89c58dc5935c2fdce53bcfc5d0eabd3",
+      "bytes": 2115023,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/retired-3d/characters/claude-3d/outfits/swim/walk.png",
+      "blob": "e782e9c4d4eca68bc50c79b615a3b6f84e4d7ff8",
+      "bytes": 1874227,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/retired-3d/characters/claude-3d/outfits/wedding.png",
+      "blob": "2fd2152a2abf1ab018248b3338dbd32a815e96fb",
+      "bytes": 2440234,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/retired-3d/characters/claude-3d/outfits/wedding/contact.png",
+      "blob": "90a757ff83faf56f78c3bb60b4ad93ba7c17d4ac",
+      "bytes": 2692666,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/retired-3d/characters/claude-3d/outfits/wedding/interaction.png",
+      "blob": "e9de7ba9bfe71ed791f4b6c58cdff224b49996fa",
+      "bytes": 2958586,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/retired-3d/characters/claude-3d/outfits/wedding/walk-smooth.png",
+      "blob": "db04d1adee97f89c94d9cb28d0672c4985fcb6a3",
+      "bytes": 2519885,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/retired-3d/characters/claude-3d/outfits/wedding/walk.png",
+      "blob": "4031348fa48a2472637520755c07e3aa5cee467c",
+      "bytes": 2425367,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/retired-3d/characters/claude-3d/portrait.png",
+      "blob": "bdf773db868f1d3c2ca629d26ef1b9d6a477cc49",
+      "bytes": 1829985,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/retired-3d/characters/deepseek-3d/motions/contact.png",
+      "blob": "dffc8514a0aab3d308ec3b01622317b9ebf43765",
+      "bytes": 2228037,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/retired-3d/characters/deepseek-3d/motions/interaction.png",
+      "blob": "2c80b9798b8e043cd71dab2be3a5177725e3be1f",
+      "bytes": 2566844,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/retired-3d/characters/deepseek-3d/motions/walk-smooth.png",
+      "blob": "c60365ef5bf5798f28a3364025a31bf59ecd8350",
+      "bytes": 2192958,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/retired-3d/characters/deepseek-3d/motions/walk.png",
+      "blob": "8eeb970c827a53b91cf8f9458bcc8a7ca7331a69",
+      "bytes": 1860233,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/retired-3d/characters/deepseek-3d/outfits/swim.png",
+      "blob": "6ec84f0c3bd543b84052c8ed57b695d4ef205009",
+      "bytes": 1553883,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/retired-3d/characters/deepseek-3d/outfits/swim/contact.png",
+      "blob": "1a56ff96ce01b33e7277fc2e37ec2e0d10ef9f5a",
+      "bytes": 2132020,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/retired-3d/characters/deepseek-3d/outfits/swim/interaction.png",
+      "blob": "f6f530fcb81b41900adbe7067e4dee30e753d840",
+      "bytes": 2472466,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/retired-3d/characters/deepseek-3d/outfits/swim/walk-smooth.png",
+      "blob": "5b6eff96e0ccb6f877b371b19ab9e6469b283cdc",
+      "bytes": 2227570,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/retired-3d/characters/deepseek-3d/outfits/swim/walk.png",
+      "blob": "6bd1641c4ae74a8e1d54e90eec1173979dd90473",
+      "bytes": 1870371,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/retired-3d/characters/deepseek-3d/outfits/wedding.png",
+      "blob": "641400fb8d273188b2b0fcf594a6a18c6373d56e",
+      "bytes": 2152278,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/retired-3d/characters/deepseek-3d/outfits/wedding/contact.png",
+      "blob": "10d0e114e1d5bc7d8678e25c412eed576b495f6d",
+      "bytes": 2358071,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/retired-3d/characters/deepseek-3d/outfits/wedding/interaction.png",
+      "blob": "0798ceb1fd44edbfac14210ab28a38538a89a26f",
+      "bytes": 2647459,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/retired-3d/characters/deepseek-3d/outfits/wedding/walk-smooth.png",
+      "blob": "e35667a1dda3d769b0d956e3c1dc529a9bbb3939",
+      "bytes": 2305723,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/retired-3d/characters/deepseek-3d/outfits/wedding/walk.png",
+      "blob": "28175893dc57c340f1a76483eb8257250a7ce909",
+      "bytes": 2253090,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/retired-3d/characters/deepseek-3d/portrait.png",
+      "blob": "10072c5637906aefa1e96437b82cd5325f1bfd3d",
+      "bytes": 1694936,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/retired-3d/characters/gemini-3d/motions/contact.png",
+      "blob": "6baae442c4126989b16e803a7f5d345b1e7104e2",
+      "bytes": 2426138,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/retired-3d/characters/gemini-3d/motions/interaction.png",
+      "blob": "fd4088968566e0398ee3369d0b4143206f023eff",
+      "bytes": 2809718,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/retired-3d/characters/gemini-3d/motions/walk-smooth.png",
+      "blob": "c0eee5fe619b18d12121c0700d9946494c4b7918",
+      "bytes": 2347925,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/retired-3d/characters/gemini-3d/motions/walk.png",
+      "blob": "0cb1ac2b7014e7d8c2aab1bf0752dc6e265e4bae",
+      "bytes": 2106037,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/retired-3d/characters/gemini-3d/outfits/swim.png",
+      "blob": "84bdd77d324d711a5fb39279037112c0807f56be",
+      "bytes": 1734766,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/retired-3d/characters/gemini-3d/outfits/swim/contact.png",
+      "blob": "57a19e8509c006c1f064986a67c385dcccee64d1",
+      "bytes": 2035918,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/retired-3d/characters/gemini-3d/outfits/swim/interaction.png",
+      "blob": "61ee8b5c3080293aa55a76b52d9476a8929b5c1e",
+      "bytes": 2495002,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/retired-3d/characters/gemini-3d/outfits/swim/walk-smooth.png",
+      "blob": "7b18bdbdaf7c14bd8e92c6a47566fa039bfd2221",
+      "bytes": 2222930,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/retired-3d/characters/gemini-3d/outfits/swim/walk.png",
+      "blob": "546a8372a2989a8e845be3ee2445bd4f69d9db46",
+      "bytes": 1875774,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/retired-3d/characters/gemini-3d/outfits/wedding.png",
+      "blob": "d0c7b0efefd2f5fc9eded6db9d0254ab36352454",
+      "bytes": 2363284,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/retired-3d/characters/gemini-3d/outfits/wedding/contact.png",
+      "blob": "4f823e23ac3288bd11ea26b01c5d251b8a4f94da",
+      "bytes": 2697021,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/retired-3d/characters/gemini-3d/outfits/wedding/interaction.png",
+      "blob": "f0fee44a6d750f58dd1eff1f03624bbcc3cebc07",
+      "bytes": 2650929,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/retired-3d/characters/gemini-3d/outfits/wedding/walk-smooth.png",
+      "blob": "2bfc07f8b889e534e5eab1da6f1d9eb2817ac64c",
+      "bytes": 2591350,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/retired-3d/characters/gemini-3d/outfits/wedding/walk.png",
+      "blob": "73d109f703fb6db0e3c53a69fbf2a92656978b6a",
+      "bytes": 2364708,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/retired-3d/characters/gemini-3d/portrait.png",
+      "blob": "ae407a51de281b0927e2faa6c948569d53245b9a",
+      "bytes": 2009944,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/retired-3d/characters/gpt-3d/motions/contact.png",
+      "blob": "628e01acf6ad6d10395fe302cb73efc3c71543e5",
+      "bytes": 2336923,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/retired-3d/characters/gpt-3d/motions/interaction.png",
+      "blob": "fcc69b6a2223bf0a56534864002057aaf07f5b49",
+      "bytes": 2540125,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/retired-3d/characters/gpt-3d/motions/walk-smooth.png",
+      "blob": "831bd510d59ebaa152df0226dc08e67ad6d067fc",
+      "bytes": 2277974,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/retired-3d/characters/gpt-3d/motions/walk.png",
+      "blob": "53e81e934bbfc759746f049fc69b7a5a5e4f60f5",
+      "bytes": 2084419,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/retired-3d/characters/gpt-3d/outfits/swim.png",
+      "blob": "425efb211a01e03544f5221911f1dcfedbb03536",
+      "bytes": 1717725,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/retired-3d/characters/gpt-3d/outfits/swim/contact.png",
+      "blob": "1677e7133c460645cddc7069e54c9c44217938c8",
+      "bytes": 2077026,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/retired-3d/characters/gpt-3d/outfits/swim/interaction.png",
+      "blob": "12a1ad6bc52b624b63dab44e6f100ac088c37820",
+      "bytes": 2171389,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/retired-3d/characters/gpt-3d/outfits/swim/walk-smooth.png",
+      "blob": "3b7000c6b39840da71672f3eb1732df65b5897cd",
+      "bytes": 2008656,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/retired-3d/characters/gpt-3d/outfits/swim/walk.png",
+      "blob": "fb6d911c6f05281884638563c9978ddbab701a78",
+      "bytes": 1825614,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/retired-3d/characters/gpt-3d/outfits/wedding.png",
+      "blob": "3d48a43c5b5b8b29c240e4505c682ca4d49be09f",
+      "bytes": 2354922,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/retired-3d/characters/gpt-3d/outfits/wedding/contact.png",
+      "blob": "85f02a4e30fbd542219a4270abb266718c54b557",
+      "bytes": 2615067,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/retired-3d/characters/gpt-3d/outfits/wedding/interaction.png",
+      "blob": "6209aff3297fcc1b5a51980fcc42c7d4e7e85e67",
+      "bytes": 2605769,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/retired-3d/characters/gpt-3d/outfits/wedding/walk-smooth.png",
+      "blob": "30fd74d2a52a216e3e7bc481f848e4a86ffab553",
+      "bytes": 2552836,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/retired-3d/characters/gpt-3d/outfits/wedding/walk.png",
+      "blob": "26088b68b0a71a9cdc0856e6db0d231dcd46b697",
+      "bytes": 2439796,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/retired-3d/characters/gpt-3d/portrait.png",
+      "blob": "5b861a7dabc336dc7b9d0ec185baecbaae13469b",
+      "bytes": 1984263,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/retired-3d/characters/grok-3d/motions/contact.png",
+      "blob": "28ca889751ac3b02b960ab6ab78db7669af22bfd",
+      "bytes": 2160142,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/retired-3d/characters/grok-3d/motions/interaction.png",
+      "blob": "6fcdf17281c68220b01cc37c16e1b69489621dbb",
+      "bytes": 2647991,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/retired-3d/characters/grok-3d/motions/walk-smooth.png",
+      "blob": "3cdc86af60c4d197d1a75276ee7fbac3dd78e476",
+      "bytes": 2105201,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/retired-3d/characters/grok-3d/motions/walk.png",
+      "blob": "b99038bc387dd784f861c9b66c99889b87a180f3",
+      "bytes": 1859110,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/retired-3d/characters/grok-3d/outfits/swim.png",
+      "blob": "dc0e94737e91f6e9ea15e893017eff24dd910539",
+      "bytes": 1575991,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/retired-3d/characters/grok-3d/outfits/swim/contact.png",
+      "blob": "1a505c94b507c8302441bdba0b3730258211e8dd",
+      "bytes": 2169588,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/retired-3d/characters/grok-3d/outfits/swim/interaction.png",
+      "blob": "3bbed010b9e765d4d174be2f7124ec1a0840b71c",
+      "bytes": 2420095,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/retired-3d/characters/grok-3d/outfits/swim/walk-smooth.png",
+      "blob": "f1567885f07368b648ba2e6887b4983e2eb9b08b",
+      "bytes": 2100234,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/retired-3d/characters/grok-3d/outfits/swim/walk.png",
+      "blob": "9329591679ab3759f273e36a49d63993c7d04a34",
+      "bytes": 1907111,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/retired-3d/characters/grok-3d/outfits/wedding.png",
+      "blob": "63872c5fbfaaa01a39ed7676834f2f0e3ac5772b",
+      "bytes": 2125565,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/retired-3d/characters/grok-3d/outfits/wedding/contact.png",
+      "blob": "f10ef810e00a435721a8b4a3e498b2a0e7da2173",
+      "bytes": 2409154,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/retired-3d/characters/grok-3d/outfits/wedding/interaction.png",
+      "blob": "f9d0a3132dd1c1f478608a36b5e23aed4a2af2f6",
+      "bytes": 2660915,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/retired-3d/characters/grok-3d/outfits/wedding/walk-smooth.png",
+      "blob": "7f4f48638d6a98dc31f520e79962186ec5dcb5ea",
+      "bytes": 2511678,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/retired-3d/characters/grok-3d/outfits/wedding/walk.png",
+      "blob": "8405927472bef380b2b49f4c6e926a0450b6f9bb",
+      "bytes": 2411921,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/retired-3d/characters/grok-3d/portrait.png",
+      "blob": "8929bd20b8eeec14ae0d61240eba75d5a2769e8d",
+      "bytes": 1780986,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/retired-3d/characters/kimi-3d/motions/contact.png",
+      "blob": "23f36558192f53816f6c04af21ae39a067acb67c",
+      "bytes": 2265990,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/retired-3d/characters/kimi-3d/motions/interaction.png",
+      "blob": "eb36261ff111bd4e261a161dd553d0bfe72b6d09",
+      "bytes": 2489873,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/retired-3d/characters/kimi-3d/motions/walk-smooth.png",
+      "blob": "cd8b97f9d788587d48bee2decafe470b39529392",
+      "bytes": 2309664,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/retired-3d/characters/kimi-3d/motions/walk.png",
+      "blob": "1aeeda585249f74c0d4b03449500518c53e80702",
+      "bytes": 2083302,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/retired-3d/characters/kimi-3d/outfits/swim.png",
+      "blob": "b5d4d3cee2019317b16f564295779b0b22c20521",
+      "bytes": 1643795,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/retired-3d/characters/kimi-3d/outfits/swim/contact.png",
+      "blob": "07714d85c75669099bb7a1b6002cadaf93f5e0c9",
+      "bytes": 1952606,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/retired-3d/characters/kimi-3d/outfits/swim/interaction.png",
+      "blob": "9fceb152c386b26f0feba68a28572039eb0eef4a",
+      "bytes": 2327836,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/retired-3d/characters/kimi-3d/outfits/swim/walk-smooth.png",
+      "blob": "69216b7f4040c18b57e0ec8e4cb90128b1c05ee6",
+      "bytes": 2145381,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/retired-3d/characters/kimi-3d/outfits/swim/walk.png",
+      "blob": "b8bcad0d02db61907d8d46f6fbedf798bdddd19a",
+      "bytes": 1929324,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/retired-3d/characters/kimi-3d/outfits/wedding.png",
+      "blob": "bacbb2973bfed2e91c1d0c1233ae490b548caa32",
+      "bytes": 2271590,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/retired-3d/characters/kimi-3d/outfits/wedding/contact.png",
+      "blob": "633a3493e61257db1e0dd1c6e19f9f9622722aa7",
+      "bytes": 2335680,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/retired-3d/characters/kimi-3d/outfits/wedding/interaction.png",
+      "blob": "b5a8878d065dbb0c7c1f19df8150fbd28d4ad4b2",
+      "bytes": 2574156,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/retired-3d/characters/kimi-3d/outfits/wedding/walk-smooth.png",
+      "blob": "db5c5b54f7686e8cd7c99b17ec9f6e1c37272b9d",
+      "bytes": 2303640,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/retired-3d/characters/kimi-3d/outfits/wedding/walk.png",
+      "blob": "62e1d17a535af39e6feb16fc3f47ecb04319e94f",
+      "bytes": 2252265,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/retired-3d/characters/kimi-3d/portrait.png",
+      "blob": "25a3d98b8d240f66020b3b60be023575ec947401",
+      "bytes": 1900013,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/retired-3d/characters/qwen-3d/motions/contact.png",
+      "blob": "3f995254a4d6849ba9a4af99bafd15b7d529c256",
+      "bytes": 2358944,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/retired-3d/characters/qwen-3d/motions/interaction.png",
+      "blob": "0bbe40a25cf85dfd2b4dd9fcfb2c6e7867e475a1",
+      "bytes": 2757852,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/retired-3d/characters/qwen-3d/motions/walk-smooth.png",
+      "blob": "17be633913f6ba62f3555cdda2ce872f7feac591",
+      "bytes": 2365055,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/retired-3d/characters/qwen-3d/motions/walk.png",
+      "blob": "d7803c8329d55c5e121f255c11999ebc12e997c7",
+      "bytes": 2095003,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/retired-3d/characters/qwen-3d/outfits/swim.png",
+      "blob": "760c39d16a31b969e23209adae4a52aa4c582a35",
+      "bytes": 1740452,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/retired-3d/characters/qwen-3d/outfits/swim/contact.png",
+      "blob": "386004deeda95da6105e7764f7a98ee047948154",
+      "bytes": 2115744,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/retired-3d/characters/qwen-3d/outfits/swim/interaction.png",
+      "blob": "42fe6b23029391e7e5969295f222993155a30cd9",
+      "bytes": 2526298,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/retired-3d/characters/qwen-3d/outfits/swim/walk-smooth.png",
+      "blob": "ac92d9b00316c7fb23d88b5658d03f7e44f80d7b",
+      "bytes": 2136894,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/retired-3d/characters/qwen-3d/outfits/swim/walk.png",
+      "blob": "fa479eadf4fa40a378a9ef592a54ead777a2aeba",
+      "bytes": 1962406,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/retired-3d/characters/qwen-3d/outfits/wedding.png",
+      "blob": "d1b18aed4a7cabaa7fb91d71a2504664eab59979",
+      "bytes": 2379689,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/retired-3d/characters/qwen-3d/outfits/wedding/contact.png",
+      "blob": "6c55288f1560114b13a3822553e83f4d8afd39a6",
+      "bytes": 2540911,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/retired-3d/characters/qwen-3d/outfits/wedding/interaction.png",
+      "blob": "97561b7b809c06a79fa6efe91555b450897ddb34",
+      "bytes": 2798816,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/retired-3d/characters/qwen-3d/outfits/wedding/walk-smooth.png",
+      "blob": "a1fc83199e71da1a7d3c1049197f401be0c5ac0d",
+      "bytes": 2567685,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/retired-3d/characters/qwen-3d/outfits/wedding/walk.png",
+      "blob": "db432b27a84225916e40ddbe557d97b4a3a5c244",
+      "bytes": 2460060,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/retired-3d/characters/qwen-3d/portrait.png",
+      "blob": "a90a4c8afa98e12c661d98a762dc0fda2674d6a1",
+      "bytes": 1977902,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/retired-3d/characters/zhipu-3d/motions/contact.png",
+      "blob": "5b7e2350797271c0711bfc5a11a7ef82701a2de2",
+      "bytes": 2216433,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/retired-3d/characters/zhipu-3d/motions/interaction.png",
+      "blob": "acd73be3e318ab10cd517e47fd7361a625b91f7b",
+      "bytes": 2542258,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/retired-3d/characters/zhipu-3d/motions/walk-smooth.png",
+      "blob": "2ae21fb768d6b47e5afa4e18119849354510fe2b",
+      "bytes": 2186695,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/retired-3d/characters/zhipu-3d/motions/walk.png",
+      "blob": "14b35ddb26ffe6a10a8eca7a88492a308a0fa4c2",
+      "bytes": 2016338,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/retired-3d/characters/zhipu-3d/outfits/swim.png",
+      "blob": "a46c81541f96c7fbb470c91de01cd0ecc9f621d3",
+      "bytes": 1618441,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/retired-3d/characters/zhipu-3d/outfits/swim/contact.png",
+      "blob": "22db53344303e896b52e5a608a6560e84f8ab0c4",
+      "bytes": 2052295,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/retired-3d/characters/zhipu-3d/outfits/swim/interaction.png",
+      "blob": "14b30fde05344c80a15e846f63d7fc083ba3bc93",
+      "bytes": 2356368,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/retired-3d/characters/zhipu-3d/outfits/swim/walk-smooth.png",
+      "blob": "9fd1a3320fcf50e2451f19db19cf277ca7873bdc",
+      "bytes": 2131626,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/retired-3d/characters/zhipu-3d/outfits/swim/walk.png",
+      "blob": "676aa092912f22ce3f644e80bb6b6482238a513d",
+      "bytes": 1993575,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/retired-3d/characters/zhipu-3d/outfits/wedding.png",
+      "blob": "73cd1b94e6337af0ccd5bcec6c8ea24d989af612",
+      "bytes": 2281566,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/retired-3d/characters/zhipu-3d/outfits/wedding/contact.png",
+      "blob": "e43edda59fc2a71c8294a31402386f5475c8ba3c",
+      "bytes": 2520368,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/retired-3d/characters/zhipu-3d/outfits/wedding/interaction.png",
+      "blob": "f0c697217d22d625f6920b2e682823815efdb3fa",
+      "bytes": 2779403,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/retired-3d/characters/zhipu-3d/outfits/wedding/walk-smooth.png",
+      "blob": "f372fc2edb4c71819a0779c89dca658a3fe4be89",
+      "bytes": 2635151,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/retired-3d/characters/zhipu-3d/outfits/wedding/walk.png",
+      "blob": "7a81f294d5fc114cd03dc94bb49d9c065441f1ef",
+      "bytes": 2467550,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/retired-3d/characters/zhipu-3d/portrait.png",
+      "blob": "1580b2fdeb6c761b92e31fd97bf483db515a9569",
+      "bytes": 1858343,
+      "reason": "retired-third-style"
+    },
+    {
+      "path": "artwork/sports/superseded-long-pants/claude-adult/sports/body.png",
+      "blob": "0df1f362a0d01096451b00fc0af66a579061a954",
+      "bytes": 2368281,
+      "reason": "withdrawn-long-pants"
+    },
+    {
+      "path": "artwork/sports/superseded-long-pants/claude-adult/sports/portrait.png",
+      "blob": "09420a28761cd4a70f60d20b44e2a357e6405d09",
+      "bytes": 2171963,
+      "reason": "withdrawn-long-pants"
+    },
+    {
+      "path": "artwork/sports/superseded-long-pants/claude/sports/contact.png",
+      "blob": "b2ec368e31f0a08d45b6fe74b73908f3b181396c",
+      "bytes": 2856264,
+      "reason": "withdrawn-long-pants"
+    },
+    {
+      "path": "artwork/sports/superseded-long-pants/claude/sports/core.png",
+      "blob": "c36be3814f0162d7d723470855af587246dcb219",
+      "bytes": 2775058,
+      "reason": "withdrawn-long-pants"
+    },
+    {
+      "path": "artwork/sports/superseded-long-pants/claude/sports/walk.png",
+      "blob": "742adda6ec3e93b99e03737af946e1c0e76d54bd",
+      "bytes": 1708299,
+      "reason": "withdrawn-long-pants"
+    },
+    {
+      "path": "artwork/sports/superseded-long-pants/concepts/school-chibi.png",
+      "blob": "2c68701b2c8df57d99628824fb2f95e495c1a8e3",
+      "bytes": 1874996,
+      "reason": "withdrawn-long-pants"
+    },
+    {
+      "path": "artwork/sports/superseded-long-pants/concepts/school-realistic.png",
+      "blob": "3e4e67cec158cbd806535c9969b27d23eb189eb7",
+      "bytes": 1626065,
+      "reason": "withdrawn-long-pants"
+    },
+    {
+      "path": "artwork/sports/superseded-long-pants/deepseek-adult/sports/body.png",
+      "blob": "1fa66df9d892bb2cd85951bc703f4dc066881026",
+      "bytes": 2273489,
+      "reason": "withdrawn-long-pants"
+    },
+    {
+      "path": "artwork/sports/superseded-long-pants/deepseek-adult/sports/portrait.png",
+      "blob": "494597cd97fc23bae60dbf8106bfb5f9301ff97c",
+      "bytes": 2008672,
+      "reason": "withdrawn-long-pants"
+    },
+    {
+      "path": "artwork/sports/superseded-long-pants/gemini-adult/sports/body.png",
+      "blob": "46f7da397dcb0793ce1f1f31da8e0783625cd93d",
+      "bytes": 2464819,
+      "reason": "withdrawn-long-pants"
+    },
+    {
+      "path": "artwork/sports/superseded-long-pants/gemini-adult/sports/portrait.png",
+      "blob": "855f167d716636be218d02b8f7c0679e577f7241",
+      "bytes": 2217612,
+      "reason": "withdrawn-long-pants"
+    },
+    {
+      "path": "artwork/sports/superseded-long-pants/gemini/sports/core.png",
+      "blob": "8297c0e5c2fc9ab74b5d5affb72f659693b0194b",
+      "bytes": 2995934,
+      "reason": "withdrawn-long-pants"
+    },
+    {
+      "path": "artwork/sports/superseded-long-pants/gemini/sports/walk.png",
+      "blob": "1d2d6e0513cc40dd81650edc8b801b5058f17d62",
+      "bytes": 2558980,
+      "reason": "withdrawn-long-pants"
+    },
+    {
+      "path": "artwork/sports/superseded-long-pants/gpt-adult/sports/body.png",
+      "blob": "70eedf96a29b62ca4c0ce64154e5c1147b908823",
+      "bytes": 2434548,
+      "reason": "withdrawn-long-pants"
+    },
+    {
+      "path": "artwork/sports/superseded-long-pants/gpt-adult/sports/portrait.png",
+      "blob": "9b4cf98afcf2df0312a5fb755d6695ed969b2489",
+      "bytes": 2209333,
+      "reason": "withdrawn-long-pants"
+    },
+    {
+      "path": "artwork/sports/superseded-long-pants/gpt/sports/core.png",
+      "blob": "acc10b28ffb798068e0f511a650e0dcaae6df927",
+      "bytes": 3047221,
+      "reason": "withdrawn-long-pants"
+    },
+    {
+      "path": "artwork/sports/superseded-long-pants/gpt/sports/walk.png",
+      "blob": "4bf8fac34ad2b0378e2ca555ee9be9b9685f95c9",
+      "bytes": 2478033,
+      "reason": "withdrawn-long-pants"
+    },
+    {
+      "path": "artwork/sports/superseded-long-pants/grok-adult/sports/portrait.png",
+      "blob": "a7c949d6f685300177a990269316b8210aea01c7",
+      "bytes": 2047771,
+      "reason": "withdrawn-long-pants"
+    },
+    {
+      "path": "artwork/sports/superseded-long-pants/grok/sports/core.png",
+      "blob": "c89f5eb53689bd57a7c8fe6692e147960ca9cec0",
+      "bytes": 2681390,
+      "reason": "withdrawn-long-pants"
+    },
+    {
+      "path": "artwork/sports/superseded-long-pants/grok/sports/walk.png",
+      "blob": "3e76ae5d35c51dfb52d634f32d986bf574ea0b34",
+      "bytes": 1675674,
+      "reason": "withdrawn-long-pants"
+    },
+    {
+      "path": "artwork/sports/superseded-long-pants/kimi-adult/sports/body.png",
+      "blob": "d08c9d4ac89e7d00807df2b8f8a244d06029a11b",
+      "bytes": 2331350,
+      "reason": "withdrawn-long-pants"
+    },
+    {
+      "path": "artwork/sports/superseded-long-pants/kimi-adult/sports/portrait.png",
+      "blob": "87487bbd8a56c652ad9f72c41ad5120ab07de70e",
+      "bytes": 1967918,
+      "reason": "withdrawn-long-pants"
+    },
+    {
+      "path": "artwork/sports/superseded-long-pants/kimi/sports/core.png",
+      "blob": "5853c7716f1c7be4a7b20f0240008c9ac6d27ed6",
+      "bytes": 2922393,
+      "reason": "withdrawn-long-pants"
+    },
+    {
+      "path": "artwork/sports/superseded-long-pants/kimi/sports/walk.png",
+      "blob": "b5c161f6f0a13429368c3ef546240f8404afebf0",
+      "bytes": 2383786,
+      "reason": "withdrawn-long-pants"
+    },
+    {
+      "path": "artwork/sports/superseded-long-pants/qwen-adult/sports/body.png",
+      "blob": "9925cbb15572f8bb8c9d5812f460ab9759d00c32",
+      "bytes": 2396242,
+      "reason": "withdrawn-long-pants"
+    },
+    {
+      "path": "artwork/sports/superseded-long-pants/qwen-adult/sports/portrait.png",
+      "blob": "3794e6a4a74cb0d5c3ac678252d386dfa2243547",
+      "bytes": 1998702,
+      "reason": "withdrawn-long-pants"
+    },
+    {
+      "path": "artwork/sports/superseded-long-pants/qwen/sports/core.png",
+      "blob": "26fff4e7c31fb87842f2c6a1aa7e5543a36575c6",
+      "bytes": 2867528,
+      "reason": "withdrawn-long-pants"
+    },
+    {
+      "path": "artwork/sports/superseded-long-pants/qwen/sports/walk.png",
+      "blob": "354bfdffbf81a6f883d5be0b15a0f92a87e8d60c",
+      "bytes": 2448689,
+      "reason": "withdrawn-long-pants"
+    },
+    {
+      "path": "artwork/sports/superseded-long-pants/whale/sports/contact.png",
+      "blob": "52f67b686fda48ed5688ba1c59ba539a5df784f3",
+      "bytes": 2680141,
+      "reason": "withdrawn-long-pants"
+    },
+    {
+      "path": "artwork/sports/superseded-long-pants/whale/sports/core.png",
+      "blob": "4022f0b91696d2cc4c9d5b384423256b63c2b6d9",
+      "bytes": 2721239,
+      "reason": "withdrawn-long-pants"
+    },
+    {
+      "path": "artwork/sports/superseded-long-pants/whale/sports/walk.png",
+      "blob": "95a6e595904f216245fc11056ce91b1d293c6365",
+      "bytes": 2311715,
+      "reason": "withdrawn-long-pants"
+    },
+    {
+      "path": "artwork/sports/superseded-long-pants/zhipu-adult/sports/body.png",
+      "blob": "fad3805b036e243362996b6938658ea8fec723b9",
+      "bytes": 2386697,
+      "reason": "withdrawn-long-pants"
+    },
+    {
+      "path": "artwork/sports/superseded-long-pants/zhipu-adult/sports/portrait.png",
+      "blob": "508693796ad43cc90476e567ab9031de85ad2130",
+      "bytes": 2069613,
+      "reason": "withdrawn-long-pants"
+    },
+    {
+      "path": "artwork/sports/superseded-long-pants/zhipu/sports/core.png",
+      "blob": "37ead6e5c846ceae3ca66777677feb1930020050",
+      "bytes": 2653710,
+      "reason": "withdrawn-long-pants"
+    },
+    {
+      "path": "artwork/sports/superseded-long-pants/zhipu/sports/walk.png",
+      "blob": "476c41c7b2d5d2be7dbf5ee857a00e2fbfcf0f61",
+      "bytes": 2272348,
+      "reason": "withdrawn-long-pants"
+    },
+    {
+      "path": "docs/demo/interaction-five/art.js",
+      "blob": "52768dae17813c4f7ac1334ca120eafd5aeac115",
+      "bytes": 15711231,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/interaction-five/packs/claude-adult-original.js",
+      "blob": "c773c6efddc6c7c4c4233cdacc7e6a43dda92c6e",
+      "bytes": 17029933,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/interaction-five/packs/claude-adult-sports.js",
+      "blob": "ef069244ddbf32962968729884c795fd2a090cde",
+      "bytes": 14894065,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/interaction-five/packs/claude-adult-swim.js",
+      "blob": "469c22a101735690c666d808b6a3278acd25518f",
+      "bytes": 13312345,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/interaction-five/packs/claude-adult-wedding.js",
+      "blob": "49032c4405a01a81ecf76f22a65d610f262e2c7f",
+      "bytes": 12936863,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/interaction-five/packs/claude-original.js",
+      "blob": "ea5e0c662b21e6071551e533b945379afaafb666",
+      "bytes": 4587242,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/interaction-five/packs/claude-sports.js",
+      "blob": "a90317f0153ea3768d6b62f00736d2cb07f3158f",
+      "bytes": 5730390,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/interaction-five/packs/claude-swim.js",
+      "blob": "5926da741c8a6885ca5bee58c084ab9e5ffada4b",
+      "bytes": 3057078,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/interaction-five/packs/claude-wedding.js",
+      "blob": "417340e005f07f5a5d4de240e36369b7db805bfc",
+      "bytes": 3576960,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/interaction-five/packs/deepseek-adult-original.js",
+      "blob": "d782eb17ec351fbe98f087c742a820d87c210421",
+      "bytes": 12642035,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/interaction-five/packs/deepseek-adult-sports.js",
+      "blob": "936dc1d9d3f4d9e2dc8ffe733b5efade45469635",
+      "bytes": 10522211,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/interaction-five/packs/deepseek-adult-swim.js",
+      "blob": "eb03ac202ea5607c036aba92be9e90465e38140b",
+      "bytes": 15342721,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/interaction-five/packs/deepseek-adult-wedding.js",
+      "blob": "150facb3dbc8106bf9ee16ce7edb6c932e6f30ea",
+      "bytes": 12620935,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/interaction-five/packs/gemini-adult-original.js",
+      "blob": "64d039f2d84c161835f2d5d3daf082db7f0d4796",
+      "bytes": 11935005,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/interaction-five/packs/gemini-adult-sports.js",
+      "blob": "9868eddfa457eeb3443b24655813392c89426697",
+      "bytes": 9584833,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/interaction-five/packs/gemini-adult-swim.js",
+      "blob": "554955ec5618c544a84580141b29d6ae14797868",
+      "bytes": 9893165,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/interaction-five/packs/gemini-adult-wedding.js",
+      "blob": "e24b90db6832a2945b0c0f57ca8f567242919acb",
+      "bytes": 13978343,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/interaction-five/packs/gemini-original.js",
+      "blob": "e2b7883246f4db05a3501cf62c3d4de1305ddf04",
+      "bytes": 5396790,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/interaction-five/packs/gemini-sports.js",
+      "blob": "a6e91259b7ebd3dc0255c945ae9b02d1584db665",
+      "bytes": 6457470,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/interaction-five/packs/gemini-swim.js",
+      "blob": "2f98abe7af3be69667237ffca10fddb7b09ac181",
+      "bytes": 3216914,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/interaction-five/packs/gemini-wedding.js",
+      "blob": "9a1152cefcd151c321059a07cc0d6cd98a03137a",
+      "bytes": 3804692,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/interaction-five/packs/gpt-adult-original.js",
+      "blob": "af65be2bd65a2adb49bd644c479eba4c8032fbcd",
+      "bytes": 15510891,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/interaction-five/packs/gpt-adult-sports.js",
+      "blob": "1dffb906e8176cf336b4996141c82846112e4ecb",
+      "bytes": 11955343,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/interaction-five/packs/gpt-adult-swim.js",
+      "blob": "3bc5a702275d90d92a54baa25ec1d9873aea9d16",
+      "bytes": 12617907,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/interaction-five/packs/gpt-adult-wedding.js",
+      "blob": "dddcbf3dffd6f64caac06a76929d99eb4a08af4a",
+      "bytes": 17116949,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/interaction-five/packs/gpt-original.js",
+      "blob": "2d00e805c9db07f8887b1f7b7999bf4de6800dbb",
+      "bytes": 5062112,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/interaction-five/packs/gpt-sports.js",
+      "blob": "e0c885dfa93624f8fcd15235b0a529859a88fb0d",
+      "bytes": 6428304,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/interaction-five/packs/gpt-swim.js",
+      "blob": "9e731b9158e8b999277171164a0e0bcf3c9af862",
+      "bytes": 3212968,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/interaction-five/packs/gpt-wedding.js",
+      "blob": "a703f73993ac0a76dcbd970c6b459a5fff8bcab1",
+      "bytes": 3750986,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/interaction-five/packs/grok-adult-original.js",
+      "blob": "7d5446c48bfb80e21d391426aee943488f993193",
+      "bytes": 10134981,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/interaction-five/packs/grok-adult-sports.js",
+      "blob": "c3eafb65827f9bca18236a057cc117ec4d9e6f26",
+      "bytes": 8850757,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/interaction-five/packs/grok-adult-swim.js",
+      "blob": "95695aeae90f92d4c460646599f36107c6141e43",
+      "bytes": 8880393,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/interaction-five/packs/grok-adult-wedding.js",
+      "blob": "28ad200a38b290ac63681d2ee457952e7a3a9e8e",
+      "bytes": 12386783,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/interaction-five/packs/grok-original.js",
+      "blob": "6515ae936234dcb5c210f7a9d5e267c2a51c8e50",
+      "bytes": 4426502,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/interaction-five/packs/grok-sports.js",
+      "blob": "0745499877f3d7f260ec6897cb6ffd685029ab16",
+      "bytes": 5819082,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/interaction-five/packs/grok-swim.js",
+      "blob": "95046b94faaa1407e4d7a57b7b9aeea1a1725ba3",
+      "bytes": 2908338,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/interaction-five/packs/grok-wedding.js",
+      "blob": "9c9b8517bf501ea97ecf451647c264602cf92871",
+      "bytes": 3627632,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/interaction-five/packs/kimi-adult-original.js",
+      "blob": "104ac69d6d8d1002ad0cc9100093dc6a602ed40c",
+      "bytes": 10744541,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/interaction-five/packs/kimi-adult-sports.js",
+      "blob": "a4ef53190da660528b18edcaf22c453218b27682",
+      "bytes": 8527133,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/interaction-five/packs/kimi-adult-swim.js",
+      "blob": "313c96b598232af6373d65663bffc6f387e1e957",
+      "bytes": 8710813,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/interaction-five/packs/kimi-adult-wedding.js",
+      "blob": "044f98a112667b240b97b7c7b1cf5fd5e078163f",
+      "bytes": 12147367,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/interaction-five/packs/kimi-original.js",
+      "blob": "5e6b18081d535bbfef9bb7dcf65c729b5a418d11",
+      "bytes": 4947994,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/interaction-five/packs/kimi-sports.js",
+      "blob": "fb7acaa5d41703c012788ffdf692ddd06a449013",
+      "bytes": 6067566,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/interaction-five/packs/kimi-swim.js",
+      "blob": "3034fa1842d0674f8b2e43113752c815e652f99e",
+      "bytes": 3537042,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/interaction-five/packs/kimi-wedding.js",
+      "blob": "b8baaefd6285ca515fb1b673ccc2edf85db248e6",
+      "bytes": 3513380,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/interaction-five/packs/qwen-adult-original.js",
+      "blob": "9455afeb23e1bd77916a185875c9b43c3a168c81",
+      "bytes": 10563117,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/interaction-five/packs/qwen-adult-sports.js",
+      "blob": "3ba4323dfe3970712d48e95cb7e5c814807cd80f",
+      "bytes": 8528629,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/interaction-five/packs/qwen-adult-swim.js",
+      "blob": "8339ffb1fd0a6da47427e2634919b0d7b79ca0d2",
+      "bytes": 8696121,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/interaction-five/packs/qwen-adult-wedding.js",
+      "blob": "5104a25c3d78d245406a14286b5418e9d42d7892",
+      "bytes": 12179939,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/interaction-five/packs/qwen-original.js",
+      "blob": "84a31c21f805728f0c494bcb90584b65ea5a9dd3",
+      "bytes": 4769894,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/interaction-five/packs/qwen-sports.js",
+      "blob": "2e9e27755f22475fede6e020dd13263849988697",
+      "bytes": 5824982,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/interaction-five/packs/qwen-swim.js",
+      "blob": "90e1f614bb2cbad3da3b05678ff1f864f0953fae",
+      "bytes": 3265354,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/interaction-five/packs/qwen-wedding.js",
+      "blob": "8fa03000298802ae5da64f48ea0cb6502e0129fc",
+      "bytes": 3413872,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/interaction-five/packs/whale-original.js",
+      "blob": "07c77f60097ae6e9fdd6e4e02c78de890073e333",
+      "bytes": 6928069,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/interaction-five/packs/whale-sports.js",
+      "blob": "4b3be63358dc4abc4e8c2d0f526e1a85e9825b79",
+      "bytes": 8291423,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/interaction-five/packs/whale-swim.js",
+      "blob": "e71fc81a56ed14ecafead7e678141c61576dba91",
+      "bytes": 3306752,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/interaction-five/packs/whale-wedding.js",
+      "blob": "cad8bb2d9415c152412286abdbb2fa0018e3cfa3",
+      "bytes": 3764934,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/interaction-five/packs/zhipu-adult-original.js",
+      "blob": "b8e76838c4836aff2cea339abf7e6cadb0098267",
+      "bytes": 10963243,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/interaction-five/packs/zhipu-adult-sports.js",
+      "blob": "64f70e17607bd6a7263bfd535b5581dae7d35e75",
+      "bytes": 8722603,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/interaction-five/packs/zhipu-adult-swim.js",
+      "blob": "6dd5e5692b1d94b5447357dd7ed5b7fd267a454e",
+      "bytes": 8675943,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/interaction-five/packs/zhipu-adult-wedding.js",
+      "blob": "2ae8b4eacc0beb541bdee14c1f1d4a5f1372aa16",
+      "bytes": 12837417,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/interaction-five/packs/zhipu-original.js",
+      "blob": "3d2e8d655d2a271e3c73554163e927b53892279f",
+      "bytes": 4439204,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/interaction-five/packs/zhipu-sports.js",
+      "blob": "f09af9627316ffaf62ea17cf631c8bdc7079f048",
+      "bytes": 5449788,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/interaction-five/packs/zhipu-swim.js",
+      "blob": "a5534091bba72d0b7961e7e9c24dd393bf7f47d4",
+      "bytes": 2842112,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/interaction-five/packs/zhipu-wedding.js",
+      "blob": "a4a72523c965fb667ec0e670ae254abaf256e276",
+      "bytes": 3286630,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/interaction-five/roster.js",
+      "blob": "ac72817322d2cad7fb1443dd80b0747034d34c3d",
+      "bytes": 9068461,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/wardrobe-identity/art/roster/claude-adult/original.png",
+      "blob": "2a15ce16230f1c62a56d5a0dba8ad5ae58bc59a7",
+      "bytes": 1875347,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/wardrobe-identity/art/roster/claude-adult/sports-before.png",
+      "blob": "427fbf5601458b98bbdf8ffb515e1f18e666f9f1",
+      "bytes": 2050424,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/wardrobe-identity/art/roster/claude-adult/sports-identity.png",
+      "blob": "ce20ab5e153dd451eb68fae437ad374426119527",
+      "bytes": 1696315,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/wardrobe-identity/art/roster/claude-adult/swim-before.png",
+      "blob": "03c73eac3a459fed4a76bccf8413aeb6b7f106c5",
+      "bytes": 1666016,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/wardrobe-identity/art/roster/claude-adult/wedding-before.png",
+      "blob": "f16d3ca8f1bf65ff3c3c9772332caf7e739656a3",
+      "bytes": 2317211,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/wardrobe-identity/art/roster/claude/original.png",
+      "blob": "aed235d947bbc3ea6713acf9e7a48463694ada00",
+      "bytes": 1302215,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/wardrobe-identity/art/roster/claude/sports-before.png",
+      "blob": "69829ace6bd44ae1c254515e9eaa1cc5da898630",
+      "bytes": 2766146,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/wardrobe-identity/art/roster/claude/sports-identity.png",
+      "blob": "1aa011b22e83e8622c63c7a447c971ae852e3ed8",
+      "bytes": 2129267,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/wardrobe-identity/art/roster/claude/swim-before.webp",
+      "blob": "0140d81319eee1c26836aa58a5c5d45eb5ca1513",
+      "bytes": 58058,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/wardrobe-identity/art/roster/claude/walk-identity.png",
+      "blob": "ef989e3a0f3b9bda04d9687698ebf6ecfa6fec76",
+      "bytes": 2318664,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/wardrobe-identity/art/roster/claude/walk-original.png",
+      "blob": "a9a280dcccf990c9753784e3836e873d8b49375d",
+      "bytes": 2347445,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/wardrobe-identity/art/roster/claude/wedding-before.webp",
+      "blob": "519a1d4c7b0a91aa7756b9e32540fa837c35f220",
+      "bytes": 65112,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/wardrobe-identity/art/roster/deepseek-adult/original.png",
+      "blob": "55eae08f049ed3c8e830b13f8cc75957a4bd7563",
+      "bytes": 1688982,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/wardrobe-identity/art/roster/deepseek-adult/sports-before.png",
+      "blob": "7bbb82229f17fbaff5d1b3dcf29a52c6d5b148a2",
+      "bytes": 1923918,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/wardrobe-identity/art/roster/deepseek-adult/sports-identity.png",
+      "blob": "c77b5b8987a8f37bc3b485c6d986a34b80c7cfa5",
+      "bytes": 1509645,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/wardrobe-identity/art/roster/deepseek-adult/swim-before.png",
+      "blob": "d29efbac90c29fcdbe08e82c0f6b7243ae698470",
+      "bytes": 1515379,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/wardrobe-identity/art/roster/deepseek-adult/wedding-before.png",
+      "blob": "4fe79af1effdd0ff8aa9945ccd905fd2568fdc77",
+      "bytes": 2144179,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/wardrobe-identity/art/roster/gemini-adult/original.png",
+      "blob": "7ecb8ddfcf21d80fed8f7779d32be531867d4cba",
+      "bytes": 2018484,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/wardrobe-identity/art/roster/gemini-adult/sports-before.png",
+      "blob": "afa832a9acd723b7c9601d1493b2146b04d9ab02",
+      "bytes": 2078953,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/wardrobe-identity/art/roster/gemini-adult/sports-identity.png",
+      "blob": "8a487cf1905823870173ee893e42316f0a7beee3",
+      "bytes": 1733738,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/wardrobe-identity/art/roster/gemini-adult/swim-before.png",
+      "blob": "c4349c55cd51797af13ba7bc4820edd9ce792b53",
+      "bytes": 1779970,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/wardrobe-identity/art/roster/gemini-adult/wedding-before.png",
+      "blob": "5ed86b2776c3b69817ba9563fba40c7aeffc0a00",
+      "bytes": 2370309,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/wardrobe-identity/art/roster/gemini/original.png",
+      "blob": "a47b7dfd93e11887ff8064f2c8c5502667a02ee1",
+      "bytes": 1432462,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/wardrobe-identity/art/roster/gemini/sports-before.png",
+      "blob": "911747c1e6f02c16f9cc0bd694c235c2f7217cc1",
+      "bytes": 2946193,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/wardrobe-identity/art/roster/gemini/sports-identity.png",
+      "blob": "415f1bf3f5a65b0b6a512278bf5e99b3c98ac39c",
+      "bytes": 2235137,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/wardrobe-identity/art/roster/gemini/swim-before.webp",
+      "blob": "a34e55f0289ab877a752ab9d69ff558f5b3a3986",
+      "bytes": 62950,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/wardrobe-identity/art/roster/gemini/walk-identity.png",
+      "blob": "4e1eec20d091b15c2ec987130416b6aa93b1010f",
+      "bytes": 2648298,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/wardrobe-identity/art/roster/gemini/walk-original.png",
+      "blob": "437d135007d851475a5a7808b10a0538987d5625",
+      "bytes": 2706938,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/wardrobe-identity/art/roster/gemini/wedding-before.webp",
+      "blob": "2e1ae38abd5311994074a42d835761cff6efed1c",
+      "bytes": 73110,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/wardrobe-identity/art/roster/gpt-adult/original.png",
+      "blob": "0a91a7626eca6a022935a687426652d6f076b546",
+      "bytes": 2166120,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/wardrobe-identity/art/roster/gpt-adult/sports-before.png",
+      "blob": "f9b3ba62b19808b93844b762fc3ddaf6375aa89f",
+      "bytes": 2077294,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/wardrobe-identity/art/roster/gpt-adult/sports-identity.png",
+      "blob": "4a8533800bf6dd84162cdab61ed612834bf6704b",
+      "bytes": 1789783,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/wardrobe-identity/art/roster/gpt-adult/swim-before.png",
+      "blob": "d3653c67ad1f0443d157247b8676cae5aca1cdfa",
+      "bytes": 1793051,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/wardrobe-identity/art/roster/gpt-adult/wedding-before.png",
+      "blob": "e062c6e1ca58145b0a6805aabe7fb3aa20f9cf7a",
+      "bytes": 2445113,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/wardrobe-identity/art/roster/gpt/original.png",
+      "blob": "2b3a5ebac62ba338463664e2803e03f866e13ffa",
+      "bytes": 1314862,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/wardrobe-identity/art/roster/gpt/sports-before.png",
+      "blob": "b254d03eca591b2e621fd0784d5680a1f1ba2f9c",
+      "bytes": 3003043,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/wardrobe-identity/art/roster/gpt/sports-identity.png",
+      "blob": "b33d930da945910fb7e839985e153341f10079cf",
+      "bytes": 2150340,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/wardrobe-identity/art/roster/gpt/swim-before.webp",
+      "blob": "84b8985055916ea011e56fdd149e7ae3bf40b31a",
+      "bytes": 55884,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/wardrobe-identity/art/roster/gpt/walk-identity.png",
+      "blob": "7ddb331e6ca93e59ce6f7356fddcdf3c70415e9a",
+      "bytes": 2631625,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/wardrobe-identity/art/roster/gpt/walk-original.png",
+      "blob": "4bf0a80a7fbeb2e6dfe789a9d402e14408e0c02d",
+      "bytes": 2616503,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/wardrobe-identity/art/roster/gpt/wedding-before.webp",
+      "blob": "cf087f854e252f196f1c8abbb064727f2ef72b1e",
+      "bytes": 61542,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/wardrobe-identity/art/roster/grok-adult/original.png",
+      "blob": "70061928e59f01079beb29c4567581c4842f4caf",
+      "bytes": 1762940,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/wardrobe-identity/art/roster/grok-adult/sports-before.png",
+      "blob": "9dc452ea557eddba88ac3d4eebf0da537773014a",
+      "bytes": 1940747,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/wardrobe-identity/art/roster/grok-adult/sports-identity.png",
+      "blob": "d68137f3c2d5e81c6b769e56a193e2d2d4591bcb",
+      "bytes": 1564398,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/wardrobe-identity/art/roster/grok-adult/swim-before.png",
+      "blob": "aa895cbac19aae360b8f22676343ff366c2d85e6",
+      "bytes": 1553484,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/wardrobe-identity/art/roster/grok-adult/wedding-before.png",
+      "blob": "1d86bf995ac121bf6f9a9bbc1d484975151fc3d7",
+      "bytes": 2095260,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/wardrobe-identity/art/roster/grok/original.png",
+      "blob": "8834ea2b901ddd2aa85b1aa80989e83de7e25583",
+      "bytes": 1110093,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/wardrobe-identity/art/roster/grok/sports-before.png",
+      "blob": "64b5d04e53917a30f2e7d1a1e65c020f1c152a0a",
+      "bytes": 2660852,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/wardrobe-identity/art/roster/grok/sports-identity.png",
+      "blob": "ba3f2969e1964b0b2421e05e281640c1e81d1a3e",
+      "bytes": 2015953,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/wardrobe-identity/art/roster/grok/swim-before.webp",
+      "blob": "6e69d2dfc8e38b9154401a7240b002712ba9e2a7",
+      "bytes": 51302,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/wardrobe-identity/art/roster/grok/walk-identity.png",
+      "blob": "81459f5ca07ff9c7bcdcd11e7c274cf9ce7ebb9b",
+      "bytes": 2316546,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/wardrobe-identity/art/roster/grok/walk-original.png",
+      "blob": "f336ea6aadc7132eb7d92ad4e384ca391e8b4e4c",
+      "bytes": 2367882,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/wardrobe-identity/art/roster/grok/wedding-before.webp",
+      "blob": "ebeb5aae0c5aa4fb5183759a35beb9e9a1de624f",
+      "bytes": 63356,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/wardrobe-identity/art/roster/kimi-adult/original.png",
+      "blob": "2302154516e81ba67915ba6b578ffe82f80c3242",
+      "bytes": 1813155,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/wardrobe-identity/art/roster/kimi-adult/sports-before.png",
+      "blob": "5e36a38bcf2a6a95f6ded6d343ffdb180105c8a6",
+      "bytes": 1819365,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/wardrobe-identity/art/roster/kimi-adult/sports-identity.png",
+      "blob": "c518be72a05935614f46a0843b6edcda9f2fa066",
+      "bytes": 1582050,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/wardrobe-identity/art/roster/kimi-adult/swim-before.png",
+      "blob": "3e8c67348314f7a33ee294fbb29786c66a2aea1f",
+      "bytes": 1586239,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/wardrobe-identity/art/roster/kimi-adult/wedding-before.png",
+      "blob": "4334fdd5e4dc3f83f12bdb0117bc6c1a82ee044e",
+      "bytes": 2146874,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/wardrobe-identity/art/roster/kimi/original.png",
+      "blob": "f7db67e840c394a0d6f67ffed09e9813d8dbd950",
+      "bytes": 1358726,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/wardrobe-identity/art/roster/kimi/sports-before.png",
+      "blob": "414a924546aff1e8085aae43667950bf24555e49",
+      "bytes": 2863645,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/wardrobe-identity/art/roster/kimi/sports-identity.png",
+      "blob": "941c56c0d950b6d4b651f901a34ed078e68670b2",
+      "bytes": 2156237,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/wardrobe-identity/art/roster/kimi/swim-before.webp",
+      "blob": "b4637939f0d9b8d12d9c3cd99e0247065a3b2313",
+      "bytes": 58244,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/wardrobe-identity/art/roster/kimi/walk-identity.png",
+      "blob": "7cb3a1d0ae3bb074cff4e201ebac6f42ada5a823",
+      "bytes": 2512107,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/wardrobe-identity/art/roster/kimi/walk-original.png",
+      "blob": "aa2ca7a4c95e2555c9cffba71323e7009a59daf9",
+      "bytes": 2580876,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/wardrobe-identity/art/roster/kimi/wedding-before.webp",
+      "blob": "afaf5eef7ab6856349d573e89a0d2107a3b0b5b7",
+      "bytes": 65752,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/wardrobe-identity/art/roster/provenance.json",
+      "blob": "b76b429abdb5a39b8f19e822a1982fd23b7198ff",
+      "bytes": 22612,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/wardrobe-identity/art/roster/qwen-adult/original.png",
+      "blob": "510bc27a7c3d407ac0d969d42527ab43292b1b36",
+      "bytes": 1876783,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/wardrobe-identity/art/roster/qwen-adult/sports-before.png",
+      "blob": "8e03ad6178bc5efa25c8e6add0d8dff9e5feb0c2",
+      "bytes": 1883493,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/wardrobe-identity/art/roster/qwen-adult/sports-identity.png",
+      "blob": "093ec7b9fa9302fc2903bab731e1aafd81a55b0a",
+      "bytes": 1616427,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/wardrobe-identity/art/roster/qwen-adult/swim-before.png",
+      "blob": "9f872bb08bcb527cba1cd725f61e1aa4bf6fa43e",
+      "bytes": 1616187,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/wardrobe-identity/art/roster/qwen-adult/wedding-before.png",
+      "blob": "2ef47f69fa817afcc8738b8ef4394d8919be2420",
+      "bytes": 2213659,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/wardrobe-identity/art/roster/qwen/original.png",
+      "blob": "42aa2f7108758a7a13ca49af565839d8ebb46757",
+      "bytes": 1336328,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/wardrobe-identity/art/roster/qwen/sports-before.png",
+      "blob": "0cb3a0145db94f48a8a4c12ab241dcb2c3dc24c8",
+      "bytes": 2557560,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/wardrobe-identity/art/roster/qwen/sports-identity.png",
+      "blob": "cd9da170560de7e0e9cf2119c852610279c5828e",
+      "bytes": 2137518,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/wardrobe-identity/art/roster/qwen/swim-before.webp",
+      "blob": "e13d548efe89ffa33c24883bc964a10ea0061687",
+      "bytes": 54508,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/wardrobe-identity/art/roster/qwen/walk-identity.png",
+      "blob": "77f0e68334df3012d7290d2f23d08691f22aa147",
+      "bytes": 2607623,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/wardrobe-identity/art/roster/qwen/walk-original.png",
+      "blob": "0b2c452c9bad5d42eeda5c75b501b2b9ed277f57",
+      "bytes": 2669932,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/wardrobe-identity/art/roster/qwen/wedding-before.webp",
+      "blob": "a8b7b65a328ab400a05c131c24a768d5c65ff79b",
+      "bytes": 72428,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/wardrobe-identity/art/roster/whale/original.png",
+      "blob": "a02d4cbc5cfcb41e8c9525efc5ce4f692003eafe",
+      "bytes": 1215488,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/wardrobe-identity/art/roster/whale/sports-before.png",
+      "blob": "8e61cc3b15fe23d25404b6d65eb7793e204d6b08",
+      "bytes": 2693741,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/wardrobe-identity/art/roster/whale/sports-identity.png",
+      "blob": "28e17611116ce068d1f7395ac773196384257a3c",
+      "bytes": 2079252,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/wardrobe-identity/art/roster/whale/swim-before.webp",
+      "blob": "34cace18447f2b9e7f0e63aa56bb3dae03a17118",
+      "bytes": 286922,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/wardrobe-identity/art/roster/whale/walk-identity.png",
+      "blob": "20b8b89af27c75bdaad911d8e89999111b0fca3b",
+      "bytes": 2394166,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/wardrobe-identity/art/roster/whale/walk-original.png",
+      "blob": "1a05b3d424a488620d927c7c6642bb9cd7ee44c3",
+      "bytes": 2421101,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/wardrobe-identity/art/roster/whale/wedding-before.webp",
+      "blob": "1d32dd8a8ca79dbc25eb9f36c138760f3bd69553",
+      "bytes": 67824,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/wardrobe-identity/art/roster/zhipu-adult/original.png",
+      "blob": "e2386770a83a0429cefc05fb5dad547325eafc0f",
+      "bytes": 1762249,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/wardrobe-identity/art/roster/zhipu-adult/sports-before.png",
+      "blob": "f0e66e928ec27b5be319dadc5bc55782600066ac",
+      "bytes": 1976599,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/wardrobe-identity/art/roster/zhipu-adult/sports-identity.png",
+      "blob": "66a38a9772a00d836b0d4e65bf65696bbe3d2dc9",
+      "bytes": 1562724,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/wardrobe-identity/art/roster/zhipu-adult/swim-before.png",
+      "blob": "e1ed427a2d84cfc00d106ad99d6dc2f4a7c09999",
+      "bytes": 1533339,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/wardrobe-identity/art/roster/zhipu-adult/wedding-before.png",
+      "blob": "644c9da24532609fb3ccdbae43d26dbe55834d29",
+      "bytes": 2230145,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/wardrobe-identity/art/roster/zhipu/original.png",
+      "blob": "888eedbd114bd5a1717bc4c2cb9f2b62fb8f32e9",
+      "bytes": 1174862,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/wardrobe-identity/art/roster/zhipu/sports-before.png",
+      "blob": "b8488755affbf75c388806b01a2cba1559e35d7e",
+      "bytes": 2627179,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/wardrobe-identity/art/roster/zhipu/sports-identity.png",
+      "blob": "37fc83390cbd0615febeac9e08c4c61d4b37a99f",
+      "bytes": 1974308,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/wardrobe-identity/art/roster/zhipu/swim-before.webp",
+      "blob": "7b748fa543a3ed92b0f90b9e5678af661c654adc",
+      "bytes": 47108,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/wardrobe-identity/art/roster/zhipu/walk-identity.png",
+      "blob": "cda10698ec395ce3c5425f99a4a91b5e6abc9f12",
+      "bytes": 2312809,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/wardrobe-identity/art/roster/zhipu/walk-original.png",
+      "blob": "d55e21ad54e2aeb0d68e62d86883e0dafab7d543",
+      "bytes": 2287865,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/wardrobe-identity/art/roster/zhipu/wedding-before.webp",
+      "blob": "87d4ad4d7312768c8094114e0b05dd1d333a79cf",
+      "bytes": 55492,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "docs/demo/wardrobe-identity/roster.js",
+      "blob": "a9364de9bc56ce067165b07919ac608936bbdb21",
+      "bytes": 25637,
+      "reason": "regenerable-demo-cache"
+    },
+    {
+      "path": "artwork/sports-identity/claude-adult-care-v1.png",
+      "blob": "b1a9a3462a7a4a2faf5e52ccdf990b4eb513d246",
+      "bytes": 2039095,
+      "reason": "unselected-unreferenced-candidate"
+    },
+    {
+      "path": "artwork/sports-identity/claude-adult-emotion-touch-v1.png",
+      "blob": "cdbaed75974032a3e50eced258e779f4802ae2ea",
+      "bytes": 2081988,
+      "reason": "unselected-unreferenced-candidate"
+    },
+    {
+      "path": "artwork/sports-identity/claude-adult-emotion-touch-v2.png",
+      "blob": "bdfd86a40f6c4be9fdf96e0d0053992c3dd4646f",
+      "bytes": 2093304,
+      "reason": "unselected-unreferenced-candidate"
+    },
+    {
+      "path": "artwork/sports-identity/claude-adult-five-rps-v1.png",
+      "blob": "92df1f1b1f36c0020db0f5c2fc66f38d85f23513",
+      "bytes": 2221639,
+      "reason": "unselected-unreferenced-candidate"
+    },
+    {
+      "path": "artwork/sports-identity/claude-adult-five-rps-v2.png",
+      "blob": "bdad29ab1f2c39ba27bd76fff8766608eef823f2",
+      "bytes": 2206864,
+      "reason": "unselected-unreferenced-candidate"
+    },
+    {
+      "path": "artwork/sports-identity/claude-angry-v1.png",
+      "blob": "f441c3ba21c25b9dfa120ac1220738c18c9223cc",
+      "bytes": 2269841,
+      "reason": "unselected-unreferenced-candidate"
+    },
+    {
+      "path": "artwork/sports-identity/claude-care-v1.png",
+      "blob": "6f02dd5873dd504ecbdf074d7644d8000d468ff8",
+      "bytes": 2951115,
+      "reason": "unselected-unreferenced-candidate"
+    },
+    {
+      "path": "artwork/sports-identity/claude-care-v2.png",
+      "blob": "7a9de5b7756af30b7bcc1d7f80a261fefd046fb8",
+      "bytes": 2907914,
+      "reason": "unselected-unreferenced-candidate"
+    },
+    {
+      "path": "artwork/sports-identity/claude-care-v3.png",
+      "blob": "b288bae085d58a5aa2336220d5ab2710f5a6c7f4",
+      "bytes": 2997362,
+      "reason": "unselected-unreferenced-candidate"
+    },
+    {
+      "path": "artwork/sports-identity/claude-care-v4.png",
+      "blob": "f9efe01b3d36f621334fe7312bfe30c65f7dbd0b",
+      "bytes": 2981286,
+      "reason": "unselected-unreferenced-candidate"
+    },
+    {
+      "path": "artwork/sports-identity/claude-care-v5.png",
+      "blob": "22faaff82453c0c90e1a67cd23a54912e7ece298",
+      "bytes": 2948270,
+      "reason": "unselected-unreferenced-candidate"
+    },
+    {
+      "path": "artwork/sports-identity/claude-care-v6.png",
+      "blob": "860d5e78c6d2f097313331f0ff4f60b939c516dc",
+      "bytes": 2969654,
+      "reason": "unselected-unreferenced-candidate"
+    },
+    {
+      "path": "artwork/sports-identity/claude-care-v8.png",
+      "blob": "1f663e9ca4162ed5151122779e42d0da5481780c",
+      "bytes": 2846884,
+      "reason": "unselected-unreferenced-candidate"
+    },
+    {
+      "path": "artwork/sports-identity/claude-care-v9.png",
+      "blob": "d37cdafadc6d39c0fa0288eae37bc7f3ff5b1cca",
+      "bytes": 2843717,
+      "reason": "unselected-unreferenced-candidate"
+    },
+    {
+      "path": "artwork/sports-identity/claude-chat-v1.png",
+      "blob": "11172c225de26df84c11c29df770706fc57bab73",
+      "bytes": 2241505,
+      "reason": "unselected-unreferenced-candidate"
+    },
+    {
+      "path": "artwork/sports-identity/claude-eat-v1.png",
+      "blob": "dc620c77ee50f602173ac90a5cf8d1d11bb18765",
+      "bytes": 2605305,
+      "reason": "unselected-unreferenced-candidate"
+    },
+    {
+      "path": "artwork/sports-identity/claude-farewell-v1.png",
+      "blob": "24c19d381251ce9e94447b635b063cde2d736fda",
+      "bytes": 2335606,
+      "reason": "unselected-unreferenced-candidate"
+    },
+    {
+      "path": "artwork/sports-identity/claude-meal-v1.png",
+      "blob": "17cb4262669aa3fe6ee76c7c963fd62fccd8b53e",
+      "bytes": 2237943,
+      "reason": "unselected-unreferenced-candidate"
+    },
+    {
+      "path": "artwork/sports-identity/claude-meal-v2.png",
+      "blob": "b8a04d249baed030314689880f48dc4159b40b51",
+      "bytes": 2497363,
+      "reason": "unselected-unreferenced-candidate"
+    },
+    {
+      "path": "artwork/sports-identity/claude-meal-v3.png",
+      "blob": "3e65f1f512d3379c66f70d661e4255318ab4bc2e",
+      "bytes": 2397144,
+      "reason": "unselected-unreferenced-candidate"
+    },
+    {
+      "path": "artwork/sports-identity/claude-shaken-v1.png",
+      "blob": "cc6ce8f998530d21e0e91de52591db3397a71926",
+      "bytes": 2270473,
+      "reason": "unselected-unreferenced-candidate"
+    },
+    {
+      "path": "artwork/sports-identity/claude-think-v1.png",
+      "blob": "a364f4d3d6b11b0a77e60ebb9fc3994114e94b9e",
+      "bytes": 2142830,
+      "reason": "unselected-unreferenced-candidate"
+    },
+    {
+      "path": "artwork/sports-identity/claude-touch-v1.png",
+      "blob": "e2edfa66bee655aaec082b86182af6bea84a6ea1",
+      "bytes": 2514478,
+      "reason": "unselected-unreferenced-candidate"
+    },
+    {
+      "path": "artwork/sports-identity/deepseek-adult-emotions-v1.png",
+      "blob": "c2947280beda696c66f87fb55e6807014cc36b19",
+      "bytes": 2039128,
+      "reason": "unselected-unreferenced-candidate"
+    },
+    {
+      "path": "artwork/sports-identity/deepseek-adult-emotions-v2.png",
+      "blob": "79f59bb1c0b2fe40a26157ff2f23f5131b6c54d5",
+      "bytes": 1967390,
+      "reason": "unselected-unreferenced-candidate"
+    },
+    {
+      "path": "artwork/sports-identity/gemini-angry-v1.png",
+      "blob": "a5c092718f06c19bcb246a3e03353a23ca93e035",
+      "bytes": 2403328,
+      "reason": "unselected-unreferenced-candidate"
+    },
+    {
+      "path": "artwork/sports-identity/gemini-ball-hit-v1.png",
+      "blob": "72073361e9f38d9ffe96b538972eb5a66e645db5",
+      "bytes": 2376314,
+      "reason": "unselected-unreferenced-candidate"
+    },
+    {
+      "path": "artwork/sports-identity/gemini-ball-miss-v1.png",
+      "blob": "dc6e267e8b686dc19898d21fae5a5621dff98ddd",
+      "bytes": 2430022,
+      "reason": "unselected-unreferenced-candidate"
+    },
+    {
+      "path": "artwork/sports-identity/gemini-ball-miss-v2.png",
+      "blob": "1e85388eec5348d0d010ad269ae2fe15ec639160",
+      "bytes": 2389209,
+      "reason": "unselected-unreferenced-candidate"
+    },
+    {
+      "path": "artwork/sports-identity/gemini-bonk-v1.png",
+      "blob": "3c5d0ba03628e20434633e1bf82a7163d258f126",
+      "bytes": 2299549,
+      "reason": "unselected-unreferenced-candidate"
+    },
+    {
+      "path": "artwork/sports-identity/gemini-care-v1.png",
+      "blob": "d7688ed6c1c316f6e921b6ea943779c3e749e50f",
+      "bytes": 3126924,
+      "reason": "unselected-unreferenced-candidate"
+    },
+    {
+      "path": "artwork/sports-identity/gemini-chat-v1.png",
+      "blob": "09930740e34a41e764c8f89ee92ac196105cc8ba",
+      "bytes": 2397839,
+      "reason": "unselected-unreferenced-candidate"
+    },
+    {
+      "path": "artwork/sports-identity/gemini-curl-v1.png",
+      "blob": "6f6535b497242f3c1d8d5efee3facd2c60b21567",
+      "bytes": 2378915,
+      "reason": "unselected-unreferenced-candidate"
+    },
+    {
+      "path": "artwork/sports-identity/gemini-eat-v1.png",
+      "blob": "0cb4510a848764c7d1c61e00a4403da7b72632f7",
+      "bytes": 2925354,
+      "reason": "unselected-unreferenced-candidate"
+    },
+    {
+      "path": "artwork/sports-identity/gemini-farewell-v1.png",
+      "blob": "1d0b26fd25749284eb341ce52506763c28d15546",
+      "bytes": 2450277,
+      "reason": "unselected-unreferenced-candidate"
+    },
+    {
+      "path": "artwork/sports-identity/gemini-headpat-v1.png",
+      "blob": "9d547bf30e968072e7d1c66b1fafbc22673fcac3",
+      "bytes": 2392960,
+      "reason": "unselected-unreferenced-candidate"
+    },
+    {
+      "path": "artwork/sports-identity/gemini-jump-v1.png",
+      "blob": "a7c5ea03fd536b4cb091d8cf598841c0a97899ee",
+      "bytes": 2207572,
+      "reason": "unselected-unreferenced-candidate"
+    },
+    {
+      "path": "artwork/sports-identity/gemini-meal-v1.png",
+      "blob": "ba76274d2c093af0546f7ddbfa4d3aa4cef76bfc",
+      "bytes": 2661313,
+      "reason": "unselected-unreferenced-candidate"
+    },
+    {
+      "path": "artwork/sports-identity/gemini-pickup-v1.png",
+      "blob": "3f7d8405013e7cf80a50d9543271ab7897adf125",
+      "bytes": 2355107,
+      "reason": "unselected-unreferenced-candidate"
+    },
+    {
+      "path": "artwork/sports-identity/gemini-shaken-strong-v1.png",
+      "blob": "8bba28c9ef197e87757c9650116ba5fbdc5d7311",
+      "bytes": 2230651,
+      "reason": "unselected-unreferenced-candidate"
+    },
+    {
+      "path": "artwork/sports-identity/gemini-shaken-v1.png",
+      "blob": "41bdeb525336df4a70734673c67685efbd0573e0",
+      "bytes": 2255774,
+      "reason": "unselected-unreferenced-candidate"
+    },
+    {
+      "path": "artwork/sports-identity/gemini-think-v1.png",
+      "blob": "2aee8673ef053ecb8a62b9a309f9147c14f29848",
+      "bytes": 2306594,
+      "reason": "unselected-unreferenced-candidate"
+    },
+    {
+      "path": "artwork/sports-identity/gpt-basic-v1.png",
+      "blob": "1bad20829239ed21cdfcc8fb4e689a0526a26263",
+      "bytes": 2126663,
+      "reason": "unselected-unreferenced-candidate"
+    },
+    {
+      "path": "artwork/sports-identity/gpt-care-v1.png",
+      "blob": "cfa5b9b7e4479d984075e89fbe26b43b5d7b836b",
+      "bytes": 3165136,
+      "reason": "unselected-unreferenced-candidate"
+    },
+    {
+      "path": "artwork/sports-identity/gpt-eat-v1.png",
+      "blob": "ef5cf6abe160bc0d977c48ce0ecb963293e0ce8e",
+      "bytes": 2426945,
+      "reason": "unselected-unreferenced-candidate"
+    },
+    {
+      "path": "artwork/sports-identity/gpt-eat-v2.png",
+      "blob": "d32d805b28957bafb7652a33b1ae958cbaba1256",
+      "bytes": 2334792,
+      "reason": "unselected-unreferenced-candidate"
+    },
+    {
+      "path": "artwork/sports-identity/gpt-eat-v4.png",
+      "blob": "e2858ed19645b7ceb9d411f949bbc4045a72e202",
+      "bytes": 2413900,
+      "reason": "unselected-unreferenced-candidate"
+    },
+    {
+      "path": "artwork/sports-identity/gpt-pickup-v1.png",
+      "blob": "2f46e1c340068bd61fee857d5f8516882433e4bb",
+      "bytes": 2120164,
+      "reason": "unselected-unreferenced-candidate"
+    },
+    {
+      "path": "artwork/sports-identity/gpt-think-v1.png",
+      "blob": "a84a33dd3163f4b3ba870d1476a62cca8340277c",
+      "bytes": 2151351,
+      "reason": "unselected-unreferenced-candidate"
+    },
+    {
+      "path": "artwork/sports-identity/gpt-touch-v1.png",
+      "blob": "9af2c603ef2d698f49bc79d0cad72aaa2be90ba2",
+      "bytes": 2810883,
+      "reason": "unselected-unreferenced-candidate"
+    },
+    {
+      "path": "artwork/sports-identity/gpt-touch-v2.png",
+      "blob": "76bc58f9af26a44d22d384a795ddb3000e49ed14",
+      "bytes": 2739665,
+      "reason": "unselected-unreferenced-candidate"
+    },
+    {
+      "path": "artwork/sports-identity/gpt-touch-v3.png",
+      "blob": "4982deffbb9eb70104865534610ac82169e00647",
+      "bytes": 2782773,
+      "reason": "unselected-unreferenced-candidate"
+    },
+    {
+      "path": "artwork/sports-identity/grok-adult-body-v1.png",
+      "blob": "039e48160fd875102d4c19d16bae28615323df23",
+      "bytes": 2340039,
+      "reason": "unselected-unreferenced-candidate"
+    },
+    {
+      "path": "artwork/sports-identity/grok-angry-v1.png",
+      "blob": "ef1b5e51535e4c9d23f2a3df377c7fbd652c0a9b",
+      "bytes": 2244223,
+      "reason": "unselected-unreferenced-candidate"
+    },
+    {
+      "path": "artwork/sports-identity/grok-ball-miss-v1.png",
+      "blob": "91207089fce25b63ecb1bc65552674011d975e65",
+      "bytes": 2103491,
+      "reason": "unselected-unreferenced-candidate"
+    },
+    {
+      "path": "artwork/sports-identity/grok-basic-v1.png",
+      "blob": "d68fa2902ed9b1351b68e265f752b6ccb609ba77",
+      "bytes": 1983176,
+      "reason": "unselected-unreferenced-candidate"
+    },
+    {
+      "path": "artwork/sports-identity/grok-care-v1.png",
+      "blob": "305eb2c925ffcae2df048b3c28302bbe2ff92fdb",
+      "bytes": 2407673,
+      "reason": "unselected-unreferenced-candidate"
+    },
+    {
+      "path": "artwork/sports-identity/grok-care-v2.png",
+      "blob": "8828732619f29148c35d9800472c8ffdeb9052b6",
+      "bytes": 2419467,
+      "reason": "unselected-unreferenced-candidate"
+    },
+    {
+      "path": "artwork/sports-identity/grok-care-v3.png",
+      "blob": "e6e8392125af75ddf1dff88a094df361a07a7034",
+      "bytes": 2508983,
+      "reason": "unselected-unreferenced-candidate"
+    },
+    {
+      "path": "artwork/sports-identity/grok-club-v1.png",
+      "blob": "0a91848749d200da05426dd0f32dfe6e38aae164",
+      "bytes": 2745075,
+      "reason": "unselected-unreferenced-candidate"
+    },
+    {
+      "path": "artwork/sports-identity/grok-club-v2.png",
+      "blob": "fa1ff81bcb735dac5d2aa8b8a80159fc182ee8df",
+      "bytes": 2723104,
+      "reason": "unselected-unreferenced-candidate"
+    },
+    {
+      "path": "artwork/sports-identity/grok-club-v3.png",
+      "blob": "12aa8d2e5f758ccf457118ba289fc4fe03137ef3",
+      "bytes": 2821315,
+      "reason": "unselected-unreferenced-candidate"
+    },
+    {
+      "path": "artwork/sports-identity/grok-curl-v1.png",
+      "blob": "42f9a58213e9b9683116e7e97aaf99c691b4e5e2",
+      "bytes": 1978881,
+      "reason": "unselected-unreferenced-candidate"
+    },
+    {
+      "path": "artwork/sports-identity/grok-eat-v1.png",
+      "blob": "0cce66f31d27bfdcc266abfcf67a22704f2ead77",
+      "bytes": 2407754,
+      "reason": "unselected-unreferenced-candidate"
+    },
+    {
+      "path": "artwork/sports-identity/grok-eat-v2.png",
+      "blob": "6795e38d13cf0beb43dc141a4abbc6a7c66d2c04",
+      "bytes": 2356172,
+      "reason": "unselected-unreferenced-candidate"
+    },
+    {
+      "path": "artwork/sports-identity/grok-jump-v1.png",
+      "blob": "1b6f78df429b5843326b2998b3d06378eb3d091e",
+      "bytes": 2038397,
+      "reason": "unselected-unreferenced-candidate"
+    },
+    {
+      "path": "artwork/sports-identity/grok-meal-v1.png",
+      "blob": "ed7227a248e3134adcac4101bcbc762817b7b2c4",
+      "bytes": 2094901,
+      "reason": "unselected-unreferenced-candidate"
+    },
+    {
+      "path": "artwork/sports-identity/kimi-adult-emotion-bonk-v1.png",
+      "blob": "399c300dc688a35920f90f54d5047484aa6be588",
+      "bytes": 973367,
+      "reason": "unselected-unreferenced-candidate"
+    },
+    {
+      "path": "artwork/sports-identity/kimi-adult-emotion-touch-v1.png",
+      "blob": "5e435fa97dad2f24484951de1ce405395f57575a",
+      "bytes": 959309,
+      "reason": "unselected-unreferenced-candidate"
+    },
+    {
+      "path": "artwork/sports-identity/kimi-adult-five-rps-v1.png",
+      "blob": "c1866170bb7eaa089b3f5287ea02e9c61ee1839b",
+      "bytes": 966167,
+      "reason": "unselected-unreferenced-candidate"
+    },
+    {
+      "path": "artwork/sports-identity/kimi-adult-five-rps-v2.png",
+      "blob": "5c6268bf2bc8795904ec398974f8062d07f4c6f3",
+      "bytes": 968808,
+      "reason": "unselected-unreferenced-candidate"
+    },
+    {
+      "path": "artwork/sports-identity/kimi-basic-v1.png",
+      "blob": "07de5d69b600c4f4351c002bc74136c8efc0d61b",
+      "bytes": 2189675,
+      "reason": "unselected-unreferenced-candidate"
+    },
+    {
+      "path": "artwork/sports-identity/kimi-club-v1.png",
+      "blob": "6301bc164deff75a4f7c62f1b9d3333aeb50ca59",
+      "bytes": 2877557,
+      "reason": "unselected-unreferenced-candidate"
+    },
+    {
+      "path": "artwork/sports-identity/kimi-club-v2.png",
+      "blob": "f9ee48b069d488384c22cb83dd2da8fe78f287f9",
+      "bytes": 2820971,
+      "reason": "unselected-unreferenced-candidate"
+    },
+    {
+      "path": "artwork/sports-identity/kimi-club-v3.png",
+      "blob": "656e56e53c1f8e080ddc70e7f361fee52d40d264",
+      "bytes": 2893905,
+      "reason": "unselected-unreferenced-candidate"
+    },
+    {
+      "path": "artwork/sports-identity/kimi-club-v4.png",
+      "blob": "5c99ef38469217e61f0b19e1291021fab4261533",
+      "bytes": 2897715,
+      "reason": "unselected-unreferenced-candidate"
+    },
+    {
+      "path": "artwork/sports-identity/kimi-club-v5.png",
+      "blob": "06ec73f5766dec760347cb292a1349dc331e772d",
+      "bytes": 2778643,
+      "reason": "unselected-unreferenced-candidate"
+    },
+    {
+      "path": "artwork/sports-identity/kimi-five-main-v1.png",
+      "blob": "91fa8b633653a94d5905eb0f96584d43fffbbac4",
+      "bytes": 2486080,
+      "reason": "unselected-unreferenced-candidate"
+    },
+    {
+      "path": "artwork/sports-identity/kimi-five-main-v2.png",
+      "blob": "b344360f7c5c8b45294c1af214f341c8707ac661",
+      "bytes": 2405852,
+      "reason": "unselected-unreferenced-candidate"
+    },
+    {
+      "path": "artwork/sports-identity/kimi-peek-v1.png",
+      "blob": "d813e920a0b101dafb23af073c24f60596a5d16e",
+      "bytes": 1916201,
+      "reason": "unselected-unreferenced-candidate"
+    },
+    {
+      "path": "artwork/sports-identity/kimi-peek-v2.png",
+      "blob": "e49abb5adfb6a2b9e01765a141eedf984bad859e",
+      "bytes": 2056592,
+      "reason": "unselected-unreferenced-candidate"
+    },
+    {
+      "path": "artwork/sports-identity/kimi-peek-v3.png",
+      "blob": "308fec317d9957c213987bed4ae85a1cdc7c59f8",
+      "bytes": 2126840,
+      "reason": "unselected-unreferenced-candidate"
+    },
+    {
+      "path": "artwork/sports-identity/qwen-adult-club-v1.png",
+      "blob": "6bb94634d03629313b02f4d0896d02f486871ae9",
+      "bytes": 2235748,
+      "reason": "unselected-unreferenced-candidate"
+    },
+    {
+      "path": "artwork/sports-identity/qwen-adult-club-v2.png",
+      "blob": "9a9fa643784f0d413708caf5eb1d6dae82894161",
+      "bytes": 2264993,
+      "reason": "unselected-unreferenced-candidate"
+    },
+    {
+      "path": "artwork/sports-identity/qwen-jump-v1.png",
+      "blob": "5ee037bedef595420224fb315dd5d3fe86de2374",
+      "bytes": 2267892,
+      "reason": "unselected-unreferenced-candidate"
+    },
+    {
+      "path": "artwork/sports-identity/qwen-meal-v1.png",
+      "blob": "a3ddaef9838d9b09014964257b4eadf22bddebb4",
+      "bytes": 2299507,
+      "reason": "unselected-unreferenced-candidate"
+    },
+    {
+      "path": "artwork/sports-identity/whale-ball-hit-v1.png",
+      "blob": "f8c6da0aabe8a0b8303085ba93367e3cf32b695a",
+      "bytes": 2158183,
+      "reason": "unselected-unreferenced-candidate"
+    },
+    {
+      "path": "artwork/sports-identity/whale-ball-miss-v1.png",
+      "blob": "8002971271214949e3c7a9f2aa12284d4e90887b",
+      "bytes": 2311913,
+      "reason": "unselected-unreferenced-candidate"
+    },
+    {
+      "path": "artwork/sports-identity/whale-ball-miss-v2.png",
+      "blob": "a0cffbfa2f74e26052964b028dd431bfab7befec",
+      "bytes": 2288041,
+      "reason": "unselected-unreferenced-candidate"
+    },
+    {
+      "path": "artwork/sports-identity/whale-ball-miss-v3.png",
+      "blob": "d25f7eb1d87e1ffac961dd2f17029f90e21787b3",
+      "bytes": 2246587,
+      "reason": "unselected-unreferenced-candidate"
+    },
+    {
+      "path": "artwork/sports-identity/whale-bonk-v1.png",
+      "blob": "8dc5ddb2703bad637acdba8df12f06f9f2c74d5a",
+      "bytes": 2287586,
+      "reason": "unselected-unreferenced-candidate"
+    },
+    {
+      "path": "artwork/sports-identity/whale-care-v1.png",
+      "blob": "4d77a0f32ade1042e51e842f0a68a090161769b6",
+      "bytes": 2775334,
+      "reason": "unselected-unreferenced-candidate"
+    },
+    {
+      "path": "artwork/sports-identity/whale-care-v2.png",
+      "blob": "44a026316d3ead73e2bb4a9a9c192cc8b5243ab8",
+      "bytes": 2950272,
+      "reason": "unselected-unreferenced-candidate"
+    },
+    {
+      "path": "artwork/sports-identity/whale-care-v3.png",
+      "blob": "66326311fb1595032fc865ad50d43aa0c7aa19e3",
+      "bytes": 2747371,
+      "reason": "unselected-unreferenced-candidate"
+    },
+    {
+      "path": "artwork/sports-identity/whale-chat-v1.png",
+      "blob": "d82899f4188e950c75bd6b7b2142dfc75a990ff8",
+      "bytes": 2339737,
+      "reason": "unselected-unreferenced-candidate"
+    },
+    {
+      "path": "artwork/sports-identity/whale-chat-v2.png",
+      "blob": "c1f02de790fa5025a51e5efe66ff48db726302d1",
+      "bytes": 2235829,
+      "reason": "unselected-unreferenced-candidate"
+    },
+    {
+      "path": "artwork/sports-identity/whale-club-v1.png",
+      "blob": "19e4d414740317046be9603830d15c9d1e2d7a43",
+      "bytes": 2868215,
+      "reason": "unselected-unreferenced-candidate"
+    },
+    {
+      "path": "artwork/sports-identity/whale-headpat-v1.png",
+      "blob": "001d3e805f7d8af677150a0b8d73caaf5a83c0d1",
+      "bytes": 2308189,
+      "reason": "unselected-unreferenced-candidate"
+    },
+    {
+      "path": "artwork/sports-identity/whale-jump-v1.png",
+      "blob": "563b59a0c3ebca0f6dab942761bb32cafcc85702",
+      "bytes": 2050674,
+      "reason": "unselected-unreferenced-candidate"
+    },
+    {
+      "path": "artwork/sports-identity/whale-jump-v2.png",
+      "blob": "de2d2a02ee52c79cd338f43b2cb9f194f2954f55",
+      "bytes": 2115210,
+      "reason": "unselected-unreferenced-candidate"
+    },
+    {
+      "path": "artwork/sports-identity/whale-meal-v1.png",
+      "blob": "14e8a0f2902d18de92c76988018c2ac507e7f59d",
+      "bytes": 2289024,
+      "reason": "unselected-unreferenced-candidate"
+    },
+    {
+      "path": "artwork/sports-identity/whale-think-v1.png",
+      "blob": "2c9e838e6caf2f7ee119ec99acb76980af53d1f4",
+      "bytes": 2220523,
+      "reason": "unselected-unreferenced-candidate"
+    },
+    {
+      "path": "artwork/sports-identity/zhipu-adult-club-v1.png",
+      "blob": "a0c8300762c59042945c660378f906cc878acc4e",
+      "bytes": 2280957,
+      "reason": "unselected-unreferenced-candidate"
+    },
+    {
+      "path": "artwork/sports-identity/zhipu-adult-club-v2.png",
+      "blob": "0db2e2c78b3c50c9d1534feb34641a021223edb0",
+      "bytes": 2262398,
+      "reason": "unselected-unreferenced-candidate"
+    },
+    {
+      "path": "artwork/sports-identity/zhipu-adult-club-v3.png",
+      "blob": "88bbb71b8d70b5db2722c5d8e2209a373d480d64",
+      "bytes": 2293150,
+      "reason": "unselected-unreferenced-candidate"
+    },
+    {
+      "path": "artwork/sports-identity/zhipu-adult-club-v4.png",
+      "blob": "0d77f25b18d2b48fb1f322ec63678141c8c6ff46",
+      "bytes": 2297288,
+      "reason": "unselected-unreferenced-candidate"
+    },
+    {
+      "path": "artwork/sports-identity/zhipu-adult-club-v5.png",
+      "blob": "233ee4586e88775c3118619070879e357a0e8c62",
+      "bytes": 2313332,
+      "reason": "unselected-unreferenced-candidate"
+    },
+    {
+      "path": "artwork/sports-identity/zhipu-adult-club-v6.png",
+      "blob": "ac625d63149eb36f213062a835db395a88e6bba7",
+      "bytes": 2420404,
+      "reason": "unselected-unreferenced-candidate"
+    },
+    {
+      "path": "artwork/sports-identity/zhipu-adult-club-v7.png",
+      "blob": "9da75d7736bd000efb3b469aeae94f4318ba6170",
+      "bytes": 2237772,
+      "reason": "unselected-unreferenced-candidate"
+    },
+    {
+      "path": "artwork/sports-identity/zhipu-adult-club-v8.png",
+      "blob": "fcfcee48c162ed593004eb9ef9be288f027c5d15",
+      "bytes": 2183664,
+      "reason": "unselected-unreferenced-candidate"
+    },
+    {
+      "path": "artwork/sports-identity/zhipu-adult-club-v9.png",
+      "blob": "4d5d8dcbdc1036278a8650829c67eb47491dbc3a",
+      "bytes": 2358289,
+      "reason": "unselected-unreferenced-candidate"
+    },
+    {
+      "path": "artwork/sports-identity/zhipu-adult-walk-v2.png",
+      "blob": "6f9195ade59b7ba30d28ebd4316d80bc91e8ccf1",
+      "bytes": 2074041,
+      "reason": "unselected-unreferenced-candidate"
+    },
+    {
+      "path": "artwork/sports-identity/zhipu-basic-v1.png",
+      "blob": "7b8c6eb135ea96bac2380e1022a84885d46f7dd2",
+      "bytes": 1966408,
+      "reason": "unselected-unreferenced-candidate"
+    },
+    {
+      "path": "artwork/sports-identity/zhipu-club-v1.png",
+      "blob": "d991507fcf42bdea7c62eba8d5d027ea51f0082e",
+      "bytes": 2755487,
+      "reason": "unselected-unreferenced-candidate"
+    },
+    {
+      "path": "artwork/sports-identity/zhipu-jump-v1.png",
+      "blob": "7d6048aadcad39913f025ee816da69daad2a959e",
+      "bytes": 1865570,
+      "reason": "unselected-unreferenced-candidate"
+    }
+  ],
+  "archiveRecords": [
+    {
+      "source": "artwork/sports-identity/results/claude-adult-care-v1.json",
+      "destination": "artwork/sports-identity/results/rejected/claude-adult-care-v1.json"
+    },
+    {
+      "source": "artwork/sports-identity/results/claude-adult-emotion-touch-v1.json",
+      "destination": "artwork/sports-identity/results/rejected/claude-adult-emotion-touch-v1.json"
+    },
+    {
+      "source": "artwork/sports-identity/results/claude-adult-emotion-touch-v2.json",
+      "destination": "artwork/sports-identity/results/rejected/claude-adult-emotion-touch-v2.json"
+    },
+    {
+      "source": "artwork/sports-identity/results/claude-adult-five-rps-v1.json",
+      "destination": "artwork/sports-identity/results/rejected/claude-adult-five-rps-v1.json"
+    },
+    {
+      "source": "artwork/sports-identity/results/claude-adult-five-rps-v2.json",
+      "destination": "artwork/sports-identity/results/rejected/claude-adult-five-rps-v2.json"
+    },
+    {
+      "source": "artwork/sports-identity/results/claude-angry-v1.json",
+      "destination": "artwork/sports-identity/results/rejected/claude-angry-v1.json"
+    },
+    {
+      "source": "artwork/sports-identity/results/claude-care-v1.json",
+      "destination": "artwork/sports-identity/results/rejected/claude-care-v1.json"
+    },
+    {
+      "source": "artwork/sports-identity/results/claude-care-v2.json",
+      "destination": "artwork/sports-identity/results/rejected/claude-care-v2.json"
+    },
+    {
+      "source": "artwork/sports-identity/results/claude-care-v3.json",
+      "destination": "artwork/sports-identity/results/rejected/claude-care-v3.json"
+    },
+    {
+      "source": "artwork/sports-identity/results/claude-care-v4.json",
+      "destination": "artwork/sports-identity/results/rejected/claude-care-v4.json"
+    },
+    {
+      "source": "artwork/sports-identity/results/claude-care-v5.json",
+      "destination": "artwork/sports-identity/results/rejected/claude-care-v5.json"
+    },
+    {
+      "source": "artwork/sports-identity/results/claude-care-v6.json",
+      "destination": "artwork/sports-identity/results/rejected/claude-care-v6.json"
+    },
+    {
+      "source": "artwork/sports-identity/results/claude-care-v8.json",
+      "destination": "artwork/sports-identity/results/rejected/claude-care-v8.json"
+    },
+    {
+      "source": "artwork/sports-identity/results/claude-care-v9.json",
+      "destination": "artwork/sports-identity/results/rejected/claude-care-v9.json"
+    },
+    {
+      "source": "artwork/sports-identity/results/claude-chat-v1.json",
+      "destination": "artwork/sports-identity/results/rejected/claude-chat-v1.json"
+    },
+    {
+      "source": "artwork/sports-identity/results/claude-eat-v1.json",
+      "destination": "artwork/sports-identity/results/rejected/claude-eat-v1.json"
+    },
+    {
+      "source": "artwork/sports-identity/results/claude-farewell-v1.json",
+      "destination": "artwork/sports-identity/results/rejected/claude-farewell-v1.json"
+    },
+    {
+      "source": "artwork/sports-identity/results/claude-meal-v1.json",
+      "destination": "artwork/sports-identity/results/rejected/claude-meal-v1.json"
+    },
+    {
+      "source": "artwork/sports-identity/results/claude-meal-v2.json",
+      "destination": "artwork/sports-identity/results/rejected/claude-meal-v2.json"
+    },
+    {
+      "source": "artwork/sports-identity/results/claude-meal-v3.json",
+      "destination": "artwork/sports-identity/results/rejected/claude-meal-v3.json"
+    },
+    {
+      "source": "artwork/sports-identity/results/claude-shaken-v1.json",
+      "destination": "artwork/sports-identity/results/rejected/claude-shaken-v1.json"
+    },
+    {
+      "source": "artwork/sports-identity/results/claude-think-v1.json",
+      "destination": "artwork/sports-identity/results/rejected/claude-think-v1.json"
+    },
+    {
+      "source": "artwork/sports-identity/results/claude-touch-v1.json",
+      "destination": "artwork/sports-identity/results/rejected/claude-touch-v1.json"
+    },
+    {
+      "source": "artwork/sports-identity/results/deepseek-adult-emotions-v1.json",
+      "destination": "artwork/sports-identity/results/rejected/deepseek-adult-emotions-v1.json"
+    },
+    {
+      "source": "artwork/sports-identity/results/deepseek-adult-emotions-v2.json",
+      "destination": "artwork/sports-identity/results/rejected/deepseek-adult-emotions-v2.json"
+    },
+    {
+      "source": "artwork/sports-identity/results/gemini-angry-v1.json",
+      "destination": "artwork/sports-identity/results/rejected/gemini-angry-v1.json"
+    },
+    {
+      "source": "artwork/sports-identity/results/gemini-ball-hit-v1.json",
+      "destination": "artwork/sports-identity/results/rejected/gemini-ball-hit-v1.json"
+    },
+    {
+      "source": "artwork/sports-identity/results/gemini-ball-miss-v1.json",
+      "destination": "artwork/sports-identity/results/rejected/gemini-ball-miss-v1.json"
+    },
+    {
+      "source": "artwork/sports-identity/results/gemini-ball-miss-v2.json",
+      "destination": "artwork/sports-identity/results/rejected/gemini-ball-miss-v2.json"
+    },
+    {
+      "source": "artwork/sports-identity/results/gemini-bonk-v1.json",
+      "destination": "artwork/sports-identity/results/rejected/gemini-bonk-v1.json"
+    },
+    {
+      "source": "artwork/sports-identity/results/gemini-care-v1.json",
+      "destination": "artwork/sports-identity/results/rejected/gemini-care-v1.json"
+    },
+    {
+      "source": "artwork/sports-identity/results/gemini-chat-v1.json",
+      "destination": "artwork/sports-identity/results/rejected/gemini-chat-v1.json"
+    },
+    {
+      "source": "artwork/sports-identity/results/gemini-curl-v1.json",
+      "destination": "artwork/sports-identity/results/rejected/gemini-curl-v1.json"
+    },
+    {
+      "source": "artwork/sports-identity/results/gemini-eat-v1.json",
+      "destination": "artwork/sports-identity/results/rejected/gemini-eat-v1.json"
+    },
+    {
+      "source": "artwork/sports-identity/results/gemini-farewell-v1.json",
+      "destination": "artwork/sports-identity/results/rejected/gemini-farewell-v1.json"
+    },
+    {
+      "source": "artwork/sports-identity/results/gemini-headpat-v1.json",
+      "destination": "artwork/sports-identity/results/rejected/gemini-headpat-v1.json"
+    },
+    {
+      "source": "artwork/sports-identity/results/gemini-jump-v1.json",
+      "destination": "artwork/sports-identity/results/rejected/gemini-jump-v1.json"
+    },
+    {
+      "source": "artwork/sports-identity/results/gemini-meal-v1.json",
+      "destination": "artwork/sports-identity/results/rejected/gemini-meal-v1.json"
+    },
+    {
+      "source": "artwork/sports-identity/results/gemini-pickup-v1.json",
+      "destination": "artwork/sports-identity/results/rejected/gemini-pickup-v1.json"
+    },
+    {
+      "source": "artwork/sports-identity/results/gemini-shaken-strong-v1.json",
+      "destination": "artwork/sports-identity/results/rejected/gemini-shaken-strong-v1.json"
+    },
+    {
+      "source": "artwork/sports-identity/results/gemini-shaken-v1.json",
+      "destination": "artwork/sports-identity/results/rejected/gemini-shaken-v1.json"
+    },
+    {
+      "source": "artwork/sports-identity/results/gemini-think-v1.json",
+      "destination": "artwork/sports-identity/results/rejected/gemini-think-v1.json"
+    },
+    {
+      "source": "artwork/sports-identity/results/gpt-basic-v1.json",
+      "destination": "artwork/sports-identity/results/rejected/gpt-basic-v1.json"
+    },
+    {
+      "source": "artwork/sports-identity/results/gpt-care-v1.json",
+      "destination": "artwork/sports-identity/results/rejected/gpt-care-v1.json"
+    },
+    {
+      "source": "artwork/sports-identity/results/gpt-eat-v1.json",
+      "destination": "artwork/sports-identity/results/rejected/gpt-eat-v1.json"
+    },
+    {
+      "source": "artwork/sports-identity/results/gpt-eat-v2.json",
+      "destination": "artwork/sports-identity/results/rejected/gpt-eat-v2.json"
+    },
+    {
+      "source": "artwork/sports-identity/results/gpt-eat-v4.json",
+      "destination": "artwork/sports-identity/results/rejected/gpt-eat-v4.json"
+    },
+    {
+      "source": "artwork/sports-identity/results/gpt-pickup-v1.json",
+      "destination": "artwork/sports-identity/results/rejected/gpt-pickup-v1.json"
+    },
+    {
+      "source": "artwork/sports-identity/results/gpt-think-v1.json",
+      "destination": "artwork/sports-identity/results/rejected/gpt-think-v1.json"
+    },
+    {
+      "source": "artwork/sports-identity/results/gpt-touch-v1.json",
+      "destination": "artwork/sports-identity/results/rejected/gpt-touch-v1.json"
+    },
+    {
+      "source": "artwork/sports-identity/results/gpt-touch-v2.json",
+      "destination": "artwork/sports-identity/results/rejected/gpt-touch-v2.json"
+    },
+    {
+      "source": "artwork/sports-identity/results/gpt-touch-v3.json",
+      "destination": "artwork/sports-identity/results/rejected/gpt-touch-v3.json"
+    },
+    {
+      "source": "artwork/sports-identity/results/grok-adult-body-v1.json",
+      "destination": "artwork/sports-identity/results/rejected/grok-adult-body-v1.json"
+    },
+    {
+      "source": "artwork/sports-identity/results/grok-angry-v1.json",
+      "destination": "artwork/sports-identity/results/rejected/grok-angry-v1.json"
+    },
+    {
+      "source": "artwork/sports-identity/results/grok-ball-miss-v1.json",
+      "destination": "artwork/sports-identity/results/rejected/grok-ball-miss-v1.json"
+    },
+    {
+      "source": "artwork/sports-identity/results/grok-basic-v1.json",
+      "destination": "artwork/sports-identity/results/rejected/grok-basic-v1.json"
+    },
+    {
+      "source": "artwork/sports-identity/results/grok-care-v1.json",
+      "destination": "artwork/sports-identity/results/rejected/grok-care-v1.json"
+    },
+    {
+      "source": "artwork/sports-identity/results/grok-care-v2.json",
+      "destination": "artwork/sports-identity/results/rejected/grok-care-v2.json"
+    },
+    {
+      "source": "artwork/sports-identity/results/grok-care-v3.json",
+      "destination": "artwork/sports-identity/results/rejected/grok-care-v3.json"
+    },
+    {
+      "source": "artwork/sports-identity/results/grok-club-v1.json",
+      "destination": "artwork/sports-identity/results/rejected/grok-club-v1.json"
+    },
+    {
+      "source": "artwork/sports-identity/results/grok-club-v2.json",
+      "destination": "artwork/sports-identity/results/rejected/grok-club-v2.json"
+    },
+    {
+      "source": "artwork/sports-identity/results/grok-club-v3.json",
+      "destination": "artwork/sports-identity/results/rejected/grok-club-v3.json"
+    },
+    {
+      "source": "artwork/sports-identity/results/grok-curl-v1.json",
+      "destination": "artwork/sports-identity/results/rejected/grok-curl-v1.json"
+    },
+    {
+      "source": "artwork/sports-identity/results/grok-eat-v1.json",
+      "destination": "artwork/sports-identity/results/rejected/grok-eat-v1.json"
+    },
+    {
+      "source": "artwork/sports-identity/results/grok-eat-v2.json",
+      "destination": "artwork/sports-identity/results/rejected/grok-eat-v2.json"
+    },
+    {
+      "source": "artwork/sports-identity/results/grok-jump-v1.json",
+      "destination": "artwork/sports-identity/results/rejected/grok-jump-v1.json"
+    },
+    {
+      "source": "artwork/sports-identity/results/grok-meal-v1.json",
+      "destination": "artwork/sports-identity/results/rejected/grok-meal-v1.json"
+    },
+    {
+      "source": "artwork/sports-identity/results/kimi-adult-emotion-bonk-v1.json",
+      "destination": "artwork/sports-identity/results/rejected/kimi-adult-emotion-bonk-v1.json"
+    },
+    {
+      "source": "artwork/sports-identity/results/kimi-adult-emotion-touch-v1.json",
+      "destination": "artwork/sports-identity/results/rejected/kimi-adult-emotion-touch-v1.json"
+    },
+    {
+      "source": "artwork/sports-identity/results/kimi-adult-five-rps-v1.json",
+      "destination": "artwork/sports-identity/results/rejected/kimi-adult-five-rps-v1.json"
+    },
+    {
+      "source": "artwork/sports-identity/results/kimi-adult-five-rps-v2.json",
+      "destination": "artwork/sports-identity/results/rejected/kimi-adult-five-rps-v2.json"
+    },
+    {
+      "source": "artwork/sports-identity/results/kimi-basic-v1.json",
+      "destination": "artwork/sports-identity/results/rejected/kimi-basic-v1.json"
+    },
+    {
+      "source": "artwork/sports-identity/results/kimi-club-v1.json",
+      "destination": "artwork/sports-identity/results/rejected/kimi-club-v1.json"
+    },
+    {
+      "source": "artwork/sports-identity/results/kimi-club-v2.json",
+      "destination": "artwork/sports-identity/results/rejected/kimi-club-v2.json"
+    },
+    {
+      "source": "artwork/sports-identity/results/kimi-club-v3.json",
+      "destination": "artwork/sports-identity/results/rejected/kimi-club-v3.json"
+    },
+    {
+      "source": "artwork/sports-identity/results/kimi-club-v4.json",
+      "destination": "artwork/sports-identity/results/rejected/kimi-club-v4.json"
+    },
+    {
+      "source": "artwork/sports-identity/results/kimi-club-v5.json",
+      "destination": "artwork/sports-identity/results/rejected/kimi-club-v5.json"
+    },
+    {
+      "source": "artwork/sports-identity/results/kimi-five-main-v1.json",
+      "destination": "artwork/sports-identity/results/rejected/kimi-five-main-v1.json"
+    },
+    {
+      "source": "artwork/sports-identity/results/kimi-five-main-v2.json",
+      "destination": "artwork/sports-identity/results/rejected/kimi-five-main-v2.json"
+    },
+    {
+      "source": "artwork/sports-identity/results/kimi-peek-v1.json",
+      "destination": "artwork/sports-identity/results/rejected/kimi-peek-v1.json"
+    },
+    {
+      "source": "artwork/sports-identity/results/kimi-peek-v2.json",
+      "destination": "artwork/sports-identity/results/rejected/kimi-peek-v2.json"
+    },
+    {
+      "source": "artwork/sports-identity/results/kimi-peek-v3.json",
+      "destination": "artwork/sports-identity/results/rejected/kimi-peek-v3.json"
+    },
+    {
+      "source": "artwork/sports-identity/results/qwen-adult-club-v1.json",
+      "destination": "artwork/sports-identity/results/rejected/qwen-adult-club-v1.json"
+    },
+    {
+      "source": "artwork/sports-identity/results/qwen-adult-club-v2.json",
+      "destination": "artwork/sports-identity/results/rejected/qwen-adult-club-v2.json"
+    },
+    {
+      "source": "artwork/sports-identity/results/qwen-jump-v1.json",
+      "destination": "artwork/sports-identity/results/rejected/qwen-jump-v1.json"
+    },
+    {
+      "source": "artwork/sports-identity/results/qwen-meal-v1.json",
+      "destination": "artwork/sports-identity/results/rejected/qwen-meal-v1.json"
+    },
+    {
+      "source": "artwork/sports-identity/results/whale-ball-hit-v1.json",
+      "destination": "artwork/sports-identity/results/rejected/whale-ball-hit-v1.json"
+    },
+    {
+      "source": "artwork/sports-identity/results/whale-ball-miss-v1.json",
+      "destination": "artwork/sports-identity/results/rejected/whale-ball-miss-v1.json"
+    },
+    {
+      "source": "artwork/sports-identity/results/whale-ball-miss-v2.json",
+      "destination": "artwork/sports-identity/results/rejected/whale-ball-miss-v2.json"
+    },
+    {
+      "source": "artwork/sports-identity/results/whale-ball-miss-v3.json",
+      "destination": "artwork/sports-identity/results/rejected/whale-ball-miss-v3.json"
+    },
+    {
+      "source": "artwork/sports-identity/results/whale-bonk-v1.json",
+      "destination": "artwork/sports-identity/results/rejected/whale-bonk-v1.json"
+    },
+    {
+      "source": "artwork/sports-identity/results/whale-care-v1.json",
+      "destination": "artwork/sports-identity/results/rejected/whale-care-v1.json"
+    },
+    {
+      "source": "artwork/sports-identity/results/whale-care-v2.json",
+      "destination": "artwork/sports-identity/results/rejected/whale-care-v2.json"
+    },
+    {
+      "source": "artwork/sports-identity/results/whale-care-v3.json",
+      "destination": "artwork/sports-identity/results/rejected/whale-care-v3.json"
+    },
+    {
+      "source": "artwork/sports-identity/results/whale-chat-v1.json",
+      "destination": "artwork/sports-identity/results/rejected/whale-chat-v1.json"
+    },
+    {
+      "source": "artwork/sports-identity/results/whale-chat-v2.json",
+      "destination": "artwork/sports-identity/results/rejected/whale-chat-v2.json"
+    },
+    {
+      "source": "artwork/sports-identity/results/whale-club-v1.json",
+      "destination": "artwork/sports-identity/results/rejected/whale-club-v1.json"
+    },
+    {
+      "source": "artwork/sports-identity/results/whale-headpat-v1.json",
+      "destination": "artwork/sports-identity/results/rejected/whale-headpat-v1.json"
+    },
+    {
+      "source": "artwork/sports-identity/results/whale-jump-v1.json",
+      "destination": "artwork/sports-identity/results/rejected/whale-jump-v1.json"
+    },
+    {
+      "source": "artwork/sports-identity/results/whale-jump-v2.json",
+      "destination": "artwork/sports-identity/results/rejected/whale-jump-v2.json"
+    },
+    {
+      "source": "artwork/sports-identity/results/whale-meal-v1.json",
+      "destination": "artwork/sports-identity/results/rejected/whale-meal-v1.json"
+    },
+    {
+      "source": "artwork/sports-identity/results/whale-think-v1.json",
+      "destination": "artwork/sports-identity/results/rejected/whale-think-v1.json"
+    },
+    {
+      "source": "artwork/sports-identity/results/zhipu-adult-club-v1.json",
+      "destination": "artwork/sports-identity/results/rejected/zhipu-adult-club-v1.json"
+    },
+    {
+      "source": "artwork/sports-identity/results/zhipu-adult-club-v2.json",
+      "destination": "artwork/sports-identity/results/rejected/zhipu-adult-club-v2.json"
+    },
+    {
+      "source": "artwork/sports-identity/results/zhipu-adult-club-v3.json",
+      "destination": "artwork/sports-identity/results/rejected/zhipu-adult-club-v3.json"
+    },
+    {
+      "source": "artwork/sports-identity/results/zhipu-adult-club-v4.json",
+      "destination": "artwork/sports-identity/results/rejected/zhipu-adult-club-v4.json"
+    },
+    {
+      "source": "artwork/sports-identity/results/zhipu-adult-club-v5.json",
+      "destination": "artwork/sports-identity/results/rejected/zhipu-adult-club-v5.json"
+    },
+    {
+      "source": "artwork/sports-identity/results/zhipu-adult-club-v6.json",
+      "destination": "artwork/sports-identity/results/rejected/zhipu-adult-club-v6.json"
+    },
+    {
+      "source": "artwork/sports-identity/results/zhipu-adult-club-v7.json",
+      "destination": "artwork/sports-identity/results/rejected/zhipu-adult-club-v7.json"
+    },
+    {
+      "source": "artwork/sports-identity/results/zhipu-adult-club-v8.json",
+      "destination": "artwork/sports-identity/results/rejected/zhipu-adult-club-v8.json"
+    },
+    {
+      "source": "artwork/sports-identity/results/zhipu-adult-club-v9.json",
+      "destination": "artwork/sports-identity/results/rejected/zhipu-adult-club-v9.json"
+    },
+    {
+      "source": "artwork/sports-identity/results/zhipu-adult-walk-v2.json",
+      "destination": "artwork/sports-identity/results/rejected/zhipu-adult-walk-v2.json"
+    },
+    {
+      "source": "artwork/sports-identity/results/zhipu-basic-v1.json",
+      "destination": "artwork/sports-identity/results/rejected/zhipu-basic-v1.json"
+    },
+    {
+      "source": "artwork/sports-identity/results/zhipu-club-v1.json",
+      "destination": "artwork/sports-identity/results/rejected/zhipu-club-v1.json"
+    },
+    {
+      "source": "artwork/sports-identity/results/zhipu-jump-v1.json",
+      "destination": "artwork/sports-identity/results/rejected/zhipu-jump-v1.json"
+    }
+  ]
+}

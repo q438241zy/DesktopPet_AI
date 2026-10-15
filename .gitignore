@@ -11,3 +11,10 @@ __pycache__/
 docs/demo/companion-v01/.generated/
 docs/demo/companion-v01/data.js
 docs/demo/companion-v01/items.js
+
+# Rebuild these historical preview caches from the approved original PNGs.
+/docs/demo/interaction-five/packs/
+/docs/demo/interaction-five/art.js
+/docs/demo/interaction-five/roster.js
+/docs/demo/wardrobe-identity/roster.js
+/docs/demo/wardrobe-identity/art/roster/

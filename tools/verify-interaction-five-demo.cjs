@@ -133,8 +133,10 @@ async function main(){
     await badPage.addInitScript(()=>localStorage.setItem('deepseek.interaction-five.demo.collection.v1','{invalid json'));await badPage.goto(pathToFileURL(target).href);await badPage.waitForFunction(()=>globalThis.interactionFiveDebug?.().ready);assert.deepEqual(await badPage.evaluate(()=>interactionFiveDebug().collection),{});assert.equal(await badPage.evaluate(()=>interactionFiveDebug().storageOK),false);await bad.close();
     passed('Malformed Demo collection falls back safely without blocking the interactions');
     assert.deepEqual(errors,[]);assert.deepEqual(failed,[]);assert.deepEqual(requests,[]);assert.deepEqual((await state()).errors,[]);
-    assert(fs.readFileSync(path.join(root,'Release/win-x64/Demo/CloudClub/index.html'),'utf8').includes('../InteractionFive/index.html?review=I3'));
-    passed('Offline file URL: no browser errors, network requests or asset failures; permanent link updated');
+    const landing=fs.readFileSync(path.join(root,'Release/win-x64/Demo/CloudClub/index.html'),'utf8');
+    assert(landing.includes('../CompanionV01/index.html'));
+    assert(!landing.includes('../InteractionFive/index.html'));
+    passed('Historical file preview is offline; permanent entry opens current CompanionV01 and does not advertise retired I3');
     const protectedAfter=Object.fromEntries(protectedFiles.map(file=>[file,hash(file)]));assert.deepEqual(protectedAfter,protectedBefore);
     passed('Native executable and normal pet save remain byte-for-byte unchanged');
     fs.writeFileSync(path.join(output,'report.json'),JSON.stringify({status:'passed',review:'I3',reports,shots,timelines,protectedBefore,protectedAfter,verifiedAt:new Date().toISOString(),demo:target},null,2)+'\n');

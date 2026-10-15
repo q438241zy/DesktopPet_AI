@@ -4,6 +4,15 @@ $projectRoot = Split-Path -Parent $PSScriptRoot
 $demoRoot = if ($DemoDirectory) { [IO.Path]::GetFullPath($DemoDirectory) } else { Join-Path $projectRoot 'Release/win-x64/Demo' }
 $source = Join-Path $projectRoot 'docs/demo/interaction-five'
 $target = Join-Path $demoRoot 'InteractionFive'
+if (-not (Test-Path -LiteralPath (Join-Path $source 'art.js'))) {
+    python (Join-Path $PSScriptRoot 'measure-interaction-five-art.py')
+    if ($LASTEXITCODE -ne 0) { throw 'Historical pose export failed.' }
+}
+if (-not (Test-Path -LiteralPath (Join-Path $source 'roster.js')) -or
+    @(Get-ChildItem -LiteralPath (Join-Path $source 'packs') -Filter '*.js' -ErrorAction SilentlyContinue).Count -ne 64) {
+    python (Join-Path $PSScriptRoot 'export-five-roster.py')
+    if ($LASTEXITCODE -ne 0) { throw 'Full interaction roster export failed.' }
+}
 New-Item -ItemType Directory -Path $demoRoot -Force | Out-Null
 Copy-Item -LiteralPath (Join-Path $projectRoot 'docs/demo/sprite-cells.js') -Destination $demoRoot -Force
 $names = @('index.html','style.css','review.css','model.js','items.js','app.js','art.js','roster.js','README.md',
